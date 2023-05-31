@@ -87,7 +87,7 @@ xdebug.idekey="netbeans-xdebug"
 <a href="https://blogs.apache.org/netbeans/mediaresource/c1460e67-4caf-4a2c-909c-38c2be8d8bd2"><img src="https://blogs.apache.org/netbeans/mediaresource/c1460e67-4caf-4a2c-909c-38c2be8d8bd2" alt="Nb-php-debugger-conditional-breakpoints.gif"></img></a>
 
 <h3>Twig: Code completion for delimiters, brackets, and quotes</h3>
-<p>Twig editor supports code completion for delimeters({{ and {%), brackets([, (, and {), and quotes(" and '). 
+<p>Twig editor supports code completion for delimeters( and ), brackets([, (, and {), and quotes(" and '). 
 This feature is enabled by default. If you would like to disable, please uncheck the options (Tools > Options > Editor > Code Completion > Language: Twig File).
 </p>
 <a href="https://blogs.apache.org/netbeans/mediaresource/385a0dd9-8988-4b06-ab56-7952d75ddb58"><img src="https://blogs.apache.org/netbeans/mediaresource/385a0dd9-8988-4b06-ab56-7952d75ddb58" alt="Nb-php-twig-autocomplete-options.png"></img></a>

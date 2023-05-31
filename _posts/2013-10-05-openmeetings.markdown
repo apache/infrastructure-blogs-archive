@@ -29,7 +29,7 @@ For anyone not familiar with Azure those are step by step instructions on how to
 <ul>
 <li><p>SSH: openmeetings.cloudapp.net </p>
 <p>user: azureuser</p>
-<p>pass: ?7Qy%W[[{%H7z{E</p>
+<p>pass: ?7Qy%W[[H7z{E</p>
 </li>
 <li><p>MySQL</p>
 <p>MySQL root: root</p>
