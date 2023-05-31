@@ -1,0 +1,23 @@
+---
+layout: post
+title: Day 3 at CloudFest
+date: '2023-03-23T00:00:00+00:00'
+categories: cloudstack
+---
+</a><a href="https://blogs.apache.org/cloudstack/mediaresource/c199e71b-acd8-4caa-a08a-a36522ffa125"><img src="https://blogs.apache.org/cloudstack/mediaresource/c199e71b-acd8-4caa-a08a-a36522ffa125" alt="cloudstack booth.jpg align ="center" width="567" height="425" /></a>
+
+<p>It is day 3 at <a href="https://www.cloudfest.com/">CloudFest</a>. Apache CloudStack exhibiting at the conference has been nothing short of fantastic. Community members representing the technology have had the chance to meet many like-minded people and showcase the power of the leading open-source IaaS management solutions.</p>
+<p><span style="font-size: xx-large;"><strong>Why Choose Apache CloudStack If You Are A Cloud Builder</strong></span></p>
+<p>A problem that many businesses face when entering the public cloud market is finding the suitable software and partners which enable a rapid deployment for their customers. Often, it takes up a significant number of resources and can have a negative financial impact on the company if the wrong decision is made.</p>
+<p>CloudStack is a turnkey solution for cloud builders and manages service providers. It is completely open-source, easy to implement, manage and scale. Powered by a large open-source community and following rapid release cycles, Apache CloudStack help cloud builders solve their key challenges &ndash; costs, vendor lock-in and using fewer resources to manage tens of thousands of physical servers installed in geographically distributed data centers.</p>
+<p><span style="font-size: xx-large;"><strong>Why Attend CloudFest</strong></span></p>
+<p>Whether you are still open to attending the last day of CloudFest tomorrow, or attending the event next year, we recommend all cloud specialists to join the event.&nbsp;</p>
+<p>CloudFest in the #1 internet infrastructure event in the world, connecting the global cloud computing industry. It is the largest and most important cloud event of the year. The event gathers over 7000 attendees, making it the perfect place for networking, collaboration and attending some exciting sessions.</p>
+
+<a href="https://blogs.apache.org/cloudstack/mediaresource/0b9ef48b-dc67-4f40-bfab-7db3d2162c59"><img src="https://blogs.apache.org/cloudstack/mediaresource/0b9ef48b-dc67-4f40-bfab-7db3d2162c59" alt="cloudfest.jpg width="750" height ="393" /></a>
+
+<p><span style="font-size: xx-large;"><strong>Today&rsquo;s Sessions</strong></span></p>
+<p>Some highlights of today&rsquo;s sessions can be seen below. To see the event schedule in its entirety, <strong>visit the </strong><a href="https://www.cloudfest.com/agenda"><strong>official event website.</strong></a></p>
+<a href="https://blogs.apache.org/cloudstack/mediaresource/11ea3fea-4b0d-473b-8d0d-32641542c6be"><img src="https://blogs.apache.org/cloudstack/mediaresource/11ea3fea-4b0d-473b-8d0d-32641542c6be" alt="session 1.png width="694" height="124" /></a>
+<a href="https://blogs.apache.org/cloudstack/mediaresource/fbc9fa75-fd48-413d-8866-3622f8eb53e3"><img src="https://blogs.apache.org/cloudstack/mediaresource/fbc9fa75-fd48-413d-8866-3622f8eb53e3" alt="session 2.png width="700" height="125"" /></a>
+<a href="https://blogs.apache.org/cloudstack/mediaresource/2d95e42d-2b12-4c1e-b1ea-2ce0c91216d7"><img src="https://blogs.apache.org/cloudstack/mediaresource/2d95e42d-2b12-4c1e-b1ea-2ce0c91216d7" alt="session 3.png width="697" height="128"" />

@@ -1,0 +1,43 @@
+---
+layout: post
+title: 'Announcing Program for ApacheCon™: Core Europe –REGISTRATION NOW OPEN!'
+date: '2015-07-22T00:00:00+00:00'
+categories: foundation
+---
+<div>The Apache Software Foundation's official conference series will showcase dozens of key Apache projects across topics and tracks such as Cloud computing, Deployment, Internet of Things, Libraries, Microservices, Web Development, Community, and more.</div> 
+  <p>Themed &quot;ApacheCon: Core&quot;, the event will be co-located with &quot;Apache: Big Data&quot; and will take place 1-2 October 2015 at the Corinthia Hotel in Budapest, Hungary.</p> 
+  <div> 
+    <p>ApacheCon: Core is aimed at Open Source users, developers, programmers, students, novices, community managers, and enthusiasts seeking to leverage the power of popular Apache projects that include:</p> 
+    <p> </p> 
+    <ul> 
+      <li>the ubiquitous Apache™ HTTP and Tomcat™ Web servers, both state-of-the art and what lies ahead with HTTP/2;</li> 
+      <li>Apache Camel™, a powerful open source integration framework based on known Enterprise Integration Patterns;</li> 
+      <li>Apache Cordova™, a set of device APIs that allow a mobile app developer to access native device function such as the camera or accelerometer from JavaScript;</li> 
+      <li>Apache DeviceMap™, a data repository containing devices attributes, and their related browsers, and operating systems, as well as an API to classify these attributes;</li> 
+      <li>Apache Directory™ Fortress, a full ANSI RBAC compliant management and enforcement system that builds on existing Open Source applications like Apache Directory Server, OpenLDAP and Apache Tomcat;</li> 
+      <li>Apache Flex™, the highly productive application framework for building and maintaining expressive applications that deploy consistently on all major browsers, desktops and devices;</li> 
+      <li>Apache Karaf™, the small OSGi based runtime that provides a lightweight container onto which various components and applications can be deployed;</li> 
+      <li>Apache Mesos™; a cluster manager that provides efficient resource isolation and sharing across distributed applications, or frameworks, and can run Hadoop, MPI, Hypertable, Spark, and other frameworks on a dynamically shared pool of nodes;</li> 
+      <li>Apache OFBiz™, reliable, secure, and scalable automation of enterprise processes, including framework components and business applications for Enterprise Resource Planning, Customer Relationship Management, E-Business / E-Commerce, Supply Chain Management, Manufacturing Resource Planning, Maintenance Management System/Enterprise Asset Management, and Point Of Sale solutions;</li> 
+      <li>Apache Olingo™, the Java library that implements the Open Data Protocol (OData);</li> 
+      <li>Apache OpenMeetings™, video conferencing, instant messaging, white board, collaborative document editing, and other groupware tools using API functions of the Red5 Streaming Server for Remoting and Streaming;</li> 
+      <li>Apache OpenOffice™, the leading Open Source office-document productivity suite providing six productivity applications based around the OpenDocument Format (ODF), and available on multiple platforms and in dozens of languages;</li> 
+      <li>Apache Sling™, the Web framework that uses a Java Content Repository, such as Apache Jackrabbit, to store and manage content;</li> 
+      <li>Apache Solr™, the enterprise search server based on the Apache Lucene™ Java search library, with XML/HTTP and JSON, Ruby, and Python APIs, hit highlighting, faceted search, caching, replication, and a Web administration interface;</li> 
+      <li>Apache Zest™, the project that explores the Composite Oriented Programming paradigm, where Fragments get composed into Composite, which are placed into Modules, placed inside Layers, to enforce Application Structure; and</li> 
+      <li>Apache ZooKeeper™, the effort to develop and maintain an Open Source server that enables highly reliable distributed coordination.</li> 
+    </ul> 
+    <p> </p> 
+  </div> 
+  <div><br /></div> 
+  <div>Those developing Apache-based solutions, as well as those interested in committing code to an Apache project, contributing to the Apache Incubator, or enhancing their Open Source products and community engagement are provided the opportunity to meet the individuals behind some of the industry's most popular Apache projects. ApacheCon: Core tracks, presentations, and mini-summits are dedicated to specific Apache projects and organized by their respective communities. In addition to outstanding education, collaboration, and networking, attendees will learn about the latest emerging innovations from the Apache Incubator, including Apache Brooklyn, Geode, Groovy, Johnzon, and Tamaya, as well as other Open Source topics and issues, such as The Apache Way, best practices, licensing, community development, and the Summer of Code.</div> 
+  <div> 
+    <p>Anyone interested in Apache products is welcome at all sessions, BarCamp, Hackathon, Lightning Talks, and Community events: ASF affiliation is not required to attend or otherwise participate in ApacheCon: Core. Sign up for ApacheCon: Core today at <a href="http://apachecon.com/">http://apachecon.com/</a> and enjoy Special Registration incentives through 1 August.</p> 
+    <p>Prior to ApacheCon: Core, &quot;Apache: Big Data&quot; will take place 28-30 September 2015 at the same venue. Apache: Big Data will gather together the Apache projects, people, and technologies working in Big Data, ubiquitous computing, data engineering, and science, to coach, collaborate, and connect in a completely project-neutral environment.</p> 
+  </div> 
+  <div> 
+    <p>We look forward to seeing you in Budapest!</p> 
+    <p>###</p> 
+  </div> 
+  <div>ApacheCon: Core and Apache: Big Data are produced by The Linux Foundation. For more information, visit <a href="http://apachecon.com/">http://apachecon.com/</a> and follow <a href="https://twitter.com/apachecon">https://twitter.com/apachecon</a></div> 
+  <div><br />Apache&quot;, &quot;Apache Camel&quot;, &quot;Camel&quot;, &quot;Apache Cordova&quot;, &quot;Cordova&quot;, &quot;Apache DeviceMap&quot;, &quot;DeviceMap&quot;, &quot;Apache Directory&quot;, &quot;Directory&quot;, &quot;Apache DS&quot;, &quot;Apache Flex&quot;, &quot;Flex&quot;, &quot;Apache Hadoop&quot;, &quot; Hadop&quot;, &quot;Apache HTTP Server&quot;, &quot;Apache Lucene&quot;, &quot;Lucene&quot;, &quot;Apache Mesos&quot;, &quot;Mesos&quot;, &quot;Apache OFBiz&quot;, &quot;OFBiz&quot;, &quot;Apache Olingo&quot;, &quot;Olingo&quot;, &quot;Apache OpenMeetings&quot;, &quot;OpenMeetings&quot;, &quot;Apache OpenOffice&quot;, &quot;OpenOffice&quot;, &quot;Apache Sling&quot;, &quot;Sling&quot;, &quot;Apache Solr&quot;, &quot;Solr&quot;, &quot;Apache Tomcat&quot;, &quot;Tomcat&quot;, &quot;Apache Zest&quot;, &quot;Zest&quot;, &quot;Apache ZooKeeper&quot;, &quot;ZooKeeper&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div>

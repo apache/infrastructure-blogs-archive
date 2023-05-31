@@ -1,0 +1,67 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 25 September 2015'
+date: '2015-09-25T00:00:00+00:00'
+categories: foundation
+---
+<p>It's been quite a productive week! Here's what's been going on within the Apache Community:</p> 
+  <p>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- NEXT WEEK: Europe events 1) Apache: Big Data (28-30 September), and 2) ApacheCon: Core Europe (1-2 October). See you in in Budapest!&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+  <div> 
+    <p>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Upcoming Board Meeting: 14 October. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  </div> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 6M weekly checks yielded a stellar 99.99% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a>&nbsp;Check against established SLAs&nbsp;<a href="http://status.apache.org/sla/">http://status.apache.org/sla/</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Accumulo™ –a robust, scalable, high performance data storage system that features cell-based access control and customizable server-side processing.<br />&nbsp;- Apache Accumulo 1.5.4 released&nbsp;<a href="http://accumulo.apache.org/downloads/">http://accumulo.apache.org/downloads/</a></p> 
+    <p>Apache Groovy (incubating) –a multi-facet programming language for the JVM.<br />&nbsp;- Apache Groovy 2.4.5-incubating&nbsp;<a href="http://www.groovy-lang.org/download.html">http://www.groovy-lang.org/download.html</a></p> 
+    <p>Apache Kerby™&nbsp;–a Java Kerberos binding that provides a rich, intuitive and interoperable implementation, library, KDC and various facilities that integrates PKI, OTP and token (OAuth2) as desired in modern environments such as cloud, Hadoop and mobile.<br />&nbsp;- Apache Kerby 1.0.0-RC1 released&nbsp;<a href="http://directory.apache.org/kerby/downloads.html">http://directory.apache.org/kerby/downloads.html</a></p> 
+    <p>Apache Log4j™ –a well known framework for logging application behavior.<br />&nbsp;- Log4j 2.4 released&nbsp;<a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;- Apache Lucene 5.3.1 released&nbsp;<a href="http://lucene.apache.org/core/mirrors-core-latest-redir.html">http://lucene.apache.org/core/mirrors-core-latest-redir.html</a></p> 
+    <p>Apache NiFi™ –an easy to use, powerful, and reliable system to process and distribute data.<br />&nbsp;- Apache NiFi 0.3.0 released&nbsp;<a href="http://nifi.apache.org/download.html">http://nifi.apache.org/download.html</a></p> 
+    <p>Apache Olingo™ –a Java library which enables developers to implement OData service providers (server) and consumers (clients).<br />&nbsp;- Apache Olingo 4.0.0 released&nbsp;<a href="http://olingo.apache.org/doc/odata4/download.html">http://olingo.apache.org/doc/odata4/download.html</a></p> 
+    <p>Apache Sentry (incubating) –a system to enforce fine grained role based authorization to data and metadata stored on a Hadoop cluster.<br />&nbsp;-&nbsp;Apache Sentry 1.6.0 incubating released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/incubator/sentry">http://www.apache.org/dyn/closer.cgi/incubator/sentry</a></p> 
+    <p>Apache Solr™ –the popular, blazing fast, Open Source NoSQL search platform from the Apache Lucene project.<br />&nbsp;- Apache Solr 5.3.1 released&nbsp;<a href="http://lucene.apache.org/solr/mirrors-solr-latest-redir.html">http://lucene.apache.org/solr/mirrors-solr-latest-redir.html</a></p> 
+    <p>Apache Subversion™ –an Open Source centralized version control system characterized by its reliability as a safe haven for valuable data; the simplicity of its model and usage; and its ability to support the needs of a wide variety of users and projects, from individuals to large-scale enterprise operations.<br />&nbsp;- Apache Subversion 1.9.2 released&nbsp;<a href="http://subversion.apache.org/download.cgi#recommended-release">http://subversion.apache.org/download.cgi#recommended-release</a></p> 
+    <div> 
+      <p>Apache Traffic Server™ –a fast, scalable and extensible HTTP/1.1 compliant caching proxy server.<br />&nbsp;- Apache Traffic Server 6.0.0 released&nbsp;<a href="http://trafficserver.apache.org/downloads">http://trafficserver.apache.org/downloads</a></p> 
+    </div> 
+  </div> 
+  <div><strong><br />Did You Know?</strong></div> 
+  <div> 
+    <p>&nbsp;- Did you know that the ASF Infrastructure team's new tracker maps (live!) 10K+ cities/5M+ unique Apache users at <a href="https://logsearch.apache.org/citymap.html">https://logsearch.apache.org/citymap.html</a>?</p> 
+    <p>&nbsp;- Did you know that Getty Images uses Apache Solr to search millions of images?&nbsp;<a href="http://lucene.apache.org/solr/">http://lucene.apache.org/solr/</a></p> 
+  </div> 
+  <div>&nbsp;- Did you know that Apache Usergrid can scale to over 10,000 transactions per second?&nbsp;<a href="http://usergrid.apache.org/">http://usergrid.apache.org/</a></div> 
+  <div><br /></div> 
+  <div> 
+    <p><strong>Apache Community Notices:</strong></p> 
+    <p><strong></strong>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html<br /></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The Apache BigTop Workshop will be held 25 September in Budapest <a href="http://workshops.bigtop.rocks/%20">http://workshops.bigtop.rocks/&nbsp;</a></p> 
+    <p>&nbsp;- Apache: Big Data and ApacheCon: Core Europe will be held 28 September - 1 October in Budapest&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The next CloudStack Collaboration Conference will be held 8-9 October in Dublin <a href="http://events.linuxfoundation.org/events/cloudstack-collaboration-conference-europe">http://events.linuxfoundation.org/events/cloudstack-collaboration-conference-europe</a></p> 
+    <p>&nbsp;- MesosCon Europe will take place 8-9 October in Dublin&nbsp;<a href="http://events.linuxfoundation.org/events/mesoscon-europe">http://events.linuxfoundation.org/events/mesoscon-europe</a></p> 
+  </div> 
+  <div>&nbsp;- The first Apache Flink Conference, Flink Forward, will take place 12-13 October in Berlin <a href="http://flink-forward.org/">http://flink-forward.org</a></div> 
+  <div> 
+    <p>&nbsp;- The next Lucene/Solr Revolution will be held 13-16 October in Austin <a href="http://www.lucenerevolution.org/">http://www.lucenerevolution.org</a></p> 
+    <p>&nbsp;- The Apache Roadshow returns to China: Containers/Cloud/Big Data/Incubation &amp; more 24-25 Oct in Beijing&nbsp;<a href="http://www.huodongxing.com/event/9291887966700">http://www.huodongxing.com/event/9291887966700</a></p> 
+    <p>&nbsp;- Apache CloudStack will hold a MeetUp in London on 12 November&nbsp;<a href="http://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-18631038939?aff=es2">http://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-18631038939?aff=es2</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The ASF will be at FOSDEM 2016 in Brussels 6-8 February 2016 <a href="https://fosdem.org/">https://fosdem.org/</a></p> 
+    <p>&nbsp;- The ASF Operations Summary: First Quarter, Fiscal Year 2016 (May-July 2015) is available at&nbsp;<a href="http://s.apache.org/c2P">http://s.apache.org/c2P</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and <a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

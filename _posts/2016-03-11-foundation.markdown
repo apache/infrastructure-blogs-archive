@@ -1,0 +1,57 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 11 March 2016'
+date: '2016-03-11T00:00:00+00:00'
+categories: foundation
+---
+<p>We've had a great week! Here's what happened:</p> 
+  <div>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 16 March 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br /></div> 
+  <p>ASF Membership&nbsp;–from the inaugural membership of 21 individuals, the ASF has grown to 588 individual members and 5,317 Committers collaborating across six continents.<br />&nbsp;- Next Members' Meeting: 22 March 2016. Official business + New Member voting&nbsp;<a href="http://www.apache.org/foundation/members.html">http://www.apache.org/foundation/members.html</a></p> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- Now 7M+ weekly checks yield precision-level performance at 99.99% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation. <br />&nbsp;-&nbsp;Keynotes + Program announced for Apache:Big Data and ApacheCon; early registration ends soon&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Apex (incubating) Malhar –an enterprise grade native YARN big data-in-motion platform that unifies stream processing and batch processing.<br />&nbsp;- Apache Apex Malhar Release 3.3.1-incubating released&nbsp;<a href="http://apex.incubator.apache.org/downloads.html">http://apex.incubator.apache.org/downloads.html</a></p> 
+    <p>Apache Flink™ –advanced Big Data distributed stream processing framework.<br />&nbsp;- The Apache Software Foundation announces Apache Flink v1.0&nbsp;<a href="https://s.apache.org/1y8d">https://s.apache.org/1y8d</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.2.12 released <a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Kudu (incubating)&nbsp;–an Open Source storage engine for structured data which supports low-latency random access together with efficient analytical access patterns.<br />&nbsp;- Apache Kudu (incubating) 0.7.1 released&nbsp;<a href="http://getkudu.io/releases/0.7.1/">http://getkudu.io/releases/0.7.1/</a></p> 
+    <p>Apache Mynewt (incubating)&nbsp;–a community-driven module OS for constrained, embedded applications.<br />&nbsp;-&nbsp;Apache Mynewt 0.8.0-b1-incubating released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/incubator/mynewt/apache-mynewt-0.8.0-b1-incubating">http://www.apache.org/dyn/closer.lua/incubator/mynewt/apache-mynewt-0.8.0-b1-incubating</a></p> 
+    <p>Apache Phoenix™ –enables OLTP and operational analytics for Hadoop through SQL support and integration with other projects in the ecosystem such as Spark, HBase, Pig, Flume, and MapReduce.<br />&nbsp;- Apache Phoenix 4.7 released&nbsp;<a href="https://phoenix.apache.org/download.html">https://phoenix.apache.org/download.html</a></p> 
+    <p>Apache POI™ –a library for reading and writing Microsoft Office file formats, such as Excel, PowerPoint, Word, Visio, Publisher and Outlook.<br />&nbsp;- Apache POI 3.14 released&nbsp;<a href="http://poi.apache.org/download.html">http://poi.apache.org/download.html</a></p> 
+    <p>Apache Yetus™ –a collection of libraries and tools that enable contribution and release processes for software projects.<br />&nbsp;- Apache Yetus 0.2.0 released <a href="https://yetus.apache.org/downloads/">https://yetus.apache.org/downloads/</a><br /><br /></p> 
+    <p><strong>Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that the ASF&nbsp;has been accepted as a 2016 Google Summer of Code Mentoring Organization? Mentors wanted :-)&nbsp;<a href="https://s.apache.org/jzA7">https://s.apache.org/jzA7</a></p> 
+    <p>&nbsp;- Did you know that eBay's fraud detection and prevention system is built on top of Apache Kafka and Samza? <a href="http://kafka.apache.org/">http://kafka.apache.org/</a>&nbsp;and <a href="http://samza.apache.org/">http://samza.apache.org/</a></p> 
+  </div> 
+  <div>&nbsp;- Did you know that the ASF is participating in the 2016 Future of Open Source Survey? Your opinion matters!&nbsp;<a href="https://www.surveymonkey.com/s/2016FoOSApacheFoundation">https://www.surveymonkey.com/s/2016FoOSApacheFoundation</a></div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a> <b> </b></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Washington DC Area Apache Spark Interactive will be hosting Apache Spark Proof of Technology by IBM on 15 March 2016 in McLean&nbsp;<a href="http://www.meetup.com/Washington-DC-Area-Spark-Interactive/events/229094350/">http://www.meetup.com/Washington-DC-Area-Spark-Interactive/events/229094350/</a></p> 
+      <p>&nbsp;- Docker Guadalajara will hold Clustering con Docker featuring Apache Mesos&nbsp;on 17 March 2016&nbsp;<a href="http://www.meetup.com/Docker-Guadalajara/events/229257781/">http://www.meetup.com/Docker-Guadalajara/events/229257781/</a></p> 
+      <p>&nbsp;- Cassandra Day will be held in Atlanta on 17 March 2016 <a href="https://www.eventbrite.com/e/cassandra-day-atlanta-tickets-20902673459">https://www.eventbrite.com/e/cassandra-day-atlanta-tickets-20902673459</a> </p> 
+      <p>&nbsp;- Apache:Big Data North America will take place 9-12 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apache-big-data-north-america">http://events.linuxfoundation.org/events/apache-big-data-north-america</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon:Core North America will take place 11-13 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/">http://events.linuxfoundation.org/events/apachecon-north-america/</a></p> 
+    <p>&nbsp;- The next HBaseCon will take place 24 May in San Francisco <a href="http://hbasecon.com/">http://hbasecon.com</a></p> 
+    <p>&nbsp;- MesosCon will be held 1-2 June 2016 in Denver --CFP open through 9 March&nbsp;<a href="http://events.linuxfoundation.org/events/mesoscon/">http://events.linuxfoundation.org/events/mesoscon/</a></p> 
+    <p>&nbsp;- Berlin Buzzwords is back 5-7 June 2016 <a href="http://berlinbuzzwords.de/">http://berlinbuzzwords.de/</a></p> 
+    <div> 
+      <p>&nbsp;- The Apache Software Foundation Operations Summary: Third Quarter, Fiscal Year 2016 (November 2015 - January 2016) is availbable at <a href="https://s.apache.org/9zLj">https://s.apache.org/9zLj</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # # &nbsp;</p>

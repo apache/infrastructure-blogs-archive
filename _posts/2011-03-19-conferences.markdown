@@ -1,0 +1,14 @@
+---
+layout: post
+title: Registration for ApacheCon North America Now Open!
+date: '2011-03-19T00:00:00+00:00'
+categories: conferences
+---
+<p>Take advantage of our super-discounted, "Trust Us" rate of just US$900 for the full 3-day conference by registering before 20 May 2011.&nbsp;Sign up today and save&nbsp;45%!
+</p>
+<p>For&nbsp;registration and&nbsp;pricing details, please visit <a href="http://apachecon.com/">http://apachecon.com/</a>
+</p>
+<p>Love Apache?&nbsp;Are you an Open Source Enterprise Solutions, Cloud Computing, and Community Leadership expert? Submit a presentation proposal for ApacheCon!&nbsp;Our CFP closes on 29 April.
+</p>
+<p>We look forward to seeing you in Vancouver!
+</p>

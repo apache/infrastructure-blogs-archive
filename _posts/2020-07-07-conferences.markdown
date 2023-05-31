@@ -1,0 +1,7 @@
+---
+layout: post
+title: ApacheCon @Home CFP closes soon!
+date: '2020-07-07T00:00:00+00:00'
+categories: conferences
+---
+<p>The call for presentations (CFP) for ApacheCon @Home closes this weekend. Please don't leave it to the last minute. We're on a very compressed schedule for this event, and will not be extending the CFP past closing time.</p><p>Details about the event, and the CFP itself, may be found on the conference website at <a href="https://apachecon.com/acah2020" target="_blank">https://apachecon.com/acah2020</a></p>

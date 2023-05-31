@@ -1,0 +1,94 @@
+---
+layout: post
+title: Apache Click v2.3.0 Release Candidate 1 now available
+date: '2011-01-30T00:00:00+00:00'
+categories: click
+---
+<p>Apache Click 2.3.0 Release Candidate 1&nbsp; is available for download. v2.3.0 contains important new features including <a href="http://click.apache.org/docs/user-guide/html/ch04.html">Ajax</a> support, <a href="http://click.apache.org/docs/user-guide/html/ch02s07.html">Page Actions</a> and light-weight <a href="http://click.apache.org/docs/click-api/org/apache/click/Stateful.html">stateful controls</a>. In addition there are new documentation, examples and a slew other enhancements.</p>
+  <ul> 
+    <li><a href="http://click.apache.org/">Click Home</a></li> 
+    <li><a href="http://click.apache.org/docs/roadmap-changes.html#2.3.0">Roadmap  and Changes</a> - full list of new features, improvements and bug fixes</li> 
+    <li><a href="http://click.apache.org/docs/upgrade-path.html#2.3.0">Upgrade  Path</a> - please see the upgrade path when upgrading from 2.2.0 or  earlier.</li> 
+    <li><a href="http://www.apache.org/dyn/closer.cgi/click/click/2.3.0-RC1/click-2.3.0-RC1.zip">Download  Click 2.3.0-RC1</a></li> 
+    <li><a href="http://repo1.maven.org/maven2/org/apache/click/">Maven bundles</a> </li> 
+    <li><a href="http://click.avoka.com/click-examples/">Live examples</a></li> 
+  </ul> 
+  <p><b>New features and improvement:</b></p> 
+  <ul> 
+    <li><a href="http://click.apache.org/docs/user-guide/html/ch04.html">Ajax</a> support.</li> 
+    <li><a href="http://click.apache.org/docs/user-guide/html/ch02s07.html">Page Action</a> support.         </li> 
+    <li><a href="http://click.apache.org/docs/click-api/org/apache/click/Stateful.html">Stateful</a> Controls.</li> 
+    <li>Improve fields to only be processed if they have an incoming request
+                parameter. This improvement streamlines dynamic forms  
+since fields               added at runtime during s POST request won't 
+ bind their values and               won't be validated for that 
+request.  In subsequent requests the Field               will have an 
+incoming  parameter and so will have it's value bound and               
+validated.  Another advantage is that dynamically added Fields won't    
+            have their default value overridden in the POST request they
+ were added  in.               This issue has been raised by Nirmal 
+Solanki              [<a href="https://issues.apache.org/jira/browse/CLK-722" target="_blank">CLK-722</a>].           </li> 
+    <li>             Added automapping support for GAE with a caveat that page templates             must be placed under the folders <tt>page</tt> or <tt>pages</tt>.             This issue was raised by Ke Sun             [<a href="https://issues.apache.org/jira/browse/CLK-639" target="_blank">CLK-639</a>].           </li> 
+    <li>             Added <a href="http://click.apache.org/docs/click-api/org/apache/click/service/MessagesMapService.html">MessagesMapService</a>             interface to support pluggable messages map implementations             [<a href="https://issues.apache.org/jira/browse/CLK-655" target="_blank">CLK-655</a>].           </li> 
+    <li>             Improved <a href="http://click.apache.org/docs/click-api/org/apache/click/util/MessagesMap.html">MessagesMap</a>             to be extendable and customizable             [<a href="https://issues.apache.org/jira/browse/CLK-728" target="_blank">CLK-728</a>].           </li> 
+    <li>             Added support for loading <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/DateField.html">DateField</a>             translations for month and day names from the JDK.             [<a href="https://issues.apache.org/jira/browse/CLK-650" target="_blank">CLK-650</a>].           </li> 
+    <li>               Added support for Menus that do not have <tt>roles</tt> defined.               If no roles are defined,               <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/Menu.html#isUserInRoles%28%29">IsUserInRoles</a>               passes a <tt>null</tt> argument to               <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/security/AccessController.html#hasAccess%28javax.servlet.http.HttpServletRequest,%20java.lang.String%29">hasAccess</a>               to determine whether access is permitted to menus without roles               [<a href="https://issues.apache.org/jira/browse/CLK-724" target="_blank">CLK-724</a>].           </li> 
+    <li>&nbsp;Added support for absolute page classnames when configuring pages               in <tt>click.xml</tt>. Absolute classnames aids with IDE hot-linking               and is less confusing to use.               [<a href="https://issues.apache.org/jira/browse/CLK-704" target="_blank">CLK-704</a>].&nbsp;</li> 
+    <li>Fixed escaping of control values and attributes to be XML friendly  
+              in order to support Ajax requests. Previously all HTML  
+characters was escaped,               now only the following characters 
+ are escaped: &amp;lt;, &amp;gt;, &quot;, ', &amp;amp;               [<a href="https://issues.apache.org/jira/browse/CLK-674" target="_blank">CLK-674</a>].&nbsp;</li> 
+  </ul> 
+  <p><b>New documentation:</b></p> 
+  <ul> 
+    <li>Added a section covering the new           <a href="http://click.apache.org/docs/user-guide/html/ch03s08.html">Behavior</a> support.</li> 
+    <li>Added a chapter on <a href="http://click.apache.org/docs/user-guide/html/ch04.html">Ajax</a>,           covering <a href="http://click.apache.org/docs/user-guide/html/ch04s02.html">AjaxBehaviors</a>,           <a href="http://click.apache.org/docs/user-guide/html/ch04s03.html">Ajax execution flow</a>           and a full <a href="http://click.apache.org/docs/user-guide/html/ch04s04.html">example</a>.</li> 
+    <li>Added a section covering the new           <a href="http://click.apache.org/docs/user-guide/html/ch02s07.html">Page Action</a> support.<br /> </li> 
+  </ul> 
+  <p><br /></p> 
+  <p><b>New examples:</b></p> 
+  <ul> 
+    <li>Added <a class="external" href="http://click.avoka.com/click-examples/" target="_blank">examples</a>           showcasing the new Ajax support. See the Ajax Menu for the full list           of examples.</li> 
+    <li>Added an example showing how to integrate a <a class="external" href="http://click.avoka.com/click-examples/panel/tabbed-panel-with-controls.htm" target="_blank">TabbedPanel, Form and Table</a>.</li> 
+    <li>Added an example showing a <a class="external" href="http://click.avoka.com/click-examples/panel/stateful-tabbed-panel-demo.htm" target="_blank">Stateful TabbedPanel</a>.</li> 
+    <li>Added an example <a href="http://click.avoka.com/click-examples/control/field-separator-demo.htm" target="_blank">FieldSeparator Control</a> and example usage page           [<a href="https://issues.apache.org/jira/browse/CLK-544" target="_blank">CLK-544</a>].&nbsp;</li> 
+  </ul> 
+  <p><b>Removed:</b> </p> 
+  <ul> 
+    <li>Removed the ability to automatically <tt>bypass validation</tt>
+  for           Forms through JavaScript. This ability was added in 
+2.2.0  but raised           concerns over security and was dropped for 
+2.3.0.  If you used this           feature in existing applications, 
+please see  the           <a href="http://click.apache.org/docs/upgrade-path.html#removed-bypass-validation">Upgrade path</a>           for a safe alternative to <tt>bypass validation</tt>. We apologize for           the inconvenience. </li> 
+  </ul> 
+  <p><br /></p> 
+  <p><b>Deprecated:</b></p> 
+  <ul> 
+    <li>Deprecated stateful page support: <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#setStateful%28boolean%29">Page.setStateful()</a>.           </li> 
+    <li class="change">           Stateful pages had the following issues:           <br /> 
+      <ul> 
+        <li>             Stateful pages was introduced to make it easier to 
+ store page state across             multiple HTTP requests. However  
+developing a stateful page is very different             from developing
+  a stateless one and this lead to Click applications that are          
+    inconsistent and harder to maintain.             </li> 
+        <li>             In addition stateful page support has never been  
+implemented consistently             across the framework and some  
+components did not work correctly.             </li> 
+        <li>             Stateful pages are very coarse grained, making it  
+difficult to control             which objects are stored in the  
+session.             </li> 
+        <li>             Stateful pages have also introduced unnecessary  
+complexity in the framework             itself, which can now be phased 
+ out.             </li> 
+      </ul>Unfortunately there is no direct upgrade path from a stateful page.
+            However the majority of use cases are catered for by the new
+  stateful           support in the controls: Table, Form, TabbedPanel, 
+ Field and AbstractLink.         
+    
+    
+    
+    </li> 
+  </ul> 
+  <p><br /></p> 
+  <p>The Apache Click team                  </p>

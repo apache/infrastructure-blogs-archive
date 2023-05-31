@@ -1,0 +1,25 @@
+---
+layout: post
+title: Apache Flex 4.12.1 Released!
+date: '2014-05-03T00:00:00+00:00'
+categories: flex
+---
+The Apache Flex community is pleased to announce the release of Apache Flex 4.12.1
+
+Apache Flex is a highly productive, open source application framework for building and maintaining expressive applications that deploy consistently on all major browsers, desktops and devices (including smartphones, tablets and tv).
+
+Apache Flex 4.12.1 is a update to Apache Flex 4.12.0 that adds support for the latest Flash Player and AIR runtimes, improved mobile media query support, and over 20 bug fixes.
+
+Apache Flex is available in source form from the following download page:
+<a href="http://flex.apache.org/download-source.html">http://flex.apache.org/download-source.html</a>
+
+It's recommended you install Apache Flex by using the Apache Flex IDE installer:
+<a href="http://flex.apache.org/installer.html">http://flex.apache.org/installer.html</a>
+
+When downloading from a mirror site, please remember to verify the downloads using signatures or MD5 hashes.
+
+For more information on Apache Flex, visit the project home page:
+<a href="http://flex.apache.org">http://flex.apache.org</a>
+
+Thank you for using Apache Flex,
+The Apache Flex Community

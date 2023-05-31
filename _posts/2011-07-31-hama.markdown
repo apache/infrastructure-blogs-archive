@@ -1,0 +1,27 @@
+---
+layout: post
+title: Apache Hama 0.3-incubating Released!
+date: '2011-07-31T00:00:00+00:00'
+categories: hama
+---
+Hi all,
+
+The Hama team is pleased to announce the release of Apache Hama
+0.3-incubating under the Apache Incubator.
+
+Hama is a distributed computing framework based on BSP (Bulk
+Synchronous Parallel)[1] computing techniques for massive scientific
+computations.
+
+This release includes:
+
+<ul><li>Added LocalBSPRunner</li><li>Added web UI for BSP cluster and job monitoring</li><li>Added more practical examples e.g., Shortest Path Problem[2], PageRank[3]</li><li>Performance has improved with BSPMessageBundle</li><li>Switched from Ant to Maven</li></ul>
+
+You can be downloaded from the download page of Hama website[4].
+
+Thanks to the Hama and Apache Incubating community for helping grow the project.
+
+1. <a href="http://en.wikipedia.org/wiki/Bulk_synchronous_parallel">http://en.wikipedia.org/wiki/Bulk_synchronous_parallel</a>
+2. <a href="http://wiki.apache.org/hama/SSSP">http://wiki.apache.org/hama/SSSP</a>
+3. <a href="http://wiki.apache.org/hama/PageRank">http://wiki.apache.org/hama/PageRank</a>
+4. <a href="http://incubator.apache.org/hama/downloads.html">http://incubator.apache.org/hama/downloads.html</a>

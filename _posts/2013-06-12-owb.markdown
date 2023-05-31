@@ -1,0 +1,10 @@
+---
+layout: post
+title: Apache OpenWebBeans-1.2.0 has been released
+date: '2013-06-12T00:00:00+00:00'
+categories: owb
+---
+<p>The Apache OpenWebBeans Team is proud to announce the release of<br /><br />Apache OpenWebBeans-1.2.0<br /><br />Apache OpenWebBeans is an Apache License v2 licensed implementation of the JSR-299 &quot;Context and Dependency Injection for Java EE&quot; and JSR-330 &quot;atinject&quot; specifications. OpenWebBeans has a modular structure and provides Dependency Injection scaling from Java SE environments up to EE6 server clusters with complicated ClassLoader hierarchies or OSGi environments.<br /><br />openwebbeans-1.2.0 implements the CDI-1.0 API, passes the JSR-330 TCK and the JSR-299 standalone TCK.<br /><br />Distribution packages can be downloaded from </p> 
+  <p>http://www.apache.org/dyn/closer.cgi/openwebbeans/1.2.0/<br /><br />The release is also available in maven.central </p> 
+  <p>http://repo1.maven.apache.org/maven2/org/apache/openwebbeans/<br /><br />More info can be found at </p> 
+  <p>http://openwebbeans.apache.org<br /><br />The Apache OpenWebBeans Team &nbsp; </p>

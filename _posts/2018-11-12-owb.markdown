@@ -1,0 +1,45 @@
+---
+layout: post
+title: Apache OpenWebBeans-2.0.8 has been released
+date: '2018-11-12T00:00:00+00:00'
+categories: owb
+---
+<p>The Apache OpenWebBeans Team is proud to announce the release of Apache OpenWebBeans-2.0.8.</p> 
+  <p>Apache OpenWebBeans-2.0.x is an Apache License v2 licensed implementation of the JSR-365 CDI-2.0 specification.</p> 
+  <p>OpenWebBeans has a modular structure and provides Dependency 
+Injection scaling from Java SE environments up to Java EE8 server 
+clusters with complicated ClassLoader hierarchies or OSGi environments.
+</p> 
+  <p>This is a maintenance release targetting the Contexts and Dependency Injection CDI 2.0 specification!</p> 
+  <p>CDI is a JavaEE standard (JSR-365) but fully available under Apache License v2.0.</p> 
+  <p>http://cdi-spec.org/</p>
+  <p>https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html</p> 
+  <p>Apache OpenWebBeans-2.0.8 implements the CDI-2.0 API, and passes the JSR-330 and JSR-365 TCKs.</p> 
+  <p>Distribution packages can be downloaded from http://www.apache.org/dyn/closer.lua/openwebbeans/2.0.8/ 
+  </p>
+  <p>Hashes can be found here http://www.apache.org/dist/openwebbeans/2.0.8/ 
+  </p>
+  <p>The release is also available in maven.central https://repo1.maven.apache.org/maven2/org/apache/openwebbeans/ 
+  </p>
+  <p>More info can be found at </p> 
+  <p><a href="https://openwebbeans.apache.org">http://openwebbeans.apache.org</a></p> 
+  <p> </p> 
+  <p>The following tickets got fixed in this release:</p> 
+  <h3>Bug</h3> 
+  <ul> 
+    <li>[OWB-1257] - Conditional exclusion of beans in beans.xml does not honor system property</li> 
+    <li>[OWB-1263] - Generic observers not called correctly</li> 
+    <li>[OWB-1264] - Observers method throws NoClassDefFoundError for optional classes</li> 
+    <li>[OWB-1269] - TomcatSecurityService principal is not the contextual one out of request scope beans</li> 
+  </ul> 
+  <h3>Improvement</h3> 
+  <ul> 
+    <li>[OWB-1261] - Upgrade ASM to version 7</li> 
+    <li>[OWB-1265] - [perf] cache AnnotationManager#getRepeatableMethod</li> 
+    <li>[OWB-1266] - [perf] InjectionResolver cache can be activated earlier</li> 
+  </ul> 
+  <h3>Task</h3> 
+  <ul> 
+    <li>[OWB-1268] - Upgrade to xbean 4.12</li> 
+  </ul> 
+  <p> </p>

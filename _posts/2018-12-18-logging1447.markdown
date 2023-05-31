@@ -1,8 +1,0 @@
----
-layout: post
-title: Apache Logging Services welcomes Raman Gupta
-date: '2018-12-18T21:59:10+00:00'
-categories: logging
----
-Apache Logging Services welcomes Raman Gupta as a new committer.
-Welcome aboard, Raman!

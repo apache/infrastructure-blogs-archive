@@ -1,0 +1,59 @@
+---
+layout: post
+title: 'Support Apache: Individual Giving and Corporate Gifts Campaigns'
+date: '2019-11-27T00:00:00+00:00'
+categories: foundation
+---
+<div> 
+    <p><strong><em>Your support helps The Apache Software Foundation —the world's largest Open Source foundation— to continue to <a href="https://blogs.apache.org/foundation/entry/the-apache-software-foundation-celebrates1">provide $20B+ worth of software for the public good at 100% no cost</a>.</em></strong> </p> 
+    <p> </p> 
+    <div> 
+      <p>As the US Thanksgiving holidays are upon us, our end-of-year Individual Giving and Corporate Gifts campaigns have begun. Your support of The Apache Software Foundation helps ensure 350+ Apache projects and initiatives remain accessible to all, absolutely free of charge.</p> 
+      <p>Support from donors enables the all-volunteer, vendor-neutral ASF ensure its community-driven projects are freely available to billions of users, to steward, develop, and advance the next generation of Open Source innovations &quot;The Apache Way&quot;, and nuture diverse communities around the globe.</p> 
+      <p>This Tuesday, 3 December, is <a href="https://www.givingtuesday.org/">Giving Tuesday</a> —the global fundraising movement that launched the second largest giving day of the year. When you donate to the ASF on Giving Tuesday itself, you can be a part of something even bigger: in 2018 more than $400M was raised for hundreds of organizations worldwide.</p> 
+      <p style="text-align: center;"><img src="https://blogs.apache.org/foundation/mediaresource/d0e5761d-acc7-4551-b820-046275d18751" /></p> 
+    </div> 
+    <div> 
+      <div>Whether you donate on Giving Tuesday or as part of your year-end contributions, giving to the ASF is easy:&nbsp;</div> 
+      <div> 
+        <p><strong>Individual Donations</strong></p> 
+      </div> 
+      <div> 
+        <ul> 
+          <li><u>One-Time or Monthly Recurring Donations</u>: visit <a href="https://donate.apache.org/">https://donate.apache.org/</a> to make a donation using a debit or credit card, ACH electronic transfer, or PayPal. You'll receive a receipt for your tax-deductible* contribution via email.<br /><br /></li> 
+          <li><u>Purchasing Programs</u>: those of you who shop from Amazon can start your retail journey at <a href="https://smile.amazon.com/">https://smile.amazon.com/</a> so a portion of your qualifying purchases will be donated to the ASF.<br /><br /></li> 
+          <li><u>Additional Options</u>: to mail us a check, donate cryptocurrency, or explore other contribution options, please visit <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></li> 
+        </ul> 
+      </div> 
+      <div><br /></div> 
+      <div> 
+        <p><strong>Corporate Gifts</strong></p> 
+        <p> </p> 
+        <ul> 
+          <li><u>One-time or Recurring Donations</u>: some organizations contribute to the ASF in the form of a cash donation --whether it's a one-time gift or recurring monthly made at <a href="https://donate.apache.org/">https://donate.apache.org/</a> Those wishing to contribute cryptocurrency and other donation options are welcome to visit <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a> for details.<br /><br /></li> 
+          <li><u>Corporate Sponsorship</u>: those seeking to become a Sponsor using a credit card, ACH transfer, or PayPal may easily do so at <a href="https://donate.apache.org/">https://donate.apache.org/</a> . We invite interested parties to review our Sponsorship program at <a href="http://apache.org/foundation/sponsorship.html">http://apache.org/foundation/sponsorship.html</a><br /><br /></li> 
+          <li><u>Corporate Giving Programs</u>: your gift to the ASF as part of an annual corporate giving program helps bolster the ASF’s mission. Companies such as Bloomberg Philanthropies, IBM, Microsoft, and many others' matching gift programs offer tax benefits, and provide their employees the ability to boost their support of a diverse set of nonprofit organizations. Contact us at fundraising(at)apache(dot)org to get started.<br /><br /></li> 
+          <li><u>Corporate Matching Gifts</u>: if you have a matching gift program, your contribution to the ASF can be generously increased. Matching gift programs augment corporate contributions and help further support the ASF. Contact us at fundraising(at)apache(dot)org for more information.<br /><br /></li> 
+          <li><u>Third-Party Fundraising Platforms</u>: the ASF is an official charity in the Benevity Causes Portal as part of numerous corporate giving initiatives, such as the Microsoft Tech Talent for Good volunteer program, among others. For more information, visit <a href="https://www.benevity.com/">https://www.benevity.com/</a></li> 
+        </ul><strong></strong> 
+        <p> </p> 
+      </div> 
+      <div> </div> 
+      <p><br />The Apache Software Foundation is an all-volunteer community. The ASF does not pay for code development or contributions by its Board of Directors, Executive Officers, 765 Individual ASF Members, 205 Apache Project Management Committees, 7,500+ Committers, and countless contributors.&nbsp;</p> 
+      <div> </div> 
+      <div>Your tax-deductible* contribution to the ASF helps offset day-to-day operating expenses that include critical Infrastructure services (75%), plus Marketing and Publicity, Trademarks and Brand Management, Legal Affairs, Accounting, Operational support, and more. Less than 10% is spent on overhead.&nbsp;</div> 
+      <div> 
+        <p>The ASF's diverse accomplishments are highlighted in the <a href="https://s.apache.org/FY2019AnnualReport">Annual Report for the 2019 Fiscal Year</a>. Many of these successes were made possible by <a href="http://apache.org/foundation/thanks">contributions made by organizations</a> and individuals&nbsp;such as yourself.</p> 
+      </div> 
+      <div>Thank you for supporting the greater Apache community.<br /><br /></div> 
+      <div> 
+        <p>* For those based in the US, donations are 100% tax deductible to the full extent of the law. As regulation varies, we encourage you to consult a qualified advisor experienced with your local tax law pertaining to donations.&nbsp;</p> 
+      </div> 
+      <div>The ASF is a US 501(c)(3) not-for-profit charitable organization, whose tax identification number is 47-0825376. More information about non-profits and related issues can be found at the <a href="http://www.nonprofits.org/">Internet Nonprofit Center</a>.&nbsp;</div> 
+      <p>&nbsp;The ASF is <a href="https://www.charitynavigator.org/index.cfm?bay=search.profile&amp;ein=470825376">recognized by Charity Navigator</a> and cited with the Gold Seal of Transparency by <a href="https://www.guidestar.org/profile/47-0825376">GuideStar</a>.</p> 
+    </div> 
+    <div> 
+      <p> </p> 
+      <p># # #</p> 
+    </div> 
+  </div>

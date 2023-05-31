@@ -1,0 +1,28 @@
+---
+layout: post
+title: "[ANN] Apache Isis version 1.15.0 Released"
+date: '2017-08-14T00:00:00+00:00'
+categories: isis
+---
+<div style="font-family: sans-serif; font-size: small;">The Apache Isis team is pleased to announce the release of Apache Isis v1.15.0.</div> 
+  <div style="font-family: sans-serif; font-size: small;"><br /></div> 
+  <div style="font-family: sans-serif; font-size: small;"> 
+    <p>New features in this release include:</p> 
+    <p> </p> 
+    <ul> 
+      <li>inline prompts: the ability to edit a property or invoke an action (associated with a property) without requiring a modal dialog box.</li> 
+      <li>a &quot;hello world&quot; archetype</li> 
+      <li>upgrade of Apache Wicket from 6.x to 7.x.</li> 
+      <li>allow applications and integration tests to be bootstrapped with less boilerplate</li> 
+      <li>new metamodel validations for JAXB view models</li> 
+      <li>rename isis-viewer-wicket artifacts to isis-core-viewer-wicket (for consistency with other core modules)</li> 
+    </ul> 
+    <p> </p> 
+  </div> 
+  <p><span style="font-family: sans-serif; font-size: small;">Full <a href="http://isis.apache.org/release-notes/release-notes.html#_release-notes_1.15.0">release notes</a> are available on the Apache Isis website, as are the&nbsp;</span><span style="font-family: sans-serif; font-size: small;"><a href="http://isis.apache.org/migration-notes/migration-notes.html#_migration-notes_1.14.0-to-1.15.0">migration notes</a>.</span></p> 
+  <div style="font-family: sans-serif; font-size: small;">You can access this release directly from the <a href="http://search.maven.org">Maven central repo</a>. &nbsp;Alternatively, or <a href="http://isis.apache.org/downloads.html">download</a> the release and build it from source.</div> 
+  <div style="font-family: sans-serif; font-size: small;"><br /></div> 
+  <div style="font-family: sans-serif; font-size: small;">Enjoy!</div> 
+  <div style="font-family: sans-serif; font-size: small;"><br /></div> 
+  <div style="font-family: sans-serif; font-size: small;">--The Apache Isis team</div> 
+  <div style="font-family: sans-serif; font-size: small;"><br /></div>

@@ -1,0 +1,40 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Kudu™ as a Top-Level Project
+date: '2016-07-26T00:00:00+00:00'
+categories: foundation
+---
+<div><b><i>Open Source columnar storage engine enables fast analytics across the Internet of Things, time series, cybersecurity, and other Big Data applications in the Apache Hadoop ecosystem</i></b></div> 
+  <div><b><br /></b></div> 
+  <div><b>Forest Hill, MD –25 July 2016–</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today that Apache® Kudu™ has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the project's community and products have been well-governed under the ASF's meritocratic process and principles.</div> 
+  <div><br /></div> 
+  <div>Apache Kudu is an Open Source columnar storage engine built for the Apache Hadoop ecosystem designed to enable flexible, high-performance analytic pipelines.</div> 
+  <div><br /></div> 
+  <div>&quot;Under the Apache Incubator, the Kudu community has grown to more than 45 developers and hundreds of users,&quot; said Todd Lipcon, Vice President of Apache Kudu and Software Engineer at Cloudera. &quot;Recognizing the strong Open Source community is a testament to the power of collaboration and the upcoming 1.0 release promises to give users an even better storage layer that complements Apache HBase and HDFS.&quot;</div> 
+  <div><br /></div> 
+  <div>Optimized for lightning-fast scans, Kudu is particularly well suited to hosting time-series data and various types of operational data. In addition to its impressive scan speed, Kudu supports many operations available in traditional databases, including real-time insert, update, and delete operations. Kudu enables a &quot;bring your own SQL&quot; philosophy, and supports being accessed by multiple different query engines including such other Apache projects as Drill, Spark, and Impala (incubating).</div> 
+  <div><br /></div> 
+  <div>Apache Kudu is in use at diverse companies and organizations across many industries, including retail, online service delivery, risk management, and digital advertising.</div> 
+  <div><br /></div> 
+  <div>&quot;Using Apache Kudu alongside interactive SQL tools like Apache Impala (incubating) has allowed us to deploy a next-generation platform for real-time analytics and online reporting,&quot; said Baoqiu Cui, Chief Architect at Xiaomi. &quot;Apache Kudu has been deployed in production at Xiaomi for more than six months and has enabled us to improve key reliability and performance metrics for our customers. Kudu's graduation to a Top-Level Project allows companies like ours to operate a hybrid architecture without complexity. We look forward to continuing to contribute to its success.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;We are already seeing the many benefits of Apache Kudu. In fact we're using its combination of fast scans and fast updates for upcoming releases of our risk solutions,&quot; said Cory Isaacson, CTO at Risk Management Solutions, Inc. &quot;Kudu is performing well, and RMS is proud to have contributed to the project’s integration with Apache Spark.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;The Internet of Things, cybersecurity and other fast data drivers highlight the demands that real-time analytics place on Big Data platforms,&quot; said Arvind Prabhakar, Apache Software Foundation member and CTO of StreamSets. &quot;Apache Kudu fills a key architectural gap by providing an elegant solution spanning both traditional analytics and fast data access. StreamSets provides native support for Apache Kudu to help build real-time ingestion and analytics for our users.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Graduation to a Top-Level Project marks an important milestone in the Apache Kudu community, but we are really just beginning to achieve our vision of a hybrid storage engine for analytics and real-time processing,&quot; added Lipcon. &quot;As our community continues to grow, we welcome feedback, use cases, bug reports, patch submissions, documentation, new integrations, and all other contributions.&quot;</div> 
+  <div><br /></div> 
+  <div>The Apache Kudu project welcomes contributions and community participation through mailing lists, a Slack channel, face-to-face MeetUps, and other events. Catch Apache Kudu in action at Strata + Hadoop World, 26-29 September 2016 in New York.&nbsp;</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache Kudu software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For project updates, downloads, documentation, and ways to become involved with Apache Kudu, visit <a href="http://kudu.apache.org/">http://kudu.apache.org/</a> , <a href="https://twitter.com/ApacheKudu">@ApacheKudu</a>, and <a href="http://kudu.apache.org/blog/">http://kudu.apache.org/blog/</a>.</div> 
+  <div><br /></div> 
+  <div><b>About the Apache Incubator</b></div> 
+  <div>The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organizations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF. For more information, visit <a href="http://incubator.apache.org/">http://incubator.apache.org/</a></div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 550 individual Members and 5,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, OPDi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Kudu&quot;, &quot;Apache Kudu&quot;, &quot;Drill&quot;, &quot;Apache Drill&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, &quot;Apache Impala (incubating)&quot;, &quot;Spark&quot;, &quot;Apache Spark&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

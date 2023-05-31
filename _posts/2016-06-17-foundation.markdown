@@ -1,0 +1,98 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 17 June 2016'
+date: '2016-06-17T00:00:00+00:00'
+categories: foundation
+---
+<p>Happy Friday! The always-productive Apache community wrapped up another great week --here's what happened:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 20 July 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield fantastic performance at 99.67% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- CFP and registration now open for Apache: Big Data and ApacheCon&nbsp;Europe --14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- Feel free to drop by #apachecon on the Freenode IRC network&nbsp;and share your thoughts!</p> 
+    <p> </p> 
+    <p>Apache Calcite™ –a dynamic data management framework.<br />&nbsp;- Apache Calcite 1.8.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/calcite/apache-calcite-1.8.0/">http://www.apache.org/dyn/closer.cgi/calcite/apache-calcite-1.8.0/</a></p> 
+    <p>Apache Creadur™ Rat –a build tool focused on license audit, helping you to spot and fix missing license headers.<br />&nbsp;- Apache Rat 0.12 released&nbsp;<a href="http://creadur.apache.org/rat/download_rat.cgi">http://creadur.apache.org/rat/download_rat.cgi</a></p> 
+    <p>Apache HttpComponents™ Core –a set of low level HTTP transport components that can be used to build custom client and server side HTTP services with a minimal footprint.<br />&nbsp;- Apache HttpComponents Core 4.4.5 GA released&nbsp;<a href="http://hc.apache.org/downloads.cgi">http://hc.apache.org/downloads.cgi</a></p> 
+    <p>Apache Mahout™ –an environment for quickly creating machine learning applications that scale and run on the highest performance parallel computation engines available.<br />&nbsp;- Apache Mahout 0.12.2 released&nbsp;<a href="http://mahout.apache.org/">http://mahout.apache.org/</a></p> 
+    <p>Apache SystemML (incubating)&nbsp;–declarative large-scale machine learning (ML) that aims at flexible specification of ML algorithms and automatic generation of hybrid runtime plans ranging from single-node, in-memory computations, to distributed computations on Apache Hadoop MapReduce and Apache Spark.<br />&nbsp;- Apache SystemML 0.10.0-incubating released&nbsp;<a href="http://systemml.apache.org/">http://systemml.apache.org/</a></p> 
+    <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language and Java WebSocket technologies.<br />&nbsp;- Apache Tomcat 9.0.0.M8&nbsp;released&nbsp;<a href="http://tomcat.apache.org/download-90.cgi">http://tomcat.apache.org/download-90.cgi</a><br />&nbsp;-&nbsp;Apache Tomcat 8.0.36 and 8.5.3 available <a href="http://tomcat.apache.org/download-80.cgi">http://tomcat.apache.org/download-80.cgi</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that Apache OFBiz is now a registered trademark?&nbsp;<a href="http://ofbiz.apache.org/">http://ofbiz.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that Apache Roller (our blog publishing platform) has a newly modernized user interface? Learn how you can help contribute!&nbsp;<a href="http://rollerweblogger.org/roller/entry/modernizing-the-roller-ui">http://rollerweblogger.org/roller/entry/modernizing-the-roller-ui</a></p> 
+    <p><a href="http://wicket.apache.org/"></a>&nbsp;- Did you know that we're always looking for great ways to highlight Apache projects in our &quot;Did You Know&quot; campaigns? Send your success stories to &lt;press@apache.org&gt;!</p> 
+  </div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a><strong></strong></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- PANCAKE STACK: Spark Recommender +Kafka +Cassandra +Streams +TensorFlow will be held 18 June 2016 in San Francisco&nbsp;<a href="http://www.meetup.com/Advanced-Spark-and-TensorFlow-Meetup/events/231133785/">http://www.meetup.com/Advanced-Spark-and-TensorFlow-Meetup/events/231133785/</a></p> 
+      <p>&nbsp;- 海 Spark Meetup第九次聚会 will be held 18 June 2016 in Shanghai&nbsp;<a href="http://www.meetup.com/Shanghai-Apache-Spark-Meetup/events/231612662/">http://www.meetup.com/Shanghai-Apache-Spark-Meetup/events/231612662/</a></p> 
+      <p>&nbsp;- Top 5 Mistakes When Writing Spark Applications will be presented 20 June 2016 in Chicago&nbsp;<a href="http://www.meetup.com/Chicago-Spark-Users/events/231373252/">http://www.meetup.com/Chicago-Spark-Users/events/231373252/</a></p> 
+      <p>&nbsp;- User Defined Functions and Materialized Views in Cassandra 3.0 will be held 20 June 2016 in Dublin&nbsp;<a href="http://www.meetup.com/Dublin-Cassandra-Users/events/231171356/">http://www.meetup.com/Dublin-Cassandra-Users/events/231171356/</a></p> 
+      <p>&nbsp;- Matt Pfeil and Patrick Callaghan talk Cassandra! on 20 June 2016 in London&nbsp;<a href="http://www.meetup.com/Cassandra-London/events/231859512/">http://www.meetup.com/Cassandra-London/events/231859512/</a></p> 
+      <p>&nbsp;- Come Together to Work on a Data Science Project will take place 20 June 2016 in San Francisco&nbsp;<a href="http://www.meetup.com/StudyGroups/events/231673184/">http://www.meetup.com/StudyGroups/events/231673184/</a></p> 
+      <p>&nbsp;- Machine Learning Spain XIII will meet 20 June 2016 in Madrid&nbsp;<a href="http://www.meetup.com/MachineLearningSpain/events/231863173/">http://www.meetup.com/MachineLearningSpain/events/231863173/</a></p> 
+      <p>&nbsp;- Apache Beam/Google Cloud Dataflow will be held 20 June 2016 in Pittsburgh&nbsp;<a href="http://www.meetup.com/Pittsburgh-Code-Supply/events/231167546/">http://www.meetup.com/Pittsburgh-Code-Supply/events/231167546/</a></p> 
+      <p>&nbsp;- Apache Kafka will meet up on 20 June 2016 in Vienna&nbsp;<a href="http://www.meetup.com/Papers-We-Love-Vienna/events/231318183/">http://www.meetup.com/Papers-We-Love-Vienna/events/231318183/</a></p> 
+      <p>&nbsp;- Tech Talk: PySpark will take place 20 June 2016 in Austin&nbsp;<a href="http://www.meetup.com/PyLadies-ATX/events/231494470/">http://www.meetup.com/PyLadies-ATX/events/231494470/</a></p> 
+      <p>&nbsp;- Intro to Apache Spark - Hands On will be held 21 June 2016 in Indianapolis&nbsp;<a href="http://www.meetup.com/Big-Data-Developers-in-Indianapolis/events/231593888/">http://www.meetup.com/Big-Data-Developers-in-Indianapolis/events/231593888/</a></p> 
+      <p>&nbsp;- Apache Bigtop &amp; Apache Apex (native Hadoop) will be held 21 June 2016 in San Jose&nbsp;<a href="http://www.meetup.com/Apex-Bay-Area-Chapter/events/231799208/">http://www.meetup.com/Apex-Bay-Area-Chapter/events/231799208/</a></p> 
+      <p>&nbsp;- Spark ML - Machine Learning Hands On w/ Matt Der will take place 21 June 2016 in Richmond&nbsp;<a href="http://www.meetup.com/RVA-Data-Hackers/events/231573981/">http://www.meetup.com/RVA-Data-Hackers/events/231573981/</a></p> 
+      <p>&nbsp;- Fast-Data (2nd Meetup event) will be held 21 June 2016 in McLean&nbsp;<a href="http://www.meetup.com/Fast-Data-DC-NoVA-MD-DC/events/231221600/">http://www.meetup.com/Fast-Data-DC-NoVA-MD-DC/events/231221600/</a></p> 
+      <p>&nbsp;- Self Healing System Design + Spark on Knime will take place 21 June 2016 in Sydney&nbsp;<a href="http://www.meetup.com/Sydney-Apache-Spark-User-Group/events/230892723/">http://www.meetup.com/Sydney-Apache-Spark-User-Group/events/230892723/</a></p> 
+      <p>&nbsp;- Intro to Apache Spark - Hands On will be held 22 June 2016 in Louisville&nbsp;<a href="http://www.meetup.com/Louisville-BI-Big-Data-Analytics-Meetup/events/231614605/">http://www.meetup.com/Louisville-BI-Big-Data-Analytics-Meetup/events/231614605/</a></p> 
+      <p>&nbsp;- Introduction to Spark In-memory Computing will take place 22 June 2016 in Washington, DC&nbsp;<a href="http://www.meetup.com/Big-Data-Developers-in-DC/events/231023283/">http://www.meetup.com/Big-Data-Developers-in-DC/events/231023283/</a></p> 
+      <p>&nbsp;- Cassandra Meetup will be held 22 June 2016 in Tel Aviv-Yafo&nbsp;<a href="http://www.meetup.com/Tel-Aviv-Cassandra-Users/events/231855312/">http://www.meetup.com/Tel-Aviv-Cassandra-Users/events/231855312/</a></p> 
+      <p>&nbsp;- How Better Measurement of User Outcomes Drives System Quality will take place 22 June 2016 in Santa Clara&nbsp;<a href="http://www.meetup.com/ContainerNetworking/events/231772850/">http://www.meetup.com/ContainerNetworking/events/231772850/</a></p> 
+      <p>&nbsp;- Hands-on Intro to Machine Learning with Apache Spark and Apache Zeppelin will be held 22 June 2016 in Santa Clara&nbsp;<a href="http://www.meetup.com/futureofdata-siliconvalley/events/230910868/">http://www.meetup.com/futureofdata-siliconvalley/events/230910868/</a></p> 
+      <p>&nbsp;- Spark Machine Learning Training will take place 22 June 2016 Atlanta&nbsp;<a href="http://www.meetup.com/Greater-Atlanta-Apache-Spark-Interactive/events/231756341/">http://www.meetup.com/Greater-Atlanta-Apache-Spark-Interactive/events/231756341/</a></p> 
+      <p>&nbsp;- The Third Spark Meetup will take place 22 June 2016 in Pune&nbsp;<a href="http://www.meetup.com/Pune-Apache-Spark-Meetup/events/231618172/">http://www.meetup.com/Pune-Apache-Spark-Meetup/events/231618172/</a></p> 
+      <p>&nbsp;- Options for Ingest: Elasticsearch Ingest Node and Apache Airflow will be held 22 June 2016 in San Francisco&nbsp;<a href="http://www.meetup.com/SF-Bay-Area-Data-Ingest-Meetup/events/231024947/">http://www.meetup.com/SF-Bay-Area-Data-Ingest-Meetup/events/231024947/</a></p> 
+      <p>&nbsp;- Joint Meetup with SF Bay Area Data Ingest Meetup will be held 22 June 2016 in Mountain View&nbsp;<a href="http://www.meetup.com/Silicon-Valley-Elastic-Fantastics/events/231215994/">http://www.meetup.com/Silicon-Valley-Elastic-Fantastics/events/231215994/</a></p> 
+      <p>&nbsp;- AWS tips and tricks for Cassandra will take place 22 June 2016 in San Francisco&nbsp;<a href="http://www.meetup.com/CassandraSF/events/224881564/">http://www.meetup.com/CassandraSF/events/224881564/</a></p> 
+      <p>&nbsp;- Bay Area Search will be held 22 June 2016 in San Jose&nbsp;<a href="http://www.meetup.com/Bay-Area-Search/events/229404315/">http://www.meetup.com/Bay-Area-Search/events/229404315/</a></p> 
+      <p>&nbsp;- Overview of Open Source Fast Data Platforms and Future Plans will take place 22 June 2016 Washington, DC&nbsp;<a href="http://www.meetup.com/Fast-Data-DC/events/230711519/">http://www.meetup.com/Fast-Data-DC/events/230711519/</a></p> 
+      <p>&nbsp;- How Spark can improve your Hadoop Cluster will be held 22 June 2016 in Hamburg&nbsp;<a href="http://www.meetup.com/Scala-Hamburg/events/231414246/">http://www.meetup.com/Scala-Hamburg/events/231414246/</a></p> 
+      <p>&nbsp;- High concurrency, low latency reporting within Hadoop platform will be held 22 June 2016 in Atlanta&nbsp;<a href="http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344816/">http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344816/</a></p> 
+      <p>&nbsp;- Spark RDD概念入門 will take place 22 June 2016 in Hsinchu&nbsp;<a href="http://www.meetup.com/Apache-Spark-Hsinchu/events/231850932/">http://www.meetup.com/Apache-Spark-Hsinchu/events/231850932/</a></p> 
+      <p>&nbsp;- IT talk на тему BigData и IoT на конференции ICTERI will be held 23 June 2016 Kyiv&nbsp;<a href="http://www.meetup.com/IT-Talk-Kyiv/events/231859440/">http://www.meetup.com/IT-Talk-Kyiv/events/231859440/</a></p> 
+      <p>&nbsp;- Apache Flink Crash Course - Meet the Squirrel will be held 23 June 2016 in Prague&nbsp;<a href="http://www.meetup.com/CS-HUG/events/231711892/">http://www.meetup.com/CS-HUG/events/231711892/</a></p> 
+      <p>&nbsp;- Big Data in the Cloud with Zoomdata, Cloudera and Centurylink will take place 23 June 2016 in Raleigh&nbsp;<a href="http://www.meetup.com/Zoomdata-Big-Data-Meetup-Raleigh/events/231295179/">http://www.meetup.com/Zoomdata-Big-Data-Meetup-Raleigh/events/231295179/</a></p> 
+      <p>&nbsp;- Apache Metron Overview and Codelab: Building the next Generation Cyber Security will be held 23 June 2016 in Raleigh&nbsp;<a href="http://www.meetup.com/futureofdata-triangle/events/231440309/">http://www.meetup.com/futureofdata-triangle/events/231440309/</a></p> 
+      <p>&nbsp;- Interactive Data Analytics with Flink and Zeppelin will take place on 23 June 2016 in McLean&nbsp;<a href="http://www.meetup.com/DCFlinkMeetup/events/231718607/">http://www.meetup.com/DCFlinkMeetup/events/231718607/</a></p> 
+      <p>&nbsp;- Distributed ML in Spark will be held 23 June 2016 in New York&nbsp;<a href="http://www.meetup.com/Spark-NYC/events/231796695/">http://www.meetup.com/Spark-NYC/events/231796695/</a></p> 
+      <p>&nbsp;- Ted Dunning on Anomaly Detection will be presented on 23 June 2016 in Seattle&nbsp;<a href="http://www.meetup.com/Seattle-DAML/events/231426676/">http://www.meetup.com/Seattle-DAML/events/231426676/</a></p> 
+      <p>&nbsp;- Big Data at Twitter Scale will take place 23 June 2016 in Boulder&nbsp;<a href="http://www.meetup.com/Boulder-Denver-Big-Data/events/231339134/">http://www.meetup.com/Boulder-Denver-Big-Data/events/231339134/</a></p> 
+      <p>&nbsp;- Open House: Big Data Processing with Apache Spark will take place 23 June 2016 in San Francisco&nbsp;<a href="http://www.meetup.com/Metis-San-Francisco-Data-Science/events/231743873/">http://www.meetup.com/Metis-San-Francisco-Data-Science/events/231743873/</a></p> 
+      <p>&nbsp;- Spotkanie PJUG - Creating Test Tools oraz Data modeling with Apache Casandra will take place 23 June 2016 in Kraków&nbsp;<a href="http://www.meetup.com/Polish-Java-User-Group/events/231856240/">http://www.meetup.com/Polish-Java-User-Group/events/231856240/</a></p> 
+      <p>&nbsp;- Week 6 of Data Science Bootcamp – A summer of data, analytics and insight will take place 24 June 2016 in Toronto&nbsp;<a href="http://www.meetup.com/BDU-Toronto/events/231772526/">http://www.meetup.com/BDU-Toronto/events/231772526/</a></p> 
+      <p>&nbsp;- SEA: Search Engines Amsterdam will meet 24 June 2016&nbsp;<a href="http://www.meetup.com/SEA-Search-Engines-Amsterdam/events/228591927/">http://www.meetup.com/SEA-Search-Engines-Amsterdam/events/228591927/</a></p> 
+      <p>&nbsp;- Database Time! will meet 24 June 2016 in Berlin&nbsp;<a href="http://www.meetup.com/Big-Data-Beers/events/231386617/">http://www.meetup.com/Big-Data-Beers/events/231386617/</a></p> 
+      <p>&nbsp;- What the Hackathon? Will hold Build an Apache Apex (native Hadoop) Big Data Application on 25 June 2016 in San Jose&nbsp;<a href="http://www.meetup.com/Big-Data-native-Hadoop-Ingest-and-Transform-Bay-Area/events/231697973/">http://www.meetup.com/Big-Data-native-Hadoop-Ingest-and-Transform-Bay-Area/events/231697973/</a></p> 
+      <p>&nbsp;- Własna wyszukiwarka w oparciu o Apache Solr will be held 25 June in Warsaw&nbsp;<a href="http://www.meetup.com/StacjaIT/events/231557720/">http://www.meetup.com/StacjaIT/events/231557720/</a></p> 
+      <p>&nbsp;- Understanding and Building Big Data Architectures will feature Apache Kafka on 25 June 2016 in Hyderabad&nbsp;<a href="http://www.meetup.com/hyderabad-scalability/events/229886391/">http://www.meetup.com/hyderabad-scalability/events/229886391/</a></p> 
+      <p>&nbsp;- Data Science for Developers will meet 25 June 2016 in Toronto&nbsp;<a href="http://www.meetup.com/BDU-Toronto/events/231698318/">http://www.meetup.com/BDU-Toronto/events/231698318/</a></p> 
+      <p>&nbsp;- Visualizing Big Data will take place 25 June 2016 in Bangalore&nbsp;<a href="http://www.meetup.com/Real-Time-Data-Processing-and-Cloud-Computing/events/231857051/">http://www.meetup.com/Real-Time-Data-Processing-and-Cloud-Computing/events/231857051/</a></p> 
+    </div> 
+    <p>&nbsp;- Bangalore Mesos User Group will present Introduction to Apache Mesos on 9 July 2016 <a href="http://www.meetup.com/Bangalore-Mesos-User-Group/events/228745899/">http://www.meetup.com/Bangalore-Mesos-User-Group/events/228745899/</a></p> 
+    <p>&nbsp;- Atlanta Hadoop Users Group present Cutting edge with HBASE&nbsp;on 17 August 2016&nbsp;<a href="http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344766/">http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344766/</a></p> 
+    <p>&nbsp;- CFP is open for the next Cassandra Summit 7-9 September 2016 in San Jose <a href="https://cfp.cassandrasummit.org/">https://cfp.cassandrasummit.org/</a></p> 
+    <p>&nbsp;- CloudStack Collaboration Conference Brasil will take place 29-30 September 2016 in Sao Paolo&nbsp;<a href="http://cloudstack.usp.br/en/index.php">http://cloudstack.usp.br/en/index.php</a></p> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <div> 
+      <p>&nbsp;- The second ASF Annual Report is available at <a href="https://s.apache.org/pTMX">https://s.apache.org/pTMX</a> </p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

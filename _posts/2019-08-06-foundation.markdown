@@ -1,0 +1,80 @@
+---
+layout: post
+title: '"Success at Apache: The Path To Berlin"'
+date: '2019-08-06T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>by Isabel Drost-Fromm</em></strong></div> 
+  <div><br /></div> 
+
+"A decade ago" - according to common wisdom for software engineering that's the equivalent of the stone age: The only constant is change - and rapid change at that.
+  <p> </p> 
+This blog post is going to tell an entirely different story: One about what persistence, patience and continuous engagement can accomplish. One about what can happen when people are working together.
+  <p> </p> 
+
+It was over a decade ago, in 2008, when I met with people interested in the then-hyped Apache Hadoop project to create a quarterly meetup on everything data analytics, text mining, scalable data storage. That was when the (Apache) Hadoop Get Together
+Berlin took place at newthinking store - a co-working space and event location before that format itself was turned into a business model <a href="http://blog.isabel-drost.de/posts/scaling-user-groups336.html">http://blog.isabel-drost.de/posts/scaling-user-groups336.html</a>.
+ <p> </p> 
+
+A year later it was clear that an ApacheCon EU was unlikely to happen in Europe. When Simon Willnauer, Jan Lehnardt and myself approached The Apache Software Foundation about holding the event in Berlin - the kind people at Apache who did have experience with ApacheCon successfully stopped us: Given the baggage around the event, the trademark implication, the expectation that all sorts of different people had as well as the pure <a href="http://blog.isabel-drost.de/posts/how-hard-can-it-be-organising-a-conference.html">http://blog.isabel-drost.de/posts/how-hard-can-it-be-organising-a-conference.html</a> logistics of
+creating an event that's bigger than 100 people, that was a safe and likely wise decision.
+ <p> </p> 
+What they didn't achieve though was to stop us from running some event the following year: We at least wanted to give friends from the Big Data and search communities an excuse to make their employers pay for a trip to Berlin in summer: <a href="http://blog.isabel-drost.de/posts/my-highly-subjective-berlin-buzzwords-recap290.html">http://blog.isabel-drost.de/posts/my-highly-subjective-berlin-buzzwords-recap290.html</a>. This was possible due to some lucky conditions we found ourselves in: 
+Knowing  conference organisers who were willing to share their know-how such as legal issues and boundaries with us 
+Finding an event company (newthinking.de) that was supporting the idea. 
+ <p> </p>  Being employed by a company <a href="https://www.neofonie.de/">https://www.neofonie.de/</a> that saw value in sponsoring the event by allowing me to do so during my  working hours.
+ <p> </p> 
+While successful, part of the ASF community was still missing though. Fast forward several years to 2017, a new conference concept was born. Under the name of FOSS Backstage, we focus on the one topic that every project at Apache has to deal with: Governance, legal, security, economics <a href="https://blogs.apache.org/foundation/entry/success-at-apache-cookie-monster">https://blogs.apache.org/foundation/entry/success-at-apache-cookie-monster</a>
+Issues that are not an Apache exclusive issue, but true for everyone - individuals as well as legal entities - involved in open source projects. 
+ <p> </p> 
+The only caveat: We had intentionally left all technical content out of scope for FOSS Backstage. For the data analytics crowd the event was conveniently co-located with Berlin Buzzwords. For the remaining content, Sharan Foga kindly volunteered for coordinating to run an Apache Roadshow alongside FOSS Backstage together with newthinking for two days after Berlin Buzzwords and in parallel to FOSS Backstage. With a name different than ApacheCon this left quite some room for experimenting beyond the traditional ApacheCon format.
+<p>
+Little over a year after that ApacheCon finally is on its way to the city of Berlin: With https://twitter.com/plainschwarz as event organisers, in collaboration with the Apache Software Foundation - with Myrle Krantz as event chair to coordinate between the ASF and the local event team.
+<p>
+In retrospect, the series of events was an interesting journey. There's a couple of lessons I've learned that carry over to open source software development - but also a few that are distinctly different.
+<p>
+1.Patches welcome - turn people that come with feature requests into active contributors
+<p>
+Instead of accepting feature requests from people, it helps to pull them in to submit their own patches: Early on there were requests for a barcamp, for a lightning talk session, for trainings. My response back then: Submit the idea through the CfP form, find someone to run it and we'll run it through the regular submission process adding it to the schedule if it fits.  
+<p>
+For the trainings we went for a slightly different approach: Instead of directly offering them ourselves we reached out to established training providers suggesting to run with a co-location/ co-promotion approach.
+<p>
+For those that asked for free tickets we would turn them into helping hands - either on site, during setup or (in the first year) as local guides taking groups of up to twenty people out for dinner in a restaurant close by that they had selected.
+<p>
+For those that asked for more content on some specific topic we offered the  option of organising a deep dive satellite event on Wednesday after the conference at one of the many companies willing to host these in Berlin.
+<p>
+In general we left a lot of room and freedom to those who wanted to get involved and add content to the event that they found missing.
+<p>
+
+
+<p></p>
+2. Decisions are made by those doing the work
+<p>
+While feedback is important, there is a limit to what can feasibly be realised for any given conference budget. While we value feedback from anyone involved, the final decisions need to be taken by those actively contributing time to the event. As a result, that also means that not all feedback can always be taken into account - at least not right away, maybe at a later stage or in a different event, the consecutive year or just taken as an impulse to come up with new fresh ideas. 
+<p>
+3. "It's done when it's done" is not an option
+<p>
+Conferences are slightly different from open source releases in that there are hard deadlines - in combination with a fixed budget coming in from attendees and sponsors and some hard features that cannot be postponed to the next release (unless you're organising a remote only conference, running without a venue is pretty much impossible.) That circumstance makes organisation slightly more prone to conflict than your average open source project: There's no cheap way to go down both paths and only at the very last minute decide which is better - or even offering both options. 
+<p>
+4. Balancing public and private communication
+<p>
+At Apache we value public communication: Often having discussions in the open invites others to participate and shows where contributions are needed. When it comes to budget, ticket pricing, communication with sponsors, contracts including specific prices for venues this approach becomes a whole lot harder. Even though it helps to provide a dedicated mailing list for program committee members as well as interested attendees to get in touch. 
+<p>
+It also helps to make some of the planning background public - either while discussions are ongoing, or at least after a conclusion has been reached: http://blog.isabel-drost.de/posts/berlin-buzzwords-scheduling-behind-the-scenes118.html (caveat: the algorithm has changed substantially since this was published, but the article did help answer a lot of questions.)
+<p>
+One downside to this mode of operation is that people who potentially could provide valuable insight or help out have no idea of what is going on. Another downside is that for the outside world it becomes invisible how large a team it takes to make the event successful. As a tiny fix for that we always tried to make the team involved publicly known.
+<p>
+5. Bringing people together
+<p>
+At Apache we have a tradition to work asynchronously - on archived, searchable, referenceable mailing lists. Without that way of working we wouldn't be able to build bridges across timezones, geographies, cultures and organisations. It wouldn't be possible to collaborate for people with wildly different time schedules. Despite all this hearing people speak when reading their texts makes it easier to understand their tone correctly. Despite all this there are topics that are best shared face to face only for deniability reasons. Despite all this, meeting someone in person who so far has been communicating only remotely with you can be a ton of fun. I hope that you will join that fun in October in Berlin: Looking forward to seeing you there!
+  <p> </p> 
+
+Join us! ApacheCon Europe/Berlin 22-24 October 2019 <a href="https://aceu19.apachecon.com/">https://aceu19.apachecon.com/</a>
+
+  <div><br /></div> 
+  <p> </p> 
+  <div><em>Isabel Drost-Fromm is a former board member of The Apache Software Foundation, co-founder of Apache Mahout and mentored several incubating projects. Interested in all things search and text mining with a thorough background in open source project management and open collaboration she is working Europace AG as Open Source Strategist. True to the nature of people living in Berlin she loves having friends fly in for a brief visit –- as a result she co-founded and is still one the creative heads behind both, Berlin Buzzwords, a tech conference on all things search, scale and storage as well as FOSS Backstage, a conference on all things Free and Open Source behind the scenes and how it interrelates with business and InnerSource. She is a member of the inaugural Open Source and Intellectual Property Advisory Group of the United Nations Technology Labs (UNTIL).</em></div> 
+  <div> 
+    <p style="font-style: italic;"><span style="font-style: normal;">= = =</span></p> 
+  </div> 
+  <p>&quot;Success at Apache&quot; is a monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;&nbsp;<a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a> </p>

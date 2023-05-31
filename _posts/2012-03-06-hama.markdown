@@ -1,0 +1,22 @@
+---
+layout: post
+title: 'Apache Hama 0.4-incubating Released! '
+date: '2012-03-06T00:00:00+00:00'
+categories: hama
+---
+Hi all,
+
+The Hama team is pleased to announce the release of Apache Hama 0.4-incubating under the Apache Incubator.
+
+Hama is a pure BSP(Bulk Synchronous Parallel) computing framework on top of HDFS (Hadoop Distributed File System) for massive scientific computations such as matrix, graph and network algorithms.
+
+This release includes:
+
+ * Multiple tasks per node
+ * Input/Output Formatter
+ * Stabilized Barrier Synchronization
+ * Message Combiners
+ * Improved examples
+ * and its Benchmark test results
+
+Thanks to the Hama and Apache Incubating community for helping grow the project!

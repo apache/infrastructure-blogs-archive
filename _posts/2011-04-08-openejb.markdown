@@ -1,0 +1,25 @@
+---
+layout: post
+title: Apache OpenEJB Get-Together, Tours France, April 18th - 21st
+date: '2011-04-08T00:00:00+00:00'
+categories: openejb
+---
+Second annual Get-Together.  No fees no conference and no sessions.  Just an excuse to get-together, code, and have a beer or two. 
+
+Hacking Monday - Thursday.  Friday and the weekend is for non-technical fun. 
+
+Tech-time will likely be focusing on TomEE, Java EE 6 Web Profile and OSGi hacking.  If you have something you've been wanting to work on, come on down and I'm sure someone will be available to give you some pointers and get you rolling.  Even if you just know you want to work on something but don't know what, I'm sure we can find a nice little project for you.  Even the smallest task has a way of taking you in unexpected and fun directions. 
+
+Most of us are staying here: 
+
+  http://www.hotel-ronsard.com
+
+A good second choice: 
+
+  http://www.hoteldeschateaux.fr
+
+Jean-Louis' company, Atos Origin, has graciously offered space for daytime hacking fun.  Please rsvp to him if you wish to partake as he will need to get you a security badge.  His apache address is jlmonteiro@.  I've heard rumors of a limited supply of food and coffee on the premises for those that rsvp.  So definitely get word to JL! 
+
+Evening fun will likely be around the center of Tours.  I'll try and twitter our locations, facebook checkin and am happy to give out my cell and google voice to anyone who would love to happen by for a beer.  Just email me offline.  There are likely some neat social networking tools we could use, feel free to suggest one. 
+
+Hope to see you there! 

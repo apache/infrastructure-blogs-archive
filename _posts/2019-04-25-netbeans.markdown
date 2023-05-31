@@ -1,0 +1,13 @@
+---
+layout: post
+title: "[ANNOUNCE] Apache NetBeans Has Graduated!"
+date: '2019-04-25T00:00:00+00:00'
+categories: netbeans
+---
+We have graduated from the Apache Incubator and we are now a top level Apache project at The Apache Software Foundation (ASF).
+
+<p><b>"Being part of the ASF means that NetBeans is now not only free and Open Source software: it is also, uniquely, and for the first time, part of a foundation specifically focused on enabling open governance," said Geertjan Wielenga, Vice President of Apache NetBeans. "Every contributor to the project now has equal say over the roadmap and direction of NetBeans. That is a new and historic step and the community has been ready for this for a very long time. Thanks to the strong stewardship of NetBeans in Sun Microsystems and Oracle, Apache NetBeans is now ready for the next phase in its development and we welcome everyone to participate as equals as we move forward."</b></p>
+
+<p>The above is from the official Apache press release, all of which can be read here:</p>
+
+<p><a href="https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces51">https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces51</a></p>

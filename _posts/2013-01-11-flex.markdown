@@ -1,0 +1,28 @@
+---
+layout: post
+title: Apache Flex 4.9.0 Released!
+date: '2013-01-11T00:00:00+00:00'
+categories: flex
+---
+The Apache Flex community is pleased to announce the release of Apache Flex
+4.9.0!
+
+<p>Apache Flex is a highly productive, open source application framework for
+building and maintaining expressive applications that deploy consistently on all
+major browsers, desktops and devices (including smartphones, tablets and tv).</p>
+
+<p>This is the first release since Apache Flex has been made a top level Apache
+Software Foundation project.</p>
+
+<p>Apache Flex is available in source and binary form from the following download
+page: <a href="http://flex.apache.org/download.html">http://flex.apache.org/download.html</a></p>
+
+<p>It's recommended you install Apache Flex by using the <a href="http://flex.apache.org/installer.html">Apache Flex IDE installer.</a></p> 
+
+<p>When downloading from a mirror site, please remember to verify the downloads
+using signatures or MD5 hashes.</p>
+
+<p>For more information on Apache Flex, visit the project <a href="http://flex.apache.org">home page.</a></p>
+
+<p>Thank you for using Apache Flex,<br />
+The Apache Flex Community</p>

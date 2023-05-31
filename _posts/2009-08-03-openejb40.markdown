@@ -1,9 +1,0 @@
----
-layout: post
-title: 'User Blog: Restarting the embedded OpenEJB container between each test'
-date: '2009-08-03T16:00:00+00:00'
-categories: openejb
----
-Jonas Bandi writes in his CLOSED-LOOP blog a nice entry on <a href="http://blog.jonasbandi.net/2009/06/restarting-embedded-openejb-container.html">Restarting the embedded OpenEJB container between each test</a>.  Jonas documents the use of a newer property "openejb.embedded.initialcontext.close" which allows you to destroy the embedded container system after each test.
-
-Note that Maven users can use <a href="http://maven.apache.org/plugins/maven-surefire-plugin/examples/forking.html">Surefire Forking</a> to achieve a similar result that will also clear out any embedded database state as well.  That approach basically gives you a fresh VM for every test and the approach we use internally in our build.  Haven't done any speed comparisons to see how they stack up speed wise.

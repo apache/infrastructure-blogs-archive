@@ -1,0 +1,82 @@
+---
+layout: post
+title: CouchDB Weekly News, 10 April
+date: '2014-04-10T00:00:00+00:00'
+categories: couchdb
+---
+<h4>Releases</h4>
+<h5>Apache CouchDB 1.5.1 released</h5>
+This is a security release. <a href="http://couchdb.apache.org/#download">Download link</a> | <a href="https://blogs.apache.org/couchdb/entry/apache_couchdb_1_5_1">Release notes</a>
+<h4>Blog Posts</h4>
+<ul>
+	<li><a href="https://blogs.apache.org/couchdb/entry/couchdb_and_the_heartbleed_ssl">CouchDB and the Heartbleed SSL/TLS Vulnerability</a></li>
+	<li>A new series in this our blog: "The Little Things" that are great about CouchDB - because it's always <em>the little things</em>. The first post: "<a href="https://blogs.apache.org/couchdb/entry/the_little_things_1_do">Do Not Delete - where I explain how we help users not accidentally lose their data</a>"</li>
+</ul>
+<h4>Major Discussions</h4>
+<h5>Writing many docs at once: bench marking a 10k write to a CouchDB server (see thread <a href="http://markmail.org/search/?q=Bench%20marking%20a%20simple%2010k%20write#query:Bench%20marking%20a%20simple%2010k%20write%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward+page:3+mid:b7qc5ycxbigm2rgb+state:results">here</a>)</h5>
+A discussion around handling and measurements of bulk input in CouchDB.
+<h5>Question about "complex" range queries (see thread <a href="http://markmail.org/search/?q=question+about+%22complex%22+range+queries+couchdb#query:question%20about%20complex%20range%20queries%20couchdb%20list%3Aorg.apache.couchdb.user%20date%3A201404%20order%3Adate-backward+page:2+mid:sv4wjlt3cfsds455+state:results">here</a>)</h5>
+Requirements for sort orders of data views.
+<h5>Is the revision field deterministic? (see thread <a href="http://markmail.org/search/?q=Is+the+revision+field+deterministic%3F+couchdb#query:Is%20the%20revision%20field%20deterministic%3F%20couchdb%20list%3Aorg.apache.couchdb.user%20date%3A201404%20order%3Adate-backward+page:2+mid:pqvewkbrtoknoezl+state:results">here</a>)</h5>
+Quoting Robert Samuel Newson's <a href="http://markmail.org/search/?q=Is+the+revision+field+deterministic%3F+couchdb#query:Is%20the%20revision%20field%20deterministic%3F%20couchdb%20list%3Aorg.apache.couchdb.user%20date%3A201404%20order%3Adate-backward+page:2+mid:kmbimqhft5lmcpnb+state:results">reply</a>: "Yes, it’s deterministic. The same document with the same history will have the same _rev value. This is an optimization over the previous algorithm where _rev was a random UUID. […] The advantage is that two servers receiving the same update can more optimally replicate. They still have to check that the target has all _id/_rev pairs but will usually be able to skip actually transmitting document and attachment content."
+<h4>CouchDB Universe</h4>
+<ul>
+	<li>Apache Con has taken place from April 7-9. You can find the slides of the talks given <a href="http://events.linuxfoundation.org/events/apachecon-north-america/program/slides">here</a></li>
+</ul>
+<h4>Releases in the CouchDB Universe</h4>
+<ul>
+	<li>New Erlang Version <a href="http://erlang.org/pipermail/erlang-questions/2014-February/077031.html">is out</a></li>
+	<li><a href="https://github.com/StephanU/mbtiles2couchdb">mbtiles2couchdb</a>, for using CouchDB as a simple tiles server</li>
+	<li>RCouch has a new home: <a href="http://refuge.io/blog/2014/04/08/rcouch-has-a-new-home.html">announcement</a> | <a href="https://github.com/rcouch">the new home</a></li>
+	<li><a href="https://github.com/pixelpark/ppnet">PPnet</a>, a minimal social network to drop into websites based on PouchDB</li>
+	<li><a href="https://github.com/cloudant/sabisu">sabisu</a>, a sensu web UI, got open sourced by Cloudant last week</li>
+	<li><a href="http://junk.arandomurl.com/">Janus</a>, an online storage for offline Web Apps built using PouchDB</li>
+	<li><a href="http://npmjs.org/package/couche">couche 0.0.2</a>, a couchdb client for node, with specific apis</li>
+	<li><a href="https://www.npmjs.org/package/mock-couch">mock-couch</a>, an http server pretending to be couchdb, for unit testing</li>
+	<li><a href="https://www.npmjs.org/package/couchdb-sync">couchdb-sync 0.1.1</a> - a generic couchdb replicator which is basically an eventemitter</li>
+	<li><a href="https://www.npmjs.org/package/hackoregon-couch">hackoregon-couch 0.0.2</a> which exports database information from PostgreSQL and imports into CouchDB</li>
+	<li><a href="https://www.npmjs.org/package/overwatch">overwatch 0.2.7</a>, a deterministic couchdb replication watcher</li>
+</ul>
+<h4>Opinions</h4>
+<ul>
+	<li>Slides: "<a href="http://de.slideshare.net/BenDuncan/couchdb-awesomeness-the-history-basics-and-how-we-use-it">CouchDB awesomeness - History, the basics and how we use it</a>"</li>
+	<li>A <a href="http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis">comparison of 13 NoSQL variants</a> <em>(editor's note: the CouchDB version mentioned is quite old)</em></li>
+	<li>An <a href="http://flippinawesome.org/2014/03/31/introduction-to-npm/">introduction to npm</a></li>
+	<li>"<a href="http://danielwertheim.se/2014/04/01/couchdb-pagination-is-skip-and-limit-enough/">CouchDB, Pagination – Is skip and limit enough?</a>"</li>
+	<li>"How to run <a href="http://filippo.io/Heartbleed/">Heartbleed</a> locally, so you <a href="https://gist.github.com/janl/10107626">don’t have to disclose your infra to an untrusted remote</a>"</li>
+	<li>"<a href="http://www.technosql.com/ibms-cloudant-deal-will-deliver-nosql-on-demand/">IBM’s Cloudant deal will deliver NoSQL on demand</a>"</li>
+	<li>NoSQL Meets Bitcoin and Brings Down Two Exchanges: <a href="http://hackingdistributed.com/2014/04/06/another-one-bites-the-dust-flexcoin/">The Story of Flexcoin and Poloniex </a></li>
+	<li><a href="https://speakerdeck.com/pauldix/the-internals-of-influxdb">The internals of InfluxDB</a></li>
+</ul>
+<h4>Use Cases, Questions and Answers</h4>
+<ul>
+	<li>stackoverflow: <a href="http://stackoverflow.com/questions/22932403/most-efficient-way-to-determine-couchdb-access-permission">Most efficient way to determine CouchDB access permission</a></li>
+	<li>stackoverflow: <a href="http://stackoverflow.com/questions/22929097/filter-pull-and-filtered-push-replication-in-couchbaselite-android">Filter Pull and Filtered Push Replication in CouchbaseLite Android</a></li>
+	<li>Marginal note: <em>"</em>An<em> unexpected plus for using CouchDB at <a dir="ltr" href="https://twitter.com/getable">@getable</a> - The web UI is easy enough to use for our CEO (non coder) to go into the DB and fix things"</em> (<a href="https://twitter.com/TechWraith">@TechWraith</a> <a href="https://twitter.com/TechWraith/status/452305816654467073">on Twitter</a>)</li>
+</ul>
+<h4>Get Involved!</h4>
+If you want to get into working on CouchDB:
+<ul>
+	<li>here's a <a href="https://issues.apache.org/jira/browse/COUCHDB-2178?jql=project%20%3D%20COUCHDB%20AND%20component%20%3D%20Fauxton%20AND%20status%20%3D%20Open%20AND%20cf[12310270]%20%3D%20%22New%20Contributors%20Level%20%28Easy%29%22">list of beginner tickets</a> around our currently ongoing <a href="https://www.youtube.com/watch?v=R8b4kXBF01s">Fauxton</a>-implementation. If you have any questions or need help, don't hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) – Garren (garren) and Sue (deathbear) are happy to help.</li>
+	<li>Your help on updating CouchDB-Python for Python 3. Wanna join? Please participate <a href="https://code.google.com/p/couchdb-python/issues/detail?id=231">here</a>.</li>
+</ul>
+We'd be happy to have you!
+<h4>New PMC Member</h4>
+<ul>
+	<li>Joan Touzet joins the Apache CouchDB Project Management Committee today. Joan has made outstanding, sustained contributions to the project. Welcome to the Couch, Joan!</li>
+</ul>
+<h4>Events</h4>
+<ul>
+	<li>April 10, Berlin, Germany: <a href="http://www.meetup.com/CouchDB-Hack-Night-Berlin/events/174356332/">CouchDB Hack Night</a></li>
+</ul>
+<h4>Job opportunities</h4>
+<ul>
+	<li><a href="http://www.bullhornreach.com/job/1411689_open-source-web-developer-cambridge-ma">Open Source Web Developer</a>, Cambridge, MA</li>
+	<li><a href="http://www.jobscore.com/jobs2/icix/senior-data-platform-engineer/cJoNEKQvKr467ciGakhP3Q">Senior Data Platform Engineer</a>, South San Francisco, CA</li>
+</ul>
+<h4>… and also in the news</h4>
+<ul>
+	<li>Mathematics: <a href="http://www.bbc.com/news/science-environment-26151062">Why our brains see maths as beauty</a></li>
+	<li>NASA plans to <a href="http://gigaom.com/2014/04/03/nasa-plans-to-open-source-its-code-in-a-searchable-database">open source its code in a searchable database</a></li>
+</ul>
+<em>Posted on behalf of <a href="“http://twitter.com/ffffux”">Lena Reinhard</a>.</em>

@@ -1,0 +1,17 @@
+---
+layout: post
+title: Announcing CouchDB Conf in Vancouver
+date: '2013-08-13T00:00:00+00:00'
+categories: couchdb
+---
+<p>We’re excited to announce the next <a href="http://conf.couchdb.org/">Apache CouchDB Conf</a> will be in Vancouver, Canada on November 13, 2013. Big thanks to Cloudant to helping to make this happen!</p>
+
+<p><a href="https://tito.io/couchdb/vancouver-2013">Sign up to get notified</a> when CouchDB Conf tickets go on sale.</p>
+
+<p>We’re building the schedule with talks from all corners of the CouchDB community and hope to see you there this fall. This is a follow-up to our <a href="http://conf.couchdb.org/couchdb-conf-berlin-january-2013/">CouchDB Conf in Berlin</a>, where we laid the groundwork for <a href="https://blogs.apache.org/couchdb/entry/welcome_bigcouch">the BigCouch merge</a> and other exciting features you'll hear about in Vancouver (geospatial data and PouchDB for mobile devices to name two).</p>
+
+<p>We’ll be in Vancouver, BC the day before <a href="http://2013.cascadiajs.com/">CascadiaJS 2013</a>, which will be held November 14-15. <a href="https://tito.io/event-loop/cascadiajs-2013">Sign up to get notified</a> when the next batch of CascadiaJS tickets go on sale. The Early Bird tickets sold out in 20 minutes!</p>
+
+<p>There's lots of crossover between the JavaScript and CouchDB communities. Data-driven web apps and CouchDB makes it a natural fit. So we hope you'll be able to stick around and experience what both conferences have to offer.</p>
+
+<p>We’ll plan to keep running these Apache CouchDB Confs. Got suggestions? Feedback? Wanna help us with our next one? Get in touch <a href="mailto:dev@couchdb.apache.org">publicly</a>, or <a href="mailto:private@couchdb.apache.org">privately</a>. You can also tweet us at <a href="https://twitter.com/CouchDB">@CouchDB</a>. Whatever suits!</p>

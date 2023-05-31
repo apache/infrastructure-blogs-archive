@@ -1,0 +1,76 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 11 August 2017'
+date: '2017-08-11T00:00:00+00:00'
+categories: foundation
+---
+<div>Another great week has zipped by — here's what happened with the Apache community:</div> 
+  <div><br /></div> 
+  <div>Support Apache –whether through individual donations, corporate matching gifts, online shopping, or Sponsorship, your generous contributions provide critical support needed to run for the ASF. Every dollar counts. <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></div> 
+  <div><br /></div> 
+  <div>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.</div> 
+  <div>&nbsp;- Next Board Meeting: 16 August. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></div> 
+  <div>&nbsp;- ASF Annual Report for 2017 Fiscal Year <a href="https://s.apache.org/IDn5">https://s.apache.org/IDn5</a></div> 
+  <div><br /></div> 
+  <div>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.</div> 
+  <div>&nbsp;- 7M+ weekly checks yield hip performance at 91.80% uptime <a href="https://pulsar.incubator.apache.org/">http://status.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>Apache CouchDB™ –a database that completely embraces the Web by storing your data with JSON documents.</div> 
+  <div>&nbsp;- Apache CouchDB 2.1.0 released&nbsp;<a href="https://couchdb.apache.org/">https://couchdb.apache.org/</a></div> 
+  <p> </p> 
+  <div> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.2.27 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+    <p>Apache Parquet™ –a general-purpose columnar file format supporting nested Big Data.<br />&nbsp;- Apache Parquet C++ 1.2.0 released&nbsp;<a href="http://parquet.apache.org">http://parquet.apache.org</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Pulsar (incubating)&nbsp;–a highly scalable, low latency messaging platform running on commodity hardware.<br />&nbsp;- Apache Pulsar 1.19.0-incubating released&nbsp;<a href="https://pulsar.incubator.apache.org/">https://pulsar.incubator.apache.org/</a></p> 
+    <div> 
+      <p>Apache Qpid™ Proton –a messaging library for the Advanced Message Queuing Protocol 1.0 (AMQP 1.0, ISO/IEC 19464, http://www.amqp.org).<br />&nbsp;- Apache Qpid Proton-J 0.20.0 and JMS 0.24.0 released&nbsp;<a href="http://qpid.apache.org/">http://qpid.apache.org/</a></p> 
+      <p> </p> 
+    </div> 
+    <div>Apache Struts™ –a free Open Source framework for creating Java Web applications.<br />&nbsp;- Apache Struts: S2-049 Security Bulletin update&nbsp;<a href="http://struts.apache.org/docs/s2-049.html">http://struts.apache.org/docs/s2-049.html</a></div> 
+    <div> 
+      <p>Apache Subversion™ –an Open Source, centralized version control system characterized by its reliability as a safe haven for valuable data; the simplicity of its model and usage; and its ability to support the needs of a wide variety of users and projects, from individuals to large-scale enterprise operations.<br />&nbsp;- Apache Subversion 1.8.19 and 1.9.7 released&nbsp;<a href="http://subversion.apache.org/">http://subversion.apache.org/</a></p> 
+      <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and JASPIC technologies.<br />&nbsp;- Apache Tomcat 8.5.20 and 9.0.0.M26 released <a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a><br />&nbsp;- CVE-2017-7674 Apache Tomcat Cache Poisoning <a href="http://mail-archives.apache.org/mod_mbox/www-announce/201708.mbox/%3C866c61b4-8412-6834-5a1f-05a30c6b2f7b%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201708.mbox/%3C866c61b4-8412-6834-5a1f-05a30c6b2f7b%40apache.org%3E</a><br />&nbsp;- CVE-2017-7675 Apache Tomcat Security Constraint Bypass&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201708.mbox/%3C5019a868-3f92-d96d-6899-c965e04baf03%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201708.mbox/%3C5019a868-3f92-d96d-6899-c965e04baf03%40apache.org%3E</a></p> 
+    </div> 
+    <p>Apache Velocity™ –well-known in the Java field as a lightweight, easy-to-use templating library for creating dynamic Web sites and performing other text-generation tasks.<br />&nbsp;- Apache Velocity Engine 2.0<span style="white-space: pre;"> </span>released&nbsp;<a href="http://velocity.apache.org/">http://velocity.apache.org/</a></p> 
+    <div><br /></div> 
+  </div> 
+  <div>Did You Know?</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that biotech startup Zymergen uses Apache Airflow (incubating) to orchestrate complex Big Data processing?&nbsp;<a href="http://airflow.incubator.apache.org/">http://airflow.incubator.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that Apache Accumulo is now using impsort-maven-plugin to standardize import order in Java files?&nbsp;<a href="https://accumulo.apache.org">https://accumulo.apache.org</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that one of the strengths of Apache MXNet (incubating) is the ability to mix declarative and imperative programming?&nbsp;<a href="http://mxnet.incubator.apache.org/">http://mxnet.incubator.apache.org/</a></div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div>Apache Community Notices:</div> 
+  <div><br /></div> 
+  <div>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a> 4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- If you're looking for the ASF on social media, we're @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a> (follows/re-tweets/shares/likes appreciated!)</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Presentations from ApacheCon <a href="https://s.apache.org/Hli7">https://s.apache.org/Hli7</a> and Apache: Big Data <a href="https://s.apache.org/tefE">https://s.apache.org/tefE</a> are available; as well as videos <a href="https://s.apache.org/AE3m">https://s.apache.org/AE3m</a> and audio recordings <a href="https://feathercast.apache.org/">https://feathercast.apache.org/</a></div> 
+  <div>&nbsp;- Check out the latest Apache Community Development newsletter <a href="https://blogs.apache.org/comdev/entry/community-development-news-july-2017">https://blogs.apache.org/comdev/entry/community-development-news-july-2017</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The CloudStack European User Group will be held 17 August in London <a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-35565783215">https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-35565783215</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Meet members of the Apache Big Data communities at DataWorks/Hadoop Summit 20-21 September in Sydney <a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Catch the Apache Ignite and Spark communities at the In-Memory Computing Summit 24-25 October in San Francisco <a href="https://imcsummit.org/">https://imcsummit.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- ASF Annual Report <a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

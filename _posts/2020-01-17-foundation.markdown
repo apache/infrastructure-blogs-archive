@@ -1,0 +1,57 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 17 January 2020'
+date: '2020-01-17T00:00:00+00:00'
+categories: foundation
+---
+<p class="entryContent">Greetings everyone --it's time to review the Apache community's activities from the past week:</p> 
+  <p>Watch the first teaser for &quot;Trillions and Trillions Served&quot;, the documentary on The Apache Software Foundation, which resumed filming during ApacheCon 2019 <a href="https://s.apache.org/ASF-Trillions">https://s.apache.org/ASF-Trillions</a> </p> 
+  <p>ASF Board – management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 19 February 2020. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ApacheCon™ – the ASF's official global conference series, bringing Tomorrow's Technology Today since 1998<br />&nbsp;- CFP OPEN: Apache Roadshow/DC <a href="https://www.apachecon.com/usroadshowdc20/index.html">https://www.apachecon.com/usroadshowdc20/index.html</a></p> 
+  <p>ASF Infrastructure – our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;-
+ 7M+ weekly checks yield uptime at 99.83%. Performance checks across 50 
+different service components spread over more than 250 machines in data 
+centers around the world.&nbsp;<a href="http://www.apache.org/uptime/">http://www.apache.org/uptime/</a></p> 
+  <p>Apache Code Snapshot – this week, 903 Apache contributors changed 2,766,467 lines of code over 3,961 commits. Top 5 contributors, in order, are: Dan Haywood, Andrea Cosentino, Mark Thomas, Andi Huber, and Daniel Sun.&nbsp; &nbsp; <br /></p> 
+  <p>Apache Project Announcements&nbsp;– the latest updates by category.</p> 
+  <p><span class="il">Attic</span> --<br />&nbsp;- Apache ODE retired <a href="https://attic.apache.org">https://attic.apache.org/</a> <br /><br />Big Data --<br />&nbsp;- Apache Parquet Format 2.8.0 released <a href="https://parquet.apache.org">https://parquet.apache.org/</a> <br /><br />Content --<br />&nbsp;- Apache Jackrabbit Jackrabbit Oak 1.22.0 released <a href="http://jackrabbit.apache.org">http://jackrabbit.apache.org/</a> <br /></p> 
+  <p>IoT --<br />&nbsp;- Apache IoTDB (Incubating) 0.9.1 released <a href="http://iotdb.apache.org">http://iotdb.apache.org/</a> <br /> <br />Libraries --<br />&nbsp;- Apache Daffodil (Incubating) 2.5.0 <a href="https://daffodil.apache.org">https://daffodil.apache.org/</a><br />&nbsp;- Apache Crail (Incubating) 1.2 released
+<a href="https://crail.apache.org/">https://crail.apache.org/</a> <br /><br />Messaging --<br />&nbsp;- Apache Qpid Broker-J 7.1.7 released <a href="https://qpid.apache.org">https://qpid.apache.org/</a> <br /><br />
+Programming Languages --<br />&nbsp;- Apache Groovy 3.0.0-rc-3 released <a href="https://groovy.apache.org">https://groovy.apache.org/</a> <br /><br />Search --<br />&nbsp;- Apache Lucene 8.4.1 released <a href="http://lucene.apache.org">http://lucene.apache.org/</a> <br /><br />
+Servers --<br />&nbsp;- Apache HttpComponents Core 4.4.13 released <a href="https://hc.apache.org">https://hc.apache.org/</a> <br /> <br />Web Framework --<br />&nbsp;- Apache Wicket 9.0.0-M4 released <a href="https://wicket.apache.org">https://wicket.apache.org/</a> <br /><br /></p> 
+  <p><strong>Did You Know?</strong></p> 
+  <p>&nbsp;- Did you know that new podlings undergoing development in the Apache Incubator include projects in microservices, embedded operating systems, IoT data streams, messaging queues, transactional frameworks, and batch implementations?&nbsp;<a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p> 
+  <p>&nbsp;- <span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0">Did you know that, in 2019, more than 75% of contributors were new to Apache? <a href="https://s.apache.org/Apache2019Digits">https://s.apache.org/Apache2019Digits</a> </span><a title="https://s.apache.org/Apache2019Digits" href="https://t.co/x4Ovbaj1sA?amp=1" target="_blank" dir="ltr" role="link" data-focusable="true" class="css-4rbku5 css-18t94o4 css-901oao css-16my406 r-1n1174f r-1loqt21 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0" rel=" noopener noreferrer"><span aria-hidden="true" class="css-901oao css-16my406 r-1qd0xha r-hiw28u r-ad9z0x r-bcqeeo r-qvutc0"></span></a><span class="r-18u37iz"></span></p> 
+  <p>&nbsp;- Did you know that 2019's Top 5 Apache Project repositories by size (Lines of Code) were: <span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"><span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0">NetBeans </span></span>(8,354,466); <span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"><span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0">OpenOffice </span></span><span class="css-901oao css-16my406 r-18u37iz r-1q142lx r-1qd0xha r-1b6yd1w r-ad9z0x r-bcqeeo r-qvutc0"></span>(7,828,646); Flex (whiteboard: 5,233,277); <span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"><span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0">Mynewt</span></span><span class="css-901oao css-16my406 r-18u37iz r-1q142lx r-1qd0xha r-1b6yd1w r-ad9z0x r-bcqeeo r-qvutc0"> </span>(core: 4,108.323); Flex (SDK: 3,933,522)? <a href="https://s.apache.org/Apache2019Digits">https://s.apache.org/Apache2019Digits</a><br /><br /></p> 
+  <p><strong>Apache Community Notices:</strong></p> 
+  <p>&nbsp;- Apache in 2019 - By The Digits&nbsp;<a href="https://s.apache.org/Apache2019Digits">https://s.apache.org/Apache2019Digits</a> </p> 
+  <p>&nbsp;- The Apache Way to Sustainable Open Source Success&nbsp;<a href="https://s.apache.org/GhnI">https://s.apache.org/GhnI</a></p> 
+  <p>&nbsp;- ASF Operations Summary: Q2 FY2020 (August - October 2019) <a href="https://s.apache.org/2kv2n">https://s.apache.org/2kv2n</a></p> 
+  <p>&nbsp;- Celebrating 20 Years Community-led Development &quot;The Apache Way&quot;&nbsp;<a href="https://s.apache.org/ASF20thAnniversary">https://s.apache.org/ASF20thAnniversary</a></p> 
+  <p>&nbsp;- ASF Founders look back on 20 Years of the ASF <a href="https://blogs.apache.org/foundation/entry/our-founders-look-back-on">https://blogs.apache.org/foundation/entry/our-founders-look-back-on</a></p> 
+  <p>&nbsp;- Foundation Reports and Statements <a href="http://www.apache.org/foundation/reports.html">http://www.apache.org/foundation/reports.html</a></p> 
+  <p>&nbsp;- ApacheCon: Tomorrow's Technology Today since 1998&nbsp;<a href="http://s.apache.org/ApacheCon">http://s.apache.org/ApacheCon</a></p> 
+  <p>&nbsp;- ASF Annual Report for FY2019&nbsp;<a href="https://s.apache.org/FY2019AnnualReport">https://s.apache.org/FY2019AnnualReport</a></p> 
+  <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open.&nbsp;<a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <p>&nbsp;- CFP and pre-registration open for the first Pulsar Summit <a href="http://pulsar.apache.org/blog/2019/12/18/Pulsar-summit-cfp/">http://pulsar.apache.org/blog/2019/12/18/Pulsar-summit-cfp/</a> </p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the people and processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter (<a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a>) and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://events.apache.org/event/meetups.html">http://events.apache.org/event/meetups.html</a></p> 
+  </div><span class="LrzXr"></span><span class="LrzXr"></span> 
+  <div>&nbsp;- Find out how you can participate with Apache 
+community/projects/activities --opportunities open with Apache Camel, 
+Apache HTTP Server, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br />&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div> 
+    <p>= = =</p> 
+    <p>For real-time updates, sign up for Apache-related news by sending
+ mail to announce-subscribe@apache.org and follow @TheASF on Twitter. 
+For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</p> 
+  </div>

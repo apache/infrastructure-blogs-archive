@@ -1,0 +1,17 @@
+---
+layout: post
+title: Flex settling in at The Apache Software Foundation
+date: '2012-01-13T00:00:00+00:00'
+categories: flex
+---
+<p>This is the beginning of a new era for Flex. On December 31st 2011, <a href="http://incubator.apache.org/flex/" title="Apache Flex podling">our project</a> was accepted as an incubator podling at the Apache Software Foundation.</p>
+
+<p>Now the real work begins. If you’ve joined the <a href="http://incubator.apache.org/flex/mailing-lists.html" title="Flex developer mailing list">developer mailing list</a> (or checked <a href="http://markmail.org/search/?q=+list%3Aorg.apache.incubator.flex-dev" title="Flex developer mailing list archives">the archives</a>) you will see some of the excitement about Apache Flex and discussions on how to move the technology forward. One thing we can say for sure: we have a good group of enthusiastic volunteers and no lack of ideas.</p>
+
+<p>We've seen some great first contributions to the whiteboard - an area in the repository for experimental work - by several <a href="http://incubator.apache.org/flex/team.html" title="Flex podling team">committers</a> that could potentially make it in in a next release. Our contributors from Adobe are working with Adobe’s legal department to get the Flex SDK source code submitted to the Apache repository. We expect the initial commit of code will be made by the end of next week. Special thanks to Adobe’s Alex Harui and Carol Frampton for their hard work!</p> 
+
+<p>How can you get involved? If you're a Flex developer and would like to follow what is happening, you should join the developer mailing list. The mantra at Apache is "if it didn't happen on the mailing list, it didn't happen." We have a JIRA issue tracker being set up, too. This will be an excellent entry point for developers to start contributing code patches.</p> 
+
+<p>We're also <a href="http://incubator.apache.org/flex/logo-contest.html" title="Apache Flex logo contest">looking for a logo</a> for Apache Flex. If you have good design skills and would like to submit a proposal you have until January 17th.</p>
+
+<p><br />In short, we're excited to see things getting up and running and the amount of enthusiasm shown by the community about the future of Flex at Apache!</p>

@@ -1,0 +1,84 @@
+---
+layout: post
+title: Apache Maven 3.8.3 Released
+date: '2021-10-04T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the <a href="https://maven.apache.org/ref/3.8.3/">Apache Maven 3.8.3</a></p>
+
+    <p>Apache Maven is a software project management and comprehension tool. Based on the concept
+        of a project object model (POM), Maven can manage a project&rsquo;s build, reporting and documentation
+        from a central piece of information.</p>
+
+    <p>Maven 3.8.3 is available via <a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p>
+
+    <p>The core release is independent of plugin releases. Further releases of plugins will be made
+        separately.</p>
+
+    <p>If you have any questions, please consult:</p>
+
+    <ul>
+        <li>the web site: <a href="https://maven.apache.org/">https://maven.apache.org/</a></li>
+        <li>the maven-user mailing list: <a href="https://maven.apache.org/mailing-lists.html">https://maven.apache.org/mailing-lists.html</a></li>
+        <li>the reference documentation: <a href="https://maven.apache.org/ref/3.8.3/">https://maven.apache.org/ref/3.8.3/</a></li>
+    </ul>
+
+
+    <p>Release Notes &ndash; Maven &ndash; Version 3.8.3</p>
+
+    <ul>
+        <li><p>Bugs:</p>
+
+            <ul>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7045">MNG-7045</a> &ndash; Drop CDI API from Maven</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7214">MNG-7214</a> &ndash; Bad transitive dependency parent from CDI API</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7215">MNG-7215</a> &ndash; [Regression] Maven Site Plugin cannot resolve parent site descriptor without locale</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7216">MNG-7216</a> &ndash; Revert MNG-7170</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7218">MNG-7218</a> &ndash; [Regression] o.a.m.model.Build.getSourceDirectory() incorrectly returns absolute dir on 3.8.2</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7219">MNG-7219</a> &ndash; [Regression] plexus-cipher missing from transitive dependencies</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7220">MNG-7220</a> &ndash; [REGRESSION] test-classpath incorrectly resolved</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7251">MNG-7251</a> &ndash; Fix threadLocalArtifactsHolder leaking into cloned project</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7253">MNG-7253</a> &ndash; Relocation message is never shown</li>
+            </ul>
+        </li>
+        <li><p>New Feature:</p>
+
+            <ul>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7164">MNG-7164</a> &ndash; Add constructor MojoExecutionException(Throwable)</li>
+            </ul>
+        </li>
+        <li><p>Improvements:</p>
+
+            <ul>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7235">MNG-7235</a> &ndash; Speed improvements when calculating the sorted project graph</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7236">MNG-7236</a> &ndash; The DefaultPluginVersionResolver should cache results for the session</li>
+            </ul>
+        </li>
+        <li><p>Tasks:</p>
+
+            <ul>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7252">MNG-7252</a> &ndash; Fix warnings issued by dependency:analyze</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7254">MNG-7254</a> &ndash; Expand Windows native libraries for Jansi due to JDK-8195129 (workaround)</li>
+            </ul>
+        </li>
+        <li><p>Dependency upgrades:</p>
+
+            <ul>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-6818">MNG-6818</a> &ndash; Upgrade Plexus Utils to 3.3.0</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-6841">MNG-6841</a> &ndash; Upgrade Plexus Interpolation to 1.26</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7246">MNG-7246</a> &ndash; Upgrade Plexus Cipher and Sec Dispatcher to 2.0</li>
+                <li><a href="https://issues.apache.org/jira/browse/MNG-7250">MNG-7250</a> &ndash; Upgrade Sisu Inject/Plexus to 0.3.5</li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <p>For more information read <a href="https://maven.apache.org/docs/3.8.3/release-notes.html">https://maven.apache.org/docs/3.8.3/release-notes.html</a></p>
+
+    <p>Enjoy!</p>
+
+    <ul>
+        <li>The Maven Team</li>
+    </ul>
+
+</div>

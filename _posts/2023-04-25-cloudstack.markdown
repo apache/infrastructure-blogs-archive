@@ -1,0 +1,31 @@
+---
+layout: post
+title: Reflecting on KubeCon + CloudNativeCon 2023
+date: '2023-04-25T00:00:00+00:00'
+categories: cloudstack
+---
+<a href="https://blogs.apache.org/cloudstack/mediaresource/e729f7ae-ebe1-474a-91f6-27c6a581b995"><img src="https://blogs.apache.org/cloudstack/mediaresource/e729f7ae-ebe1-474a-91f6-27c6a581b995" alt="ACS-Kubecon.jpg" width= "750" height = "520" /></a>
+
+
+<p>For the first year, the Apache CloudStack Community has participated at KubeCon + CloudNativeCon- the&nbsp;<a href="https://www.cncf.io/?_gl=1*x7ihno*_ga*MjA1MDg5MzgzMS4xNjc5OTAwNzUy*_ga_VWZ4V8CGRF*MTY4MjQwNDA5NC4xMS4wLjE2ODI0MDQwOTQuMC4wLjA."><span data-preserver-spaces="true">Cloud Native Computing Foundation&rsquo;s</span></a><span data-preserver-spaces="true"> flagship conference, which gathers adopters and technologists from leading open source and cloud native communities. It has been a fantastic opportunity for us to represent our technology on the global stage, and meet engineers, DevOps and infrastructure experts. Community members have had the pleasure of running attendees through multiple CloudStack demos and answering their many questions about the open-source cloud management solution. We also had the opportunity to share the pitfalls, hacks, learnings, and key takeaways from&nbsp;</span><a href="https://www.youtube.com/watch?v=AR8JXotMir8&amp;t=44s"><span data-preserver-spaces="true">our journey to develop CAPC</span></a><span data-preserver-spaces="true">&nbsp;&ndash; the CAPI Provider for Apache CloudStack.</span></p>
+<p>&nbsp;</p>
+
+<p><strong>The CloudStack Booth</strong></p>
+<p>Community members representing and sharing knowledge of Apache CloudStack with the broader cloud industry had a thoroughly enjoyable time at the conference. We manage to engage with global cloud providers, telecoms, consulting companies, gaming companies and service providers.</p>
+<p>We discussed a lot with attendees on topics like building hybrid clouds, keeping infrastructure costs under control, decreasing cloud complexity, and ensuring the best infrastructure for running containers at scale while maintaining investments in infrastructure low.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://blogs.apache.org/cloudstack/mediaresource/40babcd3-3ee6-4b8f-8b05-a1ac8507c6ff" alt="" width="750" height="563" /></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://blogs.apache.org/cloudstack/mediaresource/bf09db74-8261-4f1d-9001-d1d7b4f1cf23" alt="" width="750" height="563" /></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://blogs.apache.org/cloudstack/mediaresource/7346597f-2b13-44c7-aa67-95eb337145c9" alt="" width="750" height="563" /></p>
+<p><strong>Explore the Kubernetes Cluster API Provider for Apache CloudStack</strong></p>
+<p>The Kubernetes Cluster API (CAPI) provider for Apache CloudStack allows Kubernetes users to build and manage resources on Apache CloudStack. The provider is available under the Apache 2 open-source license and is managed by the Cloud Native Computing Foundation (CNCF). The Cluster API brings declarative, Kubernetes-style APIs to cluster creation, configuration and management. The API itself is shared across multiple cloud providers allowing for true Apache CloudStack hybrid deployments of Kubernetes. It is built atop the lessons learned from previous cluster managers such as kops and kubicorn.</p>
+<p>&nbsp;</p>
+<p><strong>Discover the Upcoming CloudStack Events</strong></p>
+<p><strong>CloudStack European User Group:</strong> The next event that the Apache CloudStack community is hosting is the CloudStack European User Group<strong>, taking place on 4<sup>th</sup> May</strong> in the Gandhi Room at Cifas, Tavistock Square, 7-12 Lynton House, <strong>London</strong>, WC1H 9LT. This event is an annual 1-day technical event for the European CloudStack community.</p>
+<p><a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-2023-tickets-513821653397"><strong>(Click here to register for CSEUG)</strong></a></p>
+
+<p><strong>CloudStack Collaboration Conference: </strong>Taking place on <strong>23-24<sup>th</sup> November</strong>, with the location to be announced in the new future, CCC is the most significant global CloudStack and open-source cloud builders event. The two-day hybrid event is aimed at developers, operators and users to discuss and evolve the open-source software project, its functionality and real-world operability. This event will introduce you to the CloudStack family, community leaders, project members and contributors. Registration details will be announced <strong>in the near future,</strong> so make sure to keep an eye out on the <a href="https://cloudstack.apache.org/mailing-lists.html">CloudStack mailing lists</a> of <a href="https://twitter.com/CloudStack">CloudStack&rsquo;s social media</a> channels.</p>
+<p><a href="https://www.cloudstackcollab.org/wp-content/uploads/2023/02/Sponsorship-Prospectus-CCC-2023.pdf"><strong>(Learn about sponsorship opportunities)</strong></a></p>
+<p>&nbsp;</p>
+<p><strong>Why Choose Apache CloudStack </strong></p>
+<p>Apache CloudStack helps cloud builders solve their key challenges &ndash; costs, vendor lock-in and using fewer resources to manage tens of thousands of physical servers installed in geographically distributed data centers. The turnkey solution, made for cloud builders and managed service providers, is open-source and easy to implement, manage and scale - particularly when compared to alternative cloud orchestration platforms.</p>
+<p>Download the latest 4.18 release - https://bit.ly/3Koczl3</p>

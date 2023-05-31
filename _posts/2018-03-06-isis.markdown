@@ -1,0 +1,15 @@
+---
+layout: post
+title: "[ANN] Apache Isis version 1.16.2 Released"
+date: '2018-03-06T00:00:00+00:00'
+categories: isis
+---
+<p>The Apache Isis team is pleased to announce the release of Apache Isis v1.16.2</p>
+  <p>This is primarily a maintenance fix release fixing one severe error in 1.16.1 relating to parented checkboxes.&nbsp; It does however introduce one new feature for the REST API (RO viewer) to support generic RO clients. There is also one notable performance improvement through the caching of JAXBContexts.</p>
+  <p>Full release notes are available on the Apache Isis website at [1].</p>
+  <p>You can access this release directly from the Maven central repo [2].&nbsp; Alternatively, download the release and build it from source [3].</p>
+  <p>Enjoy!</p>
+  <p>--The Apache Isis team</p>
+  <p>[1] http://isis.apache.org/release-notes/release-notes.html#_release-notes_1.16.2</p>
+  <p>[2] http://search.maven.org</p>
+  <p>[3] http://isis.apache.org/downloads.html</p>

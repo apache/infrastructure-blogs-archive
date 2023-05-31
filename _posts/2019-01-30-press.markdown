@@ -1,0 +1,82 @@
+---
+layout: post
+title: Call for Entries --Apache Software Foundation 20th Anniversary Logo
+date: '2019-01-30T00:00:00+00:00'
+categories: press
+---
+<p><strong><em>Create a 20th Anniversary logo for the <a href="http://apache.org/">world's largest Open Source software foundation</a>!</em></strong></p> 
+  <p>The Apache Software Foundation (ASF) develops, shepherds, and incubates hundreds of freely-available, enterprise-grade projects that serve as the backbone for some of the most visible and widely used applications in computing today. Through the ASF's meritocratic, community-led process known as &quot;The Apache Way,&quot; more than 730 individual volunteer Members and 7,000+ code Committers across six continents successfully collaborate on innovations in Artificial Intelligence and Deep Learning, Big Data, Build Management, Cloud Computing, Content Management, DevOps, IoT and Edge Computing, Mobile, Servers, and Web Frameworks, among other categories.</p> 
+  <p><strong>Key Dates</strong></p> 
+  <p> </p> 
+  <ul> 
+    <li><u><em>Entries Open</em></u>: 29 January - 28 February 2019</li> 
+    <li><u><em>Voting Period</em></u>: 1-5 March 2019</li> 
+    <li><u><em>Winning Design Selected</em></u>: 5 March 2019</li> 
+    <li><u><em>Revisions and Fine-tuning</em></u>: 6-15 March 2019</li> 
+    <li><u><em>Final Art Due</em></u>: 19 March 2019</li> 
+    <li><u><em>Winning Design</em></u> will debut on 26 March 2019</li> 
+  </ul> 
+  <p><strong>Design Requirements</strong></p> 
+  <p> </p> 
+  <ul> 
+    <li>The Anniversary Logo needs to be scalable and legible at relatively small sizes</li> 
+    <li>Proposals must incorporate&nbsp;<a href="http://apache.org/foundation/press/kit/">the Apache Feather logo</a></li> 
+    <li>The ASF Feather MUST NOT be manipulated in any way</li> 
+    <li>Create a logo in alignment with the <a href="https://apache.org/foundation/press/kit/ApacheFoundation_StyleGuide.pdf">ASF Logo Style Guide</a></li> 
+    <li><a href="https://apache.org/foundation/press/kit/ApacheFoundation_StyleGuide.pdf"></a>Anniversary Logo must include the number &quot;20&quot;, incorporating *one* of the phrases below:</li> 
+    <p>— &quot;20th Anniversary&quot;<br />— &quot;20 Years of The Apache Way&quot;<br />— &quot;20 Years of Community-Led Development&quot;</p> 
+    <p> </p> 
+  </ul> 
+  <p><strong>Submission Guidelines and Instructions</strong></p> 
+  <p> </p> 
+  <ul> 
+    <li>Entrants may submit as many design proposals as desired</li> 
+    <li>Only one submission per entry (uploaded individually)</li> 
+    <li>Design proposals should be submitted in PDF format&nbsp;</li> 
+    <li>Each submission should be named as:<br /><br /><em>last name (or company name) + chronological number<br /></em><br />(Example &quot;DesignCo-1&quot;, &quot;DesignCo-2&quot; etc.)<br /><br /></li> 
+    <li>Complete <a href="https://script.google.com/macros/s/AKfycbwfhbotw_fPknkXzHigx7vrmDTXedPz4yG9AS1eDt3DH58v-xw/exec"><strong>Call for Entries and submit your proposals</strong></a> per the instructions below.<br /><em>[In the event of any issues with the submission form, please email your PDF entries to sk(at)apache(dot)org]<br /></em><em>Be sure to review the&nbsp;</em><a href="https://apache.org/foundation/press/kit/ApacheFoundation_StyleGuide.pdf"><em><strong>ASF Logo Style Guide</strong></em><br /></a></li> 
+  </ul><strong>Usage Guidelines</strong><br /> 
+  <ul> 
+    <li>The logo will be used online, in print, and on promotional materials</li> 
+    <li>The design must be flexible, easily scalable/resized, and work both in color as well as black and white</li> 
+    <li>The use of halftones and gradients are discouraged</li> 
+    <li>The final version of the logo will need to be suitable for high quality printing</li> 
+    <li>Entries that cannot be registered are disallowed and will be disqualified</li> 
+    <li>Please carefully review the Qualifications, Intellectual Property, and Acceptance sections below</li> 
+  </ul> 
+  <p><strong>Final Assets Required</strong></p> 
+  <ul> 
+    <li>Standalone --logo/Mark + &quot;20&quot; only</li> 
+    <li>Mark + tagline -- as described in &quot;Design Requirements&quot; above</li> 
+    <li>Must include EPS, PDF, JPG, PNG, and SVG formats with both white and transparent backgrounds.</li> 
+  </ul> 
+  <p><strong>Qualifications of Winner</strong></p> 
+  <p><strong></strong>
+The winning Entrant will be required to assign all ownership of the logo to the ASF.</p> 
+  <p><strong>
+Intellectual Property</strong> </p> 
+  <p> </p> 
+  <ul> 
+    <li>All submitted work must be original and not based on any pre-existing design</li> 
+    <li>All entries will become the sole property of the ASF and may be displayed publicly on Websites and related promotional materials</li> 
+    <li>The winning entry will be the property of the ASF and may be registered as a trademark of the ASF. Entrant agrees to transfer all rights and title to the ASF</li> 
+  </ul> 
+  <p> </p> 
+  <p><strong>Acceptance</strong> </p> 
+  <p>Participation constitutes the Entrant's full agreement to and acceptance of these rules. By participating in the Call, the Entrant is representing and warranting that he/she/they read,  understood, and agree to be bound by these rules. 
+</p> 
+  <p>These official rules constitute the entire agreement between the Entrant and the ASF in relation to the Call. They govern the Entrant's participation and supersede any prior or other agreements between the Entrant and the ASF relating to the Call.</p> 
+  <p><strong>Judging Process</strong></p> 
+  <p>Jury comprises members of the the ASF's Marketing &amp; Publicity Central Services sub-group. Their decision will be final.
+
+</p> 
+  <p>The ASF Marketing &amp; Publicity committee, in its sole discretion, reserves the right not to select a winner in the event that no suitable entries are received.
+
+Results
+The winner will be announced across ASF mailing lists and social media channels, as well as showcased in the ASF's 20th Anniversary press release. </p> 
+  <p>The winner will be required to follow-up with the Central Services sub-group to fine-tune and submit final artwork no later than 19 March 2019.
+</p> 
+  <p>
+# # #
+</p> 
+  <style>.forms-studio{position:relative;padding-bottom:56.25%;overflow:hidden;width:100%;height:600px;}.forms-studio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}</style>

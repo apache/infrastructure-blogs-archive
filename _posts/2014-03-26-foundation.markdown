@@ -1,0 +1,35 @@
+---
+layout: post
+title: The Apache Software Foundation Celebrates Document Freedom Day 2014
+date: '2014-03-26T00:00:00+00:00'
+categories: foundation
+---
+<div> 
+    <p><b><i>Numerous Apache Projects support standards-based document accessibility and interoperability</i></b></p> 
+    <p><b><i></i>Forest Hill, MD --26 March 2014--</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 170 Open Source projects and initiatives, today joins open standards supporters around the world in celebrating Document Freedom Day.</p> 
+  </div> 
+  <div> 
+    <p>Document Freedom Day raises awareness of the importance of open standards, and the applications that implement them, with a special focus on the standards that promote interoperability and access to electronic documents.</p> 
+    <p>&quot;We are very happy to participate in Document Freedom Day, and to raise awareness of the need for standards in our industry,&quot; said ASF Vice Chairman Greg Stein. &quot;Through my past work on WebDAV, I've learned just how important standards can be for the software industry. The Foundation's broad support for standards is a huge benefit for users, developers, and companies that use our software.&quot;</p> 
+  </div> 
+  <div><b>Leading Support for Core Document Standards</b></div> 
+  <div>The Apache Software Foundation supports open standards in many of its projects, including many of the most-common document format standards:<br /><br /></div> 
+  <div> 
+    <ul> 
+      <li>Apache OpenOffice, the leading Open Source office document productivity suite, is the original implementation of Open Document Format (ISO/IEC 26300)&nbsp;<a href="http://openoffice.apache.org/">http://openoffice.apache.org/</a></li> 
+      <li>Apache POI is a Java API for manipulating Office Open XML (ISO/IEC 29500) as well as legacy Microsoft Office documents based on OLE Compound Document Format&nbsp;<a href="http://poi.apache.org/">http://poi.apache.org/</a></li> 
+      <li>Apache Batik is a Java API for rendering Scalable Vector Graphics documents, a core web standard from the W3C <a href="http://xmlgraphics.apache.org/batik/">http://xmlgraphics.apache.org/batik/</a></li> 
+      <li>Apache FOP implements the W3C’s XSL Formatting Objects specification, used for print-oriented page layout <a href="http://xmlgraphics.apache.org/fop/">http://xmlgraphics.apache.org/fop/</a></li> 
+      <li>Apache PDFBox supports Portable Document Format (ISO 32000) with a Java API for manipulating, creating and extracting information from PDF documents&nbsp;<a href="http://pdfbox.apache.org/">http://pdfbox.apache.org/</a></li> 
+      <li>The Apache ODF Toolkit (incubating) is a Java API for reading, writing and creating Open Document Format (ISO/IEC 26300) documents&nbsp;<a href="http://incubator.apache.org/odftoolkit/">http://incubator.apache.org/odftoolkit/</a></li> 
+      <li>Apache Jena implements the W3C's RDF and OWL standards, foundational standards that support the semantic and linked data&nbsp;<a href="http://jena.apache.org/">http://jena.apache.org/</a></li> 
+      <li>Apache Chemistry supports interoperable access to Content Management Systems via its implementation of the OASIS Content Management Interface Services (CMIS) standard <a href="http://chemistry.apache.org/">http://chemistry.apache.org/</a> </li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <p>In addition to developing implementations of these core standards, many Apache community members participate in committees and working groups at W3C (World Wide Web Consortium), OASIS (Organization for the Advancement of Structured Information Standards), and ISO (International Organization for Standardization) to help develop and maintain both existing and future standards.</p> 
+  <div><br />For more information on Document Freedom Day, visit <a href="http://documentfreedom.org/">http://documentfreedom.org/</a><br /><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than one hundred and seventy leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 400 individual Members and 3,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Budget Direct, Citrix, Cloudera, Comcast, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, Matt Mullenweg, Microsoft, Pivotal, Produban, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.</div> 
+  <div><br />&quot;Apache&quot;, &quot;Apache OpenOffice&quot;, &quot;Apache POI&quot;, &quot;Apache Batik&quot;, &quot;Apache FOP&quot;, &quot;Apache PDFBox&quot;, &quot;Apache ODF Toolkit&quot;, &quot;Apache Jena&quot;, and &quot;Apache Chemistry&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <p># # #</p>

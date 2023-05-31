@@ -1,7 +1,0 @@
----
-layout: post
-title: CFPs closed, schedules coming soon
-date: '2021-05-18T16:22:38+00:00'
-categories: conferences
----
-<p>The call for presentations for our two upcoming conferences - ApacheCon @Home 2021 and ApacheCon Asia 2021 - have closed, and we expect to announce our schedules very soon at <a href="https://apachecon.com/" target="_blank">https://apachecon.com/</a></p><p>Meanwhile, sponsorship opportunities are still available on the respective event websites!</p><p>We hope to see you all at ApacheCon in just a few months.</p>

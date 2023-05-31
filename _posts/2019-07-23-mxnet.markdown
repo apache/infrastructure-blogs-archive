@@ -1,0 +1,59 @@
+---
+layout: post
+title: Apache MXNet (incubating) 1.5.0 release is now available
+date: '2019-07-23T00:00:00+00:00'
+categories: mxnet
+---
+<p>Today the Apache MXNet community is pleased to announce the 1.5.0 release of Apache MXNet deep learning framework. We would like to thank the Apache MXNet community for all their valuable contributions towards the MXNet 1.5.0 release.</p>
+
+<p>With this release, we bring the following new features to our users. For a comprehensive list of major features and bug fixes, please check out the full <a href="https://github.com/apache/incubator-mxnet/releases/tag/1.5.0">Apache MXNet 1.5.0 release notes</a>. </p>
+
+<h3>Automatic Mixed Precision (experimental)</h3>
+
+<p>Training Deep Learning networks is a very computationally intensive task. Novel model architectures tend to have increasing numbers of layers and parameters, which slow down training. Fortunately, software optimizations and new generations of training hardware make it a feasible task.</p>
+
+<p>However, most of the hardware and software optimization opportunities exist in exploiting lower precision (e.g. FP16) to, for example, utilize Tensor Cores available on new Volta and Turing GPUs. While training in FP16 showed great success in image classification tasks, other more complicated neural networks typically stayed in FP32 due to difficulties in applying the FP16 training guidelines.</p>
+
+</p>That is where AMP (Automatic Mixed Precision) comes into play. It automatically applies the guidelines of FP16 training, using FP16 precision where it provides the most benefit, while conservatively keeping in full FP32 precision operations unsafe to do in FP16. To learn more about AMP, check out this <a href="https://mxnet.incubator.apache.org/versions/master/tutorials/amp/amp_tutorial.html">tutorial </a>.</p>
+
+<h3>MKL-DNN: Reduced precision inference and RNN API support</h3>
+
+<p>Two advanced features, fused computation and reduced-precision kernels, are introduced by MKL-DNN in the recent version. These features can significantly speed up the inference performance on CPU for a broad range of deep learning topologies. MXNet MKL-DNN backend provides optimized implementations for various operators covering a broad range of applications including image classification, object detection, and natural language processing. Refer to the <a href="https://github.com/apache/incubator-mxnet/blob/v1.5.x/docs/tutorials/mkldnn/operator_list.md">MKL-DNN operator documentation</a> for more information.</p>
+
+<h3>Dynamic Shape(experimental)</h3>
+
+<p>MXNet now supports Dynamic Shape in both imperative and symbolic mode. MXNet used to require that operators statically infer the output shapes from the input shapes. However, there exist some operators that the output depends on input data or input arguments. Now MXNet supports operators with dynamic shape such as <a href="https://mxnet.incubator.apache.org/api/python/ndarray/contrib.html#mxnet.ndarray.contrib.while_loop">contrib.while_loop</a>, <a href="https://mxnet.incubator.apache.org/api/python/ndarray/contrib.html#mxnet.ndarray.contrib.cond">contrib.cond</a>, and <a href="https://mxnet.incubator.apache.org/api/python/ndarray/contrib.html#contrib">mxnet.ndarray.contrib.boolean_mask</a></p>
+
+<h3>Large Tensor Support</h3>
+
+<p>Before MXNet 1.5.0, MXNet supports maximal tensor size of around 4 billon (2^32). This is due to uint32_t being used as the default data type for tensor size, as well as variable indexing. Now you can enable large tensor support by changing the following build flag to 1: USE_INT64_TENSOR_SIZE = 1.(Note this is set to 0 by default) This enabled large scale training for example large graph network training using <a href="https://www.dgl.ai/">Deep Graph Library</a>.</p>
+
+<h3>Dependency Update</h3>
+
+<p>MXNet has added support for CUDA 10, CUDA 10.1, cudnn7.5, NCCL 2.4.2, and numpy 1.16.0.</p>
+<p>These updates are available through PyPI packages and build from source, refer to <a href="https://mxnet.incubator.apache.org/versions/master/install/index.html">installation guid</a> for more details.</p>
+
+<h3>Gluon Fit API(experimental)</h3>
+
+<p>Training a model in Gluon requires users to write the training loop. This is useful because of its imperative nature, however repeating the same code across multiple models can become tedious and repetitive with boilerplate code. We have introduced an Estimator and Fit API to help facilitate training loop.</p>
+
+<h3>Additional feature improvements and bug fixes</h3>
+
+<p>In addition to the new features, we have the following improvement on existing features, performance, documentation, and bug fixes:</p>
+<ol type="1">
+<li><p>Improved experience with front-end APIs: Python, Java, Scala, C++, Clojure, Julia, Perl, and R</p></li>
+<li><p>Several important performance improvements on both CPU and GPU</p></li>
+<li><p>Fixed 200+ bugs to improve usability</p></li>
+<li><p>Added 10+ examples/tutorials and 50+ documentation updates</p></li>
+<li><p>100+ updates on build, test, and continuous integration system to improve MXNet contributor experience</p></li>
+</ol>
+
+<h3>Getting Started with MXNet:</h3>
+
+<p>To get started with MXNet, visit the <a href="https://mxnet.incubator.apache.org/versions/master/install/">install page</a>. To learn more about MXNet Gluon interface and deep learning, you can follow our comprehensive book: <a href="http://d2l.ai/">Dive into Deep Learning</a>. It covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. You can check out other related <a href="https://mxnet.incubator.apache.org/versions/master/tutorials/index.html">MXNet tutorials</a>, <a href="https://medium.com/apache-mxnet">MXNet blog posts</a>, <a href="https://twitter.com/apachemxnet?lang=en">MXNet Twitter</a> and <a href="https://www.youtube.com/channel/UCQua2ZAkbr_Shsgfk1LCy6A">MXNet YouTube channel</a>.</p>
+
+<p>Have fun with MXNet 1.5.0!</p>
+
+<h3>Acknowledgements:</h3>
+
+<p>We would like to thank everyone from the Apache MXNet community for their contributions to the 1.5.0 release.</p>

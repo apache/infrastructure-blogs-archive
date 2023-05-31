@@ -1,0 +1,14 @@
+---
+layout: post
+title: Apache TomEE logo contest extended
+date: '2012-12-16T00:00:00+00:00'
+categories: openejb
+---
+In a previous post, we announce the Apache TomEE logo contest.
+The purpose is to find a logo that clearly fits the logo philosophy and would allow everybody to identify it.
+
+We already got interesting proposals and decided to extend the logo contest till January, 15th.
+Every proposal is welcome and there is no limit!
+
+
+<a href="http://tomee.apache.org/logo">Go to the following page to submit</a>

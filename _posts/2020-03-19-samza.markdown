@@ -1,0 +1,98 @@
+---
+layout: post
+title: Announcing the release of Samza 1.4
+date: '2020-03-19T00:00:00+00:00'
+categories: samza
+---
+<strong>NOTE</strong>: We may introduce <strong>backward incompatible changes regarding samza job submission</strong> in the future 1.5 release. Details can be found on <a href="https://cwiki.apache.org/confluence/display/SAMZA/SEP-23%3A+Simplify+Job+Runner">SEP-23: Simplify Job Runner</a></p>
+
+<p>We are thrilled to announce the release of Apache Samza 1.4.0.</p>
+
+<p>Today, Samza forms the backbone of hundreds of real-time production applications across a multitude of companies, such as LinkedIn, Slack, and Redfin, among many others. Samza provides leading support for large-scale stateful stream processing with:</p>
+
+<ul>
+<li>First class support for local state (with RocksDB store). This allows a stateful application to scale up to 1.1 Million events/sec on a single machine with SSD.</li>
+<li>Support for incremental checkpointing of state instead of full snapshots. This enables Samza to scale to applications with very large state.</li>
+<li>A fully asynchronous programming model that makes parallelizing remote calls efficient and effortless.</li>
+<li>High level API for expressing complex stream processing pipelines in a few lines of code.</li>
+<li>Beam Samza Runner that marries Beam’s best in class support for EventTime based windowed processing and sophisticated triggering with Samza’s stable and scalable stateful processing model.</li>
+<li>A fully pluggable model for input sources (e.g. Kafka, Kinesis, DynamoDB streams etc.) and output systems (HDFS, Kafka, ElastiCache etc.).</li>
+<li>A Table API that provides a common abstraction for accessing remote or local databases and allowing developers are able to “join” an input event stream with such a Table.</li>
+<li>Flexible deployment model for running the applications in any hosting environment and with cluster managers other than YARN.</li>
+</ul>
+
+<h3 id="new-features-upgrades-and-bug-fixes">New Features, Upgrades and Bug Fixes:</h3>
+
+<p>This release brings the following features, upgrades, and capabilities (highlights):</p>
+
+<ul>
+<li>Improvements regarding management and monitoring of local state</li>
+<li>Improvements to the Samza SQL API</li>
+<li>New system producer for Azure blob storage</li>
+<li>Bug fixes</li>
+</ul>
+
+<p>Full list of the jiras addressed in this release can be found <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20and%20fixVersion%20in%20(1.4)">here</a>.</p>
+
+<h3>Upgrading your application to Apache Samza 1.4.0</h3>
+
+<p>If an application is being upgraded to Samza 1.4, please note the following usage changes.</p>
+
+<ul>
+<li>The samza-autoscaling module is no longer supported, and the module has been removed.</li>
+</ul>
+
+<h3>State</h3>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2386">SAMZA-2386</a> Get store names should return correct store names in the presence of side inputs</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2324">SAMZA-2324</a> Adding KV store metrics for rocksdb</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2416">SAMZA-2416</a> Adding null-check before incrementing metrics for bytesSerialized</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2397">SAMZA-2397</a> Samza rocksdb metrics do not emit values after Samza version &gt;= 1.1</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2447">SAMZA-2447</a> Checkpoint dir removal should only search in valid store dirs</li>
+</ul>
+
+<h3 id="sql">SQL</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2362">SAMZA-2362</a> Include the ScalarUDF implementations with the configured package prefix in ReflectionBasedUdfResolver.</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2375">SAMZA-2375</a> Samza-sql: Store udf original name for display purposes</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2376">SAMZA-2376</a> Samza-sql: Samza sql should handle sql statements with trailing semi-colon (;)</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2396">SAMZA-2396</a> Support dynamic addition of jars in ReflectionUdfResolver.</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2415">SAMZA-2415</a> Samza-Sql: Fix AvroRelConverter to only consider cached schema while populating SamzaSqlRelRecord for all the nested records.</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2425">SAMZA-2425</a> Samza-sql: support subquery in joins</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2455">SAMZA-2455</a> Validate the argument types in SamzaSQL UDF on execution planning phase</li>
+</ul>
+
+<h3 id="azure-system-producer">Azure Bob Storage system producer</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2421">SAMZA-2421</a> Add SystemProducer for Azure Blob Storage</li>
+</ul>
+
+<h3>Job coordinator dependency isolation (experimental)</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2421">SAMZA-2421</a> Add SystemProducer for Azure Blob Storage</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2332">SAMZA-2332</a> [AM isolation] YarnJob should pass new command and additional environment variables for AM deployment</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2333">SAMZA-2333</a> [AM isolation] Use cytodynamics classloader to launch job coordinator</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/SAMZA-2334">SAMZA-2334</a> ProxyGrouper selection based on Host Affinity not whether job is stateful</li>
+  <li><a href="https://issues.apache.org/jira/browse/SAMZA-2372">SAMZA-2372</a> Null pointer exception in LocalApplicationRunner</li>
+  <li><a href="https://issues.apache.org/jira/browse/SAMZA-2443">SAMZA-2443</a> Upgrade Jetty version to prevent AM file descriptor leak</li>
+  <li><a href="https://issues.apache.org/jira/browse/SAMZA-2446">SAMZA-2446</a> Invoke onCheckpoint only for registered SSPs</li>
+  <li><a href="https://issues.apache.org/jira/browse/SAMZA-2463">SAMZA-2463</a> Duplicate firings of processing timers</li>
+  <li><a href="https://issues.apache.org/jira/browse/SAMZA-2461">SAMZA-2461</a> Fix Concurrent Modification Exception in InMemorySystem</li>
+</ul>
+
+<h3>Other improvements</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2364">SAMZA-2364</a> Include the localized resource lib directory in the classpath of SamzaContainer</li>
+<li>Clean up unused org.apache.samza.autoscaling module</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2444">SAMZA-2444</a> JobModel save in CoordinatorStreamStore resulting flush for each message</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2452">SAMZA-2452</a> Adding internal autosizing related configs</li>
+</ul>
+
+<h3>Sources downloads</h3>
+
+<p>A source download of Samza 1.4.0 is available <a href="https://dist.apache.org/repos/dist/release/samza/1.4.0/">here</a>, and is also available in Apache’s Maven repository. See Samza’s download <a href="https://samza.apache.org/startup/download/">page</a> for details and Samza’s feature preview for new features.</p>

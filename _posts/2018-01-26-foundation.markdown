@@ -1,0 +1,67 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 26 January 2018'
+date: '2018-01-26T00:00:00+00:00'
+categories: foundation
+---
+<div>Here's hoping you had a great week. The Apache community has been working on:</div> 
+  <div> 
+    <div> 
+      <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 21 February. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    </div> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield ace performance at 99.69% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>ASF Operations Factoid&nbsp;–this week, 519 Apache contributors changed 1,071,102 lines of code over 3,235 commits. Top 5 contributors, in order, are: Jeff Elsloo, Tellier Benoit, Andi Huber, Junkai Xue, and Gary Gregory.</p> 
+    <p>Apache Guacamole™ –a clientless remote desktop gateway that supports standard protocols like VNC, RDP, and SSH.<br />&nbsp;- Apache Guacamole 0.9.14 released&nbsp;<a href="https://guacamole.apache.org/">https://guacamole.apache.org/</a></p> 
+    <p>Apache HttpComponents™ –a set of HTTP/1.1 and HTTP/2 transport components used to build custom client and server side HTTP services with a minimal footprint.<br />&nbsp;- Apache HttpComponents Client 4.5.5 GA released&nbsp;<a href="http://hc.apache.org/">http://hc.apache.org/</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit 1.0.41 and Jackrabbit Oak 1.2.28 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+    <p> </p> 
+    <p>Apache NiFi™ –an easy to use, powerful, and reliable system to process and distribute data.<br />&nbsp;-&nbsp;Apache NiFi MiNiFi 0.4.0 released<span style="white-space: pre;"> </span><a href="https://nifi.apache.org/" style="white-space: pre;">https://nifi.apache.org/</a></p> 
+    <p>Apache Phoenix™ –enables OLTP and SQL-based operational analytics for Apache Hadoop.<br />&nbsp;-&nbsp;Apache Phoenix 4.13.2 for CDH 5.11.2 released&nbsp;<a href="http://phoenix.apache.org/">http://phoenix.apache.org/</a></p> 
+    <p>Apache Taverna (incubating) –domain-independent suite of tools used to design and execute data-driven scientific workflows, combining WSDL/REST Web Services and local tools.<br />&nbsp;-&nbsp;Apache Taverna Server 3.1.0-incubating released&nbsp;<a href="https://taverna.incubator.apache.org/">https://taverna.incubator.apache.org/</a></p> 
+    <p><span style="white-space: pre;"></span></p> 
+    <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and JASPIC technologies.<br />&nbsp;- Apache Tomcat 7.0.84, 8.0.49, 8.5.27, and 9.0.4 released&nbsp;<a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a></p> 
+    <p><br /></p> 
+    <p><strong>Did You Know?</strong></p> 
+    <div> 
+      <p>&nbsp;- Did you know that in 2017 the Top 10 most active Apache project mailing lists (dev + user) were, in order: Flex, Lucene, Ignite, Kafka, Geode, Flink, Tomcat, Cassandra, Beam, and Sentry? <a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+      <p>&nbsp;- Did you know that Spotify uses Apache Hadoop and Apache Crunch to process terabytes of user data each day?&nbsp;<a href="http://hadoop.apache.org/">http://hadoop.apache.org/</a>&nbsp;and&nbsp;<a href="http://crunch.apache.org/">http://crunch.apache.org/</a></p> 
+      <p>&nbsp;- Did you know that the 2018 Apache EU Roadshow will be held during FOSS Backstage 13-14 June in Berlin?&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a></p> 
+    </div> 
+    <div><strong><br />Apache Community Notices:</strong></div> 
+    <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+    <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+    <div> 
+      <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a>4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation&nbsp;<a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a>&nbsp;10) All My Roads Led to Apache&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a>&nbsp;11) Scratch Your Own Itch.&nbsp;<a href="https://s.apache.org/7Amk">https://s.apache.org/7Amk</a>&nbsp;12) What a Long Strange (and Great) Trip It's Been&nbsp;<a href="https://s.apache.org/gVuN">https://s.apache.org/gVuN</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+      <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+    </div> 
+    <div> 
+      <p><a href="https://feathercast.apache.org/"></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- The Apache Wicket community will be holding a MeetUp on 24 January in Hydrabad&nbsp;<a href="https://www.meetup.com/jughyderabad/events/246743640/?_cookie-check=sA8sdSu69o0Dk0zY">https://www.meetup.com/jughyderabad/events/246743640/?_cookie-check=sA8sdSu69o0Dk0zY</a></p> 
+      <p>&nbsp;- The ASF will be back at FOSDEM in Brussels 3-5 February 2018. We'll see you there!&nbsp;<a href="https://fosdem.org/2018/">https://fosdem.org/2018/</a></p> 
+      <p>&nbsp;- The ASF is a Developer Week Community Partner 3-7 February in San Franciso&nbsp;<a href="https://blogs.apache.org/comdev/entry/apache-software-foundation-community-sponsor">https://blogs.apache.org/comdev/entry/apache-software-foundation-community-sponsor</a> </p> 
+      <p>&nbsp;- The Apache Tinkerpop community will be holding a MeetUp on Gremlin on 21 February in New York&nbsp;<a href="https://www.meetup.com/DataStax-UserGroup-NewYork/events/246762770/">https://www.meetup.com/DataStax-UserGroup-NewYork/events/246762770/</a></p> 
+      <p>&nbsp;- Apache CloudStack will be holding their first German Meetup on 28 February 2018 in Frankfurt&nbsp;<a href="https://www.meetup.com/german-CloudStack-user-group/events/246861772/?eventId=246861772">https://www.meetup.com/german-CloudStack-user-group/events/246861772/?eventId=246861772</a> </p> 
+      <p>&nbsp;- Meet members of the Apache community at Open Expo Madrid 6-7 June 2018&nbsp;<a href="http://www.openexpo.es/en/">http://www.openexpo.es/en/</a></p> 
+      <p>&nbsp;- The 2018 Apache EU Roadshow will be held during FOSS Backstage in Berlin 13-14 June 2018&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ASF Quarterly Report: Operations Summary Q2 FY2018&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+    </div> 
+    <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+    <p># # #</p> 
+  </div>

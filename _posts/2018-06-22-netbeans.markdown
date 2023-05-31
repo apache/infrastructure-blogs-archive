@@ -1,0 +1,10 @@
+---
+layout: post
+title: NetBeans Status at FossBack '18
+date: '2018-06-22T00:00:00+00:00'
+categories: netbeans
+---
+The session outlining 10 tips for large corporate projects moving to Apache, with NetBeans as an illustrative example, presented at FossBack '18, is now available on YouTube:
+<p><a href="https://www.youtube.com/watch?v=Bnznard9Nls"><img src="https://blogs.apache.org/netbeans/mediaresource/0896fd2c-a055-4695-b738-02efe764dedc?t=true" alt="Screen Shot 2018-06-22 at 22.04.50.png"></img></a></p>
+<p>Click above or, alternatively, go here: <a href="https://www.youtube.com/watch?v=Bnznard9Nls">https://www.youtube.com/watch?v=Bnznard9Nls</a></p>
+<p>The full report on the session and NetBeans attendance is here: <a href="https://blogs.apache.org/netbeans/entry/apache-netbeans-at-foss-backstage">https://blogs.apache.org/netbeans/entry/apache-netbeans-at-foss-backstage</a></p>

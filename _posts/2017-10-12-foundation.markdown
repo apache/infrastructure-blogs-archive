@@ -1,0 +1,176 @@
+---
+layout: post
+title: Apache Is Open.
+date: '2017-10-12T00:00:00+00:00'
+categories: foundation
+---
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"> 
+    <div><strong><em>&quot;The Apache Software Foundation is a cornerstone of the modern open source software ecosystem – supporting some of the most widely used and important software solutions powering today's Internet economy.&quot;</em></strong></div> 
+    <div>— Mark Driver, Research Vice President, Gartner</div> 
+  </blockquote> 
+  <div><br /></div> 
+  <div>Lauded among the most successful influencers in Open Source, The Apache Software Foundation's commitment to collaborative development has long served as a model for producing consistently high quality software that advances the future of open development. Apache projects power half the Internet, manage exabytes of data, execute teraflops of operations, and store billions of objects in virtually every industry. Apache software projects are an integral part of nearly every end-user computing device, from laptops to tablets to phones.</div> 
+  <div><br /></div> 
+  <div><strong><br />Open Source.</strong></div> 
+  <div>One of the greatest disruptors to enterprise software, Open Source solutions provide many benefits, including:</div> 
+  <div> 
+    <ul> 
+      <li>Lowered costs</li> 
+      <li>Higher quality software</li> 
+      <li>Freedom from vendor lock-in and proprietary solutions</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Development.</strong></div> 
+  <div>Organizations of all sizes that embrace open development methodologies benefit from improved speed of development and gain business advantage through:</div> 
+  <div> 
+    <ul> 
+      <li>Reduced investment in re-architecting applications</li> 
+      <li>Active community support</li> 
+      <li>Access to common federation on the leading edge of technology</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Enter Apache.</strong></div> 
+  <div> 
+    <p>In 1995, eight individuals produced the first public release of a new server software named &quot;Apache&quot;, and called themselves the &quot;Apache Group&quot;. 22 years after its inception, the Apache HTTP Web Server remains the most popular Web server on the planet.</p> 
+    <p><strong><br />Incorporation of the ASF.<br /></strong>In 1999, the Apache Group formed The Apache Software Foundation (ASF) with the mission of providing software for the public good.&nbsp;</p> 
+  </div> 
+  <div> 
+    <ul> 
+      <li>Membership-based, US 501(c)(3) not-for-profit corporation</li> 
+      <li>Ensures Apache projects continue to exist beyond the participation of individual volunteers</li> 
+      <li>Establishes role as an Open Source incubator to foster new technologies</li> 
+    </ul> 
+  </div> 
+  <div style="text-align: center;"><img src="https://blogs.apache.org/foundation/mediaresource/89030262-7344-4d0c-b204-96479244462f" /><br /></div> 
+  <div><br /></div> 
+  <div>Since its inception, the ASF has long been recognized as a leading source for Open Source software that meets the demand for mission-critical, enterprise-grade interoperable, adaptable, and sustainable solutions.&nbsp;</div> 
+  <div><strong><br /></strong></div> 
+  <div> 
+    <p><strong>Open Leadership.</strong></p> 
+  </div> 
+  <blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"> 
+    <div> 
+      <p><strong><em>&quot;The Apache Software Foundation has set the standard for modern application and infrastructure software as well as the open source collaborative processes through which it is developed.&quot;<br /></em></strong>— Matt Aslett, Research Director, 451 Research</p>
+    </div> 
+  </blockquote> 
+  <div><br /></div> 
+  <div>Today the ASF develops, stewards, and incubates more than 350 Open Source projects and initiatives through its leadership, robust community, and meritocratic process known as the &quot;Apache Way&quot;.</div> 
+  <div> 
+    <ul> 
+      <li>&quot;Flat&quot; organization: Apache projects and their communities drive development</li> 
+      <li>Project development and leadership driven entirely by individual volunteers</li> 
+      <li>Provides organizational, legal, and financial support</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open To All.</strong></div> 
+  <div>All Apache software —project downloads, documentation, updates, patches, and more— can be downloaded and used entirely free of any license fees or charge of any kind.</div> 
+  <div> 
+    <ul> 
+      <li>Can be used by anyone for any purpose</li> 
+      <li>Free of restrictions on installation or deployment</li> 
+      <li>Distributed under the flexible, business-friendly Apache License 2.0</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Participation.</strong></div> 
+  <div>Code for all Apache projects is written by more than 6,000 volunteer individuals and employees of corporations across six continents and contributed to the ASF at no cost. The ASF is governed by the community it most directly serves —the people collaborating within its projects. The ASF's meritocratic processes serve as best practices widely embraced by organizations and individuals alike.</div> 
+  <div> 
+    <ul> 
+      <li>Contributions include code, patches, and documentation</li> 
+      <li>Select contributors earn &quot;Committer&quot; status, enabling them to commit/write directly to the code repository, vote on community-related decisions, and propose active users for Committership</li> 
+      <li>Committers who demonstrate merit in the Foundation's growth, evolution, and progress may be nominated for ASF Membership by existing members</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Community.</strong></div> 
+  <div>ASF Community Development helps newcomers learn about Apache projects, governance, and activities, and provides guidance on becoming part of the meritocratic, all-volunteer Apache community.</div> 
+  <div> 
+    <ul> 
+      <li>&quot;Community Over Code&quot; is the cornerstone of the Foundation's core tenets</li> 
+      <li>The ASF has served as a Google Summer of Code mentoring organization each year the since the program's creation in 2005</li> 
+      <li>More than 6,300 Apache Committers help grow and maintain the health of the Apache community</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Project Oversight.</strong></div> 
+  <div>The ASF does not lead the technical direction of Apache projects, but rather provides operational support for projects to self-govern. All Apache projects are overseen by a self-selected team of active contributors.</div> 
+  <div> 
+    <ul> 
+      <li>Apache Project Management Committees (PMCs) guide day-to-day operations, including community development and product releases</li> 
+      <li>The ASF Board appoints a Vice President to serve as Chair of the PMC</li> 
+      <li>Vice President/PMC Chair role is administrative, and carries no additional weight or influence on a project (one vote on project matters just like other PMC members)</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Innovation.</strong></div> 
+  <div>All code donations, established projects, and communities intending to become fully-fledged Apache projects do so through the Apache Incubator. To graduate as an Apache Top-Level Project, candidate podlings must meet the Apache Maturity Model's rigorous requirements for code integrity, copyright, licenses, releases, consensus building, and independence, among others.</div> 
+  <div> 
+    <ul> 
+      <li>187 Project Management Committees oversee 312 Apache projects</li> 
+      <li>54 new podlings undergoing development in the Apache Incubator</li> 
+      <li>Recognized leadership across numerous categories, such as Big Data, libraries, servers and more</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Communication.</strong></div> 
+  <div>All official communications at the ASF are conducted via mailing lists. Asynchronous communications are required to accommodate geographically-distributed groups across time zones, as is the case for nearly all Apache communities.</div> 
+  <div> 
+    <ul> 
+      <li>&quot;If it didn't happen on-list, it didn't happen.&quot;</li> 
+      <li>Built upon the transparency-oriented culture of the Apache Group, whose collaboration took place on email lists</li> 
+      <li>Since the ASF's founding, 340,000+ authors wrote 17.5M+ emails on 7.5M topics, which are archived on 1,247 Apache publicly-accessible mailing lists</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Open Opportunity.</strong></div> 
+  <div><br /></div> 
+  <blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"> 
+    <div><strong><em>&quot;... unlike other open source organizations, the strength of the ASF is its independence from corporate interests … this independence has created a safe haven for a burgeoning open source developer population.&quot;</em></strong></div> 
+    <div>— Matt Asay, InfoWorld</div> 
+  </blockquote> 
+  <div><br /></div> 
+  <div>Apache projects must be governed independently of commercial influence. As a vendor-neutral, not-for-profit organization, the ASF and all Apache projects do not take sides, nor endorse or support any particular vendor over other vendors.</div> 
+  <div> 
+    <ul> 
+      <li>The ASF does not discourage the development of &quot;competing&quot; products</li> 
+      <li>Third parties are free to pursue almost any for-profit or not-for-profit business model based on Apache projects</li> 
+      <li>The commercially-friendly and permissive Apache License v2 has become an industry standard within the Open Source world</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Continuing Growth.</strong></div> 
+  <div>The ASF has scaled more than 35,000% over 18 years with very limited resources. The ASF is responsible for millions of lines of code by countless contributors across the Open Source landscape: each day millions of people across the globe access the ASF's two dozen servers and 75 distinct hosts.</div> 
+  <div> 
+    <ul> 
+      <li>The ASF has grown from an inaugural membership of 21 individuals to 680 individual Members and 6,300 Committers</li> 
+      <li>The ASF oversees 150M+ lines of code (valued at US$7B+), developed over 65,000 person-years, with an average of 18,000 Apache code commits each month</li> 
+      <li>Nearly 300 new code contributors and 300-400 new people file issues each month</li> 
+    </ul> 
+  </div> 
+  <div> 
+    <p>Apache Committers have the responsibility to the collective community to help create a product that will outlive the interest of any particular volunteer, and that the code committed should be clear enough that others not involved in its current development will be able to maintain and extend it.</p> 
+    <p> </p> 
+    <p><strong>How You Can Help.</strong></p> 
+    <p><strong></strong>The ASF is funded through tax-deductible contributions from corporations, foundations, and private individuals. You can help the greater Apache community by contributions in the form of:</p> 
+  </div> 
+  <div> 
+    <ul> 
+      <li>Code and documentation for Apache Projects</li> 
+      <li>Funds —become a Sponsor or Individual donor</li> 
+      <li>Corporate matching gift program —increase your donation with your employer’s support</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Approximately 75% of the ASF's US$1.5MM annual budget is dedicated to running critical infrastructure support services, including bandwidth, connectivity, servers, and hardware: the ASF Infrastructure team keep Apache services running 24x7x365 at near 100% uptime on an annual budget of less than US$5,000 per project. Donations to the ASF also helps offset day-to-day operating expenses such as legal and accounting services, brand management and public relations, general office expenditures, and support staff.</div> 
+  <div><br /></div> 
+  <div><strong><em>Join the hundreds of donors who have helped support the ASF this year. Every dollar counts! </em></strong><a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></div> 
+  <div><br /></div> 
+  <p style="text-align: center;"><img src="https://blogs.apache.org/foundation/mediaresource/d67ca611-a57c-462d-ac23-95063f81d175" /><br /></p> 
+  <div> 
+    <p><br /></p> 
+  </div> 
+  <div># # #</div> 
+  <div><br /></div>

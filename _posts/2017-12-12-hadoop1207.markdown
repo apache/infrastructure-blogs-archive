@@ -1,7 +1,0 @@
----
-layout: post
-title: Welcome to Apache™ Hadoop®!
-date: '2017-12-12T19:11:01+00:00'
-categories: hadoop
----
-The Apache™ Hadoop® project develops open-source software for reliable, scalable, distributed computing. 

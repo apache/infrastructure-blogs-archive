@@ -1,0 +1,114 @@
+---
+layout: post
+title: HBase - Who needs a Master?
+date: '2013-04-25T00:00:00+00:00'
+categories: hbase
+---
+<p><i style="font-family: verdana, arial, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 13px; font-weight: normal; line-height: normal;">By Matteo Bertozzi (mbertozzi at apache dot org),&nbsp;</i><i style="font-family: verdana, arial, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 13px; font-weight: normal; line-height: normal;">HBase Committer and&nbsp;</i><i style="font-family: verdana, arial, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 13px; font-weight: normal; line-height: normal;">Engineer on the Cloudera HBase Team.</i></p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">At
+ first glance, the Apache HBase architecture appears to follow a 
+master/slave model where the master receives all the requests but the 
+real work is done by the slaves. This is not actually the case, and in 
+this article I will describe what tasks are in fact handled by the 
+master and the slaves.</span></p><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">HBase
+ provides low-latency random reads and writes on top of HDFS and it’s 
+able to handle petabytes of data. One of the interesting capabilities in
+ HBase is </span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">Auto-Sharding</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">, which simply means that tables are dynamically distributed by the system when they become too large.</span></p> 
+  <h3 dir="ltr" style="line-height: 1.15; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Arial; color: #666666; background-color: transparent; vertical-align: baseline;">Regions and Region Servers</span></h3> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">The basic unit of scalability, that provides the horizontal scalability, in HBase is called </span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">Region</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">.
+ Regions are a subset of the table’s data, and they are essentially a 
+contiguous, sorted range of rows that are stored together.</span></p> 
+  <p><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">Initially,
+ there is only one region for a table. &nbsp;When regions become too large 
+after adding more rows, the region is split into two at the middle key, creating two roughly equal halves.</span></p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span></p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"><img src="https://lh3.googleusercontent.com/NoQlIlCSHp9O3iMvuJtwaGOPgycvBWxgT2K2cmCljtH4rGEs9Ya-_JQoKNaVgK2XbuNeD_MDecDHaVm5M_auxobvANwsRKPKJ4O2xeaT7x34iwaInAlmfIj61g" height="130" width="348" style="font-family: verdana, arial, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 13px; line-height: 1.15;" /></span></p> 
+  <p> </p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">Looking back at the HBase architecture the slaves are called </span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">Region Servers</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">.
+ Each Region Server is responsible to serve a set of regions, and one 
+Region (i.e. range of rows) can be served only by one Region Server.</span></p><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">The HBase Architecture has two main services: </span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">HMaster</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"> that is responsible for coordinating Regions in the cluster and execute administrative operations; </span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">HRegionServer</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"> responsible to handle a subset of the table’s data.</span></p> 
+  <h3 dir="ltr" style="line-height: 1.15; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Arial; color: #666666; background-color: transparent; vertical-align: baseline;">HMaster, Region Assignment and Balancing</span></h3> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">The HBase Master coordinates the HBase Cluster and is responsible for administrative operations.</span></p><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">A
+ Region Server can serve one or more Regions. Each Region is assigned to
+ a Region Server on startup and the master can decide to move a Region 
+from one Region Server to another as the result of a load balance 
+operation. The Master also handles Region Server failures by assigning 
+the region to another Region Server.</span></p><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">The
+ mapping of Regions to Region Servers is kept in a system table called 
+META. By reading META, you can identify which region is responsible for 
+your key. This means that for read and write operations, the master is 
+not involved at all, and clients can go directly to the Region Server 
+responsible to serve the requested data.</span></p> 
+  <h3 dir="ltr" style="line-height: 1.15; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Arial; color: #666666; background-color: transparent; vertical-align: baseline;">Locating a Row-Key: Which Region Server is responsible?</span></h3> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">To
+ put or get a row clients don’t have to contact the master, clients can 
+contact directly &nbsp;the Region Server that handles the specified row. In 
+the case of a scan clients can contact directly the set of Region 
+Servers responsible for handling the set of keys.</span></p> 
+  <p> </p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span><img src="https://lh4.googleusercontent.com/B7BWdi84CvZPfWm205UM0wie0W922CwCczvN3dwp1izHDhoKpqXp4pFFNoMAnj-vz4mRAu9EXsURgum1_dZ-ELObZxqmY7v_uedvaCiZ5h0pwfynMoqjcebl" height="182" width="491" /><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span></p> 
+  <p> </p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">To identify the Region Server, the client does a query on the META table.</span><span style="background-color: transparent; font-family: Arial; font-size: 15px; line-height: 1.15;">META
+ is a system table, used to keep track of regions. It contains the 
+server name and a region identifier comprised of a table name and the 
+start row-key. By looking at the start-key and the next region start-key
+ clients are able to identify the range of rows contained in a a 
+particular region.</span></p> 
+  <p> </p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">The
+ client keeps a cache for the region locations. This avoids the need for
+ clients to hit the META table every time an operation on the same 
+region is issued. In case of a region split or move to another Region 
+Server (due to balancing, or assignment policies) the client will 
+receive an exception as response and the cache will be refreshed by 
+fetching the updated information from the META table.</span></p> 
+  <p> </p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-weight: bold; vertical-align: baseline;"></span><img src="https://lh5.googleusercontent.com/R5UmleW_ZUf-diafEZJmC6f6m14UtvL1tGOw0GRrrpG2-zXgUjYPckzjaEQujL719FV6MhQYInrz4KgAnIvRInqm9w_XSi_HYBmD0VWkja8HVdf-vN1JDE3E" height="164" width="237" /><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-weight: bold; vertical-align: baseline;"></span></p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><br /></p> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">Since
+ META is a table like the others, the client has to identify on which 
+server META is located. The META locations are stored in a ZooKeeper 
+node on assignment by the Master, and the client reads directly the node
+ to get the address of the Region Server that contains META.</span></p><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"></span> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">The
+ original design was based on BigTable with another table called -ROOT- 
+containing the META locations and ZooKeeper pointing to it. HBase 0.96 
+removed that in favor of ZooKeeper only since META cannot be split and 
+therefore consists of a single region.</span></p> 
+  <h3 dir="ltr" style="line-height: 1.15; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Arial; color: #666666; background-color: transparent; vertical-align: baseline;">Client API - Master and Regions responsibilities</span></h3> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">The HBase java client API is composed of two main interfaces. </span></p> 
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="background-color: transparent; font-weight: bold; vertical-align: baseline;">HBaseAdmin</span><span style="background-color: transparent; vertical-align: baseline;">:
+ allows interaction with the “table schema&quot; by 
+creating/deleting/modifying tables, and it allows interaction with the 
+cluster by assigning/unassigning regions, merging regions together, 
+calling for a flush, and so on. &nbsp;This interface communicates with the 
+Master.</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="background-color: transparent; font-weight: bold; vertical-align: baseline;">HTable</span><span style="background-color: transparent; vertical-align: baseline;">:
+ allows the client to manipulate the data of a specified table, by using
+ get, put, delete and all the other data operations. &nbsp;This interface 
+communicates directly with the Region Servers responsible for handling 
+the requested set of keys.</span></p> 
+    </li> 
+  </ul> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">Those
+ two interfaces have separate responsibilities: HBaseAdmin is only used 
+to execute admin operations and communicate with the Master while the 
+HTable is used to manipulate data and communicate with the Regions.</span></p> 
+  <h3 dir="ltr" style="line-height: 1.15; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Arial; color: #666666; background-color: transparent; vertical-align: baseline;">Conclusion</span></h3> 
+  <p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">As
+ we’ve seen in this article, having a Master/Slave architecture does not
+ mean that each operation goes through the master. To read and write 
+data the HBase client, in fact, goes directly to the specific Region 
+Server responsible to handle the row keys for all the data operations (</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">HTable</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">). The Master is used by the client only for table creation, modification and deletion operations (</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; vertical-align: baseline;">HBaseAdmin</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">).</span></p> 
+  <p> </p><span style="font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline;">Although
+ there exists a concept of a Master, the HBase client does not depend on
+ it for data operations and the cluster can keep serving data even if 
+the master goes down.&nbsp;</span><br />

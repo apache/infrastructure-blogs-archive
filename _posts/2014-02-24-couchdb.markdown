@@ -1,0 +1,25 @@
+---
+layout: post
+title: 'Cloudant and IBM: Our Commitment to Apache CouchDB'
+date: '2014-02-24T00:00:00+00:00'
+categories: couchdb
+---
+<p>IBM <a href="http://www-03.ibm.com/press/us/en/pressrelease/43238.wss">have announced</a> that they are acquiring Cloudant.
+
+<p>Adam Kocoloski is co-founder and CTO of Cloudant as well as serving on CouchDB's Project Management Committee. And with his permission, I am re-posting <a href="http://markmail.org/message/7agfwcamawa66wfj">an email</a> he sent to the CouchDB developer list a few hours ago.
+
+<p>In his words:
+
+<p>"Apache CouchDB means a great deal to me, and to Cloudant as a company. Cloudant and CouchDB have grown alongside each other over the past several years in one of the more authentic vendor/community collaborations I can think of in Apache history. Today marks the next step in Cloudant’s growth as we enter into a definitive agreement to become part of IBM.
+
+<p>"What does this mean for CouchDB? I would not have agreed to this transaction if I had any concerns about Cloudant’s ability to continue its contributions and collaboration with Apache CouchDB. IBM has a strong track record in open source software and a productive relationship with Apache; in fact, IBM was instrumental in bringing CouchDB to the ASF many years ago. IBM is fully supportive of our efforts here, and I’m looking forward to bringing increased resources to bear in support of the project.
+
+<p>"CouchDB has the potential to shape the future of distributed data management and computing. 2013 was a year of tremendous progress, as we doubled our committer base and shipped no fewer than eight releases. Already in 2014 we’ve seen amazing progress on long-standing initiatives to enhance the core of the system. The timing is right — in the market and for the community — to take the next big step forward. With your help, that is exactly what we will do.
+
+<p>"Truly, the future of CouchDB is CouchDB."
+
+<p>Thanks Adam!
+
+<p>I'd like to extend my hearty congratulations to everyone at Cloudant.
+
+<p>The future for CouchDB looks very interesting...

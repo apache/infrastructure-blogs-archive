@@ -1,0 +1,58 @@
+---
+layout: post
+title: Announcing the release of Apache Samza 0.9.1
+date: '2015-07-13T00:00:00+00:00'
+categories: samza
+---
+<p>I am very excited to announce that <a href="http://samza.apache.org/">Apache Samza</a> 0.9.1 has been released. It's our second release as an Apache Top-level Project. Samza is a distributed stream processing framework. It uses Apache Kafka for messaging, and Apache Hadoop YARN to provide fault tolerance, processor isolation, security, and resource management. The project entered Apache Incubator in 2013 and was originally created at LinkedIn, where it's in production use, and then graduated from Apache Incubator in Jan, 2015. The project is currently under active development from a diverse group of contributors and committers.</p>
+
+<p>A source download of the 0.9.1 release is available <a href="http://www.apache.org/dyn/closer.cgi/samza/0.9.1">here</a>. The release JARs are also available in <a href="https://repository.apache.org/content/groups/public/org/apache/samza/">Apache's Maven repository</a>. See Samza's <a href="http://samza.apache.org/startup/download/">download</a> page for details.</p>
+
+<p>As a bug-fix version, in all, 7 JIRAs were <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20fixVersion%20%3D%200.9.1%20ORDER%20BY%20updated%20DESC">resolved</a> in this release. A few highlights:</p>
+
+<ul>
+<li>Iterator.remove breaks caching layer (<a href="https://issues.apache.org/jira/browse/SAMZA-658">SAMZA-658</a>)
+</li>
+<li>Shutdown hook does not wait for container to finish (<a href="https://issues.apache.org/jira/browse/SAMZA-616">SAMZA-616</a>)
+</li>
+<li>Deserialization error causes SystemConsumers to hang (<a href="https://issues.apache.org/jira/browse/SAMZA-589">SAMZA-608</a>)
+</li>
+<li>Samza auto-creates changelog stream without sufficient partitions when container number > 1 (<a href="https://issues.apache.org/jira/browse/SAMZA-662">SAMZA-662</a>)
+</li>
+<li>Bootstrap hangs (<a href="https://issues.apache.org/jira/browse/SAMZA-720">SAMZA-720</a>)
+</li>
+<li>Fix warnings in samza-api Javadocs (<a href="https://issues.apache.org/jira/browse/SAMZA-712">SAMZA-712</a>)
+</li>
+</ul>
+
+<p>We've also made some community progress during this release:</p>
+
+<ul>
+<li> Added 1 more companies in the <a href="https://cwiki.apache.org/confluence/display/SAMZA/Powered+By">powered by</a> page (<a href="https://state.com/landing">State</a>) 
+</li>
+<li> Second <a href="http://www.meetup.com/Bay-Area-Samza-Meetup/events/221738067/">Samza meetup</a>
+</li>
+<li> 927 emails sent to the <a href="http://mail-archives.apache.org/mod_mbox/incubator-samza-dev/">developer mailing list</a> in past 3 months
+</li>
+<li> Accepted patches from 16 distinct contributors.
+</li>
+</ul>
+
+<p>There are <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20resolution%20%3D%20Unresolved%20ORDER%20BY%20priority%20DESC">a lot exciting features</a> to expect in our future release. Some of them are:</p>
+
+<ul>
+<li>Samza standalone mode (<a href="https://issues.apache.org/jira/browse/SAMZA-516">SAMZA-516</a>)
+</li>
+<li>Yarn host affinity (<a href="https://issues.apache.org/jira/browse/SAMZA-617">SAMZA-617</a>)
+</li>
+<li>State store debugging tool (<a href="https://issues.apache.org/jira/browse/SAMZA-598">SAMZA-598</a>)
+</li>
+<li>Configure Samza jobs through a stream (<a href="https://issues.apache.org/jira/browse/SAMZA-348">SAMZA-348</a>)
+</li>
+</ul>
+
+<p>0.9.1 release will still support java 1.6 to maintain backward compatibility with 0.9.0. We will require java 1.7+ since 0.10.0 release.</p>
+
+<p>Now is a good time to get involved. You can start by running through the <a href="http://samza.apache.org/startup/hello-samza/0.9/">hello-samza</a> tutorial, signing up for the <a href="http://samza.apache.org/community/mailing-lists.html">mailing list</a>, and grabbing some <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20labels%20%3D%20newbie%20AND%20status%20%3D%20Open">newbie JIRAs</a>.</p>
+
+<p>I'd like to close by thanking everyone who's been involved in the project. It's been a great experience to be involved in this community, and I look forward to its continued growth.</p>

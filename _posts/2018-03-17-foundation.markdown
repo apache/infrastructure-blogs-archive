@@ -1,0 +1,84 @@
+---
+layout: post
+title: 'The Apache Software Foundation Operations Summary: November 2017 - January
+  2018'
+date: '2018-03-17T00:00:00+00:00'
+categories: foundation
+---
+<div><strong>FOUNDATION OPERATIONS SUMMARY</strong></div> 
+  <p><strong>Third Quarter, Fiscal Year 2018 (November 2017 - January 2018)</strong></p> 
+  <div> 
+    <blockquote style="margin: 0px 0px 0px 40px; border: medium none; padding: 0px;"> 
+      <p><strong><em>&quot;</em></strong><em><strong>The unbroken success of Apache still has important lessons to teach us...&nbsp;</strong></em><strong><em>The Apache community has succeeded not just in developing great code, it has managed to distil the essence of the development process and ethos in such a way that other cognate projects can adopt and adapt it.</em></strong><em><strong>&quot;&nbsp;</strong></em><em>--</em><em>Glyn Moody, &quot;</em><em>Learning from The Apache Way&quot;<br /><br /></em></p> 
+    </blockquote> 
+    <div><strong> 
+        <p style="display: inline !important;"><strong>&gt; President's Statement:</strong><span style="font-weight: normal;"> </span></p></strong>This quarter included a number of holidays, which generally means that it is relatively quiet time when each area in operations get lower than normal number of requests and can work down their list of things to do. We created four new projects and retired one. Expenses are under control, and income is ahead of plan. We had no major security breach event that we had to respond to like we did last quarter. That's a very good thing: no news is a good news! In general, all systems are running smoothly as we prepare for the next uptake in activity.
+      
+      <br /><br /> 
+      <p><strong>&gt; Conferences and&nbsp;</strong><strong>Events</strong><strong>:</strong>&nbsp;In the report period, the ASF did not conduct any events, and thus we have nothing to report. During this period, we investigated options for ApacheCon events in the 2018 calendar year. You can find details about those events at <a href="http://apachecon.com/">http://apachecon.com/</a> and in our upcoming Annual Report. At the close of this quarter, we were finalizing our plans for participation in FOSDEM <a href="http://fosdem.org/">http://fosdem.org/</a> .<br /><br /></p> 
+      <p><strong>&gt; Community Development</strong><strong>:</strong>&nbsp;During this quarter our main focus was participation in several existing Open Source related events. Our involvement was not only represented by talks and presentations but also by having a booth so that we could talk directly with conference attendees. In November, we participated at the FOSS Backstage Micro Summit, a new conference that focuses on Open Source communities, governance and legal aspects. These areas are very relevant to the community development effort and several Apache speakers were selected to be part of the program. Feedback was positive and we would like to continue being involved in this event in the future.</p> 
+      <p>Following our participation last year at the OpenExpo in Madrid, we have been invited to participate again at the conference in 2018. This time we have been allocated a keynote and other presentation slots that will help us promote Apache within Spain and the Spanish speaking community. During early December, we participated at the Open Source Summit in Paris. This included a keynote and also a half day Apache track featuring a range of technical presentations for various projects. We also provided some additional talks as part of the community track.</p> 
+      <p>Community Development also ran the Apache booth which attracted a lot of visitors. As this was a predominantly French speaking event, the French version of the ASF brochure was very useful in explaining to people what the foundation does and how it works. Feedback received from attendees was extremely positive and many wanted become involved with various projects. A key focus during January were tasks around the ASF involvement in for Google Summer of Code(GSoC). The Community Development team is a main contact for co-ordinating and managing the ASF involvement as a mentoring organisation. Many ASF projects have already created a list of ideas that prospective students could work on.</p> 
+      <p>Following on from our last update, we have facilitated the introduction of Apache business cards that anyone involved with Apache projects can use when they are promoting their Apache project at an event or representing their Apache project. Two formats have been agreed, one that is a formal ASF role card that is based card n the existing ASF business cards, and another less formal community business card any contributor to an Apache project can use. A wiki page has been setup with information and FAQs to help with the introduction.</p> 
+      <p>Our mailing list traffic remains stable this quarter with the the main focus being discussions related to the Apache events announced for 2018.</p> 
+      <p> </p> 
+      <p><strong>&gt; Committers and Contributions:</strong>&nbsp;Over the past quarter, 1,715 contributors committed 51,157 changes that amount to 17,995,945 lines of code across Apache projects. The top 5 contributors during this timeframe were: Michał Narajowski (673 commits); Daniel Sun (666 commits); Mark Thomas (592 commits); Andrea Cosentino (514 commits); Junkai Xue (513 commits). </p> 
+      <p><img src="https://blogs.apache.org/foundation/mediaresource/731bff17-b6d5-4df8-945c-408f0a18d733" /><br /></p> 
+      <p>All individuals who are granted write access to the Apache repositories must submit an Individual Contributor License Agreement (ICLA). Corporations that have assigned employees to work on Apache projects as part of an employment agreement may sign a Corporate CLA (CCLA) for contributing intellectual property via the corporation.&nbsp;Individuals or corporations donating a body of existing software or documentation to one of the Apache projects need to execute a formal Software Grant Agreement (SGA) with the ASF.&nbsp;</p> 
+      <div> 
+        <p>During Q3 FY2018, the ASF Secretary processed 203 ICLAs, 13 CCLAs, and 4 Software Grants. Apache committer activity can be seen at <a href="http://status.apache.org/#commits">http://status.apache.org/#commits</a><br /><br /></p> 
+        <p> </p> 
+        <p><strong>&gt; Brand Management:&nbsp;</strong>This quarter has seen the usual stream of questions, potential infringements, permission requests and registration activities to the Brand Management team. Our policies and answers to common questions may be found on online at <a href="https://www.apache.org/foundation/marks/resources">https://www.apache.org/foundation/marks/resources</a> and we would encourage everyone with a brand related question to review those pages in the first instance.</p> 
+        <p>One of the challenges for the Brand Management team has been finding a way to track open issues without imposing an unnecessary burden on those raising the issue, the Apache project communities the issue relates to or the Brand Management team. Like all communities at Apache, our communication is based on a mailing list --albeit a private one in this case as many of the issues we handle require a degree of confidentiality. It has been clear for some time that the mailing list alone is not sufficient for tracking open issues. Having experimented with various schemes without success over the last six months, we believe we have found a solution. The Brand Management team is now utilizing a shared mailbox and associated labeling system to allow all team members to see, broken down by project, which issues are resolved, which are waiting on other parties and which require action from us. It is still early in the adoption of this new system, but the initial results are promising.</p> 
+        <p>In this quarter the US trademark registration has completed for Tez<sup>®</sup> and CouchDB<sup>®</sup> along with a number of renewals of existing marks. Some of these renewals have been for communities that came to the ASF with registrations in a large number of jurisdictions. Given the costs associated with renewing marks in some jurisdictions, we have started to discuss with those communities whether renewal is a cost-effective use of our funds.</p> 
+        <p>Looking forward to the next quarter, we hope that the new issue tracking process fulfills its early promise and we'll be doing detailed planning for the next financial year.</p> 
+        <p>As always, if you do have any comments or questions for the Brand Management team, please do get in touch:&nbsp;<a href="https://www.apache.org/foundation/marks/contact">https://www.apache.org/foundation/marks/contact</a><br /></p> 
+      </div> 
+    </div> 
+    <div> 
+      <p><strong><br />&gt; Legal Affairs:</strong>&nbsp;The Apache Software Foundation (ASF) Legal Affairs team works diligently with our pro-bono legal counsel and answers legal questions, and addresses policy issues regarding license compatibility for The Apache Software Foundation. In the last quarter, the Legal Affairs team worked on providing guidance on how to update two of our Export Control Classification Number (ECCN) numbers for ASF projects. In addition the following specific questions were answered and the following work was performed:</p> 
+      <p> </p> 
+      <ul> 
+        <li>How to deal with commercial attribution and use of ASF software.&nbsp;</li> 
+        <li>How to properly deal with NOTICE and LICENSE files in ASF projects.</li> 
+        <li>The inclusion of Apache license short headers in source code files.</li> 
+        <li>Answering whether or not Unified Modeling Language (UML) files could be licensed using the Apache License version 2.0 (ALv2).</li> 
+        <li>Use of a dependency licensed under the JSON lib license and also a community with a question about the BSD 3 clause (“nuclear”) license.</li> 
+        <li>The Eclipse Public License version 2.0 was added to Category-B license list on the legal resolved page.</li> 
+        <li>The inclusion of public work files in ASF projects.&nbsp;</li> 
+        <li>Whether design files commercially licensed could be used to build ASF project websites.</li> 
+        <li>Discussions surrounding the replacement of our CLA with the DCO+ALv2 agreement were undertaken but did not reach any conclusions.&nbsp;</li> 
+        <li>The use of metrics data collection surrounding the use of ASF projects was discussed.<br /><br /></li> 
+      </ul> 
+      <p> </p> 
+      <p>The committee is a Board committee and reports directly Apache Board of Directors. We are eager to meet and serve the needs of our projects, in collaboration with our pro-bono counsel.<br /><br /></p> 
+      <p><strong>&gt; Infrastructure:</strong>&nbsp;The Infrastructure team and its volunteers have been hard at work over the past quarter working on our mail systems, LDAP, cost reduction, build system improvements, and continued migration off of ASF-owned machines to more flexible cloud-based provisioning.</p> 
+      <p>The mail system at the Foundation is a complex system that has evolved over the twenty years of our existence. It serves tens of thousands of users, millions of daily messages, and resides at the very core of how our communities operate under the Apache Way. Yet, this long history and evolution comes with a lot of historical baggage and technical debt that we have been working against for quite a while. We have made great strides this quarter in crafting new archival and access systems, which also assists with our goals for migration and using Puppet for management. We are still testing and qualifying these systems for deployment, next quarter.</p> 
+      <p>The Foundation has been on a long trajectory to consolidating our authentication and authorization mechanisms around a central LDAP-based system. Our initial deployment did not quite serve our needs properly, so we have simplified, upgraded, and applied Puppet to better provide LDAP services across the Foundation's infrastructure.</p> 
+      <p>This process is near completion, and has served to reduce, remove, and simplify much of our historical tooling.</p> 
+      <p>One of our cost reduction efforts has been focused around our domain and certificate management. We have consolidated several providers to just one, and are looking at about a 40% reduction in future costs. At the same time, using the domain registrar's APIs, we've been able to bring more consistent management to our set of domains (we manage about 40, for the Foundation and its projects).</p> 
+      <p>The holiday season was a great time to upgrade our Jenkins build cluster to their latest LTS release, while people were away spending time with family instead of queuing more build jobs. In addition, one of our sponsors helped out by donating many more build machines. Our projects have an ever-increasing need for more builds, so this has been a great quarter to satisfy those needs.</p> 
+      <p>Lastly, we have made some great progress on our movement away from Foundation-owned hardware towards third-party provisioning of hardware and virtual machines. This long-term project is finally seeing the light at the end of the tunnel, and should be finalized during calendar year 2018.</p> 
+      <div><strong><br />&gt; Financial Statement:</strong></div> 
+    </div> 
+    <div> 
+      <p> </p> 
+      <p><img src="https://blogs.apache.org/foundation/mediaresource/ee254ab4-76fa-4820-9b8d-7d55bc269a67" /><br /></p> 
+      <p> </p> 
+      <p> </p> 
+    </div> 
+    <div> 
+      <p><strong><br />&gt; Fundraising:</strong>&nbsp;Over this past quarter we have been launching our Targeted Sponsorship program. Targeted sponsorships give our sponsors greater recognition and more flexibility in how they can help our Top-Level Projects. Take a look at <a href="http://www.apache.org/foundation/thanks2.html">http://www.apache.org/foundation/thanks2.html</a></p> 
+      <p>We are also proud to be working on three Apache events for 2018: ApacheCon 2018 North America in Montreal in September, the Apache 2018 EU Roadshow in Berlin in June and the Apache 2018 US Roadshow in Washington, DC in October.&nbsp;</p> 
+      <p>Interested in sponsoring?&nbsp; Please email kmcgrail@apache.org for more details.</p> 
+      <p>Finally, the Foundation relies on our sponsors to exist.&nbsp; We are not a trade organization but a 100% volunteer-led charity. Donations are tax-deductible to the extent permitted by law.</p> 
+      <p># # #</p> 
+    </div> 
+    <div> 
+      <p>Report prepared by Sally Khudairi, Vice President Marketing &amp; Publicity, with contributions by Sam Ruby,&nbsp;ASF President; Rich Bowen, Vice President Conferences; Sharan Foga, Vice President Community Development; Chris Mattmann, Vice President Legal Affairs; Mark Thomas, Vice President Brand Management; Greg Stein, ASF Infrastructure Administrator; Tom Pappas, ASF Member and Vice President, Finance &amp; Accounting at Virtual, Inc.; and Kevin McGrail, Vice President Fundraising.</p> 
+      <p>For more information, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">subscribe to the announce@apache.org mailing list</a> and visit <a href="http://www.apache.org/">http://www.apache.org/</a>, the ASF Blog at <a href="http://blogs.apache.org/">http://blogs.apache.org/</a>, the <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>, and <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a>.<br /></p> 
+    </div> 
+  </div> 
+  <p>(c) The Apache Software Foundation 2018.</p> 
+  <p> </p> 
+  <div></div>

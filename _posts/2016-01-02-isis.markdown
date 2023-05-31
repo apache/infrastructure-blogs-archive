@@ -1,0 +1,183 @@
+---
+layout: post
+title: "[ANN] Apache Isis version 1.11.0 Released"
+date: '2016-01-02T00:00:00+00:00'
+categories: isis
+---
+<table class="iN" style="border-spacing: 0px; font-size: 15.6px; table-layout: fixed; width: 598.182px; vertical-align: top; border-collapse: collapse; color: #222222; font-family: arial, sans-serif;">
+    <tbody>
+      <tr>
+        <td class="GQ" style="font-family: arial, sans-serif; margin: 0px; width: 598.182px; padding: 0px 0px 2px;">
+          <div id=":o3" class="GP" style="margin: 0px -1px; overflow-y: hidden; padding: 0px 1px; position: relative; max-height: 624px; min-height: 436px;">
+            <div id=":oz" class="qz aXjCH" style="overflow: auto; position: relative; z-index: 0; max-height: 624px;">
+              <div id=":p3" class="et" style="border-color: transparent !important;">
+                <div id=":nb" class="aoX">
+                  <table cellpadding="0" class="cf An" id=":ym" style="width: 598.182px; table-layout: fixed;">
+                    <tbody>
+                      <tr>
+                        <td class="Ap" style="font-family: arial, sans-serif; margin: 0px; width: 594.545px; vertical-align: top;">
+                          <div id=":14x" class="Ar Au" style="padding: 7px 7px 9px; box-sizing: border-box; border-radius: 1px; transition: none; zoom: 1; border: 0px transparent !important; margin: 0px !important;">
+                            <div id=":13d" class="Am Al editable LW-avf" hidefocus="true" aria-label="Message Body" g_editable="true" role="textbox" tabindex="1" style="font-stretch: normal; font-size: small; width: 580.568px; overflow: visible; border: 0px; outline: none; direction: ltr; min-height: 378px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+                              <div>The Apache Isis team is pleased to announce the release of Apache Isis v1.11.0.</div>
+                              <div><br /></div>
+                              <div>The main focus for this release is on the REST API and on view models using JAXB:<br /></div>
+                              <div>
+                                <div><br /></div>
+                                <div>* the Restful Objects viewer now supports simplified representations intended to make it easier to write custom Javascript (and other) clients that consume the REST API; these are obtained using the HTTP Accept header. There is also support for Swagger spec files so that the REST API can be more easily explored and tested. &nbsp;Separately, the x-ro-follow-links capability for RO spec representations is now supported.</div>
+                                <div><br /></div>
+                                <div>* JAXB-annotated classes are now recognised as view models; these also enable the contents collections to be part of the view model’s state (previously only view model properties were recognised). The new UrlEncodingService allows long URLs (for view models) to be converted into shorter URLs; this also allows the URL to optionally be encrypted.</div>
+                                <div><br /></div>
+                                <div>* The release also includes improved control for domain events (these can now be suppressed if required) , and a new category of UI events (so that titles, icons and CSS classes can be provided by event bus subscribers).</div>
+                              </div>
+                              <div><br /></div>
+                              <div>Full release notes are available on the <a href="http://isis.apache.org/release-notes.html#r1.11.0">Apache Isis website</a>. &nbsp;Please also read the <a href="http://isis.apache.org/migration-notes.html#_migration-notes_1.10.0-to-1.11.0">migration notes</a>.</div>
+                              <div><br /></div>
+                              <div>You can access this release directly from the <a href="http://search.maven.org">Maven central repo</a>, or <a href="http://isis.apache.org/downloads.html">download the release</a> and build it from source.</div>
+                              <div><br /></div>
+                              <div>Enjoy!</div>
+                              <div><br /></div>
+                              <div>--The Apache Isis team</div>
+                              <div><br /></div>
+                              <div><br /></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id=":rt" class="GW" style="bottom: -1px; left: 0px; position: absolute; right: 0px;">
+              <div id=":13r" class="GL" style="padding: 0px 1px 1px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="HE" style="font-family: arial, sans-serif; margin: 0px; padding: 0px;">
+          <div id=":mm" class="aDg" style="position: relative; z-index: 0;">
+            <div id=":l3" class="aDj" style="border-width: 0px 1px 1px; margin: 0px; position: static;">
+              <div id=":mz" class="aC5" style="position: relative; z-index: 0;"></div>
+              <div id=":ml" class="aDl" style="position: relative; z-index: 0;">
+                <div id=":p6" class="xQMqOe"></div>
+                <div id=":ph" class="Ur" style="bottom: -4px; left: 0px; position: absolute;">
+                  <div class="aX" style="height: 44px; overflow: hidden; z-index: 10; position: relative; visibility: visible;">
+                    <div id=":1bz" class="aZ">
+                      <div class="J-Z" id=":1c0" role="toolbar" aria-label="Formatting options" style="border: 1px solid #cfcfcf; outline: 0px; padding: 4px 2px; position: relative; zoom: 1; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 2px -1px; display: inline-block; margin: 0px 6px; -webkit-user-select: none; background: #f5f5f5;">
+                        <div id=":12v" class="J-Z-axO J-Z-M-I aOz J-J5-Ji" command="+fontName" data-tooltip="Font ‪(Ctrl-Shift-5, Ctrl-Shift-6)‬" aria-label="Font ‪(Ctrl-Shift-5, Ctrl-Shift-6)‬" role="listbox" aria-activedescendant=":1cs" aria-expanded="false" aria-haspopup="true" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-M-I-Kv-H" style="position: relative; display: inline-block; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-M-I-J6-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="J-J5-Ji J-Z-M-I-Jm" id=":1cs" role="option" aria-setsize="0" aria-posinset="0" style="position: relative; display: inline-block; padding: 0px 0px 0px 4px; margin: 0px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 60px; -webkit-user-select: none;">Sans Serif</div>
+                              <div class="J-J5-Ji J-Z-M-I-JG" style="position: relative; display: inline-block; float: right; margin: 7px 2px 0px 3px; padding: 0px; opacity: 0.8; vertical-align: middle; width: 7px; height: 11px; transform: none; filter: none; -webkit-user-select: none; background: url(&quot;//ssl.gstatic.com/ui/v1/disclosure/small-grey-disclosure-arrow-down.png&quot;) 50% 50% no-repeat;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="J-Z-axR J-J5-Ji" aria-disabled="true" role="separator" id=":1ct" style="position: relative; display: inline-block; border-left-width: 1px; border-left-style: solid; border-left-color: #cccccc; height: 17px; list-style: none; margin: 0px 2px; outline: none; overflow: hidden; padding: 0px; vertical-align: middle; width: 0px; -webkit-user-select: none;"></div>
+                        <div id=":12w" class="J-Z-M-I J-J5-Ji" command="+fontSize" data-tooltip="Size ‪(Ctrl-Shift--, Ctrl-Shift-+)‬" aria-label="Size ‪(Ctrl-Shift--, Ctrl-Shift-+)‬" role="button" aria-expanded="false" aria-haspopup="true" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-M-I-Kv-H" style="position: relative; display: inline-block; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-M-I-J6-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="J-J5-Ji J-Z-M-I-Jm" style="position: relative; display: inline-block; padding: 0px; margin: 0px; -webkit-user-select: none;">
+                                <div class="eY  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -84px 0px;"></div>
+                              </div>
+                              <div class="J-J5-Ji J-Z-M-I-JG" style="position: relative; display: inline-block; float: right; margin: 10px 2px 0px 3px; padding: 0px; opacity: 0.8; vertical-align: middle; width: 5px; height: 7px; -webkit-user-select: none; background: url(&quot;//ssl.gstatic.com/ui/v1/disclosure/small-grey-disclosure-arrow-down.png&quot;) 50% 50% no-repeat;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="J-Z-axR J-J5-Ji" aria-disabled="true" role="separator" id=":1cv" style="position: relative; display: inline-block; border-left-width: 1px; border-left-style: solid; border-left-color: #cccccc; height: 17px; list-style: none; margin: 0px 2px; outline: none; overflow: hidden; padding: 0px; vertical-align: middle; width: 0px; -webkit-user-select: none;"></div>
+                        <div id=":12x" class="J-Z-aEu-I J-Z-I J-J5-Ji" command="+bold" data-tooltip="Bold ‪(Ctrl-B)‬" aria-label="Bold ‪(Ctrl-B)‬" aria-pressed="false" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="eN  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: 0px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":12y" class="J-Z-aEu-I J-Z-I J-J5-Ji" command="+italic" data-tooltip="Italic ‪(Ctrl-I)‬" aria-label="Italic ‪(Ctrl-I)‬" aria-pressed="false" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="e3  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -21px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":12z" class="J-Z-aEu-I J-Z-I J-J5-Ji" command="+underline" data-tooltip="Underline ‪(Ctrl-U)‬" aria-label="Underline ‪(Ctrl-U)‬" aria-pressed="false" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="fu  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -42px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":15y" class="J-Z-M-I J-J5-Ji" command="+foreColor" data-tooltip="Text Colour" aria-label="Text Colour" role="button" aria-expanded="false" aria-haspopup="true" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-M-I-Kv-H" style="position: relative; display: inline-block; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-M-I-J6-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="J-J5-Ji J-Z-M-I-Jm" style="position: relative; display: inline-block; padding: 0px; margin: 0px; -webkit-user-select: none;">
+                                <div class="eS  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -105px 0px;"></div>
+                              </div>
+                              <div class="J-J5-Ji J-Z-M-I-JG" style="position: relative; display: inline-block; float: right; margin: 10px 2px 0px 3px; padding: 0px; opacity: 0.8; vertical-align: middle; width: 5px; height: 7px; -webkit-user-select: none; background: url(&quot;//ssl.gstatic.com/ui/v1/disclosure/small-grey-disclosure-arrow-down.png&quot;) 50% 50% no-repeat;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="J-Z-axR J-J5-Ji" aria-disabled="true" role="separator" id=":1d0" style="position: relative; display: inline-block; border-left-width: 1px; border-left-style: solid; border-left-color: #cccccc; height: 17px; list-style: none; margin: 0px 2px; outline: none; overflow: hidden; padding: 0px; vertical-align: middle; width: 0px; -webkit-user-select: none;"></div>
+                        <div id=":15x" class="J-Z-M-I J-J5-Ji" command="alignMenu" data-tooltip="Align" aria-label="Align" role="button" aria-expanded="false" aria-haspopup="true" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-M-I-Kv-H" style="position: relative; display: inline-block; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-M-I-J6-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="J-J5-Ji J-Z-M-I-Jm" style="position: relative; display: inline-block; padding: 0px; margin: 0px; -webkit-user-select: none;">
+                                <div class="aaA aaB e4" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -273px 0px;"></div>
+                              </div>
+                              <div class="J-J5-Ji J-Z-M-I-JG" style="position: relative; display: inline-block; float: right; margin: 10px 2px 0px 3px; padding: 0px; opacity: 0.8; vertical-align: middle; width: 5px; height: 7px; -webkit-user-select: none; background: url(&quot;//ssl.gstatic.com/ui/v1/disclosure/small-grey-disclosure-arrow-down.png&quot;) 50% 50% no-repeat;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":18n" class="J-Z-aEu-I J-Z-I J-J5-Ji" command="+insertOrderedList" data-tooltip="Numbered List ‪(Ctrl-Shift-7)‬" aria-label="Numbered List ‪(Ctrl-Shift-7)‬" aria-pressed="false" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="e6  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -168px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":18o" class="J-Z-aEu-I J-Z-I J-J5-Ji" command="+insertUnorderedList" data-tooltip="Bulleted List ‪(Ctrl-Shift-8)‬" aria-label="Bulleted List ‪(Ctrl-Shift-8)‬" aria-pressed="false" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="eO  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -189px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":18p" class="J-Z-I J-J5-Ji" command="+outdent" data-tooltip="Indent Less ‪(Ctrl-[)‬" aria-label="Indent Less ‪(Ctrl-[)‬" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="e8  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -210px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":18q" class="J-Z-I J-J5-Ji" command="+indent" data-tooltip="Indent More ‪(Ctrl-])‬" aria-label="Indent More ‪(Ctrl-])‬" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="e2  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -231px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id=":xg" class="J-Z-I J-J5-Ji" command="+BLOCKQUOTE" data-tooltip="Quote ‪(Ctrl-Shift-9)‬" aria-label="Quote ‪(Ctrl-Shift-9)‬" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="fa  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -252px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="J-Z-axR J-J5-Ji" aria-disabled="true" role="separator" id=":1d7" style="position: relative; display: inline-block; border-left-width: 1px; border-left-style: solid; border-left-color: #cccccc; height: 17px; list-style: none; margin: 0px 2px; outline: none; overflow: hidden; padding: 0px; vertical-align: middle; width: 0px; -webkit-user-select: none;"></div>
+                        <div id=":t6" class="J-Z-I J-J5-Ji" command="+removeFormat" data-tooltip="Remove Formatting ‪(Ctrl-\)‬" aria-label="Remove Formatting ‪(Ctrl-\)‬" role="button" style="position: relative; display: inline-block; border-radius: 2px; -webkit-user-select: none; border: 1px solid transparent; outline: none; padding: 0px; height: 24px; color: #444444; line-height: 24px; list-style: none; font-size: 11px; font-weight: bold; vertical-align: middle; cursor: default; background: 0px 50%;">
+                          <div class="J-J5-Ji J-Z-I-Kv-H" style="position: relative; display: inline-block; border: 0px; vertical-align: top; margin: 0px; padding: 0px; -webkit-user-select: none;">
+                            <div class="J-J5-Ji J-Z-I-J6-H" style="position: relative; display: inline-block; padding: 0px 2px; -webkit-user-select: none;">
+                              <div class="fb  aaA aaB" style="height: 21px; width: 21px; vertical-align: middle; opacity: 0.55; margin: 2px 0px; -webkit-user-select: none; background-image: url(&quot;//ssl.gstatic.com/ui/v1/icons/mail/html_editor.png&quot;); background-position: -336px 0px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

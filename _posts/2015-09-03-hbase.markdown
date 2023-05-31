@@ -1,0 +1,261 @@
+---
+layout: post
+title: Medium Data and Universal Data Systems
+date: '2015-09-03T00:00:00+00:00'
+categories: hbase
+---
+<p style="text-align: justify;">This is the second in a series of posts on "Why We Use Apache HBase", in which we let HBase users and developers borrow our blog so they can showcase their successful HBase use cases, talk about why they use HBase, and discuss what worked and what didn't.</p> 
+  <p style="text-align: justify;">Matthew Hunt is an architect at Bloomberg who works on Portfolio Analytics and Bloomberg infrastructure.</p> 
+  <p style="text-align: justify;">An earlier version of the discussion in this post was published <a href="http://highscalability.com/blog/2014/12/17/the-big-problem-is-medium-data.html">here</a> on the High Scalability blog.</p> 
+  <p> </p> 
+  <blockquote> 
+    <p>- Andrew Purtell</p> 
+  </blockquote> <hr> 
+  <p> </p> 
+  <h2>Foreword</h2> 
+  <h3>Why Bloomberg uses HBase</h3> 
+  <p style="text-align: justify;">The Bloomberg Terminal is a leading news, information and analytics platform in finance, found on hundreds of thousands of traders' desks around the world.  We are actively working to consolidate around fewer, faster, and simpler systems and see HBase as part of a broader whole, along with computation frameworks such as Spark, resource schedulers like Mesos, virtualization and containerization in OpenStack and Docker, and storage with Ceph and HDFS.  This is a substantial undertaking: Bloomberg has tens of thousands of databases and applications built over 30 years, and a team of 4000 engineers.</p> 
+  <p style="text-align: justify;">While HBase was designed for a specific purpose originally, we believe it will grow to become a general purpose database - in fact, a universal one.</p> 
+  <h3>What is a universal database?</h3> 
+  <p style="text-align: justify;">The great Michael Stonebraker wrote a few years ago that <a href="http://cs.brown.edu/~ugur/fits_all.pdf">the era of "one size fits all" databases was over</a>.  Given that relational, time series, and hierarchical systems have long co-existed makes it questionable whether there ever was a one size fits all period.  In fact, the era of one size fits all is, if anything, dawning.  Stonebraker's central point - purpose built databases are often significantly better at their purpose then a general alternative - is true.  But in the broader landscape, it doesn't matter.  The universal database is one that is good enough to subsume nearly all tasks in practice.  The distinction between data warehouse, offline batch reporting, and OLTP is already blurry and will soon vanish for most use cases.  Slightly more formally, the universal database is one that is fast and low latency for small and medium problems, scales elastically to larger sizes transparently, has clear well understood access semantics as in MPP SQL systems, and connects to standard computation engines such as Spark.  Many systems are converging towards this already, and we think HBase is one of the future contenders in this space.</p> 
+  <p style="text-align: justify;">In a strong vote of confidence, HBase has seen increasing adoption and endorsement from major players such as Apple and Google, and Spark integration from Huawei, Cloudera, and Hortonworks,  continuing to build and foster the large community that success requires.    At the end of the day, the technology projects that succeed are the ones that attract a critical mass. Longevity and future direction are essential considerations in large scale design decisions. </p> 
+  <p style="text-align: justify;">But the future can be cloudy.  We also use HBase because, with minor modifications, it is a good fit for practical applications we had initially, once it received some buffing for what I call the medium data problem.  </p> 
+  <h3>Why don't we use HBase?</h3> 
+  <p style="text-align: justify;">No honest engineering writeup is complete without a perusal of alternatives.  Many fine and more mature commercial systems exist, along with good open alternatives such as Cassandra.  While we think HBase has critical mass and a broad and growing community, other systems have strengths too.  HBase can be cumbersome to set up and configure, lacks a standard high level access language incorporated by default, and still has work to do for efficient interfaces to Spark.  But the pace of development is swift, and we believe this is just scratching the surface of what is to come as it matures.  I look forward to a subsequent blog posting that detailing these future improvements and our next generation of systems.</p> 
+  <h3>To the community</h3> 
+  <p style="text-align: justify;">All real projects stem from the combined efforts of many.  I would like to thank the incredible community of people who have participated in moving things forward, from  the strong leadership of Michael Stack and Andrew Purtell to the fine people at Cloudera and Hortonworks and Databricks.  Strong managerial support inside of Bloomberg has impressively cleared the path.  Carter Page at Google and Andrew Morse at Apple offered early encouragement.  And in particular, Sudarshan Kadambi has been a true partner in crime for shared dreams, vision and execution.   Thank you all.</p> 
+  <p style="text-align: justify;">What follows is a deep dive into our original HBase projects and the thinking that lay behind them.</p> 
+  <p> </p> 
+  <blockquote> 
+    <p>MBH, 8/2015</p> 
+  </blockquote> <hr> 
+  <p> </p> 
+  <p style="text-align: justify;">Search engines and large web vendors serve hundreds of millions of requests for straightforward web lookups. Bloomberg serves hundreds of thousands of sophisticated financial users where each request has tight tolerances and may be computationally expensive. Can the systems originally designed for the former work for the latter?  
+</p> 
+  <p style="text-align: justify;">
+"Big Data" systems continue to attract substantial funding, attention, and excitement. As with many new technologies, they are neither a panacea, nor even a good fit for many common uses. Yet they also hold great promise, and Bloomberg has been contributing behind the scenes to strengthen their use for what we term medium data – high terabytes on modest clusters - and real world scenarios as we build towards simpler universal systems. The easiest way to understand these changes is to start with a bit of background on the origin of both these technologies and our company.  
+</p> 
+  <p style="text-align: justify;">
+[<em>This was taken from a talk called "Hadoop at Bloomberg", but it’s important to understand that we see this as part of a broader landscape that encompasses tools such as Spark, Mesos, and Docker which are working to provide frameworks for making many commodity machines work together.</em>]
+</p> 
+  <p style="text-align: justify;"> </p> 
+  <h2>Bloomberg Products and Challenges</h2> 
+  <p style="text-align: justify;">Bloomberg is the world’s premier provider of information and analytics to the financial world. Walk into nearly any trading floor in the world, and you will find "Bloomberg Terminals" in use.  Simply put, data is our business, and our 4,000 engineers have built many systems over the last 30 years to address the stringent performance and reliability needs of the financial industry.   We are always looking at ways to improve our core infrastructure, including consolidating many purpose built disparate systems to reduce complexity.
+</p> 
+  <p style="text-align: justify;">
+Our main product is the Bloomberg Professional service, which many refer to simply as “The Terminal”, shown below.
+</p> 
+  <p align="center"><img width="488" height="274" alt="bloomberg_terminal" src="https://blogs.apache.org/hbase/mediaresource/2c201f72-5547-4119-ada6-b3fba9469615"> </p> 
+  <p style="text-align: justify;">While the name of the Bloomberg Terminal is carried over from when we built hardware, it is analogous to a browser in the cloud: there is an "address bar" where a function name can be typed in, display areas where the results are shown, and the logic and heavy lifting is done server side in our data centers.   Of course we don’t refer to them as browsers and clouds because we’ve been doing it since long before those words existed, but since the browser is ubiquitous, this should give everyone a good idea of the basics.  There are also mobile versions available on the iPhone, iPad, and Android. There are perhaps 100,000 functions and tens of thousands of databases.  Below is a sample of a few of them.
+</p> 
+  <p align="center"><img width="488" height="274" alt="bloomberg_chart" src="https://blogs.apache.org/hbase/mediaresource/df3e21c7-e6fe-4e74-9bb1-ad8e0fd9a0e3"><br></p> 
+  <p align="center">
+Chart of a single security<br>
+Storm track showing oil wells and shipping and companies likely to be affected<br>
+News and sentiment analysis of twitter feed<br>
+Portfolio and risk analytics<br> </p> 
+  <p> </p> 
+  <p style="text-align: justify;">
+Bloomberg’s origins were in providing electronic analytics for bonds and other securities.  "Security" is just a fancy word for instruments you can trade like stocks or bonds.  It transformed a world that was paper driven and information poor into one in which prices were available at the touch of a button.  As nearly every school, road, airport, and other piece of modern infrastructure is financed by bond issuance, this was an important and useful innovation that reduced the cost of financing.  Prior to that time, the cost of a bond was more or less what your sales guy said it was.
+</p> 
+  <p style="text-align: justify;">
+In the early 1980s when the company began, there were few off the shelf computer technologies adequate to the task. Commercial databases were weak, and personal business computers nonexistent. Even the IBM PC itself was only announced two months before Bloomberg LP was founded. The name of our main product, the Bloomberg Terminal, reflects our history of needing to hardware at our outset, along with developing the software and database systems in house. And so out of necessity we did.
+</p> 
+  <p style="text-align: justify;">
+As the company expanded, its infrastructure grew around powerful Unix machines and fast reliable services designed to furnish almost any kind of analysis there is about a company or security.  The company grew and prospered, becoming one of the largest private companies in the United States, and entering news and other lines of business.  Owning our own systems has conferred substantial benefits aside from simply making our existence possible.  Independent of the flexibility, not paying vendors such as Oracle billions of dollars for our tens of thousands of databases is good business.
+</p> 
+  <p style="text-align: justify;">
+As time has passed, the sophistication of our usage has grown.   Interactive functions are frequently geared towards complicated risk and other multi-security analytics, which require far more data and computation at a time per user and request.  This puts a strain on systems architected when interactive requests were for charting of the price of a small number of instruments.   Many groups within Bloomberg have addressed by copying systems and caching large quantities of data.  There are also different data systems for different kinds of usage – one for streaming pricing data, another for historical data, and so on.  
+Complexity kills.  The more pieces and moving parts there are, the harder to build and maintain.   Can we consolidate around a small number of open platforms?     We believe we can.
+</p> 
+  <h2>Big Data Origins  </h2> 
+  <p style="text-align: justify;">
+Modern era big data technologies are a solution to an economics problem faced by Google and others a decade ago. Storing, indexing, and responding to searches against all web pages required tremendous amounts of disk space and computer power. Very powerful machines, fast SAN storage, and data center space were prohibitively expensive. The solution was to pack cheap commodity machines as tightly together as possible with local disks.
+</p> 
+  <p style="text-align: justify;">This addressed the space and hardware cost problem, but introduced a software challenge. Writing distributed code is hard, and with many machines comes many failures, and so a framework was also required to take care of such problems automatically for the system to be viable.  Google pioneered one of the first viable commodity machine platforms to do this, which is part of why they went on to dominance rather than bankruptcy.  Fortunately for the rest of us, they published how they did it, and while there are more sophisticated means available today, it’s a great place to start an understanding of concepts.
+</p> 
+  <p style="text-align: justify;">
+The essential elements of this system are a place to put files, and a way to perform computations. The landmark Google papers introduced GFS for storage and MapReduce for computation. MapReduce had high reliability and throughput, owning records for benchmarks like sorting a petabyte of data at the time. However, its response time is far too long for interactive tasks, and so BigTable, a low latency database, was also introduced.  Google published papers detailing these systems, but did not release their software. This in a nutshell explains Hadoop, which began as the open source implementation of these Google systems, supported by Yahoo and other large web vendors facing the same challenges at the time.
+</p> 
+  <p style="text-align: justify;">
+Understanding the why and how these systems were created also offers insight into some of their weaknesses. Their goal was to make crunching hundreds of petabytes of data circa 2004 on thousands of machines both cost effective and reliable, especially for batch computations. A system that ropes together thousands of machines for an overnight computation is no good if it gets most of the way there but never finishes.
+</p> 
+  <p style="text-align: justify;">
+And therein lies the problem. Most people don’t have petabytes of data to crunch at a time. The number of companies who have faced this has been restricted to a handful of internet giants. Similarly, these solutions are architected around the limitations of commodity machines of the day, which had single core processors, spinning rust disks, and far less memory. A decade later, high core counts, SSDs or better, and large RAM footprints are common. And Hadoop in particular is also written in Java, which creates its own challenges for low latency performance.
+</p> 
+  <h2>Why Hadoop?  It’s not just about Hadoop</h2> 
+  <p style="text-align: justify;">
+Choosing the right system is more than a strictly technical one.  Is it well supported?  Will it be around for the future?  Does it address enough problems to be worthwhile?  X86 chips didn’t begin as the best server CPU.  Linux was a toylike operating system at its outset.  What has made them dominant is sustained effort, talent, and money from an array of companies and people.  We believe the same will happen with some variant of these tools, immature though they may be.   Intel has presumably invested for the same reason – if systems of the future are built around a distributed framework, they want to be in on the game.
+</p> 
+  <p style="text-align: justify;">
+Big data systems are widely used and money and talent have been pouring in.  Recently, Cloudera raised $950 million dollars, of which $750 million came from Intel.  Hortonworks has also had some impressive fundraising.  More than a billion dollars into just two companies goes a long way.  Skilled talent such as Michal Kornacker, who architected the F1 system at Google, Jeff Hammerbacher, the founder of the data science team at Facebook, and Mike Olson, an old database hand, and members of the Yahoo data sciences team such as Arun Murthy help the ecosystem. 
+</p> 
+  <p style="text-align: justify;">
+It’s not just about Hadoop for us.  We group Spark, Mesos, Docker, Hadoop, and other tools into the broader group of "tools for making many machines work together seamlessly".  Hadoop has some useful properties that make it a good starting point for discussion in addition to being useful in its own right.
+</p> 
+  <p style="text-align: justify;">
+We’d like to consolidate our systems around an open commodity framework for storage and computation that has broad support.  Hadoop and its ilk provide potential but are immature and have weaknesses when it comes to taking advantage of modern hardware, consistently fast performance, high resiliency, and in the number of people who know it well.  
+</p> 
+  <p style="text-align: justify;">
+So that’s the background. Now on to a specific use case and how we’ve tackled it with HBase.
+</p> 
+  <h2>HBase Overview</h2> 
+  <p align="center"><img alt="bloomberg_hbase_datamodel" src="https://blogs.apache.org/hbase/mediaresource/3ee87417-e571-48fe-8eac-bce0c3b4b95d"> </p> 
+  <p style="text-align: justify;">
+HBase is short for the "Hadoop database", and it’s the implementation of Google’s BigTable that was designed for interactive requests that MapReduce wasn’t suited for. 
+Many of us think of databases as things with many tables and indexes that support SQL and relational semantics.  HBase has a simpler model designed to spread across many machines.  
+</p> 
+  <p style="text-align: justify;">
+The easiest analogy is with printed encyclopedias.  Each volume of the encyclopedia lists the range of words that can be found inside, such as those beginning with the letters A to C.   In HBase, the equivalent of a volume is called a region.  A region server is a process that hosts some number of regions, much as a bookcase can hold several books.  There is typically one region server process per physical computer.    The diagram above shows three machines, each with one region server process, each of which has two regions.  
+</p> 
+  <p style="text-align: justify;">
+A table in HBase can have many columns and rows but only one primary key.  The table is always physically sorted by that key, just as the encyclopedia is, and many of its characteristics follow from this. For example, writes are naturally parallel.   A-C words go to one machine, and C-F to another.   Elastic scalability follows too: drop another machine in, and you can move some of the regions to it.   And if a region gets two big, it splits into two new ones, and so very large datasets can be accommodated.  These are all positive properties.
+</p> 
+  <p style="text-align: justify;">
+But there are downsides, including the loss of things taken for granted in a relational database.   HBase is less efficient per machine than a single server database.  Updates of individual rows are atomic, but there aren’t all-or-nothing complex transactions that can be rolled back.   There are no secondary indexes, and lookups not based on the primary key are much slower.  Joins between multiple tables are cumbersome and inefficient.   These systems are simply much less mature then relational databases, and understood by far fewer people. While HBase is growing in sophistication and maturity, if your problem fits in a relational database on a single machine, then HBase is almost certainly a poor choice.
+</p> 
+  <p style="text-align: justify;">
+When considering broad architectural decisions, it is important to consider alternate solutions.  There are many strong alternatives beyond known relational systems.  Products such as Greenplum, Vertica, SAP Hana, Sybase IQ and many others are robust, commercially supported, and considerably more efficient per node, with distributed MPP SQL or pure columnar stores. Cassandra offers a similar model to HBase and is completely open, so why not use it?
+</p> 
+  <p style="text-align: justify;">
+Our answer is that we have big picture concerns.  We prefer open systems rather than being locked in to a single vendor.   Hadoop and other systems are part of an expanding ecosystem of other services, such as distributed machine learning and batch processing, that we also want to benefit from.  While the alternatives are excellent data stores, they only offer a smaller piece of the puzzle.  And finally, we have actual use cases that happen to fit reasonably well and are able to address many of the downsides.
+</p> 
+  <p style="text-align: justify;">
+So on to one of our specific use cases.
+</p> 
+  <h2>Time series data and the Portfolio analytics challenge</h2> 
+  <p align="center"><img width="488" height="274" src="https://blogs.apache.org/hbase/mediaresource/49e2a6b4-0a6a-4343-8eef-76cbf17fdd66" alt="bloomberg_time_series"></p> 
+  <p align="center"><img width="488" height="274" alt="bloomberg_time_series_2" src="https://blogs.apache.org/hbase/mediaresource/28b6632a-b2e3-4f41-9628-dd1a60e29191"> </p> 
+  <p style="text-align: justify;">Much of financial data is time series data.  While the systems to manage this data have often been highly sophisticated and tuned, the data itself is very simple, and the problem has been one of speed and volume.  Time series data for a security is generally just a security, a field, a date, and a value.  The security could be a stock such as IBM, the field the price, and the date and value self-explanatory.     
+</p> 
+  <p style="text-align: justify;">The reason there is a speed and volume issue is that there are thousands of possible fields – volume traded, for example – and tens of millions of securities.  The universe of bonds alone is far larger then stocks, which we call equities.  These systems have also historically been separated into intraday and historical data – intraday captures all the ticks during the day, while historical systems have end of day values that go back much farther in time.  Unifying them was impractical in the past owing to different performance tradeoffs: intraday must manage a very high volume of incoming writes, while end of day has batch updates on market close but more data and searches in total.  
+</p> 
+  <p style="text-align: justify;">
+The Bloomberg end of day historical system is called PriceHistory.  This is a slight misnomer since price is just one of thousands of fields, but price is obviously an important one.   This system was designed for the high volume of requests for single securities and quite impressive for its day.  The response time for a year’s data for a field on a security is 5ms, and it receives billions of hits a day, around half a million a second at peak.  It is a critical system for Bloomberg; failures there have the potential to disrupt the capital markets.
+</p> 
+  <p style="text-align: justify;">
+The challenge comes from applications like Portfolio Analytics that request far more data at a time.  A bond portfolio can easily have tens of thousands of bonds in it, and a common calculation like attribution requires 40 fields per day per instrument.   Performing attribution for a bond portfolio over a few years of data requires tens of millions of datapoints instead of a handful.  When requesting tens of millions of datapoints, even a high cache hit rate of 99.9% will still have thousands of cache misses, and if the underlying system is backed by magnetic media, this means thousands of disk seeks.  Multiply across a large user base making many requests and it’s clear to see why this created a problem for the existing price history system.
+</p> 
+  <p style="text-align: justify;">
+The solution a few years back was to move to all memory and solid state machines with highly compacted blobs split into separate databases.  This approach worked and was 2-3 orders of magnitude faster – a giant leap – but less than ideal.  Compacted blobs split across many databases is cumbersome.  
+</p> 
+  <p style="text-align: justify;">
+Enter HBase.
+</p> 
+  <h2>HBase Suitability and Issues</h2> 
+  <p style="text-align: justify;">
+Time series data is both very simple and lends itself to embarrassing parallelism.   When fetching tens of millions of datapoints for a portfolio, the work can be arbitrarily divided among tens of millions of machines if need be.  It doesn’t get any better than that in terms of potential parallelism.  With a single main table trivially distributed, HBase should be a good fit – in theory.  
+</p> 
+  <p style="text-align: justify;">
+Of course, in theory, theory and practice agree, but in practice, they don’t always.  The data sets may work, but what are the obstacles?  Performance, efficiency, maturity, and resiliency.   What follows is how we went about tackling them.
+</p> 
+  <h3>Failure and recovery</h3> 
+  <div align="center"> 
+    <p><img width="488" height="274" src="https://blogs.apache.org/hbase/mediaresource/762e413c-d0bd-4921-ba9b-f18b739e3709" alt="bloomberg_hbase_recovery"></p> 
+  </div> 
+  <p style="text-align: justify;">
+The first and most critical problem was failure behavior.   When an individual machine fails, data is not lost – it is replicated on several machines via HDFS – but there is still a serious drawback.  At any given time, all reads and writes to any given region is managed by one and only one region server.  If a region server dies, the failure will be detected and a replacement automatically brought back up, but until it does, no reads and writes are possible to the regions it managed.  
+</p> 
+  <p style="text-align: justify;">
+The HBase community has made great strides in speeding up recovery time after a failure is detected, but this still leaves a crucial hole.   The crux of the problem is that failure detection in a distributed system is ultimately accomplished by timeout – some period of time that elapses where a heartbeat or other mechanism fails.  If this timeout is made too short, there will be false positives, which are also problematic.   
+</p> 
+  <p style="text-align: justify;">
+In Bloomberg’s case, our SLAs are on the order of milliseconds.  The shortest that timeouts can be made are on the order of many seconds.  This is a fundamental mismatch even if recovery after failure detection becomes infinitely fast.
+</p> 
+  <p style="text-align: justify;">
+Discussions with Hadoop vendors resulted in several possible solutions, most of which involved running multiple copies of each database.  Since Bloomberg’s operational policies already dictate that systems can survive the loss of entire datacenters and then several additional machines, this would have meant many running copies of each database, which we deemed too operationally complex.  Ultimately, we were unhappy with the alternatives, and so we worked to change them.
+</p> 
+  <p style="text-align: justify;">
+If failover detection and recovery can never be fast enough, then the alternative is there must be standby nodes that can be queried in the event a region server goes down.  The insight that made this practical in the short term is that the data already exists in multiple places, albeit with a possible slight delay in propagation.  This can be used for standby region servers that at worst lag slightly behind but receive events in the same order, known as timeline consistency.  This works for end of day systems like PriceHistory that are updated in batch.
+</p> 
+  <p style="text-align: justify;">
+Timeline consistent standby region servers were added to HBase as part of HBASE-10070.
+</p> 
+  <h3>Performance I: Distribution and parallelism</h3> 
+  <p align="center"> <img width="488" height="274" alt="bloomberg_hbase_distribution" src="https://blogs.apache.org/hbase/mediaresource/e6fac2d6-1a3e-46d6-9ab0-0fddd004b2b8"> </p> 
+  <p style="text-align: justify;">
+With failures addressed, though, there are still issues of raw performance and consistency.  Here we’ll detail three experiments and outcomes on performance.   Tests were run on a modest cluster of 11 machines with SSDs, dual Xeon E5’s, and 128 GB of RAM each.  In the top right hand corner of the slide, two numbers are shown.  The first is the average response time at the outset of the experiment, and the second the new time after improvements were made.   The average request is for around 200,000 records that are random key-value lookups.
+</p> 
+  <p style="text-align: justify;">
+Part of the premise of HBase is that large Portfolio requests can be divided up and tackled among existing machines in a cluster.    This is part of why standby region servers to address failures are mandated – if a request hits every server, and one doesn’t respond for a minute or more, it’s bad news.  The failure of any one server would stall every such request.  
+</p> 
+  <p style="text-align: justify;">
+So the next thing to tackle was parallelism and distribution.  The first issue was in dividing work evenly: given a large request, did each machine in the cluster get the same size chunk of work?   Ideally, requesting 1000 rows from ten machines would get 100 rows from each.    With a naive schema, the answer is no: if the row key is security + something else, then everything from IBM will be in one region, and IBM is hit more often than other securities.   This phenomena is known as <em>hotspotting</em>.  
+</p> 
+  <p style="text-align: justify;">
+The solution is to take advantage of the properties of HBase as a fix for the problem.   Data in HBase is always kept physically sorted by the row key.   If the row key itself is hashed, and that hash used as a prefix, then the rows will be distributed differently.    Imagine the row key is security+year+month+field.    Take an MD5 hash of that, and use that as a prefix, and any one record for IBM is equally likely to be on any server.  
+This resulted in almost perfect distribution of work load.  We don’t use the MD5 algorithm exactly, because it’s too slow and large, but the concept is the same. 
+</p> 
+  <p style="text-align: justify;">
+With perfect distribution, we have perfect parallelism: With 11 servers each one was doing the same amount of work not just on average, but for every request.  And if parallelism is good, then more parallelism is better, right?  Yes - up to a point.
+</p> 
+  <p style="text-align: justify;">
+As mentioned earlier a general Hadoop weakness is that it was designed for older and less powerful machines.  One of the ways this manifests itself is through low resource consumption on the server.   At maximum throughput, none of the hardware was breathing hard – low CPU and disk and network, no matter how many configuration options were changed.  
+</p> 
+  <p style="text-align: justify;">
+One way to address this is to run more region servers per machine, provided the machine has the capacity to do so.   This will increase the number of total region servers and hence the level of fan out for parallelism, and if more parallelism is better, then response times will drop.
+</p> 
+  <p style="text-align: justify;">
+The chart from the slide shows the results.  With 11 machines and 1 region server each – 11 in total – average response time was 260 ms.  Going to 3 per machine, for 33 region servers in total, dropped the average time to 185 ms.   5 region servers per machine further improved to 160 ms, but at 10 per machine times got worse.  Why?
+</p> 
+  <p style="text-align: justify;">
+The first answer that will probably spring to mind is that the capacity of the machine was exceeded; with 10 region server processes on a box, each with many threads, perhaps there weren’t enough cores.   As it turns out, this is not the cause, and the actual answer is more subtle and interesting and resulted in another leap in performance that is applicable to many systems of this type.   
+</p> 
+  <p style="text-align: justify;">
+But before we get into that, let’s talk about in place computation.
+</p> 
+  <h3>Performance II: In place computation</h3> 
+  <p align="center"> <img width="488" height="274" alt="bloomberg_in_place_compute" src="https://blogs.apache.org/hbase/mediaresource/6481d399-c7f3-4d82-897c-eecaa8895021"></p> 
+  <p style="text-align: justify;">
+One of the tenets of big data is that the computation should be moved to the data and not the other way around.    The idea here is straightforward.    Imagine you need to know how many rows are in a large database table.  You could fetch every row to your local client, and then iterate through and count – or you could issue a “<tt>select count(*) from ... </tt>“ if it’s a relational database.    The latter is much more efficient.
+</p> 
+  <p style="text-align: justify;">
+It’s also much more easily said than done.    Many problems can’t be solved this way at all, and many frameworks fall short even where the problem is known to be amenable.  In the 2013 report on massive data analysis the National Research Council proposed seven computational giants for parallelism in an attempt to categorize the capabilities of a distributed system, a relevant and interesting read, and Hadoop can’t handle all of them. 
+Fortunately for us, we have a simple use case that does make sense that let us again cut response times in half.    
+</p> 
+  <p style="text-align: justify;">
+The situation is that there are multiple "sources" for data.  Barclays and Merrill Lynch and many other companies provide data for bond pricing.  The same bond for the same dates is often in more than one source, but the values don’t agree.   Customers differ on the relative precedence of each, and so with each request include a waterfall which is just an ordering of what sources should be used in what order.  Try to get all the data from the first source, and then for anything that’s missing, try the next source , and so on.  On average, a request must go through 5 such sources until all the data is found.
+</p> 
+  <p style="text-align: justify;">
+In the world of separate databases, different sources are in different physical locations, and so this means trying the first database, pulling all the records back, seeing what’s missing, constructing a new request, and issuing that.
+</p> 
+  <p style="text-align: justify;">
+For HBase, we can again take advantage of physical sorting, support for millions of columns, and in-place computation through coprocessors, which are the HBase equivalent of classic stored procedures.
+By making the source and field columns with the security and date still the row key, they will all be collocated on the same region server.  The coprocessor logic then becomes "find the first source for this row that matches for this security on this date, and return that."  Instead of five round trips, there will always be one and only one.
+A small coprocessor of a few lines worked as expected, and average response time dropped to 85ms.
+</p> 
+  <p style="text-align: justify;">
+Now, on to the mystery from before.
+</p> 
+  <h3>Performance III: Synchronized disruption</h3> 
+  <p align="center"><img width="488" height="274" src="https://blogs.apache.org/hbase/mediaresource/63a5456c-5127-4596-8dec-11752c530020" alt="bloomberg_synchronized_disruption"></p> 
+  <p style="text-align: justify;">
+The results from increasing the number of region servers left a mystery: Why did response times improve at first, and then worsen?  The answer involves both Java and an important property of any high fan out distributed system.
+</p> 
+  <p style="text-align: justify;">
+A request that goes to more than one machine "fans out".  The more machines hit, the higher the degree of fan out.  In a request that fans out, how long does it take to get a response?
+The answer is that it takes as long as the slowest responder.  With ten region servers per machines and 11 machines, each request fanned out to 110 processes.   If 109 respond in a microsecond and 1 in 170 ms, the response time is 170 ms.    
+</p> 
+  <p style="text-align: justify;">
+The immediate culprit turned out to be Java’s garbage collection, which freezes a machine until it completes.  The higher the degree of fan-out, the greater the likelihood that any one region server process was garbage collecting at the time.  At 110 regions, the odds were close to 1.
+</p> 
+  <p style="text-align: justify;">
+The solution here is devilishly simple.  As long as the penalty must be paid if any one Java process garbage collects, why not just make them do it all at the same time?  That way, more time will elapse where requests are issued and no garbage collection takes place.   We wrote the simplest, dumbest test for this: a coprocessor with one line – System.gc() – and a timer that called it every 30 seconds.
+This dropped our average response time from 85 ms to 60 ms on the first go.
+</p> 
+  <p style="text-align: justify;">
+Many system developers and C programmer eyeballs will collectively roll as this is a Java specific problem.   While Java GC is an issue, this has wider applicability.  It is a general case of what Google’s Jeff Dean calls Synchronized Disruption.   Requests in any parallel system that fan out suffer from the laggard, and so things that slow down individual machines should be done at the same time.   For more details, see the excellent writeup "Achieving Rapid Response Times in Large Online Services" covering this and other properties of high fan out systems.
+That said, Java is the basis now of quite a number of high fan out computing systems, including Hadoop, HBase, Spark, and Solr.  Synchronizing garbage collection holds potential for them as well.
+</p> 
+  <h2>Conclusions And Next Steps</h2> 
+  <p style="text-align: justify;">As these experiments have shown, performance from HBase can be improved. The changes described here alone cut average runtime response times to a quarter of what they were,  with plenty of room left for further improvements.   Faster machines are available that would halve response times again.  (Incidentally, there is a myth that the speed and performance of an individual machine is irrelevant since it’s better to scale horizontally with more machines.   Individual machine speed still matters immensely: the length of a garbage collection cycle, for example, is linearly proportional to the single threaded CPU performance, and even if your system doesn’t use Java, the laggard responder may well be affected by machine speed.)   HBase produces far more garbage than it ought; this too can be fixed.  And reissuing requests to an alternate server after a delay – a technique also mentioned in Dean’s paper – can also lower not just average response times, but reduce or eliminate outliers too, which is equally important.
+</p> 
+  <p style="text-align: justify;">
+We’ll do some of these, but we are nearing the point of diminishing returns.   Below a threshold of some tens of milliseconds, the difference is imperceptible for a person.  
+</p> 
+  <p style="text-align: justify;">
+On the flip side, there are applications for which this would never make sense.  High frequency trading, where the goal is to shave microseconds away, is a poor fit. 
+</p> 
+  <p style="text-align: justify;">
+More importantly, our goal is more than performance alone.  While this setup with HBase provides a thousandfold improvement on write performance and 3x faster reads, it is a connector to a broader distributed platform of tools and ideas.  
+</p>

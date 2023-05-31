@@ -1,0 +1,49 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 11 November 2016'
+date: '2016-11-11T00:00:00+00:00'
+categories: foundation
+---
+<p>Whether you're observing Remembrance Day, Veteran's Day, Single's Day, or simply making a wish on 11/11, the Apache community is convening for next week's conferences in Seville. And, per usual, the Apache machine continues to turn:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 16 November 2016. Board calendar and minutes available at<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield perky performance at 99.86% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Starting Monday! Apache: Big Data followed by ApacheCon Europe/Seville&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br /></p> 
+    <p>Apache Directory™ –an ongoing effort to provide an enhancedLDAP API, as a replacement for JNDI and the existing LDAP API (jLdap and Mozilla LDAP API).<br />&nbsp;- Apache Directory LDAP API 1.0.0-RC2 released&nbsp;<a href="http://directory.apache.org/api/downloads.html">http://directory.apache.org/api/downloads.html</a><br />&nbsp;- Apache Directory Studio 2.0-0-M12 released&nbsp;<a href="http://directory.apache.org/studio/downloads.html">http://directory.apache.org/studio/downloads.html</a></p> 
+    <p>Apache Fortress™ –provides a Role-Based Access Control system that is fully ANSI INCITS 359 compliant and production ready.<br />&nbsp;- Apache Fortress 2.0.0-RC1 released&nbsp;<a href="http://directory.apache.org/fortress/downloads.html">http://directory.apache.org/fortress/downloads.html</a></p> 
+    <p>Apache Knox™ –a REST API Gateway for providing secure access to the data and processing resources of Hadoop clusters.<br />&nbsp;- Apache Knox 0.10.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/knox/0.10.0">http://www.apache.org/dyn/closer.cgi/knox/0.10.0</a></p> 
+    <p>Apache Jackrabbit™ –a fully conforming implementation of the Content Repository for Java Technology API (JCR).<br />&nbsp;-&nbsp;Apache Jackrabbit 2.12.5 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;- Apache Lucene 6.3.0 released&nbsp;<a href="http://lucene.apache.org/core/mirrors-core-latest-redir.html">http://lucene.apache.org/core/mirrors-core-latest-redir.html</a><br />&nbsp;- Apache Solr 6.3.0 released&nbsp;<a href="http://lucene.apache.org/solr/mirrors-solr-latest-redir.html">http://lucene.apache.org/solr/mirrors-solr-latest-redir.html</a></p> 
+    <p>Apache OpenMeetings™ –provides video conferencing, instant messaging, white board, collaborative document editing and other groupware tools using API functions of the Red5 Streaming Server for Remoting and Streaming.<br />&nbsp;- CVE-2016-8736: Apache Openmeetings RMI Registry Java Deserialization RCE&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201611.mbox/%3CCAJmbs8i2AFb9ddx2HDSea-XLkR7rRFeM05epxtQzDzSa6ZST3A%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201611.mbox/%3CCAJmbs8i2AFb9ddx2HDSea-XLkR7rRFeM05epxtQzDzSa6ZST3A%40mail.gmail.com%3E</a></p> 
+    <p>Apache Tika™ –a toolkit for detecting and extracting metadata and structured text content from various documents using existing parser libraries.<br />&nbsp;- Apache Tika 1.14 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/tika/apache-tika-1.14-src.zip">http://www.apache.org/dyn/closer.cgi/tika/apache-tika-1.14-src.zip</a></p> 
+    <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and JASPIC technologies.<br />&nbsp;- Apache Tomcat 9.0.0.M13 released&nbsp;<a href="http://tomcat.apache.org/download-90.cgi">http://tomcat.apache.org/download-90.cgi</a><br />&nbsp;- Apache Tomcat 8.5.8 released&nbsp;<a href="http://tomcat.apache.org/download-80.cgi">http://tomcat.apache.org/download-80.cgi</a></p> 
+    <p>Apache Traffic Server™ –a&nbsp;fast, scalable and extensible HTTP/1.1 compliant caching proxy server.&nbsp;<br />&nbsp;- Apache Traffic Server v7.0.0 released&nbsp;<a href="http://trafficserver.apache.org/downloads">http://trafficserver.apache.org/downloads</a></p> 
+    <p>Apache Wicket™ –an Open Source Java component oriented Web application framework.<br />&nbsp;- CVE-2016-6806: Apache Wicket CSRF detection vulnerability <a href="http://mail-archives.apache.org/mod_mbox/www-announce/201611.mbox/%3CCAB63Y-cZ+ZydQB=zPKNJDFyb-AgSV2ba=FA9wqz7rDQw_hemNQ@mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201611.mbox/%3CCAB63Y-cZ+ZydQB=zPKNJDFyb-AgSV2ba=FA9wqz7rDQw_hemNQ@mail.gmail.com%3E</a> </p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <p><a href="http://qpid.apache.org/download.html"></a></p> 
+    <p>&nbsp;- Did you know that each BarCamp Apache&nbsp;is different, based on the individuals, ideas, and communitites participating?&nbsp;<a href="http://feathercast.apache.org/apachecon-europe-2016-barcamp-apache/">http://feathercast.apache.org/apachecon-europe-2016-barcamp-apache/</a></p> 
+    <p>&nbsp;- Did you know that Apache CouchDB was instrumental in providing offline-first applications in the 2014-2015 Ebola outbreak in West Africa?&nbsp;<a href="http://couchdb.apache.org/">http://couchdb.apache.org/</a></p> 
+    <p>&nbsp;-&nbsp;Did you know that Apache Project anniversaries in November include:&nbsp;Labs (10 yrs); HTTP Components (9 yrs); Abdera, Attic, Buildr, CouchDB, and Qpid (8 yrs); Community Development (7 yrs); OODT and ZooKeeper (6 yrs); Kafka and Syncope (4 yrs); Ambari and Marmotta (3 yrs); BookKeeper, DeviceMap, Drill, and MetaModel (2 yrs); and Brooklyn, Groovy, Kylin, and REEF (1 yr)? Many happy returns to all!</p> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Syncope, Tika, Trafodion, Zest, and more!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- ApacheCon North America will be held 16-18 May 2017 in Miami. Details coming.</p> 
+    <div> 
+      <p>&nbsp;- The ASF Q1 FY2017 Report is available at <a href="https://s.apache.org/1BsV">https://s.apache.org/1BsV</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a>and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

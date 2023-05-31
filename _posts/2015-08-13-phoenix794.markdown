@@ -1,8 +1,0 @@
----
-layout: post
-title: Spatial data queries in Phoenix
-date: '2015-08-13T18:37:32+00:00'
-categories: phoenix
----
-Take a look at this excellent write-up by Dan Meany on implementing spatial data queries on <a href="https://phoenix.apache.org/" target="_blank" title="Apache Phoenix">Apache Phoenix</a> using <a href="https://phoenix.apache.org/udf.html" target="_blank" title="UDFs">UDFs</a> and <a href="https://phoenix.apache.org/secondary_indexing.html" target="_blank" title="secondary indexing">secondary indexing</a>:&nbsp;<a href="https://github.com/threedliteguy/General/wiki/Adding-spatial-data-queries-to-Phoenix-on-HBase" target="_blank" title="spatial data queries on Phoenix">https://github.com/threedliteguy/General/wiki/Adding-spatial-data-queries-to-Phoenix-on-HBase
-</a>

@@ -1,0 +1,53 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 8 December 2017'
+date: '2017-12-08T00:00:00+00:00'
+categories: foundation
+---
+<div>Hello, Friday! This week the Apache Community has been working on:</div> 
+  <div> 
+    <div> 
+      <p>Support Apache&nbsp;–Corporate Giving programs often have end-of-year philanthropic goals: if your employer has a Matching Gifts program, please consider adding The Apache Software Foundation to your list of beneficiary organizations to increase your donations and their tax deduction. Every dollar counts. <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></p> 
+    </div> 
+    <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 20 December. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br />&nbsp;-&nbsp;The Apache Software Foundation Operations Summary: August - October 2017&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a></p> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield smashing performance at 99.88% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>ASF Operations Factoid&nbsp;–this week, 91 Apache contributors changed 98,334 lines of code over 433 commits. Top 5 contributors, in order, are: Attila Doroszlai, Mark Thomas, Antoine Duprat, Wenchen Fan, and Francesco Chicchiriccò.</p> 
+    <p>Apache HttpComponents™ Client –a library for client-side HTTP communication.<br />&nbsp;- HttpComponents Client 4.5.4 GA released <a href="http://hc.apache.org/">http://hc.apache.org/</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.6.7 released <a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a> </p> 
+    <p>Apache MXNet (incubating) –a deep learning framework designed for both efficiency and flexibility.<br />&nbsp;-&nbsp;Apache MXNet 1.0.0 released&nbsp;<a href="http://mxnet.incubator.apache.org/">http://mxnet.incubator.apache.org/</a></p> 
+    <p>Apache NiFi™ MiNiFi –a subproject of Apache NiFi (supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic).<br />&nbsp;-&nbsp;Apache NiFi MiNiFi C++ 0.3.0 released&nbsp;<a href="https://nifi.apache.org/minifi">https://nifi.apache.org/minifi</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <div> 
+      <p>&nbsp;- Did you know that the investigation into the Paradise Papers was made possible using Apache Tika to extract and process document metadata, and Apache Solr to index the documents?&nbsp;<a href="http://tika.apache.org/">http://tika.apache.org/</a>&nbsp;and&nbsp;<a href="http://lucene.apache.org/solr/">http://lucene.apache.org/solr/</a></p> 
+      <p>&nbsp;- Did you know that the Apache Mynewt embedded OS is optimized for networking and built for remote management of constrained devices?&nbsp;<a href="http://mynewt.apache.org/">http://mynewt.apache.org/</a></p> 
+      <p>&nbsp;- Did you know that UK's Funding Circle uses Apache Kafka's Streams API to process millions of dollars' worth of financial transactions in real-time with low latency and high performance?&nbsp;<a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p> 
+    </div> 
+    <div><strong><br />Apache Community Notices:</strong></div> 
+    <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+    <div> 
+      <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a>4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation&nbsp;<a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a>&nbsp;10) All My Roads Led to Apache&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a>&nbsp;11) Scratch Your Own Itch.&nbsp;<a href="https://s.apache.org/7Amk">https://s.apache.org/7Amk</a></p> 
+    </div> 
+    <div>&nbsp;- Follow the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a> (re-tweets/shares/likes most appreciated!)</div> 
+    <div> 
+      <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+      <p><a href="https://feathercast.apache.org/"></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Meet members of the Apache community at Open Expo Madrid 6-7 June 2018&nbsp;<a href="http://www.openexpo.es/en/">http://www.openexpo.es/en/</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ASF Quarterly Report: Operations Summary Q2 FY2018&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+    </div> 
+    <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+    <p># # #</p> 
+  </div>

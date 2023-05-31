@@ -1,0 +1,7 @@
+---
+layout: post
+title: Nick Williams joined the Apache Logging PMC
+date: '2014-02-19T00:00:00+00:00'
+categories: logging
+---
+We are very happy that Nick Williams joined the Apache Logging Services PMC. He is involved mainly in the development of Log4j 2.0 but also keeps an eye on Log4cxx. Thanks Nick for all what you did so far and all the best for you new role at Apache Logging.

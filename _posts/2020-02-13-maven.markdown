@@ -1,0 +1,101 @@
+---
+layout: post
+title: Apache Maven Shade Plugin version 3.2.2 Released
+date: '2020-02-13T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the <a href="http://maven.apache.org/plugins/maven-shade-plugin/">Apache
+Maven Shade Plugin, version 3.2.2</a>.</p>
+
+<p>This plugin provides the capability to package the artifact in an uber-jar,
+including its dependencies and to shade &ndash; i.e. rename &ndash; the packages of some of
+the dependencies.</p>
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.2.2<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can download the <a href="https://maven.apache.org/shared/maven-archiver/download.cgi">appropriate sources etc. from the download page</a></p>
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317921&amp;version=12344059">Release Notes &ndash; Maven Shade Plugin &ndash; Version 3.2.2</a></p>
+
+<ul>
+<li><p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-223">MSHADE-223</a> &ndash; Endless processing when promoteTransitiveDependencies=true</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-284">MSHADE-284</a> &ndash; Shaded test JARs are always empty</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-291">MSHADE-291</a> &ndash; shadedPattern applied multiples times when relocating the contents of META-INF/services files</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-298">MSHADE-298</a> &ndash; Groovy extension module transformer looking in incorrect META-INF directory</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-309">MSHADE-309</a> &ndash; issue tracker link on the web site of shade plugin does not work.</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-311">MSHADE-311</a> &ndash; Bad exclusions in dependency-reduced-pom.xml</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-315">MSHADE-315</a> &ndash; Broken link on Maven Shade Plugin</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-318">MSHADE-318</a> &ndash; Specifically included class&rsquo;s dependencies are missing</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-331">MSHADE-331</a> &ndash; Issue Tracker link is not working &ndash; Page Not Found</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-337">MSHADE-337</a> &ndash; Relocation cannot process class file version 58 JARs</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-339">MSHADE-339</a> &ndash; Shaded test jar has wrong type &ldquo;jar&rdquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-340">MSHADE-340</a> &ndash; Shaded test jar artifact is not attached</li>
+</ul>
+</li>
+<li><p>New Features:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-306">MSHADE-306</a> &ndash; Log all duplicates, not only classes</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-347">MSHADE-347</a> &ndash; Reproducible Builds: make entries in output jar files reproducible</li>
+</ul>
+</li>
+<li><p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-285">MSHADE-285</a> &ndash; It should be possible to shade test sources as a JAR</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-313">MSHADE-313</a> &ndash; Minimize jar should respect implementations under /META-INF/services/</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-316">MSHADE-316</a> &ndash; Minijar: <excludeDefaults>true</excludeDefaults></li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-319">MSHADE-319</a> &ndash; Group output into included and excluded artifacts to easily identify them</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-348">MSHADE-348</a> &ndash; Make build Reproducible</li>
+</ul>
+</li>
+<li><p>Test:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-327">MSHADE-327</a> &ndash; improved integration test coverage for relocation and minification</li>
+</ul>
+</li>
+<li><p>Tasks:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-322">MSHADE-322</a> &ndash; Provide a transformer for properties files</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-330">MSHADE-330</a> &ndash; Java 12 and 13 support</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-346">MSHADE-346</a> &ndash; Introduce mock repository manager for testing</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-350">MSHADE-350</a> &ndash; Enable ManifestResourceTransformer to rewrite the manifest with relocations</li>
+</ul>
+</li>
+<li><p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-320">MSHADE-320</a> &ndash; Upgrade maven-artifact-transfer to 0.11.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-338">MSHADE-338</a> &ndash; Upgrade maven-artifact-transfer 0.12.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-341">MSHADE-341</a> &ndash; Upgrade plexus-utils 3.3.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHADE-349">MSHADE-349</a> &ndash; Upgrade to org.ow2.asm:asm:7.3.1</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

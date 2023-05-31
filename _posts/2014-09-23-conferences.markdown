@@ -1,0 +1,55 @@
+---
+layout: post
+title: 'Keynotes and Program Announced for ApacheCon and CloudStack Collaboration
+  Conference Europe '
+date: '2014-09-23T00:00:00+00:00'
+categories: conferences
+---
+<div> 
+    <p><b><i>Hugh Howey, best selling author, joins community leaders from Cloud Foundry, HP, Linux Foundation and Red Hat, among others, in more than 250 keynotes, sessions &amp; tutorials</i></b></p> 
+    <p><b>SAN FRANCISCO, September 23, 2014 –</b> The Linux Foundation, the nonprofit organization dedicated to accelerating the growth of Linux and collaborative development, announced today the keynote speakers and program agenda for ApacheCon and the CloudStack Collaboration Conference Europe. ApacheCon takes place November 17-­21, 2014 in Budapest, Hungary. CloudStack Collaboration Conference takes place November 19-­21, 2014 in the same location.</p> 
+  </div> 
+  <div>ApacheCon Europe sessions will cover some of today's hottest open source projects, including Apache projects Cassandra, Cordova, CloudStack, CouchDB, Geronimo, Hadoop, Hive, HTTP Server, Lucene, OpenOffice, Struts, Subversion and Tomcat, among others. ApacheCon brings together more than 100 Apache Software Foundation project communities as well as other open source projects across multiple sectors in one venue. Participants will collaborate and advance the work that is defining the future of technology and that represents a new generation of software development. This year's event offers more than 140 conference sessions in addition to keynotes, tutorials, a hackathon, mini­summits and a barcamp.&nbsp;</div> 
+  <p> </p> 
+  <div> 
+    <p>The CloudStack Collaboration Conference Europe brings together developers, systems administrators and DevOps professionals who are building and managing large networks of virtual machines and advancing the state of the art for cloud computing technologies. The event offers a neutral environment where attendees can advance their work with Apache CloudStack. Attendees who want to attend both events can register for ApacheCon and get into CloudStack Collaboration Conference for no fee.&nbsp;</p> 
+  </div> 
+  <div>ApacheCon keynotes include: &nbsp;</div> 
+  <div> 
+    <ul> 
+      <li>Hugh C. Howey, best­selling author of the science fiction and fantasy books WOOL and the Molly Fyde saga will discuss how self­publishing is the future.&nbsp;</li> 
+      <li>Dave Nalley, PMC member of the Apache CloudStack project, jClouds committer, Fedora contributor and an open source evangelist for the Open Source Business Office at Citrix will discuss the value of the Apache Software Foundation. &nbsp;</li> 
+    </ul> 
+  </div> 
+  <div>&nbsp;Session highlights include:&nbsp;</div> 
+  <div> 
+    <ul> 
+      <li>Understanding Docker and Containerizing Your Applications ­ Joe 'Zonker' Brockmeier, Red Hat&nbsp;</li> 
+      <li>Time Series Data With Apache Cassandra ­ Eric Evans, OpenNMS Group &nbsp;</li> 
+      <li>What Can Infrastructure Do For You Today? ­ Daniel Gruno, Apache Software Foundation&nbsp;</li> 
+      <li>Deploying OSGi On An Army Of Cubietrucks ­ Frank Lyaruu, Sendrato &nbsp;</li> 
+      <li>Tomcat 9 (Very Early) Preview ­ Mark Thomas, Pivotal &nbsp;</li> 
+      <li>Quadrupling Your Elephants: Rdf And The Hadoop Ecosystem ­ Rob Vesse, YarcData &nbsp;</li> 
+    </ul> 
+  </div> 
+  <div> </div> 
+  <div> 
+    <p>Also new this year is ‘Cassandra Days,’ which features sessions, workshops and a tutorial focused on Apache Cassandra, the distributed storage system for managing very large amounts of structured data spread out across many commodity servers. Sessions in this track will cover topics such as data migration and development cycles, data modeling, Cassandra case studies, and more. To see the lineup for Cassandra Days, visit <a href="https://apacheconeu2014.sched.org/overview/type/cassandra+days#.VBjEqC5dWR4">https://apacheconeu2014.sched.org/overview/type/cassandra+days#.VBjEqC5dWR4</a>. &nbsp;</p> 
+    <p>To view the full ApacheCon Europe schedule, visit: <a href="http://events.linuxfoundation.org/events/apachecon%ADeurope/program/schedule">http://events.linuxfoundation.org/events/apachecon­europe/program/schedule</a>. The standard registration fee for ApacheCon of €1099 will apply through November 1, 2014. Registration to ApacheCon includes free entry into CloudStack Collaboration Conference Europe. For additional information and/or to register, please visit the ApacheCon website at <a href="http://events.linuxfoundation.org/events/apachecon%ADeurope">http://events.linuxfoundation.org/events/apachecon­europe</a>. &nbsp;</p> 
+  </div> 
+  <div>CloudStack Collaboration Conference Europe highlights include 55+ conference sessions covering topics ranging from DevOps and Platform­as­a­Service (PaaS) to Design Considerations and Storage, in addition to tutorials dedicated to CloudStack Clients &amp; Tools, Chef, Cloudify, and the CloudStack Ecosystem. To view the CloudStack Collaboration Conference schedule, please visit: <a href="http://events.linuxfoundation.org/events/cloudstack%ADcollaboration%ADconference%ADeurope/program/schedule">http://events.linuxfoundation.org/events/cloudstack­collaboration­conference­europe/program/schedule</a>. For more information and to register for CloudStack Collaboration Conference ­ €299 through October 16, 2014 ­ please visit: <a href="http://events.linuxfoundation.org/events/cloudstack%ADcollaboration%ADconference%ADeurope">http://events.linuxfoundation.org/events/cloudstack­collaboration­conference­europe</a>. &nbsp;</div> 
+  <p> </p> 
+  <div> 
+    <p>CloudStack Collaboration Conference Europe is sponsored by Diamond Sponsor Citrix, Platinum Sponsor Interoute Communications, Gold Sponsors iKoula, ShapeBlue and SolidFire, and Silver Sponsor Chef.&nbsp;</p> 
+  </div> 
+  <div>ApacheCon Europe is sponsored by holidaylettings by TripAdvisor and Pivotal. &nbsp;</div> 
+  <p> </p> 
+  <div> 
+    <p>The Linux Foundation and The Apache Software Foundation announced earlier this year that they are joining forces to advance and support open source development by co­producing this year’s ApacheCon and CloudStack Collaboration Conference events in North America and Europe. The Linux Foundation’s mission is to advance Linux and open source collaborative software. By hosting and organizing community events it can unite and aid the people who are building the software that runs our lives. The organization, to date, has hosted and produced more than 50 world­class events, including the annual LinuxCon and CloudOpen conferences, and has produced events and projects for communities such as Gluster, KVM, the Linux Plumbers Conference, Linux Kernel Summit, Linux Storage, Filesystem and Memory Management Summit, OpenDaylight Summit, Tizen Developer Conference, Xen User &amp; Developer Summit, and many more.&nbsp;</p> 
+  </div> 
+  <div> 
+    <p>###&nbsp;</p> 
+  </div> 
+  <div> 
+    <p>The Linux Foundation, Linux Standard Base, MeeGo, OpenDaylight, Tizen and Yocto Project are trademarks of The Linux Foundation. OpenBEL is a trademark of OpenBEL Consortium. Linux is a trademark of Linus Torvalds.&quot;Apache&quot;, &quot;Apache Cassandra&quot;, &quot;Apache Cordova&quot;, &quot;Apache CloudStack&quot;, &quot;Apache CouchDB&quot;, &quot;Apache Geronimo&quot;, &quot;Apache Hadoop&quot;, &quot;Apache Hive&quot;, &quot;Apache HTTP Server&quot;, &quot;Apache Lucene&quot;, &quot;Apache OpenOffice&quot;, &quot;Apache Struts&quot;, &quot;Apache Subversion&quot; and &quot;Apache Tomcat&quot;, &quot;Cassandra&quot;, &quot;Cordova&quot;, &quot;CloudStack&quot;, &quot;CouchDB&quot;, &quot;Geronimo&quot;, &quot;Hadoop&quot;, &quot;Hive&quot;, &quot;HTTP Server&quot;, &quot;Lucene&quot;, &quot;OpenOffice&quot;, &quot;Struts&quot;, &quot;Subversion&quot;, &quot;Tomcat&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</p> 
+  </div>

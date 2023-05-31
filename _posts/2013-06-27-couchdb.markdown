@@ -1,0 +1,69 @@
+---
+layout: post
+title: Apache CouchDB 1.3.1 Released
+date: '2013-06-27T00:00:00+00:00'
+categories: couchdb
+---
+<p>Apache CouchDB 1.3.1 has been released and is available for download.</p>
+
+<p>CouchDB is a database that completely embraces the web. Store your data with JSON documents. Access your documents with your web browser, via HTTP. Query, combine, and transform your documents with JavaScript. CouchDB works well with modern web and mobile apps. You can even serve web apps directly out of CouchDB. And you can distribute your data, or your apps, efficiently using CouchDB’s incremental replication. CouchDB supports master-master setups with automatic conflict detection.</p>
+
+<p>Grab your copy here:</p>
+
+<blockquote>
+<a href="http://couchdb.apache.org/">http://couchdb.apache.org/</a>
+</blockquote>
+
+<p>Pre-built packages for Windows and OS X are available.</p>
+
+<p><em>CouchDB 1.3.1 is a bugfix release, and was originally published on 2013-06-27.</em></p>
+
+<p>These release notes are based on the <a href="https://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=blob_plain;f=CHANGES;hb=86d756a101eff823a231a78e577b8b0780830123">CHANGES</a> file.</p>
+
+<h4>Replicator</h4>
+
+<ul>
+
+<li>
+<p><strong>Tolerate missing source and target fields in _replicator docs (<a href="https://issues.apache.org/jira/browse/COUCHDB-1788">COUCHDB-1788</a>).</strong></p>
+</li>
+
+</ul>
+
+<h4>Log System</h4>
+
+<ul>
+
+<li>
+<p><strong>Don't log about missing .compact files.</strong></p>
+</li>
+
+<li>
+<p><strong>Fix bug in WARN level logging from 1.3.0 (<a href="https://issues.apache.org/jira/browse/COUCHDB-1794">COUCHDB-1794</a>).</strong></p>
+</li>
+
+</ul>
+
+<h4>View Server</h4>
+
+<ul>
+
+<li>
+<p><strong>Fix the -S option to couchjs to increase memory limits (<a href="https://issues.apache.org/jira/browse/COUCHDB-1792">COUCHDB-1792</a>).</strong></p>
+</li>
+
+</ul>
+
+<h4>Misc</h4>
+
+<ul>
+
+<li>
+<p><strong>Improve documentation: better structure, improve language, less duplication.</strong></p>
+</li>
+
+<li>
+<p><strong>Improvements to test suite and VPATH build system.</strong></p>
+</li>
+
+</ul>

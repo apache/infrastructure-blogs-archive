@@ -1,0 +1,107 @@
+---
+layout: post
+title: 'Apache Bigtop 0.6.0 has been released  '
+date: '2013-06-22T00:00:00+00:00'
+categories: bigtop
+---
+<p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;" id="docs-internal-guid-06714ee8-696d-302e-f567-3dfecec8da61"><span style="font-family: Arial; color: #505050; vertical-align: baseline;">Just in time for </span><a href="http://hadoopsummit.org/san-jose/"><span style="font-family: Arial; text-decoration: underline; vertical-align: baseline; color: #0392b2;"><b>Hadoop Summit 2013</b></span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;">,
+ Apache Bigtop team is very pleased to announce the release of Apache 
+Bigtop 0.6.0. The very first release of a fully integrated Big data 
+management distribution built on the currently most advanced Hadoop 2.x 
+-- Hadoop 2.0.5-alpha. </span></p> 
+  <p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;"><a href="http://bigtop.apache.org/"><span style="font-family: Arial; color: #0392b2; font-weight: bold; text-decoration: underline; vertical-align: baseline;">Apache Bigtop</span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;">,
+ as many of you might already know, is a project aimed at creating 100% 
+open source and community driven Big data management distribution based 
+on </span><a href="http://hadoop.apache.org/"><span style="font-family: Arial; vertical-align: baseline; color: #0392b2;"><b><u>Apache Hadoop</u></b></span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;">. You can learn more about it by reading </span><a href="https://blogs.apache.org/bigtop/entry/bigtop_and_why_should_you"><span style="font-family: Arial; color: #0392b2; font-weight: bold; text-decoration: underline; vertical-align: baseline;">one of our earlier blog posts</span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;"> on Apache Blogs.</span></p> 
+  <p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;"><span style="font-family: Arial; vertical-align: baseline;"><span style="color: #505050;">The
+ very astute readers of this blog would notice that given our quarterly 
+release schedule Bigtop 0.6.0 should have been called Bigtop 0.7.0. It 
+is true that we skipped a quarter. Our excuse is that we spent all this 
+extra time on helping Hadoop community </span><a href="http://markmail.org/message/5aho2dnvobxjmr5f#query:+page:1+mid:ldgsxqf2sttrigvh+state:results" style="color: #0392b2;"><u><b>stabilize</b></u></a><span style="color: #505050;"> the </span><a href="http://markmail.org/thread/ryofgsyhhjshbv7a#query:+page:1+mid:yxb7rzu5q26t4wml+state:results"><u style="color: #0392b2;"><b>Hadoop 2.x code 
+line</b></u></a><span style="color: #505050;"> and making it a robust kernel for all the applications that are now
+ part of the Bigtop distribution. And speaking of applications, we 
+haven’t forgotten to grow the Bigtop family. Bigtop 0.6.0 adds </span></span><a href="http://incubator.apache.org/hcatalog/"><span style="font-family: Arial; text-decoration: underline; vertical-align: baseline; color: #0392b2;"><b>Apache HCatalog</b></span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;"> and </span><a href="http://giraph.apache.org/"><span style="font-family: Arial; text-decoration: underline; vertical-align: baseline; color: #0392b2;"><b>Apache Giraph</b></span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;"> to the mix. The full list of Hadoop applications available as part of Bigtop 0.6.0 release is now:</span></p> 
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Zookeeper 3.4.5</span><span style="color: #505050; font-size: 13px; line-height: 1.4235000000000002; background-color: transparent;">Apache Flume 1.3.1</span><span style="background-color: transparent; line-height: normal;"> </span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache HBase 0.94.5</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Pig 0.11.1</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Hive 0.10.0</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Sqoop 2 (AKA 1.99.2)</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Oozie 3.3.2</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Whirr 0.8.2</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Mahout 0.7</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Solr (SolrCloud) 4.2.1</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Crunch (incubating) 0.5.0</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache HCatalog 0.5.0</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Apache Giraph 1.0.0</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">LinkedIn DataFu 0.0.6</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Cloudera Hue 2.3.0</span></p> 
+    </li> 
+  </ul><span style="font-family: Arial; color: #505050; vertical-align: baseline;"></span> 
+  <p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;"><span style="font-family: Arial; color: #505050; vertical-align: baseline;">The list of supported Linux platforms has expanded to include:</span></p> 
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">CentOS/RHEL 5 and 6</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Fedora 17 and 18</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">SuSE Linux Enterprise 11</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">OpenSUSE 12.2</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Ubuntu LTS Lucid (10.04) and Precise (12.04)</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; vertical-align: baseline; margin-left: -8px;"> 
+      <p dir="ltr" style="line-height: 1.4235000000000002; margin-top: 0pt; margin-bottom: 12pt;"><span style="font-size: 13px; color: #505050; vertical-align: baseline;">Ubuntu Quantal (12.10)</span></p> 
+    </li> 
+  </ul> 
+  <p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;"><span style="font-family: Arial; color: #505050; vertical-align: baseline;">We
+ would like to invite everybody to give the Bigtop 0.6.0 binary 
+distribution a try. All you have to do is to pick your favorite Linux 
+distribution, follow our </span><a href="https://cwiki.apache.org/confluence/display/BIGTOP/How+to+install+Hadoop+distribution+from+Bigtop+0.6.0"><span style="font-family: Arial; text-decoration: underline; vertical-align: baseline; color: #0392b2;"><b>wiki instructions</b></span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;"> and you will have your first pseudo-distributed cluster computing Pi in no time.</span></p> 
+  <p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;"><span style="font-family: Arial; color: #505050; vertical-align: baseline;">If
+ you’re thinking about deploying Bigtop to a fully-distributed cluster 
+you might find our Puppet code to be useful — after all we use it all 
+the time ourselves to test Bigtop. There is </span><a href="https://github.com/apache/bigtop/tree/master/bigtop-deploy/puppet"><span style="font-family: Arial; color: #0392b2; font-weight: bold; text-decoration: underline; vertical-align: baseline;">brief documentation</span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;">
+ on how to run our Puppet recipes in a master-less puppet configuration,
+ but a typical Puppet master setup should work as well. Bigtop plays an 
+important role in CDH which leverages all its packaging code from 
+Bigtop.</span></p> 
+  <p dir="ltr" style="line-height: 1.425; margin-top: 0pt; margin-bottom: 9pt;"><span style="font-family: Arial; color: #505050; vertical-align: baseline;">Finally,
+ Apache Bigtop would not have been possible without the tireless work of
+ all the volunteer developers. This is an amazing community to be part 
+of, and if you would like to join us, now is the time. In fact, we 
+decided to take advantage of Hadoop Summit drawing a lot of Hadoop 
+developers to the San Francisco Bay Area and have our first meeting of 
+the </span><a href="http://www.meetup.com/HandsOnProgrammingEvents/events/122050632/"><span style="font-family: Arial; text-decoration: underline; vertical-align: baseline; color: #0392b2;"><b>Apache Bigtop Working Group on Thu, Jun 27 2013</b></span></a><span style="font-family: Arial; color: #505050; vertical-align: baseline;">. Come join us! It is a lot of fun to build the future of bigdata management together!</span></p><span style="font-family: Arial; color: #505050; vertical-align: baseline;">Happy Big Data discoveries,<br class="kix-line-break" />Your faithful and tireless Bigtop development team!</span>

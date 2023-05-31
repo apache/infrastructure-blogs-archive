@@ -1,7 +1,0 @@
----
-layout: post
-title: Tiles 2.2.0 approaching
-date: '2009-07-27T12:53:29+00:00'
-categories: tiles
----
-<p>Development of Tiles 2.2.0 is going forward with a steady pace and I hope that this version (that probably will be of <i>Alpha</i> quality) will be released soon.</p><p>These are the new features that Tiles 2.2.0 will have for sure:</p><ul><li>Support for new template languages, namely <a href="http://velocity.apache.org/">Velocity</a> and <a href="http://freemarker.org/">Freemarker</a>.</li><li>Support for new evaluation language besides EL, namely <a href="http://www.opensymphony.com/ognl/">OGNL</a> and <a href="http://mvel.codehaus.org/">MVEL</a>.</li><li>Support for Regular Expressions to express patterns in definition names (instead of using Wildcard notation).</li></ul><p>A part of Tiles, however, will be dropped because it's becoming unmaintainable. Tiles 2.2.0 won't provide Java 1.4&nbsp; retrotranslated packages and support for Servlets 2.4/JSP 2.0 (only 2.5/2.1 will be supported).</p><p>Moreover, initialization through parameters is deprecated, in favour of encouraging pure Java configuration. However, Tiles 2.2.0 still supports it for old developments (in 2.0 and 2.1) but new features introduced in 2.2 won't be available.</p><p>I hope you won't miss that :-)<br /></p><p><br /></p>

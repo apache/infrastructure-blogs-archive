@@ -1,0 +1,8 @@
+---
+layout: post
+title: Release of Apache Bigtop 0.8.0
+date: '2014-12-02T00:00:00+00:00'
+categories: bigtop
+---
+A long awaited new release of <a href="http://bigtop.apache.org/" title="Apache Bigtop">Apache Bigtop</a> has happened. Actually it has happened about a month ago, but we never had a chance to do the official blog post on that. The
+community and the <a href="http://hadoop.apache.org/" title="Apache Hadoop">Apache Hadoop</a> ecosystem at large is happy to have <a href="http://mail-archives.apache.org/mod_mbox/bigtop-user/201410.mbox/%3C20141006032356.GM8064%40tpx%3E" title="Release announcement">Apache Bigtop 0.8.0</a> out and ready for you!

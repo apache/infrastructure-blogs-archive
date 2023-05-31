@@ -1,0 +1,66 @@
+---
+layout: post
+title: The Apache Software Foundation Announces New Top-Level Projects
+date: '2010-05-04T00:00:00+00:00'
+categories: foundation
+---
+<b><i>Record Number of Projects Launched via Apache Incubator and Current Initiatives</b></i>
+<p>
+FOREST HILL, MD – 4 May, 2010 – The Apache Software Foundation (ASF) –-the all-volunteer developers, stewards, and incubators of 143 Open Source projects and initiatives-- today announced the creation of six new Top-Level Projects (TLPs), setting an all-time record of the most new TLPs launched in a single month.
+<p>
+A Top-Level Project signifies that a Project's community and products have been well-governed under the ASF's meritocratic, consensus-driven process and principles. Whilst a project is developing within the Apache Incubator or as a sub-project of an existing TLP, it benefits from hands-on mentoring from other Apache contributors, as well as the Foundation’s widely-emulated process, stewardship, outreach, support, and community events.
+<p>
+"Becoming a Top-Level Project is a vote of confidence from the Foundation at-large, demonstrating a project has proven its ability to be properly self-governed," said ASF Chairman Jim Jagielski. "We are proud of our Committers' dedication in building robust communities under the ASF process known as 'The Apache Way'."
+<p>
+All Apache Projects are overseen by a self-selected team of active contributors to the project. Upon a Project's maturity to a TLP, a Project Mangement Committee (PMC) is formed to oversee its day-to-day operations, including community development and product releases.
+<p>
+The six new TLPs include both a graduating project from the Apache Incubator as well as sub-projects of existing TLPs. They are:
+<p>
+<b>Graduating from the Apache Incubator</b>
+<br>
+- Apache Traffic Server is a richly-featured, fast, scalable, and extensible HTTP/1.1 compliant caching proxy server. Formerly a commercial product, Yahoo! submitted Traffic Server to the Apache Incubator in 2009. Traffic Server is widely recognized as an “edge” service in cloud computing; an example of its use is to serve static content such as images and JavaScript, CSS, and HTML files, and route requests for dynamic content to a Web server such as the Apache HTTP Server. Highly performant, Apache Traffic Server has been benchmarked to handle in excess of 75,000 requests per second (RPS), and is used in production in large-scale deployments such as Yahoo!, where it handles 400 terrabytes of traffic per day, and serves more than 30 billion objects daily across its various properties including the Yahoo! homepage, and its Sports, Mail, and Finance sites.
+
+<p>
+<b>Former Sub-projects of Existing Top-Level Projects</b>
+<br>
+- Apache Mahout provides scalable implementations of machine learning algorithms on top of Apache Hadoop and other technologies. It offers collaborative filtering, clustering, classification, feature
+reduction, data mining algorithms, and more. Begun as a sub-project of Lucene in 2008, Mahout's team of nearly a dozen contributors is now actively working towards release 0.4. 
+<p>
+- Apache Tika is an embeddable, lightweight toolkit for content detection, and analysis. Powering by MIME standards from IANA, advanced language detection features and on the ability to rapidly unify existing parser libraries, Tika provides a one-stop shop for navigating the modern information landscape. Tika entered the Incubator in 2007 and graduated to a Lucene sub-project in 2008. Tika is used in a broad range of Lucene products ranging from Solr, to Nutch and Mahout and is in deployment at NASA, Day Software, the Internet Archive, and at a number of Web startups including Bixo labs.
+<p>
+- Apache Nutch is a highly-modular, Web searching engine based on Lucene Java with added Web-specifics, such as a crawler, a link-graph database, and parsers for HTML and other document formats.
+Its architecture allows developers to create plugins for media-type parsing, data retrieval, querying,  clustering, and more. Following a successful 100 million page demo system, the project graduated the Apache Incubator in 2005 to become a sub-project of Apache Lucene.
+<p>
+- Apache Avro is a fast data serialization system that includes rich and dynamic schemas in all its processing. A sub-project of Apache Hadoop, Avro features rich data structures; a compact, fast, binary data format; a container file to store persistent data; remote procedure call (RPC); and simple integration with dynamic languages. Not only is code generation not required to read or write data files nor to use or implement RPC protocols, it is an optional optimization, only worth implementing for statically typed languages.
+<p>
+- Apache HBase is a distributed database modeled after Google's Bigtable. The project started at Powerset and became a sub-project of  Apache Hadoop in 2007. Apache HBase adds random read/write access to the Hadoop stack, extending offline processing capabilities and enabling realtime serving of very large datasets. The project's goal is the hosting of big tables -- billions of rows X millions of columns -- running atop commodity hardware. HBase has been successfully deployed at Adobe, Flurry, Meetup, Mozilla, StumbleUpon, Trend Micro, and Twitter, among others, to perform  analytics and as a datastore for live Websites.
+<p>
+
+<b>Additional New Top-Level Projects Created in 2010</b>
+<br>
+- Apache UIMA (Unstructured Information Management Architecture) is a framework for analyzing unstructured information, such as natural language text. It supports the writing, deployment and reuse of analysis components in a wide variety of settings. Created at IBM and submitted to the Apache Incubator in 2006, UIMA has been adopted as the de-facto enabling platform by a significant part of the natural language processing community. Apache UIMA graduated from the Apache Incubator in March 2010.
+<p>
+- Apache Cassandra is an advanced, second-generation “NoSQL” distributed data store that has a shared-nothing architecture. The Cassandra decentralized model provides massive scalability, and is highly available with no single point of failure even under the worst scenarios. Originally developed at Facebook and submitted to the ASF Incubator in 2009, the Project has added more than a half-dozen new committers, and is deployed by dozens of high-profile users such as Cisco WebEx, Cloudkick, Digg, Facebook, Rackspace, Reddit, and Twitter. Apache Cassandra graduated from the Apache Incubator in March 2010.
+<p>
+- Apache Subversion is a widely-used versioning control system. The project was initated at CollabNet in 2000 and was accepted into the Apache Incubator in 2009; many of the people who founded Subversion also actively contribute to various initiatives at the ASF. All of the ASF's projects use Subversion for source code version control, and Subversion itself relies on many Apache projects such as Apache Portable Runtime (APR) and HTTP Web Server. For nearly a decade, both communities have benefited from open feedback channels, where requirements from the Subversion project have helped drive new features to various Apache projects, and vice versa. Apache Subversion is used in Bounty Source, CodePlex, Django, ExtJS, Free BSD, FreePascal, GCC, Google Code, MediaWiki, Mono, PHP, Ruby, SourceForge, and Tigris.org, as well as numerous corporations. Apache Subversion graduated from the Apache Incubator in February 2010.
+<p>
+- Apache Click is a modern Java EE Web application framework that provides a natural, rich client style programming model. Apache Click's intuitive design makes it very easy to learn and use, with most developers getting up and running within a day. As opposed to traditional component oriented Web frameworks, Click is stateless by design although stateful pages are supported. Click exposes few abstractions to learn and understand; the Java Servlet API is fully exposed to the developer to ease the upgrade path from an action-based framework to a component-based one to alleviate developers from maintaining redundant markup. Apache Click entered the Apache Incubator in 2008 and graduated in February 2010.
+<p>
+- Apache Shindig is an OpenSocial container and helps you to start hosting OpenSocial apps quickly by providing the code to render gadgets, proxy requests, and handle REST and RPC requests. By providing a language-neutral infrastructure for those wishing to host OpenSocial applications on their Websites, Apache Shindig allows new sites to start hosting social apps in under an hour. Originally created as a port of Google's iGoogle gadget container for hosting OpenSocial compatible widgets in any Website, Shindig entered the Apache Incubator in 2007, and graduated in January 2010.
+<p>
+"The ASF has been at the center of innovation over the past 10 years, providing key pieces for much of the software and services we rely on every day," said RedMonk analyst Michael Coté. "These new Top-Level Projects are another example of that in action: projects that aim to help developers and organizations build the next round of useful applications."
+<p>
+
+<b>Availability</b>
+<br>
+All Apache products are released under the Apache Software License v2.0. Downloads, documentation, and related resources are available at http://www.apache.org/.
+<p>
+<b>About the Apache Incubator and Incubation Process</b>
+<br>
+The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organisations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+<p>
+<b>About The Apache Software Foundation (ASF)</b>
+<br>
+Established in 1999, the all-volunteer Foundation oversees more than one hundred leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through The ASF's meritocratic process known as "The Apache Way," more than 300 individual Members and 2,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation’s official user conference, trainings, and expo. The ASF is funded by individual donations and corporate sponsors including Facebook, Google, HP, Microsoft, Progress Software, SpringSource/VMware, and Yahoo! For more information, visit http://www.apache.org/.
+<p>
+# # #

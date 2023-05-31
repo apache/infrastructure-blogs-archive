@@ -1,9 +1,0 @@
----
-layout: post
-title: The Apache Software Foundation, live on Times Square and in Vegas!
-date: '2009-11-20T07:57:50+00:00'
-categories: foundation
----
-<p><img src="http://blogs.apache.org/foundation/resource/asf-photos/apache-10-timessquare.jpg" style="float: right;" />Thanks to our very own Sally Khudairi, VP Marketing and Publicity, the ASF's 10 years shout out was recently displayed on New York's Times Square and in Las Vegas - and we have visual evidence!</p><p>&nbsp;</p>
-
-<img src="http://blogs.apache.org/foundation/resource/asf-photos/apache-10-prnewswire-vegas.jpg" style="clear: right;" />

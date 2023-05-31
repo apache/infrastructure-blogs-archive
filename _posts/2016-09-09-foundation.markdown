@@ -1,0 +1,54 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 9 September 2016'
+date: '2016-09-09T00:00:00+00:00'
+categories: foundation
+---
+<p>The Apache community has been kicking it in this week! Here's what happened:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 21 September 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield &quot;three nines&quot; performance at 99.90% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Join us! Apache: Big Data and ApacheCon Europe/Seville&nbsp;--hotel block details&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-europe/attend/hotel-travel">http://events.linuxfoundation.org/events/apachecon-europe/attend/hotel-travel</a><br />&nbsp;- FINAL CALL: 9 September - CFPs close&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a> | 16 September - Travel Assistance applications due&nbsp;<a href="http://www.apache.org/travel/">http://www.apache.org/travel/</a></p> 
+    <p>Apache Accumulo™ –a robust, scalable, high performance data storage system that features cell-based access control and customizable server-side processing.<br />&nbsp;- Apache Accumulo 1.8.0 released&nbsp;<a href="https://accumulo.apache.org/downloads/">https://accumulo.apache.org/downloads/</a></p> 
+    <p>Apache Apex™ –an enterprise grade native YARN big data-in-motion platform that unifies stream and batch processing. <br />&nbsp;- Apache Apex Malhar 3.5.0 released&nbsp;<a href="http://apex.apache.org/downloads.html">http://apex.apache.org/downloads.html</a></p> 
+    <p>Apache Chemistry™ –a collection of Java libraries, frameworks, and tools around the OASIS CMIS (Content Management Interoperability Services) specification.<br />&nbsp;- Apache Chemistry OpenCMIS 1.0.0 released&nbsp;<a href="https://chemistry.apache.org/java/download.html">https://chemistry.apache.org/java/download.html</a></p> 
+    <p>Apache Jackrabbit™ –a fully compliant implementation of the Content Repository for Java(TM) Technology API, version 2.0 (JCR 2.0) as specified in the Java Specification Request 283 (JSR 283).<br />&nbsp;- Apache Jackrabbit 2.12.2 and 2.12.4, and Jackrabbit Oak 1.5.9 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a><br /></p> 
+    <p>Apache mod_perl™ –brings together the full power of the Perl programming language and the Apache HTTP server.<br />&nbsp;- Apache-Test 1.40 released&nbsp;<a href="https://metacpan.org/release/Apache-Test">https://metacpan.org/release/Apache-Test</a></p> 
+    <p>Apache NiFi™ –an easy to use, powerful, and reliable system to process and distribute data.<br />&nbsp;- Apache NiFi MiNiFI C++ 0.0.1 released&nbsp;<a href="http://nifi.apache.org/minifi/download.html">http://nifi.apache.org/minifi/download.html</a></p> 
+    <p>Apache OpenWebBeans™ –a CDI container (Contexts and Dependency Injection for Java) and targets the CDI-1.2 specification (JavaEE 7).<br />&nbsp;- Apache OpenWebBeans-1.7.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/openwebbeans/1.7.0/">http://www.apache.org/dyn/closer.cgi/openwebbeans/1.7.0/</a></p> 
+    <p>Apache Qpid™ –a cross-platform enterprise messaging solution which implements the Advanced Message Queuing Protocol (AMQP).<br />&nbsp;- Apache Qpid C++ 1.35.0 released&nbsp;<a href="http://qpid.apache.org/download.html">http://qpid.apache.org/download.html</a></p> 
+    <p>Apache Serf™ –high performance C-based HTTP client library built upon the Apache Portable Runtime (APR) library.<br />&nbsp;- Apache Serf 1.3.9 released&nbsp;<a href="https://serf.apache.org/download">https://serf.apache.org/download</a></p> 
+    <p>Apache SINGA (incubating)&nbsp;–a general distributed deep learning platform for training big deep learning models over large datasets.<br />&nbsp;- Apache SINGA (incubating) 1.0.0 released&nbsp;<a href="http://singa.apache.org/en/downloads.html">http://singa.apache.org/en/downloads.html</a></p> 
+    <p>Apache Storm™ – a distributed, fault-tolerant, and high-performance realtime computation system that provides strong guarantees on the processing of data.<br />&nbsp;-Apache Storm 0.9.7 released&nbsp;<a href="http://storm.apache.org/downloads.html">http://storm.apache.org/downloads.html</a></p> 
+    <p>Apache Syncope™ –an Open Source system for managing digital identities in enterprise environments, implemented in Java EE technology.<br />&nbsp;- Apache Syncope 2.0.0.M5 released&nbsp;<a href="http://syncope.apache.org/downloads.html">http://syncope.apache.org/downloads.html</a></p> 
+    <p>Apache MyFaces™ Tobago –a well designed set of user interface components based on JSF and run on MyFaces.<br />&nbsp;- Apache Tobago 2.0.10 released&nbsp;<a href="http://myfaces.apache.org/tobago/">http://myfaces.apache.org/tobago/</a></p> 
+    <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and JASPIC technologies.<br />&nbsp;- Apache Tomcat 8.0.37, 8.5.5, and 9.0.0.M10 released <a href="http://tomcat.apache.org/download-80.cgi">http://tomcat.apache.org/download-80.cgi</a> and&nbsp;<a href="http://tomcat.apache.org/download-90.cgi">http://tomcat.apache.org/download-90.cgi</a></p> 
+    <p><b><br />Did You Know?</b></p> 
+    <p><a href="http://qpid.apache.org/download.html"></a></p> 
+    <p>&nbsp;- Did you know that Qunar, China's top eCommerce travel site, uses Apache Flink, HDFS, Spark, and Zeppelin to processes more than 4.5 terabytes of data each day?&nbsp;<a href="http://flink.apache.org/">http://flink.apache.org/</a>&nbsp;,&nbsp;<a href="http://hadoop.apache.org/">http://hadoop.apache.org/</a>&nbsp;,&nbsp;<a href="http://spark.apache.org/">http://spark.apache.org/</a>&nbsp;,&nbsp;<a href="http://zeppelin.apache.org/">http://zeppelin.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that, according to The Apache Way,&nbsp;&quot;if it didn't happen on-list, it didn't happen&quot;? As demonstrated by 13M public emails, 5M email threads, by 306K authors <a href="https://lists.apache.org/">https://lists.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that&nbsp;Apache's ~6K Committers collaborate across six continents? Here's where some of them call home <a href="Apache's%20~6K%20Committers%20collaborate%20across%20six%20continents.%20Here's%20where%20some%20of%20them%20call%20home%20http://community.zones.apache.org/map.html%20">http://community.zones.apache.org/map.html</a><br /><br /></p> 
+    <p><strong>Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Syncope, Tika, Trafodion, and Zest!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <div> 
+      <p>&nbsp;- The second ASF Annual Report is available at <a href="https://s.apache.org/pTMX">https://s.apache.org/pTMX</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

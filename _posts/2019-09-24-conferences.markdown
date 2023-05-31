@@ -1,0 +1,49 @@
+---
+layout: post
+title: The Apache® Software Foundation Announces Program Highlights for ApacheCon™
+  Europe
+date: '2019-09-24T00:00:00+00:00'
+categories: conferences
+---
+<div><strong><em>Momentum Builds for Official Global Conference Series of the World's largest Open Source Foundation</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Wakefield, MA and Berlin, Germany —24 September 2019—</strong> The Apache® Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today highlights for the upcoming European edition of ApacheCon™, the ASF’s official global conference series.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Taking place 22-24 October 2019 at the Kulturbrauerei in Berlin, Germany, ApacheCon is the primary gathering of the collective Apache community worldwide, drawing hundreds of attendees from more than 60 countries to learn about Open Source development &quot;The Apache Way&quot; in a deliberately intimate, collaborative, vendor-neutral environment. Highlights include:</div> 
+  <div><br /></div> 
+  <div style="direction: ltr;"> 
+    <ul> 
+      <li>&quot;Tomorrow's Technology Today&quot; — first-hand insight on Open Source technologies in Big Data, Community, IoT, Machine Learning, Servers, and more, independent of business interests, corporate biases, or sales pitches;<br /><br /></li> 
+      <li>Unparallelled educational opportunities — ApacheCon content is selected entirely by Apache projects and their communities, enabling participants at all levels to learn about the latest developments from Apache Airflow, Beam, Calcite, Cassandra, Commons, cTAKES, Flink, Hadoop, Hive, HTTP Server, Ignite, James, Kafka, Mynewt, NiFi, PLC4X, Spark, Tika, Tomcat, and numerous innovations in the Apache Incubator, such as Hivemall, IoTDB, Training, and more;<br /><br /></li> 
+      <li>Keynotes and plenary sessions —</li> 
+    </ul><span style="white-space: pre;"> </span>Thomas Gageik, Director Digital Business Solutions at the European Commission: &quot;Open Source Software at European Commission's Informatics Directorate&quot;<br /><span style="white-space: pre;"> </span>Miguel Gamiño, Executive Vice President, Global Cities at MasterCard: &quot;City Possible: Addressing Shared Urban Challenges By Harnessing the Super-Power of Collaboration&quot;<br /><span style="white-space: pre;"> </span>Nanjala Nyabola, writer, independent researcher and political analyst: &quot;Where Do Broken Rights Go? A View from the Global South on the Limits of Techno-solutionism&quot;<br /><span style="white-space: pre;"> </span>Ken Coar, Mark Cox, Lars Eilebrecht, and Dirk-Willem van Gulik, ASF co-Founders: &quot;Founders' Panel&quot;<br /><span style="white-space: pre;"> </span>David Nalley, ASF Executive Vice President: &quot;State of the Feather&quot;<br /> 
+    <ul> 
+      <li>Community sessions and Evening events — Hackathon, BarCamp, Movie Night screening of &quot;FUD&quot;, Lightning Talks, ASF 20th Anniversary welcome reception, and more, including filming of &quot;Trillions and Trillions Served&quot;, the documentary on the ASF;<br /><br /></li> 
+      <li>Community Partnerships — connect with communities from the European Commission’s Directorate-General for Informatics (DG DIGIT), EU Free and Open Source Software Auditing Community, Flink Forward, the Open Source Business Alliance, Open Source Design, and more. The Open Source Design community will be holding a dedicated track during the event, as well as a free post-conference usability workshop on 25 October;<br /><br /></li> 
+      <li>Event Sponsorship — ApacheCon sponsors who showcase their products, people, and community support benefit by extending their brands to the greater Apache community, engaging with industry influencers, and connecting with potential future collaborators. Many sponsors consider ApacheCon to be an invaluable resource for recruiting top Open Source talent. ApacheCon attendees include individual developers and users, Fortune 500 companies, start-ups, educators, consultants, community managers, Open Source enthusiasts, influencers, and industry analysts.<br /><br />ApacheCon Sponsors include: Google Cloud, eBay Tech Berlin, Amazon, RedHat,&nbsp; Instaclustr, and Berlin Partner, among others. To become an ApacheCon Sponsor, visit <a href="https://s.apache.org/2019-BERApacheConProspectus">https://s.apache.org/2019-BERApacheConProspectus</a> </li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>About ApacheCon</strong></div> 
+  <div>ApacheCon is the official global conference series of The Apache Software Foundation. Since 1998 ApacheCon has been drawing participants at all levels to explore ”Tomorrow’s Technology Today” across 300+ Apache projects and their diverse communities. ApacheCon showcases the latest developments in ubiquitous Apache projects and emerging innovations through hands-on sessions, keynotes, real-world case studies, trainings, hackathons, community events, and more. For more information, visit http://apachecon.com/ , https://twitter.com/ApacheCon , and https://s.apache.org/ApacheCon&nbsp;</div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 760 individual Members and 7,300 Committers across six continents successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Aetna, Alibaba Cloud Computing, Anonymous, ARM, Baidu, Bloomberg, Budget Direct, Capital One, Cerner, Cloudera, Comcast, Facebook, Google, Handshake, Huawei, IBM, Indeed, Inspur, Leaseweb, Microsoft, ODPi, Pineapple Fund, Pivotal, Private Internet Access, Red Hat, Target, Tencent, Union Investment, Workday, and Verizon Media. For more information, visit http://apache.org/ and https://twitter.com/TheASF&nbsp;</div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Airflow&quot;, &quot;Apache Airflow&quot;, &quot;Beam&quot;, &quot;Apache Beam&quot;, &quot;Calcite&quot;, &quot;Apache Calcite&quot;, &quot;Cassandra&quot;, &quot;Apache Cassandra&quot;, &quot;Commons&quot;, &quot;Apache Commons&quot;, &quot;cTAKES&quot;, &quot;Apache cTAKES&quot;, &quot;Flink&quot;, &quot;Apache Flink&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, &quot;Hive&quot;, &quot;Apache Hive&quot;, &quot;Apache HTTP Server&quot;, &quot;Ignite&quot;, &quot;Apache Ignite&quot;, &quot;James&quot;, &quot;Apache James&quot;, &quot;Kafka&quot;, &quot;Apache Kafka&quot;, &quot;Mynewt&quot;, &quot;Apache Mynewt&quot;, &quot;NiFi&quot;, &quot;Apache NiFi&quot;, &quot;PLC4x”, &quot;Apache PLC4x&quot;, &quot;Spark&quot;, &quot;Apache Spark&quot;, &quot;Tika&quot;, &quot;Apache Tika&quot;, &quot;Tomcat&quot;, &quot;Apache Tomcat&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div> 
+  <div><br /></div> 
+  <div>CONTACT</div> 
+  <div><br /></div> 
+  <div>Sally Khudairi</div> 
+  <div>Vice President</div> 
+  <div>The Apache Software Foundation</div> 
+  <div>+1 617 921 8656</div> 
+  <div>press@apache.org</div> 
+  <div><br /></div> 
+  <div>Max King</div> 
+  <div>newthinking communications GmbH</div> 
+  <div>t: +49 30 92105-978</div> 
+  <div>mki@newthinking.de</div>

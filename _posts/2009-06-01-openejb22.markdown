@@ -1,8 +1,0 @@
----
-layout: post
-title: OpenEJB 3.1.1 Coming Soon
-date: '2009-06-01T22:09:40+00:00'
-categories: openejb
----
-The OpenEJB 3.1.1 binaries have been spun have gone through some rigorous testing and should be available in the next day or two.  Check back tomorrow for some nice new OpenEJB 3.1.1 binaries and some great new features like alternative deployment descriptors for testing, test case injection, secure webservices, global openejb namespace, several new examples and more.
-

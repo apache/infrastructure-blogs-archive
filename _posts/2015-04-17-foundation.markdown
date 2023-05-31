@@ -1,0 +1,16 @@
+---
+layout: post
+title: At ApacheCon, Austin Mayor Steve Adler Recognized the ASF's 15th Anniversary
+  by Proclaiming 13-16 April 2015 "Apache Software Foundation Days"
+date: '2015-04-17T00:00:00+00:00'
+categories: foundation
+---
+<p>At the opening session of ApacheCon, Apache Software Foundation (ASF) President Ross Gardler <a href="https://www.youtube.com/watch?v=Ep__vi4Dvf0">read a proclamation</a> from City of Austin Mayor Steve Adler that recognized the all-volunteer ASF&nbsp;for its leadership in developing, stewarding, and incubating more than 350 Open Source projects and initiatives over the past 15 years: 13-16 April 2015 have been designated &quot;Apache Software Foundation Days&quot;.</p> 
+  <p>Now in its 16th year, ApacheCon, the official conference for the ASF, attracted nearly 500 attendees from the global Apache community. Event highlights included thought provoking keynotes by Brian Behlendorf, Chip Childers, Gina Likins, Mike Maxey, Jay Schmelzer, and Andy Terrel (videos at <a href="https://www.youtube.com/user/TheApacheFoundation">https://www.youtube.com/user/TheApacheFoundation</a>); more than 120 in-depth sessions across sixteen tracks that include Big Data, Business, Cloud, Containers, Content, Integration, Mobile, OFBiz/Open Source ERP, Science, and Security; the 20th Anniversary celebration of the Apache HTTP Web Server (featuring some of the original members of the Apache Group&nbsp;<a href="https://www.flickr.com/photos/rbowen/16943016807/">https://www.flickr.com/photos/rbowen/16943016807/</a>&nbsp;); BarCamp Apache, numerous Hackathons, MeetUps, and Birds of a Feather sessions; Lightning Talks; PGP Key Signing; and Women of ASF Luncheon. Co-located events focused on specific Apache projects included CloudStack Days, Ignite Training Session, Spark Forum, and Traffic Server Summit. Presentation slides, images, and conference recap are available at&nbsp;<a href="http://s.apache.org/Edx">http://s.apache.org/Edx</a> </p> 
+  <p>The ASF continues its outreach to local communities with the upcoming ApacheCon Europe, taking place 28 September-1 October 2015 in Budapest, and ApacheCon North America 2016 in Vancouver.&nbsp;For more information, visit&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+  <p> </p> 
+  <p> </p> 
+  <p> </p> 
+  <p> </p> 
+  <p> </p> 
+  <p><img alt="&quot;Apache Software Foundation Days&quot; Proclamation by Austin Mayor Steve Adler" src="https://blogs.apache.org/foundation/mediaresource/67df274b-e1ae-476a-9d0f-a967e16207b2" /><br /></p>

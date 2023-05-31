@@ -1,0 +1,27 @@
+---
+layout: post
+title: NetBeans 11.3 is Shaping up Nicely
+date: '2019-11-30T00:00:00+00:00'
+categories: netbeans
+---
+One month has passed since NetBeans 11.2 had been released. There are 82 new PR-s made it to the master branch so far. We usually have a, not necessary intentional, "theme" for each release. I'd say the theme is for 11.3 is: "Remove the Rust".
+
+Our code and libraries spent long time in the transit. Many of our modules were still compiling against Java 1.6 and/or used ancient versions of third party libraries. 11.3 improved a lot on this front and there are still many PR are in the queue to carry that on. 
+Without trying to be complete, here is a small list of changes what's coming:
+
+- Jgit Library Update
+- ASM, PostgreSQL, JUnit5 and Other Library Updates.
+- PHP Fixes
+- HTML Lexer Stability Improvements
+- JSF 2.3 Support
+- Gradle Tooling 6.0
+- Several Cleanups, Remove Compile Warnings
+
+On the UI Side:
+- Return of Dark Metal and Dark Nimbus Look and Feel
+- Experimental support for Flatlaf Look and Feel
+
+On Gradle Side:
+- Test Output is Channeled Back to the IDE
+- Added Project Reload Action
+- Elephant Icons Finally Replace the old Ones

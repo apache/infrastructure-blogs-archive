@@ -1,0 +1,10 @@
+---
+layout: post
+title: Announcing The New ASF Executive Officers
+date: '2010-09-11T00:00:00+00:00'
+categories: foundation
+---
+<p>At the Apache Software Foundation Board Meeting held this morning, the following members were elected to serve as the new Executive Officers of the ASF effective immediately:</p> 
+  <p>- Doug Cutting,&nbsp;Chairman<br />- Jim Jagielski, President<br />- Greg Stein, Vice Chairman<br />- Noirin Shirley, Executive Vice President<br />- Geir Magnusson, Jr., Treasurer<br />- Craig Russell, Secretary<br />- Sam Ruby, Assistant Secretary</p> 
+  <p> </p> 
+  <p>For more information on the Foundation's operations and its structure, see <a href="http://apache.org/foundation/how-it-works.html#structure" title="ASF structure">http://apache.org/foundation/how-it-works.html#structure</a></p>

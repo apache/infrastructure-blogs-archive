@@ -1,0 +1,52 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 28 October 2016'
+date: '2016-10-28T00:00:00+00:00'
+categories: foundation
+---
+<p>Look how productive the Apache community has been over the past week!</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 16 November 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield steady performance at 99.61% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Register today for Apache: Big Data and ApacheCon Europe/Seville --early incentives end 3 November <a href="http://apachecon.com/">http://apachecon.com/</a><br /></p> 
+    <p>Apache Bahir™ –provides extensions for Apache Spark.<br />&nbsp;- Apache Bahir 2.0.1 released&nbsp;<a href="http://bahir.apache.org">http://bahir.apache.org</a></p> 
+    <p>Apache Fineract (incubating)&nbsp;–an Open Source system for core banking as a platform.<br />&nbsp;- Apache Fineract 0.4.0-incubating released&nbsp;<a href="https://dist.apache.org/repos/dist/release/incubator/fineract/0.4.0-incubating/">https://dist.apache.org/repos/dist/release/incubator/fineract/0.4.0-incubating/</a></p> 
+    <p>Apache Geode (incubating)&nbsp;–a data management platform that provides a database-like consistency model, reliable transaction processing and a shared-nothing architecture to maintain very low latency performance with high concurrency processing.<br />&nbsp;- Apache Geode 1.0.0-incubating released&nbsp;<a href="http://geode.incubator.apache.org/releases/">http://geode.incubator.apache.org/releases/</a></p> 
+    <p>Apache Jackrabbit™ –a fully compliant implementation of the Content Repository for Java(TM) Technology API, version 2.0 (JCR 2.0) as specified in the Java Specification Request 283 (JSR 283).<br />&nbsp;- Apache Jackrabbit Oak 1.4.9 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Juneau (incubating)&nbsp;–a toolkit for marshalling POJOs to a wide variety of content types using a common framework, and for creating sophisticated self-documenting REST interfaces and microservices using very little code.<br />&nbsp;- Juneau 6.0.0-incubating released&nbsp;<a href="http://juneau.incubator.apache.org/">http://juneau.incubator.apache.org/</a></p> 
+    <p>Apache Lens™ –provides an Unified Analytics interface.<br />&nbsp;- Apache Lens 2.6.1 released&nbsp;<a href="http://lens.apache.org/releases/download.html">http://lens.apache.org/releases/download.html</a></p> 
+    <p>Apache mod_perl™ –an Apache HTTP Server module for embedding a Perl interpreter in your Web server, giving you super-fast dynamic content by avoiding the overhead of starting an external interpreter. <br />&nbsp;- Apache mod_perl-2.0.10 released&nbsp;<a href="http://perl.apache.org/download/index.html">http://perl.apache.org/download/index.html</a></p> 
+    <p>Apache Parquet™ –a general-purpose columnar file format for nested data.<br />&nbsp;- Apache Parquet MR 1.9.0 released&nbsp;<a href="https://www.apache.org/dyn/closer.cgi/parquet/">https://www.apache.org/dyn/closer.cgi/parquet/</a></p> 
+    <p>Apache Syncope™ –an Open Source system for managing digital identities in enterprise environments, implemented in Java EE technology.<br />&nbsp;- Apache Syncope 2.0.1 released&nbsp;<a href="http://syncope.apache.org/downloads.html">http://syncope.apache.org/downloads.html</a></p> 
+    <p>Apache Tomcat™ –Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and JASPIC technologies.<br />&nbsp;- CVE-2016-0762 Apache Tomcat Realm Timing Attack&nbsp;<a href="https://s.apache.org/hhGa">https://s.apache.org/hhGa</a><br />&nbsp;-&nbsp;CVE-2016-5018 Apache Tomcat Security Manager Bypass&nbsp;<a href="https://s.apache.org/otM1">https://s.apache.org/otM1</a><br />&nbsp;-&nbsp;CVE-2016-6794 Apache Tomcat Security System Property Disclosure&nbsp;<a href="https://s.apache.org/lxjd">https://s.apache.org/lxjd</a><br />&nbsp;- CVE-2016-6796 Apache Tomcat Security Manager Bypass<span class="Apple-tab-span" style="white-space: pre;"> </span> <a href="https://s.apache.org/GKT4">https://s.apache.org/GKT4</a><br />&nbsp;- CVE-2016-6797 Apache Tomcat Unrestricted Access to Global Resources&nbsp;<a href="https://s.apache.org/qjWl">https://s.apache.org/qjWl</a></p><a href="https://s.apache.org/otM1"> 
+      <p> </p></a> 
+    <p><font color="#000000"><a href="http://tomcat.apache.org/download-60.cgi"></a>Apache Wicket™ –</font>an Open Source Java component oriented Web application framework that powers thousands of Web applications and Web sites for governments, stores, universities, cities, banks, email providers, and more.<br /><font color="#000000">&nbsp;-&nbsp;</font>Apache Wicket 6.25.0, 7.5.0, and 8.0.0-M2 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/wicket/">http://www.apache.org/dyn/closer.cgi/wicket/</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <p><a href="http://qpid.apache.org/download.html"></a></p> 
+    <p>&nbsp;- Did you know that you can share what you're planning to work on at ApacheCon? <a href="https://blogs.apache.org/conferences/entry/what_are_you_working_on">https://blogs.apache.org/conferences/entry/what_are_you_working_on</a> </p> 
+    <p>&nbsp;- Did you know that IBM Graph is built on top of Apache Tinkerpop's Gremlin graph query language?&nbsp;<a href="http://tinkerpop.apache.org/">http://tinkerpop.apache.org/</a></p> 
+    <p>&nbsp;-&nbsp;Did you know that Walmart Labs uses Apache Kafka for real-time retail?&nbsp;<a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Syncope, Tika, Trafodion, Zest, and more!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <div> 
+      <p>&nbsp;- The ASF Q1 FY2017 Report is available at <a href="https://s.apache.org/1BsV">https://s.apache.org/1BsV</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

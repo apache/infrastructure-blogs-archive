@@ -1,0 +1,11 @@
+---
+layout: post
+title: Click Calendar 1.0.2 now available
+date: '2009-07-19T00:00:00+00:00'
+categories: click
+---
+<p>Click Calendar 1.0.2 has been released fixing a bug in DateField that can disable Fields when the popup is
+closed.<br /></p><ul><li><a href="http://code.google.com/p/click-calendar/" title="Click Calendar">Click Calendar Home</a></li><li><a href="http://click-calendar.googlecode.com/files/click-calendar-1.0.2.jar" title="Click Calendar Jar">Download Click Calendar 1.0.2<br /></a></li><li><a href="http://repo2.maven.org/maven2/net/sf/click/click-calendar/" title="Maven Bundles">Maven bundle</a><br /></li></ul><span style="font-weight: bold;">Changes are:</span><br /><ul><li class="change">
+Fixed DateField calendar popup which blocked keyboard input events
+after popup was destroyed. This
+issue was raised by Christophe FOIRET [<a href="https://issues.apache.org/click/browse/CLK-567" target="_blank">567</a>].       </li></ul>The Click team.

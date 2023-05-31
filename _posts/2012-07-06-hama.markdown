@@ -1,0 +1,26 @@
+---
+layout: post
+title: Apache Hama 0.5.0 Released
+date: '2012-07-06T00:00:00+00:00'
+categories: hama
+---
+The Apache Hama PMC is pleased to announce the release of Apache Hama 0.5.0.
+
+Apache Hama is a BSP (Bulk Synchronous Parallel) computing framework
+on top of HDFS (Hadoop Distributed File System) for massive scientific
+computations such as matrix, graph and network algorithms.
+
+This release is the first release as a top level project, contains two
+significant new features (Message Compressor, complete clone of the
+Google's Pregel) and many improvements for computing system
+performance and durability.
+
+The artifacts are published and ready for you to download[1] either
+from the Apache mirrors or from the Maven repository. For more
+details, please take a look at our website[2] and wiki[3].
+
+Many thanks to the Hama community for making this release possible.
+
+1. <a href="http://www.apache.org/dist/hama/">http://www.apache.org/dist/hama/</a>
+2. <a href="http://hama.apache.org">http://hama.apache.org</a>
+3. <a href="http://wiki.apache.org/hama/">http://wiki.apache.org/hama/</a>

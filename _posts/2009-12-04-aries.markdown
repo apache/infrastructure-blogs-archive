@@ -1,0 +1,7 @@
+---
+layout: post
+title: Enterprise OSGi 4.2 draft specification
+date: '2009-12-04T00:00:00+00:00'
+categories: aries
+---
+<p>On Monday this week the <a href="http://www.osgi.org/">OSGi Alliance</a> released a draft of the 4.2 Enterprise Release. This is very much a work in progress and there are some issues remaining. The draft document includes many comments and questions from the authors that need to be addressed before the final release.</p><p>&nbsp;This has been released in order to give people an idea of what is happening, and it also helps us in Apache Aries as we now have something that everyone can get their teeth into implementing. </p><p>The draft is available <a href="http://www.osgi.org/download/osgi-4.2-enterprise-early-draft4.pdf">here</a>. David&nbsp;Bosschaert who is one of the co-chairs of the OSGi Enterprise Expert Group (or EEG) has blogged in much more detail <a href="http://osgithoughts.blogspot.com/2009/12/osgi-42-enterprise-release-early-access.html">here</a>.</p><p>&nbsp;Alasdair&nbsp;</p>

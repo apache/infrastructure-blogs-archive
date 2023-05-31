@@ -1,0 +1,31 @@
+---
+layout: post
+title: Bigtop presents full stack based on Apache Hadoop 1.0
+date: '2012-04-02T00:00:00+00:00'
+categories: bigtop
+---
+<p>
+Just a couple months ago Apache Hadoop fans, committers and alike were cheered up by the news that Hadoop community has released a long awaited <a title="Hadoop 1.0 release notes" href="http://is.gd/COgriE">version 1.0 of the famous Hadoop</a> data crunching platform.</p> 
+  <p>It is a pleasure to be writing this blog because while I am doing it, Apache mirrors are synchronizing the first ever release of Haodop 1.0 based data analytic stack that has been fully built, validated, and packaged by the Apache Bigtop project (incubating).</p> 
+  <p>Ladies and gentleman: we are proud to present a collaborative effort of many teams and individuals, that allows Bigtop to put together a first ever 100% open-source Apache Hadoop big data stack.</p> 
+  <p>Just a few highlights:</p> 
+  <ul> 
+    <li>Bigtop 0.3.0 (incubating) includes 10 major data analytic components including Apache HBase, Pig, Hive, Mahout, etc.<br /></li> 
+    <li>out of the box <a title="BigTop Linux packages for Hadoop 1.0 stack" href="http://is.gd/wv01iT">native packaging for all major Linux distributions</a>: Ubuntu, Fedora, CentOS, Suse</li> 
+    <li>complete set of source code (including all packaging specs, validation framework iTest, etc.) is available under ASF 2.0 license from <a href="http://is.gd/HZt3Qr" title="BigTop source code">Apache SVN repository</a></li> 
+    <li>Puppet recipes for fully automated cluster nodes configuration</li> 
+    <li>release comes with a significant number of improvements and fixed issues<br /></li> 
+  </ul> 
+  <p>What's in the release? You will be pleased to find</p>
+  <ul>
+    <li> Hadoop 1.0.1, Hbase 0.92</li>
+    <li>Hive 0.8.1</li>
+    <li>Mahout 0.6.1</li>
+    <li>Oozie 3.1.3</li>
+    <li>Pig 0.9.2</li>
+    <li>Sqoop 1.4.1</li>
+    <li>Whirr 0.7</li>
+    <li>ZooKeeper 3.4.3</li>
+    <li>Flume 1.0.0</li>
+  </ul>The set of the components will provide you with a complete stack of data collection and analytics pipeline, that has been thoroughly validated to work with each other and be fully compatible. Make sure to evaluate and upgrade to the latest official Hadoop 1.0 data analytic stack from Bigtop! 
+  <p>Whether you're a seasoned data&nbsp;analyst, BOFH Hadoop DevOps or a curious open source developer -- make sure to check out the Bigtop 0.3.0 distribution. Most of all, though, <a title="Apache Bigtop" href="http://incubator.apache.org/bigtop/mail-lists.html">consider joining our community</a> and help us build the most reliable, 100% Apache big&nbsp;data analytics stack that commercial vendors can be envy of!</p>

@@ -1,0 +1,30 @@
+---
+layout: post
+title: 'New in httpd 2.4: If, ElseIf, and Else'
+date: '2012-03-02T00:00:00+00:00'
+categories: httpd
+---
+<p>Over the coming weeks, I'm going to be writing several articles about new features in Apache httpd 2.4. To me the most compelling reason to upgrade to Apache 2.4 today is the <a href="http://httpd.apache.org/docs/2.4/mod/core.html#if" title="&lt;If&gt;">&lt;If&gt;</a> directive, so that's where I'll start.</p> 
+  <p><em>Related documentation:</em><br /> </p> 
+  <ul> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/core.html#if">If</a></li> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/core.html#elseif">ElseIf</a></li> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/core.html#else">Else</a></li> 
+    <li><a href="http://httpd.apache.org/docs/2.4/expr.html">Expressions</a></li> 
+  </ul> 
+  <p> </p> 
+  <p>This is something that people have been asking for since the very first day I was involved in Apache stuff - the ability to insert conditional statements in configuration files. And now that it's here, it's everything we wanted. Even a bit more.</p> 
+  <p>The&nbsp;<a href="http://httpd.apache.org/docs/2.4/mod/core.html#if">&lt;If&gt;</a>&nbsp;directive may be used in all contexts (server config, virtual host, directory, .htaccess) and is evaluated at request time to effect the behavior of the server.</p> 
+  <p>Some of the things you might use this directive for, you've been using mod_rewrite for up until now, so one of the side-effects of this directive is that we can reduce our reliance on mod_rewrite's complex syntax for common situations. Over the coming months, more examples will be added to the documentation, and we'll have a recipe section with many of the same sorts of scenarios that are in the mod_rewrite recipe section.</p> 
+  <p>Let's start with a few simple examples so that you can see how it might be used. Consider a case where you have a website, www.wooga.com, and you want to compel people to use the www prefix for all requests. In the distant past, you may have used mod_rewrite for this, but here it is stated more clearly with the If directive:</p> 
+  <pre>&lt;If "req('Host') != 'www.wooga.com'"&gt;
+    RedirectMatch (.*) http://www.wooga.com$1
+&lt;/If&gt;
+</pre> 
+  <p>In plain language, that says &quot;if the host request header isn't www.wooga.com, redirect the request to www.wooga.com.&quot;</p> 
+  <p>In fact, most of the commonest uses of mod_rewrite can now be replaced with the If directive, making them easier to read, and, therefore, less prone to error, and the redirect looping that so often plagues RewriteRule-based solutions.</p> 
+  <p>For more complex scenarios, there's also &lt;ElseIf&gt; and &lt;Else&gt; directives, so that you can create multi-step if ... elseif ... elseif ... else logic flows in your configuration files.</p> 
+  <p>These directives may be used in any scope - main configuration, virtual hosts, directories, or .htaccess files - and so give you significantly more power for conditional configurations than you ever had before.</p> 
+  <p>The term in the If statement can be any request header ($req) or environment variable ($env), or many other values.&nbsp;Expressions in these comparisons can be fairly complicated, as they can use the new&nbsp;<a href="http://httpd.apache.org/docs/2.4/expr.html">expression syntax</a>&nbsp;which is another major enhancements in httpd 2.4, and an article for another day.</p> 
+  <p>As with many <a href="http://httpd.apache.org/docs/2.4/new_features_2_4.html">features that are brand new in 2.4</a>, you can expect more detailed official documentation in the near future, complete with many examples. For now, I'd encourage you to study the expression syntax documentation, and experiment.</p> 
+  <div class="vimiumReset vimiumHUD" style="right: 150px; display: none;"></div>

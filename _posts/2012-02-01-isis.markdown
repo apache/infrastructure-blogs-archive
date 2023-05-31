@@ -1,0 +1,10 @@
+---
+layout: post
+title: JQueryMobile demo app now included in the online demo
+date: '2012-02-01T00:00:00+00:00'
+categories: isis
+---
+<p>
+If you're interested in REST or in mobile apps, you might want to check out two recent blogs posts&nbsp;which highlight a <a href="http://mmyco.co.uk:8180/isis-onlinedemo" target="_blank">demo app</a> written in JQueryMobile, and consume the <a href="http://restfulobjects.org" target="_blank">RESTful API</a> provided by the Apache Isis json-viewer.&nbsp;</p> 
+  <p>The <a href="http://danhaywood.com/2012/01/20/jquerymobile-on-apache-isis-rest-api/">first of the blog posts</a> shows&nbsp;some screenshots of the new app in action, while the <a href="http://danhaywood.com/2012/02/01/jquerymobile-demo-app-walkthr/">second post</a> has a fairly detailed code walk-thru of that app. &nbsp;</p> 
+  <p><br /></p>

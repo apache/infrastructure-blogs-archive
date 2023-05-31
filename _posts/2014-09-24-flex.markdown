@@ -1,0 +1,30 @@
+---
+layout: post
+title: Apache Flex TourDeFlex 1.1
+date: '2014-09-24T00:00:00+00:00'
+categories: flex
+---
+The Apache Flex community is pleased to announce the release of Apache Flex TourDeFlex 1.1.
+
+The Apache Flex Tour De Flex component explorer provides a sample set of working Apache Flex examples. 
+This release now contains over 300 working examples and has several improvements and bug fixes from the previous release.
+
+For your convenience the latest version has been compiled and placed upon on the Apache Flex web site:
+<a href="http://flex.apache.org/tourdeflex/explorer.html" target="_blank">http://flex.apache.org/<wbr>tourdeflex/explorer.html</a>
+
+For a full list of changes from the previous version please go to:
+<a href="http://www.apache.org/dyn/closer.cgi/flex/tourdeflex/1.1/RELEASE_NOTES" target="_blank">http://www.apache.org/dyn/<wbr>closer.cgi/flex/tourdeflex/1.<wbr>1/RELEASE_NOTES</a>
+
+This application is based on work donated by Adobe and their component explorer and is expected to be updated over time. 
+We welcome feedback and contributions to it from the wider Apache Flex community.
+
+The Apache Flex TourDeFlex is available in source form for you to compile from the following download page:
+<a href="http://www.apache.org/dyn/closer.cgi/flex/tourdeflex/1.1" target="_blank">http://www.apache.org/dyn/<wbr>closer.cgi/flex/tourdeflex/1.1</a>
+
+When downloading from a mirror site, please remember to verify the downloads using signatures or MD5 hashes.
+
+For more information on Apache Flex, visit the project home page:
+<a href="http://flex.apache.org" target="_blank">http://flex.apache.org</a>
+
+Thank you for using Apache Flex,
+The Apache Flex Community

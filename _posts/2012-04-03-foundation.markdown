@@ -1,0 +1,17 @@
+---
+layout: post
+title: 'The Apache Software Foundation Welcomes Citrix as its Newest Sponsor '
+date: '2012-04-03T00:00:00+00:00'
+categories: foundation
+---
+<div> 
+    <p>The Apache Software Foundation (ASF) welcomes Citrix to the roster of sponsors at the Platinum level.</p> 
+    <p>&quot;We are pleased to welcome Citrix to our individual and corporate sponsors whose generosity helps advance the <a href="http://apache.org/foundation/">day-to-day operations of The Apache Software Foundation</a>,&quot; said ASF Chairman Doug Cutting. &quot;This support helps us successfully shepherd more than 100 top-level projects, incubate dozens of open source innovations, broaden community outreach, and enhance the lives of countless users and developers The Apache Way.&quot;</p> 
+  </div> 
+  <div> 
+    <p>Citrix joins the following <a href="http://apache.org/foundation/thanks">Sponsors</a>:&nbsp;Platinum level --Facebook, Google, Microsoft, and&nbsp;Yahoo!;&nbsp;Gold level --AMD, Hortonworks,&nbsp;HP, and IBM; Silver level --Basis Technology,&nbsp;Cloudera,&nbsp;Matt Mullenweg,&nbsp;PSW GROUP, and&nbsp;SpringSource; Bronze level --AirPlus International,&nbsp;BlueNog,&nbsp;Digital Primates,&nbsp;FuseSource,&nbsp;Intuit,&nbsp;Joost,&nbsp;Liip AG SA Ltd,&nbsp;Lucid Imagination,&nbsp;Talend,&nbsp;Two Sigma Investments,&nbsp;and WANdisco.</p> 
+  </div> 
+  <div> 
+    <p>For more information on becoming a Sponsor of the ASF, please see <a href="http://apache.org/foundation/sponsorship.html">http://apache.org/foundation/sponsorship.html</a></p> 
+    <p># # #&nbsp;</p> 
+  </div>

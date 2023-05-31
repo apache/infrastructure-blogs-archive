@@ -1,0 +1,11 @@
+---
+layout: post
+title: Tomcat at ApacheCon Europe 2019
+date: '2019-05-16T00:00:00+00:00'
+categories: tomcat
+---
+ApacheCon NA 2019, CfP is closed and we will prepare the Tomcat track soon.
+
+ApacheCon Europe 2019, The Call for Presentations will close on May 26th (23:59:59 CET).
+
+ Don't wait!!! Please submit your presentation NOW!!!

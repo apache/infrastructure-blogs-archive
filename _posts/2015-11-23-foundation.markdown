@@ -1,0 +1,41 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache™ Brooklyn™ as a Top-Level Project
+date: '2015-11-23T00:00:00+00:00'
+categories: foundation
+---
+<div><b><i>Open Source framework for modelling, deploying, monitoring and managing applications in use at Canopy, IBM, SWIFT, and Virtustream, among others.</i></b></div> 
+  <div><b><br /></b></div> 
+  <div><b>Forest Hill, MD –23 November 2015– </b>The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today that Apache™ Brooklyn™ has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the project's community and products have been well-governed under the ASF's meritocratic process and principles.</div> 
+  <div><br /></div> 
+  <div>Apache Brooklyn is an application blueprint and management platform used for integrating services across multiple data centers as well as and a wide range of software in the Cloud.</div> 
+  <div><br /></div> 
+  <div>&quot;We're very proud of the work that our community has done to bring us to graduation,&quot; said Richard Downer, Vice President of Apache Brooklyn. &quot;Our time in the Apache Incubator has given us the opportunity to grow the project, both its community and its code. Users of Brooklyn can now be confident that this is a project that is going to be around for a long time to come.&quot;</div> 
+  <div><br /></div> 
+  <div>With modern applications being composed of many components, and increasing interest in micro-services architecture, the deployment and ongoing evolution of deployed apps is an increasingly difficult problem. Apache Brooklyn’s blueprints provide a clear, concise way to model an application, its components and their configuration, and the relationships between components, before deploying to public Cloud or private infrastructure. Policy-based management, built on the foundation of autonomic computing theory, continually evaluates the running application and makes modifications to it to keep it healthy and optimize for metrics such as cost and responsiveness.</div> 
+  <div><br /></div> 
+  <div>Cloud service providers Canopy and Virtustream both recognize the value of having an application-centered view of services and have created product offerings built on Apache Brooklyn. IBM has also made extensive use of Apache Brooklyn in order to migrate large workloads from AWS to IBM Softlayer.</div> 
+  <div><br /></div> 
+  <div>Apache Brooklyn is in use at SWIFT (Society for Worldwide Interbank Financial Telecommunication), creators of the industry syntax standard for financial messages. &quot;Apache Brooklyn fills a gap in orchestration of service delivery,&quot; said Otmane Benali, Manager of Messaging Integration at SWIFT. &quot;Its use of the CAMP standard provides operations a single window to managing heterogeneous platforms, very common in large enterprises.&quot;</div> 
+  <div><br /></div> 
+  <div>Brooklyn was created by ASF sponsor Cloudsoft Corporation in 2011, and was submitted to the Apache Incubator in May 2014. The project recently released version 0.8.0, and is continuing to evolve fast, with the aim of making a stable, well-featured 1.0 release in the first half of 2016.</div> 
+  <div><br /></div> 
+  <div>&quot;Congratulations to Brooklyn for becoming an Apache Top Level Project,&quot; said Hadrian Zbarcea, Apache Brooklyn Incubator Mentor, ASF Member, and President of Apifocal. &quot;As a standards based, modular, extensible framework for modeling, monitoring and managing Cloud applications through autonomic blueprints, Brooklyn offers a new paradigm for Cloud platforms deployment and has the potential to create new markets --similar to what virtualization meant for the Cloud computing space.&quot;</div> 
+  <div><br /></div> 
+  <div>In addition, Brooklyn has relationships to several other Apache projects. &quot;We are big consumers of Apache jclouds, and contributors to it, so that we get strong cross-Cloud portability,&quot; added Downer. &quot;This made the Apache Software Foundation a natural home for Brooklyn. In addition, the Brooklyn community offers off-the-shelf blueprints for many well-known Apache projects, from Cassandra and Qpid to Mesos and Hadoop.&quot;</div> 
+  <div><br /></div> 
+  <div>Catch Apache Brooklyn in action at Cloud Foundry Summit Asia in Shanghai on 3 December 2015 <a href="http://cfasia2015.sched.org/event/4jwB">http://cfasia2015.sched.org/event/4jwB</a></div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache Brooklyn software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Brooklyn, visit <a href="http://brooklyn.apache.org/">http://brooklyn.apache.org/</a> and <a href="https://twitter.com/ApacheBrooklyn">https://twitter.com/ApacheBrooklyn</a></div> 
+  <div><br /></div> 
+  <div><b>About the Apache Incubator</b></div> 
+  <div>The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organizations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF. For more information, visit <a href="http://incubator.apache.org/">http://incubator.apache.org/</a></div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 550 individual Members and 4,700 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Bloomberg, Budget Direct, Cerner, Citrix, Cloudera, Comcast, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Matt Mullenweg, Microsoft, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or <a href="https://twitter.com/TheASF">follow @TheASF</a> on Twitter.</div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Brooklyn&quot;, &quot;Apache Brooklyn&quot;, &quot;Cassandra&quot;, &quot;Hadoop&quot;, &quot;jclouds&quot;, &quot;Mesos&quot;, &quot;Qpid&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div> 
+  <div><br /></div>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Trafodion™ as a Top-Level
+  Project
+date: '2018-01-10T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>Mature Big Data database management system for working in SQL at Apache Hadoop-scale levels in use China Mobile, China Unicom, Dell EMC, Esgyn Corporation, and Millersoft Limited, among others.</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Forest Hill, MD —10 January 2018—</strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today that Apache® Trafodion™ has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the project's community and products have been well-governed under the ASF's meritocratic process and principles.</div> 
+  <div> </div> 
+  <div> 
+    <p>Apache Trafodion extends Apache Hadoop to guarantee transactional integrity and operational workloads for new kinds of Big Data applications that run on Hadoop.</p> 
+    <p>&nbsp;&quot;We are very excited to have been established as an Apache Top-Level Project,&quot; said Pierre Smits, Vice President of Apache Trafodion. &quot;Graduation is a terrific milestone that culminates 2.5 years of contributions from around the globe to establishing a growing community committed to delivering a high-grade OLTP solution on top of the Apache Hadoop ecosystem.&quot;</p> 
+  </div> 
+  <div>Building on the scalability, elasticity, and flexibility of Hadoop, Trafodion (meaning &quot;transactions&quot; in Welsh) is the first integrated Open Source solution that delivers on the promise of integrated transactional and analytical systems (OLTP/OLAP) for Apache Hadoop. Trafodion's features include:</div> 
+  <div> 
+    <ul> 
+      <li>Fully functional ANSI SQL support, leveraging existing SQL skills;</li> 
+      <li>Distributed ACID data protection, guaranteeing data consistency across multiple tables and rows;</li> 
+      <li>Compile-Time and Run-Time Optimizers, delivering performance improvements for OLTP workloads;</li> 
+      <li>Parallel-aware Query Optimizer, supporting large data sets;</li> 
+      <li>Apache Spark integration, supporting streaming analysis;</li> 
+      <li>Interoperability with existing Apache Hadoop tools and solutions, such as Hive, Ambari, Flume, Kafka, and Oozie; and&nbsp;</li> 
+      <li>Apache Hadoop and Linux distribution neutrality.</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Trafodion originated at HP-IT in 2013, and was donated to the Apache Incubator in May 2015. The project has had four official releases since entering the Apache Incubator.&nbsp;</div> 
+  <div> 
+    <p>Apache Trafodion is in use at China Mobile, China Unicom, Dell EMC, Esgyn Corporation, and Millersoft Limited, among others.</p> 
+    <p>&quot;As a member of the HP Core Team responsible for releasing Trafodion to The Apache Software Foundation, and responsible for the project’s name, I'm thrilled to see the Trafodion community be recognized with this major achievement. Congratulations to all who made it possible,&quot; said Ken Holt, COO at Esgyn Corporation. &quot;Trafodion is the heart of EsgynDB, and the community is like its lifeblood — we at Esgyn are committed to continue to grow and support the community.&quot;</p> 
+    <p>&quot;Congratulations to the Trafodion community for becoming an Apache Top-Level Project,&quot; said Tianduo Gao, Senior Development Engineer of Software Technology (Suzhou) at China Mobile. &quot;We are planning to use Trafodion to expand the business of China Mobile's Big Data platform: our data statistics of 4G real-time business in the country and provinces are more efficient than ever before.&quot;</p> 
+    <p>&quot;Becoming a core Apache Project is a major step forward for Trafodion. It will give Millersoft the confidence to introduce the technology to our Big Data clients,&quot; said Calum Miller, Director of Millersoft Limited. &quot;Testing of our Open Source Data Vault engine running on top of Apache Trafodion is going well and we look forward to announcing a fully integrated product shortly.&quot;</p> 
+    <p>&quot;Apache Trafodion enhanced the operational efficiency of our Big Data platforms, and brought us better customer experience and broader application scenarios,&quot; said Charles Yu, Managing Director, Application Services at Dell EMC.</p> 
+    <p>&quot;Congratulations to Trafodion for officially becoming part of the Apache open source ecosystem,&quot; said Qingquan Gu, Senior Development Engineer of Internet of Things Marketing Service Center at China Unicom. &quot;Using Trafodion provided China Unicom with the ability to build and integrate Big Data platforms, enhanced our operational efficiency, and brought us better customer experience.&quot;</p> 
+    <p>&quot;Becoming an Apache Top-Level Project is only the beginning,&quot; added Smits. &quot;We are looking forward to growing the Trafodion community, reaching new adopters and contributors, and fostering a strong ecosystem around the project.&quot;</p> 
+    <p><strong>Availability and Oversight<br /></strong>Apache Trafodion software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Trafodion, visit <a href="http://trafodion.apache.org/">http://trafodion.apache.org/</a> and <a href="https://twitter.com/Trafodion">https://twitter.com/Trafodion</a></p> 
+    <p><a href="https://twitter.com/Trafodion"></a><strong>About the Apache Incubator<br /></strong>The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organizations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF. For more information, visit <a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p> 
+    <p><a href="http://incubator.apache.org/"></a><strong>About The Apache Software Foundation (ASF)<br /></strong>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 680 individual Members and 6,300 Committers across six continents successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Facebook, Google, Hewlett Packard, Hortonworks, Huawei, IBM, Inspur, iSIGMA, ODPi, LeaseWeb, Microsoft, PhoenixNAP, Pivotal, Private Internet Access, Red Hat, Serenata Flowers, Target, Union Investment, WANdisco, and Yahoo. For more information, visit <a href="http://apache.org/">http://apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></p> 
+    <p><a href="https://twitter.com/TheASF"></a>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Trafodion&quot;, &quot;Apache Trafodion&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</p> 
+    <p># # #</p> 
+  </div>

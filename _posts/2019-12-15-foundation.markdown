@@ -1,0 +1,96 @@
+---
+layout: post
+title: 'The Apache Software Foundation Operations Summary: August - October 2019'
+date: '2019-12-15T00:00:00+00:00'
+categories: foundation
+---
+<div><strong>FOUNDATION OPERATIONS SUMMARY</strong></div> 
+  <p><strong>Second Quarter, Fiscal Year 2020 (August - October 2019)</strong></p> 
+  <div> 
+    <blockquote style="margin: 0px 0px 0px 40px; border: medium none; padding: 0px;"> 
+      <p><strong><em>&quot;...</em></strong><strong><em>a preeminent organization in the world of open source software...&nbsp;</em></strong><em><strong>The ASF has always distinguished itself by maintaining a consistent mode of project governance and evolution, known as &quot;The Apache Way&quot;.&quot;<br /></strong></em><em>—Brian Proffitt</em><em>, Senior Principal Community Architect, Red Hat Open Source Program Office</em><em>&nbsp;(ASF Silver Sponsor)</em></p> 
+    </blockquote> 
+    <div> 
+      <p><strong><br />&gt; Conferences and&nbsp;</strong><strong>Events</strong><strong>:</strong>&nbsp;During this period we held two major Apache events.</p> 
+      <p>In September we held ApacheCon North America in Las Vegas, Nevada, and celebrated the 20th anniversary of the ASF. We had around 725 attendees at the Flamingo Hotel. Event details may be found at <a href="https://www.apachecon.com/acna19/">https://www.apachecon.com/acna19/</a>&nbsp; &nbsp;Videos of the plenary sessions and other selected content may be found at <a href="https://www.youtube.com/watch?v=0CLDVMcyo1s&amp;list=PLU2OcwpQkYCzWULP5C-C9eTF4DcbnYa2l">https://www.youtube.com/watch?v=0CLDVMcyo1s&amp;list=PLU2OcwpQkYCzWULP5C-C9eTF4DcbnYa2l</a> and audio from selected other presentations is at http://feathercast.apache.org/&nbsp; &nbsp;Photos from the event are at <a href="https://photos.apachecon.com/?/category/2">https://photos.apachecon.com/?/category/2</a></p> 
+      <p>In October we held ApacheCon Europe in Berlin, Germany. We had around 300 in attendance at the Kulturbrauerei Berlin. Event details may be found at <a href="https://aceu19.apachecon.com/">https://aceu19.apachecon.com/</a>&nbsp; Session videos may be found at <a href="https://www.youtube.com/watch?v=2EvCF4XKLso&amp;list=PLU2OcwpQkYCxVGCGWtMxb9d27Z-pcoN9a">https://www.youtube.com/watch?v=2EvCF4XKLso&amp;list=PLU2OcwpQkYCxVGCGWtMxb9d27Z-pcoN9a</a>&nbsp; Photos from the event are at <a href="https://photos.apachecon.com/?/category/1">https://photos.apachecon.com/?/category/1</a></p> 
+      <p>At the end of this period, we were in planning for our 2020 schedule of events. This will include:</p> 
+      <p> </p> 
+      <ul> 
+        <li>Apache Roadshow Chicago (Proposed) - 2020-05-27 to 2020-05-30 Chicago, IL, USA</li> 
+        <li>Apache Roadshow, Seattle - 2020-06-10 to 2020-06-13 Seattle, WA, USA</li> 
+        <li>ApacheCon North America, New Orleans - 2020-09-28 to 2020-10-03 New Orleans, LA, USA</li> 
+        <li>Apache Roadshow China (Proposed) - 2020-10-24 to 2020-10-26, (Location TBD)<br /><br /></li> 
+      </ul> 
+      <p>(Please note that some of these events are still tentative.)</p> 
+      <p>For sponsorship opportunities, please contact planners@apachecon.com</p> 
+      <p>Upcoming events are listed at <a href="http://events.apache.org/">http://events.apache.org/</a> and may change as planning progresses.<br /><br /></p> 
+      <p><strong>&gt; Community Development</strong><strong>:&nbsp;</strong>During this quarter a key theme was event participation.</p> 
+      <p>In August our main focus was dealing with the requests for ordering project stickers for ApacheCon. For this special anniversary event we wanted to ensure that any many projects as possible would have stickers available on the ASF booth.</p> 
+      <p>The main focus in September was to help provide support for Apachecon NA in Las Vegas. As usual we co-ordinated the Apache booth which was staffed by our community volunteers from various projects. They had the chance to speak to attendees, promote their project and hand out a range of giveaways. The ASF booth was also the central place where the Apache feather was on display for all attendees to sign.&nbsp;</p> 
+      <p>In October the feather was also taken to Berlin for ApacheCon EU and attendees were also invited to sign the feather. Once again we had a central and dynamic booth which became a meeting hub for attendees.</p> 
+      <p>As part of bringing the Apache Way to new audiences, an Apache Day event was held in Indore, India during September. The aim was to give people an overview of the ASF, the Apache Way and also give some practical help in becoming a contributor.</p> 
+      <p>Also this quarter we participated at CCOSS 19 in Guadalajara, Mexico. There was an Apache track with talks ranging from Getting Started to Governance and Open Source Licences. This was a great opportunity to connect with potential new contributors to open source.</p> 
+      <p>We are still receiving requests to participate at events so need to put a plan in place for 2020.<br /><br /></p> 
+      <p><strong>&gt; Committers and Contributions:</strong>&nbsp;Over the past quarter, 1,581 contributors committed 42,338 changes that amount to 14,073,594 lines of code across Apache projects. The top 5 contributors, in order, were: Tilman Hausherr (1,010 commits), Andrea Cosentino (788 commits), Mark Robert Miller (771 commits), Mark Thomas (681 commits), and Jean-Baptiste Onofré (616 commits).</p> 
+      <p><img src="https://blogs.apache.org/foundation/mediaresource/9be4bd69-d167-4c20-b387-1f1ea11a2e5c" /> </p> 
+      <p>All individuals who are granted write access to the Apache repositories must submit an Individual Contributor License Agreement (ICLA). Corporations that have assigned employees to work on Apache projects as part of an employment agreement may sign a Corporate CLA (CCLA) for contributing intellectual property via the corporation.&nbsp;Individuals or corporations donating a body of existing software or documentation to one of the Apache projects need to execute a formal Software Grant Agreement (SGA) with the ASF.</p> 
+      <div> 
+        <p>During Q2 FY2020, the ASF Secretary processed 210 ICLAs, 7 CCLAs, and 14 Software Grants. History of Apache committer growth can be seen at&nbsp;<a href="https://projects.apache.org/timelines.html">https://projects.apache.org/timelines.html</a><br /><br /></p> 
+        <p> </p> 
+        <p><strong>&gt; Brand Management:&nbsp;</strong><u>Operations</u> — The work of the Brand Management team falls broadly into one of three categories:</p> 
+        <p> </p> 
+        <ul> 
+          <li>trademark transfers and registrations</li> 
+          <li>granting permission to use our marks</li> 
+          <li>addressing potential infringements of our marks<br /><br /></li> 
+        </ul> 
+        <p>The volume of work this quarter has been roughly double that of the previous quarter. The increase has been mostly in the areas of requests to use our marks and queries regarding potential infringements. The increase in volme has been manageable, largely due to the tracking system we have put in place.</p> 
+        <p>This quarter has seen requests to use Apache marks for user groups, events, merchandise, publications and training courses with nearly all requests being granted, subject to our Trademark Usage Policy. There have been a few cases this quarter of requests being made for marks that the ASF does not own which we have redirected to the correct owners.</p> 
+        <p><u>Registrations</u> <em>—&nbsp;</em>A number of registrations came up for renewal this quarter. We review each renewal as it comes up and, as a result, opted not to renew some of those registrations. The remaining renewals are in now progress.</p> 
+        <p>Some registrations, particularly those outside the US, tend to be more complex. This quarter some of our registrations in China have continued to require additional work to help them progress.</p> 
+        <p><u>Infringements</u>&nbsp;— Potential infringements are brought to our attention from both internal and external sources. The majority of infringements we see are accidental and our project communities are able to resolve these quickly and informally with occasional input from the Brand Management team. A small number of issues take longer to resolve. We made progress on some of these this quarter and hope that that progress will continue next quarter.</p> 
+        <p>We received multiple reports of a significant infringement this quarter and are in contact with the company concerned to remedy the situation. We hope to have this resolved in the next quarter.</p> 
+        <p>And finally…</p> 
+        <p>The Brand Management team&nbsp; welcomes your comments and suggestions as well as any questions you might have. Please see <a href="https://www.apache.org/foundation/marks/contact">https://www.apache.org/foundation/marks/contact</a> for our contact details.<br /><br /></p> 
+      </div> 
+    </div> 
+    <div> 
+      <p><strong>&gt; Infrastructure:</strong>&nbsp;The datacenter fast-exit mentioned last quarter was completed, as an all-hands shift. That went very well, and our services have been relocated. That sudden move really helped us to double-check our configuration management (Puppet-based) and to reallocate services to better-cost providers, to stretch our Infrastructure dollar.</p> 
+      <p>For a short while in August, we experienced some email issues that created a perfect storm with one of our primary providers. That has been resolved, with a new mail queue monitoring system and alerting, helping to improve our ongoing level of uptime and service.</p> 
+      <p>September was our 20th Anniversary ApacheCon North America, held in Las Vegas, Nevada. The entire team traveled to Vegas to meet with each other and with the community. It was a great opportunity to put faces to new names, to see some old faces, and to get a bit of work and team bonding accomplished.</p> 
+      <p>We also launched our new &quot;.asf.yaml&quot; service for out projects to self-service many aspects of their GitHub presence, and workflow for publishing project websites. More features for the projects, and less tickets for the team. This has been working well, and we continue to improve upon its capabilities. One of the Apache community members provided several features through some Pull Requests -- it is always great to see someone in the community helping out the thousands of others who form Apache.</p> 
+      <p>One of our final initiatives in the quarter, was a revamp of how we map projects' Apache Subversion repositories over to GitHub. We upgraded the server, improved the mapping system, and pruned out numerous unused projects (eg. they had switched to git). We also improved the resiliency of our GitHub-based webhooks by using message queues for repeatability, and to hold messages while we upgrade the primary server. We've seen improvements in stability and ordering, already.<br /><br /></p> 
+      <div> 
+        <p><strong>&gt; Financial Statement:</strong></p> 
+        <p><img src="https://blogs.apache.org/foundation/mediaresource/91fc5e9c-7a03-4eb3-a9a3-422f538a7f1a" /> </p> 
+        <p><br /></p> 
+      </div> 
+    </div> 
+    <div> 
+      <p><strong>&gt; Fundraising:</strong>&nbsp;Fundraising work continues smoothly with very few non-BAU/business-as-usual details to share. &quot;No news is good news&quot;, as they say!</p> 
+      <p>We are pleased to report that the online form and digital agreement signature procedures announced last quarter are working well and keeping busywork to a minimum.</p> 
+      <p>We once again thank all of our wonderful ApacheCon sponsors that showed up in force at ApacheCon NA and ApacheCon EU and were glad to enjoy some in-person time with both Event and Foundation sponsors.</p> 
+      <p>A targeted sponsorship for D&amp;I was received and processed per our BAU procedure. This was the first exercise of the procedure and worked well. We also continued conversations with a targeted sponsor for a project as well as explored the possibility of a crypto token donation.</p> 
+      <p>= = =</p> 
+      <p>Thank you to all our Sponsors --</p> 
+      <p> </p> 
+      <ul> 
+        <li>PLATINUM: Amazon Web Services, Cloudera, Comcast, Facebook, Google, LeaseWeb, Microsoft, Pineapple Fund, Verizon Media, Tencent</li> 
+        <li>GOLD: Anonymous, ARM, Bloomberg, Handshake, Huawei, IBM, Indeed, Union Investment, Workday</li> 
+        <li>SILVER: Aetna, Alibaba Cloud Computing, Baidu, Budget Direct, Capital One, Cerner, Inspur, ODPi, Private Internet Access, Red Hat, Target</li> 
+        <li>BRONZE: Airport Rentals, The Blog Starter, Bookmakers, Cash Store, Bestecasinobonussen.nl, CarGurus, Casino2k, Cloudsoft, The Economic Secretariat, Emerio, Footprints Recruiting, Gundry MD, HostChecka.com, Host Advice, HostingAdvice.com, Journal Review, LeoVegas Indian Online Casino,&nbsp; Mutuo Kredit AG, Online Holland Casino, ProPrivacy, PureVPN, RX-M, SCAMS.info, Site Builder Report, Start a Blog by Ryan Robinson, Talend, The Best VPN, Top10VPN, Twitter, Web Hosting Secret Revealed</li> 
+        <li>TARGETED PLATINUM:&nbsp;CloudBees, DLA Piper, JetBrains, Microsoft, OSU Open Source Labs, Sonatype, Verizon Media</li> 
+        <li>TARGETED GOLD: Atlassian, The CrytpoFund, Datadog, PhoenixNAP, Quenda</li> 
+        <li>TARGETED SILVER: Amazon Web Services, HotWax Systems, Rackspace</li> 
+        <li>TARGETED BRONZE: Bintray, Education Networks of America, Google, Hopsie, No-IP, PagerDuty, Peregrine Computer Consultants Corporation, Sonic.net, SURFnet, Virtru</li> 
+      </ul> 
+      <p>To sponsor The Apache Software Foundation, visit&nbsp;<a href="http://apache.org/foundation/sponsorship.html">http://apache.org/foundation/sponsorship.html</a>&nbsp;. To make a one-time or monthly recurring donation, please visit&nbsp;<a href="https://donate.apache.org/">https://donate.apache.org/</a></p> 
+      <p># # #</p> 
+    </div> 
+    <div> 
+      <p>Report prepared by Sally Khudairi, Vice President Marketing &amp; Publicity, with contributions by Rich Bowen, Vice President Conferences; Sharan Foga, Vice President Community Development; Mark Thomas, Vice President Brand Management; David Nalley, Vice President Infrastructure; Greg Stein, ASF Infrastructure Administrator; Tom Pappas, Vice President Finance; and Daniel Ruggeri, Vice President Fundraising.</p> 
+      <p>For more information, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">subscribe to the announce@apache.org mailing list</a> and visit <a href="http://www.apache.org/">http://www.apache.org/</a>, the ASF Blog at <a href="http://blogs.apache.org/">http://blogs.apache.org/</a>, the <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>, and <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a>.<br /></p> 
+    </div> 
+  </div> 
+  <p>(c) The Apache Software Foundation 2019.</p>

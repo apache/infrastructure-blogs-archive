@@ -1,0 +1,37 @@
+---
+layout: post
+title: 'Apache Bigtop 0.5.0 has been released  '
+date: '2012-12-27T00:00:00+00:00'
+categories: bigtop
+---
+<p style="box-sizing: border-box; margin-top: 0px; margin-right: 0px; margin-bottom: 12px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "><font color="#505050" face="'Helvetica Neue', Helvetica, Arial, sans-serif"><span style="line-height: 19px; ">Straight from the Santa's bag of toys Apache Bigtop 0.5.0 is now available. This is out first release as an Apache TPL (top level project) and it is based on Hadoop 2.0.2-alpha with even greater selection of fully integrated Hadoop ecosystem components (Solr, Crunch, etc):</span></font></p> 
+  <p style="box-sizing: border-box; margin-top: 0px; margin-right: 0px; margin-bottom: 12px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> </p>
+  <ul> 
+    <li><font color="#505050" face="'Helvetica Neue', Helvetica, Arial, sans-serif"><span style="line-height: 19px; ">Apache Zookeeper 3.4.5</span></font><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "> </span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Flume 1.3.0</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache HBase 0.94.2</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Pig 0.10.0</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Hive 0.9.0</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Sqoop 1.4.2</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Oozie 3.3.0</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Whirr 0.8.1</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Mahout 0.7</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Solr (SolrCloud) 4.0.0</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Apache Crunch (incubating) 0.4.0</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">DataFu 0.0.4</span></li> 
+    <li><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "></span><span style="line-height: 19px; color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; ">Hue 2.1.0</span></li> 
+  </ul> 
+  <p>&nbsp;</p> 
+  <div><span style="color: #505050; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; "><span style="line-height: 19px; ">The list of supported Linux platforms has expanded to:<br /> 
+        <ul> 
+          <li><span style="line-height: 18.98px; ">CentOS/RHEL 5 and 6</span></li> 
+          <li><span style="line-height: 18.98px; ">Fedora 16 and 17</span></li> 
+          <li><span style="line-height: 18.98px; ">SuSE Linux Enterprise 11</span> </li> 
+          <li><span style="line-height: 18.98px; ">OpenSUSE 12.2</span></li> 
+          <li><span style="line-height: 18.98px; color: #222222; font-family: arial, sans-serif; ">Ubuntu LTS Lucid and Precise</span><span style="line-height: 18.98px; "><font color="#505050" face="'Helvetica Neue', Helvetica, Arial, sans-serif"> </font></span></li> 
+          <li><span style="color: #222222; font-family: arial, sans-serif; line-height: 18.98px; ">Ubuntu Quantal</span></li> 
+        </ul></span></span></div> 
+  <p>There is a lot of goodies in this release: SolrCloud, brand new Hue Oozie UI, latest and greatest Flume just to name few. We would like to invite everybody to join the developer&nbsp;community or simply give the binary Bigtop distribution a try.&nbsp;All you have to do is pick your favorite Linux Distro,&nbsp;follow our <a href="https://cwiki.apache.org/confluence/display/BIGTOP/How+to+install+Hadoop+distribution+from+Bigtop+0.5.0">wiki instructions</a> and you will have your first pseudo distributed cluster computing Pi in no time (on a pseudo distributed cluster the value of Pi is&nbsp;approximately&nbsp;3.4).</p> 
+  <p>If you're thinking about deploying Bigtop to a fully-distributed cluster you might find our Puppet code to be useful -- after all we use it all the time ourselves to test Bigtop. There is a <a href="https://github.com/apache/bigtop/tree/master/bigtop-deploy/puppet">brief documentation</a> on how to run our Puppet recipes in a master-less puppet configuration, but a typical Puppet master setup should work as well.</p> 
+  <p>Whatever you do, don’t forget to check us out at <a href="http://bigtop.apache.org">Apache</a> and consider <a href="http://bigtop.apache.org/mail-lists.html">getting involved</a>. Bigtop is a community-driven effort and we need your help. Of course, above all we need you to use Bigtop and give us your the feedback.</p> 
+  <p>Happy Big Data discoveries,<br />Your faithful and tireless Bigtop development team!</p>

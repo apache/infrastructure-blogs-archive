@@ -1,0 +1,22 @@
+---
+layout: post
+title: Restructuring of Project Templates in Apache NetBeans
+date: '2019-02-01T00:00:00+00:00'
+categories: netbeans
+---
+There's been lots of discussion in the Apache NetBeans community about how best to express the fact that Apache Maven and Gradle are more modern choices to be aware of than Apache Ant, while at the same time not implying that there's anything wrong with using Apache Ant. 
+
+<p>Here's what we seem to have reached consensus around, i.e., move all Ant-based project templates into a separate Ant-specific folder, while putting the other two build systems higher and therefore more prominently in the list:</p>
+
+<p><img src="https://app.compendium.com/api/post_attachments/c4916809-a917-4117-91ec-45a31d0ad7f4/view"/>
+
+<p>With the above, someone is less likely to simply go to the no-longer-existing Java category and then end up with an Ant-based project, without thinking about it. By default, the user of Apache NetBeans is now encouraged to consider Apache Maven and Gradle first. The old Ant-related categories are still there, so as not to confuse anyone completely, just structured within a lower ranked "Java with Ant" category. The above also solves the discussion re "Java EE", i.e., here the idea, from discussions, is to name the category "Java Enterprise".</p>
+
+<p>At startup, all categories are closed, i.e., none is more prominent initially than any other.</p>
+
+<p>An objection one could have is that, if you're a complete Java newbie, you won't know what Maven, Gradle, or Ant are. Well, that has always been the case and NetBeans has artificially hidden that choice by having a category simply named "Java", which then resulted in everyone ending up with Ant-based projects. To turn that around and have a category simply named "Java" that results in Maven-based projects is probably not right either, i.e., a careful balance needs to be struck.</p>
+
+<p>Hoping that all factions in this lengthy discussion are relatively satisfied with this approach. :-)</p>
+
+<p><b>Issue:</b> <a href="https://issues.apache.org/jira/browse/NETBEANS-2040">https://issues.apache.org/jira/browse/NETBEANS-2040</a></p>
+<p><b>Pull request:</b> <a href="https://github.com/apache/incubator-netbeans/pull/1115">https://github.com/apache/incubator-netbeans/pull/1115</a></p>

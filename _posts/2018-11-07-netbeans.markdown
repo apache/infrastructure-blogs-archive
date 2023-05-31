@@ -1,0 +1,25 @@
+---
+layout: post
+title: Is Apache NetBeans 10 Ready To Be Released?
+date: '2018-11-07T00:00:00+00:00'
+categories: netbeans
+---
+<a href="https://cwiki.apache.org/confluence/display/NETBEANS/10vc3">Apache NetBeans 10vc3</a> is the third voting candidate of Apache NetBeans (incubating) 10 and has been created for purposes of NetCAT activities: 
+
+<ul>
+<li><a href="https://cwiki.apache.org/confluence/display/NETBEANS/NetCAT+10.0+Schedule">NetCAT 10.0 Schedule</a></li>
+<li><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Apache+NetBeans+Release+Roadmap">Apache NetBeans Release Roadmap</a></li>
+<li><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Apache+NetBeans+10.0+New+and+Noteworthy">New and noteworthy in Apache NetBeans 10</a></li>
+</ul>
+
+<p>Build artifacts: <a href="https://dist.apache.org/repos/dist/dev/incubator/netbeans/incubating-netbeans/incubating-10.0-vc3">https://dist.apache.org/repos/dist/dev/incubator/netbeans/incubating-netbeans/incubating-10.0-vc3</a></p>
+
+<p>Binaries: <a href="https://dist.apache.org/repos/dist/dev/incubator/netbeans/incubating-netbeans/incubating-10.0-vc3/incubating-netbeans-10.0-vc3-bin.zip">https://dist.apache.org/repos/dist/dev/incubator/netbeans/incubating-netbeans/incubating-10.0-vc3/incubating-netbeans-10.0-vc3-bin.zip</a></p>
+
+<p>Sources: <a href="https://dist.apache.org/repos/dist/dev/incubator/netbeans/incubating-netbeans/incubating-10.0-vc3">https://dist.apache.org/repos/dist/dev/incubator/netbeans/incubating-netbeans/incubating-10.0-vc3</a></p>
+
+<p>Please try 10vc3 and fill out the Community Acceptance Survey:</p>
+
+<p><a href="https://goo.gl/forms/jCzBLA34hNZb4k5G2">https://goo.gl/forms/jCzBLA34hNZb4k5G2</a></p>
+
+<p>Watch a helpful YouTube clip here: <a href="https://www.youtube.com/watch?v=G7_OPJ6grvM">https://www.youtube.com/watch?v=G7_OPJ6grvM</a></p>

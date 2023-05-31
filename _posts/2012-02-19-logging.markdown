@@ -1,0 +1,24 @@
+---
+layout: post
+title: Apache log4php 2.2.1 released
+date: '2012-02-19T00:00:00+00:00'
+categories: logging
+---
+Dear all,
+
+The Apache log4php team is pleased to announce the release of Apache
+log4php 2.2.1.
+
+This is a maintenance release which fixes several important bugs and
+features yet another update to the web site design.
+
+The full changelog can be found at:
+<a href="http://logging.apache.org/log4php/changelog.html" target="_blank">http://logging.apache.org/log4php/changelog.html</a>
+
+The release is available from:
+<a href="http://logging.apache.org/log4php/download.html" target="_blank">http://logging.apache.org/log4php/download.html</a>
+
+Thanks to everyone who participated in the making of this release.
+
+Best regards,
+The Apache log4php team

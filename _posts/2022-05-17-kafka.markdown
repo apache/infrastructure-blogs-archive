@@ -1,0 +1,135 @@
+---
+layout: post
+title: What's New in Apache Kafka 3.2.0
+date: '2022-05-17T00:00:00+00:00'
+categories: kafka
+---
+<p>
+I’m proud to announce the release of <a href="https://kafka.apache.org/downloads">Apache Kafka 3.2.0</a> on behalf of the Apache Kafka® community. The 3.2.0 release contains many new features and improvements. This blog will highlight some of the most prominent new features. For the full list of changes, be sure to see the release notes. You can also watch the release video for a summary of what’s new in Apache Kafka 3.2.0.
+</p>
+
+<p>
+While KRaft mode is not yet recommended for production, we have introduced a <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-801%3A+Implement+an+Authorizer+that+stores+metadata+in+__cluster_metadata">KRaft-based authorizer</a> along with several fixes and improvements. In addition, a proposal for marking <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-833%3A+Mark+KRaft+as+Production+Ready">KRaft mode as production ready in Apache Kafka 3.3</a> is being discussed by the community.
+</p>
+
+<p>
+Since log4j 1.x has known security vulnerabilities and is not maintained anymore, we replaced it with reload4j. reload4j is a drop-in replacement with fixes for the known security vulnerabilities. We plan to migrate to log4j 2.x in the next major release of Apache Kafka (see <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-653%3A+Upgrade+log4j+to+log4j2">KIP-653</a>). 
+</p>
+
+<h2>Kafka broker, Producer, Consumer and AdminClient</h2>
+
+<h3>KIP-801: StandardAuthorizer for KRaft</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-801%3A+Implement+an+Authorizer+that+stores+metadata+in+__cluster_metadata">KIP-801</a> introduces a built-in authorizer, StandardAuthorizer, that does not depend on Zookeeper. This means you can now run a secure Kafka cluster without Zookeeper! StandardAuthorizer stores its ACLs in the <code>__cluster_metadata</code> topic and it is used by default in KRaft clusters. StandardAuthorizer does all of the same things that AclAuthorizer does for Zookeeper-dependent clusters.  
+</p>
+
+<h3>KIP-704: Send a hint to the partition leader to recover the partition</h3>
+<p>
+With <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-704%3A+Send+a+hint+to+the+partition+leader+to+recover+the+partition">KIP-704</a>, the controller is now able to communicate to a newly elected topic partition leader whether it was elected using the unclean leader election strategy. This information tells the new topic partition leader that it needs to recover its state. As an example, this will be used in the future to clean up transaction state, which may be left inconsistent following an unclean election.
+</p>
+
+<h3>KIP-764: Configurable backlog size for creating Acceptor</h3>
+<p>
+When there are many large clients, preferred leader election can cause many clients to open connections within a very short window of time. This can cause the SYN backlog for TCP’s acceptor sockets to be filled up resulting in retries being delayed or producers being slowed down. 
+</p>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-764%3A+Configurable+backlog+size+for+creating+Acceptor">KIP-764</a> introduces a new configuration <code>socket.listen.backlog.size</code> that allows setting the size of the SYN backlog for TCP’s acceptor sockets on the brokers. Increasing this configuration can mitigate the issues resulting from many open connections. 
+</p>
+
+<h3>KIP-784: Add top-level error code field to DescribeLogDirsResponse</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-784%3A+Add+top-level+error+code+field+to+DescribeLogDirsResponse">KIP-784</a> adds an error code to the response of the <code>DescribeLogDirs</code> API. In previous releases <code>DescribeLogDirs</code> returned an empty response if users did not have the necessary authorization for the request. Clients had to interpret the empty response as a <code>CLUSTER_AUTHORIZATION_FAILED</code> error. KIP-784 makes <code>DescribeLogDirs</code> API consistent with other APIs and allows returning other errors besides <code>CLUSTER_AUTHORIZATION_FAILED</code>.
+</p>
+
+<h3>KIP-788: Allow configuring num.network.threads per listener</h3>
+<p>
+On Kafka brokers it is common to define multiple listeners. Each listener has its own pool of network threads. In many cases, some listeners handle a lot less traffic than others and typically do not need the same number of threads as the listeners that need to handle more traffic.
+</p>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-788%3A+Allow+configuring+num.network.threads+per+listener">KIP-788</a> allows setting the pool size of network threads individually per listener. This allows for fine-tuning of the number of network threads to dynamically accommodate traffic spikes or slightly reduce memory usage when using listeners with different traffic loads. For this purpose, the existing configuration <code>num.network.threads</code> is updated to support being set on specific listeners via <code>listener.name.&lt;name of the listener&gt;.num.network.threads</code>. 
+</p>
+
+<h3>KIP-798 and KIP-810: kafka-console-producer now can write headers and null values</h3>
+<p>
+The kafka-console-producer is an important debugging tool. <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-798%3A+Add+possibility+to+write+kafka+headers+in+Kafka+Console+Producer">KIP-798</a> provides a way to add headers to a record that is written to a topic. <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-810%3A+Allow+producing+records+with+null+values+in+Kafka+Console+Producer">KIP-810</a> allows writing records with value <code>null</code> to a topic. That means the kafka-console-producer can now produce tombstone records to a compacted topic. Both of these features improve debugging with the kafka-console-producer.  
+</p>
+
+<h3>KIP-800: Add reason to <code>JoinGroupRequest</code> and <code>LeaveGroupRequest</code></h3>
+<p>
+When a consumer leaves or joins a consumer group, it logs the reason locally. Until this release, the brokers did not have any information on the reasons a consumer joined or left the consumer group. That made rebalances triggered by <code>LeaveGroupRequest</code> and <code>JoinGroupRequest</code> hard to troubleshoot. <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-800%3A+Add+reason+to+JoinGroupRequest+and+LeaveGroupRequest">KIP-800</a> propagates the reasons for leaving and joining a consumer group to the brokers, making troubleshooting rebalance issues easier. 
+</p>
+
+<h3>KIP-814: Static membership protocol should let the leader skip assignment</h3>
+<p>
+Since Apache Kafka 2.4.0 when static membership was introduced, consumers can rejoin a consumer group after a brief absence without triggering a rebalance. If the leader of the consumer group had a brief absence and then rejoined, it would remain the leader. However, there was no way to let the rejoined consumer know that it was still the leader without triggering another rebalance. Ultimately this can cause the group to miss some metadata changes, such as partition increases. With <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-814%3A+Static+membership+protocol+should+let+the+leader+skip+assignment">KIP-814</a> the rejoining leader is informed about its leadership without computing a new assignment. 
+</p>
+
+<h2>Kafka Streams</h2>
+
+<h3>KIP-708: Rack awareness for Kafka Streams</h3>
+<p>
+Starting with Apache Kafka 3.2.0, Kafka Streams can distribute its standby replicas over distinct “racks” with <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-708%3A+Rack+awareness+for+Kafka+Streams">KIP-708</a>. To form a “rack”, Kafka Streams uses tags in the application configuration. For example, Kafka Streams clients might be tagged with the cluster or the cloud region they are running in. Users can specify the tags that should be used for the rack-aware distribution of the standby replicas by setting the configuration <code>rack.aware.assignment.tags</code>. During task assignment, Kafka Streams will try its best to distribute the standby replicas over different task dimensions. Rack-aware standby assignment improves fault tolerance in case of the failure of an entire “rack”. This can be used, for example, to ensure that replicas are distributed over different availability zones in a cloud hosting provider.
+</p>
+
+<h3>KIP-796, KIP-805, KIP-806: Interactive Query v2</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-796%3A+Interactive+Query+v2">KIP-796</a> specifies an improved interface for Interactive Queries in Kafka Streams (IQv2). The new interface aims to make querying the state store simpler and faster as well as to reduce the maintenance cost when modifying existing state stores and when adding new state stores. KIP-796 describes the generic interface for querying state stores with Interactive Queries. Specific query types can be added to Interactive Query v2 by implementing the <code>Query</code> interface. KIP-976 also defines the <code>KeyQuery</code> class to allow users to evaluate a key/value lookup via IQv2.
+</p>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-805%3A+Add+range+and+scan+query+over+kv-store+in+IQv2">KIP-805</a> adds the <code>RangeQuery</code> class to Interactive Query v2. The <code>RangeQuery</code> class is an implementation of the <code>Query</code> interface that allows querying state stores over a range specified by upper or lower key bounds or scanning all records of a state store when no bounds are provided.
+</p>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-806%3A+Add+session+and+window+query+over+kv-store+in+IQv2">KIP-806</a> adds two implementations of the <code>Query</code> interface – the <code>WindowKeyQuery</code> class and the <code>WindowRangeQuery</code> class. The former allows scanning over windows with a given key within a given time range and the latter allows scanning over windows within a given time range independently of the keys of the windows.
+</p>
+<p>
+KIP-796 is a long-term project that will be extended with new query types in future releases. As of Apache Kafka 3.2.0, IQv2 is in preview. The public documentation site has not been updated, and the interfaces of IQv2 are marked as <code>@Evolving</code> (meaning that they may break compatibility in minor releases without a deprecation period if preview users find significant flaws in the current API). A future release will remove the <code>@Evolving</code> annotation and designate IQv2 as stable.
+</p>
+
+<h3>KIP-791: Add record metadata to state store context</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-791%3A+Add+Record+Metadata+to+State+Store+Context">KIP-791</a> adds method <code>recordMetadata()</code> to the <code>StateStoreContext</code>, providing access to the topic, partition, and offset of the record currently being processed. Exposing the current context in this way allows state stores to track their current offset in each input partition, allowing them to implement the consistency mechanisms introduced in KIP-796.
+</p>
+
+<h2>Kafka Connect</h2>
+
+<h3>KIP-769: Connect APIs to list all connector plugins and retrieve their configuration definitions</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-769%3A+Connect+APIs+to+list+all+connector+plugins+and+retrieve+their+configuration+definitions">KIP-769</a> extends the <code>GET /connector-plugins</code> endpoint with a new query parameter <code>connectorsOnly</code> which when set to <code>false</code> lists all the available plugins and not just connectors. The new query parameter helps users to verify what plugins are available without the need to know how the Connect runtime is set up. Usage of the new parameter is <code>GET /connector-plugins?connectorsOnly=false</code>. By default <code>connectorsOnly</code> is set to <code>true</code> for compatibility with previous behavior.
+</p>
+<p>
+Additionally, KIP-769 adds a new endpoint that will return the configurations of a given plugin. The new endpoint is used as follows: <code>GET /connector-plugins/&lt;plugin&gt;/config</code>. The new endpoint works with all plugins returned by <code>GET /connector-plugins</code>.
+</p>
+
+<h3>KIP-808: Add support for different Unix time precisions in TimestampConverter SMT</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-808%3A+Add+support+for+different+unix+precisions+in+TimestampConverter+SMT">KIP-808</a> introduces a new optional configuration field <code>unix.precision</code> for the <code>TimestampConverter</code> SMT that allows the user to define a desired precision for the SMT. Valid values for this new field are seconds, milliseconds, microseconds, and nanoseconds. This addition is motivated by the fact that in external systems Unix time is represented with different precisions.
+</p>
+
+<h3>KIP-779: Allow source tasks to handle producer exceptions</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-779%3A+Allow+Source+Tasks+to+Handle+Producer+Exceptions">KIP-779</a> makes source connectors resilient to producer exceptions. Since source connectors ingest data from systems users do not have control over, it might happen that received messages are too large or unprocessable for the configured Connect worker, Kafka broker, and other ecosystem components. Previously such an error always killed the connector. 
+</p>
+<p>
+With KIP-779 the <code>WorkerSourceTask</code> checks for the configured <code>error.tolerance</code> when sending the message fails. If <code>error.tolerance</code> is set to <code>all</code>, the <code>WorkerSourceTask</code> will ignore the exception, allow the connector to acknowledge its source system and continue processing. If <code>error.tolerance</code> is not set to <code>all</code>, the source connector will fail.
+</p>
+<p>
+A note on compatibility: Existing source connectors that set <code>errors.tolerance</code> to <code>all</code> and expect to die on producer failure will need to be updated as described in the KIP. Source connectors that do not set <code>errors.tolerance</code> to <code>all</code> will not be affected by this change and be killed in the event of a producer failure.  
+</p>
+
+<h2>Summary</h2>
+<p>
+In addition to all the KIPs listed above, Apache Kafka 3.2.0 is packed with fixes and other improvements. 
+</p>
+<p>
+For next steps:
+<ul>
+  <li><a href="https://dist.apache.org/repos/dist/release/kafka/3.2.0/RELEASE_NOTES.html">See the release notes</a> for the full list of changes</li>
+  <li>Check out the <a href="https://youtu.be/SYQcb-eKCTI">video</a> or the <a href="https://developer.confluent.io/podcast/apache-kafka-3-2">podcast</a> to learn more</li>
+  <li><a href="https://kafka.apache.org/downloads">Download Apache Kafka 3.2.0</a> to get started with the latest release</li>
+</ul>
+This was a huge community effort, so thank you to everyone who contributed to this release, including all our users and our 144 authors and reviewers:
+</p>
+
+<p>
+A. Sophie Blee-Goldman, Adam Kotwasinski, Aleksandr Sorokoumov, Alexander Stohr, Alexandre Garnier, Alok Nikhil, Andras Katona, Andrew Eugene Choi, Antony Stubbs, Artem Livshits, Bill Bejeck, Bounkong Khamphousone, Boyang Chen, Bruno Cadonna, Chang, Chia-Ping Tsai, Chris Egerton, Colin P. McCabe, Cong Ding, David Arthur, David Jacot , David Mao, Ed B, Edwin, GauthamM-official, GuoPhilipse, Guozhang Wang, Gwen Shapira, Hao Li, Haoze Wu, Idan Kamara, Igor Soarez, Ismael Juma, Israel Ekpo, James Galasyn, James Hughes, Jason Gustafson, Jason Koch, Jeff Kim, Joel Hamill, John Roesler, Jonathan Albrecht, Jorge Esteban Quilcate Otoya, Josep Prat, Joseph (Ting-Chou) Lin, José Armando García Sancio, Jr, Jules Ivanic, Julien Chanaud, Jun Rao, Justin Lee, Justine Olshan, Kamal Chandraprakash, Kate Stanley, Kirk True, Knowles Atchison, Konstantine Karantasis, Kowshik Prakasam, Kurt Ostfeld, Kvicii, Leah Thomas, Lee Dongjin, Levani Kokhreidze, Liam Clarke-Hutchinson, Lucas Bradstreet, Ludovic DEHON, Luizfrf3, Luke Chen, Manikumar Reddy, Marc Löhe, Matthew Wong, Matthias J. Sax, Michal T, Mickael Maison, Mike Lothian, Márton Sigmond, Nick Telford, Nigel Liang, Niket, Okada Haruki, Omnia G H Ibrahim, Paolo Patierno, Patrick Stuedi, Philip Nee, Prateek Agarwal, Rajini Sivaram, Randall Hauch, Ricardo Brasil, Richard, RivenSun, Rob Leland, Ron Dagostino, Sayantanu Dey, Sean Li, Sergio Peña, Sherzod Mamadaliev, Shylaja Kokoori, Stanislav Vodetskyi, Tamara Skokova, Tim Patterson, Tolga H. Dur, Tom Bentley, Tomas Forsman, Tomonari Yamashita, Vicky Papavasileiou, Victoria Xia, Vijay Krishna, Vincent Jiang, Vladimir Sitnikov, Walker Carlson, Wenhao Ji, Wenjun Ruan, Xiaobing Fang, Xiaoyue Xue, YEONCHEOL JANG, Yang Yu, YeonCheol Jang, Yu, Zhang Hongyi, aSemy, bozhao12, defhacks, dengziming, florin-akermann, gf13871, jiangyuan, jiangyuan04, keashem, kurtostfeld, lhunyady, liym, loboxu, loboya~, mkandaswamy, prince-mahajan, sunshujie1990, vamossagar12, wangyap, xuexiaoyue, yasar03, zhonghou3, zzccctv, 工业废水, 彭小漪
+</p>

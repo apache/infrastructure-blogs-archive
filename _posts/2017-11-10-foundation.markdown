@@ -1,0 +1,58 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 10 November 2017'
+date: '2017-11-10T00:00:00+00:00'
+categories: foundation
+---
+<div>And it's Friday already ... time flies when you're as productive as the Apache community! Here's what happened this week:</div> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 15 November. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield astute performance at 99.19% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <p>ASF Operations Factoid&nbsp;–this week, 422 Apache contributors changed 857,635 lines of code over 2,005 commits. Top 5 contributors, in order, are: Jian He, Mark Thomas, Tilman Hausherr, Svatopluk Dedic, and Carlos Sierra Andrés.</p> 
+  <p>Apache Commons™ Lang –provides helper utilities for the java.lang API, notably String manipulation methods, basic numerical methods, object reflection, concurrency, creation and serialization and System properties.<br />&nbsp;-&nbsp;Apache Commons Lang 3.7 released&nbsp;<a href="http://commons.apache.org/lang/">http://commons.apache.org/lang/</a></p> 
+  <p> </p> 
+  <p> </p> 
+  <p>Apache CouchDB™ –pioneering Open Source database that scales from Big Data to Mobile.<br />&nbsp;- Apache CouchDB 2.1.1 and 1.7.0 released&nbsp;<a href="http://couchdb.apache.org/">http://couchdb.apache.org/</a></p> 
+  <p>Apache Freemarker (incubating) –a Java library template engine to generate text output (HTML web pages, e-mails, configuration files, source code, etc.) based on templates and changing data.<br />&nbsp;- Apache FreeMarker 2.3.27-incubating released&nbsp;<a href="http://freemarker.org/">http://freemarker.org/</a></p> 
+  <p>Apache&nbsp;HttpComponents™ Core –a set of HTTP/1.1 and HTTP/2 transport components that can be used to build custom client and server side HTTP services with a minimal footprint.<br />&nbsp;-&nbsp;HttpComponents Core 5.0 beta1 released&nbsp;<a href="http://hc.apache.org/">http://hc.apache.org/</a></p> 
+  <p>Apache Jena™ –a framework for developing Semantic Web and Linked Data applications in Java.<br />&nbsp;-&nbsp;Apache Jena 3.5.0 released&nbsp;<a href="http://jena.apache.org/">http://jena.apache.org/</a></p> 
+  <p>Apache Kylin™ –an Open Source Distributed Analytics Engine designed to provide SQL interface and multi-dimensional analysis (OLAP) on Apache Hadoop, supporting extremely large datasets.<br />&nbsp;-&nbsp;Apache Kylin 2.2.0 released&nbsp;<a href="https://kylin.apache.org/">https://kylin.apache.org/</a></p> 
+  <p>Apache OpenMeetings™ –provides video conferencing, instant messaging, white board, collaborative document editing and other groupware tools using API functions of the Red5 Streaming Server for Remoting and Streaming.<br />&nbsp;- Apache OpenMeetings 4.0.0 released&nbsp;<a href="http://openmeetings.apache.org">http://openmeetings.apache.org</a></p> 
+  <p>Apache Qpid™ –a messaging library for the Advanced Message Queuing Protocol 1.0 (AMQP 1.0, ISO/IEC 19464, http://www.amqp.org).<br />&nbsp;- Apache Qpid Proton 0.18.1 and Qpid JMS 0.27.0 released <a href="http://qpid.apache.org/">http://qpid.apache.org/</a></p> 
+  <p>Apache UIMA™ –a component architecture and framework for the analysis of unstructured content like text, video and audio data.<br />&nbsp;-&nbsp;Apache UIMA Java SDK 2.10.2 released&nbsp;<a href="http://uima.apache.org">http://uima.apache.org</a><br /><br /></p> 
+  <p><strong>Did You Know?</strong></p> 
+  <div> 
+    <p>&nbsp;- Did you know that Apache Community Development (ComDev) issue a monthly blog? Catch up&nbsp;at <a href="https://s.apache.org/rE1T">https://s.apache.org/rE1T</a> </p> 
+    <p>&nbsp;- Did you know that the Italian Army uses Apache Syncope for identity management?&nbsp;<a href="http://syncope.apache.org/">http://syncope.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that the following Apache projects are celebrating anniversaries in November? Many happy returns to Apache Ant (15 yrs); Apache Labs (11 yrs);&nbsp;Apache HttpComponents (10 yrs); Apache Attic, Buildr, CouchDB, and Qpid (9 yrs);&nbsp;Apache Community Development (8 yrs); Apache OODT and ZooKeeper (7 yrs); Apache Kafka and Syncope (5 yrs); Apache Ambari and Marmotta (4 yrs); Apache BookKeeper, Drill, and MetaModel (3 yrs); Apache Brooklyn, Groovy, Kylin, and REEF (2 yrs); and&nbsp;Apache Geode (1 yr)!</p> 
+  </div> 
+  <div><strong><br />Apache Community Notices:</strong></div> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a>4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation&nbsp;<a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a>&nbsp;10) All My Roads Led to Apache&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a>&nbsp;11) Scratch Your Own Itch.&nbsp;<a href="https://s.apache.org/7Amk">https://s.apache.org/7Amk</a></p> 
+  </div> 
+  <div>&nbsp;- Follow the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a> (re-tweets/shares/likes most appreciated!)</div> 
+  <div> 
+    <p>&nbsp;- Presentations from ApacheCon <a href="https://s.apache.org/Hli7">https://s.apache.org/Hli7</a> and Apache: Big Data <a href="https://s.apache.org/tefE">https://s.apache.org/tefE</a> are available; as well as videos <a href="https://s.apache.org/AE3m">https://s.apache.org/AE3m</a> and audio recordings <a href="https://feathercast.apache.org/">https://feathercast.apache.org/</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a><a href="https://feathercast.apache.org/"></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+    <p>&nbsp;- The ASF will be participating at China Open Source Conference COSCon '17 18-19 November in Shanghai&nbsp;<a href="http://www.huodongxing.com/go/coscon17">http://www.huodongxing.com/go/coscon17</a></p> 
+    <p>&nbsp;- Apache community members share leadership best practices on Open Source governance, community leadership, open development, and more at FOSS Backstage in Berlin on 20 November 2017 <a href="https://berlinbuzzwords.de/17/news/foss-backstage-micro-summit-registration-open-now">https://berlinbuzzwords.de/17/news/foss-backstage-micro-summit-registration-open-now</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Meet members of the Apache CloudStack community at the&nbsp;CloudStack European User Group on 21 November in&nbsp;Leipzig&nbsp;<a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-38657799519?aff=estw">https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-38657799519?aff=estw</a></p> 
+    <p>&nbsp;- Members of the Apache community will be out in force at Open Source Summit Paris 6-7 December 2017 <a href="http://www.opensourcesummit.paris/">http://www.opensourcesummit.paris/</a></p> 
+    <p>&nbsp;- ASF Quarterly Report: Operations Summary Q1 FY2018&nbsp;<a href="https://s.apache.org/cEUm">https://s.apache.org/cEUm</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+  </div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

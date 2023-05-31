@@ -1,0 +1,95 @@
+---
+layout: post
+title: Response From The Apache® Software Foundation To Questions From US House Committee
+  On Energy And Commerce Regarding Equifax Data Breach
+date: '2017-10-03T00:00:00+00:00'
+categories: foundation
+---
+<p>On 19 September 2017 The Apache® Software Foundation (&quot;ASF&quot;) <a href="http://apache.org/">http://apache.org/</a> was contacted by the US House Committee on Energy and Commerce to answer questions in preparation for their hearing on 3 October regarding the Equifax data breach. </p> 
+  <p>The official response from the ASF follows.</p> 
+  <p>= = =</p> 
+  <p style="text-align: center;"><img src="https://blogs.apache.org/foundation/mediaresource/94cb81dc-c86e-4310-82d3-8c22df8736af" /> </p> 
+  <p> </p> 
+  <div style="text-align: center;"><strong>RESPONSES TO QUESTIONS FROM<br /></strong><strong> 
+      <div style="display: inline !important;"> 
+        <p style="display: inline !important;"><strong>US HOUSE COMMITTEE ON ENERGY AND COMMERCE<br /><br /></strong></p> 
+      </div></strong></div> 
+  <p style="display: inline !important;"> </p> 
+  <div> 
+    <p style="text-align: left;"><strong>BACKGROUND:</strong></p> 
+  </div> 
+  <div>We think that it is important to provide background about The Apache Software Foundation (&quot;ASF&quot;) and its projects as the ASF is very different from conventional for-profit software companies.</div> 
+  <div><br /></div> 
+  <div>The ASF:</div> 
+  <div><br /></div> 
+  <div>&nbsp;- interacts with the users of its software and provides patches in a different manner than such conventional for-profit software companies;</div> 
+  <div>&nbsp;- is a not-for-profit foundation qualified under Section 501(c)(3) of the IRS regulations;</div> 
+  <div>&nbsp;- develops, shepherds, and incubates hundreds of Open Source software projects that are run solely by volunteers, with some Foundation-level operations and services (such as infrastructure, administration, and marketing) provided by paid staff;</div> 
+  <div>&nbsp;- provides all of its Open Source software free of charge to the public at-large;</div> 
+  <div>&nbsp;- is financially supported by donations from corporations and &nbsp;individuals;&nbsp;</div> 
+  <div>&nbsp;- is vendor neutral: participation is limited to individuals, irrespective of affiliation or employment status.</div> 
+  <div><br /></div> 
+  <div>Code for Apache projects is written by more than 6,000 volunteer individuals and employees of corporations across six continents and contributed to the ASF at no cost. The ASF maintains records of contributors solely through its list of &quot;contributor license agreements&quot;. All individuals who are granted write access to the Apache repositories must submit an Individual Contributor License Agreement (ICLA). Corporations that have assigned employees to work on Apache projects as part of an employment agreement may sign a Corporate CLA (CCLA) for contributing intellectual property via the corporation. The ASF has confirmed that it has not received a CCLA from Equifax, nor has it received code contributions by Equifax employees (although the ASF cannot determine whether an individual contributor is affiliated with Equifax).</div> 
+  <div><br /></div> 
+  <div>Each Apache software project is managed by a Project Management Committee (&quot;PMC&quot;), a self-selected team of active contributors to the project. A PMC guides the project's day-to-day operations, including community development and product releases. The PMC oversees the software development for the projects, including any patches to those projects, which is available for anyone for download from the apache.org website and numerous global mirror sites. Releases of code for Apache</div> 
+  <div>are managed by the PMC, who distinguish between project software releases and patches published to our issue trackers. New releases that include patches are created, voted on by the PMC, and made available for download. The ASF then alerts the community to the patches. Unlike conventional for-profit software companies, the ASF does not provide the patches directly to the users of its software projects.</div> 
+  <div><br /></div> 
+  <div>The ASF does not provide conventional for-profit maintenance contracts or support the way a conventional for-profit software company would because Apache is a charitable organization composed of volunteers. The ASF provides its projects the facility to maintain numerous mailing lists to share with their developer and user communities project-related news and updates, technical discussions, troubleshooting, recommendations, and assistance in an open forum. Some conventional for-profit software companies package software produced by Apache in order to provide more comprehensive support or provide consulting support services.<br /><br /></div> 
+  <div> 
+    <p><strong>RESPONSES TO QUESTIONS FROM US HOUSE COMMITTEE ON ENERGY AND COMMERCE:</strong></p> 
+  </div> 
+  <div><strong><em>1) When did the ASF learn of the vulnerability that became CVE-2017-5638?</em></strong> </div> 
+  <div> 
+    <p>On 14 February 2017, the Apache Struts PMC first received report of the vulnerability which became CVE-2017-5638. The ASF does not have direct information about whether the CVE-2017-5638 &nbsp;vulnerability caused the Equifax hack.</p> 
+  </div> 
+  <div> </div> 
+  <div><strong><em>2) How did the ASF learn of it?</em></strong></div> 
+  <div><br /></div> 
+  <div>The Apache Struts PMC received a report via its security mailing list from Nike Zheng about the vulnerability.&nbsp;</div> 
+  <div> 
+    <p><strong><em>3) When did the ASF make a patch available for CVE-2017-5638?</em></strong></p> 
+  </div> 
+  <div> </div> 
+  <div>ASF provided a patch for the CVE-2017-5638 bug on 7 March 2017, the same day on which it was reported on its blog. On 7 March 2017, the Apache Struts PMC officially posted an announcement about the vulnerability, along with two Struts releases that fixed it</div> 
+  <div><br /></div> 
+  <div><a href="http://struts.apache.org/announce.html#a20170307">http://struts.apache.org/announce.html#a20170307</a></div> 
+  <div><a href="http://struts.apache.org/announce.html#a20170307-2">http://struts.apache.org/announce.html#a20170307-2</a></div> 
+  <div><br /></div> 
+  <div> 
+    <p><strong><em>4) Did the Foundation provide guidance on how the patch/update should be installed (my understanding is that it was a bit more complicated than a traditional patch)?</em></strong></p> 
+    <p>The patch was released as part of a full release of the Apache Struts project, which means users had to upgrade to the latest version, which is the simplest way of implementing the patch. &nbsp;The Apache Struts PMC also provided other options, including information about using different implementation of the Multipart parser or filtering out suspicious requests, and other options to implement the patch <a href="http://struts.apache.org/docs/s2-045.html">http://struts.apache.org/docs/s2-045.html</a> . In addition, on 20 March 2017 the Apache Struts PMC released two custom plug-ins to resolve the vulnerability without upgrading to the latest version&nbsp;<br /><a href="http://struts.apache.org/announce.html#a20170320">http://struts.apache.org/announce.html#a20170320</a></p> 
+  </div> 
+  <div> </div> 
+  <div><strong><em>5) The ASF's software is all open-source, as we understand it:</em></strong></div> 
+  <div><br /></div> 
+  <div>Yes: all ASF software projects are provided under the Apache Software License, version 2, an &nbsp;Open Source Software (OSS) license.</div> 
+  <div> </div> 
+  <p> </p> 
+  <div> 
+    <p><strong><em>For large organizations like Equifax that rely on Apache’s OSS, do they:</em></strong></p> 
+  </div> 
+  <div> </div> 
+  <div><strong><em>i. &nbsp; &nbsp; &nbsp;Provide financial assistance, such as donations, to help&nbsp;</em></strong><strong><em>pay for maintenance of the codebase?</em></strong></div> 
+  <div> </div> 
+  <p> </p> 
+  <div> 
+    <p>While financial assistance is not required for using ASF software projects, some corporations choose to provide financial assistance through donations. &nbsp;However the number of companies that provide donations is a very small percentage of the total corporate users of ASF projects.</p> 
+  </div> 
+  <div>Donations to ASF go to a general fund and are not targeted for the development, maintenance, or influence of particular projects.</div> 
+  <div> </div> 
+  <p> </p> 
+  <div> 
+    <p><strong><em>ii. &nbsp; &nbsp; Provide &quot;volunteers&quot; who help craft/review/patch code?</em></strong></p> 
+  </div> 
+  <div> </div> 
+  <div>Some corporations ask that employees contribute to certain projects, but, as noted above, the number of companies that have their employees contribute to ASF projects is a very small percentage of &nbsp; the users of ASF projects.</div> 
+  <div> </div> 
+  <p> </p> 
+  <div> 
+    <p><strong><em>iii. &nbsp; &nbsp;Provide other assistance to help maintain the&nbsp;</em></strong><strong><em>availability and/or quality of the OSS?</em></strong></p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p>Some corporations provide products, sales, and support services for Apache projects. These organizations have no direct relationship with the ASF. As noted above, the number of companies that have their employees contribute to ASF projects is a very small percentage of the corporate users of ASF projects.</p> 
+  </div> 
+  <div># # #</div>

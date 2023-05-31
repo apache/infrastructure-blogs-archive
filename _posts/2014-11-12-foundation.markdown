@@ -1,0 +1,38 @@
+---
+layout: post
+title: The ASF @ 15 -- Community Over Code
+date: '2014-11-12T00:00:00+00:00'
+categories: foundation
+---
+<div><em>Part 3 of a 3-part&nbsp;series celebrating 15 years of community-led development at The Apache Software Foundation.</em></div> 
+  <div><br /></div> 
+  <div> 
+    <p>Over the past 15 years, The Apache Software Foundation (ASF <a href="http://apache.org/">http://apache.org/</a>) has accrued a lot of unofficial mottos: &quot;Community-led development&quot; and &quot;No Jerks Allowed&quot; are two favorites. But the one that comes up most often is &quot;Community Over Code&quot;, also sometimes stated mathematically as &quot;Community &gt; Code&quot;.</p> 
+    <p>Now, obviously, as a community, we are all about code, and wouldn't have a reason for existing without that code. But it's more than just a clever slogan. Instead, it's meant to codify how we do things, how we see one another, and how we go about decision making, even when it comes to code patches.</p> 
+  </div> 
+  <div>Once, long ago, I had the pleasure of interviewing Brian Behlendorf, the founder of the Apache Web Server project, at ApacheCon. (Parts of that interview became a podcast on FeatherCast - <a href="http://feathercast.apache.org/?p=78">http://feathercast.apache.org/?p=78</a> - and it appears that I never published the promised second half.) One of the things I remember him saying to me was that a healthy community is far more important than good code, because if the code were to mysteriously vanish, a strong community could rewrite it, but if the community is unhealthy, the code will eventually fall by the wayside, too.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Daniel Gruno, who has done a lot of statistical analysis of the ASF, says: &quot;All in all, the projects (and people) in the ASF have produced a whopping 120 million lines of code, worth almost 32,500 person-years in efforts and 'costing' an estimated $2 billion in effort put into the projects.&quot;</div> 
+  <div><br /></div> 
+  <div>All of this is produced by roughly 4,000 people over the course of almost 20 years, with a much smaller number being consistently active at any given time.</div> 
+  <div><br /></div> 
+  <div>This is made possible by our amazing infrastructure team who provide the servers and networks that this all happens on. It's made possible by the many people that have gone before us, producing software, standards, and protocols on which we build. And it's possible due to a philosophy of collaborative development, where community is valued more than the code that we're writing.</div> 
+  <div><br /></div> 
+  <div>What does that mean, exactly?</div> 
+  <div><br /></div> 
+  <div>Take, for example, a situation where you have a rock-star programmer who writes brilliant code, complete with documentation and tests, but treats everyone else on the project as though they are idiots. What's the result? People will either leave, because they can't stand this person's behavior, or they will learn to behave in the same way in order to fit in, thus driving everyone else away even faster. Eventually, you have a project where everybody's a jerk, and nobody wants to join the party.</div> 
+  <div><br /></div> 
+  <div>Or, consider this from the perspective of a company which works with Open Source projects. Apache's business-friendly stance means that businesses will often look at projects at the ASF as a place where they can invest time and developers, in the hopes of producing products and services down the road. Projects with a hostile community tend to get passed over as a bad investment by companies that are looking for projects where they can have a positive impact. It's just too much work to have to work on the code as well as have to battle a toxic work environment.</div> 
+  <div><br /></div> 
+  <div>The importance of healthy, respectful community is more than just a warm fuzzy feeling. It's deeply pragmatic. Healthy, diverse, inclusive (dare I even say friendly?) communities promote project growth, sustainability, and even to the financial success of corporations that choose to build solutions around the technology.</div> 
+  <div><br /></div> 
+  <div>When projects enter the ASF via the Incubator, one of the primary things we're concerned about is whether the community is diverse and sustainable, not whether the code is yet production quality. When projects report to the board each month, the board isn't evaluating their technical progress, but, rather, is considering whether the project is conducting itself in a way that is sustainable, welcoming to newcomers, and has a community that is large enough and healthy enough to continue making decisions about the future of the project.</div> 
+  <div><br /></div> 
+  <div>Unlike the closed-source, single company software development model, in Open Source it's actually really important that you play nicely with others, even with your competitors. The term &quot;coopetition&quot; embodies this, describing a situation where you cooperate closely with your competition to create something, so that you can then compete on value-adds such as training, services, support, and non-free features. While this isn't something that the ASF participates in directly, it's a side-effect of the way we do Open Source.</div> 
+  <div><br /></div> 
+  <div>While we're most certainly not claiming to have solved all of the problems around running an Open Source community, we think that we've got some things right, and constantly strive to fix the places where practice doesn't live up to theory. One thing we're pretty sure we've got right is a steady focus on community, rather than code, as the appropriate measure of the</div> 
+  <div>health of a project.</div> 
+  <div><br /></div> 
+  <div>So, come join the Apache community. We've got more than 200 projects to choose from, and the next 15 years are sure to be even more exciting than the first, as we continue to grow, and continue to produce code in a community-centric way.</div> 
+  <div><br /></div> 
+  <div>-Rich Bowen, Executive Vice President</div>

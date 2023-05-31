@@ -1,0 +1,8 @@
+---
+layout: post
+title: Accumulo blog moved to project website
+date: '2016-12-14T00:00:00+00:00'
+categories: accumulo
+---
+<p>This Accumulo blog has moved to <a title="Accumulo Website" href="https://accumulo.apache.org/">Accumulo project website</a>.&nbsp; All previous blog posts are available in the <a title="Accumulo News Archive" href="https://accumulo.apache.org/news/">news archive</a> on the project website. This site will no longer be updated with new blog posts.</p> 
+  <p> </p>

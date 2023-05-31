@@ -1,0 +1,161 @@
+---
+layout: post
+title: HBase Project Management Committee Meeting Minutes, March 27th, 2012
+date: '2012-03-29T00:00:00+00:00'
+categories: hbase
+---
+<p>
+The bulk of the <a href="http://hbase.apache.org/team-list.html">HBase Project Management Committed</a> (PMC) met at the StumbleUpon offices in San Francisco, March 27th, 2012, ahead of the <a href="http://www.meetup.com/hbaseusergroup/events/56021562/">HBase Meetup</a> that happened later in the evening.  Below we post the agenda and minutes to let you all know what was discussed but also to solicit input and comment.</p> 
+  <h2>Agenda</h2> 
+  <p>A suggested agenda had been put on the PMC mailing list the day before the meeting soliciting that folks add their own items ahead of the meeting. The hope was that we'd put the agenda out on the dev mailing list before the meeting started to garner more suggestions but that didn’t happen. The agenda items below sort of followed on from the contributor pow-wow we had at salesforce a while back -- <a href="https://docs.google.com/present/view?id=dd22mnxs_221ff5qdcfw">pow-wow agenda</a>, <a href="https://docs.google.com/document/d/19NVY8eaC-0WWKxY6UgeqaYK-J3c2YMtfcrGgwCtwG4g/edit?hl=en_US">pow-wow minutes</a>&nbsp;(or see <a href="http://www.cloudera.com/blog/2011/12/apache-hbase-pow-wow-summary-11292011/">summarized version</a>)&nbsp;-- but it was thought that we could go into more depth on a few of the topics raised then, in particular, project existential matters.</p> 
+  <p>Here were the items put up for discussion:</p> 
+  <ul> 
+    <li>Where do we want HBase to be in two years?  What will success look
+like?  Discuss.  Make a short list.</li> 
+    <li>How do we achieve the just made short list?   What resources do we have to hand? What can we deploy in the short term to help achieve our just stated objectives?  What do we need to prioritize in near future? Make a short list.</li> 
+    <li>How do we exchange best practices/design decisions when developing
+new features? Sometimes there may be more things that can be shared if everyone follows the same best practices, and less features need to be implemented.</li> 
+  </ul> 
+  <p> </p> 
+  <h2> Minutes&nbsp;</h2> 
+  <h3>Attendees</h3> 
+  <p> </p> 
+  <ul> 
+    <li>Todd Lipcon</li> 
+    <li>Ted Yu</li> 
+    <li>Jean-Daniel Cryans</li> 
+    <li>Jon Hsieh</li> 
+    <li>Karthik Ranganathan</li> 
+    <li>Kannan Muthukkaruppan</li> 
+    <li>Andrew Purtell</li> 
+    <li>Jon Gray</li> 
+    <li>Nicolas Spiegelberg</li> 
+    <li>Gary Helmling</li> 
+    <li>Mikhail Bautin</li> 
+    <li>Lars Hofhansl</li> 
+    <li>Michael Stack</li> 
+  </ul> 
+  <p><br />Todd, the secretary, took notes.  St.Ack summarized his notes into the
+below minutes.  The meeting started at about 4:20 (after the requisite
+20 minutes dicking w/ A/V/ and dial-in setup). </p> 
+  <p> </p> 
+  <h3>“Where do we want HBase to be in two years?  What
+will success look like?  Discuss.  Make a short (actionable) list.” </h3> 
+  <p>Secondary indexes and transactions were suggested as was operations on
+a parity w/ MySQL and rock solid stable so it could be used as primary
+copy of data.  It was also suggested that we expend effort making
+HBase more usable out of the box (auto-tuning/defaults).
+
+Then followed discussion of who is HBase for?  Big companies?  Or new
+users, or startups?  Is our goal stimulating demand and creating
+demand? Or is it to be reactive to what problems people are actually
+hitting?  A dose of reality had it that while it would be nice to make
+all possible users happy, and even to talk about doing this, in
+actuality, we are mostly going to focus on what our employers need
+rather than prospective ‘customers’. </p> 
+  <p> After this detour, the list making became more blunt and basic.  It
+was suggested that we build a rock solid db which other people might
+be able to build on top of for higher-level stuff.  The core engine
+needs to work reliably -- lets do this first -- and then talk of new
+features and add-ons.  Meantime, we can point users to coprocessers
+for building extensions and features w/o their needing to touch core
+hbase (It was noted that we are open to extending CPs if we have to to
+extend the ‘control surface’ exposed but that coverage has been pretty
+much sufficient up to this).  Usability is important but operability
+is more important.  Don’t need to target n00bs. First nail ops being
+able to understand whats going on. </p> 
+  <p> After further banter, we arrived at list: <b><i>reliability</i></b>, <b><i>operability</i></b>
+(insight into the running application, dynamic config. changes,
+usability improvements that make it easier on a clueful ops), and
+<i style="font-weight: bold; ">performance</i> (in this order).&nbsp;It was offered that we are not too bad on performance --
+especially in 0.94 -- and that use cases will drive the performance
+improvements so focus should be on the first two items in the list.</p> 
+  <h3> “How do we achieve the just made short list?”</h3> 
+  <p>To improve reliability, testing has to be better.  This has been said
+repeatedly in the past.  It was noted that progress has been made at
+least on our unit test story (Tests have been //ized, more of hbase is
+now testable because of refactorings).  Progress on integration tests
+and or contributions to Apache Bigtop have not progressed.  As is,
+BigTop is a little &quot;cryptic&quot;; its a different harness with shim layers
+to insulate against version changes.  We should help make it easier.
+We should add being able to do fault injection.  Should hbase
+integration tests be done out in the open continuously running on
+something like an EC2 cluster that all can observe?  This is the
+BigTop goal but its not yet there.  Of note, EC2 can’t be used
+validating performance.  Too erratic.  Bottom line, improving testing
+requires bodies.  Resources such as hardware, etc., are relatively
+easy to come by.  Hard is getting an owner and bodies to write the
+tests and test infrastructure.  Each of us has our own hack testing
+setup.  Doing a general test infrastructure whether on BigTop or not
+is a bit of chicken and egg problem.  Lets just make sure that who
+ever hits the need to do this general test infrastructure tooling
+first, that they do it out in the open and that we all pile on and
+help.  Meantime we'll keep up w/ our custom test tools. </p> 
+  <p> Regards the current state of reliability, its thought that as is, we
+can’t run a cluster continuously w/ a chaos monkey operating.  There
+are probably still “hundreds of issues” to be fixed before we’re at a
+state where we can run for days under “chaos monkey” conditions.
+For example, a recent experiment killing a rack in a large cluster and
+left it down for an hour.  This turned up lots of bugs (On the other
+hand, we learned that an experiment done by another company
+recently where the downtime was less ‘recovered’ without problems).
+Areas to explore improving reliability include testing network failure
+scenarios, better MTTR, and better toleration of network partitions.</p> 
+  <p>Also on reliability, what core fixes are outstanding?  There are still
+races in the master and issues where bulk cluster operations --
+enable/disable -- fail in the middle.  We need zookeeper-intent log
+(or something like Accumulo FATE) and table read/write locks.
+Meantime, kudos to the recently checked in hbck work because this can
+do fixup until missing fixes are put in place. </p> 
+  <p>Regards operability, we need more metrics -- e.g. 95th/99th percentile
+metrics (some of these just got checked in) -- and better stories around backups, point in time recovery,
+and cross-column family snapshots.  We need to
+encourage/facilitate/deploy move to HA NN.  Talk was about more
+metrics client-side rather than on the server.   On metrics, what else
+do we need to expose?   Log messages should be ‘actionable’; include
+help on what you need to do to solve an issue.  Dynamic config. is
+going to help operability (here soon); we need to make sure that the
+important configs are indeed changeable on the fly.</p> 
+  <p>&nbsp;Its thought that performance is taking care of itself (witness the suite of changes in 0.94.0).</p> 
+  <h3>“How do we exchange best practices, etc, when
+developing new features?”</h3> 
+  <p>Many are solving similar problems.  We don’t always need to build new
+features.  Maybe ops tricks are enough in many cases (two clusters if
+need two applications isolated rather than build a bunch of
+multi-tenacy code).  People often go deep into design/code, then post
+the design + code only after they already spent a long time.
+Suggested that first should be discussion with the community early
+before writing code and designs.
+
+Regards any features proposal, its thought that the ‘why’ is the most
+important thing that needs justifying, not necessarily the technical
+design.  Also, testability and disruption of core needs to be
+considered proposing new feature.
+
+Designs or any document needs to be short.  Two pages at max.  Hard
+for folks to spend the time if it goes on longer (Hadoop’ HEP process
+was mentioned at a proposal that failed). </p> 
+  <h3>General Discussion&nbsp;</h3> 
+  <p>A general discussion went around on what to do about features not
+wanted whether because of the justification, the design, or the code
+and of how the latter is hardest to deal with especially if a feature
+large (Code review takes time).  Was noted that we don’t have to
+commit everything, that we can revert stuff, and that its ok to throw
+something away even if a bunch of work has been done (A recent fb
+example around reuse of block cache blocks was cited where a bunch of
+code and review resulted in conclusion that the benefits were
+inconclusive so the project was abandoned).  <i>It was noted that the
+onus is on us to help contributors better understand what would be
+good things to work on moving the project forward.</i>  Was suggested that
+rather than a ‘sea of jiras’, instead we’d surface a short-list of
+what we think an important list of things to work on.  General assent
+that roadmaps don’t work but should be easy to put up list of whats
+important in near and long term future for prospective contributors to
+pick up on.  Was noted though that we also need to remain open to new
+features, etc., that don’t fit near-or-far-term project themes. This
+is open source after all.  <i>Was mentioned that we should work on
+high-level guidelines for how best to contribute.</i>  These need to be
+made public.  Make a start, any kinda of start, on defining the
+project focus / design rationale.  It doesn’t have to be perfect -
+just put a few words on the page, maybe even up on the home page.</p> 
+  <p>Meeting was adjourned around 5:45pm.</p>

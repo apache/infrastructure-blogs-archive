@@ -1,0 +1,29 @@
+---
+layout: post
+title: 'JEP 411: Deprecate the Security Manager for Removal (Part 1)'
+date: '2021-04-16T00:00:00+00:00'
+categories: netbeans
+---
+In <a href="https://mail.openjdk.java.net/pipermail/security-dev/2021-April/025486.html">JEP 411, announcing the deprecation of java.lang.SecurityManager,</a> one would hope that the use cases for which SecurityManager exists will be replaced by more modern APIs, before it is removed from the OpenJDK. Below is a partial list of use cases for which the SecurityManager is used by Apache NetBeans:
+
+<ul>
+
+<li><b>checkExit.</b> Ability to prevent accidental invocations of System.exit is very important for any application that deals with other unknown libraries (as IDEs do). <a href="https://bugs.openjdk.java.net/browse/JDK-8199704">JDK-8199704</a> is filled for this, but there is no proposal for an API yet, so it is impossible to tell how the API will cover this use case. The current API allows, for example, to partially simulate the effect of System.exit, while it also allows to provide a user-understandable message when a real exit is rejected.</li>
+
+<li><p><b>Watching file system access.</b> In various places, both in production code and in tests, SecurityManager is used as a tool to receive notifications of file reading or writing. This is especially important in integration tests, to guarantee that code is never accessing disk, unless absolutely necessary (for performance reasons, among others). In principle, the WatchService could be used for these use cases. However, the WatchService is not guaranteed to work (e.g., due to OS restrictions), it cannot detect read-only access, and requires subscription to individual Paths. SecurityManager provides a more reliable way to monitor all filesystem access done by Java code.</p></li>
+
+<li><p><b>Warning or prevention of use of obsolete and/or dangerous idioms.</b> The SecurityManager is used to warn about the use of obsolete System properties (via checkPropertyAccess) and the use of`sun.misc.Unsafe unsupported APIs via checkMemberAccess.<p></li>
+
+<li><p><b>Identifying User Application Windows.</b> The showWindowWithoutWarningBanner permission is used to track which windows belong to which user's custom application (so that they can be closed when call to `System.exit` is intercepted).<p></li> 
+
+<li><p><b>Misc</b>. There are also restrictions on potentially dangerous code, which are probably less important and <a href="https://mail.openjdk.java.net/pipermail/security-dev/2021-April/025495.html">are covered by Reinier's e-mail</a>.  There are also few (probably) obsoleted workarounds.<p></li>
+
+</ul>
+
+<h3>Summary</h3>
+
+<p>Apache NetBeans doesn't use java.lang.SecurityManager to guarantee security, but rather to gain additional insight into the JVM's behavior.</p>
+
+<p>Without having such insights, the IDE's user experience would be severely affected.</p>
+
+<p>It is to be hoped that replacement APIs are being designed and that they will be provided for evaluation before JEP-411 is integrated.</p>

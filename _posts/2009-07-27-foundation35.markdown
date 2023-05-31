@@ -1,8 +1,0 @@
----
-layout: post
-title: Applications for Travel Assistance for ApacheCon US 2009 now open
-date: '2009-07-27T00:48:02+00:00'
-categories: foundation
----
-<p>The ASF <a href="http://www.apache.org/travel/index.html" title="ASF Travel Assistance Committee">Travel Assistance Committee (TAC)</a> has opened applications to assist those seeking to
-         attend <a href="http://www.us.apachecon.com/c/acus2009/" title="ApacheCon US 2009">ApacheCon US 2009</a> (2-6 November in Oakland, California), but are unable to do so for financial reasons.</p><ul><li>Assistance is open to all people involved in Open Source projects;<br /></li><li>Financial support is available for flights, accommodation, subsistence and Conference fees, either in full or in part, depending on circumstances;</li><li>There are limited places available, and all applications will be scored on their individual merit.</li></ul><p>&nbsp;</p><p>Hurry: the application period is 27th July-17th August 2009, so <b><a href="http://tac-apply.apache.org/" title="TAC application form">sign up today</a></b>!</p><p>Applicants will be informed of their status within two weeks of application closing date.</p><p> </p><p>&nbsp;</p>

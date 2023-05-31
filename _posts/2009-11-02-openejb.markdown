@@ -1,0 +1,20 @@
+---
+layout: post
+title: OpenEJB Eclipse Plugin Alpha Released!
+date: '2009-11-02T00:00:00+00:00'
+categories: openejb
+---
+The first version (1.0.0.alpha) of the OpenEJB Eclipse Plugin has now been released! This release includes:
+
+* WTP support for the OpenEJB standalone server
+* EJB 2.1 deployment descriptor to EJB 3 annotation conversion wizard
+* Error highlighting and quick fix for problems with EJB3.1 @DependsOn annotation
+* OSGi wrapper to use OpenEJB in Equinox, to help build RCP applications
+
+The plugin is available for download here: <a href="http://apache.org/dyn/closer.cgi/openejb/eclipse-plugin/openejb-eclipse-plugin-1.0.0.alpha-deployable.zip">http://apache.org/dyn/closer.cgi/openejb/eclipse-plugin/openejb-eclipse-plugin-1.0.0.alpha-deployable.zip</a> (you can unzip this to a dropins folder) or you can use the update site in Eclipse: <a href="http://apache.org/dist/openejb/eclipse-plugin/update-site/">http://apache.org/dist/openejb/eclipse-plugin/update-site/</a>
+
+A video demonstrating how to get started with the Eclipse Plugin is available here: <a href="http://vimeo.com/7393498">http://vimeo.com/7393498</a>
+
+<object width="400" height="300"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=7393498&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=7393498&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="300"></embed></object><p><a href="http://vimeo.com/7393498">Getting started with the OpenEJB Eclipse Plugin</a> from <a href="http://vimeo.com/user2179281">OpenEJB</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
+(video made with <a href="http://www.telestream.net/screen-flow/overview.htm">ScreenFlow</a>)

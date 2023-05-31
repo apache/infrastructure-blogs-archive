@@ -1,9 +1,0 @@
----
-layout: post
-title: Apache OpenEJB 3.1.2 Released!
-date: '2009-10-20T04:00:00+00:00'
-categories: openejb
----
-Apache <a href="http://openejb.apache.org/openejb-312.html">OpenEJB 3.1.2</a> has been released!  This release is a short 4 months after our prior 3.1.1 release and is largely focused on bug fixes and small improvements with a couple new features.  Scanning support for JSF 2.0 ManagedBeans allows for a nice OpenEJB/Tomcat/<a href="http://javaserverfaces.dev.java.net/">Mojarra</a> stack.  Database passwords listed in the openejb.xml can now be <a href="http://openejb.apache.org/3.0/datasource-password-encryption.html">encrypted</a> using our new 'cipher' command line tool.  Focus areas of improvements/fixes include @LocalClient support, remote client disconnections and connection caching, AltDD support, Stateful bean caching, and additional JNDI name formatting options.
-
-The next release, 3.1.3, will likely contain more significant changes.  A major CXF upgrade is planned which should bring with it new Web Services features.  Exciting new testing techniques are in the works.  As well third-party descriptor support is being expanded.  Stay tuned to the <a href="http://blogs.apache.org/openejb/">project blog</a> for details on these developments and more!

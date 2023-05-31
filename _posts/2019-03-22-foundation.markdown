@@ -1,0 +1,68 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 22 March 2019'
+date: '2019-03-22T00:00:00+00:00'
+categories: foundation
+---
+<p>Happy Friday --we hope you've had a productive week! Here's what we've achieved across the collective Apache Community:</p> 
+  <p>The Apache Way to Sustainable Open Source Success&nbsp;–The Apache Way of community-driven development continues to gain momentum despite the compounding challenges of building software in the greater Open Source ecosystem.&nbsp;<a href="https://s.apache.org/GhnI">https://s.apache.org/GhnI</a></p> 
+  <p>Sponsor Case Study –insight from our Sponsors, whose support ensures our 300+ community-driven software products remain available to billions of users around the world at no cost.<br />&nbsp;- Apache Software Foundation Platinum Sponsor Profile: Leaseweb<span style="white-space: pre;"> <a href="https://s.apache.org/apco">https://s.apache.org/apco</a></span></p> 
+  <p>Project Perspectives&nbsp;–part of the &quot;Success at Apache&quot; series, chronicling how projects and their communities have benefited from The Apache Way.<br />&nbsp;- Apache RocketMQ and The Apache Way&nbsp;<a href="https://s.apache.org/c358">https://s.apache.org/c358</a></p> 
+  <p> </p> 
+  <p> </p> 
+  <p> </p> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 17 April. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <div> 
+    <p>ApacheCon™ –the ASF's official global conference series, now in its 21st year.<br />&nbsp;-&nbsp;NEXT WEEK: Apache Roadshow/DC and Open Source Career Fair 25 March 2019 <a href="http://www.apachecon.com/usroadshowdc19/">http://www.apachecon.com/usroadshowdc19/</a><font color="#bb0000"><br /></font>&nbsp;- CFP Extended: Apache Roadshow/Chicago 13-14 May 2019&nbsp;<a href="http://apachecon.com/chiroadshow19/">http://apachecon.com/chiroadshow19/</a><br />&nbsp;- CFP Open: ApacheCon North America 9-13 September in Las Vegas&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- Registration OPEN: ApacheCon Europe 22-24 October in Berlin&nbsp;<a href="http://www.apachecon.com/aceu19/">http://www.apachecon.com/aceu19/</a></p> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield 99.68% uptime. Check out our performance across 50 different service components spread over more than 250 machines in data centers around the world.&nbsp;<a href="http://www.apache.org/uptime/">http://www.apache.org/uptime/</a></p> 
+    <p>Apache Code Snapshot –this week, 461 Apache contributors changed 1,118,771 lines of code over 2,846 commits. Top 5 contributors, in order, are: Cassandra Targett, Ash Berlin-Taylor, Claus Ibsen, Andrea Cosentino, and Jonathan Hung.</p> 
+    <p>Apache Project Announcements&nbsp;–the latest updates by category.</p> 
+    <p> </p> 
+    <p>Big Data --<br />&nbsp;-&nbsp;Apache Kylin 2.6.1 released&nbsp;<a href="https://kylin.apache.org/">https://kylin.apache.org/</a><br />&nbsp;- Apache NiFi 1.9.1 released <a href="https://nifi.apache.org/">https://nifi.apache.org/</a></p> 
+    <p>Build Management --<br />&nbsp;-&nbsp;Apache Ant 1.9.14 released <a href="http://ant.apache.org/">http://ant.apache.org/</a></p> 
+    <p>Cloud Computing --<br />&nbsp;-&nbsp;The Apache Software Foundation Announces Apache® CloudMonkey® v6.0&nbsp;<a href="https://s.apache.org/aznB">https://s.apache.org/aznB</a></p> 
+    <p>Content --<br />&nbsp;- Apache Jackrabbit Oak 1.10.2 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+    <p>Customer Data Platform --<br />&nbsp;-&nbsp;The Apache Software Foundation Announces Apache® Unomi™ as a Top-Level Project&nbsp;<a href="https://s.apache.org/brS6">https://s.apache.org/brS6</a><br /></p> 
+    <p>Search --<br />&nbsp;-&nbsp;Apache Lucene 8.0.0 and Solr 8.0.0 released&nbsp;<a href="http://lucene.apache.org/">http://lucene.apache.org/</a></p> 
+    <p>Servers --<br />&nbsp;-&nbsp;Apache Tomcat 8.5.39 and &nbsp;9.0.17 released&nbsp;<a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a><br /></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <div> 
+      <p>&nbsp;- Did you know that Apache Cayenne 4.1 is in Beta?&nbsp;<a href="https://cayenne.apache.org">https://cayenne.apache.org</a></p> 
+      <p>&nbsp;- Did you know that the CFP for the Apache Roadshow/Chicago has been extended for extra presentations in AdTech, FinTech, Startups using Apache software?&nbsp;<a href="https://www.apachecon.com/chiroadshow19/index.html">https://www.apachecon.com/chiroadshow19/index.html</a></p> 
+      <p>&nbsp;- Did you know that the ASF is a Google Summer of Code (GSoC) mentoring organization for the 15th consecutive year? Applications are open&nbsp;<a href="http://community.apache.org/gsoc.html">http://community.apache.org/gsoc.html</a><br /><br /></p> 
+      <p><strong>Apache Community Notices:</strong></p> 
+    </div> 
+    <p>&nbsp;- Apache in 2018 - By The Digits <a href="https://s.apache.org/Apache2018Digits">https://s.apache.org/Apache2018Digits</a></p> 
+    <p>&nbsp;-&nbsp;ASF Operations Summary: Q2 FY2019 <a href="https://s.apache.org/d2Fq">https://s.apache.org/d2Fq</a></p> 
+    <p>&nbsp;- ASF Annual Report for FY2018&nbsp;<a href="https://s.apache.org/FY2018AnnualReport">https://s.apache.org/FY2018AnnualReport</a></p> 
+    <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+    <p>&nbsp;- Foundation Statement –Apache Is Open.&nbsp;<a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+    <div> 
+      <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: <a href="https://twitter.com/TheASF">@TheASF on Twitter</a> and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+      <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+    </div> 
+    <div> 
+      <p><a href="https://feathercast.apache.org/"></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://events.apache.org/event/meetups.html">http://events.apache.org/event/meetups.html<br /></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The Apache Big Data community will be at&nbsp;DataWorks Summit in Washington DC&nbsp;20-23 May 2019&nbsp;<a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+      <p>&nbsp;- Flink Forward San Francisco 2019 will be held 1-2 April. The event is promoting collaboration between Apache projects by inviting 50 Apache Committers to attend for FREE: use &quot;ASFCommitters19&quot; code PLUS your @apache.org email when registering at <a href="https://sf-2019.flink-forward.org/register">https://sf-2019.flink-forward.org/register</a></p> 
+      <p>&nbsp;- Future dates for Spark + AI Summit 2019 announced: 23-25 April/San Francisco and 15-17 October/Amsterdam <font color="#bb0000"><a href="https://databricks.com/sparkaisummit/">https://databricks.com/sparkaisummit/</a></font></p> 
+      <p>&nbsp;- CFP open for Berlin Buzzwords: 16-18 June 2019&nbsp;<a href="https://berlinbuzzwords.de/">https://berlinbuzzwords.de/</a></p> 
+      <p>&nbsp;- CFP open for ApacheCon North America 9-12 September 2019</p> 
+      <p>&nbsp;- Save the date: ApacheCon Europe 22-24 October 2019&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

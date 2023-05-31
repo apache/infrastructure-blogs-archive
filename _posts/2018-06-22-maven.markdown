@@ -1,0 +1,107 @@
+---
+layout: post
+title: Apache Maven Release 3.5.4
+date: '2018-06-22T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the Apache
+Maven 3.5.4.</p>
+
+<p>Apache Maven is a software project management and comprehension tool. Based
+on the concept of a project object model (POM), Maven can manage a
+project&rsquo;s build, reporting and documentation from a central piece of
+information.</p>
+
+<p>You can find out more about Apache Maven at <a href="https://maven.apache.org">https://maven.apache.org</a></p>
+
+<p>You can download the appropriate sources etc. from the download page:
+<a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p>
+
+<!-- more -->
+
+
+<h1>Contributors</h1>
+
+<p>The Apache Maven value community before code and so firstly the team would
+like to thank the following contributors, without whom this release would
+not have been possible:</p>
+
+<p>Code contributors:</p>
+
+<ul>
+<li><a href="https://github.com/eis">https://github.com/eis</a></li>
+<li>Florian Brunner</li>
+<li>Łukasz Dywicki</li>
+<li>Sylwester Lachiewicz</li>
+</ul>
+
+
+<p>Issue reporters:</p>
+
+<ul>
+<li>Falko Modler</li>
+<li>Jarkko Rantavuori</li>
+<li>Łukasz Dywicki</li>
+<li>Mike Kelly</li>
+<li>Sylwester Lachiewicz</li>
+</ul>
+
+
+<p>Community testers participating in voting for this release:</p>
+
+<ul>
+<li>Dejan Stojadinovic</li>
+<li>Enrico Olivelli</li>
+<li>Romain Manni-Bucau</li>
+</ul>
+
+
+<p>Thank you all for your time and feedback (and apologies if we have missed
+anyone)</p>
+
+<h1>Release Notes &ndash; Maven &ndash; Version 3.5.4</h1>
+
+<p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6370">MNG-6370</a> &ndash; ConcurrencyDependencyGraph#getNumberOfBuilds() does not remove finished projects from unfinished ones</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6372">MNG-6372</a> &ndash; On Windows Maven can output spurious ANSI escapes such as [0m [0m</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6382">MNG-6382</a> &ndash; JANSI fails frequently with NumberFormatException when building in parallel</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6386">MNG-6386</a> &ndash; ${project.baseUri} is not a valid URI (according to RFC 3986)</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6388">MNG-6388</a> &ndash; Error Fetching Artifacts: &ldquo;[B cannot be cast to java.lang.String&rdquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6403">MNG-6403</a> &ndash; Artifact#VERSION_FILE_PATTERN does not escape period between date and time</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6410">MNG-6410</a> &ndash; Add groupId to &mdash;resume-from suggestion if artifactId is not unique in reactor</li>
+</ul>
+
+
+<p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-5756">MNG-5756</a> &ndash; Java home output in mvn -v is misleading</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-5940">MNG-5940</a> &ndash; Change the maven-source-plugin jar goal into jar-no-fork in Maven Super POM</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6362">MNG-6362</a> &ndash; Add documentation information for GitHub</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6363">MNG-6363</a> &ndash; Remove secret thread configuration property from code</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6364">MNG-6364</a> &ndash; Enhanced Jenkinsfile to test Core with JDK 9</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6411">MNG-6411</a> &ndash; Improve readability of project list returned when &mdash;resume-from option value is invalid</li>
+</ul>
+
+
+<p>Task:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6377">MNG-6377</a> &ndash; switch from Git-WIP to Gitbox</li>
+</ul>
+
+
+<p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6344">MNG-6344</a> &ndash; Upgrade Guice to 4.2.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6423">MNG-6423</a> &ndash; Upgrade to Wagon 3.1.0</li>
+</ul>
+
+
+<p>Share and Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

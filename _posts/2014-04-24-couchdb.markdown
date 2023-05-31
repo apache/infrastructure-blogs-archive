@@ -1,0 +1,100 @@
+---
+layout: post
+title: CouchDB Weekly News, April 24
+date: '2014-04-24T00:00:00+00:00'
+categories: couchdb
+---
+<h4>Weekly CouchDB meeting – <a href="http://markmail.org/message/j35w4cflohum2z22">summary</a></h4>
+<ul>
+	<li><strong>1.6.0 release</strong>: voting for 1.6 rc3 is open; Erlang R15 and R16 are fine, but several unexpected issues for testing with Erlang R14BX were <a href="http://markmail.org/message/rjjcj6wyh5z47djr">reported</a>; any help with testing and diagnosing the issue is welcome</li>
+	<li><strong>rcouch merge status</strong>: the recent call for testing led to progress on <a href="https://issues.apache.org/jira/browse/COUCHDB-1994">COUCHDB-1994</a>.The Windows build and some other little bugs could be fixed. Still, help with testing <a href="https://blogs.apache.org/couchdb/entry/merging_rcouch">is very welcome</a>!</li>
+	<li><strong>BigCouch merge status</strong>: large progress was made last week, next steps will be code review and testing</li>
+	<li><strong>BigCouch branch and the new multirepo design</strong>: how to edit individual repos and split big CouchDB.git into single and finally run the merge</li>
+</ul>
+<h4>Major Discussions</h4>
+<h5>Error when installing CouchDB on Windows 7 (<a href="http://markmail.org/search/?q=windows+install+me+self+couchdb+list%3Aorg.apache.couchdb.user+date%3A201404+#query:windows%20install%20me%20self%20couchdb%20list%3Aorg.apache.couchdb.user%20date%3A201404%20order%3Adate-backward+page:2+mid:jddpzegzztoagcgc+state:results">see thread</a>)</h5>
+<p>Installation of CouchDB 1.5.1_R16B02 binary on Windows 7 lead to an issue caused by a problem with the Windows R16B02 installation file. This file has been replaced quickly, everything works now. The installation file can be downloaded <a href="http://mirror.serversupportforum.de/apache/couchdb/binary/win/1.5.1/">here</a>.</p>
+<h5>Compaction of a database with the same number of documents is getting slower over time (<a href="http://markmail.org/search/?q=Compaction+of+a+database+with+the+same+number+of+documents+is+getting+slower+over+time+list%3Aorg.apache.couchdb.user+date%3A201404+order%3Adate-backward#query:Compaction%20of%20a%20database%20with%20the%20same%20number%20of%20documents%20is%20getting%20slower%20over%20time%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward%20date%3A201404%20+page:1+mid:sh7zr2dpwk4crcbb+state:results">see thread</a>)</h5>
+<p>A database containing a relatively stable number of documents (in CouchDB: "doc_count"), the documents themselves change frequently (including many insertions and deletions (CouchDB: "doc_del_count")). The person asking expected the compaction time to stay the same, but numbers showed that it took longer to compact the database over time, thus they asked why this was the case, and how it could overcome.</p>
+
+<p>The reply is that compaction time in CouchDB scales with the sum of "doc_count" and "doc_del_count". <a href="http://markmail.org/message/r4wmv67nuajt7767">As explained</a> by Adam Kocoloski, this can currently be controlled by "1) [Purging] the deleted docs (lots of caveats about replication, potential for view index resets, etc.); 2) [Rotating] over to a new database, either by querying both or by replicating non-deleted docs to the new one. Neither one is particularly palatable. CouchDB currently keeps the tombstones around forever so that replication can always work. Making changes on that front is a pretty subtle thing but maybe not completely impossible. Also, there's a new compactor in the works that is faster and generates smaller files."</p>
+<h5>Data replication: replicating only non-deleted documents (same discussion as above; <a href="http://markmail.org/search/?q=Compaction+of+a+database+with+the+same+number+of+documents+is+getting+slower+over+time+list%3Aorg.apache.couchdb.user+date%3A201404+order%3Adate-backward#query:Compaction%20of%20a%20database%20with%20the%20same%20number%20of%20documents%20is%20getting%20slower%20over%20time%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward%20date%3A201404%20+page:1+mid:sh7zr2dpwk4crcbb+state:results">see thread</a>)</h5>
+<p>The approach could be to either run a filtered replication or block deleted documents with a validate_doc_update function on the target database (see example function <a href="http://markmail.org/message/vti566mjxmb5g2d7">here</a>).</p>
+<h5>How to handle terabyte databases (<a href="http://markmail.org/search/?q=issues+with+terabytes+databases+list%3Aorg.apache.couchdb.user+order%3Adate-backward+date%3A201404#query:issues%20with%20terabytes%20databases%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward%20date%3A200802-200810%20date%3A200812-201005%20date%3A201007-201303%20date%3A201305-201306%20date%3A201308-201404%20+page:1+mid:pxnd6vdpjuwjioqw+state:results">see thread</a>)</h5>
+<p>This was a request about improving performance, insert time, compaction and replication for terabyte databases with billions of documents (setup: CouchDB 1.2 and CouchDB 1.4). Some approaches to handle a write-heavy workload:</p>
+<ul>
+	<li><em>Replication</em>: Supply parameters to allocate more resources to a given job (code example <a href="http://markmail.org/message/4kxcbjnyjnlmjlnk">here</a>).</li>
+	<li><em>Insert time</em>: Ensure that e.g. compaction only runs in the background and does not impact the throughput of interactive operations; this is work in process at the moment.</li>
+	<li><em>Compaction</em>: A new, significantly faster compactor that also generates smaller post-compaction files that also eliminates the exponential falloff in throughput observed by the inquirer is in the works. – This problem can be solved by BigCouch as it tries to partition databases.</li>
+	<li>Ensure to not exceed the write capacity of the RAID (this effect is amplified for partitioned databases).</li>
+</ul>
+<h5>Vote: Release Apache CouchDB 1.6.0 rc3 (ongoing testing and discussion; <a href="http://markmail.org/search/?q=[VOTE]+Release+Apache+CouchDB+1.6.0-rc.3#query:[VOTE]%20Release%20Apache%20CouchDB%201.6.0-rc.3%20list%3Aorg.apache.couchdb.dev%20order%3Adate-backward+page:2+mid:p3txsrlgmm55ienf+state:results">see thread</a>)</h5>
+<p>We encourage the whole community to download and test these release artefacts so that any critical issues can be resolved before the release is made. Everyone is free to vote on this release, so get stuck in on our dev@couchdb.apache.org mailing list! Find all release artefacts we are voting on <a href="http://markmail.org/message/p3txsrlgmm55ienf">in this list</a>. If you want to test, please follow this <a href="http://wiki.apache.org/couchdb/Test_procedure">test procedure</a>. The changes since last vote round can be found <a href="https://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=shortlog;h=refs/heads/1.6.x">here</a>.</p>
+<h4>Releases in the CouchDB Universe</h4>
+<ul>
+	<li><a href="https://github.com/gws/munin-plugin-couchdb/">Munin Plugin for CouchDB 0.6</a>– including monitoring, more verbose autoconf, graph fixes, better README and more</li>
+
+	<li><a href="https://github.com/benoitc/couchbeam/releases/tag/1.0.5">couchbeam 1.0.5</a> – a maintenance release for the CouchDB client library for Erlang applications</li>
+	<li><a href="https://pypi.python.org/pypi/couchable/0.4.0">couchable 0.4.0</a> – allows arbitrary python objects to be stored in CouchDB, while keeping the resulting CouchDB document as "natural" as possible</li>
+	<li><a href="https://pypi.python.org/pypi/cloudant/0.5.9?utm_source=dlvr.it&amp;utm_medium=https%3A%2F%2Fpypi.python.org%2Fpypi%3F%253Aaction%3Drss">cloudant 0.5.9</a> – asynchronous Cloudant / CouchDB Interface</li>
+	<li><a href="https://www.npmjs.org/package/cqs">CouchDB Queue Service (cqs) 0.10.0</a> – CouchDB Queue Service: an Amazon SQS implementation on CouchDB</li>
+	<li><a href="https://github.com/benoitc/hackney/releases/tag/0.12.0">hackney version 0.12.0</a> – service release including fixes and improvements of the HTTP client for Erlang applications</li>
+	<li><a href="https://github.com/benoitc/hackney_lib/releases/tag/0.3.0">hackney_lib 0.3.0</a> – including new features for playing with HTTP and Web protocols</li>
+	<li><a href="https://www.npmjs.org/package/stork-odm">stork-odm 0.1.7</a> – providing a layer of document management over the CouchDB</li>
+	<li><a href="https://www.npmjs.org/package/couch-db">couch-db 1.0.0</a> – CouchDB client for node, with specific APIs</li>
+	<li><a href="https://www.npmjs.org/package/changes-stream">changes-stream 1.0.1</a> – Simple module that handles getting changes from CouchDB</li>
+	<li><a href="https://www.npmjs.org/package/couch-login">couch-login 1.0.0</a> – a module for doing logged-in requests to a CouchDB server</li>
+	<li><a href="https://www.npmjs.org/package/lockit-couchdb-adapter">lockit-couchdb-adapter 0.4.1</a> – CouchDB adapter for Lockit</li>
+	<li>no software release, but still: the Apache OpenOffice will also <a href="https://forum.openoffice.org/en/forum/viewtopic.php?f=50&amp;p=308930">start their own Weekly News</a></li>
+</ul>
+<h4>Opinions</h4>
+<ul>
+	<li><a href="https://extrasadbear.cloudant.com/hello_bocoup/_design/app/index.html#/">CouchDB and Fauxton – a presentation</a></li>
+	<li><a href="http://gws.github.io/munin-plugin-couchdb/guide-to-couchdb-monitoring.html">CouchDB monitoring: you're doing it wro...you can do it better!</a></li>
+	<li><a href="http://atypical.net/archive/2014/04/17/understanding-race-induced-conflicts-in-bigcouch">Understanding race-induced conflicts in BigCouch</a></li>
+	<li><a href="http://blog.mikemccandless.com/2014/04/testing-lucenes-index-durability-after.html">Testing Lucene's index durability after crash or power loss</a></li>
+	<li><a href="http://de.slideshare.net/brianbenz/best-practices-for-couch-db-developers-on-windows-azure">Best Practices for CouchDB developers on Microsoft Azure</a> (slides)</li>
+	<li>The Mostly Erlang-Podcast, #034: <a href="http://mostlyerlang.com/2014/04/22/034-community-with-pieter-hinjens/">Community </a></li>
+</ul>
+<h4>Use Cases, Questions and Answers</h4>
+<ul>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23153440/querying-change-sets-in-couchdb">Querying change sets in CouchDB</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23242206/couchdb-not-working-on-android-emulator">CouchDB not Working on Android Emulator</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23207129/complex-objects-and-geo-locations-with-couchdb-and-geocouch-nodejs-nano">Complex objects and Geo Locations with CouchDB and GeoCouch (nodejs, nano)</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23214223/how-to-set-group-true-in-couchdb-python">how to set group=True in couchdb-python</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23201765/updating-a-couch-document">Updating a Couch Document</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23201920/couchdb-having-trouble-querying-by-a-specific-key-or-value">CouchDB having trouble querying by a specific key or value</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23203429/symfony2-fos-userbundle-login-doesnt-work-couchdb">Symfony2 FOS UserBundle login doesn't work (CouchDB)</a></li>
+	<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23215481/xsl-transformations-in-couchdb">XSL Transformations in CouchDB</a></li>
+	<li>Personal Blog, question: <a href="http://www.blogosfera.co.uk/2014/04/couchdb-having-trouble-querying-by-a-specific-key-or-value/">couchdb having trouble querying by a specific key or value</a> (no public answer yet)</li>
+	<li>Personal Blog, how-to: <a href="http://psuminda.blogspot.de/2014/04/add-attachment-to-couchdb-with-play.html">Add a attachment to CouchDB with play framework JavaAPI</a></li>
+	<li>Corporate Blog, how-to: <a href="http://www.greenacorn-websolutions.com/couchdb/export-import-a-database-with-couchdb.php">Export &amp; Import a Database with CouchDB</a></li>
+	<li>Google Groups, question: <a href="https://groups.google.com/forum/#!topic/web2py/Y3XRKjubcRU"><span id="t-t" class="GKA2MROCHBC">CouchDB driver &amp; No Tables/FIELDS?</span></a></li>
+</ul>
+<h4>Get involved!</h4>
+If you want to get into working on CouchDB:
+<ul>
+	<li><a href="https://blogs.apache.org/couchdb/entry/merging_rcouch"><strong>rcouch Merge</strong></a>: Erlang hackers and CouchDB users, e need your help with testing and review of the rcouch merge. It's easy! Find the how-to <a href=" https://blogs.apache.org/couchdb/entry/merging_rcouch">in this post</a>.</li>
+	<li>Here's a <a href="https://issues.apache.org/jira/browse/COUCHDB-2178?jql=project%20%3D%20COUCHDB%20AND%20component%20%3D%20Fauxton%20AND%20status%20%3D%20Open%20AND%20cf[12310270]%20%3D%20%22New%20Contributors%20Level%20%28Easy%29%22">list of <strong>beginner tickets</strong></a> around our currently ongoing <a href="https://www.youtube.com/watch?v=R8b4kXBF01s">Fauxton</a>-implementation. If you have any questions or need help, don't hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) – Garren (garren) and Sue (deathbear) are happy to help.</li>
+	<li>You want join us for the updates of <strong>CouchDB-Python</strong> for Python 3? Take a look at <a href="https://code.google.com/p/couchdb-python/issues/detail?id=231">issue 231</a>.</li>
+</ul>
+We'd be happy to have you!
+<h4>Events</h4>
+<ul>
+	<li>April 26, Delhi, India: <a href="http://www.meetup.com/Delhi-NCR-Ruby-Meetup-Group/events/174175302/">CouchDB meetup</a> - Understanding how design documents work</li>
+	<li>June 16, 17, San Francisco, CA: <a href="http://www.cloudantcon.com/">CloudantCON</a></li>
+</ul>
+<h4>Job opportunities for people with CouchDB skills</h4>
+<ul>
+	<li><a href="http://www.mytux.fr/dev-python-couchdb-zeromq.html">Python / PostgreSQL / CouchDB Developer</a>, <em>Levallois-Perret, France</em></li>
+	<li><a href="http://dineshramitc.wordpress.com/2014/04/16/technical-engineer-opening/">Technical Engineer</a>, <em>Beaverton, OR</em></li>
+	<li>For Freelancers (bidding platform): an <a href="https://www.freelancer.co.uk/projects/Javascript-NoSQL-Couch-Mongo/Couchdb-project.html">app-building project</a>, <em>no location specified</em></li>
+	<li>For Freelancers (bidding platform): <a href="http://www.freelancer.com/projects/HTML.1-Excel/CouchDB-Equivalent-with-Excel-Template.html">CouchDB or Equivalent with Excel Template</a>, <em>no location specified</em></li>
+</ul>
+<h4>… and also in the news</h4>
+<ul>
+	<li>A Journey to <a href="http://www.newyorker.com/online/blogs/elements/2014/01/a-journey-to-the-end-of-the-world-of-minecraft.html">the End of the World</a> (of Minecraft)</li>
+	<li>Open Source feat. Business: <a href="https://speakerdeck.com/bigbluehat/open-source-enterprise">Open Source Enterprise</a> (slides)</li>
+	<li>Previously Unknown Warhol Works <a href="http://studioforcreativeinquiry.org/events/warhol-discovery">Discovered on Floppy Disks from 1985</a></li>
+</ul>
+<em>Posted on behalf of <a href="“http://twitter.com/ffffux”">Lena Reinhard</a>.</em>

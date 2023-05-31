@@ -1,0 +1,65 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Apex™ as a Top-Level Project
+date: '2016-04-25T00:00:00+00:00'
+categories: foundation
+---
+<div><b><i>Open Source enterprise-grade unified Big Data stream and batch processing engine for Apache Hadoop in use at GE, Silver Spring Networks, and more.</i></b></div> 
+  <div><br /></div> 
+  <div>Forest Hill, MD –25 April 2016– The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today that Apache® Apex™ has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the project's community and products have been well-governed under the ASF's meritocratic process and principles.</div> 
+  <div><br /></div> 
+  <div>Apache Apex is a large scale, high throughput, low latency, fault tolerant, unified Big Data stream and batch processing platform for the Apache Hadoop® ecosystem.</div> 
+  <div><br /></div> 
+  <div>&quot;It is very exciting to see Apex after nearly 4 years since inception becoming an ASF top-level project,&quot; said Thomas Weise, Vice President of Apache Apex. &quot;It opens the strong capabilities and potential of the platform to a wider audience and we’re looking forward to a growing community to continue driving innovation in the stream processing space.&quot;</div> 
+  <div><br /></div> 
+  <div>Recognized by InfoWorld for its &quot;blazing speed and simplified programmability,&quot; Apex works in conjunction with Apache Hadoop YARN, a resource management platform for working with Hadoop clusters.</div> 
+  <div><br /></div> 
+  <div>Apex was originally created at DataTorrent Inc. in 2012 (coinciding with the first alpha release of YARN), and entered the Apache Incubator in August 2015.</div> 
+  <div><br /></div> 
+  <div>Apex enables streaming analytics on Apache Hadoop with an enterprise-grade platform. It has been built to leverage the underlying infrastructure provided by YARN and HDFS (Hadoop Distributed File System), including resource management, multi-tenancy and security.&nbsp;</div> 
+  <div><br /></div> 
+  <div><b>Faster to Deployment</b></div> 
+  <div>Apache Apex meets the demands of today's Big Data applications with real-time reporting, monitoring, and learning with millisecond data point precision. Its pipeline processing architecture can be used for real-time and batch processing in a unified architecture. Apex is highly performant, linearly scalable, fault tolerant, stateful, secure, distributed, easily operable with low latency, no data loss, and exactly-once semantics.</div> 
+  <div><br /></div> 
+  <div>Apex streamlines development and productization of Hadoop applications and lowers the barrier-to-entry by enabling developers to write or re-use generic Java code, minimizing the specialized expertise needed to write Big Data applications. This allows organizations to maximize developer productivity, accelerate development of business logic, and reduce time to market.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Apex is an example of the latest generation of advanced stream processing software that adds significant technology and capabilities over previous options,&quot; said Ted Dunning, Vice President of the Apache Incubator, Apache Apex Incubator Mentor, and Chief Application Architect at MapR Technologies. &quot;That this project came to Apache and is now a fully fledged project is very exciting.&quot;</div> 
+  <div><br /></div> 
+  <div>Apex comes with a comprehensive library of reusable operators (functional building blocks) that can be leveraged to quickly create new and non-trivial applications. This also includes connectors to integrate with many external systems that include message buses, databases, file systems and social media feeds. Examples are Apache Cassandra, Apache HBase, JDBC, and Apache Kafka.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Apex is a battle-hardened technology, processing huge volumes of streaming data at some of the world’s largest enterprise and Internet companies,&quot; said technology advisor Eric Baldeschwieler. &quot;Its successful Apache incubation has provided a tremendous boost to Apex, bringing many new members to its community of users and developers.&quot;</div> 
+  <div><br /></div> 
+  <div><b>Enterprise Grade Unified Stream and Batch Processing</b></div> 
+  <div>Apache Apex use cases include ingestion, fast real-time analytics, data movement, Extract-Transform-Load (ETL), fast batch, alerts, and real-time actions across diverse industries such as programmatic advertising, telecommunications, Internet of Things (IoT), and financial services.</div> 
+  <div><br /></div> 
+  <div>&quot;We are in the process of leveraging Big Data technologies to transform business processes and drive more value,&quot; explained Reid Levesque, Head of Solution Engineering at a financial services company. &quot;We chose Apex to help us in this journey to do real-time ingestion and analytics on our various data sources and now we are proud to see it graduate to an Apache top level project.&quot;</div> 
+  <div><br /></div> 
+  <div>Apex powers Big Data projects in production at numerous large enterprises such as GE Predix (IoT Cloud platform for industrial data and analytics); PubMatic (marketing automation software platform for publishers), and Silver Spring Networks (IoT solutions for smart cities).</div> 
+  <div><br /></div> 
+  <div>&quot;We at GE Predix data services have used Apex for our data pipeline product and look forward to our continued usage and contribution,&quot; said Parag Goradia, Executive Director of Predix Data Services. &quot;We had great experience with Apache Apex and its capabilities. We believe Apex has a bright future as it will continue to solve big problems in the big data industry. We are proud to be associated with this project and excited that it is now in top level status.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;The Apex community has done a great job throughout the incubation process. They have built a robust community and demonstrated a firm understanding of The Apache Way,&quot; said P. Taylor Goetz, ASF Member and Apache Apex Incubator Mentor. &quot;I'm pleased to see Apex graduate to a top-level project. These are exciting times in the world of stream processing.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Congratulations to the Apache Apex community for working successfully through the incubation process and becoming part of the greater Apache Hadoop ecosystem,&quot; added Dunning.</div> 
+  <div><br /></div> 
+  <div>Catch Apache Apex in action at:</div> 
+  <div> 
+    <ul> 
+      <li>Apache: Big Data 9-12 May 2016 in Vancouver &nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></li> 
+      <li>Hadoop Summit 28-30 June 2016 in San Jose, CA &nbsp;<a href="http://hadoopsummit.org/san-jose/">http://hadoopsummit.org/san-jose/</a></li> 
+      <li>Spark &amp; Hadoop User Group Munich 19 July 2016 &nbsp;<a href="http://www.meetup.com/Hadoop-User-Group-Munich/events/230313355/">http://www.meetup.com/Hadoop-User-Group-Munich/events/230313355/</a></li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache Apex software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Apex, visit <a href="http://apex.apache.org/">http://apex.apache.org/</a> and <a href="http://apex.apache.org/">https://twitter.com/ApacheApex</a></div> 
+  <div><br /></div> 
+  <div><b>About the Apache Incubator</b></div> 
+  <div>The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organizations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF. For more information, visit <a href="http://incubator.apache.org/">http://incubator.apache.org/</a></div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 550 individual Members and 5,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Apex&quot;, &quot;Apache Apex&quot;, &quot;Cassandra&quot;, &quot;Apache Cassandra&quot;, &quot;HBase&quot;, &quot;Apache HBase&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, &quot;Kafka&quot;, &quot;Apache Kafka&quot;, &quot;YARN&quot;, &quot;Apache YARN&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

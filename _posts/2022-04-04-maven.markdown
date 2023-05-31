@@ -1,0 +1,219 @@
+---
+layout: post
+title: Apache Maven Surefire/Failsafe Plugin Version 3.0.0-M6 Released
+date: '2022-04-04T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+  <a href="https://maven.apache.org/plugins/maven-surefire-plugin/">Apache Maven Surefire Plugin, version 3.0.0-M6</a>.</p>
+
+  <p>The release contains 111 bug fixes.
+    Again we received contributions from the community in form of bug reports
+    and bug fixes. Thank you and keep them coming!</p>
+
+  <p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.0.0-M6<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  <p>or for failsafe:</p>
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.0.0-M6<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  <p>or for surefire-report:</p>
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-surefire-report-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.0.0-M6<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  <p>You can download the appropriate <a href="https://maven.apache.org/surefire/download.cgi">sources etc. from the download page</a>.</p>
+
+  <!-- more -->
+
+
+  <p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12344613&amp;styleName=Text&amp;projectId=12317927">Release Notes &ndash; Maven Surefire &ndash; Version 3.0.0-M6</a></p>
+
+  <ul>
+    <li><p>Bugs:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1398">SUREFIRE-1398</a> &ndash; TestNG test fails when both JUnitCore provider and TestNG provider are on classpath</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1426">SUREFIRE-1426</a> &ndash; Fork crash doesn&rsquo;t fail build with -Dmaven.test.failure.ignore=true</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1432">SUREFIRE-1432</a> &ndash; trimStackTrace = false by default</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1556">SUREFIRE-1556</a> &ndash; Test XML file is not valid when rerun &ldquo;fails&rdquo; with an assumption</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1659">SUREFIRE-1659</a> &ndash; Log4j logger in TestExecutionListener corrupts Surefire&rsquo;s STDOUT.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1800">SUREFIRE-1800</a> &ndash; SurefireForkChannel binds to wrong IP</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1806">SUREFIRE-1806</a> &ndash; Site: Link to &ldquo;TCP/IP Communication between Forks&rdquo; is broken</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1809">SUREFIRE-1809</a> &ndash; Differences between Oracle JDK and AdoptOpenJDK caused by JPMS</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1815">SUREFIRE-1815</a> &ndash; Thread interrupted state cleared on any console output</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1820">SUREFIRE-1820</a> &ndash; Using SurefireForkNodeFactory with JDK8 results in NoSuchMethodError</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1840">SUREFIRE-1840</a> &ndash; Why sudo docker?</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1842">SUREFIRE-1842</a> &ndash; Surefire &ndash; NPE at end of successful test run</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1844">SUREFIRE-1844</a> &ndash; Trademarks / privacy policy footer displays broken</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1851">SUREFIRE-1851</a> &ndash; NPE in SmartStackTraceParser causes false positive test results</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1857">SUREFIRE-1857</a> &ndash; JUnit 5 report does not contain assertion failure message</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1865">SUREFIRE-1865</a> &ndash; ChecksumCalculator getSha1 does not compute checksums correctly</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1869">SUREFIRE-1869</a> &ndash; Classloader.getResource() doesn&rsquo;t encode blanks with forkCount=0</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1881">SUREFIRE-1881</a> &ndash; Java agent printing to native console makes build block when using SurefireForkNodeFactory</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1882">SUREFIRE-1882</a> &ndash; Fix failures when compiled on Java 9+ and run on Java 8</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1890">SUREFIRE-1890</a> &ndash; Not compatible with TestNG 7.4.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1894">SUREFIRE-1894</a> &ndash; Surefire report XML schema is incomplete (attribute version not allowed in testsuite)</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1909">SUREFIRE-1909</a> &ndash; Support JUnit 5 reflection access by changing add-exports to add-opens</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1910">SUREFIRE-1910</a> &ndash; Missleading error message when using -Dtest=&hellip;.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1912">SUREFIRE-1912</a> &ndash; user.dir should not be set lazily within the surefire fork JVM</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1913">SUREFIRE-1913</a> &ndash; system properties should be restored after the in-process tests have been executed</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1914">SUREFIRE-1914</a> &ndash; XML report omits method signature / display name of Junit 5 parameterized tests if testset reporter is configured to use phrased naming</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1926">SUREFIRE-1926</a> &ndash; Console logs should be synchronized</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1935">SUREFIRE-1935</a> &ndash; Upgrade to JUnit Platform 1.8, start Launcher via LauncherSession</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1945">SUREFIRE-1945</a> &ndash; crashed tests &ndash; unit tests with large logging output does not produce surefire report</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1967">SUREFIRE-1967</a> &ndash; High resource consumption when executing TestNG tests in parallel mode with a suite file</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1975">SUREFIRE-1975</a> &ndash; JDK18 &ndash; The Security Manager is deprecated and will be removed in a future release</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1982">SUREFIRE-1982</a> &ndash; Fix failures (java.nio.ChartBuffer) when compiled on Java 9+ and run on Java 8</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1983">SUREFIRE-1983</a> &ndash; Corrupted STDOUT by directly writing to native stream in forked JVM 1. [setupJunitLogger() should be called AFTER startCapture()]</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1990">SUREFIRE-1990</a> &ndash; The previous XML report should be deleted before new run or re-run</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1993">SUREFIRE-1993</a> &ndash; Failsafe fails to detect module dependencies</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2002">SUREFIRE-2002</a> &ndash; TCP client throws WritePendingException</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2006">SUREFIRE-2006</a> &ndash; Don&rsquo;t use Services Transformer in shadefire</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2023">SUREFIRE-2023</a> &ndash; The integration test Surefire946KillMainProcessInReusableForkIT hanged and timed out because SIGTERM happened before the first test has started. The plugin should be able to terminate itself whenever after SIGTERM.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2036">SUREFIRE-2036</a> &ndash; Regression: 3.0.0-M5 fails with configured JUnit 5 provider</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2040">SUREFIRE-2040</a> &ndash; No tests executed with junit-platform-suite and -Dtest=TestSuite</li>
+      </ul>
+    </li>
+    <li><p>New Features:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-756">SUREFIRE-756</a> &ndash; Allow ability to capture executed random runOrder for re-play purposes</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1854">SUREFIRE-1854</a> &ndash; Support include/exclude junit test engine</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1860">SUREFIRE-1860</a> &ndash; extend ReportEntry interface and SimpleReportEntry with mandatory properties runMode:String, testRunId:long</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1878">SUREFIRE-1878</a> &ndash; Add failOnFlakeCount option</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1893">SUREFIRE-1893</a> &ndash; New maven-surefire JUnit5 extension by Fabricio Yamamoto</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1964">SUREFIRE-1964</a> &ndash; Method filtering support on excludes and includes file</li>
+      </ul>
+    </li>
+    <li><p>Improvements:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1824">SUREFIRE-1824</a> &ndash; failsafe-summary.xml should properly use UTF-8</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1825">SUREFIRE-1825</a> &ndash; Unable to zip the Cucumber TXT report file on Linux and MacOS</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1826">SUREFIRE-1826</a> &ndash; Improved performance of ThreadedStreamConsumer</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1827">SUREFIRE-1827</a> &ndash; The console output is not flushed</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1845">SUREFIRE-1845</a> &ndash; Fixed the performance of Utf8RecodingDeferredFileOutputStream as a bottleneck for the tests with logs</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1846">SUREFIRE-1846</a> &ndash; Remove Base64 in the Encoder/Decoder and gain the performance for the communication flow: Fork to Plugin</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1847">SUREFIRE-1847</a> &ndash; Remove Base64 in the Encoder/Decoder and gain the performance for the communication flow: Plugin to Fork</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1853">SUREFIRE-1853</a> &ndash; Clarify useModulePath documentation</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1856">SUREFIRE-1856</a> &ndash; Updated documentation for the TestNG Provider &ndash; may not disable JUnit in suiteXmlFiles</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1858">SUREFIRE-1858</a> &ndash; Change default debug options to not use legacy options</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1954">SUREFIRE-1954</a> &ndash; move inner class ProviderList to upper level</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1955">SUREFIRE-1955</a> &ndash; Switch project to Java 8</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1957">SUREFIRE-1957</a> &ndash; Get rid of maven-artifact-transfer</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1958">SUREFIRE-1958</a> &ndash; Replace fest-assert by AssertJ</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1959">SUREFIRE-1959</a> &ndash; Update plugin (requires Maven 3.2.5+)</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1965">SUREFIRE-1965</a> &ndash; Refactor beanshell script in project</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1972">SUREFIRE-1972</a> &ndash; Use current version of surefire-shared-utils</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1987">SUREFIRE-1987</a> &ndash; Refactor ProviderDetector#autoDetectOneWellKnownProvider</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1992">SUREFIRE-1992</a> &ndash; Increase output length of test errors/failures in summary</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1994">SUREFIRE-1994</a> &ndash; Upgrade and configure javacc-maven-plugin in module surefire-grouper</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1995">SUREFIRE-1995</a> &ndash; Ping and process checker should use isolated schedulers and the errors should be logged</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1997">SUREFIRE-1997</a> &ndash; InterruptedIOException and cause:InterruptedException have the same purpose and should be caught in CommandReader</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1998">SUREFIRE-1998</a> &ndash; Interrupted PPID Checker should have the same meaning as stopped PPID Checker</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1999">SUREFIRE-1999</a> &ndash; PPID checker should redirect the error stream of the checker command to a dump file</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2005">SUREFIRE-2005</a> &ndash; Improved dump message &ldquo;Boot Manifest-JAR contains absolute paths in classpath&rdquo; with exception message</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2009">SUREFIRE-2009</a> &ndash; Refactoring of surefire-junit3. JUnitTestSetExecutor and PojoTestSetExecutor should be stateless.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2011">SUREFIRE-2011</a> &ndash; Updated abstractions which helps associating standard out/err with a test</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2012">SUREFIRE-2012</a> &ndash; Use maven-shared-utils instead of surefire-shared-utils in Report Parser. Removed commons-lang in Report Plugin.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2014">SUREFIRE-2014</a> &ndash; Implement testRunId and RunMode in the EventEncoder and EventDecoder</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2015">SUREFIRE-2015</a> &ndash; Implement testRunId and RunMode in the SimpleReportEntry</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2016">SUREFIRE-2016</a> &ndash; The MOJO parameter testSourceDirectory is used only in the TestNG HTML, and it should be optional. Javadoc and documentation should be fixed.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2017">SUREFIRE-2017</a> &ndash; Unstable build with ParallelParameterized</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2019">SUREFIRE-2019</a> &ndash; ThreadedStreamConsumer &ndash; use Thread.join() instead of CountDownLatch.await()</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2020">SUREFIRE-2020</a> &ndash; Use addShutDownHook() from maven-shared-utils</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2021">SUREFIRE-2021</a> &ndash; Commands should be flushed immediately. Use Channels.newChannel() instead of newBufferedChannel(). Delete the old flushing mechanism on forked processes.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2024">SUREFIRE-2024</a> &ndash; Replace testng-junit5 by testng-engine in tests and documentation</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2025">SUREFIRE-2025</a> &ndash; Updated abstractions which helps associating systemProperties() with a test context</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2026">SUREFIRE-2026</a> &ndash; Improve assertions in Surefire1787JUnit5IT</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2031">SUREFIRE-2031</a> &ndash; Both fields/parameters &ldquo;includes&rdquo; and &ldquo;excludes&rdquo; should be in target MOJO class. User properties should be unique.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2042">SUREFIRE-2042</a> &ndash; Remove unused method TestListResolver#getWildcard</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2046">SUREFIRE-2046</a> &ndash; Resolved TODOs. Updated callbacks ForkedProcessPropertyEventListener and ForkedProcessStandardOutErrEventListener.</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2051">SUREFIRE-2051</a> &ndash; Propagate <code>ArtifactResolutionException</code> while resolving artifacts in <code>SurefireDependencyResolver</code></li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2052">SUREFIRE-2052</a> &ndash; Handles internal exceptions do not have suppressed exceptions in ThreadedStreamConsumer</li>
+      </ul>
+    </li>
+    <li><p>Test:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1922">SUREFIRE-1922</a> &ndash; Fixed internal tests after SUREFIRE-1921</li>
+      </ul>
+    </li>
+    <li><p>Wish:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1908">SUREFIRE-1908</a> &ndash; Wish by Stackoverflow &ndash; Documented strategy with parallel Java packages</li>
+      </ul>
+    </li>
+    <li><p>Tasks:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1807">SUREFIRE-1807</a> &ndash; Shadefire should not duplicate entries in Provider SPI</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1889">SUREFIRE-1889</a> &ndash; Support Java 16 in Surefire Integration Tests</li>
+      </ul>
+    </li>
+    <li><p>Dependency upgrades:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1785">SUREFIRE-1785</a> &ndash; Upgrade Maven Artifact Transfer to Version 0.13.1</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1850">SUREFIRE-1850</a> &ndash; Unnecessary dependency incorrectly resolved in certain phases</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1886">SUREFIRE-1886</a> &ndash; Upgrade plexus-java to Version 1.0.6</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1921">SUREFIRE-1921</a> &ndash; Upgrade Doxia to Version 1.10</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1924">SUREFIRE-1924</a> &ndash; Upgrade plexus-java to Version 1.0.7</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1937">SUREFIRE-1937</a> &ndash; Upgrade Apache commons-io to Version 2.11.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1938">SUREFIRE-1938</a> &ndash; Upgrade Apache commons-compress to Version 1.21</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1968">SUREFIRE-1968</a> &ndash; Bump maven Plugin Tools to 3.6.2</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1974">SUREFIRE-1974</a> &ndash; Upgrade plexus-java to Version 1.1.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1977">SUREFIRE-1977</a> &ndash; Upgrade com.google.code.findbugs:jsr305 from 2.0.3 to 3.0.2</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1979">SUREFIRE-1979</a> &ndash; Upgrade doxiaSitetoolsVersion from 1.9.2 to 1.11.1</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1980">SUREFIRE-1980</a> &ndash; Upgrade Apache commons-lang3 to 3.12.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1981">SUREFIRE-1981</a> &ndash; Upgrade Apache maven-shared-utils to 3.3.4</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1989">SUREFIRE-1989</a> &ndash; Update maven-common-artifact-filters to Version 3.1.1</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1996">SUREFIRE-1996</a> &ndash; Upgrade plexus-java to Version 1.1.1</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2003">SUREFIRE-2003</a> &ndash; Upgrade Maven Reporting to 3.1.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2008">SUREFIRE-2008</a> &ndash; Upgrade animal-sniffer-maven-plugin to 1.21</li>
+        <li><a href="https://issues.apache.org/jira/browse/SUREFIRE-2038">SUREFIRE-2038</a> &ndash; Upgrade Maven Parent to 35</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <p>Enjoy,</p>
+
+  <p>-The Apache Maven team</p>
+</div>

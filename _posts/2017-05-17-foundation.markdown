@@ -1,0 +1,46 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Beam™ v2.0.0
+date: '2017-05-17T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>Open Source unified programming model for batch and streaming Big Data processing in use at Google Cloud, PayPal, and Talend, among others.</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Forest Hill, MD —17 May 2017—</strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of Apache® Beam™ v2.0.0, the first stable release of the unified programming model for both batch and streaming Big Data processing.</div> 
+  <div><br /></div> 
+  <div>An Apache Top-Level Project (TLP) since December 2016, Beam includes Java and Python software development kits used to define data processing pipelines and runners to execute them on Apache Apex, Apache Flink, Apache Spark, and Google Cloud Dataflow, among other execution engines.</div> 
+  <div><br /></div> 
+  <div>Apache Beam has its roots in Google's internal work on data processing over the last decade, evolving from the initial MapReduce system, through FlumeJava and MillWheel, into Google Cloud Dataflow v1.x, which defined the unified programming model that became the heart of Apache Beam.</div> 
+  <div><br /></div> 
+  <div>&quot;The first stable release is an important milestone for the Apache Beam community,&quot; said Davor Bonaci, Vice President of Apache Beam. &quot;This is a statement from the community that it intends to maintain API stability with all releases for the foreseeable future, making Beam suitable for enterprise deployment.&quot;</div> 
+  <div><br /></div> 
+  <div>Apache Beam v2.0.0 improves user experience across the project, focusing on seamless portability across execution environments, including engines, operating systems, on-premise clusters, cloud providers, and data storage systems. Other highlights include:</div> 
+  <div> 
+    <ul> 
+      <li>API stability and future compatibility within this major version;</li> 
+      <li>Stateful data processing paradigms that unlock efficient, data-dependent computations;</li> 
+      <li>Support for user-extensible file systems, with built-in support for Hadoop Distributed File System, among others; and</li> 
+      <li>A metrics subsystem for deeper insight into pipeline execution.<br /><br /></li> 
+    </ul> 
+  </div> 
+  <div>Apache Beam is in use at Google Cloud, PayPal, and Talend, among others.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Beam is a mature data processing API for the enterprise, with powerful semantics that solve real-world challenges of stream processing,&quot; said Tomer Pilossof, Big Data Manager at PayPal. &quot;With Beam, we provide data processing solutions for a wide range of customers within the PayPal organization.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;We at Talend are thrilled to have contributed to Apache Beam reaching the 2.0.0 milestone and its first official stable release,&quot; said Laurent Bride, Chief Technology Officer at Talend. &quot;Apache Beam is now part of the foundation of Talend products. Recently, we released Talend Data Preparation for Big Data which leverages Beam to create transformation pipelines that are portable across many execution engines. Later this year, we plan to deliver Talend Data Streams, taking the Apache Beam integration one step further by utilizing its powerful streaming semantics. Whether for batch, streaming, or real-time use cases, Apache Beam is a powerful framework that delivers the flexibility and advanced functionality our customers need.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;We congratulate the Apache Beam community for reaching the key milestone of a first stable release,&quot; said William Vambenepe, Lead Product Manager for Big Data, Google Cloud. &quot;We look forward to our Google Cloud Dataflow customers taking full advantage of Beam's powerful programming model and newest features to run their data processing pipelines on Google Cloud.&quot;</div> 
+  <div><br /></div> 
+  <div>Apache Beam v2.0.0 is making its debut at Apache: Big Data, taking place this week in Miami, FL, with four sessions featuring Apache Beam. Apache Beam will also be highlighted at numerous face-to-face meetups and conferences, including the Future of Data San Jose meetup, Strata Data Conference London, Berlin Buzzwords, and DataWorks Summit San Jose.</div> 
+  <div><br /></div> 
+  <div>&quot;I'd like to invite everyone to try out Apache Beam v2.0.0 today and consider joining our vibrant community,&quot; added Bonaci. &quot;We welcome feedback, contribution and participation through our mailing lists, issue tracker, pull requests, and events.&quot;</div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight</strong></div> 
+  <div>Apache Beam software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Beam, visit <a href="https://beam.apache.org/">https://beam.apache.org/</a> and <a href="https://twitter.com/ApacheBeam">https://twitter.com/ApacheBeam</a></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server -- the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 680 individual Members and 6,000 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, ODPi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, Target, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Beam&quot;, &quot;Apache Beam&quot;, &quot;Apex&quot;, &quot;Apache Apex&quot;, &quot;Flink&quot;, &quot;Apache Flink&quot;, &quot;Spark&quot;, &quot;Apache Spark&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

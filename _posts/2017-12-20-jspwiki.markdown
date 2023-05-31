@@ -1,0 +1,11 @@
+---
+layout: post
+title: Apache JSPWiki's primary codebase now hosted on GitHub
+date: '2017-12-20T00:00:00+00:00'
+categories: jspwiki
+---
+<p>Following on from <a href="https://blogs.apache.org/jspwiki/entry/apache-jspwiki-s-codebase-moved" target="_blank" title="Apache JSPWiki's codebase moved to Git">moving Apache JSPWiki's codebase from SVN to Git</a> earlier in 2017, we're pleased to further announce that GitHub is now the primary JSPWiki repository. The change was enacted after a vote on the JSPWiki user's mailing list (with the results summarised <a href="http://mail-archives.apache.org/mod_mbox/jspwiki-user/201712.mbox/%3CCAMufup4cxVGGtgNF2n6xixfnJroBi0N1ujbAS7YbWxTBp3YKaA%40mail.gmail.com%3E" target="_blank" title="Results of the vote to move JSPWiki repos to GitHub">here</a>).</p> 
+  <p>Further information on how to work with the new repositories is available <a href="http://mail-archives.apache.org/mod_mbox/jspwiki-dev/201712.mbox/%3CCAMufup5U77d2oR4gCKC8MvN-t7%2BSEjKG8H%2BOyESTcpNd0%3DE0sg%40mail.gmail.com%3E" target="_blank" title="JSPWiki primary code repos moved to GitHub">here</a>, with general guidance on building JSPWiki from source <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Building%20from%20source%20code" target="_blank" title="Building JSPWiki from source">here</a>.</p> 
+  <p>Code contributions are always welcome—we have a friendly developer community, and it's a great opportunity to get involved in an Apache top-level project. <br /></p> 
+  <p><br /></p> 
+  <p><br /></p>

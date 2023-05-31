@@ -1,0 +1,13 @@
+---
+layout: post
+title: On The CouchDB Community
+date: '2014-03-13T00:00:00+00:00'
+categories: couchdb
+---
+<p>Jan Lehnardt sent a link to the CouchDB <a href="http://markmail.org/thread/7udbbiojimmdukxc">marketing@couchdb.apache.org</a> mailing list where Ari Najarian used CouchDB in a <a href="http://www.torusoft.com/blog/5-days-of-code-curriculum-day-3">five part course to teach beginners how to program</a>. It’s a great read and I invite you to visit the page.</p>
+
+<p>I would like to slice out one quote from the article where Ari described the CouchDB community:</p>
+
+<i>“The personalities and voices in the CouchDB community are, hands down, the most helpful, generous, welcoming, insightful, ethical, principled, future-minded group of developers I’ve ever encountered in one place. As far as online communities go, you can’t find a safer, more encouraging group of advocates. These people are role models that will help beginners to understand what “open-source” can really be about: social justice, diversity, inclusion, and collaboration.”</i>
+
+<p>This is the reason why I became a part of the Apache CouchDB project - because the community is so awesome.</p>

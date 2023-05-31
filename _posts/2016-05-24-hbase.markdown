@@ -1,0 +1,20 @@
+---
+layout: post
+title: 'Why We Use HBase: Recap so far'
+date: '2016-05-24T00:00:00+00:00'
+categories: hbase
+---
+<p>Just a quick note: If you haven't seen them yet you should check out the first four entries in our &quot;Why We Use HBase&quot; series. More guest posts in the series on deck soon.</p> 
+  <p> </p>
+  <ol> 
+    <li><a href="https://blogs.apache.org/hbase/entry/scalable_distributed_transactional_queues_on">Scalable Distributed Transactional Queues on Apache HBase</a> <br /><br /></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/medium_data_and_universal_data">Medium Data and Universal Data Systems</a> (great read!)<br /><br /></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/imgur_notifications_from_mysql_to">Imgur Notifications: From MySQL to HBase</a><br /><br /></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/investing_in_big_data_apache">Investing In Big Data: Apache HBase</a></li> 
+  </ol> 
+  <div> 
+    <p>&nbsp;- Andrew</p> 
+    <p> </p> 
+  </div> 
+  <div><br /></div> 
+  <p>&nbsp;</p>

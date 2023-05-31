@@ -1,0 +1,37 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 21 November 2014'
+date: '2014-11-21T00:00:00+00:00'
+categories: foundation
+---
+<div>With more than 200 projects and initiatives under development at The Apache Software Foundation, here's what's happened over the past week:</div> 
+  <div><br /></div> 
+  <div> 
+    <p>The ASF @ 15 - The Apache Software Foundation Celebrates 15 Years of Open Source Innovation and Community Leadership <a href="http://s.apache.org/wZr">http://s.apache.org/wZr</a><br />&nbsp;... and cheered at ApacheCon Europe <a href="http://s.apache.org/1o4">http://s.apache.org/1o4</a> </p> 
+  </div> 
+  <div>ApacheCon™ –the official conference series of The Apache Software Foundation</div> 
+  <div>&nbsp;- ApacheCon Europe, CloudStack Collaboration Conference, and supporting events wrapped up this week in Budapest&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-europe">http://events.linuxfoundation.org/events/apachecon-europe</a></div> 
+  <p> </p> 
+  <div></div> 
+  <div> 
+    <p> </p> 
+  </div> 
+  <p>Apache CouchDB™&nbsp;–the database that kickstarted the NoSQL movement.<br />&nbsp;- Apache CouchDB 2.0 Developer Preview Release announced&nbsp;<span style="white-space: pre-wrap;"><a href="http://s.apache.org/g82">http://s.apache.org/g82</a></span></p> 
+  <p>Apache DeltaSpike™ –not a CDI-container, but a portable CDI extension.<br />&nbsp;- Apache DeltaSpike 1.1.0 released <a href="http://deltaspike.apache.org/download.html">http://deltaspike.apache.org/download.html</a> </p> 
+  <p>Apache Flume™ –distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data.<br />&nbsp;- Apache Flume v1.5.2 released <a href="http://flume.apache.org/download.html">http://flume.apache.org/download.html</a> </p> 
+  <p>Apache JMeter™ –used to test performance both on static and dynamic resources (files, Servlets, Perl scripts, Java Objects, Data Bases and Queries, FTP Servers and more).<br />&nbsp;- Apache JMeter 2.12 released <a href="http://jmeter.apache.org/usermanual/best-practices.html">http://jmeter.apache.org/usermanual/best-practices.html</a> </p> 
+  <div> 
+    <p> </p> 
+    <p>Apache Syncope™ –an Open Source system for managing digital identities in enterprise environments, implemented in JEE technology.<br />&nbsp;- Apache Syncope 1.2.1 released http://syncope.apache.org/downloads.html</p> 
+  </div> 
+  <div>Apache Software Foundation Graphics –graphical assets that can be used by third parties when referring to The Apache Software Foundation or one of its projects.</div> 
+  <div>&nbsp;- Download new &quot;Powered By Apache&quot; general and project logos <a href="http://apache.org/foundation/press/kit/#poweredby">http://apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div> 
+    <div><br /></div> 
+    <div>For real-time updates, <a href="http://www.apache.org/foundation/mailinglists.html#foundation-announce">sign up for Apache-related news</a> at announce@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.&nbsp;</div> 
+    <div><br /></div> 
+    <div>For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select <a href="http://people.apache.org/">ASF Committers</a>.</div> 
+  </div>

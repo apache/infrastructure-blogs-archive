@@ -1,0 +1,75 @@
+---
+layout: post
+title: Apache Maven WAR Plugin Version 3.2.3 Released
+date: '2019-05-27T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+    <a href="http://maven.apache.org/plugins/maven-war-plugin/">Apache Maven WAR Plugin, version 3.2.3</a>.</p>
+
+    <p>The WAR Plugin is responsible for collecting all artifact dependencies, classes
+        and resources of the web application and packaging them into a web application
+        archive.</p>
+
+    <p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+    <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-war-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.2.3<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+    <p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins/maven-war-plugin/download.cgi">download page</a>.</p>
+
+    <p>Important Note:</p>
+
+    <ul>
+        <li>Maven 3.X only</li>
+        <li>JDK 7 minimum requirement</li>
+    </ul>
+
+
+    <!-- more -->
+
+
+    <p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12318121&amp;version=12343424">Release Notes &ndash; Maven WAR Plugin &ndash; Version 3.2.3</a></p>
+
+    <p>Bug:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MWAR-371">MWAR-371</a> &ndash; Overlays break first-win rule for web resource with target path ending with &lsquo;/&rsquo;</li>
+    </ul>
+
+
+    <p>Dependency upgrades:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MWAR-419">MWAR-419</a> &ndash; Upgrade maven-plugins parent to version 32</li>
+        <li><a href="https://issues.apache.org/jira/browse/MWAR-423">MWAR-423</a> &ndash; Upgrade plexus-archiver to 4.1.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/MWAR-424">MWAR-424</a> &ndash; Upgrade maven-archiver to 3.4.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/MWAR-425">MWAR-425</a> &ndash; Upgrade plexus-utils to 3.2.0</li>
+    </ul>
+
+
+    <p>Many thanks to all reporters/contributors/testers of this release.</p>
+
+    <p>Voters:</p>
+
+    <ul>
+        <li>Francois Papon</li>
+        <li>Eric Lilja</li>
+        <li>Gabriel Belingueres</li>
+    </ul>
+
+
+    <p>Enjoy,</p>
+
+    <p>-The Apache Maven team</p>
+</div>

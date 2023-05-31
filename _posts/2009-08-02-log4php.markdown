@@ -1,0 +1,9 @@
+---
+layout: post
+title: Log4PHP on buildbot now
+date: '2009-08-02T00:00:00+00:00'
+categories: log4php
+---
+If you are a reader of the <a href="http://incubator.apache.org/log4php/mail-lists.html">Log4PHP developers list</a>, you probably know it already: We (especially Gavin) managed to get it to build Log4PHP on a regular basis via Apaches Buildbot. Click <a href="http://ci.apache.org/projects/log4php">here</a> to see the latest available website. 
+
+The most cool feature is that Gavin managed it to install XDebug on the server. This way we can have regular code coverage reports. With that little piece of software I think we have now a working and quite complete enviroment for future development.

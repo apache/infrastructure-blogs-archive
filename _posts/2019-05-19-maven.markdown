@@ -1,0 +1,76 @@
+---
+layout: post
+title: Apache Maven Source Plugin Version 3.1.0 Released
+date: '2019-05-19T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+    <a href="https://maven.apache.org/plugins/maven-source-plugin/">Apache Maven Source Plugin, Version 3.1.0</a>.</p>
+
+    <p>The Source Plugin creates a jar archive of the source files of the current
+        project. The jar file is, by default, created in the project&rsquo;s target
+        directory.</p>
+
+    <p>Important Note:</p>
+
+    <ul>
+        <li>Maven 3.X only</li>
+        <li>JDK 7 minimum requirement</li>
+    </ul>
+
+
+    <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-source-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+    <p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins/maven-source-plugin/download.html">download page</a>.</p>
+
+    <!-- more -->
+
+
+    <p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317924&amp;version=12336941">Release Notes &ndash; Apache Maven Source Version 3.1.0</a></p>
+
+    <p>Bugs:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-105">MSOURCES-105</a> &ndash; Remove link to non-existing Codehaus wiki</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-108">MSOURCES-108</a> &ndash; Remove the readonly=true from finalName</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-119">MSOURCES-119</a> &ndash; Archiving to jar is very slow</li>
+    </ul>
+
+
+    <p>Improvement:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-110">MSOURCES-110</a> &ndash; Add IT to prevent readonly=true problem with parameter</li>
+    </ul>
+
+
+    <p>Dependency upgrades:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-109">MSOURCES-109</a> &ndash; Upgrade parent to 31</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-111">MSOURCES-111</a> &ndash; Upgrade maven-archiver / plexus-archiver</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-112">MSOURCES-112</a> &ndash; Upgrade plexus-utils 3.1.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-114">MSOURCES-114</a> &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-116">MSOURCES-116</a> &ndash; Upgrade plexus-archiver to 3.6.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-117">MSOURCES-117</a> &ndash; Upgrade maven-plugins parent to version 32</li>
+        <li><a href="https://issues.apache.org/jira/browse/MSOURCES-118">MSOURCES-118</a> &ndash; Upgrade JUnit to 4.12</li>
+    </ul>
+
+
+    <p>Enjoy,</p>
+
+    <p>-The Apache Maven team</p>
+
+    <p>Karl Heinz Marbaise</p>
+</div>

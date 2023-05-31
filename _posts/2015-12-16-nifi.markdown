@@ -1,0 +1,313 @@
+---
+layout: post
+title: Getting Syslog Events to HBase
+date: '2015-12-16T00:00:00+00:00'
+categories: nifi
+---
+<h1>Getting Syslog Events to HBase</h1>
+<p>
+   <span class="author">Bryan Bende -&nbsp;</span>
+   <span class="author"><a href="mailto:bbende@gmail.com">bbende@gmail.com</a> -&nbsp;</span>
+   <span class="author"><a href="https://twitter.com/BBende">@bbende</a></span>
+
+</p>
+<hr />
+
+<p>
+In the Apache NiFi 0.4.0 release there are several new integration points
+including processors for interacting with Syslog and HBase. In this post we'll
+demonstrate how to use NiFi to receive messages from Syslog over UDP,
+and store those messages in HBase.
+</p>
+
+<p>
+The flow described in this post was created using Apache NiFi 0.4.0,
+rsyslog 5.8.10, and Apache HBase 1.1.2.
+</p>
+
+<h2>Setting up Syslog</h2>
+
+<p>
+In order for NiFi to receive syslog messages, rsyslog needs to forward messages
+to a port that NiFi will be listening on. Forwarding of messages can be
+configured in rsyslog.conf, generally located in /etc on most Linux operating
+systems.
+</p>
+
+<p>
+Edit rsyslog.conf and add the following line:
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+*.* @localhost:7780
+</pre>
+</code>
+</div>
+</p>
+
+<p>
+This tells rsyslog to forward all messages over UDP to localhost port 7780.
+A double '@@' can be used to forward over TCP.
+</p>
+
+<p>
+Restart rsyslog for the changes to take effect:
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+/etc/init.d/rsyslog restart
+Shutting down system logger:                               [  OK  ]
+Starting system logger:                                    [  OK  ]
+</pre>
+</code>
+</div>
+</p>
+</p>
+
+<h2>Setting up HBase</h2>
+
+<p>
+In order to store the syslog messages, we'll create an HBase table called
+'syslog' with one column family called 'msg'. From the command line enter the
+following:
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+hbase shell
+create 'syslog', {NAME => 'msg'}
+</pre>
+</code>
+</div>
+</p>
+
+<h2>Configure an HBase Client Service</h2>
+
+<p>
+  The HBase processors added in Apache NiFi 0.4.0 use a controller service to
+  interact with HBase. This allows the processors to remain unchanged when the
+  HBase client changes, and allows a single NiFi instance to support multiple
+  versions of the HBase client. NiFi's class-loader isolation provided in NARs,
+  allows a single NiFi instance to interact with HBase instances of different
+  versions at the same time.
+</p>
+<p>
+  The HBase Client Service can be configured by providing paths to external
+  configuration files, such as hbase-site.xml, or by providing several
+  properties directly in the processor. For this example we will take the
+  latter approach. From the Controller Services configuration window in NiFi,
+  add an HBase_1_1_2_ClientService with the following configuration (adjusting
+  values appropriately for your system):
+</p>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/d3ea48a8-e8db-46c0-9f2b-0896ef37f493"><img src="https://blogs.apache.org/nifi/mediaresource/d3ea48a8-e8db-46c0-9f2b-0896ef37f493?" alt="client-service-config.jpg"></img></a>
+</p>
+<p>
+  After configuring the service, enable it in order for it to be usable by
+  processors:
+</p>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/eddbfa7e-0032-48d9-bad7-21e37b7736fc"><img src="https://blogs.apache.org/nifi/mediaresource/eddbfa7e-0032-48d9-bad7-21e37b7736fc?" alt="client-service-enabled.jpg"></img></a>
+</p>
+
+<h2>Building the Dataflow</h2>
+
+<p>
+  The dataflow we are going build will consist of the following components:
+  <ul>
+    <li><b>ListenSyslog</b> for receiving syslog messages over UDP</li>
+    <li><b>UpdateAttribute</b> for renaming attributes and creating a row id for HBase</li>
+    <li><b>AttributesToJSON</b> for creating a JSON document from the syslog attributes</li>
+    <li><b>PutHBaseJSON</b> for inserting each JSON document as a row in HBase</li>
+  </ul>
+</p>
+<p>
+The overall flow looks like the following:
+</p>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/d4136c36-cea4-4e36-b072-f72944edbff3"><img src="https://blogs.apache.org/nifi/mediaresource/d4136c36-cea4-4e36-b072-f72944edbff3?" alt="syslog-hbase-flow.jpg"></img></a><br/>
+Lets walk through the configuration of each processor...
+</p>
+
+<h3>ListenSyslog</h3>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/e9f4b991-8c41-4c26-8b60-e8a7e6d4c7dc"><img src="https://blogs.apache.org/nifi/mediaresource/e9f4b991-8c41-4c26-8b60-e8a7e6d4c7dc?" alt="config-listensyslog.jpg"></img></a>
+</p>
+<p>
+  Set the <i>Port</i> to the same port that rsyslog is forwarding messages to,
+  in this case 7780. Leave everything else as the default values.
+</p>
+<p>
+   With a <i>Max Batch Size</i> of "1" and <i>Parse Messages</i> as "true", each syslog
+   message will be emitted as a single FlowFile, with the content of the
+   FlowFile being the original message, and the results of parsing the message
+   being stored as FlowFile attributes.
+</p>
+<p>
+  The attributes we will be interested in are:
+  <ul>
+    <li>syslog.priority</li>
+    <li>syslog.severity</li>
+    <li>syslog.facility</li>
+    <li>syslog.version</li>
+    <li>syslog.timestamp</li>
+    <li>syslog.hostname</li>
+    <li>syslog.sender</li>
+    <li>syslog.body</li>
+    <li>syslog.protocol</li>
+    <li>syslog.port</li>
+  </ul>
+</p>
+
+<h3>UpdateAttribute</h3>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/c04e59e3-a444-4fd5-9ad3-7518a9438a4f"><img src="https://blogs.apache.org/nifi/mediaresource/c04e59e3-a444-4fd5-9ad3-7518a9438a4f?" alt="config-updateattr.jpg"></img></a>
+</p>
+<p>
+  The attributes produced by ListenSyslog all start with "syslog." which keeps
+  them nicely namespaced in NiFi. However, we are going to use these attribute
+  names as column qualifiers in HBase. We don't really need this prefix since
+  we will already be with in a syslog table.
+</p>
+<p>
+  Add a property for each syslog attribute to remove the prefix, and use the
+  <i>Delete Attributes Expression</i> to remove the original attributes. In addition,
+  create an <i>id</i> attribute of the form "timestamp_uuid" where timestamp is the
+  long representation of the timestamp on the syslog message, and uuid is the
+  uuid of the FlowFile in NiFi. This id attribute will be used as the row id in
+  HBase.
+</p>
+<p>
+  The expression language for the id attribute is:
+  <div>
+  <code>
+  <pre style="background-color: #f1f1f1">
+${syslog.timestamp:toDate('MMM d HH:mm:ss'):toNumber()}_${uuid}
+  </pre>
+  </code>
+  </div>
+</p>
+
+<h3>AttributesToJSON</h3>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/e710ebb7-0289-4cb1-bc03-3a07121c2daf"><img src="https://blogs.apache.org/nifi/mediaresource/e710ebb7-0289-4cb1-bc03-3a07121c2daf" alt="config-attrstojson.jpg"></img></a>
+</p>
+<p>
+  Set the <i>Destination</i> to "flowfile-content" so that the JSON document
+  replaces the FlowFile content, and set <i>Include Core Attributes</i> to
+  "false" so that the standard NiFi attributes are not included.
+</p>
+
+<h3>PutHBaseJSON</h3>
+<p>
+<a href="https://blogs.apache.org/nifi/mediaresource/efcfdfcf-e4f1-4894-ad79-b1deed8c42f3"><img src="https://blogs.apache.org/nifi/mediaresource/efcfdfcf-e4f1-4894-ad79-b1deed8c42f3" alt="config-puthbasejson.jpg"></img></a>
+</p>
+<p>
+  Select the <i>HBase Client Service</i> we configured earlier and set the
+  <i>Table Name</i> and <i>Column Family</i> to "syslog" and "msg" based on the
+  table we created earlier. In addition set the <i>Row Identifier Field Name</i>
+  to "id" to instruct the processor to use the id field from the JSON for the
+  row id.
+</p>
+
+<h2>Verifying the Flow</h2>
+
+<p>
+From a terminal we can send a test message to syslog using the logger utility:
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+logger "this is a test syslog message"
+</pre>
+</code>
+</div>
+</p>
+
+<p>
+Using the HBase shell we can inspect the contents of the syslog table:
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+hbase shell
+hbase(main):002:0> scan 'syslog'
+ROW                                          COLUMN+CELL
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:body, timestamp=1449775215481,
+  value=root: this is a test message
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:hostname, timestamp=1449775215481,
+  value=localhost
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:port, timestamp=1449775215481,
+  value=7780
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:protocol, timestamp=1449775215481,
+  value=UDP
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:sender, timestamp=1449775215481,
+  value=/127.0.0.1
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:timestamp, timestamp=1449775215481,
+  value=Dec 10 19:20:15
+29704815000_84f91b21-d35f-4a24-8e0e-aaed4a521c13 column=msg:version, timestamp=1449775215481,
+  value=
+1 row(s) in 0.1120 seconds
+</pre>
+</code>
+</div>
+</p>
+
+<h2>Performance Considerations</h2>
+<p>
+  In some cases the volume of syslog messages being pushed to ListenSyslog may
+  be very high. There are several options to help scale the processing
+  depending on the given use-case.
+</p>
+
+<h4>Concurrent Tasks</h4>
+<p>
+  ListenSyslog has a background thread reading messages as fast
+  as possible and placing them on a blocking queue to be de-queued and processed
+  by the onTrigger method of the processor. By increasing the number of
+  concurrent tasks for the processor, we can scale up the rate at which messages
+  are processed, ensuring new messages can continue to be queued.
+</p>
+
+<h4>Parsing</h4>
+<p>
+  One of the more expensive operations during the processing of a message is
+  parsing the message in order to provide the the attributes. Parsing messages
+  is controlled on the processor through a property and can be turned off in
+  cases where the attributes are not needed, and the original message just
+  needs to be delivered somewhere.
+</p>
+
+<h4>Batching</h4>
+<p>
+  In cases where parsing the messages is not necessary, an additional option is
+  batching many messages together during one call to onTrigger. This is
+  controlled through the <i>Batch Size</i> property which defaults to "1". This
+  would be appropriate in cases where having individual  messages is not
+  necessary, such as storing the messages in HDFS where you need them batched
+  into appropriately sized files.
+</p>
+
+<h4>ParseSyslog</h4>
+<p>
+  In addition to parsing messages directly in ListenSyslog, there is also a
+  ParseSyslog processor. An alternative to the flow described in the post
+  would be to have ListenSyslog produce batches of 100 messages at a time,
+  followed by SplitText, followed by ParseSyslog. The tradeoff here is that
+  we can scale the different components independently, and take advantage of
+  backpressure between processors.
+</p>
+
+<h2>Summary</h2>
+
+<p>
+  At this point you should be able to get your syslog messages ingested into
+  HBase and can experiment with different configurations. The template for this flow can be found 
+<a href="https://cwiki.apache.org/confluence/download/attachments/57904847/Syslog_HBase.xml?version=1&modificationDate=1449776959701&api=v2">here</a>.
+</p>
+
+<p>
+  We would love to hear any questions, comments, or feedback that you may have!
+</p>
+
+<p>
+  <a href="http://nifi.apache.org">Learn more about Apache NiFi</a> and feel
+  free to leave comments here or e-mail us at dev@nifi.apache.org.
+</p>

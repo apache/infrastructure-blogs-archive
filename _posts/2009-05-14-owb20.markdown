@@ -1,7 +1,0 @@
----
-layout: post
-title: Sample Application with JSF, JPA and OpenWebBeans
-date: '2009-05-14T20:17:09+00:00'
-categories: owb
----
-<p>We have written a real sample application written with <b>JSF + JPA +OWB</b>. It is called &quot;<b><span id="lw_1242331916_6" class="yshortcuts">Hotel Reservation Application</span></b>&quot;. You can create &quot;Admin&quot; and &quot;Normal&quot; user accounts. &quot;Admin&quot; is responsible for defining hotels etc, and user&nbsp; creates a <span id="lw_1242331916_7" class="yshortcuts" style="background: transparent none repeat scroll 0% 50%; cursor: pointer; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">hotel reservation</span>.<br />Altough it is a simple application, it uses and shows most of the functionality that are defined in the <b>JSR-299</b>, including <b><i>Scope and Contexts, Interceptors,Decorators, Events and Observer</i></b>s etc.<br /></p><p><b>STEPS TO RUN</b><br />-------------------------------<br />It is located in the trunk[1]/samples/reservation directory. In this directory<br /><br />&gt; mvn clean install -Pjetty --&gt; to compile and install<br />&gt; mvn jetty:run -Pjetty &nbsp;--&gt; to run the jetty container<br /><br />Then, <a target="_blank" href="http://localhost:8080/reservation"><span id="lw_1242331916_8" class="yshortcuts">http://localhost:8080/reservation</span></a><br />Voila, enjoys it!<br /><br />[1]http://svn.apache.org/repos/asf/incubator/openwebbeans/trunk/</p><p>OWB Team<br /></p>

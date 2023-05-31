@@ -1,9 +1,0 @@
----
-layout: post
-title: 'User Blog: Maven, OpenEJB and eviware soapUI'
-date: '2010-03-08T13:00:00+00:00'
-categories: openejb
----
-Magnus K Karlsson has written a nice blog post about using <a href="http://magnus-k-karlsson.blogspot.com/2010/02/getting-started-with-jboss-web-serivce.html">Maven, OpenEJB and eviware soapUI</a> to develop and test JAX-WS Web Services.
-
-The full chain involves creating the Maven, OpenEJB driven unit tests and eventually deployment into JBoss with further testing driven manually via the eviware soapUI tool.

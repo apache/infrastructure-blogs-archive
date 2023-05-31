@@ -1,0 +1,9 @@
+---
+layout: post
+title: Log4PHP - on the road again
+date: '2009-07-20T00:00:00+00:00'
+categories: log4php
+---
+Some of you might have noticed it: log4php is on the road again. After quite a long break there is ongoing effort on creating a new release of this logging API. Meanwhile we have ported most of the code to PHP5 and are working hard on updating the website, which is a bit outdated currently.
+
+However, helpful hands are always welcome. Please join the <a href="http://incubator.apache.org/log4php/mail-lists.html">developers list</a> if you have some cycles left.

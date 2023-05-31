@@ -1,8 +1,0 @@
----
-layout: post
-title: 'Apache mailing lists are down '
-date: '2014-05-08T18:33:15+00:00'
-categories: flex
----
-Mails to dev@flex.apache.org and users@flex.apache.org are held up (not lost) Stay tuned for more updates.
-Official blog post from ASF Infra team: <a href="https://blogs.apache.org/infra/entry/mail_outage">https://blogs.apache.org/infra/entry/mail_outage</a>

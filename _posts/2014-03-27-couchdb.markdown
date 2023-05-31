@@ -1,0 +1,58 @@
+---
+layout: post
+title: CouchDB Weekly News, March 27
+date: '2014-03-27T00:00:00+00:00'
+categories: couchdb
+---
+<em>Welcome to the Apache CouchDB weekly news! From today on, we’ll bring you the highlights of what happened in the CouchDB Universe each thursday. </em>
+
+<h4>Major Discussions</h4>
+
+<h5>BigCouch vs. Couchbase</h5>
+
+A comparison between the two, around conflict solving, revision docs, nodes, replicas and hashing. Find the thread <a href="http://markmail.org/search/?q=Bigcouch+vs+couchbase+list%3Aorg.apache.couchdb.user#query:Bigcouch%20vs%20couchbase%20list%3Aorg.apache.couchdb.user%20date%3A201403%20order%3Adate-backward+page:1+mid:jwnvnmoiz2fi7km4+state:results">here</a>.
+
+<h5>Healthcare projects running on CouchDB</h5>
+
+Albin Stigö asked for healthcare companies / projects using CouchDB. In the thread, a collection of examples and reasons why this is a good fit was discussed. CouchDB works well in healthcare due to its relative ease of configuration and deployment, easy synchronization, backups, attachment-handling and notifications and mobile-readiness. Some examples of projects / companies using CouchDB: <a href="http://www.commcarehq.org/home/">CommCare HQ</a>, <a href="http://www.mobiusmed.com/">Mobius</a>, <a href="http://neurofoundation.in">Neurofoundation</a>. Find his summary and the entire thread <a href="http://markmail.org/search/?q=healthcare+projects+running+on+couched#query:healthcare%20projects%20running%20on%20couched%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward+page:1+mid:wi73qse4jq35hai5+state:results">here</a>.
+
+<h4>Weekly CouchDB meeting – <a href="http://markmail.org/message/7fzg2cqrapdpupqa">summary</a></h4>
+
+<ul>
+	<li><strong>1.6.rc-2</strong>: discussion around <a href="https://issues.apache.org/jira/browse/COUCHDB-1986">blocker</a>; will be collated and sent to the mailing list</li>
+	<li><strong>Marketing</strong>: there'll be a weekly CouchDB news (which you are currently reading)</li>
+	<li><strong>Fauxton - status</strong>: Futon will be removed as soon as Fauxton-implementation is done; following release will be marked as beta</li>
+	<li><strong>Merges</strong>: discussion around BigCouch and rcouch merges will also be collated and sent to the mailing list</li>
+</ul>
+
+<h4>CouchDB Universe</h4>
+
+<ul>
+	<li><a href="https://github.com/sevcsik/node-couchdb-model">node-couchdb-model</a> - a simple CouchDB abstraction for NodeJS built on <a href="https://github.com/dscape/nano">nano</a></li>
+	<li>On recent npm downtime and npm did to make things better: <a href="http://blog.npmjs.org/post/80729916680/new-powerful-machines">"New Powerful Machines" </a></li>
+	<li>npm's search <a href="http://blog.npmjs.org/post/80789086446/nicer-perusal-method">got better</a></li>
+	<li><a href="https://www.npmjs.org/package/couchdb-tools">CouchDB-tools</a>: a library of handy functions for use when working with CouchDB documents.</li>
+
+	<li>PouchDB's replication just got <a href="https://github.com/daleharvey/pouchdb/pull/1732">a whole lot faster</a></li>
+	<li>econfig version 0.4.2, a simple EErlang config handler using INI files, <a href="https://github.com/benoitc/econfig/releases/tag/0.4.2">has been released</a></li>
+	<li><a href="https://pypi.python.org/pypi/cloudant/0.5.8?utm_source=dlvr.it&amp;utm_medium=https%3A%2F%2Fpypi.python.org%2Fpypi%3F%253Aaction%3Drss">cloudant 0.5.8</a> – an effortless Cloudant / CouchDB interface for Python</li>
+	<li><a href="http://www.couchbase.com/mobile#lite">Couchbase Lite</a> 1.0 beta 3, a CouchDB-compatible embedded mobile database
+</ul>
+
+<h4>Opinions</h4>
+
+<ul>
+	<li>On <a href="http://jensrantil.github.io/a-follow-up-on-couchdb-as-event-store.html">CouchDB as event store</a></li>
+	<li><a href="http://www.infoq.com/news/2014/03/CouchDB-IBM-Acquires-Cloudant">CouchDB progresses as IBM acquires Cloudant</a></li>
+	<li><a href="https://speakerdeck.com/wohali/10-common-misconceptions-about-apache-couchdb">10 common misconceptions about Apache CouchDB</a></li>
+	<li>A presentation on <a href="http://calvinmetcalf.github.io/pouch-pres/#0">the state of PouchDB</a></li>
+</ul>
+
+<h4>… and also in the news</h4>
+
+<ul>
+	<li>"Relying on laws to keep your private information safe is like relying on a dog to guard a plate of bacon." – <a href="https://medium.com/political-jargon/ed6c276ae808">Stop Thinking the Government Can Fix Privacy</a></li>
+	<li>"<a href="https://medium.com/p/506a06ae35ea">Why your previous developer was terrible</a>; and why your current one seems so amazing"</li>
+</ul>
+
+<em>Posted on behalf of <a href="https://twitter.com/ffffux">Lena Reinhard</a>.</em>

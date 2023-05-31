@@ -1,0 +1,21 @@
+---
+layout: post
+title: We're introduced in the BSP Worldwide.
+date: '2010-04-30T00:00:00+00:00'
+categories: hama
+---
+We're introduced in the BSP Worldwide : <a href="http://www.bsp-worldwide.org/bspww3000.html">http://www.bsp-worldwide.org/bspww3000.html</a> via Prof. Rob Bisseling.
+<br>
+<pre>Dear Edward,
+
+I have put a link from  http://www.bsp-worldwide.org/bspww3000.html 
+to your page and to the paper. 
+
+I read it and find it very interesting. 
+I heard a talk by Greg Malewicz from Google (Pregel) who is very enthousiastic about BSP. 
+Suddenly I note a high interest in BSP everywhere.
+
+I wish you good luck with your project.
+
+best wishes,
+Rob</pre>

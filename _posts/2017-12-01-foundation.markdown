@@ -1,0 +1,61 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 1 December 2017'
+date: '2017-12-01T00:00:00+00:00'
+categories: foundation
+---
+<div> 
+    <p>We're at the final stretch of the year --happy December! Let's review what we've been up to over the past week:</p> 
+    <p>Support Apache&nbsp;–Adobe, Bloomberg, and Google are among the organizations who match or exceed the contributions made by their employees. If your employer has a Matching Gifts program, please consider adding The Apache Software Foundation to your list of beneficiary organizations. Every dollar counts. <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></p> 
+  </div> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 20 December. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br />&nbsp;-&nbsp;The Apache Software Foundation Operations Summary: August - October 2017&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a> </p> 
+  <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield happy performance at 99.73% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <p>ASF Operations Factoid&nbsp;–this week, 98 Apache contributors changed 113,918 lines of code over 340 commits. Top 5 contributors, in order, are: Jonathan Hurley, Mark Thomas, Jacky Li, Andrew Gaul, and Francesco Chicchiriccò.</p> 
+  <p>Apache CXF™ –an Open Source services framework that helps you build and develop services using frontend programming APIs like JAX-WS and JAX-RS.<br />&nbsp;- Apache Apache CXF 3.0.16 and CXF Fediz 1.4.3 and 1.3.3 released with a new security advisory CVE-2017-12631&nbsp;<a href="http://cxf.apache.org/">http://cxf.apache.org/</a></p> 
+  <p>Apache Directory™ Kerby –a Java Kerberos binding.<br />&nbsp;- Apache Directory Kerby 1.1.0 released&nbsp;<a href="http://directory.apache.org/kerby/">http://directory.apache.org/kerby/</a></p> 
+  <p> </p> 
+  <p>Apache Groovy™ –a multi-facet programming language for the JVM.<br />&nbsp;- Apache Groovy 3.0.0-alpha-1 released<span style="white-space: pre;"> </span><a href="https://groovy.apache.org/">https://groovy.apache.org/</a></p> 
+  <p>Apache HttpComponents™ Client –a library for client-side HTTP communication.<br />&nbsp;- Apache HttpComponents Client 5.0 alpha3 released<span style="white-space: pre;"> </span><a href="http://hc.apache.org/">http://hc.apache.org/</a></p> 
+  <div> 
+    <div> 
+      <p>Apache Impala™ –high performance analytic database for Apache Hadoop in-Cloud or on-premises.<br />&nbsp;- The Apache Software Foundation Announces Apache® Impala™ as a Top-Level Project<span style="white-space: pre;"> <a href="https://s.apache.org/WpqC">https://s.apache.org/WpqC</a></span></p> 
+      <p>Apache jclouds™ –Open Source multi-Cloud toolkit.<br />&nbsp;- Apache jclouds 2.0.3 released<span style="white-space: pre;"> <a href="http://jclouds.apache.org/">http://jclouds.apache.org/</a></span></p> 
+    </div> 
+  </div> 
+  <p>Apache Qpid™ –client supporting the Advanced Message Queuing Protocol 1.0, based around the Apache Qpid Proton protocol engine and implementing the AMQP JMS Mapping as it evolves at OASIS.<br />&nbsp;- Apache Qpid C++ 1.37.0 released<span style="white-space: pre;"> </span><a href="http://qpid.apache.org/">http://qpid.apache.org/</a><br />&nbsp;- [CVE-2017-15701] Apache Qpid Broker-J Denial of Service Vulnerability&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201711.mbox/%3CCAFEMS4vr8tXkkmRj%2By6g0p3y3r9SqDL8Gf9%2BouhbKjPAsbJ04w%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201711.mbox/%3CCAFEMS4vr8tXkkmRj%2By6g0p3y3r9SqDL8Gf9%2BouhbKjPAsbJ04w%40mail.gmail.com%3E</a><br />&nbsp;- [CVE-2017-15702] Apache Qpid Broker-J Authentication Vulnerability on HTTP Ports&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201711.mbox/%3CCAFEMS4s6PnZqKLHKiA9TJFb028JuObc_14%2BsU9Ev4OZojPUJ6A%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201711.mbox/%3CCAFEMS4s6PnZqKLHKiA9TJFb028JuObc_14%2BsU9Ev4OZojPUJ6A%40mail.gmail.com%3E</a></p> 
+  <p>Apache Struts™ –an elegant, extensible framework for creating enterprise-ready Java Web applications.<br />&nbsp;- Apache Struts 2.5.14 GA<span style="white-space: pre;"> </span>released&nbsp;<a href="http://struts.apache.org/">http://struts.apache.org/</a></p> 
+  <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and Java Authentication Service Provider Interface for Containers technologies.<br />&nbsp;- Apache Tomcat 8.5.25, 9.0.2, and Tomcat Native 1.2.16 released&nbsp;<a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a><br /><br /></p> 
+  <p><strong>Did You Know?</strong></p> 
+  <div> 
+    <p>&nbsp;- Did you know that the following Apache projects are celebrating anniversaries in December? Apache Portable Runtime (APR) (17 yrs); Logging Services (14 yrs);&nbsp; Cayenne, OFBiz, and Tiles (11 yrs); Synapse (10 yrs); Camel (9 yrs); Axis, OpenWebBeans, and Pivot (8 yrs); Aries (7 yrs); ACE (6 yrs); Flex (5 yrs); Helix (4 yrs); Falcon and Flink (3 yrs); Beam and Eagle (1 yr) -- Many Happy Returns!&nbsp;<a href="https://projects.apache.org/committees.html?date">https://projects.apache.org/committees.html?date</a></p> 
+    <p>&nbsp;- Did you know that Apache Groovy has been downloaded 40 million times since the beginning of 2017?&nbsp;<a href="http://groovy.apache.org/">http://groovy.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that Amazon Neptune is fully compatible with Apache TinkerPop?&nbsp;<a href="http://tinkerpop.apache.org/">http://tinkerpop.apache.org/</a></p> 
+  </div> 
+  <div><strong><br />Apache Community Notices:</strong></div> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a>4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation&nbsp;<a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a>&nbsp;10) All My Roads Led to Apache&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a>&nbsp;11) Scratch Your Own Itch.&nbsp;<a href="https://s.apache.org/7Amk">https://s.apache.org/7Amk</a></p> 
+  </div> 
+  <div>&nbsp;- Follow the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a> (re-tweets/shares/likes most appreciated!)</div> 
+  <div> 
+    <p>&nbsp;- Presentations from ApacheCon <a href="https://s.apache.org/Hli7">https://s.apache.org/Hli7</a> and Apache: Big Data <a href="https://s.apache.org/tefE">https://s.apache.org/tefE</a> are available; as well as videos <a href="https://s.apache.org/AE3m">https://s.apache.org/AE3m</a> and audio recordings <a href="https://feathercast.apache.org/">https://feathercast.apache.org/</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a><a href="https://feathercast.apache.org/"></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+    <p>&nbsp;- Members of the Apache community will be out in force at Open Source Summit Paris 6-7 December 2017 <a href="http://www.opensourcesummit.paris/">http://www.opensourcesummit.paris/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- ASF Quarterly Report: Operations Summary Q2 FY2018&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+  </div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

@@ -1,0 +1,57 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 3 August 2018'
+date: '2018-08-03T00:00:00+00:00'
+categories: foundation
+---
+<p> </p> 
+  <p> </p> 
+  <div> 
+    <p>Welcome, August! We hope you have had a great week. Let's take a peek at what the Apache community has been up to:<br /></p> 
+    <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 15 August. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ApacheCon™ –the ASF's official global conference series. Join us!<br />&nbsp;- 24-27 September: Register for ApacheCon/Montreal today! Discounted sleeping room rates are available through 24 August, but are filling quickly&nbsp;<a href="http://apachecon.com/acna18/">http://apachecon.com/acna18/</a><br />&nbsp; &nbsp; &nbsp;+ event updates&nbsp;<a href="https://blogs.apache.org/conferences/entry/apachecon-north-america-2018-announcements">https://blogs.apache.org/conferences/entry/apachecon-north-america-2018-announcements</a><br />&nbsp;- 8 October: Apache Roadshow and Open Source Job Fair/Fairfax, VA --Save The Date!<br />&nbsp;- Media and Community Partner opportunities available for *all* official Apache events: drop us a note at press@apache.org to help.</p> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield hootin' performance at 96.35% uptime.&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>ASF Operations Factoid&nbsp;–this week, 843 Apache contributors changed 1,072,661 lines of code over <font color="#333333" face="Helvetica Neue, Helvetica, Arial, sans-serif"><span style="font-size: 14px;">3,759</span></font>&nbsp;commits. Top 5 contributors, in order, are: Stephen Mallette, Masaori Koshiba, mxnet-ci, Gary Gregory, and Chris Brody.<br /></p> 
+    <p>Apache Flink™ –an Open Source stream processing framework for distributed, high-performing, always-available, and accurate data streaming applications.<br />&nbsp;-&nbsp;Apache Flink 1.5.2 released&nbsp;<a href="https://flink.apache.org/">https://flink.apache.org/</a></p> 
+    <p>Apache Jackrabbit™ –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;-&nbsp;Apache Jackrabbit 2.17.5 and Jackrabbit Oak 1.6.13 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+    <p>Apache Kafka™ –distributed, fault tolerant, publish-subscribe messaging.<br />&nbsp;-&nbsp;Apache Kafka 2.0.0 released&nbsp;<a href="https://kafka.apache.org/">https://kafka.apache.org/</a></p> 
+    <p>Apache Knox™ –a REST API gateway for interacting with Apache Hadoop clusters.<br />&nbsp;-&nbsp;Apache Knox 1.1.0 released&nbsp;<a href="http://knox.apache.org/">http://knox.apache.org/</a></p> 
+    <p>Apache NetBeans (incubating)&nbsp;–a development environment, tooling platform and application framework.<br />&nbsp;-&nbsp;Apache NetBeans 9.0 released&nbsp;<a href="https://netbeans.apache.org/">https://netbeans.apache.org/</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <div> 
+      <p>&nbsp;- Did you know that the following Apache projects are celebrating anniversaries this month? jUDDI (8 years); Any23, Lucene.Net, and Oozie (6 years); Ignite, Lens, Serf, and Usergrid (6 years) --many happy returns!&nbsp;<a href="https://projects.apache.org/committees.html?date">https://projects.apache.org/committees.html?date</a></p> 
+      <p>&nbsp;- Did you know that you can easily help promote ApacheCon?&nbsp;<a href="http://www.apachecon.com/acna18/banners/">http://www.apachecon.com/acna18/banners/</a></p> 
+      <p>&nbsp;- Did you know that Apache Cassandra, Kafka, Spark, and many others are holding community events this week?&nbsp;<a href="http://events.apache.org/event/meetups.html">http://events.apache.org/event/meetups.html</a><br /><br /></p> 
+      <p><strong>Apache Community Notices:</strong></p> 
+    </div> 
+    <p>&nbsp;- ASF Annual Report for FY2018&nbsp;<a href="https://s.apache.org/FY2018AnnualReport">https://s.apache.org/FY2018AnnualReport</a></p> 
+    <p>&nbsp;- The Apache<span style="font-size: 10.8333px;"> </span>Software Foundation Celebrates 19 Years of Open Source Leadership &quot;The Apache Way&quot;&nbsp;<a href="https://s.apache.org/gK4Q">https://s.apache.org/gK4Q</a></p> 
+    <p>&nbsp;- Read &quot;Open – For Business – At the ASF&quot; by Merv Adrian, VP Research at Gartner&nbsp;<a href="https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/">https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/</a><br /></p> 
+    <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+    <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+    <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+    <div> 
+      <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+      <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+    </div> 
+    <div> 
+      <p><a href="https://feathercast.apache.org/"></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://events.apache.org/event/meetups.html">http://events.apache.org/event/meetups.html</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ApacheCon North America&nbsp;will be held 24-27 September in Montreal <a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+      <p>&nbsp;- Save the Date: Apache Roadshow DC and Open Source/Government/Cyber/Job Fair - 8 October 2018 in Fairfax, VA&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+    <p># # #</p> 
+  </div>

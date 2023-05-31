@@ -1,0 +1,78 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 9 February 2018'
+date: '2018-02-09T00:00:00+00:00'
+categories: foundation
+---
+<div>We've had a great week! Here's what happened::</div> 
+  <div> 
+    <div> 
+      <p>&quot;Success at Apache&quot; –the blog series from the Apache Community that focuses on why the ASF &quot;just works&quot;.<br />&nbsp;- A Newbie's Narrative by Kuhu Shukla <a href="https://s.apache.org/A72H">https://s.apache.org/A72H</a></p> 
+      <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a><br />&nbsp;- Next Board Meeting: 21 February. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    </div> 
+    <p>ApacheCon™ –the ASF's official global conference series.<br />&nbsp;- CFP is open for ApacheCon 24-29 September in Montreal&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- CFP is also open for the Apache Roadshow Europe 13-14 June in Berlin <a href="http://apachecon.com/euroadshow18/">http://apachecon.com/euroadshow18/</a> </p> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield ace stunning performance at 100% uptime! Go Infra!&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>ASF Operations Factoid&nbsp;–this week, 524 Apache contributors changed 947,241 lines of code over 3,263 commits. Top 5 contributors, in order, are: Duo Zhang, Jean-Baptiste Onofré, Daniel Sun, Alex Harui, and Andrea Cosentino.</p> 
+    <p>Apache Attic™ –provides process and solutions to make it clear when an Apache project has reached its end of life.<br />&nbsp;-&nbsp;Apache ACE retired&nbsp;<a href="http://attic.apache.org/projects/ACE.html">http://attic.apache.org/projects/ACE.html</a></p> 
+    <p>Apache Allura™ –an Open Source implementation of a software forge, a Web site that manages source code repositories, bug reports, discussions, wiki pages, blogs, and more for any number of individual projects.<br />&nbsp;- Apache Allura 1.8.0 released&nbsp;<a href="http://allura.apache.org/">http://allura.apache.org/</a><br />&nbsp;-&nbsp;CVE-2018-1299 Apache Allura directory traversal vulnerability&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201802.mbox/%3Cecde8662-12c8-e921-f169-e7bd64967e31%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201802.mbox/%3Cecde8662-12c8-e921-f169-e7bd64967e31%40apache.org%3E</a></p> 
+    <p>Apache Ant™ –a Java library and command-line tool that helps building software.<br />&nbsp;-&nbsp;Apache Ant 1.9.10 and 1.10.2 released&nbsp;<a href="http://ant.apache.org/">http://ant.apache.org/</a><br />&nbsp;-&nbsp;CVE-2017-5645: Apache Ant 1.9.9 and 1.10.1 - Apache Log4j 1.2.13 security vulnerability&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201802.mbox/%3C003501d39fe4%24bbe519f0%2433af4dd0%24%40org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201802.mbox/%3C003501d39fe4%24bbe519f0%2433af4dd0%24%40org%3E</a></p> 
+    <p>Apache Atlas™ –a scalable and extensible set of core foundational governance services.<br />&nbsp;- Apache Atlas 0.8.2 released&nbsp;<a href="http://atlas.apache.org/">http://atlas.apache.org/</a></p> 
+    <p> </p> 
+    <p>Apache Commons™ Compress –defines an API for working with compression and archive formats.<br />&nbsp;- Apache Commons Compress 1.16 released <a href="http://commons.apache.org/compress/">http://commons.apache.org/compress/</a></p> 
+    <p> </p> 
+    <p>Apache Geode™ –low latency, high concurrency Big Data management solutions.<br />&nbsp;- Apache Geode 1.4.0&nbsp;<a href="http://geode.apache.org/">http://geode.apache.org/</a></p> 
+    <p> </p> 
+    <p>Apache Jackrabbit™ –a fully compliant implementation of the Content Repository for Java Technology API, version 2.0 (JCR 2.0) as specified in the Java Specification Request 283 (JSR 283).<br />&nbsp;-&nbsp;Apache Jackrabbit 2.17.1 and 2.16.1 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+    <p>Apache Knox™ –a REST API Gateway for providing secure access to the data and processing resources of Apache Hadoop clusters.<br />&nbsp;-&nbsp;Apache Knox 1.0.0 released&nbsp;<a href="http://knox.apache.org/">http://knox.apache.org/</a></p> 
+    <p>Apache Lens™ –provides a Unified Analytics interface.<br />&nbsp;-&nbsp;Apache Lens 2.7.1 released&nbsp;<a href="http://lens.apache.org/">http://lens.apache.org/</a></p> 
+    <p>Apache OODT™ –a software framework as well as an architectural style for the rapid construction of scientific data systems.<br />&nbsp;- Apache OODT 1.2.1 released&nbsp;<a href="http://oodt.apache.org/">http://oodt.apache.org/</a></p> 
+    <p><span style="white-space: pre;"></span></p> 
+    <p>Apache Qpid™ –AMQP enterprise messaging implementation.<br />&nbsp;- Apache Qpid Broker-J 7.0.1 released&nbsp;<a href="http://qpid.apache.org">http://qpid.apache.org</a><br />&nbsp;- [CVE-2018-1298] Apache Qpid Broker-J Denial of Service Vulnerability with PLAIN and XOAUTH2 SASL mechanisms&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201802.mbox/%3CCAP3WMuQ9dfe%3D3FCtqoZ1Q4xkFZZ%2Bogdqn6KVxyb_O4s5rLBwuw%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201802.mbox/%3CCAP3WMuQ9dfe%3D3FCtqoZ1Q4xkFZZ%2Bogdqn6KVxyb_O4s5rLBwuw%40mail.gmail.com%3E</a></p> 
+    <p>Apache Sling™ –a framework for RESTful Web-applications based on an extensible content tree.<br />&nbsp;-&nbsp;Apache Sling 10 released&nbsp;<a href="https://sling.apache.org/">https://sling.apache.org/</a></p> 
+    <p>Apache Struts™ –an elegant, extensible framework for creating enterprise-ready Java Web applications.<br />&nbsp;- New version of the Apache Struts Maven Archetypes<span style="white-space: pre;"> </span>released&nbsp;<a href="http://struts.apache.org/maven-archetypes/">http://struts.apache.org/maven-archetypes/</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <div> 
+      <p>&nbsp;- Did you know that the ASF's original project --the HTTP Web Server-- is celebrating its 23rd anniversary this month? Many happy returns, httpd!&nbsp;<a href="http://httpd.apache.org/">http://httpd.apache.org/</a></p> 
+      <p>&nbsp;- Did you know that Apache Community Development (ComDev) publishes a monthly blog newsletter? Read up on the latest issue at&nbsp;<a href="https://s.apache.org/yBJh">https://s.apache.org/yBJh</a> </p> 
+      <p>&nbsp;- Did you know that Apache Ignite has a user survey underway?&nbsp;Share your experience, contribute to the project's growth, and win $50 gift cards!&nbsp;<a href="https://www.surveymonkey.com/r/IgniteSurvey18">https://www.surveymonkey.com/r/IgniteSurvey18</a></p> 
+    </div> 
+    <div><strong><br />Apache Community Notices:</strong></div> 
+    <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+    <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+    <div> 
+      <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a>4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation&nbsp;<a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a>&nbsp;10) All My Roads Led to Apache&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a>&nbsp;11) Scratch Your Own Itch.&nbsp;<a href="https://s.apache.org/7Amk">https://s.apache.org/7Amk</a>&nbsp;12) What a Long Strange (and Great) Trip It's Been&nbsp;<a href="https://s.apache.org/gVuN">https://s.apache.org/gVuN</a>&nbsp;13) A Newbie's Narrative <a href="https://s.apache.org/A72H">https://s.apache.org/A72H</a></p> 
+      <div><br /></div> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+      <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+    </div> 
+    <div> 
+      <p><a href="https://feathercast.apache.org/"></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- The Apache Tinkerpop community will be holding a MeetUp on Gremlin on 21 February in New York&nbsp;<a href="https://www.meetup.com/DataStax-UserGroup-NewYork/events/246762770/">https://www.meetup.com/DataStax-UserGroup-NewYork/events/246762770/</a></p> 
+      <p>&nbsp;- Apache CloudStack will be holding their first German Meetup on 28 February 2018 in Frankfurt&nbsp;<a href="https://www.meetup.com/german-CloudStack-user-group/events/246861772/?eventId=246861772">https://www.meetup.com/german-CloudStack-user-group/events/246861772/?eventId=246861772</a></p> 
+      <p>&nbsp;- Members of the Apache community will be presenting at DataWorks Summit 16-19 April 2018 in Berlin&nbsp;<a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a> </p> 
+      <p>&nbsp;- Open Expo Europe - 6-7 June 2018 in Madrid <a href="https://openexpoeurope.com/">https://openexpoeurope.com/</a></p> 
+      <p>&nbsp;- Meet members of the Apache community at Open Expo Madrid 6-7 June 2018&nbsp;<a href="http://www.openexpo.es/en/">http://www.openexpo.es/en/</a></p> 
+      <p>&nbsp;- We're teaming up with Berlin Buzzwords - 10-12 June 2018 (Apache Lounge dates: 11-12 June) <a href="https://berlinbuzzwords.de/">https://berlinbuzzwords.de/</a></p> 
+      <p>&nbsp;- The 2018 Apache EU Roadshow will be held during FOSS Backstage in Berlin 13-14 June 2018&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a></p> 
+    </div> 
+    <div> 
+      <p>- Apache Big Data project communities will be participating at DataWorks Summit 17-21 June 2018 in San Jose <a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a> </p> 
+      <p>&nbsp;- ASF Quarterly Report: Operations Summary Q2 FY2018&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+    </div> 
+    <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+    <p># # #</p> 
+  </div>

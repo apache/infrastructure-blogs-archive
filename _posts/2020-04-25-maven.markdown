@@ -1,0 +1,62 @@
+---
+layout: post
+title: Apache Maven Wagon 3.4.0 Released
+date: '2020-04-25T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of
+<a href="https://maven.apache.org/wagon/">Apache Maven Wagon 3.4.0</a>.</p>
+
+<p>Apache Maven Wagon is a transport abstraction that is used in Mavens
+artifact and repository handling code.</p>
+
+<p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/wagon/download.cgi">download page</a>.</p>
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12318122&amp;version=12346512">Release Notes &ndash; Maven Wagon &ndash; Version 3.4.0</a></p>
+
+<ul>
+<li><p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-568">WAGON-568</a> &ndash; Fail to deploy on Sonatype OSS since Maven 3.5.4</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-573">WAGON-573</a> &ndash; EntityUtils.consumeQuietly() never called on non-2xx status codes</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-576">WAGON-576</a> &ndash; Retry handler docs are possibly wrong</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-582">WAGON-582</a> &ndash; HttpMethodConfiguration#copy() performs a shallow copy only</li>
+</ul>
+</li>
+<li><p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-570">WAGON-570</a> &ndash; Use RedirectStrategy from HttpClient rather than a custom approach</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-580">WAGON-580</a> &ndash; Improve and unify exception messages by status code types throughout HTTP providers</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-585">WAGON-585</a> &ndash; maven.wagon.http.ssl features documentation is incomplete</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-586">WAGON-586</a> &ndash; make build Reproducible</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-588">WAGON-588</a> &ndash; Handle 404 and 410 consistently in HTTP-based Wagon providers</li>
+</ul>
+</li>
+<li><p>Task:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-579">WAGON-579</a> &ndash; Handle SC_UNAUTHORIZED and SC_PROXY_AUTHENTICATION_REQUIRED in all methods</li>
+</ul>
+</li>
+<li><p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-577">WAGON-577</a> &ndash; Upgrade HttpCore to 4.4.13</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-578">WAGON-578</a> &ndash; Upgrade HttpClient to 4.5.11</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-581">WAGON-581</a> &ndash; Upgrade HttpClient to 4.5.12</li>
+<li><a href="https://issues.apache.org/jira/browse/WAGON-589">WAGON-589</a> &ndash; Upgrade Maven Shade Plugin to 3.2.3</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<ul>
+<li>The Apache Maven team</li>
+</ul>

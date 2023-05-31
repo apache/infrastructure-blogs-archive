@@ -1,9 +1,0 @@
----
-layout: post
-title: Turbine Blog Online
-date: '2009-03-30T08:56:28+00:00'
-categories: turbine
----
-<p><font face="verdana,arial,helvetica,sans-serif">Hi Folks,</font></p>
-  <p><font face="verdana,arial,helvetica,sans-serif">I am very happy to announce that the Turbine Project has setup its own blog. This blog will keep the users updated about what is happening on the development side of turbine. The ApacheCon in Amsterdam was last week, and as I know Thomas and Siegfried have worked like hell on the turbine core and fulcrum to get it built on maven2. </font></p>
-  <p><font face="verdana,arial,helvetica,sans-serif">Jürgen</font></p>

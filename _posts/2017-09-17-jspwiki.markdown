@@ -1,0 +1,12 @@
+---
+layout: post
+title: Custom font support in JSPWiki
+date: '2017-09-17T00:00:00+00:00'
+categories: jspwiki
+---
+<p>JSPWiki's <a href="https://blogs.apache.org/jspwiki/entry/introducing_the_haddock_template" target="_blank" title="Information on JSPWiki's Haddock template">Haddock template</a> supports custom fonts for adding visual enhancement to wiki content. TrueType, OpenType, and Web Open Font formats are supported.</p> 
+  <p>Two methods are available for using custom fonts. First, you can upload the desired font as a page attachment, then insert some <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Add%20CSS%20Style" target="_blank" title="Adding custom CSS to JSPWiki">custom CSS</a> referencing the font with associated text styling:<br /></p> 
+  <p><img src="https://blogs.apache.org/jspwiki/mediaresource/031db6ad-952a-403a-af5f-d79972196810" alt="Custom fonts in JSPWiki" width="898" height="575" /><br /></p> 
+  <p>Alternatively, if your wiki has internet access you can remotely load fonts from Google's font repository. For a live example of this, <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Font%20Example" target="_blank" title="JSPWiki live loading Google Fonts">see here</a>.<br /></p> 
+  <p>For more information on using fonts in JSPWiki, check out the <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Category.Font%20Style" target="_blank" title="Using fonts in JSPWiki">Category.Font Style</a> page on the documentation wiki.<br /></p> 
+  <p><br /></p>

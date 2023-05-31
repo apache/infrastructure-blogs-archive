@@ -1,0 +1,58 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 29 May 2015'
+date: '2015-05-29T00:00:00+00:00'
+categories: foundation
+---
+<div> 
+    <p>It's been quite a productive week! Here's what's been going on within the Apache community:</p> 
+    <p>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Announcing updates to ApacheCon Europe; Introducing Apache: Big Data and ApacheCon: Core, taking place in Budapest 28 September - 2 October 2015&nbsp;<a href="http://www.linuxfoundation.org/news-media/announcements/2015/05/linux-foundation-announces-new-conference-support-collaboration">http://www.linuxfoundation.org/news-media/announcements/2015/05/linux-foundation-announces-new-conference-support-collaboration</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- The system is currently undergoing maintenance, however, uptime over the past week was a tip-top 100.000%&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p>ASF Security –a team comprising ASF Members dedicated to helping and advising Apache projects on security issues, as well as co-ordinating the handling of security vulnerabilities.<br />&nbsp;- CVE-2015-1772: Apache Hive Authentication vulnerability in HiveServer2&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201505.mbox/%3CCAOpgucy52yzNN1FaRcxwhZmx8ZtNRjmK6V0Bxk4svAD-R1q70Q%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201505.mbox/%3CCAOpgucy52yzNN1FaRcxwhZmx8ZtNRjmK6V0Bxk4svAD-R1q70Q%40mail.gmail.com%3E</a></p> 
+  </div> 
+  <p>Apache Commons™ Email –an API for sending email built on top of the JavaMail API, which it aims to simplify.<br />&nbsp;- Apache Commons Email v1.4 released <a href="http://commons.apache.org/email/download_email.cgi">http://commons.apache.org/email/download_email.cgi</a></p> 
+  <div> 
+    <p>Apache OFBiz™ –Open Source product for the automation of enterprise processes that includes framework components and business applications for ERP (Enterprise Resource Planning), CRM (Customer Relationship Management), E-Business / E-Commerce, SCM (Supply Chain Management), MRP (Manufacturing Resource Planning), MMS/EAM (Maintenance Management System/Enterprise Asset Management), and POS (Point Of Sale).<br />&nbsp;- Apache OFBiz 13.07.02 released&nbsp;<a href="http://ofbiz.apache.org/download.html">http://ofbiz.apache.org/download.html</a></p> 
+    <div> 
+      <p>Apache OpenMeetings™ –video conferencing, instant messaging, white board, collaborative document editing and other groupware tools using API functions of the Red5 Streaming Server for Remoting and Streaming.<br />&nbsp;- Apache OpenMeetings 3.0.6 released&nbsp;<a href="http://openmeetings.apache.org/downloads.html">http://openmeetings.apache.org/downloads.html</a></p> 
+      <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language and Java WebSocket technologies.<br />&nbsp;- Apache Tomcat 8.0.23 available&nbsp;<a href="http://tomcat.apache.org/download-80.cgi">http://tomcat.apache.org/download-80.cgi</a> </p> 
+      <p> </p> 
+      <p><br /><b>Did You Know?</b></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Did you know that Apache Whisker&nbsp;assists complex assembled applications maintain correct legal documentation by verifying and generating meta-data documents and distribution?</p> 
+      <p>&nbsp;- Did you know that Facebook used Apache ORC to help scale their data warehouse to 300 PB?</p> 
+      <p>&nbsp;- Did you know that Apache Zest is the first project to become a Top-level Project (TLP) without going through the Apache Incubator?</p> 
+    </div> 
+    <div></div> 
+    <div> 
+      <p><b><br />Apache Community Notices:</b></p> 
+      <p>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and <a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>&nbsp;--all proceeds benefit the ASF!&nbsp;</p> 
+      <p>&nbsp;- Reminder: How to Safely Download Apache OpenOffice <a href="http://s.apache.org/a1R">http://s.apache.org/a1R</a></p> 
+      <p>&nbsp;- Audio recordings from select tracks from ApacheCon Austin are available at <a href="http://feathercast.apache.org/">http://feathercast.apache.org/</a>&nbsp;includes Cloud, Community, httpd, and Apache HTTP Server Founder's panel!</p> 
+      <p>&nbsp;- Presentations from ApacheCon Austin are available online <a href="http://events.linuxfoundation.org/events/apachecon-north-america/program/slides">http://events.linuxfoundation.org/events/apachecon-north-america/program/slides</a></p> 
+      <div> 
+        <p>&nbsp;- Apache CouchDB is seeking design and editorial assistance in English&nbsp;<a href="http://markmail.org/thread/dgvjpwnxie6pji5j">http://markmail.org/thread/dgvjpwnxie6pji5j</a></p> 
+      </div> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The next Lucene/Solr London User Group meetup will take place 4 June&nbsp;<a href="http://www.meetup.com/Apache-Lucene-Solr-London-User-Group/events/222476050/">http://www.meetup.com/Apache-Lucene-Solr-London-User-Group/events/222476050/</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Submit your proposal for CloudStack Days Seattle (co-located with LinuxCon) by 12 June&nbsp;<a href="http://clds.co/18hplxk">http://clds.co/18hplxk</a></p> 
+      <p>&nbsp;- The Karlsruhe DevOps Meetup featuring Apache Mesos and Aurora will be held 16 June <a href="http://www.meetup.com/DevOps-Karlsruhe-Meetup/events/222465491/">http://www.meetup.com/DevOps-Karlsruhe-Meetup/events/222465491/</a></p> 
+      <p>&nbsp;- Catch Apache Bigtop, Hadoop, Spark, Geode (Incubating) and Ignite (Incubating) in action at the In-Memory Computing Summit&nbsp;29-30 June in San Francsico&nbsp;<a href="http://imcsummit.org/">http://imcsummit.org/</a></p> 
+      <p>&nbsp;- MesosCon will be held 20-21 August in Seattle <a href="https://mesoscon2015.sched.org/">https://mesoscon2015.sched.org/</a></p> 
+      <p>&nbsp;- Apache: Big Data and ApacheCon: Core Europe will be held 28 September - 1 October in Budapest&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+      <p>&nbsp;- The first Apache Flink Conference, Flink Forward, will be held 12-13 October in Berlin <a href="http://flink-forward.org/">http://flink-forward.org</a></p> 
+      <p>&nbsp;- CFP open for Lucene/Solr Revolution, to be held 13-16 October in Austin <a href="http://lucenerevolution.org/">http://www.lucenerevolution.org</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://www.apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select ASF Committers.</div> 
+    <p># # #&nbsp;</p> 
+  </div>

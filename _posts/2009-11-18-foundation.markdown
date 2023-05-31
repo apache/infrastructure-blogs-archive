@@ -1,0 +1,29 @@
+---
+layout: post
+title: Governor Schwarzenegger and Mayor Dellums honor the Apache Software Foundation
+date: '2009-11-18T00:00:00+00:00'
+categories: foundation
+---
+<p>
+As mentioned in a <a href="https://blogs.apache.org/foundation/entry/apachecon_us_2009_draws_unprecedented">previous post</a>, California Governor Arnold Schwarzenegger and Oakland Mayor Ron Dellums have recently recognized The Apache Software Foundation for a decade of open source leadership and technology innovation. 
+</p>
+<p>
+Mayor Dellums proclaimed November 4th, 2009 as <i>the Apache Software Foundation Day</i>!
+</p>
+<p>
+Here are their letters, as presented last week at <a href="http://us.apachecon.com/c/acus2009/">ApacheCon US 2009</a> in Oakland, CA. Click on the thumbnails for larger images.
+</p>
+<table>
+<tbody><tr>
+<td>
+<a href="http://blogs.apache.org/foundation/resource/oakland-letters/Gov-CA-Congrats-ASF.jpg">
+<img src="http://blogs.apache.org/foundation/resource/oakland-letters/Gov-CA-Congrats-ASF-300.jpg" style="border: medium none ;" />
+</a>
+</td>
+<td>
+<a href="http://blogs.apache.org/foundation/resource/oakland-letters/Mayor-OAK-ASF-Day.jpg">
+<img align="right" src="http://blogs.apache.org/foundation/resource/oakland-letters/Mayor-OAK-ASF-Day-300.jpg" style="border: medium none ;" />
+</a>
+</td>
+</tr>
+</tbody></table>

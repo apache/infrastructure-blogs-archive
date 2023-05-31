@@ -1,0 +1,47 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® cTAKES™ v4.0
+date: '2017-04-25T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>Widely adopted Open Source biomedical data extraction, annotation, and clinical information management platform now faster and easier to use.</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Forest Hill, MD —25 April 2017—</strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of Apache® cTAKES™ v4.0, the latest version of the Open Source natural language processing system for information extraction from health-related free-text.</div> 
+  <div><br /></div> 
+  <div>Apache cTAKES (clinical Text Analysis Knowledge Extraction System) is a natural-language processing based information extraction platform for health-related text that identifies signals important for the biomedical domain including types of clinical named entities mapped to various biomedical terminologies/ontologies such as the Unified Medical Language System (UMLS) -- drugs, diseases/disorders, signs/symptoms, anatomical sites and procedures along with their associated attributes such as negation, uncertainty, and more.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache cTAKES has helped considerably advance biomedical data extraction and clinical information management over the last several years,&quot; said Pei Chen, Vice President of Apache cTAKES. &quot;We are proud to lead the development of a widely adopted, interoperable, community-driven solution for clinical decision support systems and clinical research. The improvements in v4 makes cTAKES easier to use, thereby benefiting the greater medical community.&quot;</div> 
+  <div><br /></div> 
+  <div>cTAKES originated in 2006 by a team of physicians, computer scientists, and software engineers at Mayo Clinic, and was submitted to the Apache Incubator in June 2012. cTAKES was built using the Apache UIMA (Unstructured Information Management Architecture) framework and Apache OpenNLP machine-learning based toolkit for the processing of health-related natural language text. Apache cTAKES components create rich linguistic and semantic annotations that have been utilized for a variety of biomedical use cases including clinical decision support systems and clinical research.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Highlights of Apache cTAKES v4 include:</div> 
+  <div> 
+    <ul> 
+      <li>Dictionary Builder Graphical user interface (GUI) for easy dictionary selection and build-up;</li> 
+      <li>Pipe Bits to be used to describe cTAKES modules for programs that help users create pipelines such as document descriptions of components, and inputs, outputs, parameters, dependencies implemented as Java annotations simplifies pipeline builders indicates whether a component is a Collection Reader, Annotator, or a Cas Consumer (Writer);</li> 
+      <li>Piper files, allowing fast and easy creation and modification of custom pipelines with many capabilities;</li> 
+      <li>Graphical user interface (GUI) for easy pipeline creation to select cTAKES components, view descriptions of the components, and inputs, outputs, parameters, dependencies implemented using the new Pipe Bits;</li> 
+      <li>Example Clinical Documents with manual expert annotations of clinical narratives (mock ups). The narratives were annotated using the Open Source Anafora annotation tool (https://github.com/weitechen/anafora);</li> 
+      <li>Temporal module for extraction of events, time expressions, and temporal relations; and</li> 
+      <li>Numerous bug fixes that resulted in a more stable, much faster and robust release</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>&quot;Apache cTAKES v4 release is a pivotal milestone that incorporates state-of-the-art methods for some of the most difficult tasks in clinical narrative processing and information extraction, namely coreference resolution and temporality. Integrating novel user friendly interfaces and a scaled up optimization of its core concept mapper, v4 provides the open-source and medical communities a stable, industrial strength tool to mine clinical text,&quot; said Prof. Guergana Savova, ASF Member and Apache cTAKES Project Management Committee member, and Principal Investigator of the Natural Language Processing Lab at the Computational Health Informatics Program, Boston Children’s Hospital and faculty at Harvard Medical School. &quot;The world-wide community involvement is exactly what we envisioned when we started cTAKES back in 2006. We are grateful to the community for its many contributions and are greatly appreciative of the efforts of Sean Finan and James Masanz, members of the Apache cTAKES Project Management Committee for leading this milestone release.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;We are using Apache cTAKES v4 to link phenotypic and genomic/genetic data for the Boston Children’s Hospital Precision Link Biobank,&quot; said Kenneth D. Mandl, Director of the Computational Health Informatics Program at Boston Children’s Hospital.</div> 
+  <div> 
+    <p>&quot;We are using cTAKES to help identify people with multiple sclerosis from the electronic health records and investigate disease trajectory and treatment response in this chronic neurological disorder,&quot; said Zongqi Xia, MD, PhD, an Assistant Professor of Neurology and Biomedical Informatics at University of Pittsburgh.</p> 
+    <p>&quot;We have been using cTAKES in the VA Radiology Reports to look for word tokens that correlate with lung, liver and other findings,&quot; said Dr. Joe Erdos, faculty at Yale School of Medicine and associated scientist at the Veterans Affairs (VA) in Connecticut.</p> 
+  </div> 
+  <div>&quot;We have been frequent users of cTAKES since the 3.x days, and are excited by the cTAKES release,&quot; said Chris Mattmann, Principal Data Scientist in the Engineering &amp; Science Directorate at NASA Jet Propulsion Laboratory, and member of the Apache cTAKES Project Management Committee. &quot;Our Shangridocs tool that allows for interactive text extraction and analysis from science research papers in the bioinformatics/clinical domain is built around Apache cTAKES and Apache OpenNLP. We plan on upgrading ASAP to cTAKES 4.0 and contributing to the platform. cTAKES scalability is something we are very interested in - and in the ability to extend the existing UMLS taxonomy with custom medical metadata and information and cTAKES 4.0 (and beyond) is the perfect platform for growth in this area.&quot;</div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight</strong></div> 
+  <div>Apache cTAKES software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache cTAKES, visit <a href="http://ctakes.apache.org/">http://ctakes.apache.org/</a> </div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 620 individual Members and 6,000 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, ODPi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, Target, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/%20">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;cTAKES&quot;, &quot;Apache cTAKES&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

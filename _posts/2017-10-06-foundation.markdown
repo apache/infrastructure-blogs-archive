@@ -1,0 +1,61 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 6 October 2017'
+date: '2017-10-06T00:00:00+00:00'
+categories: foundation
+---
+<div>Greetings, October. Here's what the Apache community has been working on over the past week:</div> 
+  <p>Foundation Statement&nbsp;–Response From The Apache® Software Foundation To Questions From US House Committee On Energy And Commerce Regarding Equifax Data Breach&nbsp;<a href="https://s.apache.org/rjmv">https://s.apache.org/rjmv</a></p> 
+  <p>Success at Apache –the monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;.<br />&nbsp;- All My Roads Led to Apache by Pal Ferrel&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a></p> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 18 October. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield savvy performance at 99.78% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <p>ASF Operations Factoid&nbsp;–this week, 549 Apache Committers changed 1,204,410 lines of code over 3,893 commits. Top 5 contributors, in order, are: Oliver Lietz, James Taylor, Mark Thomas, Maxim Solodovnik, and Stephen Mallette.</p> 
+  <p>Apache Calcite™ –a dynamic Big Data management framework.<br />&nbsp;- Apache Calcite 1.14.0 released&nbsp;<a href="http://calcite.apache.org/">http://calcite.apache.org/</a></p> 
+  <p>Apache Flume™ –a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data.<br />&nbsp;- Apache Flume 1.8.0 released&nbsp;<a href="http://flume.apache.org/">http://flume.apache.org/</a></p> 
+  <p>Apache Geode™ –low latency, high concurrency data management solutions.<br />&nbsp;- CVE-2017-9794 Apache Geode gfsh query vulnerability&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201709.mbox/%3CCAEwge-FqzrT%2BdeCkNkM-EQZuKfg-XuqY4cGjFiqxoKBVduY1Zw%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201709.mbox/%3CCAEwge-FqzrT%2BdeCkNkM-EQZuKfg-XuqY4cGjFiqxoKBVduY1Zw%40mail.gmail.com%3E</a><br />&nbsp;- CVE-2017-9797 Apache Geode client/server authentication vulnerability <a href="http://mail-archives.apache.org/mod_mbox/www-announce/201709.mbox/%3CCAEwge-Hrbb7JS8Nygrh7geyFvW4bMZ3AdCmPOzMfvbniipz0bA%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201709.mbox/%3CCAEwge-Hrbb7JS8Nygrh7geyFvW4bMZ3AdCmPOzMfvbniipz0bA%40mail.gmail.com%3E</a></p> 
+  <p>Apache Groovy™ –a multi-facet programming language for the JVM.<br />&nbsp;- Apache Groovy 2.5.0-beta-2 released&nbsp;<a href="https://groovy.apache.org/">https://groovy.apache.org/</a></p> 
+  <p>Apache HTTP Server™ –the world's most popular Web server.<br />&nbsp;- Apache HTTP Server 2.4.28 released&nbsp;<a href="http://httpd.apache.org/">http://httpd.apache.org/</a></p> 
+  <p>Apache Impala (incubating) –a high-performance C++ and Java SQL query engine for data stored in Apache Hadoop-based clusters.<br />&nbsp;-&nbsp;CVE-2017-9792 Apache Impala (incubating) Information Disclosure&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201709.mbox/%3CCAFWiQHYvHUG42bC0EVkxciyR_-uswTW2UZCFQ6o0Q2%2BPGWSi6Q%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201709.mbox/%3CCAFWiQHYvHUG42bC0EVkxciyR_-uswTW2UZCFQ6o0Q2%2BPGWSi6Q%40mail.gmail.com%3E</a></p> 
+  <p>Apache Jackrabbit™ –a fully conforming implementation of the Content Repository for Java Technology API (JCR).<br />&nbsp;- Apache Jackrabbit 2.8.6 and Jackrabbit Oak 1.7.8 released <a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+  <p>Apache Juneau (incubating) –a toolkit for marshalling POJOs to a wide variety of content types using a common framework, and for creating sophisticated self-documenting REST interfaces and microservices using very little code.<br />&nbsp;-&nbsp;Apache Juneau 6.4.0 (incubating) released&nbsp;<a href="http://juneau.incubator.apache.org/">http://juneau.incubator.apache.org/</a></p> 
+  <p>Apache Lucene™ Solr™ –the search server built on Apache Lucene.<br />&nbsp;- Apache Solr Reference Guide for 7.0 released&nbsp;<a href="https://lucene.apache.org/solr/guide/7_0">https://lucene.apache.org/solr/guide/7_0</a></p> 
+  <p>Apache NiFi™ –an easy to use, powerful, and reliable system to process and distribute data.<br />&nbsp;- Apache NiFi 1.4.0 released&nbsp;<a href="https://nifi.apache.org/">https://nifi.apache.org/</a></p> 
+  <p>Apache OpenNLP™ –a machine learning based toolkit for the processing of natural language text..<br />&nbsp;- CVE-2017-12620: Apache OpenNLP XXE vulnerability <a href="http://mail-archives.apache.org/mod_mbox/www-announce/201710.mbox/%3CCA%2BV%3DWqjnwc7DCAXMGCBPrgfKJHB0bSP03mrSZ0RJxCin5m6L9Q%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201710.mbox/%3CCA%2BV%3DWqjnwc7DCAXMGCBPrgfKJHB0bSP03mrSZ0RJxCin5m6L9Q%40mail.gmail.com%3E</a> </p> 
+  <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language, Java WebSocket and Java Authentication Service Provider Interface for Containers technologies.<br />&nbsp;-&nbsp;Apache Tomcat 7.0.82, 8.0.47, 8.5.23, and 9.0.1 released <a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a><br />&nbsp;- CVE-2017-12617 Apache Tomcat Remote Code Execution via JSP upload&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201710.mbox/%3Cf7229e11-5e8d-aa00-ff22-f0a795669010%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201710.mbox/%3Cf7229e11-5e8d-aa00-ff22-f0a795669010%40apache.org%3E</a></p> 
+  <p>Apache Wicket™ –an Open Source Java component oriented Web application framework that powers thousands of web applications and Web sites for governments, stores, universities, cities, banks, email providers, and more.<br />-&nbsp;Apache Wicket 6.8.0 released&nbsp;<a href="http://wicket.apache.org">http://wicket.apache.org</a><br /><br /></p> 
+  <div></div> 
+  <div><strong>Did You Know?</strong></div> 
+  <div> 
+    <p>&nbsp;- Did you know that the ASF Incubator has mentored new Apache projects and their communities for the past 15 years?&nbsp;<a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p> 
+    <p><a href="https://projects.apache.org/committees.html?date"></a>&nbsp;- Did you know that the following Apache projects have anniversaries this month: Xalan and XML Graphics (13 years); MINA and Velocity (11 years); PDFBox (8 years); Thrift (7 years); JMeter (6 years); Cordova, Isis, and OpenOffice (5 years); Chukwa and jclouds (4 years); and Calcite (2 years)?&nbsp;<a href="https://projects.apache.org/committees.html?date">https://projects.apache.org/committees.html?date</a></p> 
+    <p><a href="https://jaxenter.com/jax-magazine"></a>&nbsp;- Did you know that various Apache projects that are seeking assistance are listed at <a href="http://helpwanted.apache.org/">http://helpwanted.apache.org/</a> ? Help your favorite Apache community!</p> 
+  </div> 
+  <div><strong><br />Apache Community Notices:</strong></div> 
+  <div><br /></div> 
+  <div>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a>4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation&nbsp;<a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a>&nbsp;10) All My Roads Led to Apache&nbsp;<a href="https://s.apache.org/l9OO">https://s.apache.org/l9OO</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Follow the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a> (re-tweets/shares/likes most appreciated!)</div> 
+  <div> 
+    <p>&nbsp;- Presentations from ApacheCon <a href="https://s.apache.org/Hli7">https://s.apache.org/Hli7</a> and Apache: Big Data <a href="https://s.apache.org/tefE">https://s.apache.org/tefE</a> are available; as well as videos <a href="https://s.apache.org/AE3m">https://s.apache.org/AE3m</a> and audio recordings <a href="https://feathercast.apache.org/">https://feathercast.apache.org/</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a><a href="https://feathercast.apache.org/"></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The Apache community will be at All Things Open --stop by the ASF booth and say hello! 23-24 October in Raleigh&nbsp;<a href="https://allthingsopen.org/">https://allthingsopen.org/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Learn about Apache Atlas, AriaTosca (incubating), Hadoop YARN, Kafka, ManifoldCF, Ranger, Spot (incubating), Thrift, and more at Open Source Summit Europe + ELC Europe 2017 23-26 October in Prague&nbsp;<a href="https://osseu17.sched.com/">https://osseu17.sched.com/</a></p> 
+    <p>&nbsp;- Catch the Apache Ignite and Spark communities at the In-Memory Computing Summit 24-25 October in San Francisco <a href="https://imcsummit.org/">https://imcsummit.org/</a></p> 
+    <p>&nbsp;- ASF Quarterly Report: Operations Summary Q1 FY2018&nbsp;<a href="https://s.apache.org/cEUm">https://s.apache.org/cEUm</a></p> 
+    <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+  </div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

@@ -1,0 +1,7 @@
+---
+layout: post
+title: Encoding inside of Tomcat
+date: '2009-03-31T00:00:00+00:00'
+categories: turbine
+---
+Something to be aware of when switching the encoding to UTF-8 is that tomcat will need to be reconfigured also. The encoding of URL-parameters (for GET-requests) is still&nbsp; interpreted as ISO-8859-1. You may want to set useBodyEncodingForURI=&quot;true&quot; in the connector in use. See <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/ajp.html">http://tomcat.apache.org/tomcat-5.5-doc/config/ajp.html</a> on what this does.

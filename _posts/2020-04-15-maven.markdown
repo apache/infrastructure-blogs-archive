@@ -1,0 +1,84 @@
+---
+layout: post
+title: Apache Maven AntRun Plugin Version 3.0.0 Released
+date: '2020-04-15T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the <a href="http://maven.apache.org/plugins/maven-antrun-plugin/">Apache
+Maven AntRun Plugin, version 3.0.0</a>.</p>
+
+<p>This plugin provides the ability to run Ant tasks from within Maven. You can even embed your Ant
+scripts in the POM!</p>
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-antrun-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can download the <a href="https://maven.apache.org/shared/maven-archiver/download.cgi">appropriate sources etc. from the download page</a></p>
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317921&amp;version=12346981">Release Notes &ndash; Maven AntRunPlugin &ndash; Version 3.0.0</a></p>
+
+<ul>
+<li><p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-172">MANTRUN-172</a> &ndash; Properties passed to Maven as -D don&rsquo;t get passed to <ant> invocations when a profile sets the same property</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-178">MANTRUN-178</a> &ndash; Ignore precedence of mvn command line over property defined in <properties> section</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-179">MANTRUN-179</a> &ndash; Seems impossible to use combine.* attributes with maven-antrun-plugin configuration</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-181">MANTRUN-181</a> &ndash; AttachArtifact task does not work in external Ant build file</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-192">MANTRUN-192</a> &ndash; filterArtifacts in DependencyFilesetsTask includes entire maven.local.repository</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-204">MANTRUN-204</a> &ndash; antrun loops the backing map of java.util.Properties withouth checking type safety</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-205">MANTRUN-205</a> &ndash; maven-antrun-plugin pages at maven.apache.org still have bad url codehaus references</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-221">MANTRUN-221</a> &ndash; Fails to pass maven properties set in user properties only</li>
+</ul>
+</li>
+<li><p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-201">MANTRUN-201</a> &ndash; Migrate plugin to Maven 3.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-202">MANTRUN-202</a> &ndash; Fail the build when deprecated parameters tasks, sourceRoot or testSourceRoot are used</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-217">MANTRUN-217</a> &ndash; Require Java 7</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-222">MANTRUN-222</a> &ndash; make build Reproducible, upgrade maven-plugins pom to 34</li>
+</ul>
+</li>
+<li><p>Tasks:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-209">MANTRUN-209</a> &ndash; Add documentation information for GitHub</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-211">MANTRUN-211</a> &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0</li>
+</ul>
+</li>
+<li><p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-203">MANTRUN-203</a> &ndash; Upgrade to maven-plugins 30</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-210">MANTRUN-210</a> &ndash; Upgrade parent to 31</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-212">MANTRUN-212</a> &ndash; Upgrade plexus-utils 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-213">MANTRUN-213</a> &ndash; Upgrade plexus-utils 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-214">MANTRUN-214</a> &ndash; upgrade default Ant version to 1.9.14</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-215">MANTRUN-215</a> &ndash; Upgrade maven-plugins parent to version 32</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-218">MANTRUN-218</a> &ndash; Upgrade JUnit to 4.13</li>
+<li><a href="https://issues.apache.org/jira/browse/MANTRUN-219">MANTRUN-219</a> &ndash; Upgrade XMLUnit to 2.6.4 (test dependency)</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

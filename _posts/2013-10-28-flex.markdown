@@ -1,0 +1,44 @@
+---
+layout: post
+title: Apache Flex 4.11 Released!
+date: '2013-10-28T00:00:00+00:00'
+categories: flex
+---
+The Apache Flex project, the all-volunteer group of developers, and stakeholders in the development framework, today announced the release of <a href="http://flex.apache.org">Apache Flex 4.11.0</a>. This release makes some important improvements over previous versions of Apache Flex and Adobe Flex including new and improved components and performance enhancements. 
+
+<b>What’s new in Apache Flex v4.11.0?</b>
+
+The Apache Flex 4.11.0 SDK allows application developers to build expressive web and mobile applications using MXML for layout and ActionScript 3, an ECMAScript based language for client-side scripting.
+
+The Apache Flex 4.11.0 release contains many improvements that professional software development teams will appreciate. This advances the framework forward. It is truly one of the best cross-platform programming languages used to write applications that are testable and can be compiled to run on multiple technology platforms from a single set of code.
+
+<b>Apache Flex 4.11.0 highlights include:</b>
+<ul>
+<li> Support Flash Player 11.9.</li>
+<li> Support for AIR 3.9.</li>
+<li> 120 and 640 dpi mobile resolution/skin support, fixes to 480dpi skins.</li>
+<li> mx:AdvancedDataGrid and mx:DataGrid speed improvements.</li>
+<li> Added column sort type access to the datagrid columns in mx:Datagrid, s:Datagrid, and mx:AdvancedDataGrid. </li>
+<li> Able to easily change mx:AdvancedDataGrid row and column item renderer spanning.</li>
+<li> s:DataGridEditor will now be visible in ASDocs and be visible in the Tag inspector.</li>
+<li> Minor changes to make SDK compile with Falcon compiler.</li>
+<li> Added access to imageDecodingPolicy in BitmapImage.</li>
+<li> Changed UIComponent removedFromStageHandler from private to protected to allow override</li>
+<li> New experimental mobile spark datagrid.</li>
+<li> Updated OSMF swc to latest version (2.0)</li>
+<li> Renamed experimental supportClazzes package to be supportClasses. </li>
+<li> Mobile Callout moved to spark and can be used in Desktop and Browser apps.</li>
+<li> Support for [Experimental] metadata tag.</li>
+<li> Over 50 bugs/issues were closed with this release</li>
+</ul>
+
+Apache Flex is available in source form from the following download page:
+<a href="http://flex.apache.org/download-source.html">http://flex.apache.org/download-source.html</a>
+
+If you are a developer that wishes to use the Apache Flex SDK in your projects, it is recommended you install Apache Flex by using the Apache Flex IDE installer:
+<a href="http://flex.apache.org/installer.html">http://flex.apache.org/installer.html</a>
+
+When downloading from a mirror site, please remember to verify the downloads using signatures or MD5 hashes.
+
+For more information on Apache Flex, visit the project home page:
+<a href="http://flex.apache.org">http://flex.apache.org</a>

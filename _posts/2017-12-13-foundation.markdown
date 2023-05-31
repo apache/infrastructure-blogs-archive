@@ -1,0 +1,48 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Mnemonic™ as a Top-Level Project
+date: '2017-12-13T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>Open Source storage-class memory oriented durable object platform for Java application developers in use across an array of industries that include eCommerce, Financial Services, and Semiconductors, among others.</em></strong></div> 
+  <div> 
+    <p><strong><em>Forest Hill, MD —13 December 2017—</em></strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today that Apache<sup>®</sup> Mnemonic™ has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the project's community and products have been well-governed under the ASF's meritocratic process and principles.</p> 
+    <p>Apache Mnemonic is an Open Source Java-based storage-class memory oriented durable object platform for linked objects processing and analytics. Using Apache Mnemonic, objects can also be directly accessed by other computing languages (e.g. C/C++); the durable object model and durable computing model implemented by this library might lead to new cache-less and SerDe-less (Serializer and Deserializer-less) architecture for high-performance applications and frameworks.</p> 
+    <p>&quot;The Mnemonic community continues to explore new ways to significantly improve the performance of real-time Big Data processing/analytics,&quot; said Gang &quot;Gary&quot; Wang, Vice President of Apache Mnemonic. &quot;We worked hard to develop both our code and community the Apache Way, and are honored to graduate as an Apache Top-Level Project.&quot;</p> 
+    <p>&quot;Apache Mnemonic fills the void of the ability to directly persist on-heap objects, making it beneficial for use in production to accelerate Big Data processing applications at several large organizations,&quot; said Henry Saputra, ASF Member and Apache Mnemonic Incubating Mentor. &quot;I am pleased how the community has grown and quickly embraced the Apache Way of software development and making progressive releases. It has been a great experience to be part of this project.&quot;</p> 
+    <p>Mnemonic addresses Big Data performance issues that include serialization, caching, computing bottlenecks, and persistency using next-generation, non-volatile memory (NVM) storage media. Apache Mnemonic abstracts system memory, storage-class memory, and even traditional storage as hybrid memory services. Mnemonic’s performance-oriented architecture features include:</p> 
+  </div> 
+  <div> 
+    <ul> 
+      <li>Unified platform enabling framework;</li> 
+      <li>Unique durable object model and computing model;</li> 
+      <li>Flexible and extensible focal point for optimization; and&nbsp;</li> 
+      <li>Easy integration with Big Data projects such as Apache Hadoop and Apache Spark</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>&quot;Apache Mnemonic provides a unified interface for memory management,&quot; said Yanhui Zhao, Apache Mnemonic Committer. &quot;It is playing a significant role in reshaping the memory management in current computer architecture along with the developments of large capacity NVMs, making a smooth transition from present mechanical-based storage to flash-based storage with the minimum cost.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Mnemonic provides intuitive abstractions and APIs to help make non-volatile memory a more natural and integrated part of data system development,&quot; said Wes McKinney, Software Architect at Two Sigma Investments and member of the Apache Arrow Project Management Committee.</div> 
+  <div><br /></div> 
+  <div>Apache Mnemonic is in use by many industries, including eCommerce, Financial Services, and Semiconductors, among others.</div> 
+  <div><br /></div> 
+  <div>&quot;Next generation compute platforms will be dominated by technologies like non-volatile memory (NVM). As NVMs proliferate, we will need to revisit the memory access and the computation models,&quot; said Debojyoti Dutta, Distinguished Engineer at Cisco, and member of the Apache Metron and Mnemonic Project Management Committees. &quot;Apache Mnemonic fills the gap around an urgent need to unify the memory management for JVM based applications. Given the proliferation of JVM based data intensive platforms, I expect Mnemonic to have a profound impact in leveraging NVMs for data workloads.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Mnemonic project will help in building memory based storage systems with the modern big memory storages,&quot; said Uma Maheswara Rao G, ASF Member, and member of the Apache Incubator and Hadoop Project Management Committees. &quot;One of the key and useful goal is to avoid the serde overheads while storing and accessing durable objects. The Unified interface of Mnemonic allow us to leverage different type of storage services, that allow applications to use storage services transparently.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Today’s challenge of data processing from different persistence layers is a big rock for application to manipulate easily and quickly, especially in the world of hybrid from on-premises to in the Cloud,&quot; said Luke Han, CEO of Kylingence, ASF Member, and Vice President of Apache Kylin. &quot;Apache Mnemonic brings a way simplified such investment for it, which saved a lot of efforts to unify underlying storage options and speed up project implementation very much.&quot;</div> 
+  <div> </div> 
+  <div><br /></div> 
+  <div>&quot;We invite individuals interested in Apache Mnemonic to join our mailing lists and contribute to the project,&quot; added Wang. &quot;We welcome user feedback across deployments of all scales.&quot;</div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight</strong></div> 
+  <div>Apache Mnemonic software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Mnemonic, visit <a href="http://mnemonic.apache.org/">http://mnemonic.apache.org/</a> and <a href="https://twitter.com/ApacheMnemonic">https://twitter.com/ApacheMnemonic</a> </div> 
+  <div> 
+    <p><strong>About the Apache Incubator<br /></strong>The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organizations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF. For more information, visit <a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p> 
+  </div> 
+  <div> </div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 680 individual Members and 6,300 Committers across six continents successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Facebook, Google, Hortonworks, Huawei, IBM, Inspur, iSIGMA, ODPi, LeaseWeb, Microsoft, PhoenixNAP, Pivotal, Private Internet Access, Red Hat, Serenata Flowers, Target, Union Investment, WANdisco, and Yahoo. For more information, visit <a href="http://apache.org/">http://apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Mnemonic&quot;, &quot;Apache Mnemonic&quot;, &quot;Arrow&quot;, &quot;Apache Arrow&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, &quot;Metron&quot;, &quot;Apache Metron&quot;, &quot;Spark&quot;, &quot;Apache Spark&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div>

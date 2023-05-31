@@ -1,0 +1,49 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 13 January 2017'
+date: '2017-01-13T00:00:00+00:00'
+categories: foundation
+---
+<p>It's Friday! Here's what the Apache community has been up to over the past week:</p> 
+  <div> 
+    <p>Success at Apache –the new monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;. &nbsp; <br />&nbsp;- January's post: &quot;All Carrot and No Stick&quot; <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a></p> 
+    <p>Notice: Apache Project Name Change –Apache Zest Renamed to Apache Polygene <a href="https://s.apache.org/4Klg%20">https://s.apache.org/4Klg </a></p> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 18 January 2017. Board calendar and minutes available at&nbsp;<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield swift performance at 99.65% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- CFP OPEN: Apache: Big Data and ApacheCon North America 16-18 May 2017/Miami&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- 2016/Seville's session recordings are being processed and posted at Feathercast&nbsp;<a href="http://feathercast.org/">http://feathercast.org</a></p> 
+    <p>Apache Incubator&nbsp;–projects and communities intending to become fully-fledged projects under the auspices of The Apache Software Foundation do so through the Apache Incubator.<br />&nbsp;- Call for Entries --Apache Incubator Logo <a href="https://s.apache.org/rFii">https://s.apache.org/rFii</a></p> 
+    <p>Apache Beam™ –unified programming model for batch and streaming Big Data processing, handling data of any scale, and providing portability across multiple execution engines and environments.<br />&nbsp;- The Apache Software Foundation Announces Apache Beam as a Top-Level Project <a href="https://s.apache.org/u67z">https://s.apache.org/u67z</a></p> 
+    <p>Apache Calcite™ –a dynamic data management framework.<br />&nbsp;- Apache Calcite 1.11.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/calcite/apache-calcite-1.11.0/">http://www.apache.org/dyn/closer.cgi/calcite/apache-calcite-1.11.0/</a></p> 
+    <p>Apache CloudStack™ –an integrated Infrastructure-as-a-Service (IaaS) software platform that allows users to build feature-rich public and private cloud environments.<br />&nbsp;- Apache CloudStack 4.9.2.0 released&nbsp;<a href="http://cloudstack.apache.org/downloads.html">http://cloudstack.apache.org/downloads.html</a></p> 
+    <p>Apache Eagle™ –intelligent Big Data monitoring and alerting solution in use at high volume, high demand Websites, platforms, and organizations such as eBay, PayPal, Dataguise, and YHD.com, among others. <br />&nbsp;- The Apache Software Foundation Announces Apache Eagle as a Top-Level Project&nbsp;<a href="https://s.apache.org/lRU1">https://s.apache.org/lRU1</a></p> 
+    <p>Apache HttpComponents™ Core – a set of low level HTTP transport components that can be used to build custom client and server side HTTP services with a minimal footprint.<br />&nbsp;- Apache HttpComponents Core 4.4.6 GA released&nbsp;<a href="http://hc.apache.org/downloads.cgi">http://hc.apache.org/downloads.cgi</a></p> 
+    <p>Apache Jackrabbit™ –a fully compliant implementation of the Content Repository for Java(TM) Technology API, version 2.0 (JCR 2.0) as specified in the Java Specification Request 283 (JSR 283).<br />&nbsp;- Apache Jackrabbit 2.14.0 and 2.15.0, and Jackrabbit Oak 1.5.17 and 1.2.23 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache MyFaces™ Tobago – a component library for JavaServer Faces (JSF) that allows to write Web applications without the need of coding HTML, CSS and JavaScript.<br />&nbsp;- Apache Tobago 3.0.0 released&nbsp;<a href="http://myfaces.apache.org/tobago/">http://myfaces.apache.org/tobago/</a></p> 
+    <p>Apache OpenJPA™ –a Java persistence project that can be used as a stand-alone POJO persistence layer or integrated into any Java EE compliant container and many other lightweight frameworks, such as Tomcat and Spring.<br />&nbsp;- Apache OpenJPA 2.4.2 released&nbsp;<a href="http://openjpa.apache.org/downloads.html">http://openjpa.apache.org/downloads.html</a></p> 
+    <p>Apache OpenMeetings™ –provides video conferencing, instant messaging, white board, collaborative document editing and other groupware tools using API functions of the Red5 Streaming Server for Remoting and Streaming.<br />&nbsp;- Apache OpenMeetings 3.1.4 released&nbsp;<a href="http://openmeetings.apache.org/downloads.html">http://openmeetings.apache.org/downloads.html</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <p><a href="http://qpid.apache.org/download.html"></a></p>&nbsp;- Did you know that there are hundreds of *new* code contributors to Apache projects each month?&nbsp;<a href="https://twitter.com/TheASF/status/819220448625983488">https://twitter.com/TheASF/status/819220448625983488</a><br /> 
+    <p>&nbsp;- Did you know that Ippon uses Apache Kafka, Spark, and ZooKeeper to analyze 25 million records per day?&nbsp;<a href="http://kafka.apache.org/">http://kafka.apache.org/</a>&nbsp;,&nbsp;<a href="http://spark.apache.org/">http://spark.apache.org/</a>&nbsp;, and&nbsp;<a href="http://zookeeper.apache.org/">http://zookeeper.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that hundreds of thousands of software solutions are distributed under the Apache License, with Web requests from every UN-recognized nation?&nbsp;<a href="http://apache.org/licenses/">http://apache.org/licenses/</a> </p> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; is a new monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;. First article: Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a></p> 
+    <p>&nbsp;- Feedback from The Apache Software Foundation on the Free and Open Source Security Audit (FOSSA) <a href="https://s.apache.org/romf">https://s.apache.org/romf</a></p> 
+    <p>&nbsp;- ASF Operations Summary - Q2 FY2017 <a href="https://s.apache.org/oTOF">https://s.apache.org/oTOF</a></p> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Syncope, Tika, Trafodion, Zest, and more!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon North America and Apache:BigData will be held 16-18 May 2017 in Miami &nbsp;<a href="http://apachecon.com/">http://apachecon.com/<br /></a></p> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from&nbsp;<a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a>and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

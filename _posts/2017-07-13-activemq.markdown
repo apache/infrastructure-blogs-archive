@@ -1,0 +1,42 @@
+---
+layout: post
+title: Actor and Executors
+date: '2017-07-13T00:00:00+00:00'
+categories: activemq
+---
+<p><i>Disclaimer:</i> I am talking about ActiveMQ Artemis internals here, giving tips on how you could achieve something similar on any system.</p>
+
+<p>Systems today make heavy usage of Executors. No matter what system you chose, they are always there... Executors everywhere.</p>
+
+<p>One pitfall they usually bring is: you will have to create one Runnable every time you call the executor:</p>
+
+
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'>Executor executor; <span style='color:#3F7F5F'>// pretend this is already initialized
+</span>
+String data = <span style='color:#2A00FF'>"Hello world"</span>;
+executor.execute(<span style='font-weight:bold;color:#7B0052;'>new</span> Runnable() <span style='font-weight:bold;color:#D3171B'>{</span>
+    System.out.println(data);
+<span style='font-weight:bold;color:#D3171B'>}</span>);</pre>
+
+
+<p>If you call this millions of time, you will have lots of Runnable instantiated that will need to be cleared by the Garbage Collector. (poor guy)<p>
+
+<p>To make it easier, we haven recently introduce a new type of Executor on ActiveMQ Artemis internals. With the usage of lambdas it gets really elegant:<p>
+
+
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'>Executor parentExecutor; <span style='color:#3F7F5F'>// pretend this is already initialized
+</span>Actor&lt;String&gt; actor = <span style='font-weight:bold;color:#7B0052;'>new</span> Actor&lt;&gt;(parentExecutor, ::onMessage);
+
+<span style='color:#3F7F5F'>// this will call onMessage..
+</span><span style='color:#3F7F5F'>// an executor will be used underneath but no new Runnables are created
+</span>actor.act(<span style='color:#2A00FF'>"Hello world"</span>);
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> onMessage(String message) <span style='font-weight:bold;color:#D3171B'>{</span>
+   System.out.println(message);
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+
+<p>Look at the code yourself if you want to have a similar pattern on your system:</p>
+<p>- <a href="https://github.com/apache/activemq-artemis/tree/713774361236d41de3a7ec5e4dbea87813fbad89/artemis-commons/src/main/java/org/apache/activemq/artemis/utils/actors">Our commons packet</a></p>
+
+<p>- <a href="https://github.com/apache/activemq-artemis/blob/713774361236d41de3a7ec5e4dbea87813fbad89/artemis-server/src/main/java/org/apache/activemq/artemis/core/protocol/core/ServerSessionPacketHandler.java#L249-L250">Code in use</a></p>

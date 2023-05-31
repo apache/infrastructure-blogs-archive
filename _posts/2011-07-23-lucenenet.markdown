@@ -1,0 +1,8 @@
+---
+layout: post
+title: New Website
+date: '2011-07-23T00:00:00+00:00'
+categories: lucenenet
+---
+<p style="font-family: Calibri; font-size: 12px; ">With the close of the 99designs contest for a new logo that Jeff Atwood of SO fame gracious put on, we now have a new logo. With it we've built a slimmed down website that hopefully allows users to find what they are looking for quickly without all the extra fluff.</p> 
+  <p style="font-family: Calibri; font-size: 12px; ">Stay tuned for the 2.9.4 release!</p>

@@ -1,0 +1,28 @@
+---
+layout: post
+title: "[ANNOUNCE] Apache NetBeans 16 Released"
+date: '2022-12-15T00:00:00+00:00'
+categories: netbeans
+---
+<p>The Apache NetBeans team is pleased to announce that Apache NetBeans 16 was released on November 30, 2022 (though there's been a delay in announcing the release).</p>
+
+<p>What's in the Apache NetBeans 16 release:</p>
+
+<p><a href="https://github.com/apache/netbeans/releases/tag/16">https://github.com/apache/netbeans/releases/tag/16</a></p>
+
+<p>With thanks to 26 contributors, including some who have contributed for the first time. Thank you!</p>
+
+<p>Downloads:</p>
+
+<p><a href="https://netbeans.apache.org/download/nb16/">https://netbeans.apache.org/download/nb16/</a></p>
+
+<p>See our release schedule:</p>
+
+<p><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Release+Schedule">https://cwiki.apache.org/confluence/display/NETBEANS/Release+Schedule</a></p>
+
+<p>Feel free to share the good news!</p>
+
+<p>Thanks everyone, and best wishes,</p>
+
+<p>Neil, Eric, Martin, Geertjan</p>
+<p>on behalf of Apache NetBeans PMC</p>

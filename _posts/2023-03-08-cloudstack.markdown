@@ -1,0 +1,31 @@
+---
+layout: post
+title: Future-Proof Open-Source Platform Hosting Millions of Websites for Your.Online
+date: '2023-03-08T00:00:00+00:00'
+categories: cloudstack
+---
+<a href="https://blogs.apache.org/cloudstack/mediaresource/4d7d7c8f-3951-4d15-9340-b1360357d6f7"><img src="https://blogs.apache.org/cloudstack/mediaresource/4d7d7c8f-3951-4d15-9340-b1360357d6f7" alt="YO-cs-1200-628.jpg" width="750" height="393" /></a>
+
+<p><a href="https://your.online/" target="_blank">Your.Online</a> is a team of pioneers from all over the world united by the passion for helping businesses succeed online. Their teams of local experts provide highly standardized managed services to high-intent customers to reach their full online potential. The group serves over 1 million customers and generates &euro;175m in revenue with its eight brands and 600 employees.&nbsp;</p>
+<p>Your.Online needed to build a centralized IaaS cloud platform for four of their brands - Versio, Yourhosting, Savvii and Axarnet. The four companies ran on different infrastructure platforms using technologies like VMware, RHEV, Xen server, Virtuozzo, Proxmox, custom-built solutions and many others. This made it extremely hard and nearly impossible to manage their infrastructure centrally and ensure reliability and operational effectiveness.&nbsp;</p>
+&nbsp
+<a href="https://blogs.apache.org/cloudstack/mediaresource/d9f0bb38-580a-411c-9318-b1a11143e881" style="background-color: #70A7C5; color: white; padding: 1em 1.5em; text-decoration: none; text-transform: uppercase;"><b>DOWNLOAD THE CASE STUDY</b></a>
+&nbsp
+&nbsp
+<p><span style="font-size: x-large;"><strong>Building a Centralised Platform Based on CloudStack</strong></span></p>
+<p>Your.Online has built a centralized platform powered by CloudStack, Ceph, TrueNAS and KVM to be utilized by all their hosting brands. The new solution allowed the company to simplify infrastructure management and have end-to-end visibility of the processes inside from a single pane of glass.</p>
+<p>Your.Online uses BGP, EVPN and VXLAN with CloudStack&rsquo;s Advanced networking model. This allows them to scale networks very easily in a redundant and high-performant way over multiple data centers. This is a built-in functionality of CloudStack, which when combined with IPv6 support and security groups makes for a modern and future-proof solution, on which they can continue to invest and grow.</p>
+&nbsp
+<p><img src="https://blogs.apache.org/cloudstack/mediaresource/85db8d29-cf32-409b-b3b2-1d23df9f598d" alt="Wido.png width="128" height="135" align="left" hspace="12" /><span style="font-size: x-large;"><strong>Ensuring Reliability in the Long Term</strong></span></p>
+<p><em><span>&ldquo;One of the reasons to centralize on CloudStack is to have one single point of truth about the utilization of our assets. One overview of the VMs, assets and capacity utilization. Now we can automate against one platform, and for us, the main driver to choosing CloudStack was that it is an open-source project governed by the Apache Software Foundation. We know it is a stable platform both from a technical and legal perspective. The project will be live in the next ten years, allowing us to avoid the risk associated with commercial projects - usually licensing and governance problems.&rdquo;</span></em></p>
+<p><span>-<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span>Wido den Hollander, CTO, Your.Online</span></strong></p>
+&nbsp
+<a href="https://blogs.apache.org/cloudstack/mediaresource/d9f0bb38-580a-411c-9318-b1a11143e881" style="background-color: #70A7C5; color: white; padding: 1em 1.5em; text-decoration: none; text-transform: uppercase;"><b>DOWNLOAD THE CASE STUDY</b></a>
+&nbsp
+&nbsp
+<p><span style="font-size: x-large;"><strong>About Your.Online</strong></span></p>
+<p><a href="https://your.online/">Your.Online</a> is a leading European online services platform supporting businesses of all sizes in realizing and scaling their online ambitions. The company is a team of pioneers from all over the world united by the passion of helping businesses succeed online. Their team consists of local experts providing highly standardized managed services to high-intent customers to reach their full online potential.</p>
+<p>In building a future of more online possibilities, they focus on using climate-friendly data centers, use highly efficient hardware, continuous focus on further optimization of their infrastructure, prolonging the use of servers as much as possible and professionally recycling the ones that are no longer functional. All these priorities create both business value and sustainable impact.</p>
+&nbsp
+<p><span style="font-size: x-large;"><strong>About Apache CloudStack</strong></span></p>
+<p>Apache CloudStack is an open-source cloud management solution designed to deploy and manage large networks of virtual machines, as a highly available, highly scalable Infrastructure as a Service (IaaS) cloud computing platform. CloudStack is used by a number of service providers to offer public cloud services, and by many companies to provide an on-premises (private) cloud offering, or as part of a hybrid cloud solution.</p>

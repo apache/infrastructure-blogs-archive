@@ -1,0 +1,114 @@
+---
+layout: post
+title: Fast Messaging With Apache ActiveMQ Artemis
+date: '2016-12-13T00:00:00+00:00'
+categories: activemq
+---
+<h3>First, what is Apache ActiveMQ Artemis</h3>
+
+<p>Apache Artemis is a sub project of ActiveMQ, where we are developing a new broker using 100% asynchronous back end. Messages are through a fast Journal Storage or through its Paging System when messages are beyond the capacity of the memory.</p>
+
+<p>It was based on the donation from HornetQ, but it has evolved a lot since it joined the Apache ActiveMQ community, both evolving as a software and as an open source community</p>
+
+<p>You can do either very fast messaging without using transactions, or you can use its mature transaction API (XA or regular transactions)</p>
+
+<p>On this blog entry here I will cover how you can send thousands of messages per second by sending them asynchronously. Since there are many users interested in not using a transaction at all these days.</p>
+
+<h3>
+This is a guide to how to make your producers and consumers fly with Artemis</h3>
+
+Many users have been using message systems that will favor performance instead of full guarantees of writes.<br />
+<br />
+This is something we have been doing for years with the Artemis codebase, including Artemis and previous versions of HornetQ.<br />
+<br />
+This is a small tutorial to do such thing with Artemis, pretty simple and quite powerful.<br />
+<br />
+This will make sender to be 100% asynchronous, So you never block the producer and you can easily make thousands messages / second.<br />
+<br />
+Even still the guarantees are quite high as the message will be persisted at the journal within milliseconds.<br />
+<br />
+So, here is how you do it:<br />
+<h2>
+<ul>
+<li>Disable Block on Persistent Messages:</li>
+</ul>
+</h2>
+There are two ways you can do that:<br />
+<h4>
+I - Disable blockOnDurableSend through a property:</h4>
+<br />
+<pre>ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
+factory.setBlockOnDurableSend(false);
+</pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<h4>
+II - Disable blockOnDurableSend through the URI for the connection Factory:</h4>
+<pre>ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616?blockOnDurableSend=false);
+</pre>
+<pre></pre>
+<pre></pre>
+<h2>
+<ul>
+<li>Send non Transactionally:</li>
+</ul>
+</h2>
+<div>
+A transaction means a hard sync on the world. Make a round trip to the server and sync on disk.</div>
+<div>
+If you send a regular Persistent Message, asynchronously, then you get a large throughput on your producers.</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Here is a full example:</div>
+<pre>package org.apache.activemq.artemis.cli.commands.messages;
+
+import javax.jms.Connection;
+import javax.jms.Destination;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+
+import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+import org.apache.activemq.artemis.jms.client.ActiveMQDestination;
+
+public class FastProducer {
+
+   public static void main(String arg[]) {
+      try {
+         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616?blockOnDurableSend=false");
+         Connection connection = factory.createConnection();
+         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+         Destination queue = ActiveMQDestination.createDestination("queue://TEST", ActiveMQDestination.QUEUE_TYPE);
+         MessageProducer producer = session.createProducer(queue);
+
+         long time = System.currentTimeMillis();
+
+         for (int i = 0; i &lt; 100000; i++) {
+            producer.send(session.createTextMessage("hello guys"));
+         }
+
+         System.out.println("Send message in " + (System.currentTimeMillis() - time) + " milliseconds");
+
+         connection.close();
+      }
+      catch (Exception e) {
+
+      }
+   }
+}
+</pre>
+<pre></pre>
+With this little example here<b> I am able to send 100K messages in less than 2 seconds</b> using my laptop.
+
+<br />
+<br />
+<pre>Send message in 1772 milliseconds</pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre>And we are still improving things. Watch out for more improvements over the next month :)
+
+</pre>

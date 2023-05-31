@@ -1,0 +1,84 @@
+---
+layout: post
+title: Log4j 2.8.1 released
+date: '2017-03-03T00:00:00+00:00'
+categories: logging
+---
+<img src="http://logging.apache.org/log4j/2.x/images/logo.png" />
+<p>
+The Apache Log4j 2 team is pleased to announce the Log4j 2.8.1 release!
+</p><p>
+
+Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides many other modern features such as support for Markers, lambda expressions for lazy logging, property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous Loggers. Another notable Log4j 2 feature is the ability to be "garbage-free" (avoid allocating temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring.
+</p><p>
+
+This release primarily contains bugfixes and minor enhancements. More details on the new features and fixes are itemized below.
+</p><p>
+
+Note that subsequent to the 2.6 release a minor source incompatibility was found due to the addition of new methods to the Logger interface. If you have code that does:
+</p><p>
+
+<tt>logger.error(null, “This is the log message”, throwable);</tt>
+</p><p>
+or similar with any log level you will get a compiler error saying the reference is ambiguous. To correct this either do:
+</p><p>
+
+<tt>logger.error(“This is the log message”, throwable);</tt>
+</p><p>
+or
+</p><p>
+
+<tt>logger.error((Marker) null, “This is the log message”, throwable);</tt>
+</p><p>
+The Log4j 2.8.1 API, as well as many core components, maintains binary compatibility with previous releases.
+</p>
+
+<h2>GA Release 2.8.1</h2>
+
+<p>
+Changes in this version include:
+</p><p>
+
+New Features
+</p>
+
+<ul>
+<li><a href="https://issues.apache.orgs/jira/browse/LOG4J2-1823">LOG4J2-1823</a>: Remove deprecation on MessageSupplier lambda functions in Logger API.
+<li><a href="https://issues.apache.orgs/jira/browse/LOG4J2-1807">LOG4J2-1807</a>: [core] Add and implement LogEvent.toImmutable().
+</ul>
+<p>
+Fixed Bugs
+</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1804">LOG4J2-1804</a>: Allow %i in file pattern to be preceded with characters other than just '-'. Thanks to Pierrick Hymbert.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1816">LOG4J2-1816</a>: Change minOccur to minOccurs in Log4j-config.xsd. Thanks to shubhankar1100.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1803">LOG4J2-1803</a>: Fix Maven POM to ensure JMH generated classes in log4j-perf are included in benchmarks jar.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1800">LOG4J2-1800</a>: Report errors when sending to Kafka when using syncSend=false. Thanks to Vincent Tieleman.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1805">LOG4J2-1805</a>: Fixed rare race condition in FixedDateFormat, made FixedDateFormat::millisSinceMidnight method public.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1799">LOG4J2-1799</a>: Fixed bug in PropertiesUtil::getCharsetProperty that caused UnsupportedCharsetException for ConsoleAppender. Thanks to Eduard Gizatullin.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1806">LOG4J2-1806</a>: Fix Javadoc for DefaultRolloverStrategy::purgeAscending Thanks to challarao.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1818">LOG4J2-1818</a>: Fix rollover to work when filePattern contains no directory components. Thanks to xkr47.
+</ul>
+
+<p>
+Changes
+<p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1822">LOG4J2-1822</a>: Update SLF4J to 1.7.24.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1812">LOG4J2-1812</a>: Improved error message when log4j 2 configuration file not found.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1810">LOG4J2-1810</a>: Update to use Logback 1.1.10 and then Logback 1.2 for tests.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1819">LOG4J2-1819</a>: Update Jackson from 2.8.5 to 2.8.6.
+</ul>
+
+<p>
+Apache Log4j 2.8.1 requires a minimum of Java 7 to build and run. Log4j 2.3 was the last release that supported Java 6.
+</p><p>
+
+Basic compatibility with Log4j 1.x is provided through the log4j-1.2-api component, however it does not implement some of the very implementation specific classes and methods. The package names and Maven groupId have been changed to org.apache.logging.log4j to avoid any conflicts with log4j 1.x.
+</p><p>
+
+For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:
+</p><p>
+
+<a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a>
+</p>

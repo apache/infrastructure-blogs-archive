@@ -1,0 +1,90 @@
+---
+layout: post
+title: Starting Apache Falcon in distributed mode
+date: '2014-03-20T00:00:00+00:00'
+categories: falcon
+---
+Apache Falcon can be deployed in two modes, Embedded mode and Distributed mode. Both the modes have there uses which are described below : 
+
+1. Embedded Mode : Embedded mode is also called standalone mode.  This setup is useful when you have only one cluster from where you want data to be managed and processed. All the request like submit, delete, schedule etc go to the single server that is started.  
+
+
+  
+  <h3>To start falcon in distributed mode the following steps are required : </h3>
+
+1. Build falcon in distributed mode 
+2. Edit startup property for falcon server / servers 
+3. Edit runtime property for falcon prism 
+4. Example
+
+
+  
+  <h4>Step 1. Build falcon in distributed mode</h4>
+
+Please follow the steps <a href="http://falcon.incubator.apache.org/docs/InstallationSteps.html">here</a>  for building falcon in distributed mode. 
+If above step is successful you should have 3  &quot;.tar.gz&quot; files at the end ,one each for falcon prism, server and client in the target dirs. 
+
+
+  
+  <h4>Step 2. Edit startup property for falcon server</h4>
+
+For starting falcon in distributed we need to provide logical names to servers we are starting. These names need to be mentioned in startup.properties for the given server. 
+
+Add the following property in the &quot;conf/startup.properties&quot; in the server package you have untar.  
+
+  
+  <pre class="code2">         *.current.colo=&lt; colo name &gt;
+</pre>
+
+Colo is a colocation or a physical data centre location where one or more clusters may be configured.
+
+If you are planning to start more than one server add the above in each of the conf/startup.properties . 
+Remember the cole name you have mentioned here. Same name should be used in cluster.xml while submitted a cluster later via prism. 
+
+Start the servers using the commands given here  <a href="http://falcon.incubator.apache.org/docs/InstallationSteps.html">here</a> 
+  <h4>Step 3. Edit runtime property for falcon prism</h4>
+
+Untar the falcon prism package. 
+
+Once servers have been configured and started, prism need to be configured with information on where these servers are started.
+For that below two properties needs to be added to prism &quot;conf/runtime.properties&quot; . 
+
+
+  
+  <pre class="code2">*.all.colos=&lt; colo name 1 &gt;, &lt; colo name 2 &gt;
+*.falcon.&lt; colo name 1 &gt;.endpoint=http://&lt; hostname 1 &gt;:15000
+*.falcon.&lt; colo name 2 &gt;.endpoint=http://&lt; hostname 2 &gt;:15000
+</pre>
+
+Start Falcon Prism using commands given here <a href="http://falcon.incubator.apache.org/docs/InstallationSteps.html">here</a> 
+  <h4>Example : </h4> 
+
+If you are configuring a falcon setup with 1 prism and 2 servers, with cluster name cluster1 and cluster2, below are the thing that needs to added :
+
+1. edit server one startup.properties and add *.current.colo=colo1
+2. edit server two startup.properties and add *.current.colo=colo2
+3. Start the servers
+4. edit prism runtime.properties and add 
+
+
+  
+  <pre class="code2">     *.all.colos=colo1, colo2
+     *.falcon.colo1.endpoint=http://&lt; hostname 1 &gt;:15000
+     *.falcon.colo2.endpoint=http://&lt; hostname 2 &gt;:15000
+</pre>
+
+5. Start falcon prism. 
+
+
+  
+  <h3>Note:</h3> By default falcon server start with its own activemq, if for any reason you dont want embedded activemq (like starting more than one server on same host) , it can be disabled. 
+
+Step 1. Disable start of activemq in falcon server start script 
+             edit  &quot;bin/falcon-start&quot;  script and add 
+             FALCON_OPTS=&quot;-Dfalcon.embeddedmq=false&quot;
+
+Step 2. In startup.properties of falcon server add your own activemq url 
+
+  
+  <pre class="code2">              *.broker.url=tcp://localhost:61616 
+</pre>

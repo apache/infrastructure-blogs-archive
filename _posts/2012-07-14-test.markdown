@@ -1,0 +1,7 @@
+---
+layout: post
+title: Jira malarky
+date: '2012-07-14T00:00:00+00:00'
+categories: test
+---
+<p>screen shot 2012-07-12 at 21.39.52.png</p><a href="https://blogs.apache.org/test/mediaresource/893fef95-52d1-493b-b328-44a0e009d935"><img src="https://blogs.apache.org/test/mediaresource/893fef95-52d1-493b-b328-44a0e009d935?t=true" alt="screen shot 2012-07-12 at 21.39.52.png" width="120" height="57" /></a>

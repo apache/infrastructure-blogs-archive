@@ -1,0 +1,121 @@
+---
+layout: post
+title: ApacheCon North America Announces "Open Source Community Leadership Drives
+  Enterprise-Grade Innovation"
+date: '2012-12-12T00:00:00+00:00'
+categories: conferences
+---
+<p class="MsoNormal"><b><i>Program for 25th edition of official conference series of The Apache
+Software Foundation showcases dozens of key Apache projects across Big Data, Cloud
+Computing, Infrastructure, Messaging, Scientific Applications, and more.</i></b><i><o:p /></i></p> 
+  <p class="MsoNormal"><b>Forest Hill, MD – 12 December
+2012 –</b> ApacheCon, the official conference, trainings, and expo of The
+Apache Software Foundation (ASF), today announced the program and early registration
+incentives for ApacheCon North America 2013.<o:p /></p> 
+  <p class="MsoNormal">The 25th edition of the ASF's popular conference and
+community series will take place 24 February-2 March 2013 at the Hilton
+Portland &amp; Executive Tower in Portland, Oregon, with the following agenda:<o:p /></p> 
+  <p class="MsoNormal">24-25 February: pre-conference trainings, BarCamp, and Hackathon
+activities<br />
+26-28 February: main conference + expo, evening events, BOFs, and MeetUps<br />
+1-2 March: post-conference sprints, workshops, and team building events<o:p /></p> 
+  <p class="MsoNormal">This year's theme is &quot;Open Source Community Leadership
+Drives Enterprise-Grade Innovation&quot;, reflecting the enormous reach and
+influence of the ASF. Apache products power half the Internet, petabytes of
+data, teraflops of operations, billions of objects, and enhance the lives of countless
+users and developers.<o:p /></p> 
+  <p class="MsoNormal"><b>Community-led
+Programming<o:p /></b></p> 
+  <p class="MsoNormal">Selected by Apache Members and Committers, the ApacheCon
+program celebrates the diversity of the many projects under the Apache banner. Track
+highlights include:<o:p /></p> 
+  <p class="MsoNormal"><b><i>- Overture and Beginners –Apache 101<br /> </i></b><i> --Apache projects &amp; topics include CloudStack,
+CXF, Flex, Hadoop, HBase, Hive, Kafka, Syncope, tools &amp; incubation<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- A Patchy Web –the future of servers and performance<br /> </i></b><i>--Apache projects &amp; topics
+include Apache HTTP Server, Tomcat, Traffic Server, Cloud Computing, modules, monitoring,
+performance, proxying, security, troubleshooting<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- Community Over Code –the nuts and bolts of The Apache Way<br /> </i></b><i>-- topics include branding, committership,
+community development, collaboration, documentation, enterprise solutions, open
+development, staffing management, student engagement, volunteer effort<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- Tapping the Stream –all about enterprise integration and messaging<br /> </i></b><i>--Apache projects &amp; topics
+include Apollo, Qpid, Rave, Streams, integration, next-generation messaging,
+OpenSocial<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- Cloud Crowd –leading the evolution: strategies, transitions,
+disruptions</i></b><br /> <i>--Apache projects &amp; topics include
+Cloudstack, Hadoop, HBase, authorization, delivery models, enterprise adoption,
+object storage, performance, scalability, troubleshooting, virtual machines</i><o:p /></p> 
+  <p class="MsoNormal"><b><i>- Apache in Science –innovation in bleeding-edge scientific applications<br /> </i></b><i>--Apache projects &amp; topics
+include Airavata, OODT, Solr, Big Data management &amp; processing, metadata,
+cancer research, climate science &amp; modeling, environmental satellites, radio
+astronomy<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- Apache Open Office –the latest on the Award-winning leading Open
+Source productivity suite<o:p /></i></b></p> 
+  <p class="MsoNormal"><b><i>- Bigger Big Data –beyond scaling, capturing, analyzing, searching, and
+storing petabytes of data <br /> </i></b><i>--Apache projects &amp; topics
+include CouchDB, Flume, Hadoop, HBase, Sqoop, analysis, API management, configuration,
+data transfer, distributed systems, Firefox, integration, Helix, parsing, queries,
+real-time processing, smart search, troubleshooting<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- How Secure? –essential Web security issues <br /> </i></b><i>--Apache projects &amp; topics
+include Shiro, authentication, Big Data, certification, cryptography, key
+management<b><o:p /></b></i></p> 
+  <p class="MsoNormal"><b><i>- Cassandra –powering high performance, distributed data sets with Apache
+Cassandra<o:p /></i></b></p> 
+  <p class="MsoNormal"><b><i>- Caravan –navigating enterprise integration using Apache Camel</i></b></p> 
+  <p class="MsoNormal">Additional popular ApacheCon sessions also return, including &quot;State of the Feather&quot;, &quot;The Apache Way&quot;, &quot;The Business of Open Source&quot;, and the Fast Feather Track for an insider’s view of select projects in the Apache Incubator and Labs.</p> 
+  <p class="MsoNormal"><b>Join Us!<o:p /></b></p> 
+  <p class="MsoNormal">ApacheCon draws Open Source users, developers, gurus, students,
+novices, community managers, and enthusiasts to address today's issues,
+opportunities, and solutions focusing on the ASF's many diverse projects and
+initiatives.<o:p /></p> 
+  <p class="MsoNormal">Anyone interested in Apache products is welcome: ASF
+affiliation is not required to present at, attend, or otherwise participate in
+ApacheCon.<o:p /></p> 
+  <p class="MsoNormal"><b>Registration
+Information<o:p /></b></p> 
+  <p class="MsoNormal">Early registration incentives include savings of up to $300
+when registering by 31 December 2012, as well as special rates for students and
+Apache Committers. Many pre- and post-conference events, evening project MeetUps
+and BOFs are available to the community free of charge. To register, visit
+<a href="http://na.apachecon.com/">http://na.apachecon.com/</a> .<o:p /></p> 
+  <p class="MsoNormal">Discounted sleeping room rates have been secured for ApacheCon
+attendees at the conference hotel until 28 January 2013. Requests made after
+the cutoff date or after the room block is sold out (whichever comes first) will
+be fulfilled based on availability at the prevailing rate of the hotel. Participants
+are encouraged to register early at <a href="http://na.apachecon.com/venue/">http://na.apachecon.com/venue/</a> .<o:p /></p> 
+  <p class="MsoNormal"><b>Sponsors, Exhibitors,
+and Partners<o:p /></b></p> 
+  <p class="MsoNormal">ApacheCon Sponsors include AppDynamics, IBM, HP, RedHat, and VMWare, and are
+joined by SourceForge, official event Media Partners. For sponsor, exhibitor,
+and community partnership opportunities, contact Nancy Asche &lt;acnasponsorsATtheopenbastionDOTcom&gt;.<o:p /></p> 
+  <p class="MsoNormal">Conference registration is complimentary for members of the
+press and analyst community with valid credentials. For media partnerships and registration,
+contact Corinna Rogers at &lt;corinnaATstaedelcommsDOTcom&gt; or on +1 404 941
+4234 for more information.<o:p /></p> 
+  <p class="MsoNormal"><b>Staying Informed, Getting
+Involved<o:p /></b></p> 
+  <p class="MsoNormal">To register or make a donation, visit <a href="http://na.apachecon.com/">http://na.apachecon.com/</a> .
+To volunteer, connect with participants, or contribute to the &quot;local
+guide&quot; wiki, visit http://wiki.apache.org/apachecon/ .<o:p /></p> 
+  <p class="MsoNormal">To keep up with the latest developments and program updates,
+<a href="http://apache.org/foundation/mailinglists.html#foundation-announce">subscribe to announce@apachecon.com</a>, follow the <a href="https://twitter.com/ApacheCon">@ApacheCon feed on Twitter</a>, and
+track the event on Lanyrd at <a href="http://lanyrd.com/2013/apachecon/">http://lanyrd.com/2013/apachecon/</a> .<o:p /></p> 
+  <p class="MsoNormal">ApacheCon is produced by The Open Bastion in partnership
+with The Apache Software Foundation.<b><o:p /></b></p> 
+  <p class="MsoNormal">&quot;Apache&quot;, &quot;ActiveMQ Apollo&quot;, &quot;Apache
+ActiveMQ Apollo&quot;, &quot;Airavata&quot;, &quot;Apache Airavata&quot;, &quot;Camel&quot;,
+&quot;Apache Camel&quot;, &quot;Cassandra&quot;, &quot;Apache Cassandra&quot;,
+&quot;CloudStack&quot;, &quot;Apache CloudStack&quot;, &quot;CXF&quot;, &quot;Apache
+CXF&quot;, &quot;CouchDB&quot;, &quot;Apache CouchDB&quot;, &quot;Flex&quot;,
+&quot;Apache Flex&quot;, &quot;Flume&quot;, &quot;Apache Flume&quot;, &quot;Hadoop&quot;,
+&quot;Apache Hadoop&quot;, &quot;HBase&quot;, &quot;Apache HBase&quot;, &quot;Hive&quot;,
+&quot;Apache Hive&quot;, &quot;Apache HTTP Server&quot;, &quot;Kafka&quot;, &quot;Apache
+Kafka&quot;, &quot;OODT&quot;, &quot;Apache OODT&quot;, &quot;OpenOffice&quot;,
+&quot;Apache OpenOffice&quot;, &quot;Qpid&quot;, &quot;Apache Qpid&quot;, &quot;Rave&quot;,
+&quot;Apache Rave&quot;, &quot;Shiro&quot;, &quot;Apache Shiro&quot;, &quot;Solr&quot;,
+&quot;Apache Solr&quot;, &quot;Sqoop&quot;, &quot;Apache Sqoop&quot;, &quot;Streams&quot;,
+&quot;Apache Streams&quot;, &quot;Syncope&quot;, &quot;Apache Syncope&quot;, &quot;Tomcat&quot;,
+&quot;Apache Tomcat&quot;, &quot;Traffic Server&quot;, &quot;Apache Traffic
+Server&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache Software
+Foundation. All other brands and trademarks are the property of their
+respective owners.<o:p /></p> 
+  <p class="MsoNormal"># # #<o:p /></p>

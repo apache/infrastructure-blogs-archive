@@ -1,0 +1,44 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 21 July 2017'
+date: '2017-07-21T00:00:00+00:00'
+categories: foundation
+---
+<p>Hello, Friday. Let's take a look at what the Apache community has been working on over the past week:</p> 
+  <p>Support Apache&nbsp;–Apache's community-led projects bring billions in value to users, developers, and critical applications. Every dollar counts. <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 16 August. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br />&nbsp;- ASF Annual Report for 2017 Fiscal Year&nbsp;<a href="https://s.apache.org/IDn5">https://s.apache.org/IDn5</a></p> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield shipshape performance at 94.89% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Geode™ –Big Data management platform that provides a database-like consistency model, reliable transaction processing and a shared-nothing architecture to maintain very low latency performance with high concurrency processing.<br />&nbsp;- Apache Geode 1.2.0 released&nbsp;<a href="http://geode.apache.org/">http://geode.apache.org/</a></p> 
+    <p>Apache Hive™ –Big Data warehouse software that facilitates querying and managing large datasets residing in distributed storage.<br />&nbsp;- Apache Hive 2.3.0 released&nbsp;<a href="https://hive.apache.org/">https://hive.apache.org/</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit 2.4.8 and Jackrabbit Oak 1.6.3 and 1.4.17 released&nbsp;<a href="https://jackrabbit.apache.org/">https://jackrabbit.apache.org/</a></p> 
+    <p>Apache Libcloud™ –a Python library that abstracts away the differences among multiple cloud provider APIs.<br />&nbsp;- Apache Libcloud 2.1.0 released&nbsp;<a href="http://libcloud.apache.org/">http://libcloud.apache.org/</a></p> 
+    <p>Apache PDFBox™ –an Open Source Java tool for working with PDF documents.<br />&nbsp;- Apache PDFBox 2.0.7 released&nbsp;<a href="http://pdfbox.apache.org/">http://pdfbox.apache.org/</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <p>&nbsp;- Did you know that&nbsp;20% of all Apache lines of code are comments (nearly 3x the entire Linux codebase)?&nbsp;<a href="https://projects.apache.org/statistics.html">https://projects.apache.org/statistics.html</a></p> 
+    <p>&nbsp;- Did you know that the Apache Directory Fortress access control system was designed for Java runtime environments with millions of users and thousands of requests per second?&nbsp;<a href="http://directory.apache.org/">http://directory.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that the Apache OpenWebBeans Meecrowave microprofile server contains all you need to run a JavaEE-based microservice from the command line, in only 9 MB?&nbsp;<a href="http://openwebbeans.apache.org/">http://openwebbeans.apache.org/</a><br /><br /></p> 
+  </div> 
+  <div> 
+    <p><strong>Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a>&nbsp;2) All Carrot and No Stick&nbsp;<a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a>&nbsp;3)&nbsp;Asynchronous Decision Making&nbsp;<a href="https://s.apache.org/PMvk">https://s.apache.org/PMvk</a>&nbsp;4)&nbsp;Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a>&nbsp;5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a>&nbsp;6) Meritocracy and Me&nbsp;<a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a>&nbsp;7)&nbsp;Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a></p> 
+    <p>&nbsp;- If you're looking for the ASF on social media, we're <a href="https://twitter.com/TheASF">@TheASF on Twitter</a> and on LinkedIn at&nbsp;<a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a>&nbsp;(follows/re-tweets/shares/likes appreciated!)</p>&nbsp;- Presentations from ApacheCon&nbsp;<a href="https://s.apache.org/Hli7">https://s.apache.org/Hli7</a>&nbsp;and Apache: Big Data&nbsp;<a href="https://s.apache.org/tefE">https://s.apache.org/tefE</a>&nbsp;are available; as well as videos <a href="https://s.apache.org/AE3m">https://s.apache.org/AE3m</a>&nbsp;and audio recordings&nbsp;<a href="https://feathercast.apache.org/">https://feathercast.apache.org/</a> 
+    <p>&nbsp;- Check out the Apache Community Development blog&nbsp;<a href="https://blogs.apache.org/comdev/">https://blogs.apache.org/comdev/</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>&nbsp;and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+    <p>&nbsp;- The CloudStack European User Group will be held 17 August in London <a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-35565783215">https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-35565783215</a></p> 
+    <p>&nbsp;- Catch the Apache Ignite and Spark communities at the In-Memory Computing Summit 24-25 October in San Francisco&nbsp;<a href="https://imcsummit.org/">https://imcsummit.org/</a></p> 
+    <p>&nbsp;- ASF Annual Report&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+    <div> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></p> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

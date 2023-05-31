@@ -1,0 +1,24 @@
+---
+layout: post
+title: "[ANNOUNCE] Apache NetBeans 12.6 released"
+date: '2021-12-06T00:00:00+00:00'
+categories: netbeans
+---
+<p>The Apache NetBeans team is pleased to announce that Apache NetBeans 12.6 was released on November 29th 2021*.  Apache NetBeans is a full IDE for Java SE, Java EE, PHP, JavaScript, HTML5 and more, including some support for Groovy and C/C++.</p>
+
+<p>Our schedule is publicly available here:</p>
+<p><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Release+Schedule">https://cwiki.apache.org/confluence/display/NETBEANS/Release+Schedule</a></p>
+
+<p>New & noteworthy features of the 12.6 release:</p>
+<p><a href="https://netbeans.apache.org/download/nb126/index.html">https://netbeans.apache.org/download/nb126/index.html</a></p>
+
+<p>Downloads:</p>
+<p><a href="https://netbeans.apache.org/download/nb126/nb126.html">https://netbeans.apache.org/download/nb126/nb126.html</a></p>
+
+<p>Feel free to share the good news!</p>
+
+<p>Thanks everyone, and best wishes,</p>
+
+<p>Neil and Geertjan
+<br/>Release Manager for Apache NetBeans 12.6
+<br/>on behalf of Apache NetBeans PMC

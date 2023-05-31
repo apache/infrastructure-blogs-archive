@@ -1,0 +1,22 @@
+---
+layout: post
+title: log4j2-logstash-layout v0.15 released (Community Artifact)
+date: '2018-11-24T00:00:00+00:00'
+categories: logging
+---
+Volkan Yazıcı released log4j2-logstash-layout v0.15.
+<p>
+From the announcement message on the log4j-user mailing list:
+<p>
+In addition to the <a href="https://logging.apache.org/log4j/2.0/manual/layouts.html#JSONLayout">default JSONLayout</a> shipped in Log4j 2, there is also another layout plugin that you
+can use to render customized JSONs: log4j2-logstash-layout (<a href="https://github.com/vy/log4j2-logstash-layout">https://github.com/vy/log4j2-logstash-layout</a>). 
+<p>
+A couple of hours ago I released v0.15 of the plugin to Maven Central. This release ships
+a garbage-free implementation that makes <b>log4j2-logstash-layout the
+fastest and only garbage-free JSON layout</b> plugin out there in the wild. If
+you have a use case for JSON layout, you should definitely give
+log4j2-logstash-layout a try.
+<p>
+Feedback is welcome!
+<p>
+Volkan Yazıcı

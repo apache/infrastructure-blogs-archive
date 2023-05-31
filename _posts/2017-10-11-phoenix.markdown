@@ -1,0 +1,18 @@
+---
+layout: post
+title: Announcing Phoenix 4.12 released
+date: '2017-10-11T00:00:00+00:00'
+categories: phoenix
+---
+<p>The <a href="http://phoenix.apache.org" target="_blank" title="Apache Phoenix">Apache Phoenix</a> team is pleased to announce the immediate <a href="http://phoenix.apache.org/download.html" target="_blank" title="download">availability of the 4.12.0 release</a>. Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store and providing integration with other projects in the Apache ecosystem such as Spark, Hive, Pig, Flume, and MapReduce. The 4.x releases are compatible with HBase 0.98/1.1/1.2/1.3.</p> 
+  <p>Highlights of the release include:</p> 
+  <p> </p> 
+  <ul> 
+    <li>Improved <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20PHOENIX%20AND%20status%3DResolved%20AND%20fixVersion%3D%224.12.0%22%20and%20labels%3D%22secondary_index%22" target="_blank" title="scalability and reliability">scalability and reliability</a> of global mutable <a href="http://phoenix.apache.org/secondary_indexing.html" target="_blank" title="secondary indexes">secondary indexes</a></li> 
+    <li>Implemented <a href="http://phoenix.apache.org/secondary_indexing.html#Index_Scrutiny_Tool" target="_blank" title="index scrutiny tool">index scrutiny tool</a> to validate consistency between index and data table</li> 
+    <li>Introduced support for <a href="https://phoenix.apache.org/tablesample.html" target="_blank" title="table sampling">table sampling</a></li><a href="https://phoenix.apache.org/tablesample.html" target="_blank" title="table sampling"> </a> 
+    <li>Added support for <a href="https://phoenix.apache.org/language/functions.html#approx_count_distinct" target="_blank" title="APPROX_COUNT_DISTINCT">APPROX_COUNT_DISTINCT</a> aggregate function</li> 
+    <li>Stabilized unit test runs</li> 
+    <li>Fixed 100+ <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&amp;version=12340844" target="_blank" title="bug fixes">issues</a></li> 
+  </ul> 
+  <p>Source and binary downloads are available&nbsp;<a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>.</p>

@@ -1,0 +1,48 @@
+---
+layout: post
+title: "[ANN] Apache Isis version 1.5.0 - decoupling using the event bus, fixture
+  scripts, better jrebel support"
+date: '2014-06-07T00:00:00+00:00'
+categories: isis
+---
+<div style="color: #222222; font-family: arial, sans-serif;">The Isis team is pleased to announce the release of:</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Apache Isis Core version 1.5.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Wicket Viewer 1.5.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Restful Objects Viewer 2.3.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- JDO Object Store 1.5.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Shiro Security 1.5.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Simple Archetype 1.5.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Quickstart Archetype 1.5.0</div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">New features and improvements in this release include:</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Additional EventBus service events, ability to programmatically trigger events, vetoing subscribers (ISIS-550, ISIS-786)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Integration testing improvements, most notably the new FixtureScript API and auto-injection of services into integration tests (ISIS-776, ISIS-782, ISIS-783)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Better handling of multiple realms in Shiro security (ISIS-746)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Better default column sizes for applib services (command, auditing, pubsub) (ISIS-744, ISIS-750)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Precommit phase to flush pending updates for applib services (ISIS-769)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Preparatory work for move to Java 7 (ISIS-569, ISIS-770, ISIS-772)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Improved support for JRebel in Maven and various IDEs (ISIS-756)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">Notable bug fixes include:</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Fixed blob/clob mapping in JDO Objectstore (ISIS-714)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- Fixed handling of mandatory boolean parameters in Wicket viewer (ISIS-431)</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">- RO not threadsafe when buiding metamodel (ISIS-777)<br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">Full release notes are available at [1,2,3,4,5,6,7] on the Isis website.</div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">You can access this release directly from the Maven central repo [8],&nbsp;</div>
+  <div style="color: #222222; font-family: arial, sans-serif;">or download the release and build it from source [9].</div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">Enjoy!</div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">-The Isis team</div>
+  <div style="color: #222222; font-family: arial, sans-serif;"><br /></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[1] <a href="http://isis.apache.org/core/release-notes/isis-1.5.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/core/<wbr />release-notes/isis-1.5.0.html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[2] <a href="http://isis.apache.org/components/viewers/wicket/release-notes/isis-viewer-wicket-1.5.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/viewers/wicket/<wbr />release-notes/isis-viewer-<wbr />wicket-1.5.0.html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[3] <a href="http://isis.apache.org/components/viewers/restfulobjects/release-notes/isis-viewer-restfulobjects-2.3.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/viewers/<wbr />restfulobjects/release-notes/<wbr />isis-viewer-restfulobjects-2.<wbr />3.0.html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[4] <a href="http://isis.apache.org/components/objectstores/jdo/release-notes/isis-objectstore-jdo-1.5.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/objectstores/jdo/<wbr />release-notes/isis-<wbr />objectstore-jdo-1.5.0.html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[5] <a href="http://isis.apache.org/components/security/shiro/release-notes/isis-security-shiro-1.5.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/security/shiro/<wbr />release-notes/isis-security-<wbr />shiro-1.5.0.html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[6] <a href="http://isis.apache.org/getting-started/release-notes/quickstart_wrj-archetype-1.5.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />getting-started/release-notes/<wbr />quickstart_wrj-archetype-1.5.<wbr />0.html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[7] <a href="http://isis.apache.org/getting-started/release-notes/simple_wrj-archetype-1.5.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />getting-started/release-notes/<wbr />simple_wrj-archetype-1.5.0.<wbr />html</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[8] <a href="http://search.maven.org/" target="_blank" style="color: #1155cc;">http://search.maven.org</a></div>
+  <div style="color: #222222; font-family: arial, sans-serif;">[9] <a href="http://isis.apache.org/download.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />download.html</a></div>

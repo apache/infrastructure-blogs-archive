@@ -1,0 +1,92 @@
+---
+layout: post
+title: Apache Maven Dependency Plugin Version 3.1.2 Release
+date: '2020-03-12T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+<a href="https://maven.apache.org/plugins/maven-dependency-plugin/">Apache Maven Dependecy Plugin, version 3.1.2</a>.</p>
+
+<p>The dependency plugin provides the capability to manipulate artifacts. It
+can copy and/or unpack artifacts from local or remote repositories to a
+specified location.</p>
+
+<p><a href="https://maven.apache.org/plugins/maven-dependency-plugin/">https://maven.apache.org/plugins/maven-dependency-plugin/</a></p>
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>3.1.2<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>You can download the appropriate sources etc. from the download page:</p>
+
+<p><a href="https://maven.apache.org/plugins/maven-dependency-plugin/download.cgi">https://maven.apache.org/plugins/maven-dependency-plugin/download.cgi</a></p>
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317227&amp;version=12343772">Release Notes &ndash; Maven Dependency Plugin &ndash; Version 3.1.2</a></p>
+
+<ul>
+<li><p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-204">MDEP-204</a> &ndash; go-offline fails to resolve artifact available in maven reactor</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-545">MDEP-545</a> &ndash; Several classes create mixed-style line endings</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-579">MDEP-579</a> &ndash; Regression: get goal does not pass server credentials to BasicRepositoryConnector</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-613">MDEP-613</a> &ndash; Analyze failed: Unsupported class file major version 55 (Java 11)</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-655">MDEP-655</a> &ndash; The unpack integration test fails intermittent.</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-663">MDEP-663</a> &ndash; Analyze failed: Unsupported class file major version 57 (Java 13)</li>
+</ul>
+</li>
+<li><p>New Feature:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-628">MDEP-628</a> &ndash; Unpacking File Mappers</li>
+</ul>
+</li>
+<li><p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-653">MDEP-653</a> &ndash; add info message to purge-local-repository goal even in non-verbose mode</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-664">MDEP-664</a> &ndash; Get goal misses unit tests</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-672">MDEP-672</a> &ndash; make build Reproducible</li>
+</ul>
+</li>
+<li><p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-624">MDEP-624</a> &ndash; Upgrade maven-plugins parent to version 32</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-625">MDEP-625</a> &ndash; Upgrade maven-artifact-transfer to 0.11.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-626">MDEP-626</a> &ndash; Upgrade struts and xerces due to CVEs</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-634">MDEP-634</a> &ndash; Upgrade plexus-io to 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-635">MDEP-635</a> &ndash; Upgrade dependency-analyzer 1.11.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-636">MDEP-636</a> &ndash; Upgrade maven-shared-utils 3.2.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-637">MDEP-637</a> &ndash; Upgrade dependency-analyzer 1.11.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-641">MDEP-641</a> &ndash; Upgrade plexus-archiver to 4.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-642">MDEP-642</a> &ndash; Upgrade plexus-utils to 3.2.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-647">MDEP-647</a> &ndash; Upgrade maven-common-artifact-filters to 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-656">MDEP-656</a> &ndash; Upgrade plexus-utils to 3.3.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-668">MDEP-668</a> &ndash; Upgrade plexus-interpolation 1.26</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-673">MDEP-673</a> &ndash; Upgrade asm to 7.3.1</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

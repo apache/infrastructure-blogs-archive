@@ -1,0 +1,11 @@
+---
+layout: post
+title: Log4j and Apache NetBeans
+date: '2022-01-04T00:00:00+00:00'
+categories: netbeans
+---
+Log4j v2 is not a direct component of Apache NetBeans or a dependency of any current component. The Apache NetBeans PMC has studied earlier versions to see if there is any other risk. We do not believe any vulnerability in Log4j v1 is exploitable in Apache NetBeans IDE. 
+
+<p>Apache NetBeans Platform developers, i.e., those creating applications on top of Apache NetBeans, should make their own assessment.</p>  
+
+<p>If you are aware of any issue, please follow the guidelines at <a href="https://www.apache.org/security">https://www.apache.org/security</a>.</p>

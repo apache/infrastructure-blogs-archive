@@ -1,0 +1,36 @@
+---
+layout: post
+title: 'Apache Month in Review: January 2020'
+date: '2020-02-05T00:00:00+00:00'
+categories: foundation
+---
+<p><strong><em>We're pleased to introduce a new monthly overview of events that have taken place within the Apache community. Below is the wrap-up of our activities in January:</em></strong></p> 
+  <p><strong>New this month --</strong></p> 
+  <p>&nbsp;- Apache in 2019 - By The Digits <a href="https://s.apache.org/Apache2019Digits">https://s.apache.org/Apache2019Digits</a></p> 
+  <p>&nbsp;- Apache Software Foundation 2019 Security Report&nbsp;<a href="https://s.apache.org/tbyxg">https://s.apache.org/tbyxg</a></p> 
+  <p>&nbsp;- Launch of 2020 ASF Community Survey <a href="https://s.apache.org/pzol5">https://s.apache.org/pzol5</a></p> 
+  <p>&nbsp;- Update on &quot;Trillions and Trillions Served&quot;, the documentary on the ASF&nbsp;<a href="https://s.apache.org/ASF-Trillions%20">https://s.apache.org/ASF-Trillions</a> </p> 
+  <p><strong><br />Important Dates --</strong></p> 
+  <p>&nbsp;- Registration open: Apache Roadshow/DC 25 March --tracks include&nbsp;Apache Projects and CARE Initiatives, Cybersecurity, and Start‑Ups.&nbsp;<a href="https://www.apachecon.com/usroadshowdc20/">https://www.apachecon.com/usroadshowdc20/</a></p> 
+  <p>&nbsp;- Now open: CFP for ApacheCon North America --tracks include Big Data, Cloud, Community, Content Delivery, FinTech, Geospatial, Graphing, IoT, Observability, Search, Servers, and more.&nbsp;<a href="https://www.apachecon.com/">https://www.apachecon.com/</a></p> 
+  <p>&nbsp;- Next Board Meeting: 19 February 2020.&nbsp;<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a> </p> 
+  <p> </p> 
+  <p> </p> 
+  <p><strong><br />Infrastructure -- </strong></p> 
+  <p>The ASF's distributed, seven-member Infrastructure team oversees our highly-reliable, distributed network under the leadership of VP Infrastructure David Nalley and Infrastructure Administrator Greg Stein. ASF Infrastructure supports 300+ Apache projects and their communities across ~200 individual machines, 1,400+ repositories, more than half a petabyte of software source releases, and 2-3M daily emails on 2,000+ lists. ASF Infra performs 7M+ weekly checks to ensure services are available around the clock. The average uptime in January was 99.94%.</p> 
+  <p> </p> 
+  <p> </p> 
+  <p><strong><br />Committer Activity --</strong></p> 
+  <div> 
+    <div> 
+      <p>In January, 898 Apache Committers changed 4,835,906 lines of code over 14,064 commits. The Committers with the top 5 highest contributions, in order, were: Dan Haywood, Andrea Cosentino, Jean-Baptiste Onofré, Claus Ibsen, and Andi Huber.<br /><br /></p> 
+      <p> </p> 
+    </div> 
+  </div> 
+  <p> </p> 
+  <p><strong>Project Releases and Updates --</strong> </p> 
+  <p>New releases from Apache Beam (Big Data), Commons Codec (Libraries), Commons VFS (Libraries), Crail (incubating; Libraries), Daffodil (incubating; Libraries), Drill (Big Data), Druid (Big Data), Geode (Big Data), Groovy (Programming Languages), HttpComponents (4 releases; Servers), IoTDB (incubating; IoT); Jackrabbit (5 releases; Content), Juneau (Libraries), Libcloud (2 releases; Cloud Computing), Lucene/Solr (2 releases; Search), NiFi (Big Data), OpenNLP (Machine Learning), OpenWebBeans (Libraries), Parquet (Big Data), Pulsar (Messaging), Qpid (Messaging), SpamAssassin (Mail), and Wicket (2 releases; Web Frameworks).</p> 
+  <p>The Apache Incubator is the primary entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. YuniKorn (Resource Scheduler) is the latest podling undergoing development in the Apache Incubator&nbsp;<a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p> 
+  <p> </p> 
+  <p>The Apache Attic provides process and solutions to make it clear when an Apache project has reached its end of life. Apache ODE (Orchestration) has retired to the Attic&nbsp;<a href="https://attic.apache.org/">https://attic.apache.org/</a> </p> 
+  <p># # #</p>

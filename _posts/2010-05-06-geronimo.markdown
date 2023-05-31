@@ -1,0 +1,19 @@
+---
+layout: post
+title: Apache Aries samples running on Apache Geronimo
+date: '2010-05-06T00:00:00+00:00'
+categories: geronimo
+---
+<p>
+As many of you may already know, Apache Aries is a project that is currently under incubation in Apache.  The goal of Apache Aries is to deliver a set of pluggable Java components enabling an enterprise OSGi application programming model.   This fits in very well with the latest activities in Apache Geronimo which is also venturing into areas of OSGi and the enterprise application programming model.   In fact, some members of the Apache Geronimo team are also doing some work in Apache Aries.   At the same time, Apache Geronimo 3.0 is being substantially re-worked to support OSGi bundles and is now pulling in a number of the pluggable Java components that are being produced in Apache Aries.  So, as you can see, there is a lot of activity and a lot of collaboration between these projects.
+</p>
+<p>
+That collaboration is starting to pay off and it is now possible in the latest Apache Geronimo trunk image (3.0-SNAPSHOT) to deploy and run several of the showcase Apache Aries samples.   I created a simple set of directions in the Geronimo wiki that can help you get the Apache Aries samples running under Geronimo 3.0.  Go ahead and take a look. 
+</p>
+<p>
+<a href="https://cwiki.apache.org/GMOxDEV/apache-aries-samples-running-in-geronimo-30.html" title="Apache Aries Samples in Geronimo">Apache Aries Samples in Geronimo</a> 
+</p>
+Just a warning that things will be a little bumpy until both of these projects are finally released but if you want to experiment ... then go ahead and give it a try!
+<br/>
+Joe
+</p>

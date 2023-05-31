@@ -1,0 +1,51 @@
+---
+layout: post
+title: Announcing Apache® CloudStack™ v4.9
+date: '2016-08-22T00:00:00+00:00'
+categories: foundation
+---
+<div><b><i>Mature, easy-to-deploy Open Source Cloud computing software meets the demands of the world's largest Cloud providers</i></b></div> 
+  <div><b><br /></b></div> 
+  <div><b>Forest Hill, MD —22 August 2016—</b> The Apache CloudStack project announced today the immediate availability of Apache CloudStack v4.9, the latest version of the turnkey Open Source Cloud computing software platform used for creating private, public, and hybrid Cloud environments.</div> 
+  <div><br /></div> 
+  <div>Apache CloudStack Clouds enable billions of dollars worth of business transactions annually across their Clouds. Its maturity, stability and ease of deployment has led it to become the Open Source platform of choice for many service providers offering on-demand, elastic public Cloud computing services. CloudStack is also leveraged by many enterprises to provide private or hybrid Clouds for use by their employees.</div> 
+  <div> </div> 
+  <p>CloudStack includes an intuitive user interface and rich APIs for managing the compute, networking, software, and storage infrastructure resources. It supports a broad range of integration points for both traditional and Cloud-native workloads.</p> 
+  <div>&quot;We're delighted to be releasing Apache CloudStack 4.9,&quot; said Will Stevens, Vice President of Apache CloudStack. &quot;This version brings many new and exciting features, with the continued emphasis on making Apache CloudStack the easiest Cloud platform to deploy and most reliable platform for running IaaS environments. This release is the culmination of many months of hard work by our diverse developer community.&quot;</div> 
+  <div><br /></div> 
+  <div>CloudStack 4.9 reflects dozens of new features and improvements, including:</div> 
+  <div> 
+    <ul> 
+      <li>Out-of-band power management of hosts through IPMI, iLO, DRAC</li> 
+      <li>Enhancements to CloudStack networking model including deeper integration with Nuage VSP SDN</li> 
+      <li>User defined security roles</li> 
+      <li>More than 180 minor enhancements and issues fixed</li> 
+    </ul> 
+  </div> 
+  <div> </div> 
+  <div>A complete overview of all new enhancements can be found in the project release notes at <a href="http://docs.cloudstack.apache.org/projects/cloudstack-release-notes/en/4.9.0/">http://docs.cloudstack.apache.org/projects/cloudstack-release-notes/en/4.9.0/</a></div> 
+  <div> </div> 
+  <p>Apache CloudStack has been used by thousands of organizations worldwide and is in use/production at Alcatel-Lucent, Autodesk, BT Cloud, China Telecom, cloud.ca, Cloudops, Codero Hosting, DataPipe, Exoscale, Globo.com, GreenQloud, Hokkaido University, IDC Frontier, Ikoula, Interoute, KDDI, KT/Korea Telecom, LeaseWeb, NTT, Orange, PCextreme, Schuberg Philis, Shopzilla, Slovak Telekom, Tata, Telia Latvia, Trader Media Group, TomTom, University of Melbourne, University of São Paolo, Verizon, and WebMD among many others. A list of known users of the software can be found at <a href="http://cloudstack.apache.org/users.html">http://cloudstack.apache.org/users.html</a></p> 
+  <div> </div> 
+  <div>&quot;At Codero, we have been running our Public Cloud flawlessly on CloudStack since 2012 having selected it to power our Public and Hybrid Cloud due to its amazing stability, ease of use, and versatility,&quot; said Emil Sayegh, CEO and Chairman of Codero Hosting. &quot;We are excited for the release of the next version of Apache CloudStack with its new features and capabilities that cement it as the Open Source platform of choice for leading hosting providers.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache CloudStack has enabled us at Exoscale to build a public Cloud infrastructure offering that targets Cloud native teams directly,&quot; said Marc-Aurèle Brothier, Senior Developer at Exoscale. &quot;CloudStack's flexibility lets us choose standard components for most workloads and then swap in our own code where our product and customers' needs demand it. We're excited to have contributed to CloudStack and also for the future of our CloudStack-based business.&quot;</div> 
+  <div> 
+    <p>&quot;Apache CloudStack has been at the very foundation of Telia CLOUDY SERVICES already for more than 3 years,&quot; said Mārtiņš Paurs, CCO of CLOUDY SERVICES by Telia Latvia. &quot;After starting with regular IaaS services, during time it has taken over orchestration of Cloud based video surveillance, CDN and video lifecycle management workloads, all for the benefit of our customers. And CloudStack does it really well! The ease of use, stability, professional and community support, powerful features &nbsp;and scale we can achieve by using CloudStack has turned upside down the way and pace we innovate together with the very demanding market.&quot;</p> 
+    <p>&quot;cloud.ca is an avid supporter of Apache CloudStack not only because we value the stability and robustness of the platform, but because we highly value the power of the CloudStack community to drive innovation,&quot; said Mike Gero, Vice President of Product &amp; Business Development at cloud.ca. &quot;We look forward to benefiting from the myriad of improvements and fixes in CloudStack 4.9, as well as beginning to work with new features like the enhanced networking model.&quot;</p> 
+  </div> 
+  <p>&quot;At University of São Paulo we are proud to be part of the Apache CloudStack community. We see the community playing a very strong role in solving many issues and providing ongoing effort to improve Apache CloudStack through recent versions, including 4.9,&quot; said Professor João Eduardo Ferreira, IT Office CIO, and Cyrano Rizzo, Sao Paulo IT Office Director, at University of São Paulo. &quot;We are very happy to have adopted Apache CloudStack since 2012 as our main tool to run our infrastructure private cloud initiative of +500 hosts. Apache CloudStack is a professional-grade and very robust tool: we continue to use and encourage other institutions to use the same architecture.&quot;</p> 
+  <div><b>Availability<br /></b>CloudStack 4.9 is available immediately as a free download from <a href="http://cloudstack.apache.org/downloads.html">http://cloudstack.apache.org/downloads.html</a>. Apache CloudStack software is released under the Apache License v2.0.</div> 
+  <div> 
+    <p><b>Governance and Oversight<br /></b>Apache CloudStack is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases.</p> 
+  </div> 
+  <div> </div> 
+  <div><b>Get Involved!</b></div> 
+  <div>Apache CloudStack welcomes contribution and community participation through mailing lists as well as attending face-to-face MeetUps, developer trainings, and user events. Anybody wishing to get involved in the project can find out more at <a href="http://cloudstack.apache.org/contribute.html">http://cloudstack.apache.org/contribute.html</a></div> 
+  <div><br /></div> 
+  <div><b>About Apache CloudStack</b></div> 
+  <div>Apache CloudStack is a mature, turnkey integrated Infrastructure-as-a-Service (IaaS) Open Source software platform that allows users to build feature-rich public and private Cloud environments. Hailed by Gartner Group as &quot;a solid product&quot;, CloudStack includes an intuitive user interface and rich APIs for managing the compute, networking, software, and storage infrastructure resources. CloudStack entered the Apache Incubator in April 2012 and became an Apache Top-level Project in March 2013. For downloads, documentation, and ways to become involved with Apache CloudStack, visit <a href="http://cloudstack.apache.org/">http://cloudstack.apache.org/</a> and <a href="https://twitter.com/CloudStack">https://twitter.com/CloudStack</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;CloudStack&quot;, and &quot;Apache CloudStack&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

@@ -1,0 +1,52 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Traffic Control™ as a Top-Level
+  Project
+date: '2018-06-04T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>Open Source Content Delivery Network used by Cisco,&nbsp;</em></strong><strong><em>Comcast,&nbsp;</em></strong><strong><em>Cox, Qwilt, and others serves 30+ petabytes of content each day.</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Wakefield, MA —4 June 2018—</strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today Apache<sup>®</sup> Traffic Control™ as a Top-Level Project (TLP).</div> 
+  <div><br /></div> 
+  <div>Apache Traffic Control can be used to build, monitor, configure, and provision a large-scale content delivery network (CDN). Traffic Control originated at Comcast and was released as an Open Source project in April 2015; the project was donated to the Apache Incubator in July 2016.</div> 
+  <div> 
+    <p>&quot;We are extremely excited to be an Apache Top-Level Project,&quot; said Dave Neuman, Vice President of Apache Traffic Control. &quot;This is an amazing milestone for Traffic Control, and a testament to scale, strength and dedication of everyone in our community.&quot;&nbsp;</p> 
+  </div> 
+  <div> </div> 
+  <div>Traffic Control is a CDN control plane originally built around Apache Traffic Server as the caching software. Traffic Control implements all the core functions of a modern CDN using the following components:</div> 
+  <div> 
+    <ul> 
+      <li>Traffic Router — Routes clients to the best available cache on the CDN using HTTP(s) redirects or DNS;</li> 
+      <li>Traffic Monitor — Monitors caches for both system and application metrics and uses those to make health decisions on the CDN;</li> 
+      <li>Traffic Ops — Configuration, tenant, and inventory management for all CDN components;</li> 
+      <li>Traffic Stats — Calculates and stores statistics about CDNs managed by Traffic Control; and&nbsp;</li> 
+      <li>Traffic Portal — User interface for managing and operating Traffic Control CDNs</li> 
+    </ul> 
+  </div> 
+  <div> </div> 
+  <div> 
+    <p>Every day, Traffic Control CDNs serve over 50 billion transactions amounting to over 30 petabytes of content worldwide. Apache Traffic Control is in use at Comcast, Cisco, Cox, and Qwilt, among others.</p> 
+    <p>&quot;Traffic Control unlocks significant innovation in the CDN space,&quot; said Mark Torluemke, Director of CDN Engineering at Comcast. &quot;The ASF is the perfect place for that innovation to thrive.&quot;</p> 
+  </div> 
+  <div> </div> 
+  <div> 
+    <p>&quot;Having Traffic Control become an Apache Top-Level Project is a testament to the technology's functional breadth, performance, and scalability in building Content Delivery Networks,&quot; said Eric Friedrich, OMD Technical Leader at Cisco. &quot;As an active contributor to Traffic Control, Cisco is very excited to continue incorporating Traffic Control into its Open Media Distribution offering for Service Provider video distribution solutions.&quot;</p> 
+    <p>&quot;Qwilt is thrilled to see Traffic Control receive this hard-earned and well-deserved status as an Apache Top-Level Project. TLP status recognizes the extraordinary work and progress of the Traffic Control community of contributors,&quot; said Alon Maor, CEO at Qwilt. &quot;We are proud to be part of this community and particularly pleased to see Traffic Control's stature continue to rise within the Apache Software Foundation. As we go to market with Traffic Control, we consistently get feedback from prospects and customers about the value of an Open Source approach to the modern CDN. The Apache Traffic Control Project embodies the Web-scale innovation that service providers are so eager to embrace.&quot;</p> 
+  </div> 
+  <div> </div> 
+  <div> 
+    <p>&quot;Cox has been involved with this project since 2014 and has over 4 years of experience with running it in a large national network. Apache Traffic Control is the first CDN platform in the Open Source domain and really brings something that was missing in the market,&quot; said Steve Malenfant, Principal Engineer at Cox. &quot;We love the flexibility of the system and the ease to scale up as well as being able to collaborate with peers that have similar challenges.&quot;</p> 
+    <p>&quot;As great as this accomplishment is, it's only the beginning,&quot; added Neuman. &quot;We are looking forward to growing our community, attracting new contributors, and continuing to be a leader in the CDN space.&quot;</p> 
+  </div> 
+  <div> </div> 
+  <div>The Traffic Control community holds summits twice a year and is very active on Slack as well as its official project user and developer mailing lists. Catch Apache Traffic Control in action at ApacheCon North America 24-27 September 2018.</div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight<br /></strong>Apache Traffic Control software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Traffic Control, visit <a href="http://trafficcontrol.apache.org/">http://trafficcontrol.apache.org/</a></div> 
+  <div> 
+    <p><strong>About The Apache Software Foundation (ASF)<br /></strong>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 730 individual Members and 6,800 Committers across six continents successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Aetna, Anonymous, ARM, Bloomberg, Budget Direct, Capital One, Cerner, Cloudera, Comcast, Facebook, Google, Hortonworks, Huawei, IBM, Indeed, Inspur, LeaseWeb, Microsoft, Oath, ODPi, Pineapple Fund, Pivotal, Private Internet Access, Red Hat, Target, and Union Investment. For more information, visit <a href="http://apache.org/%20">http://apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></p> 
+  </div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Traffic Control&quot;, &quot;Apache Traffic Control&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div> </div> 
+  <p># # #</p>

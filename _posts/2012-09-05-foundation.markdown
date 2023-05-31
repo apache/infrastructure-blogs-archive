@@ -1,0 +1,50 @@
+---
+layout: post
+title: Apache Wicket v6.0.0 Technical Fact Sheet
+date: '2012-09-05T00:00:00+00:00'
+categories: foundation
+---
+<div><b>&quot;With great pleasure <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_announces31">we announce the availability of Apache Wicket 6.0.0</a>&quot;</b></div> 
+  <div><i>-- Martijn Dashorst, Vice President, Apache Wicket</i></div> 
+  <div><br /></div> 
+  <div>Apache Wicket v6.0.0 is the 6th major release of the popular open source Java web framework. Numerous enhancements make Apache Wicket v6.0.0 a solid choice for web</div> 
+  <div>development:</div> 
+  <div> 
+    <p> </p> 
+    <ul> 
+      <li>Out-of-the&nbsp;box JQuery integration&nbsp;</li> 
+      <li>Complete&nbsp;control over AJAX requests</li> 
+      <li>Improved event registration in browsers</li> 
+      <li>Support for large datasets in components</li> 
+      <li>Dependency&nbsp;management for client side javascript libraries</li> 
+      <li>Experimental support for websockets</li> 
+    </ul> 
+  </div> 
+  <div>Additional&nbsp;features include a customizable client-side API, improved feedback messages,&nbsp;correct packaging for OSGi compatibility and improved initialization of&nbsp;plugins. Highlights include:</div> 
+  <div> 
+    <p><b>Java 6 required&nbsp;</b>-This release moves the&nbsp;minimum required Java version to Java 6. This means that Wicket applications&nbsp;running on earlier Java versions meaning to upgrade, also need to upgrade their&nbsp;Java runtime.</p> 
+  </div> 
+  <div><b>Revamped Wicket AJAX now&nbsp;leverages JQuery</b> - Wicket's custom AJAX JavaScript library has been re-implemented using JQuery.&nbsp;This makes it easier to integrate JQuery plugins into Wicket applications. With&nbsp;the new AJAX implementation it is possible to provide your own version of&nbsp;JQuery should the need arise, or even to replace the whole Wicket client side&nbsp;AJAX implementation.</div> 
+  <p><b>AJAX Attributes&nbsp;</b>- With the new and improved&nbsp;AJAX implementation, you can alter any aspect of an AJAX request&nbsp;through AjaxRequestAttributes. For example you can specify that the request&nbsp;should be executed using POST instead of GET, or that the AJAX request should&nbsp;be multi-part, etc. See the migration guide or the JavaDoc of&nbsp;AjaxRequestAttributes for all possible options.</p> 
+  <div> 
+    <p><b>Browser event registration&nbsp;replaces inline events&nbsp;</b>- Wicket now uses JavaScript event registration instead of inline attributes&nbsp;for AJAX components. This enables multiple event listeners to be attached to a&nbsp;markup tag, cleans up the rendered markup considerably and reduces the amount&nbsp;of generated markup.</p> 
+    <p><b>IDataProvider now uses long&nbsp;instead of int</b> - The IDataProvider&lt;T&gt; interface and implementations now use long instead&nbsp;of int for index and size parameters to better line up with the Java&nbsp;Persistence API and other persistency frameworks. Big data is now possible with&nbsp;Wicket!</p> 
+  </div> 
+  <div> 
+    <p><b>${label} replaces ${input} in&nbsp;feedback messages&nbsp;</b>- Previous Wicket versions used the input that was provided by users in error&nbsp;messages when validations failed. This led to error messages like &quot;1234a is not&nbsp;a valid number&quot;. In Wicket 6 the feedback messages use the label of the invalid&nbsp;form component instead. You can set the label by calling setLabel() on the form</p> 
+  </div> 
+  <div>component. If no label is provided, Wicket defaults to displaying the component&nbsp;identifier. This changes the error message to &quot;Phonenumber is not a valid&nbsp;number&quot;.</div> 
+  <div> 
+    <p><b>Resources can declare dependencies&nbsp;</b>- It is now much easier to&nbsp;create resource contributions with dependencies, for example a JQuery plugin&nbsp;can declare a dependency on JQuery and other resources such as embedded style&nbsp;sheets. Users of such resources don’t have to provide these dependencies&nbsp;themselves, and the dependencies are linked in the appropriate order.</p> 
+  </div> 
+  <div><b>Packaged resources will use&nbsp;minimized version automatically&nbsp;</b>- When a minimized JavaScript resource is available (filename.min.js – add the&nbsp;.min part to the filename before the extension), Wicket will automatically use&nbsp;the minimized version when running in deployment mode, while using the&nbsp;non-minimized version for development mode.</div> 
+  <p><b>OSGi compatible packaging </b>- Wicket's packaging has been&nbsp;made compatible with OSGi bundles by moving some classes to different packages.&nbsp;The full list can be found in our migration guide. This makes it much easier to&nbsp;deploy Wicket applications in an OSGi environment.</p> 
+  <div><b>Experimental websocket&nbsp;implementations</b> - This release also includes two experimental websocket implementations: one&nbsp;using Atmosphere as a bridge for browsers and containers that don’t support&nbsp;websockets natively and one for containers and browsers that have native&nbsp;websocket support.</div> 
+  <p>The&nbsp;complete set of changes is available in the migration guide at <a href="http://s.apache.org/wicket-6.0-migration">http://s.apache.org/wicket-6.0-migration</a></p> 
+  <div> 
+    <p><b>Availability and Oversight<br /></b>As&nbsp;with all Apache products, Apache Wicket v6.0.0 is released under the Apache&nbsp;License v2.0, and is overseen by a self-selected team of active contributors to&nbsp;the project. A Project Management Committee (PMC) guides the Project's&nbsp;day-to-day operations, including community development and product releases.&nbsp;Apache Wicket source code, documentation, and related resources are available&nbsp;at <a href="http://wicket.apache.org/">http://wicket.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p>&quot;Apache&quot;, &quot;Wicket&quot;, &quot;Apache Wicket&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache&nbsp;Software Foundation. All other brands and trademarks are the property of their&nbsp;respective owners.</p> 
+    <p># # #&nbsp;</p> 
+  </div>

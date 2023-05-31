@@ -1,0 +1,11 @@
+---
+layout: post
+title: it works!
+date: '2013-12-04T00:00:00+00:00'
+categories: test
+---
+<p>Testing iframe stuff</p> 
+  <p> </p> 
+  <p> 
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/TO4oGnDxkY0" frameborder="0">&lt;span id=&quot;XinhaEditingPostion&quot;&gt;&lt;/span&gt;</iframe> 
+  </p>

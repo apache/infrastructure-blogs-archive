@@ -1,0 +1,7 @@
+---
+layout: post
+title: Early Bird Registration for ApacheCon US Ends 14 August!
+date: '2009-07-27T00:00:00+00:00'
+categories: foundation
+---
+<p>Join us at <a href="http://www.us.apachecon.com/c/acus2009/" title="ApacheCon US 2009">ApacheCon US 2009</a>, the ASF's official user conference and expo, 2-6 November in Oakland, California.</p><p>This year's show is anticipated to be the largest gathering of the global Apache community, bringing together Foundation Members, code contributors, users, developers, system administrators, business managers, service providers, and vendors for a week of training classes, seminars, sharing, and hacking.&nbsp;</p><p>&nbsp;In celebration of the ASF's milestone 10th Anniversary, this year's ApacheCon features the largest program to date, including special content tracks, MeetUps, GetTogethers, and a number of free events that are open to the public, such as the Hackathon and 2-day BarCampApache, in appreciation of their support over the past decade.</p><p>We're excited to return to the San Francisco Bay Area, where we held our first ApacheCon, and hope that you will help us celebrate the ASF's success!</p><p>Check out the <a href="http://www.us.apachecon.com/c/acus2009/" title="ApacheCon US 2009">ApacheCon site</a> for details including registration and sponsorship information.<br /></p>

@@ -1,7 +1,0 @@
----
-layout: post
-title: Announcing New ASF Board of Directors
-date: '2021-03-11T20:22:32+00:00'
-categories: foundation
----
-<p>At The Apache Software Foundation (ASF) Annual Members' Meeting held this week, the following individuals were elected to the ASF Board of Directors:</p><ul><li>Bertrand Delacretaz (current Director)</li><li>Roy Fielding (current Director)</li><li>Sharan Foga (new Director)</li><li>Justin Mclean (current Director)</li><li>Craig Russell (current Director)</li><li>Sam Ruby (current Director)</li><li>Roman Shaposhnik (former Director)</li><li>Sander Striker (current Director)</li><li>Sheng Wu (new Director)</li></ul><p><br></p><p>The ASF thanks Shane Curcuru, Patricia Shanahan, and Niclas Hedhman (who resigned from the Board prior to the Members’ Meeting) for their service, and welcomes our new and returning directors.<br></p><p>An overview of the ASF's governance, along with the complete list of ASF Board of Directors, Executive Officers, and Project/Committee Vice Presidents, can be found at <a href="http://apache.org/foundation/" target="_blank">http://apache.org/foundation/</a><br></p><p>For more information on the Foundation's operations and structure, see <a href="http://apache.org/foundation/how-it-works.html#structure" target="_blank">http://apache.org/foundation/how-it-works.html#structure</a><br></p><p># # #</p>

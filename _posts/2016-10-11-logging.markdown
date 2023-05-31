@@ -1,0 +1,52 @@
+---
+layout: post
+title: A few more details about Apache Log4j 2.7
+date: '2016-10-11T00:00:00+00:00'
+categories: logging
+---
+<a href="https://garygregory.files.wordpress.com/2016/10/log4j-logo-2-7.png"><img class="alignleft size-full wp-image-688" src="https://garygregory.files.wordpress.com/2016/10/log4j-logo-2-7.png" alt="log4j-logo-2-7" width="300" height="114" /></a>
+<p>
+Apache Log4j 2.7 is now out on a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.logging.log4j%22">Maven Central</a>. Here’s are the highlights.
+</p>
+<h1>What's new since 2.6.2</h1>
+<ul>
+ 	<li>The <strong>RoutingAppender</strong> can be configured with scripts.</li>
+ 	<li>A new Appender, the <strong>ScriptAppenderSelector</strong> can create another Appender as specified by a Script.</li>
+ 	<li>Users can now <strong>inject context data</strong> from other sources than ThreadContext. Values can be any Object, not just Strings.</li>
+ 	<li>The <strong>SocketAppender</strong> now supports <strong>IO buffering</strong>.</li>
+ 	<li>Added the ability to <strong>generate Log4j 2 XML configuration file</strong> from a <strong>ConfigurationBuilder</strong>.</li>
+ 	<li>Hello Scala! We've added Logging APIs for <strong>Scala 2.10</strong> and <strong>2.11</strong>.</li>
+ 	<li>Added options to <strong>exclude stack trace from JSON, XML and YAML layouts</strong>.</li>
+ 	<li>Added Core API <strong>Configurator.shutdown(LoggerContext, long, TimeUnit)</strong>.</li>
+ 	<li><strong>FileAppender</strong> and <strong>RollingFileAppender</strong> can create files <strong>on-demand</strong>.</li>
+ 	<li><strong>PatternLayout</strong> added a <strong>color ANSI</strong> option to <strong>%message</strong> and <strong>%xThrowable</strong>.</li>
+ 	<li>org.apache.logging.log4j.core.<strong>LoggerContext</strong> now implements <strong>Closeable</strong>.</li>
+ 	<li>Add <strong>ThreadContextMap2</strong> interface supporting method <strong>putAll(</strong>Map&lt;String, String&gt;).</li>
+ 	<li>Add <strong>JUnit Rule</strong> implementations to manage the <strong>thread context</strong>.</li>
+ 	<li>The Core <strong>AbstractConfiguration</strong> and <strong>AbstractManager</strong> now track its <strong>LoggerContext;</strong> add <strong>Configuration.getLoggerContext()</strong>.</li>
+</ul>
+<h1>Continuing the Asynchronous Epic</h1>
+<ul>
+ 	<li>We've added support for java.util.concurrent.<strong>LinkedTransferQueue</strong> to the <strong>AsyncAppender</strong>.</li>
+ 	<li>Added optional support for the <strong>Conversant DisruptorBlockingQueue</strong> in <strong>AsyncAppender</strong>.</li>
+ 	<li>Added optional support for <strong>JCTools MPSC bounded lock-free queue</strong> in <strong>AsyncAppender</strong>.</li>
+</ul>
+<h1>Continuing the GC-free Epic</h1>
+<ul>
+ 	<li>Continuing the <strong>GC-free</strong> epic, we've added support for garbage-free <strong>ThreadContext</strong> map. This is disabled by default, and users need to enable this explicitly.</li>
+ 	<li>Also in <strong>GC-free</strong>-land, we changed <strong>LogEvent</strong>'s internal data structure for context data to be garbage-free. We added the method LogEvent#<strong>getContextData</strong>() and deprecated getContextMap().</li>
+</ul>
+<h1>Continuing the Builder Epic</h1>
+<ul>
+ 	<li>Added <strong>Builder</strong>s for the <strong>ConsoleAppender</strong>, <strong>F</strong><strong>ileAppender</strong>, <strong>RoutingAppender</strong>, <strong>SocketAppender</strong>, and<strong> ServletAppender</strong> (and deprecated factory methods).</li>
+ 	<li><strong>Builder</strong>s can be <strong>generic</strong>.</li>
+ 	<li>A <strong>Builder</strong> can <strong>subclass</strong> another Builder.</li>
+</ul>
+<p>
+And bug fixes as well, for which you can just see the <a href="https://logging.apache.org/log4j/2.x/">Log4j site</a>.
+</p>
+<p>
+Happy Log4j Logging!<br />
+Gary Gregory
+</p>
+

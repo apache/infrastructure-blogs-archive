@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 4 October 2019 '
+date: '2019-10-04T00:00:00+00:00'
+categories: foundation
+---
+<p class="entryContent">Well hello, October --we're off to a great start with the latest from the Apache community:</p> 
+  <p> </p> 
+  <p> </p> 
+  <p>ASF Board – management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 16 October 2019. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ApacheCon™ – the ASF's official global conference series, bringing Tomorrow's Technology Today since 1998<br />&nbsp;- *T-18 days* to ApacheCon Europe<br />&nbsp; &nbsp; --TRACKS in Big Data, Cloud, Community, IoT, Machine Learning, Open Source Design, Servers, and more.<br />&nbsp; &nbsp; --KEYNOTES by European Commission Director for Digital Business Solutions at the Directorate-General for Informatics (DG DIGIT) Thomas Gageik; Mastercard Executive Vice President for Global Cities Miguel A. Gamiño; and writer, political analyst, and activist&nbsp;Nanjala Nyabola. Plus special keynote panel with ASF Founders Lars Eilebrecht, Cliff Skolnick, and Dirk-Willem van Gulik.&nbsp;<br />&nbsp; &nbsp; --SPECIAL EVENTS include BarCampApache, Hackathon, Movie Night, and more!<br />&nbsp; &nbsp; --REGISTER TODAY and SAVE: EARLY REGISTRATION ends soon!&nbsp;Group rates available too :-)&nbsp;<a href="https://www.apachecon.com/">https://www.apachecon.com/</a><br /><br />&nbsp;- ApacheCon/Las Vegas p<span class="c-message__body" dir="auto" data-qa="message-text">resentations now available, exclusively on Feathercast <a target="_blank" class="c-link" href="https://slack-redir.net/link?url=https%3A%2F%2Ffeathercast.apache.org%2F&amp;v=3" rel="noopener noreferrer">https://feathercast.apache.org/</a>&nbsp;and YouTube&nbsp;<a href="https://www.youtube.com/user/TheApacheFoundation">https://www.youtube.com/user/TheApacheFoundation</a></span></p> 
+  <p>ASF Infrastructure – our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield uptime at 99.95%. Performance checks across 50 different service components spread over more than 250 machines in data centers around the world.&nbsp;<a href="http://www.apache.org/uptime/">http://www.apache.org/uptime/</a></p>Apache Code Snapshot – this week, 385 Apache contributors changed 527,624 lines of code over 2,168 commits. Top 5 contributors, in order, are: Andrea Cosentino, Jean-Baptiste Onofré, Dan Haywood, Wei-Chiu Chuang, and Mark Thomas.
+  
+  
+  
+  
+  
+  
+  
+  <p>Apache Project Announcements&nbsp;– the latest updates by category.</p> 
+  <p>Content --<br />&nbsp;- Apache Jackrabbit Oak 1.18.0 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+  <p>Geospatial --<br />&nbsp;- <span class="il">Apache SIS 1.0 released&nbsp;<a href="http://sis.apache.org/">http://sis.apache.org/</a></span></p> 
+  <p>Libraries --<br />&nbsp;-&nbsp;Apache Commons BCEL Version 6.4.1 released&nbsp;<a href="https://commons.apache.org/">https://commons.apache.org/</a></p> 
+  <p>Messaging --<br />&nbsp;- Apache Qpid JMS 0.46.0 released&nbsp;<a href="http://qpid.apache.org">http://qpid.apache.org</a><br /><br /></p> 
+  <p><strong>Did You Know?<br /></strong></p> 
+  <p>&nbsp;- Did you know that ApacheCon Europe Community Partners include the European Commission&nbsp;Directorate-General for Informatics (DIGIT), and whose director, Thomas Gageik, will be keynoting the event?&nbsp;<a href="https://aceu19.apachecon.com/">https://aceu19.apachecon.com/</a></p> 
+  <p>&nbsp;- Did you know that during ApacheCon/Las Vegas, Apache projects added 406 new committers, and Apache Calcite, Camel, Flink, Maven, SkyWalking,Syncope, Tapestry, and Wicket issued new releases? <a href="https://projects.apache.org">https://projects.apache.org</a></p> 
+  <p><a href="https://projects.apache.org"></a>&nbsp;- Did you know that during ApacheCon North America, we resumed principal photography on &quot;Trillions and Trillions Served&quot;, the documentary on The Apache Software Foundation that first began 10 years ago. Filming will continue at ApacheCon in Berlin --<a href="https://s.apache.org/ek3h8">https://s.apache.org/ek3h8</a><br /><br /></p> 
+  <p><strong>Apache Community Notices:</strong></p> 
+  <p>&nbsp;- The Apache Way to Sustainable Open Source Success&nbsp;<a href="https://s.apache.org/GhnI">https://s.apache.org/GhnI</a></p> 
+  <p>&nbsp;- Celebrating 20 Years Community-led Development &quot;The Apache Way&quot;&nbsp;<a href="https://s.apache.org/ASF20thAnniversary">https://s.apache.org/ASF20thAnniversary</a></p> 
+  <p>&nbsp;- ASF Founders look back on 20 Years of the ASF <a href="https://blogs.apache.org/foundation/entry/our-founders-look-back-on">https://blogs.apache.org/foundation/entry/our-founders-look-back-on</a></p> 
+  <p>&nbsp;- Foundation Reports and Statements <a href="http://www.apache.org/foundation/reports.html">http://www.apache.org/foundation/reports.html</a></p> 
+  <p>&nbsp;- ApacheCon: Tomorrow's Technology Today since 1998&nbsp;<a href="http://s.apache.org/ApacheCon">http://s.apache.org/ApacheCon</a></p> 
+  <p>&nbsp;- ASF Annual Report for FY2019&nbsp;<a href="https://s.apache.org/FY2019AnnualReport">https://s.apache.org/FY2019AnnualReport</a></p> 
+  <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open.&nbsp;<a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Please follow/like/re-tweet the ASF on social media:&nbsp; @TheASF on Twitter (<a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a>) and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+  </div> 
+  <div></div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://events.apache.org/event/meetups.html">http://events.apache.org/event/meetups.html</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Spark + AI Summit 2019 will be held 15-17 October in Amsterdam&nbsp;<font color="#bb0000"><a href="https://databricks.com/sparkaisummit/">https://databricks.com/sparkaisummit/</a></font></p> 
+    <p>&nbsp;- Registration open for ApacheCon Europe 22-24 October 2019&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache Camel, Apache HTTP Server, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div> 
+    <p>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</p> 
+    <p> </p> 
+  </div>

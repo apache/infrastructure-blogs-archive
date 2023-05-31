@@ -1,0 +1,61 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 4 September 2015'
+date: '2015-09-04T00:00:00+00:00'
+categories: foundation
+---
+<div>Welcome September! Here's what the Apache community has been working on over the past week:</div> 
+  <div><br /></div> 
+  <div>ApacheCon™ –the official conference series of The Apache Software Foundation.</div> 
+  <div>&nbsp;- We're ramping up for Apache: Big Data 28-30 September and ApacheCon: Core Europe 1-2 October and look forward to seeing you in in Budapest <a href="http://apachecon.com/">http://apachecon.com/</a></div> 
+  <div> 
+    <p>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Upcoming Board Meeting: 16 September. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  </div> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 6 *Million* weekly checks yielded a stellar 99.94% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a>&nbsp;with 99.57% performance check against established Service Level Agreements&nbsp;<a href="http://status.apache.org/sla/">http://status.apache.org/sla/</a></p> 
+    <p><a href="http://status.apache.org/sla/"></a>Apache Calcite (Incubating) –a highly customizable engine for parsing and planning queries on data in a wide variety of formats.<br />&nbsp;- Apache Calcite 1.4.0 (incubating) released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/incubator/calcite/apache-calcite-1.4.0-incubating/">http://www.apache.org/dyn/closer.cgi/incubator/calcite/apache-calcite-1.4.0-incubating/</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Jackrabbit™ –a fully conforming implementation of the Content Repository for Java Technology API (JCR).<br />&nbsp;- Apache Jackrabbit Oak 1.3.5 released <a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <div> 
+      <p>Apache Lens™ –Open Source Big Data platform seamlessly enables unified, multi-dimensional queries across multiple data stores.<br />&nbsp;- Apache Lens 2.3.0-beta released&nbsp;<a href="http://lens.apache.org/lenshome/quick-start.html">http://lens.apache.org/lenshome/quick-start.html</a></p> 
+    </div> 
+    <p>Apache Subversion™ –an Open Source centralized version control system characterized by its reliability as a safe haven for valuable data; the simplicity of its model and usage; and its ability to support the needs of a wide variety of users and projects, from individuals to large-scale enterprise operations.<br />&nbsp;- Apache Subversion 1.9.1 released&nbsp;<a href="http://subversion.apache.org/download.cgi#supported-releases">http://subversion.apache.org/download.cgi#supported-releases</a></p> 
+  </div> 
+  <div><b><br />Did You Know?</b></div> 
+  <div> 
+    <p>&nbsp;- Did you know that the ASF's combined Infrastructure services today served 2,322,258 unique users from more than 11,495 cities in 202 countries?&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that you can follow the Twitter accounts of select Apache project Committers and contributors on @PlanetApache?&nbsp;<a href="https://twitter.com/planetapache">https://twitter.com/planetapache</a></p> 
+  </div> 
+  <div>&nbsp;- Did you know that 10 Apache projects are celebrating their birthdays this month? Congratulations to ServiceMix (8 years), Hive/Pig/Shiro (5 years), Airavata/Bigtop/SIS/Stanbol (3 years), Curator (2 years), and Storm (1 year)!&nbsp;<a href="https://projects.apache.org/committees.html?date">https://projects.apache.org/committees.html?date</a></div> 
+  <div><br /></div> 
+  <div> 
+    <p><b>Apache Community Notices:</b></p> 
+    <p><b></b>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://apache.org/events/meetups.html"></a>&nbsp;- The Big Data Innovation conference will feature an &quot;Apache Innovation&quot; track 9-10 September in Boston <a href="http://theinnovationenterprise.com/summits/big-data-innovation-boston-2015/">http://theinnovationenterprise.com/summits/big-data-innovation-boston-2015/</a></p> 
+    <p>&nbsp;- The 6th annual Cassandra Summit will be held 22-24 September in Santa Clara&nbsp;<a href="http://cassandrasummit-datastax.com/">http://cassandrasummit-datastax.com/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://theinnovationenterprise.com/summits/big-data-innovation-boston-2015/"></a>&nbsp;- Apache: Big Data and ApacheCon: Core Europe will be held 28 September - 1 October in Budapest <a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The next CloudStack Collaboration Conference will be held 8-9 October in Dublin <a href="http://events.linuxfoundation.org/events/cloudstack-collaboration-conference-europe">http://events.linuxfoundation.org/events/cloudstack-collaboration-conference-europe</a> </p> 
+  </div> 
+  <div>&nbsp;- The first Apache Flink Conference, Flink Forward, will be held 12-13 October in Berlin <a href="http://flink-forward.org/">http://flink-forward.org</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The next Lucene/Solr Revolution will be held 13-16 October in Austin <a href="http://www.lucenerevolution.org/">http://www.lucenerevolution.org</a></div> 
+  <div> 
+    <p>&nbsp;- The ASF will be at FOSDEM 2016 in Brussels 6-8 February 2016 <a href="https://fosdem.org/">https://fosdem.org/</a></p> 
+    <p>&nbsp;- The ASF Operations Summary: First Quarter, Fiscal Year 2016 (May-July 2015) is available at&nbsp;<a href="http://s.apache.org/c2P">http://s.apache.org/c2P</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and <a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

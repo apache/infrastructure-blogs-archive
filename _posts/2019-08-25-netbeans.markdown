@@ -1,0 +1,49 @@
+---
+layout: post
+title: What to do with JavaFX and OpenJFX in Apache NetBeans?
+date: '2019-08-25T00:00:00+00:00'
+categories: netbeans
+---
+If Apache NetBeans runs on JDK 8, a range of Ant-based JavaFX sample applications are available in NetBeans to help you get started and learn about JavaFX. However, if NetBeans does not run on JDK 8, the available Ant-based JavaFX samples don't work (can't be created) but there's no point in working on fixing that since from JDK 11 onwards JavaFX is no longer part of the JDK and Maven/Gradle-based <a href="https://openjfx.io">OpenJFX</a> samples are obvious candidates for integration into NetBeans instead.
+
+<p>However, how should that be handled in NetBeans? Before Apache NetBeans 11.1, there was no integration with OpenJFX. Only JavaFX projects and samples were built into NetBeans, which led to a great deal of confusion since when someone sets up an environment from scratch today, they're unlikely to have installed JDK 8. Much more likely, they'll have JDK 11 or 12 and then those JavaFX projects and samples in NetBeans cannot be used, i.e., when you try to create those samples, while running NetBeans on anything other than JDK 8, you're simply told in the wizard that you have the wrong JDK. And then you somehow need to find out that the best thing to do next is use the <a href="https://openjfx.io/openjfx-docs/">OpenJFX documentation</a> to set up the OpenJFX samples in NetBeans.</p>
+
+<p>That is suboptimal and so Gluon integrated their two sample applications into Apache NetBeans 11.1, i.e., in the most recent release:</p>
+
+<p><a href="https://github.com/apache/netbeans/tree/master/javafx/openjfx.samples">https://github.com/apache/netbeans/tree/master/javafx/openjfx.samples</a>
+
+<p>That is a step forward but still suboptimal, as explained here by Jaroslav Tulach:</p>
+
+<p><a href="https://github.com/apache/netbeans/pull/1241#issuecomment-491357016">https://github.com/apache/netbeans/pull/1241#issuecomment-491357016</a>
+
+<p>That entire new module is not needed. Literally, all that needs to be done is that this file needs to be updated with two new template registrations:</p>
+
+<p><a href="https://github.com/apache/netbeans/blob/master/java/maven/src/org/netbeans/modules/maven/newproject/MavenWizardIterator.java">https://github.com/apache/netbeans/blob/master/java/maven/src/org/netbeans/modules/maven/newproject/MavenWizardIterator.java</a>
+
+<p>And, literally, this is all that needs to be added there, since the two OpenJFX samples are on Maven Central and as pointed out above, "NetBeans has a nice support for creating wizards over Maven archetypes."</p>
+
+<pre>@TemplateRegistration(folder = ArchetypeWizards.TEMPLATE_FOLDER, 
+position = 925, 
+displayName = "#LBL_Maven_FXML_Archetype", 
+iconBase = "org/netbeans/modules/maven/resources/jaricon.png", 
+description = "javafx.html")
+@Messages("LBL_Maven_FXML_Archetype=FXML JavaFX Maven Archetype")
+public static WizardDescriptor.InstantiatingIterator<?> openJFXFML() {
+    return ArchetypeWizards.definedArchetype("org.openjfx", "javafx-archetype-fxml", "0.0.2", null, LBL_Maven_FXML_Archetype());
+}
+
+@TemplateRegistration(folder = ArchetypeWizards.TEMPLATE_FOLDER, 
+position = 926, 
+displayName = "#LBL_Maven_Simple_Archetype", 
+iconBase = "org/netbeans/modules/maven/resources/jaricon.png", 
+description = "javafx.html")
+@Messages("LBL_Maven_Simple_Archetype=Simple JavaFX Maven Archetype")
+public static WizardDescriptor.InstantiatingIterator<?> openJFXSimple() {
+    return ArchetypeWizards.definedArchetype("org.openjfx", "javafx-archetype-simple", "0.0.2", null, LBL_Maven_Simple_Archetype());
+}</pre>
+
+<p>That literally is all that is needed to be added to the Java source file above, instead of having a completely new module, which doesn't integrate as neatly as the above with the Apache NetBeans infrastructure. (And this is a small tip for anyone else wanting to make their Maven archetypes available to NetBeans: the above is literally all you need to do.)</p>
+
+<p>However, the fundamental question remains: how do we notify users of Apache NetBeans that they should be using OpenJFX and not JavaFX? Maybe we should simply remove all JavaFX projects and samples, however that would be unfortunate for anyone using JDK 8. Or maybe the solution is to create a category named "Legacy" in the New Project dialog and then put all JavaFX projects and samples there, so that it's clear that they're not recommended, while still having them available for JDK 8 users?</p>
+
+

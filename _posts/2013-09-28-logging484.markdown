@@ -1,7 +1,0 @@
----
-layout: post
-title: Remko Popma joined the Apache Logging PMC
-date: '2013-09-28T18:04:15+00:00'
-categories: logging
----
-Remko Popma, know for his contributions in log4j 2 joined the Apache Logging PMC. Thank you a lot for all your hard work so far and all the best for your new role!

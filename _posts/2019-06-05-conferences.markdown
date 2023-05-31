@@ -1,0 +1,56 @@
+---
+layout: post
+title: Announcing Program and Early Registration Incentives for ApacheCon™ North America
+  2019
+date: '2019-06-05T00:00:00+00:00'
+categories: conferences
+---
+<div><strong><em>Official Global Conference Series heralds &quot;Tomorrow's Technology Today&quot; with keynotes by David Brin, James Gosling, and Samaira Mehta, plus 40 content tracks from dozens of Apache projects and their communities</em></strong></div> 
+  <div><br /></div> 
+  <div><strong>Wakefield, MA —5 June 2019—</strong> The Apache® Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the event program and early registration for the North America edition of ApacheCon™, the ASF's official global conference series. ApacheCon North America will take place 9-12 September 2019 at the Flamingo Hotel in Las Vegas, Nevada. Early registration incentives end 27 June 2019.</div> 
+  <div><br /></div> 
+  <div>ApacheCon draws attendees from more than 60 countries to experience &quot;Tomorrow's Technology Today&quot; by showcasing key Open Source technologies independent of business interests, corporate biases, or sales pitches.&nbsp;</div> 
+  <div><br /></div> 
+  <div>ApacheCon content is selected entirely by Apache projects and their communities, enabling participants at all levels to learn about the latest innovations in dozens of categories. ApacheCon North America program categories include Big Data, Community, Content Delivery, Geospatial, Graph Processing, Integration, IoT, Machine Learning, Mobile, Observability, and Streaming, among others. Participants learn about Open Source development &quot;The Apache Way&quot;, through hands-on sessions, keynotes, real-world case studies, workshops, hackathons, BarCamps, and more in a deliberately intimate, collaborative, vendor-neutral environment.</div> 
+  <div><br /></div> 
+  <div>Dozens of Apache projects will be represented across dedicated categories and project tracks. They include: Accumulo, Arrow, Bahir, Beam, Calcite, Camel, Cassandra, CloudStack, Cordova, Daffodil (incubating) DataSketches (incubating), Doris (incubating), Drill, Druid (incubating), Edgent (incubating), Gobblin (incubating), Hadoop, HBase, HDFS, Heron (incubating), Hive, Hivemall (incubating), HTTP Server, Hudi (Incubating), Iceberg (incubating), Ignite, Kafka, Karaf, Kudu, Lucene, Marvin-AI (incubating), MXNet (incubating), Mynewt, Nemo (Incubating), NiFi, OFBiz, ORC, Ozone, Pinot (incubating), PLC4X, PredictionIO, Pulsar, Rya (incubating), Samza, Spark, TinkerPop, Tomcat, Toree (incubating), Traffic Control, TVM (incubating), Unomi, YARN, and more. The full program is available at <a href="https://www.apachecon.com/acna19/schedule.html">https://www.apachecon.com/acna19/schedule.html</a><span style="white-space: pre;"> </span></div> 
+  <p>Attendees will join The Apache Software Foundation in celebrating its 20th Anniversary with special events and activities, including dynamic discourse with select ASF founders, and keynotes by award-winning author and futurist David Brin, &quot;father of Java&quot; James Gosling, and 10-year-old CoderBunnyz/One Billion Kids Can Code founder Samaira Mehta.&nbsp;</p> 
+  <div><strong>Registration and Deadlines</strong></div> 
+  <div> 
+    <ul> 
+      <li><strong>Early Registration</strong>: 27 June. Early bird incentives and additional discounted rates are available for individual participants as well as groups. Sign up at <a href="https://apachecon.com/acna19/">https://apachecon.com/acna19/</a><br /><br /></li> 
+      <li><strong>Travel Assistance</strong>: 21 June. Members of all underrepresented communities are encouraged to apply for Travel Assistance, with special funds earmarked for female Latin Americans. Apply at <a href="http://www.apache.org/travel/">http://www.apache.org/travel/</a><br /><br /></li> 
+      <li><strong>Discounted Hotel Rooms</strong>: 19 August. Special sleeping room rates at the Flamingo Hotel and Casino are available based on availability, or when the block is sold out, whichever comes first. Book at <a href="https://www.apachecon.com/acna19/location.html">https://www.apachecon.com/acna19/location.html</a></li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Event Sponsors</strong></div> 
+  <div>ApacheCon is the primary gathering of the collective Apache community worldwide; sponsorship of the official conference series of the world’s largest Open Source foundation is one of the most effective ways to gain visibility and competitive advantage. Sponsors who showcase their products, people, and community support benefit by extending their brands to the greater Apache community, engaging with industry influencers, and connecting with potential future collaborators. Many sponsors consider ApacheCon to be an invaluable resource for recruiting top Open Source talent. ApacheCon attendees include individual developers and users, Fortune 500 companies, start-ups, educators, consultants, community managers, Open Source enthusiasts, influencers, and analysts from more than 60 countries.</div> 
+  <div><br /></div> 
+  <div>ApacheCon Sponsors include: Aiven, Amazon Web Services, CrowdStrike, DataStax, Google Cloud, HotWax Commerce, IBM, Instaclustr, Jahia, Linode, RedHat, ShapeBlue, SK Telecom, WhiteSource, among others. To become an ApacheCon Sponsor, visit <a href="https://s.apache.org/2019-LASApacheConProspectus">https://s.apache.org/2019-LASApacheConProspectus</a> for more information.</div> 
+  <div></div> 
+  <p>Media partners include Manning Publications and SD Times. For media sponsorship opportunities and registration by credentialed members of the media and analyst community, contact Sally Khudairi at press@apache.org.</p> 
+  <div><br /></div> 
+  <div><strong>About ApacheCon</strong></div> 
+  <div>ApacheCon is the official global conference series of The Apache Software Foundation. Since 1998 ApacheCon has been drawing participants at all levels to explore &quot;Tomorrow's Technology Today&quot; across 300+ Apache projects and their diverse communities. ApacheCon showcases the latest developments in ubiquitous Apache projects and emerging innovations through hands-on sessions, keynotes, real-world case studies, trainings, hackathons, community events, and more. For more information, visit <a href="http://apachecon.com/">http://apachecon.com/</a> , <a href="https://twitter.com/ApacheCon">https://twitter.com/ApacheCon</a> , and <a href="https://s.apache.org/ApacheCon">https://s.apache.org/ApacheCon</a></div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server —the world's most popular Web server software. Through the ASF's merit-based process known as &quot;The Apache Way,&quot; more than 770 individual Members and 7,000 Committers across six continents successfully collaborate to develop freely available enterprise-grade software, benefiting billions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Aetna, Alibaba Cloud Computing, Anonymous, ARM, Baidu, Bloomberg, Budget Direct, Capital One, Cerner, Cloudera, Comcast, Facebook, Google, Handshake, Huawei, IBM, Indeed, Inspur, Leaseweb, Microsoft, ODPi, Pineapple Fund, Pivotal, Private Internet Access, Red Hat, Target, Tencent, Union Investment, Workday, and Verizon Media. For more information, visit <a href="http://apache.org/">http://apache.org/</a>&nbsp; and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Accumulo&quot;, &quot;Apache Accumulo&quot;, &quot;Arrow&quot;, &quot;Apache Arrow&quot;, &quot;Bahir&quot;, &quot;Apache Bahir&quot;, &quot;Beam&quot;, &quot;Apache Beam&quot;, &quot;Calcite&quot;, &quot;Apache Calcite&quot;, &quot;Camel&quot;, &quot;Apache Camel&quot;, &quot;Cassandra&quot;, &quot;Apache Cassandra&quot;, &quot;CloudStack&quot;, &quot;Apache CloudStack&quot;, &quot;Cordova&quot;, &quot;Apache Cordova&quot;, &quot;Drill&quot;, &quot;Apache Drill&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, &quot;HBase&quot;, &quot;Apache HBase&quot;, &quot;HDFS&quot;, &quot;Apache HDFS&quot;, &quot;Hive&quot;, &quot;Apache Hive&quot;, &quot;Apache HTTP Server&quot;, &quot;Ignite&quot;, &quot;Apache Ignite&quot;, &quot;Kafka&quot;, &quot;Apache Kafka&quot;, &quot;Kudu&quot;, &quot;Apache Kudu&quot;, &quot;Lucene&quot;, &quot;Apache Lucene&quot;, &quot;Mynewt&quot;, &quot;Apache Mynewt&quot;, &quot;NiFi&quot;, &quot;Apache NiFi&quot;, &quot;OFBiz&quot;, &quot;Apache OFBiz&quot;, &quot;ORC&quot;, &quot;Apache ORC&quot;, &quot;Ozone&quot;, &quot;Apache Ozone&quot;, &quot;PLC4X&quot;, &quot;Apache PLC4X”, &quot;PredictionIO&quot;, &quot;Apache PredictionIO&quot;, &quot;Pulsar&quot;, &quot;Apache Pulsar”, &quot;Samza&quot;, “Apache Samza”, &quot;Spark&quot;, “Apache Spark&quot;, &quot;Tinkerpop&quot;, &quot;Apache Tinkerpop”, &quot;Tomcat&quot;, &quot;Apache Tomcat&quot;, &quot;Traffic Control&quot;, &quot;Apache Traffic Control&quot;, &quot;Unomi&quot;, &quot;Apache Unomi&quot;, &quot;YARN&quot;, &quot;Apache YARN&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div>
+    <p>= = =</p>
+    <p>FOR FURTHER INFORMATION</p>
+  </div> 
+  <div>Sally Khudairi</div> 
+  <div>Vice President</div> 
+  <div>The Apache Software Foundation</div> 
+  <div>+1 617 921 8656</div> 
+  <div>press@apache.org</div> 
+  <div><br /></div> 
+  <div>Jessie Hennion</div> 
+  <div>Public Relations Director, Virtual, Inc.</div> 
+  <div>The Apache Software Foundation</div> 
+  <div>+1 781 876 628</div> 
+  <div>jhennion@virtualinc.com</div>

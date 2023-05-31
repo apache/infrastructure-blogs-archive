@@ -1,0 +1,56 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 6 March 2020'
+date: '2020-03-06T00:00:00+00:00'
+categories: foundation
+---
+<p></p><p>Welcome, March! We've had a great week within the Apache community. Here's what happened:</p> 
+  <p><b>Success at <span class="il">Apache</span></b> – the monthly blog series that focuses on the people and processes behind why the ASF "just works".<br>&nbsp;- "Google Summer of Code Mentorship --inside the GSoC 2019 Mentor Summit" by Sanyam Goel and Kevin A. McGrail <a href="https://s.apache.org/ejj5q" target="_blank">https://s.apache.org/ejj5q</a>&nbsp; &nbsp; </p><p><b>Apache Month In Review</b> – a summary what the Apache community has been up to in February 2020&nbsp;<a href="https://s.apache.org/Feb2020" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://s.apache.org/Feb2020&amp;source=gmail&amp;ust=1583484094721000&amp;usg=AFQjCNEcrF84phnFDjqgxxynwdvD0DzVgw">https://s.apache.org/Feb2020</a></p><strong>ASF Board</strong> – management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br>&nbsp;- The Apache Software Foundation Operations Summary: Q3 FY2020 (November 2019 - January 2020) <a href="https://s.apache.org/r6s5u" target="_blank">https://s.apache.org/r6s5u</a> <br>&nbsp;- Next Board Meeting: 18 March 2020. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><p></p><p><strong>ApacheCon™</strong> – the ASF's official global conference series, bringing Tomorrow's Technology Today since 1998.<br>&nbsp;-&nbsp;Notice on Apache 2020 Conferences <a href="https://s.apache.org/zgm8m" target="_blank">https://s.apache.org/zgm8m</a></p><p><b>Apache Community Development</b>&nbsp;&nbsp;–&nbsp;the committee that welcomes new participants to the Apache community and mentors them in "The Apache Way".<br></p><p><b>&nbsp;</b>- Beijing, China, joins Indore, India, as the latest Apache Local Community (ALC)&nbsp;Chapter <a href="https://s.apache.org/t4m3x" target="_blank">https://s.apache.org/t4m3x</a><a href="https://s.apache.org/t4m3x" target="_blank" style="background-color: rgb(255, 255, 255);"></a><br>&nbsp;- About the Apache Local Community program <a href="https://s.apache.org/alc" target="_blank">https://s.apache.org/alc</a></p><p><strong>ASF Infrastructure</strong> – our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br>&nbsp;-
+ 7M+ weekly checks yield uptime at 99.87%. Performance checks across 50 
+different service components spread over more than 250 machines in data 
+centers around the world.&nbsp;<a href="http://www.apache.org/uptime/">http://www.apache.org/uptime/</a></p> 
+  <p><strong>Apache Code Snapshot</strong> – this week, 824 Apache contributors changed 2,401,358 lines of code over 3,496 commits. Top 5 contributors, in order, are: Andrea Cosentino, Mark Thomas, Claus Ibsen, Paul J. Davis, and Tomaz Muraus.&nbsp; &nbsp; <br></p> 
+  <p><strong>Apache Project Announcements</strong>&nbsp;– the latest updates by category. 
+  </p> <span class="il"> 
+    <p>Big Data --<br>&nbsp;- Apache CouchDB 3.0.0 released <a href="https://couchdb.apache.org/" target="_blank">https://couchdb.apache.org/</a><br>&nbsp;- Apache <span class="il">HBase</span> 1.4.13 released <a href="https://hbase.apache.org/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://hbase.apache.org/&amp;source=gmail&amp;ust=1583493344561000&amp;usg=AFQjCNEsRrElbqplhOpwjQy_O-hu2yFjIQ">https://<span class="il">hbase</span>.apache.org/</a></p></span> 
+  <p>Cloud Computing --<br>&nbsp;-&nbsp;<span style="font-size: 14px;">The Apache Software Foundation Announces Apache<sup>®</sup> Brooklyn<sup>TM</sup> v1.0</span>&nbsp;<a href="https://s.apache.org/ladi7" target="_blank">https://s.apache.org/ladi7</a></p><p><span>Databases --<br>
+&nbsp;- <span class="il">Apache</span> <span class="il">Derby</span> 10.15.2.0 released <a href="https://db.apache.org/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://db.apache.org/&amp;source=gmail&amp;ust=1583491879890000&amp;usg=AFQjCNERlONX9DPr59DuNir4ms1u3m4VpQ">https://db.<span class="il">apache</span>.org/</a></span><span> </span></p> 
+  <p><span>IoT --<br>&nbsp;- Apache PLC4X 0.6.0 released <a href="https://plc4x.apache.org/" target="_blank">https://plc4x.apache.org/</a> &nbsp; </span></p><p>Libraries --<br>&nbsp;- Apache Log4j 2.13.1 released <a href="https://logging.apache.org/" target="_blank">https://logging.apache.org/</a></p><p>Messaging --<br>
+&nbsp;- <span class="il">Apache</span> <span class="il">Qpid</span> <span class="il">JMS</span> 0.49.0 released <a href="https://qpid.apache.org/" target="_blank">https://qpid.apache.org/</a><br>&nbsp;- Apache Curator 4.3.0 released <a href="https://curator.apache.org/" target="_blank">https://curator.apache.org/</a> <br></p><p>Programming Languages --<br>
+&nbsp;- Apache <span class="il">Groovy</span> 2.4.19 released <a href="https://groovy.apache.org/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://groovy.apache.org/&amp;source=gmail&amp;ust=1583557497200000&amp;usg=AFQjCNH--7O8sp3V1EC2in3RqvNg6PE3Ag">https://<span class="il">groovy</span>.apache.org/</a></p><p>Servers --<br>
+&nbsp;- Apache Traffic Server 8.0.6 and 7.1.9 released <a href="https://trafficserver.apache.org/" target="_blank">https://trafficserver.apache.org/</a> <br></p> 
+  <p><strong><br>Did You Know?</strong></p> 
+  <p>&nbsp;- Did you know that <span style="font-size: 14px;">N</span>etflix uses Apache Druid to manage its 1.5 trillion-row data warehouse requirements that include what users see when tapping the Netflix icon or logging in from a browser across platforms?&nbsp;<a href="http://druid.apache.org/" target="_blank">http://druid.apache.org/</a></p><p>&nbsp;- Did you know that the Apache Airflow community will be at Airflow Summit, 3-5 June in Mountain View?&nbsp;<a href="http://airflow.apache.org/" target="_blank">http://airflow.apache.org/</a><br></p> 
+  <p>&nbsp;- Did you know that WIRIS Math and Science uses ApacheMXNet to power MathType for Handwritten Math Recognition?&nbsp;<a href="https://mxnet.apache.org/" target="_blank">https://mxnet.apache.org/</a></p> 
+  <p><strong><br>Apache Community Notices:</strong></p> 
+  <p>&nbsp;-&nbsp;Apache Month In Review: February 2020 – overview of events that have taken place within the Apache community <a href="https://s.apache.org/1bbb1">https://s.apache.org/Feb2020</a> </p> 
+  <p>&nbsp;- "Trillions and Trillions Served", the documentary on the ASF, is in post-production. Catch the teaser at&nbsp;<a href="https://s.apache.org/ASF-Trillions">https://s.apache.org/ASF-Trillions</a> </p> 
+  <p>&nbsp;- Apache in 2019 - By The Digits&nbsp;<a href="https://s.apache.org/Apache2019Digits">https://s.apache.org/Apache2019Digits</a> </p> 
+  <p>&nbsp;- The Apache Way to Sustainable Open Source Success&nbsp;<a href="https://s.apache.org/GhnI">https://s.apache.org/GhnI</a></p> 
+  <p>&nbsp;- ASF Operations Summary: Q2 FY2020 (August - October 2019) <a href="https://s.apache.org/2kv2n">https://s.apache.org/2kv2n</a></p> 
+  <p>&nbsp;- Celebrating 20 Years Community-led Development "The Apache Way"&nbsp;<a href="https://s.apache.org/ASF20thAnniversary">https://s.apache.org/ASF20thAnniversary</a></p> 
+  <p>&nbsp;- ASF Founders look back on 20 Years of the ASF <a href="https://blogs.apache.org/foundation/entry/our-founders-look-back-on">https://blogs.apache.org/foundation/entry/our-founders-look-back-on</a></p> 
+  <p>&nbsp;- Foundation Reports and Statements <a href="http://www.apache.org/foundation/reports.html">http://www.apache.org/foundation/reports.html</a></p> 
+  <p>&nbsp;- ApacheCon: Tomorrow's Technology Today since 1998&nbsp;<a href="http://s.apache.org/ApacheCon">http://s.apache.org/ApacheCon</a></p> 
+  <p>&nbsp;- ASF Annual Report for FY2019&nbsp;<a href="https://s.apache.org/FY2019AnnualReport">https://s.apache.org/FY2019AnnualReport</a></p> 
+  <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open.&nbsp;<a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <p>&nbsp;- Pre-registration open for the first Pulsar Summit <a href="http://pulsar.apache.org/blog/2019/12/18/Pulsar-summit-cfp/">http://pulsar.apache.org/blog/2019/12/18/Pulsar-summit-cfp/</a> </p> 
+  <div> 
+    <p>&nbsp;- "Success at Apache" focuses on the people and processes behind why the ASF "just works". <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter (<a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a>) and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+  </div> <span class="LrzXr"></span><span class="LrzXr"></span> 
+  <div>&nbsp;- Find out how you can participate with Apache 
+community/projects/activities --opportunities open with Apache Camel, 
+Apache HTTP Server, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our "Powered By" logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div> 
+    <p>= = =</p> 
+    <p>For real-time updates, sign up for Apache-related news by sending
+ mail to announce-subscribe@apache.org and follow @TheASF on Twitter. 
+For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</p> 
+  </div> 
+  <p> </p><p></p>

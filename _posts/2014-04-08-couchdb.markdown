@@ -1,0 +1,31 @@
+---
+layout: post
+title: CouchDB and the Heartbleed SSL/TLS Vulnerability
+date: '2014-04-08T00:00:00+00:00'
+categories: couchdb
+---
+<p>
+You may or may not have heard about the <a href="http://heartbleed.com" title="Heartbleed Bug">Heartbleed SSL/TLS vulnerability</a> yet. Without much exaggeration, this is a big one.
+</p>
+
+<p>What does this mean for CouchDB?</p>
+
+<p>
+1. If you are using CouchDB with the built-in SSL support, you are at the whim of Erlang/OTP’s handling of SSL. Lucky for you, while they do use OpenSSL for the heavy lifting, they do the TLS/SSL handshake logic in Erlang (<a href="http://erlang.org/pipermail/erlang-questions/2014-April/078537.html" title="[erlang-questions] Does Erlang/OTP SSL app have heartbleed  vulnerability?">Source</a>). That means you are not affected by this issue.
+</p>
+
+<p>
+2. If you are using CouchDB behind a third-party proxy server you are at the whim of the SSL library it uses. For the big three Apache, nginx and HAProxy it’s all OpenSSL. So if they are using OpenSSL 1.0.1-1.0.1f with heartbeat support (RFC6520) enabled (the default), you need to take action. As far as I can tell now:
+</p>
+
+<ul>
+<li>0. Check if you <a href="https://gist.githubusercontent.com/takeshixx/10107280/raw/8052d8479ad0c6150464748d639b0f5e877e8c37/hb-test.py">are vulnerable</a></li>
+<li>1. Stop your service.</li>
+<li>2. Upgrade to OpenSSL 1.0.1g or recompile OpenSSL without heartbeat support.</li>
+<li>3. Request new cert from your SSL cert vendor.</li>
+<li>4. Revoke your old cert.</li>
+<li>5. Invalidate all existing sessions by changing the CouchDB couchdb_httpd_auth/secret configuration value to a new UUID.</li>
+<li>6. Restart your service.</li>
+<li>7. Invalidate all your user’s passwords and/or OAuth tokens.</li>
+<li>8. Notify your users that any of their data and passwords are potentially compromised.</li>
+</ul>

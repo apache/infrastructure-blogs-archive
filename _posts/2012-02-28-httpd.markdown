@@ -1,0 +1,142 @@
+---
+layout: post
+title: Apache HTTP Server Usage Survey Results
+date: '2012-02-28T00:00:00+00:00'
+categories: httpd
+---
+<p><em>By <a href="http://www.temme.net/sander/">Sander Temme</a></em></p> 
+  <p>Wouldn’t it be nice if you had an idea of how people use the
+software that you write? I wanted to have an idea how the&nbsp;<a href="http://httpd.apache.org/">Apache HTTP Server</a> is being used, and which
+features users consider important. So, I set up a short online survey of eight
+questions and sent a link to it to the HTTP Server project user and developer
+mailing lists. Over the next week and a half, I got 134 responses. Here are the
+survey results in shiny pie charts with witty interpretation.</p> 
+  <h2>On which operating system do you typically use Apache HTTP Server?</h2> 
+  <p>This question, actually number two in the survey, received
+quite a few write-in responses. I had
+only the top four operating systems in the answer list, but respondents wrote
+in several more. One respondent wrote: “I use Apache simply because it works
+transparently on Linux and Windows,” and another “FreeBSD on my hosting
+service, Linux at the office.” One respondent wrote: “<span lang="PT-BR">Estou começando a programar em php!</span>” (I’m
+starting to program in PHP!) The following graph has all of the operating
+systems that appeared in the survey responses:</p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/197eaecf-025e-4a3a-91cd-6a04ec638c38"><img src="https://blogs.apache.org/httpd/mediaresource/197eaecf-025e-4a3a-91cd-6a04ec638c38" alt="operating-systems-full.png" /></a></p> 
+  <p>Linux and Windows make up the vast majority of operating
+systems in use, accounting for over 80%. Sliced another way, 80% of respondents
+uses Apache on Unix-like platforms. </p> 
+  <p>Why all those write-ins? My theory is that it has to do with
+the desire to make one’s platform of choice known. Usually when we are asked
+this question, the asking is done by marketeers trying to save some money by
+cutting support for less popular platforms. If we don’t speak up, our platform
+might get cut. Fortunately, Apache doesn’t work this way: support for various
+operating systems and platforms is provided by the developer community. Whether
+a specific operating system is popular does not matter: as long as there are
+developers interested in supporting a platform, the Apache HTTP Server will run
+on it.</p> 
+  <h2>How do you typically obtain your Apache HTTP Server Software</h2> 
+  <p>Technically, the httpd project only releases source code:
+once the source code archive is up on the download servers, the project is done
+with the release. Anyone can download and compile the software for his own use.
+However, a lot of users obtain httpd through some other means. They don't have
+the expertise to compile their own, or find it unnecessary because their Linux
+distribution comes with httpd already installed. Some platforms, like Windows,
+ship without a compiler and building Apache on it is non-trivial. When asked
+how they typically obtained their Apache HTTP Server software, this is how the
+user community answered:</p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/1882757d-576a-4996-9815-8907168c79cc"><img src="https://blogs.apache.org/httpd/mediaresource/1882757d-576a-4996-9815-8907168c79cc" alt="how-obtained.png" /></a> </p> 
+  <p>A large minority of respondents compiles their own httpd
+from source. This is a little surprising: I assumed that more users would use
+packages from their distributions or third party downloads. Of course, most
+respondents learned about the survey from the httpd developer and user mailing lists:
+one can expect a large proportion of sophisticated users that have the
+expertise and wish to exercise control over their deployments that requires
+custom-built HTTP Server software. What’s interesting is the same data
+cross-referenced by operating system:</p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/f06f78ca-d33a-4a54-b596-d4d22d09147e"><img src="https://blogs.apache.org/httpd/mediaresource/f06f78ca-d33a-4a54-b596-d4d22d09147e" alt="platform-method.png" /></a></p> 
+  <p>Third party packages are popular on Windows, which ships
+without a compiler. Also, it is not trivial to build httpd and its supporting
+libraries on the platform. It’s much easier to grab an installer, especially
+since members of the httpd developer community usually make one available. To
+the credit of the port maintainer, all respondents who run FreeBSD install
+their httpd from the ports collection.</p> 
+  <h2>Which version of Apache HTTP Server do you mostly run?</h2> 
+  <p>There is very little surprise here: Apache HTTP Server 2.2.x
+is the most popular by far: </p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/3e52b95a-7984-41b8-9c5e-7ee9bcab138d"><img src="https://blogs.apache.org/httpd/mediaresource/3e52b95a-7984-41b8-9c5e-7ee9bcab138d" alt="which-version.png" /></a></p> 
+  <h2>Which application API modules do you use?</h2> 
+  <p>Respondents could select multiple answers to this question.
+PHP remains the most popular module: this is unlikely to surprise anyone. </p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/7505d1d9-f1d6-4bab-87c4-8c91dcd062f2"><img src="https://blogs.apache.org/httpd/mediaresource/7505d1d9-f1d6-4bab-87c4-8c91dcd062f2" alt="api-modules.png" /></a></p> 
+  <p>It’s interesting to see a strong showing for the good old
+CGI interface. The results may be slightly skewed by the fact that mod_python
+is no longer actively developed: as several people noted, its role has been
+taken over by mod_wsgi. I also did not include several integrations that might
+prove popular, like FastCGI.</p> 
+  <h2>How important are the following features of Apache HTTP Server to you?</h2> 
+  <p>This question allowed respondents to indicate how important
+various features of httpd are to them. </p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/73c4de79-8d90-4459-b36f-7c32b91388ca"><img src="https://blogs.apache.org/httpd/mediaresource/73c4de79-8d90-4459-b36f-7c32b91388ca" alt="feature-temperature.png" /></a></p> 
+  <p>The features people feel most passionate about are clearly
+SSL support and URL rewriting/mapping: these each got about 50% “can’t live
+without.” Nobody does <em>not</em> care about
+URL rewriting. Scalability and extensibility are important, but aren’t “can’t
+live without” features. The easy configuration gets only a small amount of
+passion: I guess that if you are familiar enough with httpd to fill out the
+survey, you tend to not be intimidated by its configuration language.</p> 
+  <h2>Will you upgrade to Apache HTTP Server 2.4 when it is released?</h2> 
+  <p>At the time of the survey, version 2.4 of the server had not
+been released. Asked whether they would upgrade immediately upon release, most
+respondents chose the safe route of waiting a while. A few intrepid souls (fewer than 20%) planned
+to upgrade immediately.  </p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/0c604e11-85c5-487b-944e-cb1ba9eda497"><img src="https://blogs.apache.org/httpd/mediaresource/0c604e11-85c5-487b-944e-cb1ba9eda497" alt="when-upgrade.png" /></a></p> 
+  <h2>In which environment do you mostly use Apache HTTP Server?</h2> 
+  <p>This was the only demographic question in the survey: an
+attempt to learn a little bit about the respondents. </p> 
+  <p><a href="https://blogs.apache.org/httpd/mediaresource/d7e8059e-25e8-4d2c-b85d-668dfc74d185"><img src="https://blogs.apache.org/httpd/mediaresource/d7e8059e-25e8-4d2c-b85d-668dfc74d185" alt="work-environment.png" /></a></p> 
+  <p>Almost half of the respondents use httpd in a small or
+medium-sized business, and only one eight work in a Fortune 500 company. This discrepancy may be partially caused by
+the fact that there are millions of small and medium businesses, and the number
+of Fortune 500 companies is limited to… 500. Consultants and non-profit
+organizations are well represented; government respondents are a small
+minority.</p> 
+  <h2>If I could improve one thing about Apache HTTP Server, it would be…</h2> 
+  <p>This was a free-form write-in question: respondents could
+fill in whatever they wanted. Just under half of the respondents took advantage
+of this opportunity. The full list of responses will be shared with the HTTP
+Server development community, but I will quote a few. </p> 
+  <p>Some respondents wanted to improve the feature set, such as:</p> 
+  <ul> 
+    <li>“A more advanced interface for adding or removing backend servers in reverse/balancer situations”</li> 
+    <li>“Proper cluster synchronized cache”</li> 
+    <li>“Easy cache control”</li> 
+  </ul> 
+  <p>Quite a few addressed the configuration process: </p> 
+  <ul> 
+    <li>“Ease of configuration”</li> 
+    <li>“The overall configuration spaghetti jungle.
+While I do understand the–extreme–flexibility, when you investigate someone
+else’s server, you have to wade through 10s of files for perhaps one website”</li> 
+    <li>“Easier configuration of virtual hosts”</li> 
+    <li>“Configuration file syntax; I'd completely re-do it to be more modern and less confusing”</li> 
+    <li>“Config process could be simpler.”</li> 
+  </ul> 
+  <p>One person asked for “a config GUI.” Another suggested a fixed
+interval release cycle. Documentation was another frequently raised topic. It
+is tempting to address or rebut many of the comments. I purposely refrained
+from editorializing here: a discussion about these comments should develop
+within the development community, on the developer mailing list.</p> 
+  <h2>Conclusion</h2> 
+  <p>The survey confirmed several things I suspected. For
+instance, Linux and PHP are popular. Apache HTTP Server 2.2.x is by far the
+most widely used version of the server. Other findings may be more unexpected:
+the importance of SSL and URL rewriting for so many, or the relatively strong
+showing of the CGI interface. </p> 
+  <p>To my delight, one person offered in the write-in space: “It
+serves my needs completely” and another wanted to improve “nothing. The current
+product meets my needs. Thank you so much.” </p> 
+  <p>You are very welcome. </p> 
+  <p><em>Apache HTTP Server</em> is a trademark of the Apache Software Foundation.</p> 
+  <div id="myEventWatcherDiv" style="display: none; "></div> 
+  <div id="myEventWatcherDiv" style="display: none; "></div> 
+  <div id="myEventWatcherDiv" style="display: none; "></div> 
+  <div id="myEventWatcherDiv" style="display: none; "></div>

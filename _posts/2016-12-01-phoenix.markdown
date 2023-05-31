@@ -1,0 +1,16 @@
+---
+layout: post
+title: Announcing Phoenix 4.9 released
+date: '2016-12-01T00:00:00+00:00'
+categories: phoenix
+---
+<p>The <a href="http://phoenix.apache.org" target="_blank" title="Apache Phoenix">Apache Phoenix</a> team is pleased to announce the immediate <a href="http://phoenix.apache.org/download.html" target="_blank" title="download">availability of the 4.9.0 release</a>. Apache Phoenix enables SQL-based OLTP and operational analytics for Hadoop using Apache HBase as its backing store and providing integration with other projects in the ecosystem such as Spark, Hive, Pig, Flume, and MapReduce. The 4.x releases are compatible with HBase 0.98/1.1/1.2.</p> 
+  <p>Here are some of the highlights of the releases:</p> 
+  <p> </p> 
+  <ul> 
+    <li><a href="https://phoenix.apache.org/atomic_upsert.html" target="_blank" title="Atomic UPSERT">Atomic UPSERT</a> through new <a href="https://phoenix.apache.org/language/index.html#upsert_values" target="_blank" title="ON DUPLICATE KEY">ON DUPLICATE KEY</a> syntax</li> 
+    <li><a href="https://phoenix.apache.org/language/index.html#column_def" target="_blank" title="DEFAULT declaration">DEFAULT declaration</a> in DDL statements</li> 
+    <li><a href="https://phoenix.apache.org/update_statistics.html" target="_blank" title="Per table guidepost">Per table guidepost</a> specification</li> 
+    <li>40+ <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&amp;version=12335845" target="_blank" title="bug fixes">bug fixes</a></li> 
+  </ul> 
+  <p>Source and binary downloads are available&nbsp;<a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>.</p>

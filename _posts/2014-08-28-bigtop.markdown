@@ -1,0 +1,38 @@
+---
+layout: post
+title: Testing Apache Tez with Apache BigTop's new Testing Infrastructure
+date: '2014-08-28T00:00:00+00:00'
+categories: bigtop
+---
+<p>Apache BigTop's utilities can be consumed and reused by any hadoop distribution, not just itself.&nbsp; Puppet recipes, RPM specifications, and so on, can save vendors weeks or months of time if borrowed from BigTop rather than maintained in house.<i> However, until recently, the tests were somewhat difficult to customize and hack on. </i> <br /></p>
+  <p>So, after alot of stimulating debate, we finally settled on our new test infrastructure. &nbsp;<a href="https://issues.apache.org/jira/browse/BIGTOP-1222"></a>For those interested in building an integration test framework, especially a Java based application, where Java/Scala/Groovy based API calls&nbsp; will be important to run in an integration context, gradle based tests can be very powerful.&nbsp; <br /></p>
+  <ul>
+    <li>You can <b>organize gradle source trees easily</b>, without any requirement for complex package hierarchies.</li>
+    <li>You can <b>dynamically add source sets without alot of boiler plate</b>, meaning the tests can easily by extended and hacked by new engineers, devops folks, etc.</li>
+    <li>You can still test <b>low level java&nbsp; </b>functionality easily, by adding java libraries to the classpath at runtime, without needing to compile jars and manage a whole maven style project.<br /></li>
+    <li>The test<b> interface is easy to customize with arguments</b>.&nbsp; You can parse arguments however you want.</li>
+    <li>Gradle combines the power of groovy into a declarative language for builds<br /></li>
+    <li>Using something like <b>gradle-wrapper, you can make your java based tests easy to consume by anyone</b>, even folks outside the java community.<br /></li>
+  </ul>
+  <p>As an example of how to use gradle for integration tests, I'll demonstrate how we retooled the BigTop tests.&nbsp; <br /></p>
+  <p>You can check out the new tests by cloning bigtop, and going into the bigtop-tests/smoke-tests directory.<br /></p>
+  <p><i>First lets take a look at the overall directory structure of the testing suite.</i><br /></p>
+  <p>[bigtop@sandbox smoke-tests]$ tree <br />├── build.gradle<br />├── flume<br />│&nbsp;&nbsp; ├── build.gradle<br />│&nbsp;&nbsp; ├── conf<br />│&nbsp;&nbsp; │&nbsp;&nbsp; └── flume.conf<br />│&nbsp;&nbsp; ├── log4j.properties<br />│&nbsp;&nbsp; └── TestFlumeNG.groovy<br />├── hive<br />│&nbsp;&nbsp; ├── build.gradle<br />│&nbsp;&nbsp; └── log4j.properties<br />├── mahout<br />│&nbsp;&nbsp; ├── build.gradle<br />│&nbsp;&nbsp; └── log4j.properties<br />├── mapreduce<br />│&nbsp;&nbsp; └── build.gradle<br /></p>
+  <p><b>Testing Apache Tez with Apache BigTop</b></p>
+  <p>So, what better way to demonstrate the flexibility of the BigTop testing suite than to use it to test another tool, native to another distribution : Apache Tez on Hortonworks HDP !</p>
+  <p>The code for these tests is in <a href="https://issues.apache.org/jira/browse/BIGTOP-1190%20">this jira</a> which also has the patch&nbsp; to add a simple Tez test to bigtop attached to it.<br /></p>
+  <p>
+    <p><b>How it works</b> <br /></p>
+  </p>
+  <p>Its pretty simple... Above we can see that each ecosystem component has a &quot;build.gradle&quot; file.&nbsp;&nbsp; The build.gradle file contains a few dependencies, and the names of classes which it will be calling for tests.&nbsp;&nbsp; There is also a top-level build.gradle file.&nbsp;&nbsp; The job of this file is to send global parameters to the sub tests, it does no testing of its own.&nbsp; We do this using the &quot;subprojects&quot; directive.&nbsp; Finally, there is a settings.gradle file, that parses our input arguments to decide which tests to run.<br /></p>
+  <p>So, how do we extend these tests?&nbsp; Easy !</p>
+  <ol>
+    <li>Pick any existing test as a template (for example, pig/) and just copy the files into a new directory.<br /></li>
+    <li>Create a directory, for example &quot;tez/&quot;<br /></li>
+    <li>Customize the environment variables you want defined for your test in build.gradle</li>
+    <li>Customize the unit testing script (which uses itest and junit for assertions and running bash commands)</li>
+    <li>Run your new tests : gradle clean compileGroovy -Dsmoke.tests=tez --info<br /></li>
+  </ol>
+  <p><img src="http://i.imgur.com/uTozVD5.jpg" /></p>
+  <p>There it is : In slightly below 100 lines of code, by adding two simple files, we were able to add a new test the bigtop test suite.&nbsp; Note that we didn't have to edit a single <b>existing </b>file to run this test, rather, we just dumped some groovy scripts into a new directory, and gradle discovered, ran the tests for us, and created a nice little html report as well, which is now available in ./build/reports/tests/index.html.&nbsp; Gradle also injected the inherited dependencies for us, and did some basic sanity checking as well.<br /></p>
+  <p>We can see that, the original test ram a MapReduce job - but after turning tez on, indeed our job UI shows that we can now test Tez using BigTop's test framework.</p>

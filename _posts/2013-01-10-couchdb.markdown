@@ -1,0 +1,49 @@
+---
+layout: post
+title: Apache CouchDB 1.2.1 Released
+date: '2013-01-10T00:00:00+00:00'
+categories: couchdb
+---
+<p>Apache CouchDB 1.2.1 has been released and is available for download.</p>
+
+<p>Grab your copy here:</p>
+
+<blockquote>
+<a href="http://www.apache.org/dyn/closer.cgi?path=/couchdb/1.2.1/apache-couchdb-1.2.1.tar.gz">http://www.apache.org/dyn/closer.cgi?path=/couchdb/1.2.1/apache-couchdb-1.2.1.tar.gz</a>
+</blockquote>
+
+<p>These release notes are based on the <a href="http://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=blob_plain;f=NEWS;hb=1.2.x">NEWS</a> file.</p>
+
+<h4>HTTP Interface</h4>
+
+<ul>
+<li><strong>Fix various bugs in the URL rewriter when recursion is involved.</strong></li>
+</ul>
+
+<h4>Platform Integration</h4>
+
+<ul>
+<li><strong>Fix couchdb start script.</strong></li>
+</ul>
+
+<h4>Futon User Interface</h4>
+
+<ul>
+<li><strong>Disable buttons that aren't available for the logged-in user.</strong></li>
+</ul>
+
+<h4>Replicator</h4>
+
+<ul>
+<li><strong>Fix potential replication timeouts.</strong></li>
+</ul>
+
+<h4>View Server</h4>
+
+<ul>
+<li><strong>Change use of signals to avoid broken view groups.</strong></li>
+</ul>
+
+<h4>More Information</h4>
+
+<p>See the <a href="http://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=blob_plain;f=CHANGES;hb=1.2.x">CHANGES</a> file and the Git <a href="http://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=log;h=1.2.x">commit log</a> for more information.</p>

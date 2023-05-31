@@ -1,0 +1,65 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 27 April 2018'
+date: '2018-04-27T00:00:00+00:00'
+categories: foundation
+---
+<p>Farewell, April. Let's review what the Apache community has accomplished this past week:</p> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 16 May. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ApacheCon™ –the ASF's official global conference series.<br />&nbsp;- Join us at Apache Roadshow Europe/Berlin 11-14 June/Berlin --register for FOSS Backstage and you're in!&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a><br />&nbsp;- Registration open for ApacheCon North America 24-27 September/Montreal (schedule coming soon)&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- Final call for Travel Assistance applications for ApacheCon/Montreal --ends 1 May&nbsp;<a href="https://www.apache.org/travel/">https://www.apache.org/travel/</a><br />&nbsp;- Save the date: Apache Roadshow and Open Source Job Fair 8 October/Fairfax, VA<br /></p> 
+  <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield &quot;triple nines&quot; performance at 99.95% uptime.&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <p>ASF Operations Factoid&nbsp;–this week, 514 Apache contributors changed 856,181 lines of code over <font color="#333333" face="Helvetica Neue, Helvetica, Arial, sans-serif"><span style="font-size: 14px;">2,887</span></font>&nbsp;commits. Top 5 contributors, in order, are: Stephen Mallette, Matthieu Baechler, Duo Zhang, Alexey Goncharuk, and Bao Liu.</p> 
+  <p>Apache Accumulo™ –a sorted, distributed key/value store that provides robust, scalable data storage and retrieval.<br />&nbsp;-&nbsp;Apache Accumulo 1.9.0 released&nbsp;<a href="https://accumulo.apache.org/">https://accumulo.apache.org/</a></p> 
+  <p>Apache Jackrabbit™ Oak – a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.9.0 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+  <p>Apache Open Climate Workbench™ –a comprehensive suite of algorithms, libraries, and interfaces designed to standardize and streamline the process of interacting with large quantities of observational data and conducting regional climate model evaluations.<br />&nbsp;- Apache Open Climate Workbench 1.3.0 released&nbsp;<a href="http://climate.apache.org/">http://climate.apache.org/</a></p> 
+  <p>Apache PDFBox™ –an Open Source Java tool for working with PDF documents.<br />&nbsp;- Apache PDFBox 1.8.14 released <a href="http://pdfbox.apache.org/">http://pdfbox.apache.org/</a></p> 
+  <p>Apache Qpid™ Proton –a messaging library for the Advanced Message Queuing Protocol 1.0 (AMQP 1.0, ISO/IEC 19464, http://www.amqp.org).<br />&nbsp;- Apache Qpid Proton-J 0.27.0 released&nbsp;<a href="http://qpid.apache.org/">http://qpid.apache.org/</a></p> 
+  <p>Apache Tika™ –a toolkit for detecting and extracting metadata and structured text content from various documents using existing parser libraries.<br />&nbsp;-&nbsp;Apache Tika 1.18 released&nbsp;http://tika.apache.org/<br />&nbsp;-&nbsp;[CVE-2018-1338] DoS (Infinite Loop) Vulnerability in Apache Tika's BPGParser&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3CCAC1dCwW1WG339h%3DfqMzjG4p0VdeoOe3q5qKM%3DQ7KUQPuLzS1RA%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3CCAC1dCwW1WG339h%3DfqMzjG4p0VdeoOe3q5qKM%3DQ7KUQPuLzS1RA%40mail.gmail.com%3E</a><br />&nbsp;-&nbsp;[CVE-2018-1339] DoS (Infinite Loop) Vulnerability in Apache Tika's ChmParser&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3CCAC1dCwVvwLpJMi%2B-YYx%3Du_9YxZnMpd729Hy%3DB%2BBADXaCEpWceQ%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3CCAC1dCwVvwLpJMi%2B-YYx%3Du_9YxZnMpd729Hy%3DB%2BBADXaCEpWceQ%40mail.gmail.com%3E</a><br />&nbsp;-&nbsp;[CVE-2018-1335] Command Injection Vulnerability in Apache Tika's tika-server module&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3CCAC1dCwVhrPRyFJMS5BbY02%2B495CUODrAzndqZkvKacJnXUSm%2Bw%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3CCAC1dCwVhrPRyFJMS5BbY02%2B495CUODrAzndqZkvKacJnXUSm%2Bw%40mail.gmail.com%3E</a></p> 
+  <p>Apache UIMA™ –a component architecture and framework for the analysis of unstructured content like text, video and audio data.<br />&nbsp;-&nbsp;CVE-2017-15691: Apache UIMA XML external entity expansion (XXE) attack exposure&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3Cfac969e1-6a15-186a-d49c-338c58a0b37e%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201804.mbox/%3Cfac969e1-6a15-186a-d49c-338c58a0b37e%40apache.org%3E</a></p> 
+  <p><strong><br />Did You Know?</strong></p> 
+  <div> 
+    <p>&nbsp;- Did you know that Audi has adopted Apache Kafka as the data streaming backbone for all Audi vehicles?&nbsp;<a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that the Brazilian Air Force's Air Navigation Management Center is powered by Apache Wicket?&nbsp;<a href="http://wicket.apache.org/">http://wicket.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that over the past 12 months 3,255 Apache Committers changed 71,186,324 lines of code over 225,500 commits?&nbsp;<a href="https://blogs.apache.org/foundation/entry/the-apache-software-foundation-celebrates">https://blogs.apache.org/foundation/entry/the-apache-software-foundation-celebrates</a><br /><br /></p> 
+  </div> 
+  <div><strong>Apache Community Notices:</strong></div> 
+  <p>&nbsp;- The Apache<span style="font-size: 10.8333px;"> </span>Software Foundation Celebrates 19 Years of Open Source Leadership &quot;The Apache Way&quot;&nbsp;<a href="https://s.apache.org/gK4Q">https://s.apache.org/gK4Q</a></p> 
+  <p>&nbsp;- Read &quot;Open – For Business – At the ASF&quot; by Merv Adrian, VP Research at Gartner&nbsp;<a href="https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/">https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/</a><br /></p> 
+  <p>&nbsp;- A look at the&nbsp;&quot;Apache at 19&quot; promo at&nbsp;<a href="https://youtu.be/Fqk_rlKiVIs">https://youtu.be/Fqk_rlKiVIs</a></p> 
+  <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+  <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+  </div> 
+  <div> 
+    <p><a href="https://feathercast.apache.org/"></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html<br /></a></p> 
+    <p>&nbsp;- Open Expo Europe - 6-7 June 2018 in Madrid <a href="https://openexpoeurope.com/">https://openexpoeurope.com/</a></p> 
+    <p>&nbsp;- Meet members of the Apache community at Open Expo Madrid 6-7 June 2018&nbsp;<a href="http://www.openexpo.es/en/">http://www.openexpo.es/en/</a></p> 
+    <p>&nbsp;- We're teaming up the Apache Roadshow Europe with Berlin Buzzwords - 10-12 June 2018 (Apache Lounge dates: 11-12 June) <a href="https://berlinbuzzwords.de/">https://berlinbuzzwords.de/</a></p> 
+    <p>&nbsp;- The 2018 Apache EU Roadshow will be held during FOSS Backstage in Berlin 13-14 June 2018&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Apache Big Data project communities will be participating at DataWorks Summit 17-21 June 2018 in San Jose <a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+    <p>&nbsp;- ApacheCon North America&nbsp;will be held 24-27 September in Montreal <a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- Save the Date: Apache Roadshow DC and Open Source/Government/Cyber/Job Fair - 8 October 2018 in Fairfax, VA&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- ASF Quarterly Report: Operations Summary: November 2017 - January 2018<a href="https://s.apache.org/UtBD">&nbsp;https://s.apache.org/UtBD</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+  </div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

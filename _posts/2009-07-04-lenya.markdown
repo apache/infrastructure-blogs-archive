@@ -1,0 +1,8 @@
+---
+layout: post
+title: 'New features: Tag cloud, keyword-style indexing for meta data'
+date: '2009-07-04T00:00:00+00:00'
+categories: lenya
+---
+<p>
+I added a &quot;tagcloud&quot; module to the contributions area. It is visible in the defaultfiredocs publication. You can now configure the meta data to be indexed as keywords (complete phrases incl. spaces as index terms). This is especially useful for using phrases as tags. Check out the meta data docs for the 2.0.x branch in the Zones docu publication.</p><p>Have fun!</p>

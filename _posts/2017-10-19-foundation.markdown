@@ -1,0 +1,63 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Five Years of Apache® OpenOffice™
+  as a Top-Level Project
+date: '2017-10-19T00:00:00+00:00'
+categories: foundation
+---
+<div><strong><em>Latest, secure version of leading Open Source office application and personal productivity suite for Windows, Linux, and Mac now available in 41 languages.</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Forest Hill, MD —19 October 2017—</strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the five-year anniversary of Apache<sup>®&nbsp;</sup>OpenOffice™, the leading Open Source office document productivity suite.</div> 
+  <div><br /></div> 
+  <div>&quot;OpenOffice has been downloaded by millions of users since becoming an Apache project five years ago,&quot; said Marcus Lange, Vice President of Apache OpenOffice. &quot;We are extremely proud of our community of loyal users and developers who are committed to the future of OpenOffice. We are inspired by their encouragement and thank them by making the next version of the world's leading Open Source productivity suite even better.&quot;</div> 
+  <div><br /></div> 
+  <div>With more than 225 million downloads, Apache OpenOffice includes the following applications:</div> 
+  <div> 
+    <ol> 
+      <li>&quot;Writer&quot; - a word processor;</li> 
+      <li>&quot;Calc&quot; - a spreadsheet tool;</li> 
+      <li>&quot;Impress&quot; - a presentation editor;</li> 
+      <li>&quot;Draw&quot; - a vector graphics editor;&nbsp;</li> 
+      <li>&quot;Math&quot; - a mathematical formula editor; and&nbsp;</li> 
+      <li>&quot;Base&quot; - a database management program.&nbsp;</li> 
+    </ol> 
+  </div> 
+  <div><br /></div> 
+  <div>Apache OpenOffice is available in 41 languages on Windows, macOS and Linux.</div> 
+  <div><br /></div> 
+  <div>In celebration of OpenOffice's triple anniversary this month —17 years as an Open Source project, 6 years at the ASF, and 5 years as an ASF Top-Level Project— the Apache OpenOffice Project Management Committee also announced the immediate availability of Apache OpenOffice 4.1.4, which reflects changes that include:</div> 
+  <div> 
+    <ul> 
+      <li>Several updates for language dictionaries</li> 
+      <li>Some translation fixes in the UI</li> 
+      <li>Bug fixes</li> 
+      <li>Security improvements</li> 
+      <li>Updated graphics/logos (new Apache feather)</li> 
+      <li>Enhancements to the build tools (for developers)</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>The complete list of changes and new features is available at <a href="https://s.apache.org/AOO-414changes">https://s.apache.org/AOO-414changes</a> ; users are encouraged to download the official version from <a href="https://www.openoffice.org/download/">https://www.openoffice.org/download/</a></div> 
+  <div><br /></div> 
+  <div>Apache OpenOffice is used by millions of organizations, institutions, and individuals around the world. OpenOffice also plays an integral role in many governments, in response to their mandates to use files in the ISO/IEC standard Open Document Format (ODF). OpenOffice supports localized versions in more than 120 languages (those that are 100% translated and maintained are officially released).</div> 
+  <div><br /></div> 
+  <div>As with all Apache projects, Apache OpenOffice is available as a free download to all users at no cost, charge, or fees of any kind. OpenOffice is Open Source software: its C++ source code is readily available for anyone who wishes to enhance the applications.</div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight</strong></div> 
+  <div>Apache OpenOffice software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For project data, documentation, and more information on Apache OpenOffice, visit <a href="https://openoffice.apache.org/">https://openoffice.apache.org/</a></div> 
+  <div><br /></div> 
+  <div><strong>Download</strong></div> 
+  <div>The project strongly recommends that users download OpenOffice only from the official site <a href="https://www.openoffice.org/download/">https://www.openoffice.org/download/</a> to ensure that they receive the original software in the correct and most recent version. The project also recommends users review the Release Notes <a href="https://s.apache.org/AOO-414releasenotes">https://s.apache.org/AOO-414releasenotes</a> for important updates and remarks concerning any known issues with this version and their workarounds.</div> 
+  <div><br /></div> 
+  <div><strong>Get Involved!</strong></div> 
+  <div>Apache OpenOffice welcomes contributions and community participation through mailing lists as well as attending face-to-face MeetUps, developer trainings, and user events. Those wishing to get involved in the project can find out more at <a href="https://openoffice.apache.org/get-involved.html">https://openoffice.apache.org/get-involved.html</a></div> 
+  <div><br /></div> 
+  <div><strong>About Apache OpenOffice</strong></div> 
+  <div>Originally created as &quot;StarOffice&quot; by StarDivision and after further expansion as an Open Source product under the name &quot;OpenOffice.org&quot; at Sun Microsystems, the project continued development after Oracle Corporation acquired Sun Microsystems in 2010. OpenOffice entered the Apache Incubator in 2011 and graduated as an Apache Top-level Project in October 2012. 9 releases have been made under the auspices of the ASF, with more than 225 million downloads recorded to date. Visit <a href="https://openoffice.apache.org/">https://openoffice.apache.org/</a> and <a href="https://twitter.com/ApacheOO">https://twitter.com/ApacheOO</a> for more information.</div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server -- the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 680 individual Members and 6,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, ODPi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, Target, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div> </div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;OpenOffice&quot;, &quot;Apache OpenOffice&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

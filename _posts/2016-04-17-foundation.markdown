@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 15 April 2016'
+date: '2016-04-17T00:00:00+00:00'
+categories: foundation
+---
+<p>We've had a pleasantly productive week! Let's take a peek at what happened:</p> 
+  <div>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 20 April 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br /></div> 
+  <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield ongoing great performance at 99.08% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- NEW: event highlights featured on FeatherCast!&nbsp;<a href="http://feathercast.apache.org/">http://feathercast.apache.org/</a><br />&nbsp;- Register for Apache:Big Data and ApacheCon/YVR. Join us!&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>Apache Allura™ –an Open Source implementation of a software forge, a Web site that manages source code repositories, bug reports, discussions, wiki pages, blogs, and more for any number of individual projects.<br />&nbsp;- Apache Allura 1.4.0 released&nbsp;<a href="http://allura.apache.org/">http://allura.apache.org/</a></p> 
+    <p>Apache Ant™ –a Java library and command-line tool that helps building software.<br />&nbsp;- Apache Ant 1.9.7 released&nbsp;<a href="http://ant.apache.org/bindownload.cgi">http://ant.apache.org/bindownload.cgi</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Attic&nbsp;–provides process and solutions to make it clear when an Apache project has reached its end of life.<br />&nbsp;-&nbsp;Apache Wookie retired&nbsp;<a href="http://attic.apache.org/projects/wookie.html">http://attic.apache.org/projects/wookie.html</a></p> 
+    <p>Apache Camel™ –a powerful Open Source integration framework based on known Enterprise Integration Patterns.<br />&nbsp;- Apache Camel 2.16.3 released&nbsp;<a href="http://camel.apache.org/download.html">http://camel.apache.org/download.html</a></p> 
+    <p>Apache HBase™ –an Open Source, distributed, versioned, non-relational database.<br />&nbsp;- Apache HBase 1.2.1 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/hbase/1.2.1/">http://www.apache.org/dyn/closer.lua/hbase/1.2.1/</a></p> 
+    <p>Apache Kudu (incubating)&nbsp;–an Open Source storage engine for structured data which supports low-latency random access together with efficient analytical access patterns.<br />&nbsp;- Apache Kudu 0.8.0 released&nbsp;<a href="http://getkudu.io/releases/0.8.0/">http://getkudu.io/releases/0.8.0/</a></p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;-&nbsp;Apache Lucene 6.0.0 released&nbsp;<a href="http://lucene.apache.org/core/mirrors-core-latest-redir.html">http://lucene.apache.org/core/mirrors-core-latest-redir.html</a></p> 
+    <p>Apache Mahout™ –creates an environment for quickly creating machine learning applications that scale and run on the highest performance parallel computation engines available.<br />&nbsp;- Apache Mahout 0.12.0 released&nbsp;<a href="http://www.apache.org/dist/mahout/0.11.2/">http://www.apache.org/dist/mahout/0.11.2/</a></p> 
+    <p>Apache MyFaces™ Core –a JavaServer™&nbsp;Faces 2.2 implementation as specified by JSR-344.<br />&nbsp;- Apache MyFaces Core v2.2.10 released&nbsp;<a href="http://myfaces.apache.org/download.html">http://myfaces.apache.org/download.html</a></p> 
+    <p>Apache Qpid™ JMS –newer AMQP 1.0 JMS client, based around the Qpid Proton protocol engine and implementing the AMQP JMS Mapping as it evolves at OASIS.<br />&nbsp;- Apache Qpid JMS 0.9.0 released&nbsp;<a href="http://qpid.apache.org/download.html">http://qpid.apache.org/download.html</a></p> 
+    <p>Apache Solr™ –the popular, blazing fast, Open Source NoSQL search platform from the Apache Lucene project.<br />&nbsp;-&nbsp;Apache Solr 6.0.0 released&nbsp;<a href="http://lucene.apache.org/solr/mirrors-solr-latest-redir.html">http://lucene.apache.org/solr/mirrors-solr-latest-redir.html</a></p> 
+    <p>Apache Storm™ –a distributed, fault-tolerant, and high-performance realtime computation system that provides strong guarantees on the processing of data.<br />&nbsp;-&nbsp;Apache Storm 1.0 released&nbsp;<a href="http://storm.apache.org/downloads.html">http://storm.apache.org/downloads.html</a></p> 
+    <p>Apache Yetus™ –a collection of libraries and tools that enable contribution and release processes for software projects.<br />&nbsp;- Apache Yetus 0.2.1 released&nbsp;<a href="https://yetus.apache.org/downloads/">https://yetus.apache.org/downloads/</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that in analyzing 70M comments on The Guardian, Apache Spark was used to query very large amounts of data from multiple sources?&nbsp;<a href="http://spark.apache.org/">http://spark.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that CERN uses Apache Hadoop and Apache Impala (incubating) for distributed Big Data management?&nbsp;<a href="http://hadoop.apache.org/">http://hadoop.apache.org/</a>&nbsp;and&nbsp;<a href="http://impala.incubator.apache.org/">http://impala.incubator.apache.org/</a></p> 
+    <p><a href="http://markmail.org/message/ddx3c3of4h45px3q"></a>&nbsp;- Did you know that Apache Tomcat has a new YouTube channel that features v8.5, v9, TLS, Connector and more?&nbsp;<a href="https://www.youtube.com/channel/UCpqpJ0-G1lYfUBQ6_36Au_g">https://www.youtube.com/channel/UCpqpJ0-G1lYfUBQ6_36Au_g</a></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a><strong></strong></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Spark &amp; Hadoop User Group Munich present Spark Kickoff MeetUp on 14 April 2016&nbsp;<a href="http://www.meetup.com/Hadoop-User-Group-Munich/events/228725964/">http://www.meetup.com/Hadoop-User-Group-Munich/events/228725964/</a></p> 
+      <p>&nbsp;- Apache:Big Data North America will take place 9-12 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apache-big-data-north-america">http://events.linuxfoundation.org/events/apache-big-data-north-america</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon:Core North America will take place 11-13 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/">http://events.linuxfoundation.org/events/apachecon-north-america/</a></p> 
+    <p>&nbsp;- The In-Memory Computing Summit will take place 23-24 May 2016 in San Franciscso <a href="http://imcsummit.org/">http://imcsummit.org</a></p> 
+    <p>&nbsp;- The next HBaseCon will take place 24 May 2016 in San Francisco <a href="http://hbasecon.com/">http://hbasecon.com</a></p> 
+    <p>&nbsp;- MesosCon will be held 1-2 June 2016 in Denver&nbsp;<a href="http://events.linuxfoundation.org/events/mesoscon/">http://events.linuxfoundation.org/events/mesoscon/</a></p> 
+    <p>&nbsp;- The next CloudStack Collaboration Conference will take place 1-3 June 2016 in Montreal --CFP open!&nbsp;<a href="https://www.eventbrite.ca/e/apache-cloudstacktm-conference-montreal-2016-tickets-23815552960">https://www.eventbrite.ca/e/apache-cloudstacktm-conference-montreal-2016-tickets-23815552960</a></p> 
+    <p>&nbsp;- Berlin Buzzwords is back 5-7 June 2016&nbsp;<a href="http://berlinbuzzwords.de/">http://berlinbuzzwords.de/</a></p> 
+    <p>&nbsp;- CFP is open for the next Cassandra Summit 7-9 September 2016 in San Jose <a href="https://cfp.cassandrasummit.org/">https://cfp.cassandrasummit.org/</a></p> 
+    <div> 
+      <p>&nbsp;- The Apache Software Foundation Operations Summary: Third Quarter, Fiscal Year 2016 (November 2015 - January 2016) is availbable at <a href="https://s.apache.org/9zLj">https://s.apache.org/9zLj</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

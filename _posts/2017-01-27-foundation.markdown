@@ -1,0 +1,44 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 27 January 2017'
+date: '2017-01-27T00:00:00+00:00'
+categories: foundation
+---
+<p>We're closing out the month with another week of great work from the Apache community:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 15 February 2017. Board calendar and minutes available at&nbsp;<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield &quot;three nines&quot; performance maintained at 99.97% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- ApacheCon: Tomorrow's Technology Today.&nbsp;<a href="https://s.apache.org/F7Hy">https://s.apache.org/F7Hy</a><br />&nbsp;- CFPs for Apache: Big Data and ApacheCon North America 16-18 May 2017/Miami close 11 February&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- Travel Assistance applications now being accepted through 8 March <a href="https://www.apache.org/travel/">https://www.apache.org/travel/</a><br />&nbsp;- Early registration and hotel incentives available through 12 March&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america">http://events.linuxfoundation.org/events/apachecon-north-america</a><br />&nbsp;- Recordings from ApacheCon Europe 2016 are being uploaded at Feathercast&nbsp;<a href="http://feathercast.org/">http://feathercast.org</a></p>New logos/marks wanted&nbsp;–with the launch of the ASF's new visual identity last year, many Apache projects have been freshening up their looks. New logo calls are open for:<br />&nbsp;- Apache Incubator&nbsp;<a href="https://s.apache.org/rFii">https://s.apache.org/rFii</a><br />&nbsp;- Apache OpenNLP&nbsp;<a href="https://issues.apache.org/jira/browse/OPENNLP-6">https://issues.apache.org/jira/browse/OPENNLP-6</a> 
+    <p>Apache HttpComponents™ Client –a library for client-side HTTP communication built on HttpCore.<br />&nbsp;- Apache HttpComponents Client 4.5.3 GA released&nbsp;<a href="http://hc.apache.org/downloads.cgi">http://hc.apache.org/downloads.cgi</a></p> 
+    <p>Apache Impala (incubating)&nbsp;–a high-performance C++ and Java SQL query engine for data stored in Apache Hadoop-based clusters.<br />&nbsp;- Apache Impala 2.8.0 released&nbsp;<a href="https://impala.incubator.apache.org/downloads.html">https://impala.incubator.apache.org/downloads.html</a></p> 
+    <p>Apache Jackrabbit™ –a fully compliant implementation of the Content Repository for Java(TM) Technology API, version 2.0 (JCR 2.0) as specified in the Java Specification Request 283 (JSR 283).<br />&nbsp;- Apache Jackrabbit 2.10.5 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Kudu™ –a distributed columnar storage engine built for the Apache Hadoop ecosystem.<br />&nbsp;- Apache Kudu 1.2.0 released&nbsp;http://kudu.apache.org/releases/1.2.0/</p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;- Apache Lucene 6.4.0 released&nbsp;<a href="http://lucene.apache.org/core/mirrors-core-latest-redir.html">http://lucene.apache.org/core/mirrors-core-latest-redir.html</a><br />&nbsp;-&nbsp;Apache Solr 6.4.0 released&nbsp;<a href="http://lucene.apache.org/solr/mirrors-solr-latest-redir.html">http://lucene.apache.org/solr/mirrors-solr-latest-redir.html</a></p> 
+    <p>Apache Parquet™ –a general-purpose columnar data format with support across processing frameworks, data models, and languages.<br />&nbsp;- Apache Parquet 1.8.2 released&nbsp;<a href="https://www.apache.org/dyn/closer.cgi/parquet/">https://www.apache.org/dyn/closer.cgi/parquet/</a></p> 
+    <p>Apache Qpid™ –implements the latest AMQP specification, the first open standard for enterprise messaging, and provides transaction management, queuing, distribution, security, management, clustering, federation, and heterogeneous multi-platform support and a lot more.<br />&nbsp;- Apache Qpid JMS 0.20.0 released&nbsp;<a href="http://qpid.apache.org/download.html">http://qpid.apache.org/download.html</a><br /><br /></p> 
+    <p><strong>Did You Know?</strong></p> 
+    <p><a href="http://qpid.apache.org/download.html"></a></p>&nbsp;- Did you know that the deep learning framework MXNet has entered the Apache Incubator? <a href="http://incubator.apache.org/projects/mxnet.html">http://incubator.apache.org/projects/mxnet.html</a><br /> 
+    <p>&nbsp;- Did you know that the ASF's Twitter account now has 40,000 followers?&nbsp;<a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></p> 
+    <p>&nbsp;- Did you know that you can help test the Struts 2.5.10 build?&nbsp;<a href="http://markmail.org/thread/gp7gdhria7k7kjxs">http://markmail.org/thread/gp7gdhria7k7kjxs</a></p> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; is a new monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a>&nbsp;2) &quot;All Carrot and No Stick&quot;&nbsp;<a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a></p> 
+    <p>&nbsp;- Feedback from The Apache Software Foundation on the Free and Open Source Security Audit (FOSSA) <a href="https://s.apache.org/romf">https://s.apache.org/romf</a></p> 
+    <p>&nbsp;- ASF Operations Summary - Q2 FY2017 <a href="https://s.apache.org/oTOF">https://s.apache.org/oTOF</a></p> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon North America and Apache:BigData will be held 16-18 May 2017 in Miami&nbsp;<a href="http://apachecon.com/">http://apachecon.com/<br /></a></p> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from&nbsp;<a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a>and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

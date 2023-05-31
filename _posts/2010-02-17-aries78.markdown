@@ -1,7 +1,0 @@
----
-layout: post
-title: OSGi DevCon London - coming soon!
-date: '2010-02-17T08:52:00+00:00'
-categories: aries
----
-<p>Ozzy (aka Andrew Osborne) and I have spent a happy couple of days developing a Blueprint tutorial&nbsp; - we are going to run it at OSGi DevCon on Tuesday 23rd Feb and have 50 minutes to do it in. Ozzy has been writing the code and I have been learning more than anyone ought to ever have to know about the maven assembly plugin :-)&nbsp;</p><p> We are aiming to build something that will run with a minimum of pre-reqs, however, if you are coming to the tutorial please bring:</p><ol><li>A lap top :-). We should be OK with Mac (I use it), Windows (Ozzy uses it) and Linux (we both use it).</li><li>With java installed<br /></li><li>With maven installed</li></ol><p>No network will be needed. </p><p>We will aim to commit the code to Aries after OSGi DevCon - so even if you can't make it on the day it will be available to run later, or in fact for other people to use as the basis for tutorials.</p><p>&nbsp;</p><p>Apart from the Blueprint tutorial there is plenty of other interesting stuff going on at OSGi DevCon - looks like it will be a great day, hope to see you there!<br /></p><p>&nbsp;Zoe</p><p>&nbsp;</p><p><br /></p>

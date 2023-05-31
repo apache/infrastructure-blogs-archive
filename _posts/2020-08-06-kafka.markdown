@@ -1,0 +1,101 @@
+---
+layout: post
+title: What’s New in Apache Kafka 2.6.0
+date: '2020-08-06T00:00:00+00:00'
+categories: kafka
+---
+<p>On behalf of the Apache Kafka<sup>®</sup> community, it is my pleasure to announce the release of <a href="https://kafka.apache.org/downloads" target="_blank" rel="noopener noreferrer">Apache Kafka 2.6.0</a>. The community has created another exciting release with many new features and improvements. We’ll highlight some of the more prominent features in this blog post, but see the <a href="https://dist.apache.org/repos/dist/release/kafka/2.6.0/RELEASE_NOTES.html" target="_blank" rel="noopener noreferrer">release notes</a> for the full list of changes.</p>
+
+<p>We’ve made quite a few significant performance improvements in this release, particularly when the broker has larger partition counts. Broker shutdown performance is <a href="https://issues.apache.org/jira/browse/KAFKA-9373" target="_blank" rel="noopener noreferrer">significantly improved</a>, and performance is dramatically improved when producers use compression. Various aspects of ACL usage are faster and require less memory. And we’ve reduced memory allocations in several other places within the broker.</p>
+<p>This release also adds support for Java 14. And over the past few releases, the community has switched to using Scala 2.13 by default and now recommends using Scala 2.13 for production.</p>
+
+<p>Finally, these accomplishments are only one part of a larger active roadmap in the run up to Apache Kafka 3.0, which may be one of the most significant releases in the project’s history. The work to <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum" target="_blank" rel="noopener noreferrer">replace Zookeeper</a> with built-in Raft-based consensus is well underway with eight KIPs in active development. Kafka’s new Raft protocol for the metadata quorum is already <a href="https://github.com/apache/kafka/pull/9130" target="_blank" rel="noopener noreferrer">available for review</a>. Tiered Storage unlocks infinite scaling and faster rebalance times via <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-405%3A+Kafka+Tiered+Storage" target="_blank" rel="noopener noreferrer">KIP-405</a>, and is up and running in internal clusters at Uber.</p>
+
+<h2 id="broker-producer-consumer"><a id="broker-producer-consumer"></a>Kafka broker, producer, and consumer</h2>
+
+<h3 id="kip-546"><a id="kip-546"></a>KIP-546: Add Client Quota APIs to the Admin Client</h3>
+<p>Managing quotas today in Kafka can be challenging because they can map to any combination of user and client. This feature adds a native API for managing quotas, making the process more intuitive and less error prone. A new <code>kafka-client-quotas.sh</code> command line tool lets users describe existing quotas, resolve the effective quotas for an entity with contextual information about how those quotas were derived, and modify a quota configuration entry by specifying which entries to add, update, and/or remove. For example:
+<pre>$ /bin/kafka-client-quotas.sh --bootstrap-server localhost:9092 \
+                              --alter --names=client-id=my-client \
+                              --defaults=user \
+                              --add=consumer_byte_rate=2000000 \
+                              --delete=producer_byte_rate
+</pre>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-546%3A+Add+Client+Quota+APIs+to+the+Admin+Client" target="_blank" rel="noopener noreferrer">KIP-546</a> for more details.</em></p>
+
+<h3 id="kip-551"><a id="kip-551"></a>KIP-551: Expose disk read and write metrics</h3>
+<p>Disk access on the Kafka broker machines may impact latency and throughput. This change adds metrics that track how many bytes Kafka is reading and writing from the disk.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-551%3A+Expose+disk+read+and+write+metrics" target="_blank" rel="noopener noreferrer">KIP-551</a> for more details.</em></p>
+
+<h3 id="kip-568"><a id="kip-568"></a>KIP-568: Explicit rebalance triggering on the Consumer</h3>
+<p>The Kafka consumer coordinates which topic partitions are assigned to each client in the same consumer group. This feature allows applications using the consumer to explicitly trigger a rebalance, such as if an application uses some system condition to determine whether it is ready to receive partitions.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-568%3A+Explicit+rebalance+triggering+on+the+Consumer" target="_blank" rel="noopener noreferrer">KIP-568</a> for more details.</em></p>
+
+<h3 id="kip-573"><a id="kip-573"></a>KIP-573: Enable TLSv1.3 by default</h3>
+<p>TLS 1.3 is now the default TLS protocol when using Java 11 or higher, and TLS 1.2 remains the default for earlier Java versions. As with Apache Kafka 2.5.0, TLS 1.0 and 1.1 are disabled by default due to known security vulnerabilities, though users can still enable them if required.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-573%3A+Enable+TLSv1.3+by+default" target="_blank" rel="noopener noreferrer">KIP-573</a> for more details.</em></p>
+
+<h3 id="kip-574"><a id="kip-574"></a>KIP-574: CLI Dynamic Configuration with file input</h3>
+<p>Kafka configs for the most part are defined by a single value that maps to a config name. Before this change, it was hard to set configs that are better defined by more complex structures such as nested lists or JSON. Kafka now supports using the <code>kafka-configs.sh</code> command line tool to set configs defined in a file. For example:</p>
+<pre>$ bin/kafka-configs.sh --bootstrap-server localhost:9092 \
+                       --entity-type brokers --entity-default \
+                       --alter --add-config-file new.properties
+</pre>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-574%3A+CLI+Dynamic+Configuration+with+file+input" target="_blank" rel="noopener noreferrer">KIP-574</a> for more details.</em></p>
+
+<h3 id="kip-602"><a id="kip-602"></a>KIP-602: Change default value for client.dns.lookup</h3>
+<p>Apache Kafka 2.1.0 and KIP-302 introduced the <code>use_all_dns_ips</code> option for the <code>client.dns.lookup</code> client property. With this change, the <code>use_all_dns_ips</code> option is now the default so that it will attempt to connect to the broker using all of the possible IP addresses of a hostname. The new default will reduce connection failure rates and is more important in cloud and containerized environments where a single hostname may resolve to multiple IP addresses.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-602%3A+Change+default+value+for+client.dns.lookup" target="_blank" rel="noopener noreferrer">KIP-602</a> for more details.</em></p>
+
+<h2 id="kafka-connect"><a id="kafka-connect"></a>Kafka Connect</h2>
+
+<h3 id="kip-158"><a id="kip-158"></a>KIP-158: Kafka Connect should allow source connectors to set topic-specific settings for new topics</h3>
+<p>This widely requested feature allows Kafka Connect to automatically create Kafka topics for source connectors that write records, if those topics do not yet exist. This is enabled by default but does require connector configurations to define the rules used by Connect when creating these topics. For example, simply including the following will cause Connect to create any missing topics with <code>5</code> partitions and a replication factor of <code>3</code>:
+<pre>
+topic.creation.default.replication.factor=3
+topic.creation.default.partitions=5
+</pre>
+Additional rules with topic matching expressions and topic-specific settings can be defined, making this a powerful and useful feature, especially when Kafka brokers have disabled topic auto creation.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-158%3A+Kafka+Connect+should+allow+source+connectors+to+set+topic-specific+settings+for+new+topics" target="_blank" rel="noopener noreferrer">KIP-158</a> for more details.</em></p>
+
+<h3 id="kip-605"><a id="kip-605"></a>KIP-605: Expand Connect Worker Internal Topic Settings</h3>
+<p>Speaking of creating topics, the Connect worker configuration can now specify additional topic settings, including using the Kafka broker defaults for partition count and replication factor, for the internal topics used for connector configurations, offsets, and status.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-605%3A+Expand+Connect+Worker+Internal+Topic+Settings" target="_blank" rel="noopener noreferrer">KIP-605</a> for more details.</em></p>
+
+<h3 id="kip-610"><a id="kip-610"></a>KIP-610: Error Reporting in Sink Connectors</h3>
+<p>Kafka Connect already had the ability to write records to a dead letter queue (DLQ) topic if those records could not be serialized or deserialized, or when a Single Message Transform (SMT) failed. Now Connect gives sink connectors the ability to send individual records to the DLQ if the connector deems the records to be invalid or problematic. Sink connectors need to explicitly make use of this feature, but doing so will allow sink connectors to continue operating even if some records in the consumed topics are somehow incompatible with the sink connector.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-610%3A+Error+Reporting+in+Sink+Connectors" target="_blank" rel="noopener noreferrer">KIP-610</a> for more details.</em></p>
+
+<h3 id="kip-585"><a id="kip-585"></a>KIP-585: Filter and Conditional SMTs</h3>
+<p>Defining SMTs for connectors that use multiple topics can be challenging, since not every SMT may apply for every record on every topic. With this feature, each SMT can define a predicate with the conditions when that SMT should be applied. It also defines a “filter” SMT that works with the predicates to drop records that match certain conditions.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-585%3A+Filter+and+Conditional+SMTs" target="_blank" rel="noopener noreferrer">KIP-585</a> for more details.</em></p>
+
+<h3 id="kip-577"><a id="kip-577"></a>KIP-577: Allow HTTP Response Headers to be Configured for Kafka Connect</h3>
+<p>It is now possible to add custom headers to all Kafka Connect REST API responses. This allows users to ensure REST API responses comply with corporate security policies.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP+577%3A+Allow+HTTP+Response+Headers+to+be+Configured+for+Kafka+Connect" target="_blank" rel="noopener noreferrer">KIP-577</a> for more details.</em></p>
+
+<h2 id="kafka-streams"><a id="kafka-streams"></a>Kafka Streams</h2>
+
+<h3 id="kip-441"><a id="kip-441"></a>KIP-441: Smooth Scaling Out of Kafka Streams</h3>
+<p>Prior to this change, when Kafka Streams assigns a stateful task, Streams had to catch it up to the head of its changelog before beginning to process it. This feature avoids stop-the-world rebalances by allowing the prior owner of a stateful task to keep it even if the assignment is unbalanced, until the new owner gets caught up, then changing ownership after the catch-up phase.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-441%3A+Smooth+Scaling+Out+for+Kafka+Streams" target="_blank" rel="noopener noreferrer">KIP-441</a> for more details.</em></p>
+
+<h3 id="kip-444"><a id="kip-444"></a>KIP-444: Augment metrics for Kafka Streams</h3>
+<p>This feature adds more out-of-the-box metrics and removes some that are not useful. It also improves the APIs that Streams applications use to register custom metrics.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-444%3A+Augment+metrics+for+Kafka+Streams" target="_blank" rel="noopener noreferrer">KIP-444</a> for more details.</em></p>
+
+<h3 id="kip-447"><a id="kip-447"></a>KIP-447: Producer scalability for exactly once semantics</h3>
+<p>This release adds additional work on this KIP to simplify the API for applications that read from and write to Kafka transactionally. Previously, this use case typically required separate producer instances for each input partition, but now there is no special requirement. This makes it much easier to build exactly-once semantics (EOS) applications that consume large numbers of partitions. This is foundational for a similar improvement in Kafka Streams in the next release.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-447%3A+Producer+scalability+for+exactly+once+semantics" target="_blank" rel="noopener noreferrer">KIP-447</a> for more details.</em></p>
+
+<h3 id="kip-557"><a id="kip-557"></a>KIP-557: Add emit on change support for Kafka Streams</h3>
+<p>This change adds an emit-on-change processing option to Kafka Streams and complements the existing emit-on-update and emit-on-window-close options. This new option drops idempotent updates where the prior and updated record have identical byte arrays. This feature helps eliminate high numbers of identical operations that forward an enormous number of unnecessary results down the topology.</p>
+<p><em>See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-557%3A+Add+emit+on+change+support+for+Kafka+Streams" target="_blank" rel="noopener noreferrer">KIP-557</a> for more details.</em></p>
+
+<h2 id="conclusion"><a id="conclusion"></a>Conclusion</h2>
+
+<p>To learn more about what’s new in Apache Kafka 2.6 and to see all the KIPs included in this release, be sure to check out the <a href="https://dist.apache.org/repos/dist/release/kafka/2.6.0/RELEASE_NOTES.html" target="_blank" rel="noopener noreferrer">release notes</a> and <a href="https://youtu.be/WOiL5kym_Us" target="_blank" rel="noopener noreferrer">highlights video</a>.</p>
+<p>To download Apache Kafka 2.6.0, visit the project's <a href="https://kafka.apache.org/downloads" target="_blank" rel="noopener noreferrer">download page.</p>
+
+<p>This was a huge community effort, so thank you to everyone who contributed to this release, including all of our users and the 127 people (according to git shortlog) that contributed code or documentation changes in this release:</p>
+<p>17hao, A. Sophie Blee-Goldman, Aakash Shah, Adam Bellemare, Agam Brahma, Alaa Zbair, Alexandra Rodoni, Andras Katona, Andrew Olson, Andy Coates, Aneel Nazareth, Anna Povzner, Antony Stubbs, Arjun Satish, Auston, avalsa, Badai Aqrandista, belugabehr, Bill Bejeck, Bob Barrett, Boyang Chen, Brian Bushree, Brian Byrne, Bruno Cadonna, Charles Feduke, Chia-Ping Tsai, Chris Egerton, Colin Patrick McCabe, Daniel, Daniel Beskin, David Arthur, David Jacot, David Mao, dengziming, Dezhi “Andy” Fang, Dima Reznik, Dominic Evans, Ego, Eric Bolinger, Evelyn Bayes, Ewen Cheslack-Postava, fantayeneh, feyman2016, Florian Hussonnois, Gardner Vickers, Greg Harris, Gunnar Morling, Guozhang Wang, high.lee, Hossein Torabi, huxi, Ismael Juma, Jason Gustafson, Jeff Huang, jeff kim, Jeff Widman, Jeremy Custenborder, Jiamei Xie, jiameixie, jiao, Jim Galasyn, Joel Hamill, John Roesler, Jorge Esteban Quilcate Otoya, José Armando García Sancio, Konstantine Karantasis, Kowshik Prakasam, Kun Song, Lee Dongjin, Leonard Ge, Lev Zemlyanov, Levani Kokhreidze, Liam Clarke-Hutchinson, Lucas Bradstreet, Lucent-Wong, Magnus Edenhill, Manikumar Reddy, Mario Molina, Matthew Wong, Matthias J. Sax, maulin-vasavada, Michael Viamari, Michal T, Mickael Maison, Mitch, Navina Ramesh, Navinder Pal Singh Brar, nicolasguyomar, Nigel Liang, Nikolay, Okada Haruki, Paul, Piotr Fras, Radai Rosenblatt, Rajini Sivaram, Randall Hauch, Rens Groothuijsen, Richard Yu, Rigel Bezerra de Melo, Rob Meng, Rohan, Ron Dagostino, Sanjana Kaundinya, Scott, Scott Hendricks, sebwills, Shailesh Panwar, showuon, SoontaekLim, Stanislav Kozlovski, Steve Rodrigues, Svend Vanderveken, Sönke Liebau, THREE LEVEL HELMET, Tom Bentley, Tu V. Tran, Valeria, Vikas Singh, Viktor Somogyi, vinoth chandar, Vito Jeng, Xavier Léauté, xiaodongdu, Zach Zhang, zhaohaidao, zshuo, 阿洋</p>

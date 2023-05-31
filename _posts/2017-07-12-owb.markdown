@@ -1,0 +1,22 @@
+---
+layout: post
+title: Apache Meecrowave-1.0.0 has been released
+date: '2017-07-12T00:00:00+00:00'
+categories: owb
+---
+<p>The Apache OpenWebBeans team is proud to announce the release of Apache Meecrowave 1.0.0</p> 
+  <p>Apache Meecrowave is a small server based on </p> 
+  <ul> 
+    <li>Apache Tomcat (Servlets)</li> 
+    <li>Apache OpenWebBeans (CDI)</li> 
+    <li>Apache Johnzon (JSON-P and JSON-B), and<br /></li> 
+    <li>Apache CXF (JAX-RS).&nbsp;</li> 
+  </ul>That means it is ideally suited for Microservices and standalone applications. 
+  
+  <p>Meecrowave can be either started via a maven plugin (for ease of development), programmatically as embedded server, bundled as application with your business code or as runner to start up portable WAR or JAR applications. </p> 
+  <p>The source distribution package can be downloaded from our mirrors: https://www.apache.org/dyn/closer.lua/openwebbeans/meecrowave/1.0.0</p> 
+  <p>Hashes can be found here
+https://www.apache.org/dist/openwebbeans/meecrowave/1.0.0</p> 
+  <p>The binary artifacts are available on maven.central: https://repo1.maven.org/maven2/org/apache/meecrowave/</p> 
+  <p>More info can be found at https://openwebbeans.apache.org/meecrowave/ </p> 
+  <p><br /></p>

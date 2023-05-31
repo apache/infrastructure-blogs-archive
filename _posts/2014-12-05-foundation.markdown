@@ -1,0 +1,21 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 5 December 2014'
+date: '2014-12-05T00:00:00+00:00'
+categories: foundation
+---
+<p>With more than 200 projects and initiatives under development at The Apache Software Foundation (ASF), here's what's happened over the past week:</p> 
+  <p>ASF Fundraising –supporting Sponsorship and fundraising initiatives for The Apache Software Foundation<br />&nbsp;- Upayavira steps down as VP Fundraising; Jim Jagielski and Hadrian Zbarcea named new Vice Presidents&nbsp;<a href="http://apache.org/foundation/sponsorship.html">http://apache.org/foundation/sponsorship.html</a></p> 
+  <p> </p> 
+  <p>ASF Infrastructure&nbsp;–leading the ASF's multi-datacenter, multi-cloud deployment running 24x7x365 on multiple continents, distributing terabytes of artifacts per week and archiving more than 11 million Apache email messages.<br />&nbsp;- ASF Subversion master's emergency maintenance&nbsp;<a href="https://blogs.apache.org/infra/entry/subversion_master_undergoing_emergency_maintenance">https://blogs.apache.org/infra/entry/subversion_master_undergoing_emergency_maintenance</a> </p> 
+  <p>Apache Incubator –the entry path for all code donations from external organisations and existing external projects wishing to join the ASF's efforts as official Apache projects. <br />&nbsp;- Hadoop Development Tools, HTrace, Lens, NiFi, and Tamaya entered the Incubator in November as new podlings <a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p> 
+  <p>Apache Flex™ –a highly productive, Open Source application framework for building and maintaining expressive Web applications that deploy consistently on all major browsers, desktops and devices.<br />&nbsp;- Apache Flex TourDeFlex 1.2 released&nbsp;<a href="http://flex.apache.org/tourdeflex/">http://flex.apache.org/tourdeflex/</a></p> 
+  <div> 
+    <p> </p> 
+    <p> </p> 
+    <p>= = =</p> 
+    <p>For real-time updates, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">sign up for Apache-related news</a> at announce@apache.org and <a href="https://twitter.com/TheASF">follow @TheASF</a> on Twitter.</p> 
+  </div> 
+  <div> 
+    <p>For a broader spectrum from the Apache community, h<a href="ttps://twitter.com/PlanetApache">ttps://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select ASF Committers.</p> 
+  </div>

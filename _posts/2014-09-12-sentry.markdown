@@ -1,0 +1,10 @@
+---
+layout: post
+title: Apache Sentry user meetup @NYC during Strata + Hadoop World
+date: '2014-09-12T00:00:00+00:00'
+categories: sentry
+---
+<div style="color: #222222; font-family: arial, sans-serif;">&nbsp;We are planning a Sentry user&nbsp;<span class="il" style="background: #ffffcc;">meetup</span> on 16th October at NY,&nbsp;during&nbsp;&nbsp;Strata + Hadoop World conference. The venue is still being decided.&nbsp;</div> 
+  <div style="color: #222222; font-family: arial, sans-serif;"> 
+    <p>If you are NY area or attending the conference, please drop by to meet other Sentry users and contributors. You can RSVP for the event on <a href="%20http://s.apache.org/1Bd">http://s.apache.org/1Bd</a></p> 
+  </div>

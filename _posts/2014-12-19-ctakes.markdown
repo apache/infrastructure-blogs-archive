@@ -1,0 +1,23 @@
+---
+layout: post
+title: Apache cTAKES 3.2.1 released
+date: '2014-12-19T00:00:00+00:00'
+categories: ctakes
+---
+The Apache cTAKES team is pleased to announce the availability of the
+3.2.1 release.
+
+For the complete release notes, please visit
+<a href="http://s.apache.org/ctakes-3.2.1-release-notes">http://s.apache.org/ctakes-3.2.1-release-notes</a>
+
+Apache clinical Text Analysis and Knowledge Extraction System (cTAKES) is
+an open-source natural language processing system for information
+extraction from electronic medical record clinical free-text.
+
+The release can be downloaded from
+<a href="http://ctakes.apache.org/downloads.cgi">http://ctakes.apache.org/downloads.cgi</a>
+
+For further information, please visit the project website at
+<a href="http://ctakes.apache.org/">http://ctakes.apache.org/</a>
+
+-- The Apache cTAKES Team

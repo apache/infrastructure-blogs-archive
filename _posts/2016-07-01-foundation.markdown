@@ -1,0 +1,50 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 1 July 2016'
+date: '2016-07-01T00:00:00+00:00'
+categories: foundation
+---
+<p>Welcome July! Let's take a peek at what's happened this week:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 20 July 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield sunshine-y performance at 99.20% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- CFP and registration now open for Apache: Big Data and ApacheCon&nbsp;Europe --14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br /></p> 
+    <p>Apache Bahir™ –Big Data extensions for distributed analytic platforms such as Apache Spark.<br />&nbsp;- The Apache Software Foundation Announces Apache® Bahir™ as a Top-Level Project&nbsp;<a href="https://s.apache.org/Kvrp">https://s.apache.org/Kvrp</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.4.4 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;- Apache Lucene 5.5.2 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/lucene/java/5.5.2">http://www.apache.org/dyn/closer.lua/lucene/java/5.5.2</a></p> 
+    <p>Apache OODT™ –Open Source Big Data middleware metadata framework.<br />&nbsp;- The Apache Software Foundation Announces Apache® OODT™ v1.0&nbsp;<a href="https://s.apache.org/z9pk">https://s.apache.org/z9pk</a></p> 
+    <p>Apache Slider (incubating) –a YARN application that deploys existing distributed applications on YARN, monitors them, and makes them larger or smaller as desired.<br />&nbsp;-&nbsp;Apache Slider 0.91.0-incubating released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/incubator/slider/0.91.0-incubating/">http://www.apache.org/dyn/closer.cgi/incubator/slider/0.91.0-incubating/</a></p> 
+    <p>Apache Solr™ –the popular, blazing fast, Open Source NoSQL search platform from the Apache Lucene project.<br />&nbsp;- Apache Solr 5.5.2 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/lucene/solr/5.5.2">http://www.apache.org/dyn/closer.lua/lucene/solr/5.5.2</a><br />&nbsp;- 700-page Solr Reference Guide for 6.1 released&nbsp;<a href="https://www.apache.org/dyn/closer.cgi/lucene/solr/ref-guide/apache-solr-ref-guide-6.1.pdf">https://www.apache.org/dyn/closer.cgi/lucene/solr/ref-guide/apache-solr-ref-guide-6.1.pdf</a></p> 
+    <p>Apache Syncope™ –an Open Source system for managing digital identities in enterprise environments, implemented in Java EE technology.<br />&nbsp;- Apache Syncope 2.0.0-M4 released&nbsp;<a href="http://syncope.apache.org/downloads.html">http://syncope.apache.org/downloads.html</a></p> 
+    <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.<br />&nbsp;- Apache Tomcat 7.0.70 released&nbsp;<a href="http://tomcat.apache.org/download-70.cgi">http://tomcat.apache.org/download-70.cgi</a><br />&nbsp;-&nbsp;[CORRECTION] CVE-2016-3092 Apache Tomcat Denial of Service&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201606.mbox/%3C6223ece6-2b41-ef4f-22f9-d3481e492832%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201606.mbox/%3C6223ece6-2b41-ef4f-22f9-d3481e492832%40apache.org%3E</a><br /><br /></p> 
+    <p><strong>Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that we're always looking for great ways to highlight Apache projects in our &quot;Did You Know&quot; campaigns? Send your success stories to &lt;press@apache.org&gt;!</p> 
+  </div> 
+  <div> 
+    <div> 
+      <p>&nbsp; &nbsp;... so now that you know, we're excited to hear from you ;^)</p> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a><strong></strong></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Bangalore Mesos User Group will present Introduction to Apache Mesos on 9 July 2016&nbsp;<a href="http://www.meetup.com/Bangalore-Mesos-User-Group/events/228745899/">http://www.meetup.com/Bangalore-Mesos-User-Group/events/228745899/</a></p> 
+    </div> 
+    <p>&nbsp;- Atlanta Hadoop Users Group present Cutting edge with HBASE&nbsp;on 17 August 2016&nbsp;<a href="http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344766/">http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344766/</a></p> 
+    <p>&nbsp;- CFP is open for the next Cassandra Summit 7-9 September 2016 in San Jose <a href="https://cfp.cassandrasummit.org/">https://cfp.cassandrasummit.org/</a></p> 
+    <p>&nbsp;- CloudStack Collaboration Conference Brasil will take place 29-30 September 2016 in Sao Paolo&nbsp;<a href="http://cloudstack.usp.br/en/index.php">http://cloudstack.usp.br/en/index.php</a></p> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <div> 
+      <p>&nbsp;- The second ASF Annual Report is available at <a href="https://s.apache.org/pTMX">https://s.apache.org/pTMX</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

@@ -1,0 +1,25 @@
+---
+layout: post
+title: 'ClickIDE 2.1.0.0 released: support Apache Click 2.1.0 and Eclipse 3.5'
+date: '2010-02-20T00:00:00+00:00'
+categories: click
+---
+<p>The latest version of ClickIDE is available. This release supports 
+Click 2.1.0 and Eclipse 3.5.</p><p>&nbsp;ClickIDE is based on Eclipse and the Eclipse Web Tools Project (WTP),
+and provides extended features for developing web applications using
+Click.<br /></p><p>&nbsp;<span style="font-weight: bold;">Important
+ links</span>:<br /></p>
+<ul><li><a href="http://click.apache.org/docs/click-ide.html">ClickIDE 
+Home</a></li><li><a href="http://www.apache.org/dyn/closer.cgi/click/clickide/2.1.0.0/clickide-2.1.0.0.zip"><span style="font-size: 100%;">Download ClickIDE 2.1.0.0</span></a></li></ul><p><b>Main features:</b><br /></p><ul><li>Fast switching between Page classes and templates (Ctrl+Alt+S)</li><li>Project creation wizard</li><li>Click page creation wizard</li><li>Visual editor for the Click configuration file</li><li>Velocity template editor</li><li>Spring Framework and Apache Cayenne Integration</li><li>Integrated Click documentation</li></ul><b>New features and enhancements in 2.1.0.0:</b><br /><ul><li class="change">
+        Upgraded to Cayenne to 3.0 M6.</li><li class="change">
+        Added &quot;Use PerformanceFilter&quot; option in the project creation 
+wizard.
+      </li><li class="change">
+        Added switching comment action in the Velocity editor ([CTRL] + 
+[/]).
+      </li><li class="change">
+        Added (*) to required attributes in the click.xml editor.
+      </li></ul><p>Enjoy
+ Click!
+
+</p>

@@ -1,0 +1,23 @@
+---
+layout: post
+title: Apache MXNet 1.2.0 Release is out!
+date: '2018-05-24T00:00:00+00:00'
+categories: mxnet
+---
+<p> 
+Today Apache MXNet community announced the 1.2 release of the Apache MXNet deep learning framework. The new capabilities in MXNet provide the following benefits to users: 
+<ol>
+<li><i>MXNet is easier to use</i></li>
+<ul><li><b>New scala inference APIs</b>: This release includes new Scala inference APIs which offer an easy-to-use, Scala idiomatic and thread-safe high level APIs for performing predictions with deep learning models trained with MXNet.</li>
+<li><b>Exception Handling Support for Operators</b>: MXNet now transports backend C++ exceptions to the different language front-ends and prevents crashes when exceptions are thrown during operator execution</li></ul>
+<li><i>MXNet is faster</i></li>
+<ul><li><b>MKL-DNN integration</b>: MXNet now integrates with Intel MKL-DNN to accelerate neural network operators: Convolution, Deconvolution, FullyConnected, Pooling, Batch Normalization, Activation, LRN, Softmax, as well as some common operators: sum and concat. This integration allows NDArray to contain data with MKL-DNN layouts and reduces data layout conversion to get the maximal performance from MKL-DNN. Currently, the MKL-DNN integration is still experimental. </li>
+<li><b>Enhanced FP16 support</b>: MXNet now adds support for distributed mixed precision training with FP16. It supports storing of master copy of weights in float32 with the multi_precision mode of optimizers. Improved speed of float16 operations on x86 CPU by 8 times through F16C instruction set. </li></ul>
+<li><i>MXNet provides easy interoperability</i></li> 
+<ul><li><b>Import ONNX models into MXNet</b>: Implemented a new ONNX module in MXNet which offers an easy to use API to import ONNX models into MXNet's symbolic interface. Checkout the <a href="https://github.com/apache/incubator-mxnet/blob/master/example/onnx/super_resolution.py">example</a> on how you could use this <a href="https://cwiki.apache.org/confluence/display/MXNET/ONNX-MXNet+API+Design">API</a> to import ONNX models and perform inference on MXNet. Currently, the ONNX-MXNet Import module is still experimental.</li></ul>
+</ol>
+
+<h3>Getting started with MXNet</h3>
+Getting started with <a href="http://mxnet.incubator.apache.org/install/index.html">MXNet</a> is simple. To learn more about the Gluon interface and deep learning, you can reference this <a href="http://gluon.mxnet.io/">comprehensive set of tutorials</a>, which covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. If you’re a contributor to a machine learning framework, check out the interface specs on <a href="https://github.com/gluon-api/gluon-api/">GitHub</a>. 
+
+

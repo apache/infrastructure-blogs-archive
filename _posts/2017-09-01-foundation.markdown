@@ -1,0 +1,69 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 1 September 2017'
+date: '2017-09-01T00:00:00+00:00'
+categories: foundation
+---
+<div>Well hello, September ... here's what the Apache community has been working on over the past week:</div> 
+  <div><br /></div> 
+  <div>Support Apache –a great way to help the ASF meet its financial goals is through a corporate matching program. Companies that offer matching gifts receive tax benefits, and their employees' contributions to the ASF can be generously increased.&nbsp;Every dollar counts. <a href="http://apache.org/foundation/contributing.html">http://apache.org/foundation/contributing.html</a></div> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 20 September. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br />&nbsp;- ASF Quarterly Report: Operations Summary Q1 FY2018&nbsp;<a href="https://s.apache.org/cEUm">https://s.apache.org/cEUm</a></p> 
+  <div>ASF Operations Factoid&nbsp;–this week, 440 Committers changed 763,682 lines of code over 2,642 commits. Top 5 contributors, in order, are: Tellier Benoit, Andrea Cosentino, Daniel Gruno, Karl Wright, and Daniel Sun.</div> 
+  <div> 
+    <p>Apache Atlas™ –Big&nbsp;Data governance and metadata framework/services.<br />&nbsp;- Apache Atlas 0.8.1 released&nbsp;<a href="http://atlas.apache.org/">http://atlas.apache.org/</a></p> 
+    <p>Apache CloudStack™ –an easy-to-deploy IaaS Cloud orchestration platform that &quot;just works&quot;.<br />&nbsp;- Apache CloudStack 4.10.0.0 released&nbsp;<a href="http://cloudstack.apache.org/">http://cloudstack.apache.org/</a></p> 
+    <p>Apache CXF™ Fediz –helps secure Web applications and delegates security enforcement to the underlying application server.<br />&nbsp;- Apache CXF Fediz 1.4.1 released&nbsp;<a href="http://cxf.apache.org/fediz.html">http://cxf.apache.org/fediz.html<br /></a></p> 
+  </div> 
+  <div> 
+    <p>Apache Log4j™ –a well known framework for logging application behavior.<br />&nbsp;- Apache Log4j 2.9.0 released&nbsp;<a href="https://logging.apache.org/log4j/">https://logging.apache.org/log4j/</a></p> 
+  </div> 
+  <div>Apache MADlib™ –an Open Source library for scalable in-database analytics.<br />&nbsp;- Apache MADlib v1.12 released&nbsp;<a href="http://madlib.apache.org/">http://madlib.apache.org/</a></div> 
+  <div> 
+    <p>Apache OODT™ –a software framework as well as an architectural style for the rapid construction of scientific data systems.<br />&nbsp;- Apache OODT 1.2 released&nbsp;<a href="http://oodt.apache.org/">http://oodt.apache.org/</a></p> 
+    <p>Apache S2Graph (incubating) –graph database designed to handle transactional graph processing at scale.<br />&nbsp;- Apache S2Graph 0.2.0-incubating released&nbsp;<a href="http://s2graph.incubator.apache.org/">http://s2graph.incubator.apache.org/</a></p> 
+    <p>Apache Santuario™ –aimed at providing implementation of the primary security standards for XML, namely XML-Signature Syntax and Processing and XML Encryption Syntax and Processing.<br />&nbsp;- Apache Santuario XML Security for Java 2.0.9 and 2.1.0 released&nbsp;<a href="http://santuario.apache.org/">http://santuario.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <div></div> 
+    <p>Apache UIMA™ –a component framework supporting development, discovery, composition, and deployment of multi-modal analytics tasked with the analysis of unstructured information.<br />&nbsp;- Apache UIMA Java SDK 2.10.1 and UIMA DUCC 2.2.1 released&nbsp;<a href="https://uima.apache.org/">https://uima.apache.org/</a></p> 
+    <p>Apache VCL™ –a self-service system used to dynamically provision and broker remote access to a dedicated compute environment for an end-user.<br />&nbsp;- Apache VCL 2.5 released&nbsp;<a href="http://vcl.apache.org/">http://vcl.apache.org/</a></p> 
+    <div><br /></div> 
+  </div> 
+  <div><strong>Did You Know?</strong></div> 
+  <div> 
+    <p>&nbsp;- Did you know that the following Apache projects have anniversaries this month? Many happy returns to ServiceMix (10 years); Hive, Pign and Shiro (7 years); Airavata, Bigtop, SIS, and Stanbol (5 years); Curator (4 years); Storm (3 years); and Yetus (2 yrs) <a href="https://projects.apache.org/committees.html?date">https://projects.apache.org/committees.html?date</a></p> 
+    <p><a href="https://projects.apache.org/committees.html?date"></a>&nbsp;- Did you know that Apache NiFi is a great data flow system for fast prototyping of Big Data?&nbsp;<a href="http://nifi.apache.org/">http://nifi.apache.org/</a></p> 
+    <p><a href="https://jaxenter.com/jax-magazine"></a>&nbsp;- Did you know that Apache Pulsar (incubating) provides multi-tenancy, geo-replication, and durability guarantees out of the box?&nbsp;<a href="http://pulsar.apache.org/">http://pulsar.apache.org/</a></p> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>Apache Community Notices:</strong></div> 
+  <div><br /></div> 
+  <div>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence <a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk%20">https://s.apache.org/PMvk</a> 4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7) Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy. <a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Follow the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a> (re-tweets/shares/likes most appreciated!)</div> 
+  <div> 
+    <p>&nbsp;- Presentations from ApacheCon <a href="https://s.apache.org/Hli7">https://s.apache.org/Hli7</a> and Apache: Big Data <a href="https://s.apache.org/tefE">https://s.apache.org/tefE</a> are available; as well as videos <a href="https://s.apache.org/AE3m">https://s.apache.org/AE3m</a> and audio recordings <a href="https://feathercast.apache.org/">https://feathercast.apache.org/</a></p> 
+    <p><a href="https://feathercast.apache.org/"></a>&nbsp;- Check out the latest Apache Community Development newsletter <a href="https://blogs.apache.org/comdev/entry/community-development-news-july-2017">https://blogs.apache.org/comdev/entry/community-development-news-july-2017</a></p> 
+  </div> 
+  <div>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+    <p>&nbsp;- TomcatCon will be held 25 September in London&nbsp;<a href="https://www.eventbrite.com/e/tomcatcon-london-2017-tickets-36683639754">https://www.eventbrite.com/e/tomcatcon-london-2017-tickets-36683639754</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Meet members of the Apache Big Data communities at DataWorks/Hadoop Summit 20-21 September in Sydney <a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The Apache community will be at All Things Open --stop by the ASF booth and say hello! 23-24 October in Raleigh&nbsp;<a href="https://allthingsopen.org/">https://allthingsopen.org/</a></p> 
+    <p>&nbsp;- Learn about Apache Atlas, AriaTosca (incubating), Hadoop YARN, Kafka, ManifoldCF, Ranger, Spot (incubating), Thrift, and more at Open Source Summit Europe + ELC Europe 2017 23-26 October in Prague&nbsp;<a href="https://osseu17.sched.com/">https://osseu17.sched.com/</a></p> 
+    <p>&nbsp;- Catch the Apache Ignite and Spark communities at the In-Memory Computing Summit 24-25 October in San Francisco <a href="https://imcsummit.org/">https://imcsummit.org/</a></p> 
+    <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+  </div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

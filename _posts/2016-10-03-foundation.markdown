@@ -1,0 +1,45 @@
+---
+layout: post
+title: Apache® POI™ Celebrates 15 Years at The Apache Software Foundation
+date: '2016-10-03T00:00:00+00:00'
+categories: foundation
+---
+<div><b><i>Commemorates anniversary with the 78th release of Open Source libraries used for reading and writing files in Microsoft® Office formats.</i></b></div> 
+  <div><b><br /></b></div> 
+  <div><b>Forest Hill, MD —3 October 2016—</b> The Apache® POI™ project announced today their 15th Anniversary at The Apache Software Foundation (ASF), and the immediate availability of Apache POI v3.15, the latest version of the Open Source libraries used for reading and writing files in Microsoft® Office formats.</div> 
+  <div><br /></div> 
+  <div>Using Apache POI APIs, developers are able to manipulate various file formats based on the Office Open XML standards (OOXML) and Microsoft's OLE 2 Compound Document format (OLE2CDF) using pure Java. Supported formats include those used by Word, PowerPoint, Excel, and other applications from the Microsoft Office suite.</div> 
+  <div><br /></div> 
+  <div>&quot;POI has gone from strength to strength,&quot; said Dominik Stadler, Vice President of Apache POI. &quot;Developers around the world use Apache POI to read and write Microsoft Office documents, and we’re happy to commemorate our anniversary with the release of v3.15, POI's 78th official release.&quot;</div> 
+  <div><br /></div> 
+  <div><b>Growth under the Foundation</b></div> 
+  <div>POI's first public release was in August 2001. In February 2002 POI became a sub-project of Apache Jakarta (then the ASF's incubator for Java projects). Since then, the project evolved rapidly through contributions by community volunteers. Development highlights include:</div> 
+  <div> 
+    <ul> 
+      <li>2002 --support for reading and writing OLE2-based XLS spreadsheets;</li> 
+      <li>2004 --v2.0 released, adding formula support to spreadsheets and DOC (Microsoft Word);</li> 
+      <li>2007--POI becomes an Apache Top-Level Project in June 2007; added support for reading and writing the binary PowerPoint format in v3.0;</li> 
+      <li>2008 --added support for Open Office XML formats, coinciding with Microsoft's open format standardization efforts. Later POI added support for additional file formats including formats used by Visio and Outlook.</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Apache POI is used in a variety of ways, including automated generation of Microsoft Office documents from other data sources, updating and formatting existing documents, and enabling software systems to read rich, human-friendly data. Apache POI aims to serve a wide audience from small personal projects to large scale business applications.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Numerous organizations, such as The Bank of Lithuania, Deutsche Bahn, IKAN Software, and Sunshine Systems use Apache POI. In addition, Apache Tika (content analysis toolkit) uses Apache POI to extract text and metadata from Microsoft Office documents to enable users to search and index these formats.</div> 
+  <div><br /></div> 
+  <div><b>Community</b></div> 
+  <div>In addition to the official POI developer and user mailing lists and the bugzilla bug tracking tool, developers are also volunteering their time to help users on community websites. An example of this is through improved localization: POI aims to work around the world despite differences in number formats, date formats, separators, character sets, and time zones.</div> 
+  <div><br /></div> 
+  <div>The Apache POI community continually refreshes with new developers as prior developers move on to shepherd other projects. As with all Apache projects, and as demonstrated by Apache POI, community is the key to success and maintaining a healthy ecosystem.</div> 
+  <div><br /></div> 
+  <div>&quot;Decisions are better made by community consensus than individual opinion,&quot; added Stadler. &quot;Our ongoing community refresh brings in new ideas and motivation, avoids stagnation, or unfairly burdening the original project creators. The one constant in our community has been Nick Burch, who has embodied The Apache Way as a contributor and mentor to POI for over a decade.&quot;</div> 
+  <div><br /></div> 
+  <div>Through its healthy and vibrant user community and a number of dedicated committers, Apache POI is poised to enjoy continued active development for years to come.&nbsp;</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache POI software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache POI, visit <a href="http://poi.apache.org/">http://poi.apache.org/</a></div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)<br /></b>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 550 individual Members and 5,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSIGMA, LeaseWeb, Microsoft, OPDi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and&nbsp;<a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;POI&quot;, &quot;Apache POI&quot;, &quot;Jakarta&quot;, &quot;Apache Jakarta&quot;, &quot;Tika&quot;, &quot;Apache Tika&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

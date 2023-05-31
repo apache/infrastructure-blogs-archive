@@ -1,0 +1,72 @@
+---
+layout: post
+title: Apache Maven EAR Plugin Version 3.3.0 Released
+date: '2022-10-22T00:00:00+00:00'
+categories: maven
+---
+ <div class="post_body"><p>The Apache Maven team is pleased to announce the release of the
+<a href="https://maven.apache.org/plugins/maven-ear-plugin/">Apache Maven EAR Plugin, version 3.3.0</a></p>
+<p>This plugin generates Java EE Enterprise Archive (EAR) file. It can also
+generate the deployment descriptor file (e.g. application.xml).</p>
+<p>You should specify the version in your project's plugin configuration:</p>
+<p>NOTE:</p>
+<ul>
+<li>Requires JDK8 as minimum</li>
+<li>Requires Maven 3.2.5+ as minimum.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>maven-ear-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  <span class="nt">&lt;version&gt;</span>3.3.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nt">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>You can download the appropriate <a href="https://maven.apache.org/plugins/maven-ear-plugin/download.cgi">sources etc. from the download page</a>.</p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317422&amp;version=12349537">Release Notes - Maven EAR Plugin - Version 3.3.0</a></p>
+<ul>
+<li>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-297">MEAR-297</a> - failure when building javadoc: maven-plugin-tools-javadoc:jar:3.6.0 is missing</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-301">MEAR-301</a> - wrong repackaging when defaultLibBundleDir start with dot</li>
+</ul>
+</li>
+<li>
+<p>New Features:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-302">MEAR-302</a> - jakarta EE 9 EAR compatibility</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-309">MEAR-309</a> - Support JakartaEE 10</li>
+</ul>
+</li>
+<li>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-298">MEAR-298</a> - Improving EAR packaging performance with ZipFileSystem</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-319">MEAR-319</a> - Remove generated MANIFEST from outdated resources</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-321">MEAR-321</a> - Remove not implemented parameter - useBaseVersion</li>
+</ul>
+</li>
+<li>
+<p>Tasks:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-304">MEAR-304</a> - Update dependencies used in IT tests</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-311">MEAR-311</a> - Require Java 8</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-318">MEAR-318</a> - Require Maven 3.2.5</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-310">MEAR-310</a> - Upgrade Parent to 37</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-312">MEAR-312</a> - Upgrade Maven Verifier to 2.0.0-M1</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-313">MEAR-313</a> - Bump maven-filtering from 3.2.0 to 3.3.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-314">MEAR-314</a> - Bump plexus-archiver from 4.2.4 to 4.5.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-315">MEAR-315</a> - Bump maven-archiver from 3.5.1 to 3.6.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-316">MEAR-316</a> - Bump plexus-io from 3.2.0 to 3.4.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-317">MEAR-317</a> - Bump maven-shared-utils from 3.3.3 to 3.3.4</li>
+<li><a href="https://issues.apache.org/jira/browse/MEAR-320">MEAR-320</a> - Bump plexus-utils from 3.3.0 to 3.4.2</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+
+    </div>

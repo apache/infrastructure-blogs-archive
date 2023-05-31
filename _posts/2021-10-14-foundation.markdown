@@ -1,0 +1,41 @@
+---
+layout: post
+title: Apache Software Foundation moves to CDN distribution for software
+date: '2021-10-14T00:00:00+00:00'
+categories: foundation
+---
+<p>It’s not enough to create and release useful software. As an open source foundation, a major part of the Apache Software Foundation’s (ASF) job is to help get that software into the hands of users.</p>
+
+<p>To do so, we’ve relied for many years on the contributions of individuals and organizations to provide mirror infrastructure to distribute our software. We’re now retiring that system in favor of a content distribution network (CDN), and taking a moment to say thank you to all the individuals and organizations who helped get ASF software into the hands of millions of users.</p>
+
+<h2>The history and function of the ASF mirror system</h2>
+
+<p>Today if you want to download the source or binaries for an ASF project, you’ll probably have it copied over before you can refill your coffee. But when the Apache Group (precursor to the foundation) first got its start, bandwidth was a lot more limited.</p>
+
+<p>This was true for users and true for the limited resources available to those who wanted to distribute the software. As demand grew it became more than a single site could handle.</p>
+
+<p>To share the load, we began to use a “mirror” system. That is, copies of the artifacts distributed to mirror sites that were closer to the users who wanted the software. Instead of all requests being served by a central server, the mirrors could sync up with the main site and then serve a portion of the audience looking to download Apache software.</p> 
+
+<p>The first mirror sites became available in April, 1995. Among the first mirror providers was SunSite, 'a network of Internet servers providing archives of information, software and other publicly available resources.'</p>
+
+<p>In April 1997, Brian Behlendorf invited 66 people already hosting mirrors to join the 'mirror@' Apache mailing list. In June of the same year users could automatically be directed to a local mirror by a CGI script that would select the right mirror based on their country code.</p> 
+
+<p>Henk P. Penning joined the mirrors mailing list in 2002, and went on to become a major contributor to the system (among other things at the foundation). A mirror in 2002 would need to allocate a whopping 10 GB of space to handle all the artifacts available for download. Penning contributed to the ASF infrastructure until his passing in 2019.</p>
+
+<p>Penning was joined in improving the mirror system by Gavin McDonald, who helped check for “stale” mirrors with out-of-date copies and sent reminders to the admins to keep them up to date. Eventually the team implemented a checker to do this automatically.</p>
+
+<p>This elides a great deal of work, history and dedication to providing open source software for the public good. Suffice to say, the history of the mirror system (which you can read more about, <a href="https://apache.org/history/mirror-history.html" target="_blank">here</a>) is the story of open source writ small: many individuals and organizations coming together to chop wood and carry water to lay infrastructure that many more will take for granted.</p>
+
+<h2>The present and future for distributing ASF software</h2>
+
+<p>Today, that 10GB has grown to more than 180GB for a mirror to carry all ASF software.</p>
+
+<p>The industry has changed as well. Technology has advanced, bandwidth costs have dropped, and mirror systems are giving way to content delivery networks (CDNs).</p>
+
+<p>After discussion and deliberation, the ASF’s Infrastructure team has decided to move our download system to a CDN with professional support and a service level appropriate to the foundation’s status in the technology world.</p>
+
+<p>Our new delivery system is part of a global CDN with economies of scale and fast, reliable downloads around the world. We expect ASF users will see faster deployment of software, without any lag that one might usually see with a mirror system while local mirrors sync off the main instance.</p>
+
+<p>ASF projects won’t see any difference in their workflow, just a faster delivery of open source artifacts to their users.</p>
+
+<p>Once again, we’d like to thank all the contributors who’ve helped stand up mirrors over the past 20+ years. Without the mirror system to deliver our software, we would never have made it this far.</p>

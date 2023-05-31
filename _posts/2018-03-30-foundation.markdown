@@ -1,0 +1,71 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 30 March 2018'
+date: '2018-03-30T00:00:00+00:00'
+categories: foundation
+---
+<p>Let's bid March farewell with a look back at the many Apache activities over the past week:</p> 
+  <p>But first: cake and party favors!<br />&nbsp;- The Apache<sup>®</sup> Software Foundation Celebrates 19 Years of Open Source Leadership &quot;The Apache Way&quot;&nbsp;<a href="https://s.apache.org/gK4Q">https://s.apache.org/gK4Q</a><br />&nbsp;- Read &quot;Open – For Business – At the ASF&quot; by Merv Adrian, VP Research at Gartner&nbsp;<a href="https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/">https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/</a><br />&nbsp;- A look at the&nbsp;&quot;Apache at 19&quot; promo at <a href="https://youtu.be/Fqk_rlKiVIs">https://youtu.be/Fqk_rlKiVIs</a></p> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 18 April. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ApacheCon™ –the ASF's official global conference series.<br />&nbsp;- ENDS TODAY: CFP for ApacheCon 24-29 September in Montreal&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- Travel Assistance applications now being accepted for ApacheCon/Montreal&nbsp;<a href="https://www.apache.org/travel/">https://www.apache.org/travel/</a></p> 
+  <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield kicking performance at 99.98% uptime.&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <p>ASF Operations Factoid&nbsp;–this week, 519 Apache contributors changed 897,504 lines of code over 3,230 commits. Top 5 contributors, in order, are: Hanisha Koneru, Carlos Sanchez Gonzalez, Jean-Baptiste Onofré, Till Rohrmann, and Tellier Benoit.</p> 
+  <p>Apache Accumulo™ –a sorted, distributed key/value store that provides robust, scalable data storage and retrieval.&nbsp;<br />&nbsp;- Apache Accumulo 1.7.4 released&nbsp;<a href="https://accumulo.apache.org/">https://accumulo.apache.org/</a></p> 
+  <p>Apache Ant™ –a Java library and command-line tool that helps building software.<br />&nbsp;-&nbsp;Apache Ant 1.9.11 and 1.10.3&nbsp;<a href="http://ant.apache.org/">http://ant.apache.org/</a></p> 
+  <p>Apache Any23™ –Anything To Triples is a library, a web service and a command line tool that extracts structured data in RDF format from a variety of Web documents.<br />&nbsp;- Apache Any23 2.2 released&nbsp;<a href="http://any23.apache.org/">http://any23.apache.org/</a></p> 
+  <p>Apache Commons™ Text –Open Source software library provides a host of algorithms focused on working with strings and blocks of text.<br />&nbsp;- Apache Commons Text 1.3 released&nbsp;<a href="http://commons.apache.org/">http://commons.apache.org/</a></p> 
+  <p>Apache Groovy™ –a multi-facet programming language for the JVM.<br />&nbsp;- Apache Groovy 2.4.15 released&nbsp;<a href="https://groovy.apache.org/">https://groovy.apache.org/</a></p> 
+  <p>Apache HTTP Server™ –the world's most popular Web server software.<br />&nbsp;- Apache HTTP Server 2.4.33 released&nbsp;<a href="http://httpd.apache.org/">http://httpd.apache.org/</a></p> 
+  <p>Apache Jackrabbit™ Oak – scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.0.42 released&nbsp;<a href="http://jackrabbit.apache.org/">http://jackrabbit.apache.org/</a></p> 
+  <p>Apache Kafka™ –a distributed, fault tolerant, publish-subscribe messaging.<br />&nbsp;- Apache Kafka 1.1.0 released&nbsp;<a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p> 
+  <p>Apache Kudu™ –an Open Source storage engine for structured data that supports low-latency random access together with efficient analytical access patterns.<br />&nbsp;- Apache Kudu 1.7.0 released&nbsp;<a href="https://kudu.apache.org/">https://kudu.apache.org/</a></p> 
+  <p><span style="white-space: pre;"></span></p> 
+  <p>Apache Kylin™ –an Open Source Distributed Analytics Engine designed to provide SQL interface and multi-dimensional analysis (OLAP) on Apache Hadoop, supporting extremely large datasets.<br />&nbsp;- Apache Kylin 2.3.1 released&nbsp;<a href="https://kylin.apache.org/">https://kylin.apache.org/</a></p> 
+  <p>Apache PDFBox™ –an Open Source Java tool for working with PDF documents.<br />&nbsp;- Apache PDFBox 2.0.9 released&nbsp;<a href="http://pdfbox.apache.org/">http://pdfbox.apache.org/</a></p> 
+  <p>Apache Qpid™ JMS –AMQP enterprise messaging implementation.<br />&nbsp;- Apache Qpid JMS 0.31.0 released&nbsp;<a href="http://qpid.apache.org/">http://qpid.apache.org/</a></p> 
+  <p>Apache Struts™ –a free Open Source framework for creating Java Web applications.<br />&nbsp;- Immediately upgrade commons-fileupload to version 1.3.3 <a href="http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3CCAMopvkNu%2BMdh%3DXCDQJmKYfjd%3DbdCFkhNXvWbYzvmXuLNw0aYbg%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3CCAMopvkNu%2BMdh%3DXCDQJmKYfjd%3DbdCFkhNXvWbYzvmXuLNw0aYbg%40mail.gmail.com%3E</a><span style="white-space: pre;"><br /></span> &nbsp;- A crafted XML request can be used to perform a DoS attack when using the Struts REST plugin&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3CCAMopvkNZoHH3qx%2B9brdRdAoZ7zy9w6QPotjohVwqsopGEk%3Dsgw%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3CCAMopvkNZoHH3qx%2B9brdRdAoZ7zy9w6QPotjohVwqsopGEk%3Dsgw%40mail.gmail.com%3E</a><br /><br /></p> 
+  <p> </p> 
+  <p><strong>Did You Know?</strong></p> 
+  <div> 
+    <p>&nbsp;- Did you know that HBaseCon and PhoenixCon will be taking place 18 June in San Jose? Contact the Apache HBase and Phoenix project communities for more information&nbsp;<a href="http://hbase.apache.org/">http://hbase.apache.org/</a>&nbsp;and&nbsp;<a href="http://phoenix.apache.org/">http://phoenix.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that Orange Moldova uses Apache Wicket to&nbsp;Orange Moldova to build its Webapps?&nbsp;<a href="http://wicket.apache.org/">http://wicket.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that new projects in the Apache Incubator include Druid (Big Data),&nbsp;Dubbo (Java RPC framework), ECharts (charts and data visualization tool), among others?&nbsp;<a href="http://incubator.apache.org/">http://incubator.apache.org/</a><br /><br /> </p> 
+  </div> 
+  <div><strong>Apache Community Notices:</strong></div> 
+  <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+  <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+  </div> 
+  <div> 
+    <p><a href="https://feathercast.apache.org/"></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+    <p>&nbsp;- Members of the Apache community will be presenting at DataWorks Summit 16-19 April 2018 in Berlin&nbsp;<a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+    <p>&nbsp;- Open Expo Europe - 6-7 June 2018 in Madrid <a href="https://openexpoeurope.com/">https://openexpoeurope.com/</a></p> 
+    <p>&nbsp;- Meet members of the Apache community at Open Expo Madrid 6-7 June 2018&nbsp;<a href="http://www.openexpo.es/en/">http://www.openexpo.es/en/</a></p> 
+    <p>&nbsp;- We're teaming up with Berlin Buzzwords - 10-12 June 2018 (Apache Lounge dates: 11-12 June) <a href="https://berlinbuzzwords.de/">https://berlinbuzzwords.de/</a></p> 
+    <p>&nbsp;- The 2018 Apache EU Roadshow will be held during FOSS Backstage in Berlin 13-14 June 2018&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Apache Big Data project communities will be participating at DataWorks Summit 17-21 June 2018 in San Jose <a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+    <p>&nbsp;- ApacheCon North America&nbsp;will be held 24-29 September in Montreal <a href="http://apachecon.com/">http://apachecon.com/</a>&nbsp;**CFP IS OPEN!**</p> 
+    <p>&nbsp;- ASF Quarterly Report: Operations Summary: November 2017 - January 2018<a href="https://s.apache.org/UtBD">&nbsp;https://s.apache.org/UtBD</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+  </div> 
+  <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

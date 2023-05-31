@@ -1,0 +1,10 @@
+---
+layout: post
+title: Welcome Arne Limburg as new OpenWebBeans PMC member
+date: '2013-01-19T00:00:00+00:00'
+categories: owb
+---
+<p>The Apache OpenWebBeans team is proud to announce that Arne Limburg has accepted the invitation to our Project Management Committee.</p> 
+  <p>Arne has been working on OpenWebBeans for a few years, is using it for big customers and helped a lot with fixing bugs and moving OWB forward to CDI-1.1. </p> 
+  <p> </p> 
+  <p>Welcome on board, Arne! <br /></p>

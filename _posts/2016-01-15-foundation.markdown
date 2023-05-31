@@ -1,0 +1,52 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 15 January 2016'
+date: '2016-01-15T00:00:00+00:00'
+categories: foundation
+---
+<div>Huzzah --the Apache Community has just exceeded 5,300 Committers! Here's what we've been up to over the past week:</div> 
+  <div><br /></div> 
+  <div>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.</div> 
+  <div>&nbsp;- Next Board Meeting: 20 January 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></div> 
+  <div><br /></div> 
+  <div>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.</div> 
+  <div>&nbsp;- 6M+ weekly checks yielded a plucky 99.97% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a> Check against established SLAs <a href="http://status.apache.org/sla/">http://status.apache.org/sla/</a></div> 
+  <div><br /></div> 
+  <div>ApacheCon™ –the official conference series of The Apache Software Foundation.</div> 
+  <div>&nbsp;- Call For Participation: Apache:Big Data North America - Vancouver 9-12 May 2016 <a href="http://events.linuxfoundation.org/events/apache-big-data-north-america/program/cfp">http://events.linuxfoundation.org/events/apache-big-data-north-america/program/cfp</a><br />&nbsp;- Call For Participation: ApacheCon:Core North America - Vancouver 11-13 May 2016 <a href="http://events.linuxfoundation.org/events/apache-big-data-north-america/program/cfp">http://events.linuxfoundation.org/events/apachecon-north-america/program/cfp</a><br />&nbsp;- Applications OPEN: Travel Assistance to ApacheCon North America <a href="http://www.apache.org/travel/">http://www.apache.org/travel/</a></div> 
+  <div> 
+    <p>Apache Flex™ –a highly productive, open source application framework for building and maintaining expressive applications that deploy consistently on all major browsers, desktops and devices (including smartphones, tablets and TV).<br />&nbsp;- Apache Flex 4.15.0 released&nbsp;<a href="http://flex.apache.org/download-source.html">http://flex.apache.org/download-source.html</a></p> 
+    <p>Apache SINGA (incubating) –a general distributed deep learning platform for training big deep learning models over large datasets.<br />&nbsp;-&nbsp;Apache SINGA 0.2.0 released <a href="http://singa.apache.org/downloads.html">http://singa.apache.org/downloads.html</a></p> 
+  </div> 
+  <p>Apache Tomcat™ Native Library –provides portable API for features not found in contemporary JDK's.<br />&nbsp;- Apache Tomcat Native 1.2.4 released&nbsp;<a href="http://tomcat.apache.org/download-native.cgi">http://tomcat.apache.org/download-native.cgi</a></p> 
+  <div><br /></div> 
+  <div><b>Did You Know?</b></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that Apache geospatial projects such as SIS support OGC standards, and welcome presentation proposals for ApacheCon? <a href="http://s.apache.org/r4">http://s.apache.org/r4</a></div> 
+  <div> 
+    <p>&nbsp;- Did you know that the re-designed Apache Projects Directory provides a wide array of information on project categories, communities, Committers, languages, podlings undergoing incubation, releases, and timelines?&nbsp;<a href="https://projects.apache.org/">https://projects.apache.org/</a></p> 
+  </div> 
+  <div>&nbsp;- Did you know that Apache OpenOffice has new Extensions, Templates, Administrative Interface, and Search functionality?&nbsp;<a href="http://sourceforge.net/blog/new-apache-openoffice-sites/">http://sourceforge.net/blog/new-apache-openoffice-sites/</a></div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p><strong></strong>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Apache Spark will be featured at Data Day Texas on 16 January in Austin&nbsp;<a href="http://www.meetup.com/Dallas-Apache-Spark-Meetup/events/226622137/">http://www.meetup.com/Dallas-Apache-Spark-Meetup/events/226622137/</a></p> 
+      <p>&nbsp;- The ASF will be participating at FOSDEM 2016 in Brussels 30-31 January 2016 <a href="https://fosdem.org/">https://fosdem.org/</a></p> 
+    </div> 
+    <p>&nbsp;- The next CloudStack European User Group will be held 3 March 2016 in London&nbsp;<a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-19726408218">https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-19726408218</a></p> 
+    <p>&nbsp;- Apache:Big Data North America will take place 9-12 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apache-big-data-north-america">http://events.linuxfoundation.org/events/apache-big-data-north-america</a></p> 
+    <p>&nbsp;- ApacheCon:Core North America will take place 11-13 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/">http://events.linuxfoundation.org/events/apachecon-north-america/</a></p> 
+    <div> 
+      <p>&nbsp;- The ASF Operations Summary: Second Quarter, Fiscal Year 2016 (August-October 2015) is available at <a href="http://s.apache.org/M0R">http://s.apache.org/M0R</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+    <div><br /></div> 
+    <div># # #</div> 
+  </div>

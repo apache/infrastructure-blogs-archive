@@ -1,0 +1,53 @@
+---
+layout: post
+title: 'Start of a new era: Apache HBase 1.0'
+date: '2015-02-24T00:00:00+00:00'
+categories: hbase
+---
+<span id="docs-internal-guid-f4c85500-b872-8461-5494-d4b24227c05b"> <span id="docs-internal-guid-f3ce51f9-b899-c346-5a5f-de55b7df62b8"> <span id="docs-internal-guid-f3ce51f9-b89a-9427-0547-a589d8985194"> 
+        <h2 style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; letter-spacing: -0.018em; line-height: normal; background-color: transparent;">Past, present and future state of the community</span></h2></span> 
+      <p> </p> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-family: Arial; color: #222222; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Author: Enis Söztutar, Apache HBase PMC member and HBase-1.0.0 release manager</span></p> 
+      <p> </p></span> 
+    <p dir="ltr" style="margin-top: 0pt; margin-bottom: 0pt;">The Apache HBase community has released Apache HBase 1.0.0. Seven years in the making, it marks a major milestone in the Apache HBase project’s development, offers some exciting features and new API’s without sacrificing stability, and is both on-wire and on-disk compatible with HBase 0.98.x.</p> 
+    <p dir="ltr">In this blog, we look at the past, present and future of Apache HBase project.&nbsp;</p> 
+    <h2>Versions, versions, versions&nbsp;</h2> 
+    <p>Before enumerating feature details of this release let’s take a journey into the past and how release numbers emerged. HBase started its life as a contrib project in a subdirectory of Apache Hadoop, circa 2007, and released with Hadoop. Three years later, HBase became a standalone top-level Apache project. Because HBase depends on HDFS, the community ensured that HBase major versions were identical and compatible with Hadoop’s major version numbers. For example, HBase 0.19.x worked with Hadoop 0.19.x, and so on.</p> 
+    <div><span id="docs-internal-guid-f3ce51f9-b872-f02a-cf05-16a7349eb638"> 
+        <div> 
+          <p><img src="https://blogs.apache.org/hbase/mediaresource/698edf55-d4b8-430c-a984-0fc58a81dc64" /><br /></p> 
+          <p dir="ltr">However, the HBase community wanted to ensure that an HBase version can work with multiple Hadoop versions—not only with its matching major release numbers Thus, a new naming scheme was invented where the releases would start at the close-to-1.0 major version of 0.90, as show above in the timeline. We also took on an even-odd release number convention where releases with odd version numbers were “developer previews” and even-numbered releases were “stable” and ready for production. The stable release series included 0.90, 0.92, 0.94, 0.96 and 0.98 (See <u><a href="https://hbase.apache.org/book.html#hbase.versioning">HBase Versioning</a></u> for an overview).</p> 
+          <p> </p> 
+          <p dir="ltr">After 0.98, we named the trunk version 0.99-SNAPSHOT, but  we officially ran out of numbers! Levity aside, last year, the HBase community agreed that the project had matured and stabilized enough such that a 1.0.0 release was due. After three releases in the 0.99.x series of “developer previews” and six Apache HBase 1.0.0 release candidates, HBase 1.0.0 has now shipped! See the above diagram, courtesy of Lars George, for a timeline of releases. It shows each release line together with the support lifecycle, and any previous developer preview releases if any (0.99-&gt;1.0.0 for example). </p> 
+          <p> </p> 
+          <h2>HBase-1.0.0, start of a new era</h2> 
+          <p>The 1.0.0 release has three goals:</p> 
+          <p><b>1)</b> to lay a stable foundation for future 1.x releases;</p> 
+          <p><b>2)</b> to stabilize running HBase cluster and its clients; and</p> 
+          <p><b>3)</b> make versioning and compatibility dimensions explicit&nbsp;</p> 
+          <p>Including previous 0.99.x releases, 1.0.0 contains over 1500 jiras resolved. Some of the major changes are:&nbsp;</p> 
+          <p dir="ltr"><b>API reorganization and changes</b></p> 
+          <p dir="ltr">HBase’s client level API has evolved over the years. To simplify the semantics and to support and make it extensible and easier to use in the future, we revisited the API before 1.0. To that end, 1.0.0 introduces new APIs, and deprecates some of the commonly-used client side APIs (HTableInterface, HTable and HBaseAdmin). </p> 
+          <p> </p> 
+          <p dir="ltr">We advise you to update your application to use the new style of APIs, since deprecated APIs will be removed in the future 2.x series of releases. For further guidance, please visit these two decks: <a href="http://www.slideshare.net/xefyr/apache-hbase-10-release">http://www.slideshare.net/xefyr/apache-hbase-10-release</a>&nbsp;and <a href="http://s.apache.org/hbase-1.0-api">http://s.apache.org/hbase-1.0-api</a>.</p> 
+          <p dir="ltr">All Client side APIs are marked with the <a href="https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/classification/InterfaceAudience.Public.html">InterfaceAudience.Public</a>&nbsp;class, indicating if a class/method is an official &quot;client API&quot; for HBase (See “11.1.1. HBase API Surface” in the <a href="http://hbase.apache.org/book.html">HBase Refguide</a> for more details on the Audience annotations). Going forward, all 1.x releases are planned to be API compatible for classes annotated as client public.</p> 
+          <p> </p> 
+          <p> </p> 
+          <p dir="ltr"><b>Read availability using timeline consistent region replicas</b></p> 
+          <p dir="ltr">As part of phase 1, this release contains an experimental &quot;Read availability using timeline consistent region replicas&quot; feature. That is, a region can be hosted in multiple region servers in read-only mode. One of the replicas for the region will be primary, accepting writes, and other replicas will share the same data files. Read requests can be done against any replica for the region with backup RPCs for high availability with timeline consistency guarantees. See JIRA <a href="https://issues.apache.org/jira/browse/HBASE-10070">HBASE-10070</a>&nbsp;for more details.</p> 
+          <p> </p> 
+          <p dir="ltr"><b>Online config change and other forward ports from 0.89-fb branch</b></p> 
+          <p dir="ltr">The 0.89-fb branch in Apache HBase was where Facebook used to post their changes. <a href="https://issues.apache.org/jira/browse/HBASE-12147">HBASE-12147</a>&nbsp;JIRA forward ported the patches which enabled reloading a subset of the server configuration without having to restart the region servers.</p> 
+          <p> </p> 
+          <p> </p> 
+          <p dir="ltr">Apart from the above, there are hundreds of improvements, performance (improved WAL pipeline, using disruptor, multi-WAL, more off-heap, etc) and bug fixes and other goodies that are too long to list here. Check out the official <a href="http://markmail.org/message/u43qluenc7soxloe">release notes</a> for a detailed overview. The release notes and <a href="https://hbase.apache.org/book.html#hbase.versioning">the book</a>&nbsp;also cover binary, source and wire compatibility requirements, supported Hadoop and Java versions, upgrading from 0.94, 0.96 and 0.98 versions and other important details.</p> 
+          <p dir="ltr">HBase-1.0.0 is also the start of using “<a href="http://semver.org/">semantic versioning</a>” for HBase releases. In short, future HBase releases will have MAJOR.MINOR.PATCH version with the explicit semantics for compatibility. The <a href="https://hbase.apache.org/book.html#hbase.versioning">HBase book</a>&nbsp;contains all the dimensions for compatibility and what can be expected between different versions.</p> 
+          <p> </p> 
+          <h2>What’s next</h2> 
+          <p dir="ltr">We have marked HBase-1.0.0 as the next stable version of HBase, meaning that all new users should start using this version. However, as a database, we understand that switching to a newer version might take some time. We will continue to maintain and make 0.98.x releases until the user community is ready for its end of life. 1.0.x releases as well as 1.1.0, 1.2.0, etc line of releases are expected to be released from their corresponding branches, while 2.0.0 and other major releases will follow when their time arrives.</p> 
+          <p dir="ltr">Read replicas phase 2, per column family flush, procedure v2, SSD for WAL or column family data, etc are some of the upcoming features in the pipeline.&nbsp;</p> 
+          <h2>Conclusion</h2> 
+          <p dir="ltr">Finally, the HBase 1.0.0 release has come a long way, with contributions from a very large group of awesome people and hard work from committers and contributors. We would like to extend our thanks to our users and all who have contributed to HBase over the years. </p> 
+          <p> </p> 
+          <p dir="ltr">Keep HBase’ing! </p> 
+        </div></span></div></span>

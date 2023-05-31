@@ -1,0 +1,33 @@
+---
+layout: post
+title: 'Success at Apache: the Apache Legal Shield - a pragmatic view'
+date: '2018-08-07T00:00:00+00:00'
+categories: foundation
+---
+<p> <strong><em>by Bertrand Delacretaz</em></strong></p> 
+  <p>I became active in the ASF in 2001 via Gianugo Rabellino -- he was the one who started the discussions with Apache Fop about me donating the jfor XLS-FO to RTF converter that I had developed earlier. It was already too late to uninvent RTF which is a terrible format, but I digress. I am currently a member of the Board of Directors of the ASF and have been doing a lot of thinking (and presentations) about what makes the ASF tick in terms of collaboration and Shared Neurons.</p> 
+  <p>Section 12.1 of the Apache Bylaws <a href="https://www.apache.org/foundation/bylaws">https://www.apache.org/foundation/bylaws</a>&nbsp;describes the legal protection that the Apache Software Foundation provides to our directors, officers and members.</p> 
+  <p>I'm not a lawyer by far, however, and that language is a bit hard for me to parse, so I thought I'd try to clarify what this means for our contributors and learn more about it in the process.</p> 
+  <p>If you go into detail there's certainly more to it but I think the items below are the absolute basics that every PMC member <a href="https://www.apache.org/foundation/how-it-works.html">https://www.apache.org/foundation/how-it-works.html</a> should understand in order to benefit from the legal shield that the Foundation provides.</p> 
+  <p><strong>What is a &quot;Legal Shield&quot; ?</strong></p> 
+  <p>An important goal of the Apache Bylaws and policies is to isolate our contributors from any legal action that might be taken against the Foundation, if they act as specified in those policies.</p> 
+  <p>That's what we mean by &quot;legal shield&quot;: <em>a way for our individual volunters to be sheltered from legal suits directed at the Foundation's projects</em>, as mentioned in our &quot;How the ASF works&quot; document <a href="https://www.apache.org/foundation/how-it-works.html">https://www.apache.org/foundation/how-it-works.html</a> .</p> 
+  <p><strong>Acts of the Foundation</strong></p> 
+  <p>The first thing is to make sure our software releases are &quot;Acts of the Foundation&quot; as opposed to something that people do in their own name. This is natural if we follow our release policy <a href="https://www.apache.org/legal/release-policy.html">https://www.apache.org/legal/release-policy.html</a> , which defines a simple release approval process for releasing source code that makes the project's PMC <a href="https://www.apache.org/foundation/how-it-works.html">https://www.apache.org/foundation/how-it-works.html</a> responsible for the release, as opposed to our individual contributors and release managers.</p> 
+  <p>This means that if the released software is ever involved in legal action and someone has to testify or produce information as part of a subpoena, or worse, it's the Foundation which is in charge of that and not our individual contributors. These things happen from time to time, not very often but they can represent a lot of work and aggravation that none of us are looking for. The 2011 subpoena to Apache around Java and Android <a href="http://www.groklaw.net/articlebasic.php?story=20110509221136468">http://www.groklaw.net/articlebasic.php?story=20110509221136468</a> is just one example of that. <em>Produce documents reflecting all communications between someone and Apache</em>, how fun is that?</p> 
+  <p>The goal of our release process is to make it very clear what an Apache Release is, and also clarify that anyone using our software in other ways, by getting it directly from our code repositories for example, does so at their own risk. If it's not an Apache Release we didn't give it to them, they grabbed it on their own initiative and have to accept the consequences of that.</p> 
+  <p><strong>The Rest is for Contributors</strong></p> 
+  <p>This leads to a second and related item: developer builds, which happen much more often than releases, often daily, and that people can easily download and use.</p> 
+  <p>Those builds are meant for contributors to our projects, to use in development and testing as part of their contribution activities.</p> 
+  <p>To avoid any confusion, it is important to clearly label them as such, and to draw a clear line between them and official Apache Releases. They should only be advertised in places where developers who are part of our communities (as opposed to the general public) can see them, and with suitable disclaimers.</p> 
+  <p>In our world of continuous deployment and automated builds, the lines between what's a release and what's just tagged code that works for someone are often blurred. That's totally fine from a technical point of view, and often desirable when one wants to move fast, but we shouldn't forget about the possible legal implications ot distributing software.</p> 
+  <p>Let's make sure we take advantage of the well-designed Apache Legal Shield that the Foundation provides to us, by strictly following our release policy and clearly specifying what is what in terms of downloadable software.</p> 
+  <p><em>I never thought I'd write a blog post on a legal topic, so here's the FUN DISCLAIMER: As mentioned, I am not a lawyer by far, and the above should not be considered legal advice - just a pragmatic view that can hopefully help our contributors better understand the related issues. For legal advice, consult your own legal advisor! And if you're thirsty after reading all this, get a drink and give a toast to the ASF and its founders!</em></p> 
+  <p><em>Many thanks to the fellow Apache members who provided feedback and additional ideas for this post.</em></p> 
+  <p>. . .&nbsp;</p> 
+  <p> </p> 
+  <p><em>Bertrand Delacretaz works as a Principal Scientist with the Adobe Research team in Basel, Switzerland. He spends a good portion of his time advocating and implementing Open Development as a way to make geographically dispersed teams more efficient and more fun for his coworkers. Bertrand is also an active Member of the Apache Software Foundation, currently on his tenth term on the Foundation's Board of Directors&nbsp;</em><em>(Fiscal Year 2018-2019).</em></p> 
+  <div> 
+    <p>= = =</p> 
+  </div> 
+  <div>&quot;Success at Apache&quot; is a monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;&nbsp;<a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></div>

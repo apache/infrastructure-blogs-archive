@@ -1,0 +1,66 @@
+---
+layout: post
+title: The ASF Resigns From the JCP Executive Committee
+date: '2010-12-09T00:00:00+00:00'
+categories: foundation
+---
+<p>The Apache 
+Software Foundation has <a href="http://mail-archives.apache.org/mod_mbox/www-community/201012.mbox/%3C64C623FF-90E7-48C0-A371-C53B848CB4DE@pobox.com%3E">resigned its seat</a> on the Java SE/EE Executive 
+Committee.&nbsp; Apache has served on the EC for the past 10 years, winning 
+the JCP &quot;Member of the Year&quot; award 4 times, and recently was ratified 
+for another term with support from 95% of the voting community.&nbsp; 
+Further, the project communities of the ASF, home to Apache Tomcat, Ant,
+ Xerces, Geronimo, Velocity and nearly a 100 mainstay java components 
+have implemented countless JSRs and serve on and contribute to many of 
+the JCPs technical expert groups.&nbsp; <br /><br />We'd like to provide some explanation to the community as to why we're taking this significant step.<br /><br />The
+ recent Java SE 7 vote was the last chance for the JCP EC to demonstrate
+ that the EC has any intent to defend the JCP as an open specification 
+process, and demonstrate that the letter and spirit of the law 
+matter.&nbsp;&nbsp;&nbsp;To sum up the issues at stake in the vote, we believe that 
+while continuing to fail to uphold their responsibilities under the 
+JSPA, Oracle provided the EC with a Java SE 7 specification request and 
+license that are self-contradictory, severely restrict distribution of 
+independent implementations of the spec, and most importantly, prohibit 
+the distribution of independent open source implementations of the 
+spec.&nbsp; Oracle has refused to answer any reasonable and responsible 
+questions from the EC regarding these problems.<br /><br />In the phrase 
+&quot;fail to uphold their responsibilities under the JSPA&quot;, we are referring
+ to Oracle's refusal to provide the ASF's Harmony project with a TCK 
+license for Java SE that complies with Oracle's obligations under the 
+JSPA as well as public promises made to the Java community by officers 
+of Sun Microsystems (recently acquired by Oracle.)&nbsp; This breach of the 
+JSPA was begun by Sun Microsystems in August of 2006 and is a policy 
+that Oracle explicitly continues today.&nbsp; For more information on this 
+dispute, see our <a href="http://www.apache.org/jcp/sunopenletter.html">open letter to Sun Microsystems</a>.<br /><br />This 
+vote was the only real power the Executive Committee has as the 
+governing body of the Java specification ecosystem, and as we <a href="http://blogs.apache.org/foundation/entry/statement_by_the_asf_board1">indicated 
+previously</a> we were looking for the EC to protect the rights of 
+implementers to the degree they are able, as well as preserve the 
+integrity of the JCP licensing structure by ensuring that JCP 
+specifications are able to be freely implemented and distributed.&nbsp; We 
+don't believe this is an unreasonable position - it should be noted that
+ the majority of the EC members, including Oracle, have publicly stated 
+that restrictions on distribution such as those found in the Java SE 7 
+license have no place in the JCP - and two distinguished individual 
+members of the EC, <a href="http://gee.cs.oswego.edu/dl/html/jcp22oct10.html">Doug Lea</a> and <a href="http://tembrel.blogspot.com/2010/12/resigned-from-ec.html">Tim Peierls</a>, both have resigned in 
+protest over the same issue.<br /><br />By approving Java SE 7, the 
+EC has failed on both counts : the members of the EC refused to stand up
+ for the rights of implementers, and by accepting Oracle's TCK license 
+terms for Java SE 7, they let the integrity of the JCP's licensing 
+structure be broken.<br /><br />The Apache Software Foundation concludes 
+that that JCP is not an open specification process - that Java 
+specifications are proprietary technology that must be licensed directly
+ from the spec lead under whatever terms the spec lead chooses; that the
+ commercial concerns of a single entity, Oracle, will continue to 
+seriously interfere with and bias the transparent governance of the 
+ecosystem;&nbsp; that it is impossible to distribute independent 
+implementations of JSRs under open source licenses such that users are 
+protected from IP litigation by expert group members or the spec lead; 
+and finally, the EC is unwilling or unable to assert the basic power of 
+their role in the JCP governance process.<br /><br />In short, the EC and the Java Community Process are neither.<br /><br />To
+ that end, our representative has informed the JCP's Program Management 
+Office of our resignation, effective immediately.&nbsp; As such, the ASF is 
+removing all official representatives from any and all JSRs. In 
+addition, we will refuse any renewal of our JCP membership and, of 
+course, our EC position.</p> 
+  <p><br /># # # <br /></p>

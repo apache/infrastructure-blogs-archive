@@ -1,0 +1,82 @@
+---
+layout: post
+title: Announcing the release of Samza 1.3
+date: '2019-12-10T00:00:00+00:00'
+categories: samza
+---
+We are thrilled to announce the release of <strong>Apache Samza 1.3.0</strong><br />
+<p>
+Today Samza forms the backbone of hundreds of real-time production applications across a multitude of companies, such as LinkedIn, VMWare, Slack, Redfin among many others. 
+This release of Samza adds a variety of features and capabilities to Samza&rsquo;s existing arsenal, coupled with improved <em>documentation</em>, <em>code</em> snippets, <em>examples</em>.
+Samza provides leading support for large-scale stateful stream processing with:
+</p>
+
+<ul>
+<li>First class support for local state (with RocksDB store). This allows a stateful application to scale up to 1.1 Million events/sec on a single machine with SSD.</li>
+<li>Support for incremental checkpointing of state instead of full snapshots. This enables Samza to scale to applications with very large state.</li>
+<li>A fully asynchronous programming model that makes parallelizing remote calls efficient and effortless.</li>
+<li>High level API for expressing complex stream processing pipelines in a few lines of code.</li>
+<li>Beam Samza Runner that marries Beam’s best in class support for EventTime based windowed processing and sophisticated triggering with Samza’s stable and scalable stateful processing model. </li>
+<li>A fully pluggable model for input sources (e.g. Kafka, Kinesis, DynamoDB streams etc.) and output systems (HDFS, Kafka, ElastiCache etc.).</li>
+<li>A Table API that provides a common abstraction for accessing remote or local databases and allowing developers are able to "join" an input event stream with such a Table.</li>
+<li>Flexible deployment model for running the the applications in any hosting environment and with cluster managers other than YARN.</li>
+<li>Features like canaries, upgrades and rollbacks that support extremely large deployments with minimal downtime.</li>
+</ul>
+
+<h3>New Features, Upgrades and Bug Fixes</h3>
+
+This release brings the following features, upgrades, and capabilities (highlights):
+<ul>
+  <li> Startpoint support improvement</li>
+  <li> Samza SQL improvement</li>
+  <li> Table API improvement</li>
+  <li> Miscellaneous bug fixes</li>
+</ul>
+
+Full list of the jiras addressed in this release can be found <a href="https://issues.apache.org/jira/browse/SAMZA-2354?jql=project%20%3D%20%22SAMZA%22%20and%20fixVersion%20in%20(1.3)">here</a>.
+
+<h3>Startpoint support improvement</h3>
+
+<ul>
+
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2201">SAMZA-2201</a> Startpoints - Integrate fan out with job coordinators</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2215">SAMZA-2215</a> StartpointManager fix for previous CoordinatorStreamStore refactor</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2220">SAMZA-2220</a> Startpoints - Fully encapsulate resolution of starting offsets in OffsetManager</li>
+
+</ul>
+
+<h3>Samza SQL improvement</h3>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2234">SAMZA-2234</a> Samza SQL : Provide access to Samza context to the Sama SQL UDFs</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2313">SAMZA-2313</a> Samza-sql: Add validation for Samza sql statements</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2354">SAMZA-2354</a> Improve UDF discovery in samza-sql</li>
+</ul>
+
+<h3>Table API improvement</h3>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2191">SAMZA-2191</a> support batching for remote tables</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2200">SAMZA-2200</a> Update table sendTo() and join() operation to accept additional arguments</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2219">SAMZA-2219</a> Add a dummy table read function</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2309">SAMZA-2309</a> Remote table descriptor requires read function</li>
+</ul>
+
+<h3>Miscellaneous bug fixing</h3>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2198">SAMZA-2198</a> Containers process always takes task.shutdown.ms to shut down</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-2293">SAMZA-2293</a> Propagate the watermark future to StreamOperatorTask correctly</li>
+</ul>
+
+<h3>Important Announcement</h3>
+<p>We may introduce a backward incompatible changes regarding samza job submission in the future 1.4 release. Details can be found on <a href="https://cwiki.apache.org/confluence/display/SAMZA/SEP-23%3A+Simplify+Job+Runner">SEP-23: Simplify Job Runner</a></p>
+
+<h3>Sources downloads</h3>
+<p>A source download of Samza 1.3.0 is available <a href="https://dist.apache.org/repos/dist/release/samza/1.3.0/">here</a>, and is also available in Apache’s Maven repository. Samza’s download <a href="https://samza.apache.org/startup/download/">page</a> for details and Samza’s feature preview for new features. </p>
+
+
+<h3>Contribute</h3>
+
+It’s a great time to get involved. You can start by reviewing the <a href="http://samza.apache.org/startup/preview/#try-it-out">tutorials</a>, signing up for the <a href="http://samza.apache.org/community/mailing-lists.html">mailing list</a>, and grabbing some <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20labels%20%3D%20newbie%20AND%20status%20%3D%20Open">newbie JIRAs</a>. 
+

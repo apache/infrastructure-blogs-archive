@@ -1,0 +1,57 @@
+---
+layout: post
+title: Apache Log4j 2.0 is looking for a new logo!
+date: '2013-07-24T00:00:00+00:00'
+categories: logging
+---
+<h1>Apache Log4J logo contest</h1>
+
+<p>Log4j 2.0 is looking for a new logo!</p>
+
+<p>After 12 years, the Log4j project is getting ready for a brand new major release: version 2.0. This new major version is a reboot of this project in many ways: it is not only time to change the version number to 2.0 but also time to refresh the Log4j logo.</p>
+
+<p>Log4j 2 is very different from Log4j 1. Log4j 2 is more reliable and faster than its predecessor and comparable frameworks.</p>
+
+<p>The team has grown after years of stagnation and there is now a lot of activity on our lists. We are now approaching the 2.0 release after eight beta releases.</p>
+
+<p>With our new logo, we want to show the Java community that Log4j is back.</p>
+
+<p>We would like to open participation to the community to create this new logo.</p>
+
+<h2>HOW TO PARTICIPATE</h2>
+
+<p>Attach your entries to the Jira:
+<a href="https://issues.apache.org/jira/browse/LOG4J2-316">https://issues.apache.org/jira/browse/LOG4J2-316</a>
+</p>
+
+<p>You can submit as many entries as you like.</p>
+
+<p>You must license your Logo under the Apache License 2.0.</p>
+
+<p>The contest will last one month from the date of the announcement.</p> 
+
+<p>If your Logo is accepted, you must sign an ICLA:
+<a href="http://www.apache.org/licenses/icla.txt">http://www.apache.org/licenses/icla.txt</a></p>
+
+<p>While we will accept PNG image formats for the contest, we prefer vector based formats (SVG).
+You can convert pixel-based formats produced with Gimp or Photoshop to SVG with free tools like Inkscape (<a href="http://inkscape.org">http://inkscape.org</a>)</p>
+
+<p>Please note that a logo should not contain too many details.</p>
+
+<h2>HOW THE WINNING LOGO IS CHOSEN</h2>
+
+<p>We invite everyone to vote on the mailing lists. The votes of Apache Logging Committers are binding.</p>
+
+<p>If the community submits more than 10 Logos, voting will proceed in two rounds.</p>
+
+<p>In the first round, the 10 logos with the most +1 votes graduate to round two.</p>
+
+<p>In the second round, the logo with the most +1 will win the contest.</p>
+
+<p>The majority of the Apache Logging PMC can veto a logo.</p>
+
+<p>We will accept the logo when all votes are successful and the ICLA of the logo contributor is on file.</p>
+
+<p>Please ask questions on the dev mailing list.</p>
+
+<p>The Log4j team</p>

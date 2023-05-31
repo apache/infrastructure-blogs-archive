@@ -1,0 +1,87 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 31 July 2015'
+date: '2015-07-31T00:00:00+00:00'
+categories: foundation
+---
+<div> 
+    <p>We've had quite a productive week in ApacheLand --here's what happened:</p> 
+    <p>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Announcing Program for Apache: Big Data and ApacheCon: Core Europe –EARLY REGISTRATION INCENTIVES END 1 AUGUST!&nbsp;<a href="http://s.apache.org/eg4">http://s.apache.org/eg4</a></p> 
+  </div> 
+  <div>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.</div> 
+  <div>&nbsp;- Upcoming Board Meeting: 19 August. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></div> 
+  <div><br /></div> 
+  <div>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 35,000+ weekly infrastructure checks yielded an awesome 99.91% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a></div> 
+  <div> 
+    <p>Apache NiFi™ –Big Data automation system acquires and delivers data easily, securely, and reliably across enterprise systems in real time.<br />&nbsp;- Apache NiFi&nbsp;0.2.1 released&nbsp;<a href="http://nifi.apache.org/download.html">http://nifi.apache.org/download.html</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Portals™ Jetspeed –an Open Portal Platform and Enterprise Information Portal, written entirely in Open Source under the Apache license in Java and XML and based on open standards.<br />&nbsp;- Apache Portals Jetspeed 2.3.0 released&nbsp;<a href="http://portals.apache.org/jetspeed-2/download.html">http://portals.apache.org/jetspeed-2/download.html</a></p> 
+    <p>Apache SAMOA (Incubating) –a platform for mining Big Data streams.<br />&nbsp;- Apache SAMOA 0.3.0-incubating released&nbsp;<a href="https://dist.apache.org/repos/dist/release/incubator/samoa/0.3.0-incubating/">https://dist.apache.org/repos/dist/release/incubator/samoa/0.3.0-incubating/</a></p> 
+  </div> 
+  <p>Apache Wicket™ –with proper mark-up/logic separation, a POJO data model, and a refreshing lack of XML, Apache Wicket makes developing Web-apps simple and enjoyable again.<br />&nbsp;- Apache Wicket v7.0 released&nbsp;<a href="https://wicket.apache.org">https://wicket.apache.org</a></p> 
+  <div><br /></div> 
+  <div><b>Did You Know?</b></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that discontinued, abandoned, or retired codebases/projects are stored in the Apache Attic? The information is preserved at <a href="http://attic.apache.org">http://attic.apache.org/</a>&nbsp;for posterity, reference, and potential future re-activation, while keeping it clearly distinct from active work.&nbsp;</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that in addition to excellent sessions and networking opportunities those attending Apache: Big Data and ApacheCon: Core in Budapest have much to enjoy in the city as well?&nbsp;<a href="http://www.corinthia.com/insider/2015/jul/24-hours-in-budapest">http://www.corinthia.com/insider/2015/jul/24-hours-in-budapest</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that the newly-designed Apache Projects page at <a href="https://projects.apache.org/">https://projects.apache.org/</a>&nbsp;documents the evolution of the ASF's more than 300 projects,&nbsp;From Abdera to ZooKeeper, including charts, PMCs, languages, contributor trends, and more?</div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div><b>Apache Community Notices:</b></div> 
+  <div> 
+    <p>&nbsp;- RIP, ASF Member Nóirín Plunkett <a href="https://www.apache.org/memorials/noirin.html">https://www.apache.org/memorials/noirin.html</a></p> 
+    <p>&nbsp;- The updated list of Apache project-related MeetUps can be found at <a href="-%20The%20list%20of%20Apache%20project-related%20MeetUps%20can%20be%20found%20at%20http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+    <p>&nbsp;- The Bangalore Apache Spark Meetup will be held 1 August in Bangalore <a href="http://www.meetup.com/Bangalore-Apache-Spark-Meetup/events/223706897/">http://www.meetup.com/Bangalore-Apache-Spark-Meetup/events/223706897/</a></p> 
+    <p>&nbsp;- Data+Visualization Detroit will hold BIG Data Analytics via Hadoop Hive Webinar on 1 August&nbsp;<a href="http://www.meetup.com/Data-Visualization-Detroit/events/223488118/">http://www.meetup.com/Data-Visualization-Detroit/events/223488118/</a></p> 
+    <p>&nbsp;- The Hands on Spark MeetUp will be held 2 August in Sunnyvale <a href="http://www.meetup.com/Hands-On-Hadoop-Hive-and-Apache-Pig-Learning/events/224252053/">http://www.meetup.com/Hands-On-Hadoop-Hive-and-Apache-Pig-Learning/events/224252053/</a></p> 
+    <p>&nbsp;- Apache Spark will be featured in the&nbsp;Machine Learning Study Group on 2 August in San Diego&nbsp;<a href="http://www.meetup.com/SanDiegoAI/events/223988723/">http://www.meetup.com/SanDiegoAI/events/223988723/</a></p> 
+    <p>&nbsp;- &quot;Apache Spark: Spark Streaming, Dataframes, Zeppelin and more&quot; will be held 3 August in&nbsp;Tel Aviv-Yafo&nbsp;<a href="http://www.meetup.com/israel-spark-users/events/224140512/">http://www.meetup.com/israel-spark-users/events/224140512/</a></p> 
+    <p>&nbsp;- The Cassandra MSP Meetup will be held 3 August in Minneapolis&nbsp;<a href="http://www.meetup.com/Minneapolis-St-Paul-Cassandra-Meetup/events/222802981/">http://www.meetup.com/Minneapolis-St-Paul-Cassandra-Meetup/events/222802981/</a></p> 
+    <p>&nbsp;- &quot;Intro to Data Base Columnation with Apache Parquet&quot; will be held 3 August in Addison <a href="http://www.meetup.com/DFW-Data-Science/events/223517154/">http://www.meetup.com/DFW-Data-Science/events/223517154/</a></p> 
+    <p>&nbsp;- The Summer CouchDB Meetup will be held 4 August in Boston&nbsp;<a href="http://www.meetup.com/CouchDB-Boston/events/223514352/">http://www.meetup.com/CouchDB-Boston/events/223514352/</a></p> 
+    <p>&nbsp;- The Apache Flink Crash Course will be held 4 August in Chicago <a href="http://www.meetup.com/Chicago-Apache-Flink-Meetup/events/223983664/">http://www.meetup.com/Chicago-Apache-Flink-Meetup/events/223983664/</a> </p> 
+    <p>&nbsp;- The CloudStack Silicon Valley MeetUp will be held 4 August in Santa Clara&nbsp;<a href="http://www.meetup.com/CloudStack-Silicon-Valley-User-Group/events/223921012/">http://www.meetup.com/CloudStack-Silicon-Valley-User-Group/events/223921012/</a></p> 
+    <p>&nbsp;- &quot;Hands on Introduction to Hadoop, HDFS, Hive, Ambari &amp; Pig: Part 1&quot; will be held 4 August in Santa Clara <a href="http://www.meetup.com/HSquared-Hadoop-Hortonworks-User-Group/events/224152083/">http://www.meetup.com/HSquared-Hadoop-Hortonworks-User-Group/events/224152083/</a></p> 
+    <p>&nbsp;- Apache Samza will be featured at the&nbsp;Hadoop Users Group UK MeetUp on 5 August in London&nbsp;<a href="http://www.meetup.com/hadoop-users-group-uk/events/223836730/">http://www.meetup.com/hadoop-users-group-uk/events/223836730/</a></p> 
+    <p>&nbsp;- Apache Hadoop, Kafka, and Spark will be featured at the&nbsp;Phoenix Hadoop User Group on 5 August in Tempe&nbsp;<a href="http://www.meetup.com/Phoenix-Hadoop-User-Group/events/223611800/">http://www.meetup.com/Phoenix-Hadoop-User-Group/events/223611800/</a></p> 
+    <p>&nbsp;- &quot;Intro to Apache Spark for the Business Analyst&quot; will be held 5 August in Washington, D.C. <a href="http://www.meetup.com/DC-Analytics-Meetup/events/223896875/">http://www.meetup.com/DC-Analytics-Meetup/events/223896875/</a></p> 
+    <p>&nbsp;- The Brighton Java MeetUp will feature &quot;So why would I use a distributed database like Apache Cassandra?&quot; on 5 August <a href="http://www.meetup.com/Brighton-Java/events/223867043/">http://www.meetup.com/Brighton-Java/events/223867043/</a></p> 
+    <p>&nbsp;- The Berliner Apache Cordova Network will host the Hybrid Cordova Network&nbsp;on 5 August in Berlin&nbsp;<a href="http://www.meetup.com/Berliner-Apache-Cordova-Network/events/224231539/">http://www.meetup.com/Berliner-Apache-Cordova-Network/events/224231539/</a></p> 
+    <p>&nbsp;- The Tampa Bay Hadoop Users Group will present &quot;Apache Spark - what is all the hype about?&quot; on 6 August in St. Petersburg&nbsp;<a href="http://www.meetup.com/Tampa-Hadoop-Meetup-Group/events/222808783/">http://www.meetup.com/Tampa-Hadoop-Meetup-Group/events/222808783/</a></p> 
+    <p>&nbsp;- The Tokyo Spark Meetup will be held 6 August in Tokyo <a href="http://www.meetup.com/Tokyo-Spark-Meetup/events/223961183/">http://www.meetup.com/Tokyo-Spark-Meetup/events/223961183/</a></p> 
+    <p>&nbsp;- The Istanbul Spark Meetup will host &quot;Hadoop ile Merhaba Dünya (Workshop)&quot; on 8 August in Istanbul <a href="http://www.meetup.com/Istanbul-Spark-Meetup/events/223599737/">http://www.meetup.com/Istanbul-Spark-Meetup/events/223599737/</a></p> 
+    <p>&nbsp;- The Advanced Apache Spark Meetup will feature Apache Spark and Kafka on 10 August in Mountain View&nbsp;<a href="http://www.meetup.com/Advanced-Apache-Spark-Meetup/events/223910462/">http://www.meetup.com/Advanced-Apache-Spark-Meetup/events/223910462/</a></p> 
+    <p>&nbsp;- The Houston Hadoop Meetup Group will feature Apache Solr on 11 August <a href="http://www.meetup.com/Houston-Hadoop-Meetup-Group/events/223231943/">http://www.meetup.com/Houston-Hadoop-Meetup-Group/events/223231943/</a></p> 
+    <p>&nbsp;- The Boston Area Cloud Foundry Meetup will feature Apache Mesos on 11 August in Cambridge&nbsp;<a href="http://www.meetup.com/Boston-Area-Cloud-Foundry-Meetup/events/224306788/">http://www.meetup.com/Boston-Area-Cloud-Foundry-Meetup/events/224306788/</a></p> 
+    <p>&nbsp;- Code.Brew will feature &quot;Enterprise Dataflow with Apache NiFi&quot; on 13 August in Dulles&nbsp;<a href="http://www.meetup.com/Code-Brew/events/223935951/">http://www.meetup.com/Code-Brew/events/223935951/</a></p> 
+    <p>&nbsp;- The Seattle JS MeetUp will host &quot;Apache Cordova and Maker.js&quot; on 13 August&nbsp;<a href="http://www.meetup.com/seattlejs/events/220102652/">http://www.meetup.com/seattlejs/events/220102652/</a></p> 
+    <p>&nbsp;- The NJ Data Science - Apache Spark MeetUp will present &quot;Spark Streaming&quot; on 13 August in Princeton&nbsp;<a href="http://www.meetup.com/nj-datascience/events/222851584/">http://www.meetup.com/nj-datascience/events/222851584/</a></p> 
+    <p>&nbsp;- The Big Data &amp; NoSQL Meetup Hamburg will feature Apache Spark on 13 August&nbsp;<a href="http://www.meetup.com/BDNSHH/events/223963763/">http://www.meetup.com/BDNSHH/events/223963763/</a></p> 
+    <p>&nbsp;- The Bay Area Apache Flink Meetup announces a 20% discount code and presentation on Apache Flink at the Big Data Scala By the Bay Conference on 17 August in Oakland&nbsp;<a href="http://www.meetup.com/Bay-Area-Apache-Flink-Meetup/events/224213826/">http://www.meetup.com/Bay-Area-Apache-Flink-Meetup/events/224213826/</a></p> 
+    <p>&nbsp;- Beta Test Apache Cassandra Certification will be held 17 August in Santa Clara <a href="http://www.meetup.com/DataStax-Cassandra-South-Bay-Users/events/224269417/">http://www.meetup.com/DataStax-Cassandra-South-Bay-Users/events/224269417/</a> </p> 
+  </div> 
+  <div>&nbsp;- The second annual MesosCon will be held 20-21 August in Seattle <a href="https://mesoscon2015.sched.org/">https://mesoscon2015.sched.org/</a></div> 
+  <div> 
+    <p>&nbsp;- ASF Member Joan Touzet will keynote the Texas Linux Fest 21-22 August in San Marcos <a href="https://2015.texaslinuxfest.org/">https://2015.texaslinuxfest.org/</a></p> 
+    <p>&nbsp;- The Big Data Innovation conference will feature an &quot;Apache Innovation&quot; track 9-10 September in Boston&nbsp;<a href="http://theinnovationenterprise.com/summits/big-data-innovation-boston-2015/">http://theinnovationenterprise.com/summits/big-data-innovation-boston-2015/</a></p> 
+  </div> 
+  <div>&nbsp;- Apache: Big Data and ApacheCon: Core Europe will be held 28 September - 1 October in Budapest <a href="http://apachecon.com/">http://apachecon.com/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The first Apache Flink Conference, Flink Forward, will be held 12-13 October in Berlin <a href="http://flink-forward.org/">http://flink-forward.org</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- CFP open for Lucene/Solr Revolution, to be held 13-16 October in Austin <a href="http://www.lucenerevolution.org/">http://www.lucenerevolution.org</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The ASF FY 2014-2015 Annual Report is available at <a href="http://s.apache.org/ZVp">http://s.apache.org/ZVp</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and <a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">sign up for Apache-related news</a> by sending mail to announce-subscribe@apache.org and <a href="https://twitter.com/theASF/">follow @TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>
