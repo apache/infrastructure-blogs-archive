@@ -1,0 +1,23 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 17 October 2014'
+date: '2014-10-17T14:38:58+00:00'
+categories: foundation
+---
+<div>Noteworthy items from The Apache Software Foundation's more than 200 projects and initiatives that have taken place over the past week include:</div> 
+  <div><br /></div> 
+  <div>ApacheCon™ –the official conference series of The Apache Software Foundation</div> 
+  <div>&nbsp;- Register today for ApacheCon and CloudStack Collaboration Conference Europe <a href="http://events.linuxfoundation.org/">http://events.linuxfoundation.org/</a></div> 
+  <div>&nbsp;- CFP now open for ApacheCon North America 2015&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/program/cfp">http://events.linuxfoundation.org/events/apachecon-north-america/program/cfp</a></div> 
+  <p>Apache Software Foundation Graphics -graphical assets that can be used by third parties when referring to The Apache Software Foundation or one of its projects.<br />&nbsp;- Download New &quot;Powered By Apache&quot; general and project logos <a href="http://apache.org/foundation/press/kit/#poweredby">http://apache.org/foundation/press/kit/#poweredby</a></p> 
+  <div>Apache Commons™ Compress™ –working with zip, ar, jar, bz2, cpio, tar, gz, dump, pack200, lzma, 7z, arj and xz files.</div> 
+  <div>&nbsp;- Apache&nbsp;Commons Compress 1.9. released <a href="http://commons.apache.org/proper/commons-compress/download_compress.cgi">http://commons.apache.org/proper/commons-compress/download_compress.cgi</a></div> 
+  <div><br /></div> 
+  <div>Apache Jackrabbit™ –a fully conforming implementation of the Content Repository for Java Technology API (JCR).</div> 
+  <div>&nbsp;- Apache Jackrabbit Oak 1.0.7 and Oak 1.1.1 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>Want more? For real-time updates, <a href="http://www.apache.org/foundation/mailinglists.html#foundation-announce">sign up for Apache-related news</a> at announce@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.&nbsp;</div> 
+  <div><br /></div> 
+  <div>For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select <a href="http://people.apache.org/">ASF Committers</a>.</div>

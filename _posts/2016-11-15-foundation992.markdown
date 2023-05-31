@@ -1,0 +1,48 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® jclouds™ v2.0
+date: '2016-11-15T10:00:42+00:00'
+categories: foundation
+---
+<div><b><i>Open Source multi-Cloud toolkit in use and supported by Adobe, Amazon Web Services, Apache CloudStack, Docker, Google Cloud Platform, Mesosphere, Microsoft Azure, OpenStack, Rackspace, RedHat, and many others.</i></b></div> 
+  <div><br /></div> 
+  <div><b>Forest Hill, MD —15 November 2016—</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of Apache® jclouds™ v2.0, the Java multi-cloud toolkit.</div> 
+  <div><br /></div> 
+  <div>Apache jclouds gives users the freedom to create applications that are portable across clouds while providing full control to use cloud-specific features. As a cloud-agnostic library, jclouds enables developers to access a variety of supported cloud providers using one API.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache jclouds 2.0 represents a significant milestone for the project&quot; said Ignasi Barrera, Vice President of Apache jclouds. &quot;We are proud to support all major cloud providers in the marketplace with a mature, stable, codebase that is ready for production.&quot;</div> 
+  <div><br /></div> 
+  <div>jclouds entered the Apache Incubator in April 2013 and graduated as a Top-Level Project (TLP) in October of the same year. The Apache jclouds 2.0 release is the 11th release as a TLP and the consolidation of the project, with more than 13K commits (1K in the last release) made by more than 250 contributors (35 new last year).</div> 
+  <div><br /></div> 
+  <div><b>Under The Hood</b></div> 
+  <div>Apache jclouds 2.0 features include:</div> 
+  <div> 
+    <ul> 
+      <li>Wider compatibility with the Guava and Guice libraries.</li> 
+      <li>Configuration of arbitrary hardware values in the compute abstraction.</li> 
+      <li>Support for new cloud providers such as Microsoft Azure Resource Manager, ProfitBricks v3, OneAndOne and Backblaze B2.</li> 
+      <li>Better integration with OSGi and Apache Karaf.</li> 
+      <li>Numerous bug fixes and performance improvements.</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Apache jclouds is used by Abiquo, Adobe, CloudBees, Cloudify, Cloudsoft, Mesosphere, and RedHat, among many others. In addition, jclouds is supported by cloud companies and communities such as Amazon Web Services, Backblaze B2, Apache CloudStack, Docker, Google Cloud Platform, Microsoft Azure, OpenStack, Rackspace, and many more.</div> 
+  <div><br /></div> 
+  <div>&quot;Abiquo, as the creator of the leading commercial cloud management platform, relies on jclouds to give our customers the agility they need,&quot; said Ian Finlay, CEO of Abiquo. &quot;Using jclouds and our plugin architecture we have been able to deliver support for new cloud providers and features demanded by our customers in days or weeks rather than months. This approach ensures that our service provider and enterprise customers can bring together the cloud providers they need to deliver a great hybrid cloud solution to their customers.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache jclouds provides Cloudsoft AMP with a layer of abstraction across clouds allowing Cloudsoft AMP to model, deploy and manage applications in line with our customers’ requirements,&quot; said Duncan Johnston-Watt, Founder and CEO of Cloudsoft. &quot;Many of our customers have multi-cloud application strategies and need rapid support for target locations as these emerge. I’m pleased to see support Microsoft Azure Resource Manager and improvements for OpenStack (Mitaka) and IBM cloud targets.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;We are very proud of our achievement and welcome contributions that help grow the Apache jclouds community, including joining our mailing lists and submitting feedback, use cases, bug reports, patches, and documentation,&quot; added Barrera.</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache jclouds software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, release notes, documentation, and more information on Apache jclouds, visit <a href="http://jclouds.apache.org/">http://jclouds.apache.org/</a> and <a href="https://twitter.com/jclouds">https://twitter.com/jclouds</a></div> 
+  <div><br /></div> 
+  <div><b>Get Involved!</b></div> 
+  <div>Apache jclouds welcomes contribution and community participation through mailing lists, an IRC channel, as well as attending face-to-face MeetUps, developer trainings, and user events. Those wishing to get involved in the project can find out more at <a href="http://jclouds.apache.org/community/">http://jclouds.apache.org/community/</a></div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 550 individual Members and 5,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, OPDi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;jclouds&quot;, &quot;Apache jclouds&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

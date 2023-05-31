@@ -1,0 +1,55 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 20 March 2015'
+date: '2015-03-20T20:01:15+00:00'
+categories: foundation
+---
+<div>Let's kick off the Vernal Equinox with a snapshot what the Apache community has been working on this week:</div> 
+  <p>&nbsp;ApacheCon™ –the official conference series of The Apache Software Foundation.<br />- Special Registration &amp; Hotel Rates for ApacheCon North America close TODAY&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+  <div>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- Global uptime across all Apache services is a very happy 99.47%&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></div> 
+  <div> 
+    <p>ASF Community Development&nbsp;–volunteers who help guide newcomers to The Apache Software Foundation, provide insight and advice on The Apache Way of meritocratic development, including how to contribute to Apache projects and to the Open Source community at-large.<br />&nbsp;- The Apache Software Foundation Accepted as a Google Summer of Code 2015 Mentoring Organization&nbsp;<span style="white-space: pre-wrap;"><a href="http://s.apache.org/DEi">http://s.apache.org/DEi</a></span></p> 
+    <p>Apache Camel™ –a powerful open source integration framework based on known Enterprise Integration Patterns. Rules for Camel's routing and mediation engine can be defined in either a Java based DSL, XML or using DSLs for dynamic languages such as Groovy or Scala.<br />&nbsp;-&nbsp;Apache Camel 2.13.4, 2.14.2, and 2.15.0 released&nbsp;<a href="http://camel.apache.org/download.html">http://camel.apache.org/download.html</a></p> 
+    <p>Apache DeltaSpike™ –a portable JSR-299 CDI (Contexts and Dependency Injection for Java) Extension library which contains lots of useful tools and helpers which are missing in the CDI core spec. DeltaSpike is not a CDI-container itself, but a portable extension library which can run on all CDI-containers.<br />&nbsp;- Apache DeltaSpike-1.3.0 released&nbsp;<a href="http://deltaspike.apache.org/download.html%20">http://deltaspike.apache.org/download.html</a> </p> 
+    <p>Apache Flex™ –the server-based Java remoting and Web messaging technology that enables developers to easily connect to back-end distributed data and push data in real-time to Adobe Flex and Adobe AIR applications for more responsive rich Internet application (RIA) experiences.<br />&nbsp;- Apache Flex BlazeDS 4.7.0 released&nbsp;<a href="http://www.us.apache.org/dist/flex/BlazeDS/4.7.0/">http://www.us.apache.org/dist/flex/BlazeDS/4.7.0/</a></p>Apache HttpComponents™ –a set of low level HTTP transport components that can be used to build custom client and server side HTTP services with a minimal footprint.<br />&nbsp;- Apache HttpComponents Core 4.4.1 GA released&nbsp;<a href="http://hc.apache.org/downloads.cgi">http://hc.apache.org/downloads.cgi</a> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;-&nbsp;Apache Jackrabbit Oak 1.0.12 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Jena™ –an open source Java framework for building Semantic Web and Linked Data applications.<br />&nbsp;- Apache Jena 2.13.0 released&nbsp;<a href="http://www.apache.org/dist/jena/source/">http://www.apache.org/dist/jena/source/</a></p> 
+    <p>Apache JMeter™ –a 100% pure Java application designed to test server applications, generate test loads, measure performance, and test functional behavior.<br />&nbsp;- Apache JMeter 2.13 released&nbsp;<a href="http://jmeter.apache.org/">http://jmeter.apache.org/</a></p> 
+    <p>Apache NiFi (Incubating)&nbsp;–an easy to use, powerful, and reliable system to process and distribute data. Made for dataflow, NiFi supports highly configurable directed graphs of data routing, transformation, and system mediation logic.<br />&nbsp;-&nbsp;Apache NiFi 0.0.2-incubating released&nbsp;<a href="http://nifi.incubator.apache.org/">http://nifi.incubator.apache.org/</a></p> 
+    <p>Apache Qpid™ –a cross-platform enterprise messaging solution which implements the Advanced Message Queuing Protocol (AMQP). It provides brokers written in C++ and Java, along with clients for C++, Java JMS, .Net, Python, Ruby, and Perl.<br />&nbsp;- Apache Qpid 0.32 released&nbsp;<a href="http://qpid.apache.org/download.html">http://qpid.apache.org/download.html</a></p> 
+    <p>Apache Subversion™ –an Open Source, centralized version control system characterized by its reliability as a safe haven for valuable data; the simplicity of its model and usage; and its ability to support the needs of a wide variety of users and projects, from individuals to large-scale enterprise operations.<br />&nbsp;- Apache Subversion 1.9.0-beta1 released&nbsp;<a href="http://subversion.apache.org/download/#pre-releases">http://subversion.apache.org/download/#pre-releases</a></p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p>Apache Tomcat™ Standard Taglib –an Open Source software implementation of the JSP Standard Tag Library (JSTL) technology.<br />&nbsp;- Apache Standard Taglib 1.2.5 released&nbsp;<a href="http://tomcat.apache.org/taglibs.html">http://tomcat.apache.org/taglibs.html</a></p> 
+    <p><b><u><br />Did You Know?</u></b></p> 
+  </div> 
+  <div>&nbsp;- Did you know that according to the Dice 2015 Salary Survey, 5 of the Top 10 in-demand (and highest paying!) skills are for Apache projects?</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that the Apache JMeter testing/performance application is used by SAP, IBM, Oracle, and Sapient among many other organizations?</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that Apache Solr powers some of the world's most heavily-trafficked sites and applications, including AOL, Bloomberg, and eBay?</div> 
+  <div><br /></div> 
+  <div> 
+    <p><b><u>Apache Community Notices:</u></b></p> 
+    <p><b><u></u></b>&nbsp;- The next Apache Mesos User Group MeetUp will take place 25 March in London <a href="http://www.meetup.com/London-Mesos-User-Group/events/220602962/">http://www.meetup.com/London-Mesos-User-Group/events/220602962/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The Women of ASF Luncheon will be held on 14 April at ApacheCon <a href="http://events.linuxfoundation.org/events/apachecon-north-america/attend/women-asf-luncheon">http://events.linuxfoundation.org/events/apachecon-north-america/attend/women-asf-luncheon</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;-&nbsp;CloudStack Days will take place 16 April during ApacheCon (CFP open for all 5 CloudStack Days events: Austin, Budapest, Dublin, Seattle, and Tokyo)&nbsp;<a href="http://cloudstack.apache.org/">http://cloudstack.apache.org/</a></p> 
+    <p>&nbsp;- Apache Spark Mini-Summit will take place 16 April in tandem with ApacheCon <a href="http://s.apache.org/ojh">http://s.apache.org/ojh</a></p> 
+  </div> 
+  <div>&nbsp;- Apache TrafficServer Spring Summit will take place 16-17 April in Austin <a href="https://cwiki.apache.org/confluence/display/TS/Spring+2015+Summit">https://cwiki.apache.org/confluence/display/TS/Spring+2015+Summit</a></div> 
+  <p>&nbsp;- HBaseCon, the fourth annual event for the Apache HBase contributor/developer/admin/user community, will take place 7 May in San Francisco <a href="http://hbasecon.com/">http://hbasecon.com/</a></p> 
+  <div> 
+    <p>&nbsp;- The next Berlin Buzzwords conference will feature Apache projects such as Lucene, Spark, Solr and Cassandra and will take place 31 May-3 June in Berlin <a href="http://berlinbuzzwords.de/">http://berlinbuzzwords.de</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://mail-archives.apache.org/mod_mbox/www-announce/">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

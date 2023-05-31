@@ -1,0 +1,108 @@
+---
+layout: post
+title: 'The Apache Software Foundation Operations Summary: November 2015 - January
+  2016'
+date: '2016-02-25T20:48:42+00:00'
+categories: foundation
+---
+<p><b>FOUNDATION OPERATIONS SUMMARY</b></p> 
+  <p><b>Third Quarter, Fiscal Year 2016 (November 2015-January 2016)</b></p> 
+  <div> 
+    <blockquote style="margin: 0px 0px 0px 40px; border: medium none; padding: 0px;"> 
+      <p><b><i>&quot;We've been really impressed with the support and mentoring Apache Brooklyn received throughout the incubation process resulting in its successful graduation late last year. We have also enjoyed participating at ApacheCon, in both North America and Europe, and are delighted to sponsor the ASF for another year. Looking ahead we are keen to donate&nbsp;</i></b><i><b>Clocker (an Open Source project that leverages Apache Brooklyn) to the Foundation, as this feels like the right home for it too.&quot;</b> --Duncan Johnston-Watt, CEO, Cloudsoft Corporation</i></p> 
+    </blockquote> 
+    <p> </p> 
+    <div> 
+      <p><b><br />&gt; President's Statement:&nbsp;</b>A new year and a new look. Have you seen our <a href="http://www.apache.org/">new logo</a>? We are very proud of it. Whilst staying true to our original feather we feel the new look represents the energy and dynamism of our foundation. Standing upright and proud of both its past and its future the new feather is a recognition of the excellent work done by our volunteers and is a symbol of the ongoing innovation found in our project communities as they continue to grow in both numbers and geographic diversity.</p> 
+      <p>I'm thrilled that this quarter has seen our first two projects arriving at the Foundation from China, hot on the heels of our Apache Roadshow (organized by KAIYUANSHE, <a href="http://www.kaiyuanshe.cn/">http://www.kaiyuanshe.cn/</a>). During my ApacheCon &quot;State of the Feather&quot; in April 2015 I called for our communities to think hard about how we might benefit from a broader cultural and geographic engagement. Seeing these major Chinese contributions arriving at Apache within a year of that event is testament to the vitality and breadth of our communities (video at <a href="https://www.youtube.com/watch?v=1UkQBOvVhfw">https://www.youtube.com/watch?v=1UkQBOvVhfw</a>).</p> 
+      <p>There were 5 new Top Level Projects in this quarter:</p> 
+      <p> </p> 
+      <ul> 
+        <li>Apache Kylin</li> 
+        <li>Apache Groovy</li> 
+        <li>Apache Brooklyn</li> 
+        <li>Apache Reef</li> 
+        <li>Apache Arrow</li> 
+      </ul> 
+      <p> </p> 
+      <p> </p> 
+      <p>For the first time we had an official presence at FOSDEM in Belgium this year. This was a great success with a further broadening of our cultural awareness beyond our own borders. We look forward to returning next year, but first we have our own North America Conference in Vancouver, Canada, 9-13 May. It's now too late to submit a talk, but it's not too late to submit an application for our Travel Assistance fund if you qualify for support, see http://www.apache.org/travel/. The Travel Assistance committee was reformed in September 2008 with the goal of providing financial assistance to those who would otherwise be unable to attend various ApacheCon events.</p> 
+      <p> </p> 
+      <p><b><br />&gt;&nbsp;</b><b>Events and&nbsp;</b><b>Community:</b>&nbsp;In October we held ApacheCon in Budapest for the second year in a row. We had 432 people in attendance for the Big Data portion of the event, and 200 in attendance for ApacheCon Core. There were, we believe, many factors contributing to this poor turnout, including the volatile political situation in Hungary at the time.</p> 
+      <p>In May we will hold <a href="http://apachecon.com/">ApacheCon North America</a> in Vancouver, Canada. The Call for Papers closed on 12 February, and we had 358 papers submitted. We are currently in the process of reviewing these submissions, and expect to announce the schedule for the event on March 3rd. Sponsorship opportunities are still open for this event.</p> 
+      <p>In January, we had our first presence at FOSDEM. While OpenOffice has been present at FOSDEM for many years, this is the first time The Apache Software Foundation has been present. The table was staffed by a number of volunteers, and we used this opportunity to showcase the new feather logo, as well as to talk to many hundreds of people about the ASF. FOSDEM is an annual event drawing 5,000-7,000 people, and is held in Brussels, Belgium.</p> 
+      <p>We are trying to engage more volunteers at the ASF, and to that end have launched a 'Help Wanted' application at <a href="http://helpwanted.apache.org/">http://helpwanted.apache.org/</a> where volunteers can be matched with beginner-level projects. We hope that this will both improve our retention of these eager new volunteers, as well as find ways to get some long-outstanding projects completed.</p> 
+      <p>The Community Development mailing list continues to increase in traffic year to year, and we are trying to do a better job of ensuring that new arrivals are quickly paired with projects, so that they can become part of our mission.</p> 
+      <div><b><br />&gt; Committers:</b>&nbsp;One of the key roles of the ASF Secretary's office is to ensure that new committers have their paperwork processed quickly so that they can get on with writing great code within our projects. During the initial stages of contribution there is no need for any paperwork, however, once an individual is granted write access to our repositories they must submit an Individual Contributor License Agreement. This is a good measure of the growth of our foundation in terms of the number of active committers we have.</div> 
+      <p>Thanks to new tooling in the Whimsy project, a number of discrepancies (~100) were found in the contributor license records of the Foundation, which have been addressed. The tool has been useful to help ameliorate the problem.</p> 
+      <div>In this quarter the Secretary processed 261 ICLAs. That's an increase of 24 over last quarter, and 261 more people with direct write access to one or more of our projects. These individuals join the thousands of existing committers who accept and process contributions from even more thousands of contributing individuals. The activity of these committers, and the community of contributors they serve can be seen at <a href="http://status.apache.org/#commits">http://status.apache.org/#commits</a></div> 
+    </div> 
+    <div> 
+      <p> </p> 
+      <p><b><br />&gt; Brand Management:&nbsp;</b>Our Foundation-wide educational and policy improvement work continues to pay off, as more Apache projects are getting organized about maintaining and promoting their brands in a more organized fashion. There is still a wide variety of experience and attention about proper branding and policing across our diverse volunteer communities, several projects are working on their own detailed how-to guides for companies that want to *properly* use valuable Apache brands as part of their products or Web presences.</p> 
+      <p>Our detailed list of resources, both Apache policies as well as pointers to other valuable open source branding guidelines and information is improving our ability to respond, as seen by the more detailed questions we get from third parties, as well as by the ability of some projects to handle brand enforcement more independently. <a href="http://www.apache.org/foundation/marks/resources">http://www.apache.org/foundation/marks/resources</a></p> 
+      <p>While open source and the project communities are well understood in industry these days, open source *governance* and brand management are becoming more important topics. &nbsp;The ASF is often seen as a leader in governance and brand policing, both due to our strong history of independent governance as well as from our wide variety of popular projects spanning all software technologies.&nbsp;</p> 
+      <p>We will continue to provide more education and guidance for our projects, as well as improving and smoothing relations with vendors using our brands to ensure that our volunteer project communities always get the credit they deserve for building Apache software.</p> 
+      <p>On the registration front, our projects are really beginning to respond, and many more projects are requesting both US registrations, as well as a variety of international registrations; including in one case a request to register a particularly detailed project logo. &nbsp;We continue to exercise financial care with our budget by working with the relevant project communities to detail why registration is important for them to attract new project contributors around the world.</p> 
+      <p>With the rise of both prominent Apache brands as well as a number of other major movements showcasing how important vendor neutral Open Source project branding can be, we also welcome feedback from the many organizations that both use Apache software to power their business, as well as extend our thanks to those who contribute code to our projects.</p> 
+      <p>You can always ask the Brand Management team private questions at trademarks@apache.org</p> 
+      <p><b><br />&gt; Infrastructure:</b>&nbsp;The infrastructure team continues where it left off last quarter focusing on its current priorities of automation, reducing technical debt, service resilience and monitoring of our machines and services.</p> 
+      <p>Several aging physical machines were retired along with VMs being moved off self-hosted VMWare hosts and into our growing range of cloud hosting providers - making great use of new ASF Sponsor LeaseWeb services, among others.</p> 
+      <p>Apart from the usual abuses of some of our public services, such as excessive downloading from our dist, svn or git , plus the odd attempt at our Moin Wiki, nothing really serious to note that wasn't dealt with via our Fail2ban or Blocky service.</p> 
+      <p>In terms of statistics for the quarter we have:</p> 
+      <p> </p> 
+      <ul> 
+        <li>99.98% up-time for critical services&nbsp;</li> 
+        <li>99.97% for core services&nbsp;</li> 
+        <li>99.89% for standard services&nbsp;</li> 
+        <li>99.95% average across all services&nbsp;</li> 
+      </ul> 
+      <p> </p> 
+      <p>All our SLA targets were therefore met or exceeded.</p> 
+      <p><img src="https://blogs.apache.org/foundation/mediaresource/e0f465ee-0f74-4557-be82-191bcddb6ec8" /></p> 
+      <p><img src="https://blogs.apache.org/foundation/mediaresource/56bdcea7-c6c2-4e97-9306-538b270f3cb4" /></p> 
+      <p>In this quarter 448 Jira tickets were resolved against 451 created.</p> 
+      <p> </p> 
+      <p>Work is underway to migrate our Buildbot &nbsp;and Jenkins slaves into our puppet environment making for a more comparable set of nodes to build against.</p> 
+      <p>More progress was made with regards to our Github Integration services and more LDAP servers being brought into production.</p> 
+      <p>A complete view of the status of our infrastructure, with up-time graphs, can always be viewed at <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+      <p> </p> 
+    </div> 
+    <div> 
+      <p><b><br />&gt; Financial Statement:</b></p><img src="https://blogs.apache.org/foundation/mediaresource/ffa7a6a0-2dc5-4350-9ce4-a9d769828189" /><br /><a href="https://blogs.apache.org/foundation/mediaresource/ed47431d-77a3-4965-aabc-b18675ce9c18"> 
+        <p> </p></a> 
+    </div> 
+    <div> 
+      <p> </p> 
+      <div> 
+        <p> </p> 
+        <p> </p> 
+        <p> </p> 
+        <p> </p> 
+        <p><b><br />&gt; Fundraising:</b>&nbsp;This third quarter was another busy one for fundraising. We say it often, and will repeat again that the ASF is where it is because of the continued support of our Sponsors.</p> 
+      </div> 
+      <p>The VPs of Fundraising carried on with the outreach activities. We had open conversations with current and potential sponsors at a few events, including ApacheCon Europe. We see growing interest and adoption of Apache technologies. Not only ApacheCon has now two big events, ApacheCon Core and Apache: Big Data, as already mentioned in this report, but we see a constant flow of projects joining the Incubator and interest from new ASF Sponsors to help our efforts and operations (mostly infrastructure) costs.</p> 
+      <p>This quarter welcomed four new Sponsors: LeaseWeb at the Platinum level, ARM at the Gold level, and Alibaba Cloud Computing and Confluent at the Silver level. We are very happy and thankful to see interest across different geographies, including China (Alibaba), and size of organizations.</p> 
+      <p>This makes Fundraising another area that reflects our core values of fostering diversity.</p> 
+      <div> 
+        <p>Currently we are enjoying the support of the following sponsors:</p> 
+        <p> </p> 
+        <ul> 
+          <li><u><i>7 Platinum Sponsors</i></u>: Cloudera, Facebook, Google, LeaseWeb, Microsoft, Pivotal, and Yahoo
+            </li> 
+          <li><u><i>7 Gold Sponsors</i></u>: ARM, Bloomberg, Comcast, Hewlett Packard, Hortonworks, IBM, and PhoenixNAP</li> 
+          <li><u><i>12 Silver Sponsors</i></u>: Alibaba Cloud Computing, Budget Direct, Cerner, Confluent, Huawei, InMotion Hosting, iSIGMA, Private Internet Access, Produban, Red Hat Software, Serenata Flowers, and WanDisco</li> 
+          <li><u><i>7 Bronze Sponsors</i></u>: Accor, Basis Technology, Bluehost, Cloudsoft Corporation, Samsung, Talend, and Twitter</li> 
+          <li><u><i>11 Infrastructure Sponsors</i></u>: OSU Open Source Labs, No-IP, Symantec, Rackspace, Ping My Box, PagerDuty, Bintray, SURFnet, Sonatype, Freie Universitat Berlin, and HotWax Systems<br /><br /></li> 
+        </ul> 
+        <p>We again want to express our deepest gratitude to our generous Sponsors for helping us deliver on our mission of being one of the most relevant and reputable organizations that provide Open Source software for the public good.&nbsp;</p> 
+        <p># # #</p> 
+      </div> 
+    </div> 
+    <div> 
+      <p>Report prepared by Sally Khudairi, Vice President Marketing &amp; Publicity, with contributions by ASF President Ross Gardler; Rich Bowen, Executive Vice President; Shane Curcuru, Vice President Brand Management; Chris Mattmann, ASF Treasurer, and Tom Pappas, Vice President, Finance &amp; Accounting at Virtual, Inc.; Hadrian Zbarcea, co-Vice President of Fundraising; and Melissa Warnkin, Executive Assistant.<br /><br />For more information, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">subscribe to the announce@apache.org mailing list</a> and visit <a href="http://www.apache.org/">http://www.apache.org/</a>, the ASF Blog at <a href="http://blogs.apache.org/">http://blogs.apache.org/</a>, and the <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.<br /><br />(c) The Apache Software Foundation 2016.</p> 
+    </div> 
+    <div><br /></div> 
+    <p> </p> 
+    <p> </p> 
+  </div>

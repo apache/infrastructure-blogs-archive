@@ -1,0 +1,39 @@
+---
+layout: post
+title: 'ApacheCon North America 2019: Program and Early Bird Registration Updates'
+date: '2019-06-23T17:57:05+00:00'
+categories: conferences
+---
+<div> 
+    <p>With ApacheCon North America 2019 taking place 9-12 September and now less than three months out, we want to draw your attention to a few highlights:</p> 
+    <p> </p> 
+  </div> 
+  <h3><span style="font-family: arial, verdana, &quot;Bitstream Vera Sans&quot;, helvetica, sans-serif; font-size: 14px; font-weight: bold; letter-spacing: -0.018em;">Schedule Now Available</span></h3> 
+  <div>The full program is now available online at&nbsp;<a href="https://www.apachecon.com/">https://www.apachecon.com/</a> and features talks representing dozens of our projects. Through hands-on sessions, keynotes, real-world case studies, workshops, hackathons, BarCamps, and more, participants will learn about Open Source development &quot;The Apache Way&quot;, in a deliberately intimate, collaborative, vendor-neutral environment. Program categories and project tracks will include Big Data, Content Delivery, Geospatial, IoT, Machine Learning, Streaming, and more.</div> 
+  <p> </p> 
+  <div> 
+    <h3><span style="font-family: arial, verdana, &quot;Bitstream Vera Sans&quot;, helvetica, sans-serif; font-size: 14px; font-weight: bold; letter-spacing: -0.018em;">Meet Our Keynote Speakers</span></h3> 
+  </div> 
+  <div>We are excited to announce that ApacheCon keynotes will include award-winning author and futurist David Brin, &quot;father of Java&quot; James Gosling, and 10-year-old CoderBunnyz/One Billion Kids Can Code founder Samaira Mehta. These professionals will share their expertise on a wide range of topics and deliver innovative insights that you can bring back to your organization. As part of this year's conference, ApacheCon will include dynamic discourse with select ASF founders as well as special 20th-anniversary events and activities.</div> 
+  <h3><span style="font-family: arial, verdana, &quot;Bitstream Vera Sans&quot;, helvetica, sans-serif; font-size: 14px; font-weight: bold; letter-spacing: -0.018em;">Early Bird Registration, Hotel and More</span></h3> 
+  <div>Early bird registration is available until 27 June and the Las Vegas Flamingo hotel block is open until 19 August, so don't delay and register today at <a href="https://www.apachecon.com/">ApacheCon.com</a>. Members of all underrepresented communities are encouraged to apply for Travel Assistance, with special funds earmarked for female Latin Americans. Hurry --the 21 June deadline has been extended by a few more days! Apply today&nbsp;<a href="http://apache.org/travel/">http://apache.org/travel/</a></div> 
+  <h3>Interested in Sponsoring ApacheCon 2019?</h3> 
+  <div>We would like to thank this year's ApacheCon Sponsors, which include Aiven, Amazon Web Services, CrowdStrike, DataStax, Google Cloud, HotWax Commerce, IBM, Instaclustr, Jahia, Linode, RedHat, ShapeBlue, SK Telecom, and WhiteSource, among others. We encourage those who want to become an ApacheCon Sponsor to visit our prospectus (<a href="https://s.apache.org/2019-LASApacheConProspectus">https://s.apache.org/2019-LASApacheConProspectus</a>) for more information or reach out to us at planners-acna19@apachecon.com&nbsp;</div> 
+  <div><br /></div> 
+  <div>Our media partners include Manning Publications and SD Times. For media sponsorship opportunities and registration by credentialed members of the media and analyst community, email press@apache.org&nbsp;</div> 
+  <h3>Get Involved&nbsp;</h3> 
+  <div> 
+    <p>Finally, if you want to get involved, or have any more questions, there are several ways to get in touch with us.</p> 
+  </div> 
+  <div>-- Join our mailing lists: <a href="http://events.apache.org/involved/mailing-lists.html">http://events.apache.org/involved/mailing-lists.html</a> </div> 
+  <div>-- Email the ApacheCon planners directly: planners@apachecon.com&nbsp;</div> 
+  <div>-- Follow us on Twitter: <a href="http://twitter.com/apachecon">http://twitter.com/apachecon</a></div> 
+  <div>-- Visit the ApacheCon website: <a href="https://apachecon.com/acna19/">https://apachecon.com/acna19/</a></div> 
+  <h3>Important Dates and Deadlines</h3> 
+  <div>-- Early Registration ends on 27 June: Sign up now for a savings of $200. Early bird incentives and rates are available for individual participants as well as groups. Sign up at <a href="https://apachecon.com/acna19/">https://apachecon.com/acna19/</a></div> 
+  <div> 
+    <p>-- Travel Assistance application deadline ends soon: everyone, included members of all underrepresented communities is encouraged to apply for Travel Assistance. Additional funds are earmarked for female Latin American participants. Apply at <a href="http://www.apache.org/travel/">http://www.apache.org/travel/</a></p> 
+  </div> 
+  <div>-- Discounted Hotel Rooms: Book your room before 19 August! We are offering special room rates at the Flamingo Hotel and Casino. Your options will be based on availability, or when the block is sold out. Book at <a href="https://www.apachecon.com/acna19/location.html">https://www.apachecon.com/acna19/location.html</a></div> 
+  <div><br /></div> 
+  <p>&nbsp;We look forward to seeing you in Las Vegas!</p>

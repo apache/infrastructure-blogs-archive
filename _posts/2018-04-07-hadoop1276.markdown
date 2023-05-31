@@ -1,0 +1,81 @@
+---
+layout: post
+title: "[ANNOUNCE] Apache Hadoop 3.1.0 release"
+date: '2018-04-07T06:37:24+00:00'
+categories: hadoop
+---
+<p>
+It gives us great pleasure to announce that the Apache Hadoop community has
+voted to release Apache Hadoop 3.1.0.
+</p>
+
+<p>
+Hadoop 3.1.0 is the first minor release for the year 2018 in the Hadoop-3.x
+line, and brings a number of enhancements.
+</p>
+
+<u><b>IMPORTANT NOTES</b></u>
+
+<p style="color:orange">
+This release is *not* yet ready for production use. Critical issues
+   are being ironed out via testing and downstream adoption. Production users
+   should wait for a 3.1.1/3.1.2 release.
+</p>
+
+<p>
+The Hadoop community fixed 768 JIRAs (https://s.apache.org/apache-hadoop-3.1.0-all-tickets) in total as part of the 3.1.0 release. Of these fixes:
+</p>
+
+<ul>
+  <li> 141 in Hadoop Common </li>
+  <li> 266 in HDFS </li>
+  <li> 329 in YARN </li>
+  <li> 32 in MapReduce </li>
+</ul>
+
+<hr/>
+
+<p>
+Apache Hadoop 3.1.0 contains a number of significant features and enhancements. A few of them are noted below.
+</p>
+
+<h4> Hadoop Common </h4>
+    <ul>
+                <li> HADOOP-14831 / HADOOP-14531 / HADOOP-14825 / HADOOP-14325. S3/S3A/S3Guard related improvements. </li>
+    </ul>
+
+<h4> Hadoop HDFS </h4>
+    <ul>
+                <li> HDFS-9806 - HDFS block replicas to be provided by an external storage system </li>
+    </ul>
+
+<h4> Hadoop YARN </h4>
+            <ul>
+                <li> YARN-6223. First class GPU support on YARN </li>
+                <li> YARN-5983. First class FPGA support on YARN </li>
+                <li> YARN-5079 / YARN-4793 / YARN-4757 / YARN-6419. YARN native service support </li>
+                <li> YARN-6592. Rich placement constraints in YARN </li>
+                <li> YARN-5881. Enable configuration of queue capacity in terms of absolute resources for Capacity Scheduler. </li>
+                <li> YARN-7117. Capacity Scheduler: Support auto-creation of leaf queues while doing queue mapping </li>
+            </ul>
+
+<p>
+Please see the Hadoop <a href="http://hadoop.apache.org/docs/r3.1.0/hadoop-project-dist/hadoop-common/release/3.1.0/CHANGES.3.1.0.html"> 3.1.0 CHANGES </a> for the detailed list of issues resolved.  The release news is posted on the Apache Hadoop website too, you can go to the <a href="http://hadoop.apache.org/releases.html#Download"> downloads section directly </a>
+</p>
+
+<hr/>
+
+<p>
+Many thanks to everyone who contributed to the release, and everyone in the Apache Hadoop community! The release is a result of direct and indirect efforts from many contributors, listed below are the those who contributed directly by submitting patches.
+</p>
+
+<p>
+Aaron Fabbri, Aaron Gresch, Abdullah Yousufi, Ajay Kumar, Ajith S, Akhil PB, Aki Tanaka, Akira Ajisaka, Alessandro Andrioni, Allen Wittenauer, Andras Bokor, Andrew Wang, Anis Elleuch, Anu Engineer, Arpit Agarwal, Arun Suresh, Atul Sikaria, BELUGA BEHR, Bharat Viswanadham, Bibin A Chunda, Billie Rinaldi, Botong Huang, Brahma Reddy Battula, Carlo Curino, Chandni Singh, Chang Li, Chao Sun, Charan Hebri, Chen Hongfei, Chen Liang, Chetna Chaudhari, Chris Douglas, Da Ding, Daniel Templeton, Daryn Sharp, Devaraj K, Dmitry Chuyko, Ekanth S, Elek,  Marton, Ellen Hui, Eric Badger, Eric Payne, Eric Yang, Erik Krogen, Esther Kundin, Ewan Higgs, Gabor Bota, Genmao Yu, Gera Shegalov, Gergely Novák, Gergo Repas, Gour Saha, Greg Phillips, Grigori Rybkine, Haibo Chen, Haibo Yan, Hanisha Koneru, He Xiaoqiao, Igor Dvorzhak, Jack Bearden, Jason Lowe, Jian He, Jiandan Yang, Jianfei Jiang, Jim Brennan, Jinjiang Ling, Joe McDonnell, Johan Gustavsson, Johannes Alberti, John Zhuge, Jonathan Eagles, Jonathan Hung, Jongyoul Lee, Juan Rodríguez Hortalá, Junping Du, Kai Sasaki, Kannapiran Srinivasan, Karthik Kambatla, Karthik Palaniappan, Karthik Palanisamy, Keqiu Hu, Kihwal Lee, Konstantin Shvachko, Konstantinos Karanasos, Kuhu Shukla, Lei (Eddy) Xu, LiXin Ge, Lokesh Jain, Lukas Majercak, Manikandan R, Manoj Govindassamy, Masahiro Tanaka, Mikhail Erofeev, Miklos Szegedi, Ming Ma, Mukul Kumar Singh, Nanda kumar, Nandor Kollar, Nishant Bangarwa, Oleg Danilov, Panagiotis Garefalakis, PandaMonkey, Peter Bacsko, Ping Liu, Prabhu Joseph, Rahul Pathak, Rajesh Balamohan, Ray Chiang, Remi Catherino, Robert Kanter, Rohith Sharma K S, Rui Li, Rushabh S Shah, SammiChen, Sampada Dehankar, Santhosh G Nayak, Sean Mackrory, Sean Po, Sen Zhao, Shane Kumpf, Sharad Sonker, Shashikant Banerjee, Shawna Martell, Sivaguru Sankaridurg, Soumabrata Chakraborty, Stephen O&#39;Donnell, Steve Loughran, Steven Rand, Subru Krishnan, Suma Shivaprasad, Sunil G, Surendra Singh Lilhore, Szilard Nemeth, Takanobu Asanuma, Tanuj Nayak, Tao Yang, Tarun Parimi, Thejas M Nair, Thomas Marquard, Todd Lipcon, Tsz Wo Nicholas Sze, Varada Hemeswari, Varun Saxena, Varun Vasudev, Vasudevan Skm, Vinayakumar B, Vipin Rathor, Virajith Jalaparti, Vishwajeet Dusane, Wangda Tan, Wei Yan, Weiwei Wu, Weiwei Yang, Wilfred Spiegelenburg, Xiao Chen, Xiao Liang, Xiaoyu Yao, Xuan Gong, Yang Wang, Yeliang Cang, Yesha Vora, Yiqun Lin, Yonger, Yongjun Zhang, Young Chen, Yu-Tang Lin, Yufei Gu, Zhankun Tang, Zian Chen, Zsolt Venczel, chencan, fang zhenyi, hu xiaodong, kartheek muthyala, liaoyuxiangqin, ligongyi, liuhongtong, lovekesh bansal, lufei, lujie, maobaolong, shanyu zhao, tartarus, usharani, wangzhiyuan, wujinhu, Íñigo Goiri. 
+</p>
+
+<p>
+Best,
+</p>
+<p>
+Wangda Tan and Vinod Kumar Vavilapalli 
+</p>

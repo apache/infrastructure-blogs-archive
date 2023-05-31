@@ -1,0 +1,177 @@
+---
+layout: post
+title: 'HDFS HSM and HBase: Tuning (Part 3 of 7)'
+date: '2016-04-22T23:49:14+00:00'
+categories: hbase
+---
+<p>This is part 3 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)&nbsp;</p> 
+  <ol> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_part"><font size="1">Introduction</font></a></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster"><font size="1">Cluster Setup</font></a></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_tuning"><font size="1">Tuning</font></a></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster1"><font size="1">Experiment</font></a></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster2"><font size="1">Experiment (continued)</font></a></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster3"><font size="1">Issues</font></a></li> 
+    <li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster4"><font size="1">Conclusions</font></a></li> 
+  </ol> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 24pt; margin-bottom: 6pt;" id="docs-internal-guid-894f636c-4051-61e6-cd5a-f52654a3a963"><span style="font-size: 21.3333px; font-family: Calibri; color: #2e74b5; font-weight: 400; vertical-align: baseline; background-color: transparent;">Stack Enhancement and Parameter Tuning</span></h1> 
+  <h2 dir="ltr" style="line-height: 1.38; margin-top: 18pt; margin-bottom: 4pt;"><span style="font-size: 17.3333px; font-family: Calibri; color: #1e4d78; font-weight: 400; vertical-align: baseline; background-color: transparent;">Stack Enhancement</span></h2> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">To perform the study, we made a set of enhancements in the software stack:</span></p> 
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">HDFS:</span></p> 
+    </li> 
+    <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+      <li dir="ltr" style="list-style-type: circle; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+        <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 9.33333px; vertical-align: baseline; background-color: transparent;"> </span><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">Support a new storage RAMDISK</span></p> 
+      </li> 
+      <li dir="ltr" style="list-style-type: circle; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+        <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">Add file level mover support, a user can move blocks per file without scanning all metadata in NameNode</span></p> 
+      </li> 
+    </ul> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 9.33333px; vertical-align: baseline; background-color: transparent;"> </span><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">HBase:</span></p> 
+    </li> 
+    <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+      <li dir="ltr" style="list-style-type: circle; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+        <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">WAL, flushed HFiles, HFiles generated in compactions, and archived HFiles can be stored in different storage</span></p> 
+      </li> 
+      <li dir="ltr" style="list-style-type: circle; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+        <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">When renaming HFiles across storage, the blocks of that file would be moved to the target storage asynchronously</span></p> 
+      </li> 
+    </ul> 
+  </ul> 
+  <h2 dir="ltr" style="line-height: 1.38; margin-top: 18pt; margin-bottom: 4pt;"><span style="font-size: 17.3333px; font-family: Calibri; color: #1e4d78; font-weight: 400; vertical-align: baseline; background-color: transparent;">HDFS/HBase Tuning</span></h2> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">This step is to find the best configurations for HDFS and HBase.</span></p> 
+  <h3 dir="ltr" style="line-height: 1.38; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Calibri; color: #0563c1; font-weight: 400; vertical-align: baseline; background-color: transparent;">Known Key Performance Factors in HBase</span></h3> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">These are the key performance factors in HBase:</span></p> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+      <p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 9.33333px; vertical-align: baseline; background-color: transparent;"> </span><span style="font-size: 14.6667px; font-weight: 700; vertical-align: baseline; background-color: transparent;">WAL</span><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">: write ahead log to guarantee the non-volatility and consistency of the data. Each record that is inserted to HBase must be written to WAL which can slow down user operations. It’s latency-sensitive.</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+      <p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-weight: 700; vertical-align: baseline; background-color: transparent;">Memstore and Flush</span><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">: The records inserted into HBase are cached in memstore, and when reaches a threshold the memstore is flushed to a store file. Slow flush can lead to high GC (Garbage Collection) pause, and make memory usage reach the thresholds in regions and region server, which can block the user operations.</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> 
+      <p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-weight: 700; vertical-align: baseline; background-color: transparent;">Compaction and Number of Store Files</span><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">: HBase compaction compacts small store files to a larger one which can reduce the number of store files and accelerate the reading, but it can generate heavy I/O and consume the disk bandwidth in runtime. Less compaction can accelerate the writing but generates too many store files, which slow down the reading. When there are too many store files, the memstore flush can be slowed down which can lead to a large memstore and further slow the user operations.</span></p>
+      <p> </p> 
+    </li> 
+  </ol> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Based on this understanding, the following are the tuned parameters we finally used.</span></p> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;"> </span></p> 
+  <div dir="ltr" style="margin-left: -11.5pt;"> 
+    <table style="border: none; border-collapse: collapse;"><colgroup><col width="306" /><col width="333" /><col width="17" /><col width="92" /></colgroup> 
+      <tbody> 
+        <tr style="height: 20px;"> 
+          <td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Property</span></p> 
+          </td> 
+          <td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Value</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">dfs.datanode.handler.count</span></p> 
+          </td> 
+          <td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">64</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">dfs.namenode.handler.count</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">100</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 8. HDFS configuration</span></p> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;"> </span></p> 
+  <div dir="ltr" style="margin-left: -11.5pt;"> 
+    <table style="border: none; border-collapse: collapse;"><colgroup><col width="307" /><col width="330" /><col width="15" /><col width="77" /></colgroup> 
+      <tbody> 
+        <tr style="height: 20px;"> 
+          <td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Property</span></p> 
+          </td> 
+          <td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Value</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.regionserver.thread.compaction.small</span></p> 
+          </td> 
+          <td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">3 for non-SSD test cases.</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 for all SSD related test cases.</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.hstore.flusher.count</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">5 for non-SSD test cases.</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">15 for all SSD related test cases.</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.wal.regiongrouping.numgroups</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.wal.provider</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">multiwal</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.hstore.blockingStoreFiles</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">15</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.regionserver.handler.count</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">200</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.hregion.memstore.chunkpool.maxsize</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1</span></p> 
+          </td> 
+        </tr> 
+        <tr style="height: 20px;"> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">hbase.hregion.memstore.chunkpool.initialsize</span></p> 
+          </td> 
+          <td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">0.5</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div> 
+  <p><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 9. HBase configuration</span></p> 
+  <p>Go to part 4,&nbsp;<a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster1">Experiment</a></p> 
+  <p> </p>

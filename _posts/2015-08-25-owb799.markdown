@@ -1,0 +1,8 @@
+---
+layout: post
+title: The Road to CDI-2.0
+date: '2015-08-25T08:46:26+00:00'
+categories: owb
+---
+<p>The Apache OpenWebBeans team did start their effort to implement the upcoming CDI-2.0 specification (JSR-365).</p> 
+  <p>Learn more about our schedule and open tasks over in our <a title="The road to OpenWebBeans-2.0" href="http://openwebbeans.apache.org/openwebbeans-20-effort.html">OpenWebBeans-2.0 documentation</a>.<br /></p>

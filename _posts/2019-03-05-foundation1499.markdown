@@ -1,0 +1,27 @@
+---
+layout: post
+title: 'Success at Apache: Growing with the ASF'
+date: '2019-03-05T21:19:37+00:00'
+categories: foundation
+---
+<p><strong><em>by Phil Steitz</em></strong></p> 
+  <p><strong><em></em></strong>I got involved at the ASF in 2002, back in the wild and wooly Apache Jakarta days. In my day job, I was responsible for the team introducing Java technology at a large financial services company.</p> 
+  <p>One of the first things we built was an MVC (model-view-controller) framework for Web applications. We were very proud of it and it worked great in production, but it was hard for us to keep ahead of the feature requests from the many development teams who were using it. One evening, someone said, &quot;Hey, there is this Struts thing that is very similar to what we do and it has some of these things already.&quot; I went home and found my way to the Jakarta Web site and downloaded the latest source release.</p> 
+  <div> 
+    <p>One thing led to another and the next thing I knew I was asking questions on the struts user mailing list as we started playing with the software and seeing what it would take to convert our apps to use it. After a few months, I found myself answering questions on-list as well and I finally got up the nerve to submit my first patch, which was a documentation fix. At the time, the Apache Struts community was struggling to release version 1.0. I looked around to see what I could do to help and found my way to Apache Commons Pool and DBCP, which Struts was trying to use to replace its built-in connection pool. What I found there was some brilliant but inscrutable code hiding some nasty bugs that Struts needed fixed. At that time, I did not have the Java skills to solve the problems, but I resolved to come back when I did and I watched as others developed workarounds that enabled the Struts community to move forward. I found a welcoming community in Commons and some problems that I could help with. I did eventually make it back to Commons Pool and DBCP, serving as RM for quite a few releases.</p> 
+    <p>During this same timeframe, my $dayjob career was advancing rapidly, thanks in no small part to my aggressive introduction of Open Source software and practices, which was uncommon at the time in financial services. We brought in some ASF committers and their companies to help us build a development pipeline and tooling that was ahead of its time. We applied the Contributor - Committer - PMC member concept to developing enterprise technology standards and strategy. We developed the concept of &quot;earned authority&quot; in technology decision-making, modeled after the idea of publicly earned merit at the ASF. My leadership approach was profoundly influenced by my experience at the ASF, and continues to be to this day. Not a day goes by at work when I do not push for more transparency, more eyeballs on code and more focus on community collaboration and genuine appreciation of diverse viewpoints. I am very grateful to the many ASF community members who have helped me develop as a leader.</p> 
+  </div> 
+  <div> 
+    <p>Through the years I've met other Apache committers with similar experiences: welcoming projects, friendly communities and great opportunities for personal growth. I’m pleased to see how the ASF has grown and continued to evolve. Every day new contributors join us and new leaders regularly emerge to help guide our communities and the Foundation overall. We all benefit from our experience here and the Foundation becomes stronger as a result.&nbsp;</p> 
+  </div> 
+  <div> 
+    <p><em><br />Phil Steitz is Chairman of the Board of The Apache Software Foundation.&nbsp; He has been an ASF committer since 2003 and a member since 2005.&nbsp; He served for 4 years as Vice President, Apache Commons. Phil also currently serves as Chief Technology officer of Nextiva, a cloud-based business communications company. He has previously held C-level technology leadership positions at multiple software and financial services companies.</em></p> 
+  </div> 
+  <div> 
+    <p># # #</p> 
+    <p> </p> 
+    <p>&quot;Success at Apache&quot; is a monthly blog series that focuses on the people and processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p> </p> 
+  </div>

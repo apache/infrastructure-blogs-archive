@@ -1,0 +1,7 @@
+---
+layout: post
+title: 'Incubator Log4PHP graduated to Logging Log4PHP '
+date: '2010-03-18T14:00:00+00:00'
+categories: log4php
+---
+<p>Dear all, </p><p>good news! Please read what has been reported to the Incubator PMC in march:</p><p><span class="Apple-style-span" style="border-collapse: collapse; font-family: arial, sans-serif; font-size: 13px; ">&quot;The Log4PHP Community and the Logging PMC voted in favour of leaving the</span></p><p><span class="Apple-style-span" style="border-collapse: collapse; font-family: arial, sans-serif; font-size: 13px; ">Incubator and moving to the sponsoring Logging project. This has just been<br />confirmed with a vote by the IPMC, so Log4PHP has graduated!<br /><br />There are still some resource moves etc that need to happen, but expect that<br />future Log4PHP reports will now come as part of the Logging report. Congrats<br />Log4PHP devs.&quot;</span></p><p>Your &nbsp;PHP-Logging-Crew&nbsp;</p>

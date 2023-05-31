@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 17 April 2015'
+date: '2015-04-17T17:01:50+00:00'
+categories: foundation
+---
+<div>Our ApacheCon week in Austin wraps up today, with countless highlights, including celebrating the 20th Anniversary of the Apache HTTP Web Server with <a href="https://www.flickr.com/photos/rbowen/16943016807/">some of the original members of the Apache Group</a>, and launching a revised version of the <a href="http://apache.org">apache.org</a> homepage with thanks to our friends at Hot Wax Systems. Here's what's happened this week:</div> 
+  <div><br /></div> 
+  <div>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Keynotes from ApacheCon Austin are now online&nbsp;<a href="https://www.youtube.com/user/TheApacheFoundation">https://www.youtube.com/user/TheApacheFoundation</a><br />&nbsp;- The City of Austin and Mayor Steve Adler proclaimed 13-16 April &quot;Apache Software Foundation Days&quot;</div> 
+  <div> 
+    <p> </p> 
+    <p>ASF Fundraising &amp; Sponsorship –the ASF relies on individual donors and corporate sponsors to help bolster existing projects, incubate new initiatives, and promote meritocratic, community-driven development &quot;The Apache Way&quot;.<br />&nbsp;- The Apache Software Foundation Welcomes Pivotal as a Platinum-level Sponsor <a href="http://s.apache.org/UBl">http://s.apache.org/UBl</a><br />&nbsp;-&nbsp;New to the ASF Sponsor roster is Bloomberg, who joins Comcast, Hortonworks, HP, and IBM at the Gold Level. Welcome!</p> 
+  </div> 
+  <div>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />- Global uptime across all Apache services is a cracking 99.68%&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></div> 
+  <div> 
+    <p>Apache Directory™ –directory solutions entirely written in Java. These include a directory server, which has been certified as LDAP v3 compliant by the Open Group (ApacheDS), Eclipse-based directory tools (Apache Directory Studio), and a full ANSI RBAC compliant management and enforcement system that builds on existing Open Source applications like ApacheDS, OpenLDAP and Apache Tomcat (Apache Fortress).<br />&nbsp;- Apache Fortress Core 1.0-RC40 released&nbsp;<a href="http://directory.apache.org/fortress/downloads.html">http://directory.apache.org/fortress/downloads.html</a></p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.2.0 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java. It is a technology suitable for nearly any application that requires full-text search, especially cross-platform.<br />&nbsp;- Apache Lucene 5.1.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/lucene/java/5.1.0">http://www.apache.org/dyn/closer.cgi/lucene/java/5.1.0</a></p> 
+    <p>Apache Mahout™ –an environment for quickly creating machine learning applications that scale and run on the highest performance parallel computation engines available.<br />&nbsp;- Apache Mahout 0.10.0 released&nbsp;<a href="https://mahout.apache.org/general/downloads.html">https://mahout.apache.org/general/downloads.html</a></p> 
+  </div> 
+  <p>Apache Solr™ –an Open Source enterprise search server based on the Lucene Java search library, with XML/HTTP and JSON, Ruby, and Python APIs, hit highlighting, faceted search, caching, replication, and a web administration interface.<br />&nbsp;- Apache Solr 5.1.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/lucene/solr/5.1.0">http://www.apache.org/dyn/closer.cgi/lucene/solr/5.1.0</a></p> 
+  <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.<br />&nbsp;-&nbsp;Apache Tomcat 7.0.61 released&nbsp;<a href="http://tomcat.apache.org/download-70.cgi">http://tomcat.apache.org/download-70.cgi</a></p> 
+  <div><br /></div> 
+  <p> </p> 
+  <div> 
+    <p><b>Did You Know?</b></p> 
+  </div> 
+  <div>&nbsp;- Did you know that China Telecom's CTCC group (one of the largest Cloud Computing service providers in the country) uses Apache Cloudstack?</div> 
+  <p>&nbsp;- Did you know that one of the largest Apache Cassandra deployments is at Apple, with over 75,000 nodes storing over 10 PB of data?</p> 
+  <div> 
+    <p>&nbsp;- Did you know that we're always looking for Apache success stories that we can share with the community? Send newsworthy metrics/users/datapoints of Apache products to &lt;press@apache.org&gt;!</p> 
+  </div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div><b>Apache Community Notices:</b></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The next Apache Phoenix MeetUp will be held on 5 May in Santa Clara http://www.meetup.com/San-Francisco-Apache-Phoenix-Meetup/events/221247399/</div> 
+  <div><br /></div> 
+  <div>&nbsp;- HBaseCon, the fourth annual event for the Apache HBase contributor/developer/admin/user community, will take place 7 May in San Francisco http://hbasecon.com/</div> 
+  <div><br /></div> 
+  <div>&nbsp;- A lightning talk on Apache Calcite will take place on 20 May at XLDB in Stanford http://www-conf.slac.stanford.edu/xldb2015/</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Apache Usergrid will be featured at {CODESHOW}SE on 21 May in Charleston https://www.codeshowse.com/</div> 
+  <div><br /></div> 
+  <div>&nbsp;- The next Berlin Buzzwords conference will feature Apache projects such as Lucene, Spark, Solr and Cassandra and will take place 31 May-3 June in Berlin http://berlinbuzzwords.de</div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos http://www.apache.org/foundation/press/kit/#poweredby</div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://www.apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

@@ -1,0 +1,47 @@
+---
+layout: post
+title: Apache Ignite 2.4 Brings Advanced Machine Learning and Spark DataFrames Capabilities
+date: '2018-03-15T23:44:54+00:00'
+categories: ignite
+---
+<p>
+Usually, Ignite community rolls out a new version once in 3 months, but we had to make an exception for Apache Ignite 2.4 that consumed five months in total. We could easily blame Thanksgiving, Christmas and New Year holidays for the delay and would be forgiven, but, in fact, we were forging the release you can't simply pass by.
+</p>
+<p>
+Let's dive in and search for a big fish.
+</p>
+
+<h1>Machine Learning General Availability</h1>
+
+Eight months ago, at the time of Apache Ignite 2.0, we put out the first APIs that formed the foundation of the Ignite's machine learning component of today. Since that time, Ignite machine learning experts and enthusiasts have been moving the library to the general availability condition meticulously. And Ignite 2.4 became a milestone that let us consider the <a href="https://apacheignite.readme.io/docs/machine-learning" target="_blank">ML Grid</a> to be production ready.
+
+<p>
+The component gained a variety of algorithms that can solve a myriad of regression and classification tasks, gave an ability to train models avoiding ETL from Ignite to other systems, paved a way to <a href="https://apacheignite.readme.io/docs/multilayer-perceptron" target="_blank">deep learning</a> usage scenarios. All that now empowers Ignite users with the tools for dealing with fraud detection, predictive analytics, and for building recommendation systems...if you want. Note, ETL is optional, and the whole memory-centric cluster is at your service!
+</p>
+
+<p>
+Moreover, Machine Learning Grid welcomed a <a href="http://incubator.apache.org/ip-clearance/ga-grid-ignite.html" target="_blank">software donation</a> by NetMillennium, Inc. in the form of genetic algorithms that solve optimization problems by simulating the process of biological evolution. The algorithms haven't got to Ignite 2.4 and waiting for their time for a release in the master branch. Once you get them, you can apply the biological evolution simulation for real-world applications including automotive design, computer gaming, robotics, investments, traffic/shipment routing and more.
+</p>
+
+<h1>Spark DataFrames</h1>
+
+It's not a joke or misprint. Spark users, the DataFrames are now officially supported for you! Many of you have been anticipating them for years and, thanks to Nikolay Izhikov, who was "promoted" to an Ignite committer for the contribution, now you can leverage from them.
+
+<p>
+No need to be wordy here. Just go ahead and start with <a href="https://apacheignite-fs.readme.io/docs/ignite-data-frame" target="_blank">DataFrames in Ignite</a>. 
+</p>
+
+<h1>Expanding Ignite ecosystem</h1>
+
+It was unfair that only Java, C#, and C++ developers could utilize the breadth and depth of Ignite APIs in their applications. Ignite 2.4 solved the injustice with its new <a href="https://apacheignite.readme.io/v2.4/docs/binary-client-protocol" target="_blank">low-level binary client protocol</a>. The protocol communicates with an existing Ignite cluster without starting a full-fledged Ignite node. An application can connect to the cluster through a raw TCP socket from any programming language you like.
+
+<p>
+The beauty of the protocol is that you can develop a so-called Ignite thin client that is a lightweight client connected to the cluster and interacts with it using key-value, SQL, and other APIs. <a href="https://apacheignite-net.readme.io/docs/thin-client" target="_blank">.NET thin client</a> is already at your service and Node.JS, Python, PHP, Java thin clients are in a forge and being developed for the next releases.
+</p>
+
+<h1>RPM repository and much more</h1>
+So, now Apache Ignite can also be installed from the <a href="https://www.apache.org/dist/ignite/rpm" target="blank_">official RPM repository</a>. Debian users, the packages for your operating systems to be assembled <a href="https://cwiki.apache.org/confluence/display/IGNITE/IEP-11%3A+Introduce+Apache+Ignite+delivery+in+RPM+and+DEB+packages" target="_blank">soon</a>.
+
+<p>
+Overall, if to list all the features and benefits Ignite 2.4 brings, only 2 people will read the article till the end - me and my dear mom :) Thus, I'll let you discover the rest from the <a href="https://ignite.apache.org/releases/2.4.0/release_notes.html" target="_blank">release notes</a>.
+</p>

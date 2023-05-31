@@ -1,0 +1,27 @@
+---
+layout: post
+title: Announcing Phoenix 3.1 and 4.1 Released
+date: '2014-08-30T00:21:01+00:00'
+categories: phoenix
+---
+<p>The <a href="http://phoenix.apache.org/team.html" target="_blank" title="Apache Phoenix team">Apache Phoenix team</a> is pleased to announce its first releases as a top level project. <a href="http://phoenix.apache.org/index.html" target="_blank" title="Apache Phoenix">Phoenix</a> is the <a href="http://phoenix.apache.org/performance.html" target="_blank" title="performance comparison">best performing</a>&nbsp;open source SQL database for <a href="http://hbase.apache.org/" target="_blank" title="Apache HBase">Apache HBase</a>, a NoSQL data store. Phoenix is accessed as a JDBC driver and enables querying, updating, and managing HBase tables using SQL.</p> 
+  <p>Our 3.1 release (for HBase 0.94.4+) includes:</p> 
+  <p> </p> 
+  <ul> 
+    <li>~75 <a href="https://raw.githubusercontent.com/apache/phoenix/3.0/CHANGES" target="_blank" title="bug fixes">bug fixes</a></li> 
+    <li>Use of <a href="https://issues.apache.org/jira/browse/PHOENIX-1222" target="_blank" title="nested/derived tables">nested/derived tables</a> in queries</li> 
+    <li>Automatic <a href="https://issues.apache.org/jira/browse/PHOENIX-1112" target="_blank" title="partial index rebuild">partial index rebuild</a> on write failure</li> 
+    <li><a href="http://phoenix.apache.org/pig_integration.html#Pig_Loader" target="_blank" title="Pig loader">Pig loader</a> leveraging Phoenix SQL performance</li> 
+    <li>Easier usage of <a href="https://issues.apache.org/jira/browse/PHOENIX-966" target="_blank" title="Phoenix with third-party SQL tools">Phoenix with third-party SQL tools</a></li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-681" target="_blank" title="Secure cluster connection">Secure cluster connection</a> via URL</li> 
+    <li>Query over <a href="http://phoenix.apache.org/array_type.html" target="_blank" title="ANY/ALL for ARRAY type">ANY/ALL for ARRAY type</a></li> 
+    <li>Specify CYCLE, MINVALUE, and MAXVALUE in <a href="http://phoenix.apache.org/sequences.html" target="_blank" title="sequence">sequence</a> creation</li> 
+  </ul> 
+  <p>Our 4.1 release (for HBase 0.98.1+) includes all of the above plus:</p> 
+  <p> </p> 
+  <ul> 
+    <li><strong><a href="http://phoenix.apache.org/tracing.html" target="_blank" title="Tracing">Tracing</a></strong> leveraging Cloudera’s HTrace library to show per-request performance metrics all they way from the client through into the HBase server, and back again</li> 
+    <li><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Local_Indexing" target="_blank" title="Local Indexes">Local Indexes</a></strong> targeting write-heavy, space-constrained use cases by co-locating index and table data on the same region server</li> 
+  </ul> 
+  <p>Source and binary downloads are available <a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>. </p> 
+  <p> </p>

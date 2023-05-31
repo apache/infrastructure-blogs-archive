@@ -1,0 +1,46 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 4 December 2015'
+date: '2015-12-04T19:50:22+00:00'
+categories: foundation
+---
+<p>Welcome, December! Here's what's happened at The Apache Software Foundation over the past week:</p> 
+  <p>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;-&nbsp;The Apache Software Foundation Operations Summary: August-October 2015 <a href="http://s.apache.org/M0R%20">http://s.apache.org/M0R</a> <br />&nbsp;- Next Board Meeting: 16 December. Board calendar and minutes available at&nbsp;<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 6M+ weekly checks yielded a fantastic 99.97% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a>&nbsp;Check against established SLAs&nbsp;<a href="http://status.apache.org/sla/">http://status.apache.org/sla/</a></p> 
+    <p>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Call For Participation: Apache: Big Data and ApacheCon North America - Vancouver 9-13 May 2016&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/program/cfp">http://events.linuxfoundation.org/events/apachecon-north-america/program/cfp</a></p> 
+    <p>Apache BookKeeper™ –a reliable replicated log service.<br />&nbsp;- Apache BookKeeper 4.3.2 released&nbsp;<a href="http://bookkeeper.apache.org/releases.html">http://bookkeeper.apache.org/releases.html</a></p> 
+    <p>Apache Camel™ –a powerful Open Source integration framework based on known Enterprise Integration Patterns.<br />&nbsp;- Apache Camel 2.15.5 released&nbsp;<a href="http://camel.apache.org/download.html">http://camel.apache.org/download.html</a></p> 
+    <p>Apache CloudStack™ –Open Source Cloud orchestration software designed to deploy and manage large networks of virtual machines, as a highly available, highly scalable Infrastructure as a Service (IaaS) cloud computing platform.<br />&nbsp;- The Apache Software Foundation announces Apache™ CloudStack™ v4.6 <a href="http://s.apache.org/VfP">http://s.apache.org/VfP</a> </p> 
+    <p>Apache Commons™ Collections –a project to develop and maintain collection classes based on and inspired by the JDK collection framework.<br />&nbsp;- Apache Commons Collections 4.1 released&nbsp;<a href="http://commons.apache.org/proper/commons-collections/download_collections.cgi">http://commons.apache.org/proper/commons-collections/download_collections.cgi</a><br /><br /></p> 
+    <p><strong>Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that approximately 75% of the ASF's annual budget&nbsp;is dedicated to keeping Apache Infrastructure running critical support services around the clock with 99%+ uptime over the past year? <a href="http://status.apache.org/sla">http://status.apache.org/sla</a></p> 
+    <p>&nbsp;- Did you know that the UK's Biotechnology and Biological Sciences Research Council (BBSRC)-funded BioSolr project (developed to significantly advance the state of the art with regard to indexing and querying biomedical data with freely available open source software) has contributed part of the work back to the Apache Solr repository?&nbsp;<a href="http://lucene.apache.org/solr/">http://lucene.apache.org/solr/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that Apache Apex (Incubating) is the industry’s first ever YARN native engine that fulfills the disruptive promise of big data?&nbsp;<a href="http://apex.incubator.apache.org/">http://apex.incubator.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+    <p><strong></strong>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+  </div> 
+  <p>&nbsp;- The Spark Bootcamp will take place online and in-person in San Ramon on 5 December 2015&nbsp;<a href="http://www.meetup.com/Emerging-Technologies-Conference/events/226246926/">http://www.meetup.com/Emerging-Technologies-Conference/events/226246926/</a></p> 
+  <p>&nbsp;- The Kafka Meetup @ LinkedIn will take place 5 December 2015 in Bangalore&nbsp;<a href="http://www.meetup.com/Bangalore-Apache-Kafka-Group/events/225963923/">http://www.meetup.com/Bangalore-Apache-Kafka-Group/events/225963923/</a></p> 
+  <p>&nbsp;- The ASF will be at FOSDEM 2016 in Brussels 30-31 January 2016 <a href="https://fosdem.org/">https://fosdem.org/</a></p> 
+  <p>&nbsp;- The next CloudStack European User Group will be held 3 March 2016 in London&nbsp;<a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-19726408218">https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-19726408218</a></p> 
+  <p>&nbsp;- Apache:Big Data North America will take place 9-12 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apache-big-data-north-america">http://events.linuxfoundation.org/events/apache-big-data-north-america</a></p> 
+  <p>&nbsp;- ApacheCon:Core North America will take place 11-13 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/">http://events.linuxfoundation.org/events/apachecon-north-america/</a></p> 
+  <div> 
+    <p>&nbsp;- The ASF Operations Summary: Second Quarter, Fiscal Year 2016 (August-October 2015) is available at <a href="http://s.apache.org/M0R">http://s.apache.org/M0R</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

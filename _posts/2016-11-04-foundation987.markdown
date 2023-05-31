@@ -1,0 +1,49 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 4 November 2016'
+date: '2016-11-04T12:56:54+00:00'
+categories: foundation
+---
+<p>Welcome November! As we're busily preparing for our upcoming conferences in Seville, the Apache community has also been working on the following:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 16 November 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield perky performance at 99.87% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Join us at Apache: Big Data and ApacheCon Europe/Seville&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br /></p> 
+    <p>Apache BVal™ –an implementation of the Java Bean Validation specification.<br />&nbsp;- Apache BVal 1.1.2 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/bval/1.1.2/">http://www.apache.org/dyn/closer.cgi/bval/1.1.2/</a></p> 
+    <p>Apache Calcite™ –a framework for writing data management systems.<br />&nbsp;- Apache Calcite Avatica 1.9.0 released&nbsp;<a href="https://www.apache.org/dyn/closer.cgi/calcite/apache-calcite-avatica-1.9.0/">https://www.apache.org/dyn/closer.cgi/calcite/apache-calcite-avatica-1.9.0/</a></p> 
+    <p>Apache CloudStack™ –deploys and manages large networks of virtual machines as a highly available, highly scalable Infrastructure as a Service (IaaS) Cloud computing platform.<br />&nbsp;- CVE-2016-6813: Apache CloudStack registerUserKeys authorization vulnerability&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201610.mbox/%3CCAJtfqCupOYQoNY2BNx86_zauses_MpmpiX8WciO_DEaWp6uNig%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201610.mbox/%3CCAJtfqCupOYQoNY2BNx86_zauses_MpmpiX8WciO_DEaWp6uNig%40mail.gmail.com%3E</a></p> 
+    <p>Apache Derby™ –a pure Java relational database engine that conforms to the ISO/ANSI SQL and JDBC standards.<br />&nbsp;- Apache Derby 10.13.1.1 released&nbsp;<a href="http://db.apache.org/derby/derby_downloads.html">http://db.apache.org/derby/derby_downloads.html</a></p> 
+    <p>Apache Fluo (incubating)&nbsp;–a distributed system for incrementally processing large data sets stored in Apache Accumulo.<br />&nbsp;- Apache Fluo Recipes 1.0.0-incubating released&nbsp;<a href="https://fluo.apache.org/release/fluo-recipes-1.0.0-incubating/">https://fluo.apache.org/release/fluo-recipes-1.0.0-incubating/</a> </p> 
+    <p>Apache Geode (incubating)&nbsp;–a data management platform that provides a database-like consistency model, reliable transaction processing and a shared-nothing architecture to maintain very low latency performance with high concurrency processing.<br />&nbsp;- Apache Geode 1.0.0-incubating released&nbsp;<a href="http://geode.incubator.apache.org/releases/">http://geode.incubator.apache.org/releases/</a></p> 
+    <p>Apache MINA™ –a network application framework which helps users develop high performance and high scalability network applications easily by providing an abstract, event-driven, asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.<br />&nbsp;-&nbsp;Apache MINA 2.0.16 released&nbsp;<a href="http://mina.apache.org/downloads.html">http://mina.apache.org/downloads.html</a><br />&nbsp;- Apache FtpServer 1.1.0 released&nbsp;<a href="http://mina.apache.org/ftpserver/downloads.html">http://mina.apache.org/ftpserver/downloads.html</a></p> 
+    <p>Apache S2Graph&nbsp;(incubating) –a graph database designed to handle transactional graph processing at scale.<br />&nbsp;- Apache S2Graph 0.1.0-incubating released&nbsp;<a href="http://mirror.navercorp.com/apache/incubator/s2graph/0.1.0-incubating/">http://mirror.navercorp.com/apache/incubator/s2graph/0.1.0-incubating/</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+    <p><a href="http://qpid.apache.org/download.html"></a></p> 
+    <p>&nbsp;- Did you know that you can share what you're planning to work on at ApacheCon? <a href="https://blogs.apache.org/conferences/entry/what_are_you_working_on">https://blogs.apache.org/conferences/entry/what_are_you_working_on</a></p> 
+    <p>&nbsp;- Did you know that Astronomer uses Apache Airflow (incubating) to create a modern platform for building data pipelines?&nbsp;<a href="http://incubator.apache.org/projects/airflow.html">http://incubator.apache.org/projects/airflow.html</a></p> 
+    <p>&nbsp;-&nbsp;Did you know that over the past month 2,488 people created 7,524 new issues, and 811 people closed 6,212 issues? Top 3 topics: HBase, YARN, and CommonsRDF!&nbsp;</p> 
+  </div> 
+  <div> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at&nbsp;<a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with&nbsp;Apache HTTP Server,&nbsp;Avro, ComDev (community development), Directory, Incubator, OODT, POI, Syncope, Tika, Trafodion, Zest, and more!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- ApacheCon North America will be held 16-18 May 2017 in Miami. Details coming.</p> 
+    <div> 
+      <p>&nbsp;- The ASF Q1 FY2017 Report is available at <a href="https://s.apache.org/1BsV">https://s.apache.org/1BsV</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

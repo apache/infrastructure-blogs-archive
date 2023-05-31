@@ -1,0 +1,32 @@
+---
+layout: post
+title: Welcome!
+date: '2015-06-19T23:30:20+00:00'
+categories: geode
+---
+<p>It's already been three months since <a href="geode.incubator.apache.org">Apache Geode</a> was announced as open source for Apache Software Foundation (ASF) incubation.  A lot of really interesting work has been done in that time and I’d like to take this opportunity to share that with you in our first official ASF blog post.</p>
+
+<p>To start, we had our first contribution from a non-committer (yet) with <a href="https://issues.apache.org/jira/browse/GEODE-38">GEODE-38</a> (thanks Neil!). This served as a way to exercise the project infrastructure with <a href="https://issues.apache.org/jira/browse/GEODE">JIRA</a>, <a href="http://cwiki.apache.org/confluence/display/GEODE">Wiki</a>, <a href="https://reviews.apache.org/groups/geode/">ReviewBoard</a> and <a href="https://github.com/apache/incubator-geode">GitHub</a> integration.</p>
+
+<p>The very first <a href="http://wiki.apache.org/incubator/June2015">Incubation report</a> with Geode status is out, tracking our progress towards becoming a top-level Apache Project (TLP) and providing an overall status of the project activities.  The highlights from the report include:</p>
+
+<ul>
+<li><p>Social Media accounts and <a href="https://cwiki.apache.org/confluence/display/GEODE/Social+Media+Guidelines">guidelines</a> are in place along with other important Wiki pages. To keep up to date with project activity follow us on Twitter <a href="https://twitter.com/apachegeode">@ApacheGoede</a> and read our <a href="http://mail-archives.apache.org/mod_mbox/incubator-geode-dev/">mailing lists</a>.</p></li>
+<li><p>Many community related <a href="https://cwiki.apache.org/confluence/display/GEODE/Upcoming+events">events</a> already scheduled and are listed on our community calendar. Click on "Look for more" in order to check what we have in the coming months.  There are talks already scheduled up to October.</p></li>
+<li><p>For convenient testing, developers can use a docker image that is based on nightly builds of Geode available at <a href="https://registry.hub.docker.com/repos/apachegeode/">DockerHub</a>. Note that since Geode has not yet made an official releases of software you really shouldn't be using the Docker image for anything but testing.</p></li>
+</ul>
+
+
+<p>Another interesting way to track the growing maturity of an ASF poddling is to evaluate the project using the <a href="https://community.apache.org/apache-way/apache-project-maturity-model.html">Apache Project Maturity Model</a>.  This model describes "how an Apache project should operate in a concise and high-level way".  To check what's current Apache Geode maturity level, read the <a href="https://cwiki.apache.org/confluence/display/GEODE/Maturity+Level">Maturity Level</a> wiki page, or read <a href="https://cwiki.apache.org/confluence/display/GEODE/Community+development">Community Development</a> for a more general status. You may notice that the project, although new to ASF, Geode is actually a mature project given that Pivotal GemFire has been in development for more than 10 years (Geode was born from GemFire code donated to ASF). More details about Geode history are available in the <a href="https://wiki.apache.org/incubator/GeodeProposal">Incubation proposal</a>.</p>
+
+<p>Last, but not least, our wiki already has a lot of content including many deep dive articles explaining Geode usage and internal architecture to help potential contributors get up to speed.  These pages are organized under <a href="https://cwiki.apache.org/confluence/display/GEODE/How+to+Contribute">How to Contribute</a> and <a href="https://cwiki.apache.org/confluence/display/GEODE/Application+Development">Application Development</a> including <a href="https://cwiki.apache.org/confluence/display/GEODE/Building+and+Running+Geode+from+Source">how to build</a> the source code, which is essentially as simple as doing:</p>
+
+<pre><code>git clone https://github.com/apache/incubator-geode
+./gradlew build -Dskip.tests=true
+</code></pre>
+
+<p> For those who would like to try and and test the most recent build of software, just download one of our <a href="https://builds.apache.org/job/Geode-nightly/lastSuccessfulBuild/artifact/gemfire-assembly/build/distributions/apache-geode-1.0.0-incubating-SNAPSHOT.tar.gz">nightly builds</a>. Note that this is meant to be used <b>only</b> for testing purposes.</p>
+
+<p>That's all I have for now. Stay tuned for more updates and <strong>Welcome to Apache Geode</strong>! Please join the conversation at <a href="mailto:dev@geode.incubator.apache.org">dev@geode.incubator.apache.org</a> or <a href="mailto:users@geode.incubator.apache.org">users@geode.incubator.apache.org</a>.</p>
+</body>
+</html>

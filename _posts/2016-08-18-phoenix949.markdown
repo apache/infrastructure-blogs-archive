@@ -1,0 +1,20 @@
+---
+layout: post
+title: Announcing Phoenix 4.8 released
+date: '2016-08-18T01:15:56+00:00'
+categories: phoenix
+---
+<p>The <a href="http://phoenix.apache.org" target="_blank" title="Apache Phoenix">Apache Phoenix</a> team is pleased to announce the immediate <a href="http://phoenix.apache.org/download.html" target="_blank" title="download">availability of the 4.8.0 release</a>. Apache Phoenix enables SQL-based OLTP and operational analytics for Hadoop using Apache HBase as its backing store and providing integration with other projects in the ecosystem such as Spark, Hive, Pig, Flume, and MapReduce. The 4.x releases are compatible with HBase 0.98/1.0/1.1/1.2.</p> 
+  <p>Here are some of the highlights of the releases:</p> 
+  <p> </p> 
+  <ul> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-1311" target="_blank" title="Namespace">Namespace support</a> to map Phoenix schemas to HBase namespaces</li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-2743" target="_blank" title="Hive">Hive integration</a> for joining huge tables to other huge tables</li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-1734" target="_blank" title="Local index">Local index improvements</a> to have guaranteed colocation of table and index data</li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-1508" target="_blank" title="View">View enhancements</a> to allow dropping columns from base tables</li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-2722" target="_blank" title="metrics">OFFSET support</a> as an alternate mechanism to page through query results</li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-258" target="_blank" title="DISTINCT">Optimize DISTINCT queries</a> by pushing down seek logic to server</li> 
+    <li>Support for HBase 1.2</li> 
+    <li>130+ <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12334393&amp;projectId=12315120" target="_blank" title="bug fixes">bug fixes</a></li> 
+  </ul> 
+  <p>Source and binary downloads are available&nbsp;<a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>.</p>

@@ -1,0 +1,17 @@
+---
+layout: post
+title: Apache Flex at 360|Stack
+date: '2013-08-01T20:49:00+00:00'
+categories: flex
+---
+<p>Come see us at <a href="http://www.360stack.com/">360|Stack</a> in Denver, Aug 4-8.  Several Apache Flex committers will be 
+there and you can find us hanging out between sessions in the Apache Flex Discovery 
+Room which will be in the Englewood room at the conference hotel.  There will be 
+munchies until we run out.</p>
+
+<p>There are still a few tickets left if you can get over to Denver and learn about the latest on
+Flex, including a prototype of Flex running in a browser without Flash.  The organizer was 
+even kind enough to come up with a special discount code to use when your register to 
+save 20%.  Just use "AlexRocks" when registering.</p>
+
+<p>Hope to see you there!</p>

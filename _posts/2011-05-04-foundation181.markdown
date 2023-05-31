@@ -1,0 +1,11 @@
+---
+layout: post
+title: The Apache Software Foundation Subpoenaed to Produce Documents in Oracle America
+  vs. Google
+date: '2011-05-04T15:25:01+00:00'
+categories: foundation
+---
+<p><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">The Apache Software Foundation (ASF) has received a [United States District&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">Court subpoena] requiring the production of documents related to the use&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">of Apache Harmony code in the Android software platform, and the&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">unsuccessful attempt by Apache to secure an acceptable license to the&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">Java SE Technology Compatibility Kit.</span></p> 
+  <p><span style="font-family: monospace; font-size: 14px; line-height: 16px; "><br style="line-height: 1.2em; outline-style: none; outline-width: initial; outline-color: initial; " />The <a href="http://www.apache.org/legal/3.10-cv-03561-WHA/2011-04-29-subpoena.pdf" title="subpoena">request</a>, received from Oracle America's attorneys on May 2nd gives&nbsp;the Foundation until May 13th, 2011 to produce the required materials.&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">Apache will, of course, be complying with all court requirements.&nbsp; As&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">an open development group the majority of our documents are already&nbsp;</span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">publicly available.</span></p> 
+  <p><span style="font-family: monospace; font-size: 14px; line-height: 16px; "></span><span style="font-family: monospace; font-size: 14px; line-height: 16px; ">Please address any discussion to the <a href="http://www.apache.org/foundation/mailinglists.html#foundation-legal" title="Legal-Discuss mailing list">ASF Legal mailing list</a>.</span></p> 
+  <p><span style="font-family: monospace; font-size: 14px; line-height: 16px; "># # #</span></p>

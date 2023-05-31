@@ -1,0 +1,27 @@
+---
+layout: post
+title: JavaOne 2011 Report
+date: '2011-11-05T16:18:57+00:00'
+categories: openejb
+---
+It was a big year for Apache TomEE and OpenEJB at JavaOne this year.  Many thanks to everyone on all sides who helped get us there, all the wonderful people who attended and of course everyone in the community that makes this project tick.
+
+First of all, we were very excited and honored to announce <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_announces17">Apache TomEE as a Java EE 6 Web Profile certified</a>.  The announcement went out on Tuesday of that week and set the stage for some very exciting presentations and panels throughout the week.
+
+We had three presentations total:
+
+<ul>
+  <li><a href="http://www.slideshare.net/dblevins1/2011-java-oneejbwithmetaannotations">EJB with Meta Annotations</a></li>
+  <li><a href="http://www.slideshare.net/dblevins1/fun-with-ejb-31-and-openejb">Fun with EJB 3.1 and OpenEJB</a></li>
+  <li><a href="http://www.slideshare.net/dblevins1/2011-java-oneapachetomeejavaee6webprofile">Apache TomEE Java EE 6 Web Profile</a></li>
+</ul>
+
+And participated in three panels:
+
+<ul>
+  <li>Meet the Experts: EJB 3.2 Expert Group</li>
+  <li>The Road to Java EE 7: Is It All About the Cloud?</li>
+  <li>CDI Today and Tomorrow</li>
+</ul>
+
+The Apache TomEE talk was quite full with 134 attendees, only 5 less than the "CDI Today and Tomorrow" panel.  All in all a very full week and one that will not soon be forgotten!

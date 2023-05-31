@@ -1,0 +1,64 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache ACE as a Top-Level Project
+date: '2012-02-27T13:00:36+00:00'
+categories: foundation
+---
+<p id="yui_3_2_0_24_133028785985289"><span id="yui_3_2_0_24_1330287859852125"><i><b>Open Source OSGi software distribution framework especially suited for the Cloud and embedded computing markets</b></i><br /> <br /> <b>Forest Hill, MD – 27 February 2012 –</b> The Apache Software Foundation 
+(ASF), the all-volunteer developers, stewards, and incubators of nearly 
+150 Open Source projects and initiatives, today announced that Apache 
+ACE has graduated from the Apache Incubator to become a Top-Level 
+Project (TLP), signifying that the Project's community and products have
+ been well-governed under the ASF's meritocratic process and principles.<br /> <br />
+Apache ACE is a software distribution framework for managing and 
+distributing modular software components, configuration data, and other 
+artifacts to OSGi-based and related target systems.<br /> <br />
+Comprising a set of OSGi bundles, Apache ACE allows developers to easily
+ manage the dependencies, deployment, and feedback of installed software
+ components. This proves particularly useful when scaling across 
+embedded and Cloud computing applications by covering the area of 
+deploying and dynamically scaling applications in the cloud, as well as 
+mobile platforms that would utilize ACE to create their own market or 
+application store.<br /> <br />
+Using Apache ACE, updates and new components can be easily distributed 
+while keeping a full history of what was installed where and during what
+ period. In addition, ACE helps developers set up an automated 
+development, QA/testing, staging, and production environment.<br />
+Initially donated to the Apache Incubator in 2009 by software solutions 
+provider Luminis, a diverse and international group of developers joined
+ the initial developers of the ACE code base to successfully form the 
+Apache ACE community.<br /> <br />
+&quot;We are excited that ACE has successfully graduated as a Top-Level 
+Project,&quot; said Marcel Offermans, Vice President of Apache ACE and Fellow
+ at Luminis. &quot;Developing projects 'The Apache Way' stimulates widespread
+ cooperation with individuals that each bring their specific knowledge 
+to the project. Diversity is key -- the community is evolving the 
+project in new and interesting ways, leveraging the collective 
+expertise.&quot;<br /> <br />
+Availability and Oversight<br />
+Apache ACE software is released under the Apache License v2.0, and is 
+overseen by a self-selected team of active contributors to the project. A
+ Project Management Committee (PMC) guides the Project's day-to-day 
+operations, including community development and product releases. Apache
+ ACE source code, documentation, mailing lists, and related resources 
+are available at <a href="http://ace.apache.org/">http://ace.apache.org/</a>.<br /> <br />
+About The Apache Software Foundation (ASF)<br />
+Established in 1999, the all-volunteer Foundation oversees nearly one 
+hundred fifty leading Open Source projects, including Apache HTTP Server
+ — the world's most popular Web server software. Through the ASF's 
+meritocratic process known as &quot;The Apache Way,&quot; more than 350 individual
+ Members and 3,000 Committers successfully collaborate to develop freely
+ available enterprise-grade software, benefiting millions of users 
+worldwide: thousands of software solutions are distributed under the 
+Apache License; and the community actively participates in ASF mailing 
+lists, mentoring initiatives, and ApacheCon, the Foundation's official 
+user conference, trainings, and expo. The ASF is a US 501(3)(c) 
+not-for-profit charity, funded by individual donations and corporate 
+sponsors including AMD, Basis Technology, Cloudera, Facebook, Google, 
+IBM, HP, Hortonworks, Matt Mullenweg, Microsoft, PSW Group, 
+SpringSource/VMware, and Yahoo!. For more information, visit <a href="http://www.apache.org/">
+http://www.apache.org/</a>.<br /> <br />
+&quot;Apache&quot;, &quot;Apache ACE&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache 
+Software Foundation. All other brands and trademarks are the property of
+ their respective owners.<br /> <br />
+#&nbsp; #&nbsp; #</span></p>

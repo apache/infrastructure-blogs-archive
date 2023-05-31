@@ -1,0 +1,68 @@
+---
+layout: post
+title: The Apache® Software Foundation Announces Annual Report for 2015-2016 Fiscal
+  Year
+date: '2016-06-06T12:07:48+00:00'
+categories: foundation
+---
+<div> 
+    <p><b><i>Trusted community recognized for accelerating Open Source innovation and advancing the future of open development.</i></b></p> 
+  </div> 
+  <p><b>Forest Hill, MD —6 June 2016—</b>&nbsp;The Apache<font color="#333333" face="Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif"><span style="font-size: 15px; line-height: 21.4286px;"><sup>®</sup></span></font>&nbsp;Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of its annual report for its 2015-2016 fiscal year, which ended 30 April 2016. Highlights include:</p> 
+  <p><u><b>Open Source Leadership</b></u> --&nbsp;</p> 
+  <div> 
+    <ul> 
+      <li>21st anniversary of the Apache HTTP Server Project</li> 
+      <li>17th anniversary of The Apache Software Foundation</li> 
+      <li>175 committees managing 291 Top-level Projects (TLPs) and dozens of sub-projects</li> 
+      <li> 
+        <div>Millions of people worldwide access the ASF's two dozen servers and 75 distinct hosts each day</div> 
+      </li> 
+      <li>Apache featured more than 400 times in Gartner Magic Quadrant reports</li> 
+    </ul> 
+    <p> </p> 
+    <p><b><u>Innovation</u></b> --</p> 
+  </div> 
+  <div> 
+    <ul> 
+      <li>20 new Apache Top-level Projects (TLPs)</li> 
+      <li>Record 55 podlings undergoing development in the Apache Incubator, plus 39 initiatives in the Apache Labs</li> 
+      <li>Apache Hadoop<font color="#333333" face="Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif"><span style="font-size: 15px; line-height: 21.4286px;"><sup>®</sup></span></font> ecosystem continues to dominate the Big Data marketplace</li> 
+      <li>743 repositories managed</li> 
+      <li>33% increase in signed Individual Contributor License Agreements (CLAs)</li> 
+      <li>3,425 ASF Committers and 5,922 Apache code contributors (21% increase) added nearly 20M lines of code;&nbsp;average 18,000 code commits per month</li> 
+      <li>315,533,038 Lines of code changed (65% increase)</li> 
+    </ul> 
+  </div> 
+  <p> </p> 
+  <p> </p> 
+  <p><b><u>Community</u></b> --</p> 
+  <div> 
+    <ul> 
+      <li>58 new individual ASF Members elected</li> 
+      <li>Apache projects overseen by 2,000+ Project Management Committee (PMC) members</li> 
+      <li>Launched new &quot;Help Wanted&quot; application to match volunteers with Apache projects and activities seeking assistance</li> 
+      <li>Held hundreds of events globally, including ApacheCon Europe and North America, plus countless conferences, workshops, and regional MeetUps</li> 
+      <li>Participated in the Google Summer of Code as a Mentoring Organization for 12 consecutive years</li> 
+    </ul> 
+  </div> 
+  <p><b><u>Operations</u></b> --</p> 
+  <div> 
+    <ul> 
+      <li>Apache services running 24x7x365 at near 100% uptime on an annual budget of less than US$5,000 per project</li> 
+      <li>Launched new home.apache.org and lists.apache.org services</li> 
+      <li>Initiated experiment with Github to automate user management and group permissions for 5,000+ Apache users</li> 
+      <li>Launched new ASF brand identity</li> 
+      <li>Ongoing trademarks, brand management, and legal support for dozens of existing and new projects</li> 
+      <li>Bolstered organizational backing, with 37 ASF Sponsors and 11 Infrastructure partners</li> 
+      <li>The ASF exited FY 2015 with revenue at $996K, ahead of projected budget</li> 
+    </ul> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p>The full report is available online at <a href="https://s.apache.org/Ccml">https://s.apache.org/Ccml</a></p> 
+  </div> 
+  <div> 
+    <p># # #</p> 
+  </div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot; and &quot;ApacheCon&quot;, are registered trademarks or trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</div>

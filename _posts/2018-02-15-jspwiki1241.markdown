@@ -1,0 +1,37 @@
+---
+layout: post
+title: Announcing Apache JSPWiki 2.10.3
+date: '2018-02-15T21:33:57+00:00'
+categories: jspwiki
+---
+<p>We're pleased to announce the availability of <strong>Apache JSPWiki version 2.10.3</strong>—the fourth major release made as an Apache Top-Level Project. 
+</p> 
+  <p>This is a hugely exciting release, packed with great features. Let's look at some of the highlights.<br /></p> 
+  <h4>Updates to the Haddock template</h4> 
+  <p><a href="https://blogs.apache.org/jspwiki/entry/introducing_the_haddock_template" target="_blank" title="Introducing the Haddock Template">Haddock</a> is our next generation template. It's received an <span>enormous</span> number of changes in 2.10.3, including:<br /></p> 
+  <ul> 
+    <li>Slick new <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Image%20Styles" target="_blank" title="JSPWiki Images Styles">Image Styles</a>: Magnify, Animation, Captions, Frames, and more<br /></li> 
+    <li>Beautiful new <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Background%20Styles" target="_blank" title="JSPWiki Background Styles">Background Styles:</a> gradients, patterns, images, colours, and many other options<br /></li> 
+    <li>Incremental improvements towards mobile-friendly viewing (such as hide/reveal site header when scrolling)</li> 
+    <li>New <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Haddock%20Weblog%20Example" target="_blank" title="JSPWiki blog styles">blog styles</a> for JSPWiki's blogging component <br /></li> 
+    <li>A plethora of styles that can be triggered through <font face="courier new,courier,monospace">%%add-css</font> constructs—including <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Category.Font%20Style" target="_blank" title="JSPWiki Custom Fonts">custom fonts</a>, <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Image%20Gallery" target="_blank" title="JSPWiki Image Galleries">image galleries</a>, <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Background%20Patterns" target="_blank" title="JSPWiki Background Patterns">background patterns</a>, <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Ribbon" target="_blank" title="JSPWiki Page Ribbons">page ribbons</a>, and much more</li> 
+    <li><a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Category.Haddock%20Behavior" target="_blank" title="JSPWiki Haddock Behaviours">Haddock Behaviours</a> (JavaScript extensions to the Haddock Template) that integrate <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=SheetJS%20Behavior" title="JSPWiki SheetJS" target="_blank">SheetJS</a>, <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Math%20Behavior" target="_blank" title="JSPWiki MathJax support">MathJax</a>, <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Markdown%20Behavior" title="JSPWiki Markdown support" target="_blank">Markdown</a>, and stunning charts with <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=Chartist%20Behavior" title="JSPWiki Chartist extension" target="_blank">Chartist</a> </li> 
+  </ul> 
+  <h4>Mandatory properties have been removed</h4> 
+  <ul> 
+    <li><a href="https://issues.apache.org/jira/browse/JSPWIKI-1035" target="_blank" title="JSPWiki JIRA issue">JSPWIKI-1035</a></li> 
+    <li><a href="https://issues.apache.org/jira/browse/JSPWIKI-1051" target="_blank" title="JSPWiki JIRA issue">JSPWIKI-1051</a> </li> 
+  </ul> 
+  <h4>Important fixes<br /></h4> 
+  <ul> 
+    <li>Default log is now redirected to <font face="courier new,courier,monospace">stdout</font> (<a href="https://issues.apache.org/jira/browse/JSPWIKI-1051" target="_blank" title="JSPWiki JIRA issue">JSPWIKI-1051</a>)</li> 
+    <li>Rendering cache fixes (<a href="https://issues.apache.org/jira/browse/JSPWIKI-1064" target="_blank" title="JSPWiki JIRA issue">JSPWIKI-1064</a>) </li> 
+  </ul> 
+  <h4>For developers<br /></h4> 
+  <ul> 
+    <li><a href="https://issues.apache.org/jira/browse/JSPWIKI-843" target="_blank" title="JSPWiki test-jar">test-jar</a> is now available</li> 
+    <li>JSPWiki development has <a href="https://blogs.apache.org/jspwiki/entry/apache-jspwiki-s-primary-codebase" target="_blank" title="JSPWiki development is now on GitHub">moved to GitHub</a>: forks and PRs are always more than welcome! :)<br /> </li> 
+  </ul> 
+  <h4>For more information<br /></h4> 
+  <p>For a full list of changes see the <a class="external" href="https://github.com/apache/jspwiki/blob/2.10.3/ChangeLog" target="_blank" title="JSPWiki changelog file">ChangeLog</a> file or our <a class="external" href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310732&amp;version=12334934" target="_blank" title="JSPWiki issue tracker">issue tracker</a>.<br /></p> 
+  <p>All JSPWiki site administrators are encouraged to update. For feedback, help, and developer queries please visit us on the <a href="https://jspwiki.apache.org/community/mailing_lists.html" target="_blank" title="JSPWiki mailing lists">mailing lists</a>.</p>

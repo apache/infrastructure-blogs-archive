@@ -1,0 +1,11 @@
+---
+layout: post
+title: 'Statement by the ASF Board: Honor the Agreement'
+date: '2010-11-16T00:11:44+00:00'
+categories: foundation
+---
+<p> </p> 
+  <p>Oracle <a href="http://blogs.oracle.com/henrik/2010/11/moving_java_forward_open_response_from_oracle_to_apache.html" title="Oracle statement to Apache regarding Java">statement</a> regarding Java:&nbsp;&quot;Now is the time for positive action (and) to move Java forward.&quot;</p> 
+  <p>Oracle, the ball is in <b>your</b> court.&nbsp;Honor the <a href="http://www.apache.org/jcp/sunopenletter.html" title="Open Letter to Sun on Java">agreement</a>.</p><span style="font-size: 14px; line-height: 16px; "> 
+    <p><br /></p></span> 
+  <p><font face="monospace" size="4"><span style="font-size: 14px; line-height: 16px; "># # #</span></font></p>

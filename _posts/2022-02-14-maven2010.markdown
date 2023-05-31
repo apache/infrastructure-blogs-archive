@@ -1,0 +1,65 @@
+---
+layout: post
+title: Apache Maven Compiler Plugin Version 3.10.0 Released
+date: '2022-02-14T12:57:57+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+  <a href="https://maven.apache.org/plugins/maven-compiler-plugin/">Apache Maven Compiler Plugin, version 3.10.0</a>.</p>
+
+  <p>The Compiler Plugin is used to compile the sources of your project.</p>
+
+  <p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.10.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+  <!-- more -->
+
+
+  <p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317225&amp;version=12351256">Release Notes &ndash; Maven Compiler Plugin &ndash; Version 3.10.0</a></p>
+
+  <ul>
+    <li><p>Bugs:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-205">MCOMPILER-205</a> &ndash; incremental compilation broken for package-info classes</li>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-225">MCOMPILER-225</a> &ndash; javac.bat and args file added to archive when fork and -X used</li>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-460">MCOMPILER-460</a> &ndash; Compiler doesn&rsquo;t show detailed information with the Maven Toolchains</li>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-470">MCOMPILER-470</a> &ndash; -parameters doesn&rsquo;t work with &mdash;release</li>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-474">MCOMPILER-474</a> &ndash; Dependent modules are not recompiled if we run the &ldquo;package&rdquo; goal</li>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-481">MCOMPILER-481</a> &ndash; JPMS Regression: cannot access <class> (requires static module not include anymore)</li>
+      </ul>
+    </li>
+    <li><p>Improvement:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-479">MCOMPILER-479</a> &ndash; Clarify <code>compilerArgs</code> Javadoc</li>
+      </ul>
+    </li>
+    <li><p>Task:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MCOMPILER-484">MCOMPILER-484</a> &ndash; Remove deprecated mojos</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <p>Enjoy,</p>
+
+  <ul>
+    <li>The Apache Maven team</li>
+  </ul>

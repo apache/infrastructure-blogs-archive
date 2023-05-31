@@ -1,0 +1,167 @@
+---
+layout: post
+title: Indexing Tweets with NiFi and Solr
+date: '2015-09-21T16:35:09+00:00'
+categories: nifi
+---
+<h1>Indexing Tweets with NiFi and Solr</h1>
+<p>
+   <span class="author">Bryan Bende -&nbsp;</span>
+   <span class="author"><a href="mailto:bbende@gmail.com">bbende@gmail.com</a></span>
+</p>
+<hr />
+
+<p>
+  This post will cover how to use Apache NiFi to pull in the public stream of tweets from the Twitter API, identify
+  specific tweets of interest, and deliver those tweets to Solr for indexing. The example developed here was built against
+  <a href="https://nifi.apache.org/download.html">Apache NiFi 0.3.0</a> and <a href="http://lucene.apache.org/solr/downloads.html">Apache Solr 5.3</a>.
+</p>
+
+<p>
+  In addition, you will also need to create a Twitter application for accessing their API. A good set of instructions for
+  doing that can be found in this article - <a href="http://iag.me/socialmedia/how-to-create-a-twitter-app-in-8-easy-steps/">
+  How to Create a Twitter App in 8 Easy Steps</a>.
+</p>
+
+<h2>Setting up Solr</h2>
+
+<p>
+For this example we will start Solr in cloud mode, and create a tweets collection based off the data-driven configuration provided by Solr. 
+The data-driven configuration allows Solr to create fields on the fly based off the incoming data, and is a good place to start for quickly prototyping. 
+The following two commands can be used to get Solr running and create the collection:
+</p>
+
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+./bin/solr start -c
+./bin/solr create_collection -c tweets -d data_driven_schema_configs -shards 1 -replicationFactor 1
+</pre>
+</code>
+</div>
+
+<p>
+  At this point we should have a running Solr instance on port 8983, with an embedded ZooKeeper on port 9983. Navigate
+  to <a href="http://localhost:8983/solr/#/~cloud">http://localhost:8983/solr/#/~cloud</a> in your browser to verify Solr
+  is running and the tweets collection was created sucessfully.
+</p>
+
+<h2>Building the Dataflow</h2>
+
+<p>
+  The dataflow we are going build in NiFi will consist of the following processors:
+  <ul>
+    <li><b>GetTwitter</b> for accessing the Twitter API and producing FlowFiles containing JSON Tweets</li>
+    <li><b>EvaluateJsonPath</b> for extracting values from JSON documents into FlowFile attributes</li>
+    <li><b>RouteOnAttribute</b> for making decisions about incoming FlowFiles based on their attributes</li>
+    <li><b>MergeContent</b> for merging together many JSON documents to a single document</li>
+    <li><b>PutSolrContentStream</b> for streaming JSON documents to Solr</li>
+  </ul>
+  The overall flow looks like the following:
+</p>
+
+<img src="https://blogs.apache.org/nifi/mediaresource/467b2cdd-dc71-48f4-be14-159ba3f794bc" alt="nifi-twitter-solr-flow.png"></img>
+
+<p>
+  Lets walk through the configuration of each processor...
+</p>
+
+<h3>GetTwitter</h3>
+
+<img src="https://blogs.apache.org/nifi/mediaresource/2e77b3e6-8775-4f90-b805-7027a697aca5" alt="config-gettwitter.png"></img>
+
+<p>
+  Set the end-point to the Sample Endpoint and fill in the credentials corresponding with the Twitter application you created earlier.
+</p>
+<p>
+  For this example we are going to specify a language of "en" to get only English tweets.
+</p>
+
+<h3>EvaluateJsonPath</h3>
+
+<img src="https://blogs.apache.org/nifi/mediaresource/4f6bfc11-7eb6-484e-8276-ef5be176c3a6" alt="config-extract-attributes.png"></img>
+
+<p>
+  Now we want to extract the text and language of each tweet into FlowFile attributes in order to make decisions on these values later. Set the Destination property to "flowfile-attribute" and add two user-defined properties using the New Property icon on the top right. The name of the property will be the FlowFile attribute name, and the value is the JSON path we would like to extract from the Tweet. This will allow us to access these values later by using expression language, such as ${twitter.text} or ${twitter.lang}. 
+</p>
+
+<h3>RouteOnAttribute</h3>
+
+<img src="https://blogs.apache.org/nifi/mediaresource/e70dd6c6-67df-4aef-94b4-4589964b66a8" alt="config-route-nonempty.png"></img>
+
+<p>
+  At this point we would like to ensure we are only indexing tweets we are interested. So we add a user-defined property called "tweet" and specify the following expression language as the value:
+</p>
+
+<div>
+<code>
+<pre style="background-color: #f1f1f1">
+${twitter.text:isEmpty():not():and(${twitter.lang:equals("en")})}
+</pre>
+</code>
+</div>
+
+<p>
+  The first part of this expression filters out all the tweets which have an empty message.  This occurs frequently as some of the JSON documents coming through the end-point are not actual tweets. 
+  The second part of the expression ensures that we are only selecting english tweets. We already set GetTwitter to filter on "en", but if we hadn't, the language could be used here to route different languages to different relationships.
+  Any tweets matching the above conditions will be routed to the "tweet" relationship based on the property we defined, and anything else will be routed to the "unmatched" relationship. We can auto-terminate the "unmatched" relationship to have the non-matching FlowFiles discarded.
+</p>
+
+<h3>MergeContent</h3>
+
+<img src="https://blogs.apache.org/nifi/mediaresource/d3304c5f-7871-421c-9f49-2f766cf40662" alt="config-merge.png"></img>
+
+<p>
+ In this example we could send the JSON documents from RouteOnAttribute directly to Solr, but in most real world scenarios accessing the Solr cluster will require network communication, and it will likely produce better performance if we batch together multiple JSON documents into a single request to reduce the amount requests sent over the network. The MergeContent processor is a powerful processor that was built just for this scenario in mind, and is capable of merging FlowFiles based on a number of criteria such as the number of FlowFiles, or their age. MergeContent also performs merges in a streaming manner and as a result is capable of merging a significant number of FlowFiles without worrying about exceeding memory constraints.
+</p>
+<p>
+ To configure MergeContent,  set a Minimum and Maximum Number of entries, as well as a Max Bin Age to trigger a merge in cases where no new data has come in for a period of time.  Also set the Delimiter Strategy to "Text", and specify the Header, Footer, and Demarcator as [ , ] respectively. This allows us to create a large JSON document composed of many incoming documents.
+</p>
+
+<h3>PutSolrContentStream</h3>
+
+<img src="https://blogs.apache.org/nifi/mediaresource/5f3c0112-620a-4738-b60c-8087feb2d3db?" alt="config-putsolr.png"></img>
+
+<p>
+Configure PutSolrContentStream to point to the Solr instance we started earlier by setting the Solr Type to "Cloud" and the Solr Location to the embedded ZooKeeper that was started earlier (localhost:9983). Also specify a Commit Within of "1000" to commit the incoming documents every second (this may not be needed if you set autoCommit settings in your solrconfig.xml).
+</p>
+
+<p>
+ Any user-defined properties will get sent to Solr on the request as key value pairs, so we need to tell Solr how to transform the incoming JSON document into a Solr document. A good explanation of how this JSON to Solr mapping works can be found 
+<a href="http://lucidworks.com/blog/indexing-custom-json-data/">here</a>, and an explanation of the user-defined
+ properties can be found <a href="https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi.processors.solr.PutSolrContentStream/additionalDetails.html">here</a>.
+</p>
+
+<p>
+  For this example we will provide the following mappings:
+  <ul>
+    <li><b>split=/</b> to treat each child JSON document that we merged together as individual Solr documents</li>
+    <li><b>id:/id</b> to map the id field of the JSON to the id field in the Solr schema (already defined)</li>
+    <li><b>twitter_text_t:/text</b> to map the text field of the JSON to a dynamic field of type text_general in Solr</li>
+    <li><b>twitter_username_s:/user/name</b> to map the user of the tweet to a dynamic string field in Solr</li>
+    <li><b>twitter_created_at_s:/created_at</b> to map the creation date string to a dynamic string field in Solr</li>
+    <li><b>twitter_timestamp_ms_tl:/timestamp_ms</b> to map the timestamp to a dynamic trie-long field in Solr</li>
+  </ul>
+</p>
+
+<p>
+The naming conventions of the fields allow us to leverage dynamic fields in Solr. Dynamic fields take effect by using a suffix on the field name to indicate the field type, so the "_t" on "twitter_text_t" tells Solr that this field will map to a text_general field type. It is possible to not provide any field mappings and just send the JSON to Solr, and let Solr guess the field types on the fly. However, in that case all of the fields would get added as multiValued fields, and multiValued fields can't be used in a sorting clause which would prevent us from sorting on the timestamp. So we opt for the dynamic fields here. 
+</p>
+
+<p>
+Also worth noting, this processor has two failure relationships. The regular "failure" relationship is for failures that would generally require some intervention to resolve, such as an invalid document being submitted. The "connection_failure" relationship is for failures related to communication issues between NiFi and Solr. A typical approach in a production scenario would be to route the "connection_failure" back to itself to retry during connection failures, and to route the "failure" relationship to a PutFile processor that could write out failed documents for later inspection.
+</p>
+
+<h2>Summary</h2>
+
+<p>
+  At this point you should be able to hit Start on your processors and start seeing tweets flowing to Solr, happy indexing!
+</p>
+
+<p>
+  A template of the flow created in this example can be found <a href="https://cwiki.apache.org/confluence/display/NIFI/Example+Dataflow+Templates">here</a>. We would love to hear any questions, comments, or feedback that you may have! 
+</p>
+
+<p>
+  <a href="http://nifi.apache.org">Learn more about Apache NiFi</a> and feel free to leave comments here or e-mail us at dev@nifi.apache.org.
+</p>

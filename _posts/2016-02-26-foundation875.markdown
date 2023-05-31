@@ -1,0 +1,59 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 26 February 2016'
+date: '2016-02-26T15:30:45+00:00'
+categories: foundation
+---
+<div> 
+    <p>We're wrapping up February with the following activities from within the Apache community:</p> 
+    <p>ASF Operations –the day-to-day heartbeat of the Foundation, from accounting and administration to infrastructure and brand mangement and beyond.<br />&nbsp;-&nbsp;The Apache Software Foundation Operations Summary: Third Quarter, Fiscal Year 2016 (November 2015 - January 2016) <a href="https://s.apache.org/9zLj">https://s.apache.org/9zLj</a></p> 
+  </div> 
+  <div>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 16 March 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></div> 
+  <p>ASF Membership&nbsp;–from the inaugural membership of 21 individuals, the ASF has grown to 588 individual members and 5,317 Committers collaborating across six continents.<br />&nbsp;- Next Members' Meeting: 22 March 2016. Official business, New Member voting will take place (candidates&nbsp;are Apache Committers who demonstrate merit in the Foundation's growth, evolution, and progress).</p> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 6M+ weekly checks yields splendid performance at 99.63% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.&nbsp;Apache:Big Data +&nbsp;ApacheCon North America - Vancouver will take place 9-13 May 2016&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a>&nbsp;--Early Registration ends 4 March.<br />&nbsp;- How Apache Travel Assistance helped me get to ApacheCon <a href="http://www.apache.org/travel/stories/">http://www.apache.org/travel/stories/</a> <br />&nbsp;- Travel Assistance applications close&nbsp;2 March <a href="http://www.apache.org/travel/">http://www.apache.org/travel/</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Groovy™ –a multi-facet programming language for the JVM.<br />&nbsp;- Apache Groovy 2.4.6 released&nbsp;<a href="http://www.groovy-lang.org/download.html">http://www.groovy-lang.org/download.html</a></p> 
+    <p>Apache HBase™ –the Hadoop database: a distributed, scalable, versioned, non-relational Big Data store.<br />&nbsp;- Apache HBase 1.2.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/hbase/1.2.0/">http://www.apache.org/dyn/closer.lua/hbase/1.2.0/</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.3.16 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache JSPWiki™ –a feature-rich and extensible WikiWiki engine built around the standard JEE components (Java, servlets, JSP).<br />&nbsp;- Apache JSPWiki 2.10.2 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/jspwiki/">http://www.apache.org/dyn/closer.cgi/jspwiki/</a></p> 
+    <p>Apache Kafka™ –Open Source petabyte-scale Big Data distributed analytics engine.<br />&nbsp;- Apache Kafka 0.9.0.1 released&nbsp;<a href="https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz">https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz</a></p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;- Apache Lucene 5.5.0 released&nbsp;<a href="http://lucene.apache.org/core/mirrors-core-latest-redir.html">http://lucene.apache.org/core/mirrors-core-latest-redir.html</a></p> 
+    <p>Apache Qpid™ JMS –our newer AMQP 1.0 JMS client, based around the Qpid Proton protocol engine and implementing the AMQP JMS Mapping as it evolves at OASIS.<br />&nbsp;- Apache Qpid JMS 0.8.0 released&nbsp;<a href="http://qpid.apache.org/download.html">http://qpid.apache.org/download.html</a></p> 
+    <p>Apache Solr™ –the popular, blazing fast, Open Source NoSQL search platform from the Apache Lucene project.<br />&nbsp;- Apache Solr 5.5.0 released <a href="http://lucene.apache.org/solr/mirrors-solr-latest-redir.html">http://lucene.apache.org/solr/mirrors-solr-latest-redir.html</a></p> 
+    <p>Apache Tomcat™ –a Web server that is an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.<br />&nbsp;- CVE Security updates&nbsp;<a href="http://tomcat.apache.org/security">http://tomcat.apache.org/security</a></p> 
+  </div> 
+  <div> 
+    <p><strong><br />Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that 56 years of effort (COCOMO model) from 220 contributors has gone into Apache LibCloud?&nbsp;<a href="http://libcloud.apache.org/">http://libcloud.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that Capital One uses Apache Apex (incubating) for Big Data analytics? <a href="http://apex.incubator.apache.org/">http://apex.incubator.apache.org/</a> </p> 
+  </div> 
+  <div>&nbsp;- Did you know that Allianz, Carrefour, Orange, SAP, and Walmart use Apache Wicket Java Web framework? <a href="https://wicket.apache.org">https://wicket.apache.org</a></div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p><strong></strong>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- The next CloudStack European User Group will be held 3 March 2016 in London&nbsp;<a href="https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-19726408218">https://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-19726408218</a></p> 
+    </div> 
+    <p>&nbsp;- Apache:Big Data North America will take place 9-12 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apache-big-data-north-america">http://events.linuxfoundation.org/events/apache-big-data-north-america</a></p> 
+    <p>&nbsp;- ApacheCon:Core North America will take place 11-13 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/">http://events.linuxfoundation.org/events/apachecon-north-america/</a></p> 
+    <p>&nbsp;- The next HBaseCon will take place 24 May in San Francisco --CFP and Early Bird Registration now open <a href="http://hbasecon.com/">http://hbasecon.com</a></p> 
+    <p>&nbsp;- MesosCon will be held 1-2 June 2016 in Denver --CFP open through 9 March&nbsp;<a href="http://events.linuxfoundation.org/events/mesoscon/">http://events.linuxfoundation.org/events/mesoscon/</a></p> 
+    <div> 
+      <p>&nbsp;- The ASF Operations Summary: Second Quarter, Fiscal Year 2016 (August-October 2015) is available at <a href="http://s.apache.org/M0R">http://s.apache.org/M0R</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #&nbsp;</p>

@@ -1,0 +1,82 @@
+---
+layout: post
+title: Apache Maven Archetype Plugin, version 3.1.0
+date: '2019-05-01T16:19:15+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+    <a href="https://maven.apache.org/archetype/maven-archetype-plugin/">Apache Maven Archetype Plugin, version 3.1.0</a>.</p>
+
+    <p>In short, Archetype is a Maven project templating toolkit. An archetype is defined as an original pattern or model from which all other things of the same kind are made. The names fits as we are trying to provide a system that provides a consistent means of generating Maven projects. Archetype will help authors create Maven project templates for users, and provides users with the means to generate parameterized versions of those project templates.</p>
+
+    <p><a href="https://maven.apache.org/archetype/maven-archetype-plugin/index.html">https://maven.apache.org/archetype/maven-archetype-plugin/index.html</a></p>
+
+    <p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+    <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-archetype-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+    <p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins/maven-archetype-plugin/download.cgi">download page</a>.</p>
+
+    <!-- more -->
+
+
+    <p>[Release Notes &ndash; Maven Archetype Plugin &ndash; Version 3.1.0]</p>
+
+    <p>Bugs:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-492">ARCHETYPE-492</a> Underscore in filenames problematic due to greedy regex</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-530">ARCHETYPE-530</a> [archetype:create-from-project] Proxy configuration from settings.xml is not taken into account</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-534">ARCHETYPE-534</a> archetype-descriptor.xsd is out of date</li>
+    </ul>
+
+
+    <p>New Features:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-553">ARCHETYPE-553</a> Allow additional properties for IntegrationTestMojo&rsquo;s MavenInvoker</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-554">ARCHETYPE-554</a> create archetype-descriptor-1.1.0.xsd containing validation regexp</li>
+    </ul>
+
+
+    <p>Improvements:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-536">ARCHETYPE-536</a> Update Groovy dependency and enable Groovy Grape in archetype-post-generate.groovy script (by including Ivy dependency)</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-560">ARCHETYPE-560</a> Require Java 7</li>
+    </ul>
+
+
+    <p>Task:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-542">ARCHETYPE-542</a> switch from Git-WIP to Gitbox</li>
+    </ul>
+
+
+    <p>Dependency upgrades:</p>
+
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-543">ARCHETYPE-543</a> Upgrade modello from 1.8.3 to 1.9.1</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-544">ARCHETYPE-544</a> Upgrade mave-surefire/failsafe-plugin 2.21.0</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-545">ARCHETYPE-545</a> Upgrade parent to 33</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-551">ARCHETYPE-551</a> Upgrade maven-invoker to 3.0.1</li>
+        <li><a href="https://issues.apache.org/jira/browse/ARCHETYPE-557">ARCHETYPE-557</a> Upgrade surefire to 2.22.1</li>
+    </ul>
+
+
+    <p>Enjoy,</p>
+
+    <p>-The Apache Maven team</p>
+</div>

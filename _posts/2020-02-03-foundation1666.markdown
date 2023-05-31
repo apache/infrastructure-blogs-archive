@@ -1,0 +1,38 @@
+---
+layout: post
+title: 'Success at Apache: Literally'
+date: '2020-02-03T16:03:24+00:00'
+categories: foundation
+---
+<div><strong><em>by Chris Thistlethwaite</em></strong></div> 
+  <div><br /></div> 
+  <div>I became part of the Apache community as a member of the ASF Infrastructure team in 2016, and was elected an ASF Member in 2019.</div> 
+  <p>Browsing through the other &quot;Success at Apache&quot; posts made me reflect on the word &quot;success&quot;. Years ago, I was asked in a job interview, &quot;How do you define success?&quot;. After a pause, I asked back, &quot;In what?&quot;, which threw the interviewer off a bit. That's just too broad of a question for me to define one answer: success in a career, success as a human, success as a team member, success at a software release, the list goes on and on.&nbsp;</p> 
+  <div> 
+    <p>Every day there's a giant list of possible successes and failures, and that’s even before you get to work ...so keep that in mind as you continue reading.</p> 
+    <p>In August of 2016 I came across a <a href="https://blogs.apache.org/infra/entry/position_available_infrastructure_systems_administrator">blog post</a> that would change my life forever.&nbsp;</p> 
+  </div> 
+  <div> 
+    <p>At the time, I was looking for a new job that was taking longer than I expected. Taking a long shot, I sent off a very sparse email replying to the post. Two days later David Nalley (VP Infrastructure) replied, introducing me to Daniel Gruno who'd be doing the first round of interviewing. Fast forward a few months, and, spoiler alert: I got the job.</p> 
+    <p>My first day &quot;in the office&quot; was in Seville, Spain, on November 14th during ApacheCon EU. Let me jump back a bit: most of the &quot;Success at Apache&quot; posts talk about the extensive background the authors have, both in the Open Source community and the ASF. While I use httpd, LAMP, etc. all the time, I never really found out how the &quot;sausage was made&quot;. Apache has well-made products and the philosophy of how they were built intrigued me. My career until that point has mostly been inside Microsoft shops, usually with me suggesting FOSS solutions in meetings and only getting to use them in small-ish batches. A few MySQL boxes here, a few other Linux machines there, but not &quot;full stack&quot; kinda stuff: I ran it where I could but I was very happy with Microsoft products. &quot;Best tool for the job&quot;, right?&nbsp;</p> 
+  </div> 
+  <div> 
+    <p>Anyway, back to Spain. I don't travel as much as I should, my Spanish is terrible (or enough to get me into a bar fight), and I'm traveling to a country I've never been to.</p> 
+    <p>Friday November 11th was the last day at my previous job. Saturday afternoon, I left my wife and kid to jump on a plane for Seville, Sunday-ish I landed, and on Monday I started work in another country, at a job that was 98% Linux-based (Windows Jenkins build nodes), with people whom I’ve never seen before because no one used video chat during the interviews --at a conference held by the foundation I now work for.&nbsp;</p> 
+  </div> 
+  <div> 
+    <p>You may ask yourself, &quot;How did I get here?&quot;, as I sure did: queue &quot;Once in a Lifetime&quot; by the Talking Heads...</p> 
+    <p>My time at the ASF has been very interesting to say the least. With such a huge range of users of Apache software, some days I'm helping a large global company trying to get a product out the door, other days I'm troubleshooting a broken commit for someone working in their basement between dinner and baths for the kids. That's what makes this place special: those contributions help the community and help the common good of the project. The unique perspective I have is from within Infra. We don't just support the ASF, we support all projects in one way or another. One project might just be getting started with automated builds in Jenkins while another has been using CI/CD for years. That's a true strength of the ASF: disparate parts come together as a whole in a way that wouldn't work otherwise. Some days my job has nothing to do with technology, it's just getting the right people together on an email to figure out how to solve a problem, leveraging the different parts.</p> 
+  </div> 
+  <div> 
+    <p>As mentioned earlier, &quot;success&quot; is a moving target, and at Apache, it's no different. Though in my case, any success at my job means I'm helping the ASF become successful, which in turn helps the projects and communities it supports. Behind every commit is a person, just working towards their own success.</p> 
+    <p>I'm glad that I took the chance to respond to the job opening. Every job, company, and environment have a fair share of unpredictably and diversity. At the ASF, those traits are celebrated, leveraged, leaned on, and held up by the great people I get to work with and the community that I'm proud to be a part of.</p> 
+  </div> 
+  <div><br /></div> 
+  <div><em>Chris Thistlethwaite has been fixing problems and herding cats since before he can remember. He likes digging through log files to find solutions to complex problems and then turning his findings into pretty charts and graphs. After working at Avenue A | Razorfish, Sharebuilder, and some small startups, he brought his unique perspective on DevOps/Systems Engineering to the ASF Infrastructure team, where he specializes in monitoring systems. In his spare time, he enjoys homelabbing and spending time with his family.</em></div> 
+  <div> 
+    <div> 
+      <p style="font-style: italic;"><span style="font-style: normal;">= = =</span></p> 
+    </div> 
+    <p>&quot;Success at Apache&quot; is a monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;&nbsp;<a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div>

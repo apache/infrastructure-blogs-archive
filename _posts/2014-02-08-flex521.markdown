@@ -1,0 +1,26 @@
+---
+layout: post
+title: Building Apache Flex apps for iOS7
+date: '2014-02-08T01:45:58+00:00'
+categories: flex
+---
+Apache Flex allows you to build apps that work across a lot of different platforms including Android and iOS.  Recently, Apple announced [1] that "Starting February 1, new apps and app updates submitted to the App Store must be built with Xcode 5 and iOS 7 SDK."  In response to this change, the Adobe AIR team fixed the AIR SDK [2] so as to be compatible with Apple's new guidelines.  
+
+Now, we have updated the Apache Flex SDK Installer to allow users to download this new version of AIR - build 4.0.0.1619 so that they can continue to build and deploy Apache Flex apps for iOS7.  
+
+Download the Apache Flex SDK Installer from here [3].  Be sure to select the AIR SDK version 4.0beta from the dropdown list:
+
+<a href="https://blogs.apache.org/flex/mediaresource/0d56ccb6-2b58-42d5-9c18-dd6d7465c246"><img src="https://blogs.apache.org/flex/mediaresource/0d56ccb6-2b58-42d5-9c18-dd6d7465c246" alt="apacheflex4.11_ios7.png"></img></a>
+
+The Apache Flex SDK Installer will download all the required dependencies.  Add this new SDK to your favorite IDE (Flash Builder, FDT, IntelliJ Idea, Flash Develop, etc.)
+
+iOS apps built with Apache Flex 4.11 and AIR 4.0.0.1619 is known to be working fine from the feedback we have received.  As always, if you have any questions or suggestions, please send an email to dev@flex.apache.org.
+
+Thanks,
+The Apache Flex team
+
+[1] <a href="https://developer.apple.com/ios7/">https://developer.apple.com/ios7/</a>
+[2] <a href="http://forums.adobe.com/message/6063661">http://forums.adobe.com/message/6063661</a>
+[2] <a href="http://flex.apache.org/installer.html">http://flex.apache.org/installer.html</a>
+
+[UPDATE] Adobe recently announced that they are changing the Adobe AIR version numbering.  So, make sure you select AIR version 13.0beta going forward.  

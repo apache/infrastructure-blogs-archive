@@ -1,0 +1,48 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Samza™ v0.13
+date: '2017-05-15T11:00:17+00:00'
+categories: foundation
+---
+<div><strong><em>Open Source Big Data distributed stream processing framework in production at Intuit, LinkedIn, Netflix, Optimizely, Redfin, and Uber, among other organizations.</em></strong></div> 
+  <div><strong><em><br /></em></strong></div> 
+  <div><strong><em>Forest Hill, MD —15 May 2017—</em></strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of Apache® Samza™&nbsp; v0.13, the latest version of the Open Source Big Data distributed stream processing framework.</div> 
+  <div><br /></div> 
+  <div>An Apache Top-Level Project (TLP) since January 2015, Samza is designed to provide support for fault-tolerant, large scale stream processing. Developers use Apache Samza to write applications that consume streams of data and to help organizations understand and respond to their data in real-time. Apache Samza offers a unified API to process streaming data from pub-sub messaging systems like Apache Kafka and batch data from Apache Hadoop.</div> 
+  <div><br /></div> 
+  <div>&quot;The latest 0.13 release takes Apache Samza's data processing capabilities to the next level with multiple new features,&quot; said Yi Pan, Vice President of Apache Samza. &quot;It also improves the simplicity and portability of real-time applications.&quot;</div> 
+  <div><br /></div> 
+  <div>Apache Samza powers several real-time data processing needs including realtime analytics on user data, message routing, combating fraud, anomaly detection, performance monitoring, real-time communication, and more. Apache Samza can process up to 1.1 million messages per second on a single machine. v0.13 highlights include:</div> 
+  <div> 
+    <ul> 
+      <li>A higher level API that developers can use this to express complex processing pipelines on streams more concisely;</li> 
+      <li>Support for running Samza applications as a lightweight embedded library without relying on YARN;</li> 
+      <li>Support for flexible deployment options;&nbsp;</li> 
+      <li>Support for rolling upgrade of running Samza applications;</li> 
+      <li>Improved monitoring and failure detection using a built-in heart beating mechanism;</li> 
+      <li>Enabling better integrations with other cluster-manager frameworks and environments; and</li> 
+      <li>Several bug-fixes that improve reliability, stability and robustness of data processing,</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Organizations such as Intuit, LinkedIn, Netflix, Optimizely, Redfin, TripAdvisor, and Uber rely on Apache Samza to power complex data architectures that process billions of events each day. A list of user organizations is available at <a href="https://cwiki.apache.org/confluence/display/SAMZA/Powered+By">https://cwiki.apache.org/confluence/display/SAMZA/Powered+By</a></div> 
+  <div><br /></div> 
+  <div>&quot;Apache Samza is a highly performant stream/data processing system that has been battle tested over the years of powering mission critical applications in a wide range of businesses,&quot; said Kartik Paramasivam, Head of Streams Infrastructure, and Director of Engineering at LinkedIn. &quot;With this 0.13 release, the power of Samza is no longer limited to YARN based topologies. It can now be used in any hosting environment. In addition, it now has a new higher level API that makes it significantly easier to create arbitrarily complex processing pipelines.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Samza has been powering near real-time use cases at Uber for the last year and a half,&quot; said Chinmay Soman, Staff Software Engineer at Uber. &quot;This ranges from analytical use cases such as understanding business metrics, feature extraction for machine learning as well as some critical applications such as Fraud detection, Surge pricing and Intelligent promotions. Samza has been proven to be robust in production and is currently processing about billions of messages per day, accounting for 100s of TB of data flowing through the system.&quot;&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;At Optimizely, we have built the world’s leading experimentation platform, which ingests billions of click-stream events a day from millions of visitors for analysis,&quot; said Vignesh Sukumar, Senior Engineering Manager at Optimizely. &quot;Apache Samza has been a great asset to Optimizely's Event ingestion pipeline allowing us to perform large scale, real time stream computing such as aggregations (e.g. session computations) and data enrichment on a multiple billion events/day scale. The programming model, durability and the close integration with Apache Kafka fit our needs perfectly.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;It has been a phenomenal experience engaging with this vibrant international community of users and contributors, and I look forward to our continued growth. It is a great time to be involved in the project and we welcome new contributors to the Samza community,&quot; added Pan.</div> 
+  <div><br /></div> 
+  <div>Catch Apache Samza in action at Apache: Big Data, 16-18 May 2017 in Miami, FL <a href="http://apachecon.com/">http://apachecon.com/</a> , where the community will be showcasing how Samza simplifies stream processing at scale.</div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight</strong></div> 
+  <div>Apache Samza software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Samza, visit <a href="http://samza.apache.org/">http://samza.apache.org/</a> , <a href="https://blogs.apache.org/samza/">https://blogs.apache.org/samza/</a> , and <a href="https://twitter.com/samzastream">https://twitter.com/samzastream</a></div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 680 individual Members and 6,000 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, ODPi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, Target, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Hadoop&quot;, &quot;Apache Hadoop&quot;, &quot;Kafka&quot;, &quot;Apache Kafka&quot;, &quot;Samza&quot;, &quot;Apache Samza&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

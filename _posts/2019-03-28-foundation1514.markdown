@@ -1,0 +1,15 @@
+---
+layout: post
+title: Announcing New ASF Board of Directors
+date: '2019-03-28T17:58:52+00:00'
+categories: foundation
+---
+<p>At The Apache Software Foundation (ASF) Members' Meeting held this week, the following individuals were elected to the ASF Board of Directors:</p> 
+  <p>&nbsp;- Rich Bowen<br />&nbsp;- Shane Curcuru<br />&nbsp;- Jim Jagielski<br />&nbsp;- Myrle Krantz<br />&nbsp;- Daniel Ruggeri<br />&nbsp;- Craig Russell<br />&nbsp;- Roman Shaposhnik<br />&nbsp;- Phil Steitz<br />&nbsp;- Joan Touzet</p> 
+  <div>The ASF thanks Bertrand Delacretaz, Isabel Drost-Fromm, Ted Dunning, Brett Porter, and Mark Thomas, who chose not to stand for re-election this year. The Foundation thanks them for their service, and welcomes our new and returning directors.</div> 
+  <div><br /></div> 
+  <div>An overview of the ASF's governance, along with the complete list of ASF Board of Directors, Executive Officers, and Project/Committee Vice Presidents, can be found at <a href="http://apache.org/foundation/">http://apache.org/foundation/</a></div> 
+  <div><br /></div> 
+  <div>For more information on the Foundation's operations and structure, see <a href="http://apache.org/foundation/how-it-works.html#structure">http://apache.org/foundation/how-it-works.html#structure</a></div> 
+  <div><br /></div> 
+  <div># # #</div>

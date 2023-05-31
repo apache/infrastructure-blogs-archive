@@ -1,0 +1,53 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 6 May 2016'
+date: '2016-05-06T13:55:28+00:00'
+categories: foundation
+---
+<p>As we're making our final preparations for Vancouver, here's what the Apache community has been working on over the past week:</p> 
+  <div>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 18 May 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a><br /></div> 
+  <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield smashing &quot;three nines&quot; performance at 99.95% uptime <a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Join us at Apache:Big Data and ApacheCon/YVR&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a> <br />&nbsp;- Event highlights on FeatherCast&nbsp;<a href="http://feathercast.apache.org/">http://feathercast.apache.org/</a><br />&nbsp;- Developers share why they attend <a href="https://www.linux.com/blog/5-developers-explain-why-they-attend-apachecon">https://www.linux.com/blog/5-developers-explain-why-they-attend-apachecon</a></p> 
+    <p>Apache Commons™ NET –library that implements the client side of many basic Internet protocols.<br />&nbsp;- Apache Commons NET 3.5 released&nbsp;<a href="http://commons.apache.org/proper/commons-net/download_net.cgi">http://commons.apache.org/proper/commons-net/download_net.cgi</a></p> 
+    <p>Apache Commons™ Validator –building blocks for both client side validation and server side data validation.<br />&nbsp;- Apache Commons Validator 1.5.1 released&nbsp;<a href="http://commons.apache.org/proper/commons-validator/download_validator.cgi">http://commons.apache.org/proper/commons-validator/download_validator.cgi</a></p> 
+    <p>Apache Lucene™ –a high-performance, full-featured text search engine library written entirely in Java.<br />&nbsp;- Apache Lucene 5.5.1 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/lucene/java/5.5.1">http://www.apache.org/dyn/closer.lua/lucene/java/5.5.1</a></p> 
+    <p>Apache Mynewt (Incubating)&nbsp;– a community-driven module OS for constrained, embedded applications.<br />&nbsp;- Apache Mynewt 0.8.0-incubating released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/incubator/mynewt/apache-mynewt-0.8.0-incubating">http://www.apache.org/dyn/closer.lua/incubator/mynewt/apache-mynewt-0.8.0-incubating</a></p> 
+    <p>Apache Solr™ –the popular, blazing fast, open source NoSQL search platform from the Apache Lucene project.<br />&nbsp;- Apache Solr 5.5.1 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/lucene/solr/5.5.1">http://www.apache.org/dyn/closer.lua/lucene/solr/5.5.1</a></p> 
+    <p><a href="http://commons.apache.org/proper/commons-validator/download_validator.cgi"></a><strong><br />Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that Global Payments technology company Blue Snap uses Apache Wicket for its eCommerce platform?&nbsp;<a href="http://wicket.apache.org/">http://wicket.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that technology provider PTC's Vuforia augmented reality platform uses&nbsp;Apache Syncope for its identity management?&nbsp;<a href="http://syncope.apache.org/">http://syncope.apache.org/</a></p> 
+    <p><a href="http://wicket.apache.org/"></a>&nbsp;- Did you know that Apache project anniversaries in May include: Forrest and Geronimo (12 years); Tomcat (11 years); OpenJPA, POI, TomEE, and Turbine (9 years); Tuscany (8 years); Libcloud (5 years); Giraph, Hama, and ManifoldCF (4 years); Phoenix and Stratos (2 years); and Whimsy (1 year)?&nbsp;<a href="https://projects.apache.org/">https://projects.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a><strong></strong></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Apache:Big Data North America will take place 9-12 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apache-big-data-north-america">http://events.linuxfoundation.org/events/apache-big-data-north-america</a><a href="http://apache.org/events/meetups.html"></a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon:Core North America will take place 11-13 May 2016 in Vancouver&nbsp;<a href="http://events.linuxfoundation.org/events/apachecon-north-america/">http://events.linuxfoundation.org/events/apachecon-north-america/</a></p> 
+    <p>&nbsp;- The Stockholm Hadoop User Group will feature Apache Impala on 11 May <a href="http://www.meetup.com/stockholm-hug/events/228082101/">http://www.meetup.com/stockholm-hug/events/228082101/</a></p> 
+    <p>&nbsp;- Big Data Frankfurt v 2.0 will take place on 12 May 2016 <a href="http://www.meetup.com/Big-Data-Frankfurt/events/227415048/">http://www.meetup.com/Big-Data-Frankfurt/events/227415048/</a></p> 
+    <p>&nbsp;- The In-Memory Computing Summit will take place 23-24 May 2016 in San Franciscso <a href="http://imcsummit.org/">http://imcsummit.org</a></p> 
+    <p>&nbsp;- The next HBaseCon will take place 24 May 2016 in San Francisco <a href="http://hbasecon.com/">http://hbasecon.com</a></p> 
+    <p>&nbsp;- The SF Bay Area Apache Phoenix MeetUp will hold the first-ever&nbsp;PhoenixCon on 25 May 2016 in San Francisco&nbsp;<a href="http://www.meetup.com/SF-Bay-Area-Apache-Phoenix-Meetup/">http://www.meetup.com/SF-Bay-Area-Apache-Phoenix-Meetup/</a></p> 
+    <p>&nbsp;- MesosCon will be held 1-2 June 2016 in Denver&nbsp;<a href="http://events.linuxfoundation.org/events/mesoscon/">http://events.linuxfoundation.org/events/mesoscon/</a></p> 
+    <p>&nbsp;- The next CloudStack Collaboration Conference will take place 1-3 June 2016 in Montreal <a href="https://www.eventbrite.ca/e/apache-cloudstacktm-conference-montreal-2016-tickets-23815552960">https://www.eventbrite.ca/e/apache-cloudstacktm-conference-montreal-2016-tickets-23815552960</a></p> 
+    <p>&nbsp;- Berlin Buzzwords is back 5-7 June 2016&nbsp;<a href="http://berlinbuzzwords.de/">http://berlinbuzzwords.de/</a></p> 
+    <p>&nbsp;- CFP is open for the next Cassandra Summit 7-9 September 2016 in San Jose <a href="https://cfp.cassandrasummit.org/">https://cfp.cassandrasummit.org/</a></p> 
+    <p>&nbsp;- CloudStack Collaboration Conference Brasil will take place 29-30 September 2016 in Sao Paolo&nbsp;<a href="http://cloudstack.usp.br/en/index.php">http://cloudstack.usp.br/en/index.php</a></p> 
+    <div> 
+      <p>&nbsp;- The Apache Software Foundation Operations Summary: Third Quarter, Fiscal Year 2016 (November 2015 - January 2016) is availbable at <a href="https://s.apache.org/9zLj">https://s.apache.org/9zLj</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a>and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

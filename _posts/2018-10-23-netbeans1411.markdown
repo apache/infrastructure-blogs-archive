@@ -1,0 +1,11 @@
+---
+layout: post
+title: Duke Choice Award 2018 for Apache NetBeans
+date: '2018-10-23T00:00:00+00:00'
+categories: netbeans
+---
+During Oracle Open World 2018, Apache NetBeans was awarded a Duke's Choice Award, recognizing its innovation and the hard and dedicated work involved in moving NetBeans from Oracle to Apache.
+
+<p>A crowd of Apache NetBeans community members received the award on the stage from Georges Saab, VP of the Java Platform at Oracle.</p>
+
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/1e8b0082-9bde-4be6-bcac-9aeccf63c6ae"></img>

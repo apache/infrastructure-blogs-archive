@@ -1,0 +1,15 @@
+---
+layout: post
+title: Bigtop events at ApacheCon 2014, Denver, CO
+date: '2014-03-26T21:47:31+00:00'
+categories: bigtop
+---
+<p>Bigtop community will hold two events at the ApacheCon in Denver this year:</p> 
+  <ol> 
+    <li>April 7th, 6 pm: a meetup with talks about the technology, sharing the experience and socializing</li> 
+    <li>April 8th, 6 pm: a hackathon where we can focus on the technical issues and help new people to come up to speed with Bigtop framework.</li> 
+  </ol> 
+  <p>Both events will take place in Teller Room, @ApacheCon, Westin Hotel, Denver<br /></p> 
+  <p>We are going to publish the agenda and list of speakers on our <a title="Bigtop ApacheCon wiki" href="https://cwiki.apache.org/confluence/display/BIGTOP/ApacheCon%2714">wiki page </a>in the next a couple of days.</p> 
+  <p>If you want to participate please RSVP via a twitter message with #asfbigtop or an email to <a href="http://bigtop.apache.org">user@bigtop.apache.org.</a> The seating is limited, so hurry up!</p> 
+  <p><br /></p>

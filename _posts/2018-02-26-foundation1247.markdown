@@ -1,0 +1,120 @@
+---
+layout: post
+title: 'Success at Apache: Contributing to Open Source even with a high-pressure job'
+date: '2018-02-26T11:02:27+00:00'
+categories: foundation
+---
+<p><strong><em>by Anthony Shaw</em></strong> </p> 
+  <div> 
+    <p>I believe in the mission of the ASF for many reasons, but the first is the reason why I got into open-source software- free and open access to knowledge.</p> 
+  </div> 
+  <div>Back when I was age 12 (1998), I started to learn to program in dBase 4. dBase 4 and the compiler Clipper were not cheap, especially for a $5-a-week paper-round. The box with the software was unwanted by a local company and it came with the manuals. We didn't have the internet at home yet so I was left to go by the manual, and what I could find from second-hand stores and office cleanout sales. For the next decade, I learnt to case based on what I could find, borrow and scavange until in 2002 when I got a copy of Linux and assembled a couple of machines from unwanted parts from the village computer store.</div> 
+  <div><br /></div> 
+  <div>This is where I discovered free and open-source software and really started to build on my coding skills.</div> 
+  <div><br /></div> 
+  <div>My goals were to learn and to share what I'd learnt that others could get to where they needed to go faster. It also helped that software skills were well sought-after in Europe so it set off me in a career in IT.</div> 
+  <div><br /></div> 
+  <div>20 years after I learnt to code, I've moved out of software-engineering and into Learning and Development at Dimension Data for a 29,000 person technology company that operates in 49 countries across the world. My current roles involves about 3-months a year of travel (15 countries typically), managing a department of over 30 people spread across 4 countries and 4 timezones and delivering on large and complex initiatives with high-degrees of change and short deadlines.</div> 
+  <div><br /></div> 
+  <div>In 2016 I made a choice after getting promoted into my current role that I would continue to contribute to the open-source projects I'd worked on for years. But I set myself 3 rules;</div> 
+  <div><br /></div> 
+  <div>1. I would not take away from time with my family</div> 
+  <div>2. I would not interfere with my work commitments</div> 
+  <div>3. I would look after my health</div> 
+  <div><br /></div> 
+  <div><strong>My open-source contributions</strong></div> 
+  <div> 
+    <p>For the past 4 years I've made around 1,000-2,000 contributions annually. These have consisted of bug fixes, submissions, and to around 50 projects.</p> 
+    <p>The largest contributions I've made have been to Apache Libcloud, a multi-cloud abstraction library written in Python. Initially this was driven by a work commitment to contribute an integration with the cloud API we'd designed, but I soon realised the power of the library. Going back to my original goal of free and open access to knowledge, I'd seen an alarming trend in the computing world. Proprietary APIs were driving what is known in the industry as &quot;stickiness&quot; or to be frank, lock-in.</p> 
+  </div> 
+  <div> 
+    <p>Cloud lock-in means that anyone without access to a reliable network, money or willing to sign up to these contracts is being pushed out of advances in technology. I know developers that are students, in remote areas such as rural Australia, Asia and Africa, or those who simply have little money.</p> 
+  </div> 
+  <div>Apache Libcloud's design means that you can design applications which can be deployed to OSS platforms like Apache CloudStack and OpenStack.</div> 
+  <div><br /></div> 
+  <div>After finishing the work driver around 100 hours developing a container abstraction layer for Apache Libcloud that meant that developers could write automation for OSS platforms like Kubernetes using the same API as you would with a public cloud provider.</div> 
+  <div><br /></div> 
+  <div>This was all whilst managing family time, work commitment and my health.</div> 
+  <div><br /></div> 
+  <div>These are my 3 tips for maintaining contributions with a high-pressure job:</div> 
+  <div><br /></div> 
+  <div><strong>1. Pick a project that you care about</strong></div> 
+  <div><br /></div> 
+  <div>This is the most important, something that just sparks your curiosity is good fun, but long term interest often dwindles. I've been victim of &quot;ooh shiny thing&quot; many times in the past, but as my career has taken off, I've had to develop the discipline to stop myself from writing my own scripting language, or building an automated sprinkler system from scratch. I stop and remind myself that I might have the time this second, but what about next week and next month? Stop and prioritise.</div> 
+  <div><br /></div> 
+  <div>Prioritise projects that mean something to you.</div> 
+  <div><br /></div> 
+  <div>The 2 OSS projects I commit the most to are Apache Libcloud and SaltStack. I believe in Apache Libcloud's mission of giving open-access to cloud platforms. My SaltStack contributions have been focused around cloud abstraction, networking API abstraction and other fixes and utilities that make it easier for developers and end-users.</div> 
+  <div><br /></div> 
+  <div>The difference between picking something shiny and something you believe in is that long-term you commit more and you find it easier to jump in and help when you can. But how do you find the time?</div> 
+  <div><br /></div> 
+  <div><strong>2. Choosing your tasks wisely and making time</strong></div> 
+  <div><br /></div> 
+  <div>I get asked this question all the time, &quot;how do you find the time&quot;. When I try and convince people to contribute to OSS the response is always about time.</div> 
+  <div><br /></div> 
+  <div><strong><em>Get rid of the things that don't add value</em></strong></div> 
+  <div><br /></div> 
+  <div>If you can afford to, hire help to give you back time in your week. Not only does open-source help with your skills and knowledge, but it increases your value to a potential employer. Hiring someone to blow the leaves, or help with the chores once a week doesn't need to cost a lot, but if you work out how much value you can get back from that time it often makes sense.</div> 
+  <div><br /></div> 
+  <div>Another thing I've been strict about is binge-watching TV series and gaming. Playing 100-hours of the latest game might be fun, but I find developing more rewarding in the medium-to-long term. Find ways to unwind that don't consume so much time, like meditation, exercise, or reading.</div> 
+  <div><br /></div> 
+  <div>But, if you do need to put your feet up and watch some TV for a few hours, don't feel guilty about it.&nbsp;</div> 
+  <div><br /></div> 
+  <div><strong><em>Work smart, not hard</em></strong></div> 
+  <div><br /></div> 
+  <div>When I do sit down to contribute something, it'll have been carefully planned and thought through what I'm going to do, what I'm going to test and how I'm going to structure it. I try and complete tasks quickly, with foresight and a goal. Once I've completed this 1 module, with tests, I'll submit my contribution. Don't try and refactor the whole project over a weekend. Keep it simple.</div> 
+  <div><br /></div> 
+  <div>But we all know sometimes the best plans go out the window. If you find yourself going down one of those rabbit holes, where you can't get something to compile or you can't debug one of those zombie bugs we love so much as developers.</div> 
+  <div> 
+    <p><strong><u>Stop yourself</u>.</strong></p> 
+    <p><strong></strong>You can easily sit until 3am banging your head against the wall trying to figure it out. This was my advice when I used to manage development teams. If you get stuck, take a break, ask for help and if that still doesn't work, move onto something else.&nbsp;</p> 
+  </div> 
+  <div>Sometimes I pause working on a task if I can't figure it out. Pause for an hour, a week, or even a whole year. When you have one of those &quot;aha&quot; moments, you go back in and finish the job.</div> 
+  <div><br /></div> 
+  <div>It saves time, it delivers better software and it's a good skill to have as a developer.</div> 
+  <div><br /></div> 
+  <div><strong><em>Find time</em></strong></div> 
+  <div><br /></div> 
+  <div>A contribution comes down to 3 things:</div> 
+  <div><br /></div> 
+  <div>1. An idea</div> 
+  <div>2. An understanding</div> 
+  <div>3. A &quot;change&quot;, like a fix, feature, test, code-review, documentation etc.</div> 
+  <div><br /></div> 
+  <div>The ideas come to me through reading, listening to users or looking at bug submissions. I do this as and when I have a spare minute. This is normally on my lunch break, when I'm waiting for someone or something.&nbsp;</div> 
+  <div><br /></div> 
+  <div>The time for understanding I get by listening to podcasts and talking to people at conferences. I get a few hours a week in the car and I spend time doing some chores. During that time I always have headphones on to listen the newest Python podcast or OSS update.</div> 
+  <div><br /></div> 
+  <div>The time to sit down and write, code, or test comes for me on the plane (where I'm writing this blog post!). Last year I did enough miles in the air to fly around the world 8 times, most of that time was spent coding, relaxing or sleeping. Aside from that, time spent in airport lounges, on the train or waiting for people I'll whip out my laptop. Any plane that has Wi-Fi I can push changes, else the minute we land I'll have a laptop open and running git push.</div> 
+  <div><br /></div> 
+  <div>Weekend-time is off limits unless I'm travelling or I'm alone. That's rule 1 -- do not take away from time with the family.</div> 
+  <div><br /></div> 
+  <div><strong>3. Managing your workload and avoiding burnout</strong></div> 
+  <div><br /></div> 
+  <div>There are 2 components to this, managing your work commitment and managing your contributions. You need to do both to succeed.&nbsp;</div> 
+  <div><br /></div> 
+  <div><strong><u>It's ok to stop and take a break</u></strong>. There is always a pull-request to merge, a bug to inspect, and an email from an end-user. If you need to take a break for a while, talk to the team, ask for help and be frank. We're all in the same boat, contribution is optional.&nbsp;</div> 
+  <div><br /></div> 
+  <div>So many times I see people contribution feeling like they have a complete obligation to test and fix bugs at 2am&nbsp;</div> 
+  <div>and then go to work at 8am. This is normally because they care about the project, they care about quality and they care about their reputation but sometimes you need to step back.</div> 
+  <div><br /></div> 
+  <div>A strong project community will step up and help. If you know that work is going to be tough for the next few months, tell the team and set yourself a limit. Wind back for a bit until things calm down.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Managing work commitments is tough, because there are often financial consequences (or at least a perception of them).</div> 
+  <div><br /></div> 
+  <div>After 7 hours, <strong>you're not really adding value</strong>. I used to have a lounge-chair next to my desk and now I have a hammock as I work from home. After a few hours of solid concentration I'll happily go and sit down and do nothing for an hour. Your brain needs a break, sure you'll get the odd &quot;working hard&quot; jab from a passer by but I'm working smarter not harder. Once I'm refreshed I'll finish the next task about 30-40% quicker, to a better level of quality and insight. On the occasion I've done 12-14 hour work days, my brain is shutting down to conserve energy and your critical thinking is the first thing to switch off. Followed by logical thinking, this is where you make mistakes and deliver work that is less than a quality you'd normally expect.</div> 
+  <div><br /></div> 
+  <div>I live close to the beach so my time out is going for a swim in the ocean or spending a bit of time with my family. As a manager I also see a responsibility to make it clear that it's encouraged to step back and recharge. Just in our chat-channel to say that I'll be offline for a couple of hours as I'm going to the beach mid-afternoon. I don't feel guilty about it and I hope they do the same.</div> 
+  <div><br /></div> 
+  <div><u><strong>Learn how to say no and don't feel guilty about it</strong></u>. When I coach people on this I ask, &quot;who asked you to do this? Was no an option? What value is there in delivering this? What is consequence of not doing it? Who else could do it?&quot;</div> 
+  <div><br /></div> 
+  <div>Everyone wants to be helpful and indispensible, but your reliability is just as important to your reputation and what you deliver.&nbsp;</div> 
+  <div><br /></div> 
+  <div><strong>Conclusion</strong></div> 
+  <div> 
+    <p>Look after your health, be smart with your time and contribute for a cause.<br /><br /></p> 
+    <p><em>Anthony Shaw is the Group Director of Innovation and Talent Development at Dimension Data, an NTT company. Anthony is an open-source advocate, member of the Apache Software Foundation and Python Software Foundation and active contributor to over 20 open-source projects including Apache Libcloud and SaltStack.&nbsp;At Dimension Data, Anthony is driving digital transformation for Dimension Data’s global clients across 50 countries and 30,000 employees. Key initiatives are software skills, automation, DevOps and Cloud. Anthony is based in Sydney, Australia and blogs about skills, software and automation to 170,000 readers annually.</em></p> 
+    <p>= = =</p> 
+    <p>&quot;Success at Apache&quot; is a monthly blog series that focuses on the processes behind why the ASF &quot;just works&quot;. 1) Project Independence&nbsp;<a href="https://s.apache.org/CE0V">https://s.apache.org/CE0V</a> 2) All Carrot and No Stick <a href="https://s.apache.org/ykoG">https://s.apache.org/ykoG</a> 3) Asynchronous Decision Making <a href="https://s.apache.org/PMvk">https://s.apache.org/PMvk</a> 4) Rule of the Makers <a href="https://s.apache.org/yFgQ">https://s.apache.org/yFgQ</a> 5) JFDI --the unconditional love of contributors <a href="https://s.apache.org/4pjM">https://s.apache.org/4pjM</a> 6) Meritocracy and Me <a href="https://s.apache.org/tQQh">https://s.apache.org/tQQh</a> 7)&nbsp;Learning to Build a Stronger Community <a href="https://s.apache.org/x9Be">https://s.apache.org/x9Be</a>&nbsp;8) Meritocracy.&nbsp;<a href="https://s.apache.org/DiEo">https://s.apache.org/DiEo</a>&nbsp;9) Lowering Barriers to Open Innovation <a href="https://s.apache.org/dAlg">https://s.apache.org/dAlg</a> 10) Scratch your own itch.&nbsp;<a href="https://s.apache.org/Apah">https://s.apache.org/Apah</a>&nbsp;11) What a Long Strange (and Great) Trip It's Been&nbsp;<a href="https://s.apache.org/gVuN">https://s.apache.org/gVuN</a>&nbsp;12) A Newbie's Narrative&nbsp;<a href="https://s.apache.org/A72H">https://s.apache.org/A72H</a>&nbsp;13) Contributing to Open Source even with a high-pressure job&nbsp;<a href="https://s.apache.org/lM9O">https://s.apache.org/lM9O</a></p> 
+    <p># # #&nbsp;</p> 
+  </div>

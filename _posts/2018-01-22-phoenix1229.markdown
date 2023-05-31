@@ -1,0 +1,15 @@
+---
+layout: post
+title: Announcing CDH compatible Phoenix 4.13.2 released
+date: '2018-01-22T21:00:04+00:00'
+categories: phoenix
+---
+<p>The <a href="http://phoenix.apache.org" target="_blank" title="Apache Phoenix">Apache Phoenix</a> team is pleased to announce the immediate <a href="http://phoenix.apache.org/download.html" target="_blank" title="download">availability of a CDH compatible 4.13.2 release</a>. Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store and providing integration with other projects in the Apache ecosystem such as Spark, Hive, Pig, Flume, and MapReduce. The 4.x releases are compatible with HBase 0.98, 1.1, 1.2 and 1.3.</p> 
+  <p>Highlights of the release include:</p> 
+  <p> </p> 
+  <ul> 
+    <li>Compatibility with CDH 5.11.2 release</li> 
+    <li>New <font face="courier new, courier, monospace">parcels</font> directory can be used directly as parcel repository from Cloudera Manager</li> 
+    <li>Numerous <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342253&amp;styleName=Text&amp;projectId=12315120" target="_blank" title="bug fixes">bug fixes</a> above and beyond the 4.13.0 release</li> 
+  </ul> 
+  <p>Source and binary downloads are available&nbsp;<a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>.</p>

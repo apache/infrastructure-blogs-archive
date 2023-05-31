@@ -1,0 +1,60 @@
+---
+layout: post
+title: Using Scala Code Coverage Tool (SCCT) in ESME
+date: '2011-02-03T08:31:20+00:00'
+categories: esme
+---
+<div> 
+    <h3>Blog Author:&nbsp;Vladimir Ivanov</h3> 
+    <h3>Introduction</h3> 
+    <p><br />Scala Code Coverage Tool (SCCT)  is a code coverage tool written in Scala and configured as SBT plugin (while integration with Maven is also possible). As for any large project, test are vital for ESME as they gurantee that application works as expected. SCCT gathers data (after source code instrumentation phase) while tests are being run and generates user-friendly report and statistics related to test coverage of source code.</p> 
+    <p><br /><span style="font-weight: bold; ">Installation and configuration</span><br /><br /><span style="background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Introducing SCCT support to ESME project is a matter of adding SBT plugin and consists of two steps: mixin project definition file with new trait as well as adding new repo and dependency to plugin definition file. Scala 2.8.1-compatible version of SCCT plugin is used in this article, but version for 2.7 is also available.</span><br /></p> 
+    <h3>Project File</h3> 
+    <p><br />Project definition class for web project EsmeProject should mixin with ScctProject trait:<br /><br /><font face="'courier new', courier, monospace"><span style="border-collapse: collapse; ">import reaktor.scct.ScctProject</span></font></p>
+    <p><font face="'courier new', courier, monospace"><span style="font-family: arial, sans-serif; border-collapse: collapse; "></span>class EsmeProject(info: ProjectInfo) extends DefaultWebProject(info) with ScctProject </font></p>
+    <p> </p>
+    <p><span style="font-family: arial, verdana, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 14px; font-weight: bold; ">Plugins</span></p><br /><span class="Apple-tab-span"> </span>SCCT related configuration in plugin definition file is shown below:<br /><br /> 
+  </div> 
+  <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+    <div> 
+      <pre>class Plugins(info : ProjectInfo) extends PluginDefinition(info) {</pre> 
+    </div> 
+  </blockquote> 
+  <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+    <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+      <div><span class="Apple-tab-span"> 
+          <pre>...</pre></span></div> 
+    </blockquote> 
+    <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+      <div><span class="Apple-tab-span"> 
+          <pre>val scctRepo = "scct-repo" at "http://mtkopone.github.com/scct/maven-repo/"</pre></span></div> 
+    </blockquote> 
+    <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+      <div><span class="Apple-tab-span"> 
+          <pre>lazy val scctPlugin = "reaktor" % "sbt-scct-for-2.8" % "0.1-SNAPSHOT"</pre></span></div> 
+    </blockquote> 
+  </blockquote> 
+  <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+    <div><span class="Apple-tab-span"> 
+        <pre>}
+<p>&nbsp;</p><p>&nbsp;</p></pre></span></div> 
+  </blockquote> 
+  <div><span class="Apple-tab-span"> 
+      <h3>Running</h3></span><br />To collect test coverage data with SBT its neccessary to perform following command in SBT console:<br /><br /><span class="Apple-tab-span"> </span></div> 
+  <blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "> 
+    <div><font face="'courier new', courier, monospace">sbt&gt; test-coverage</font></div> 
+  </blockquote> 
+  <div> 
+    <p> </p> 
+    <p>Report files will be produced in ESME_ROOT/server/target/scala_2.8.1/coverage-report/ directory after all tests have been run. Open index.html file in your browser to see the results*. </p> 
+    <p>Here is a video explaining the test results. </p> 
+    <iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/u9KJQNewccY" frameborder="0"></iframe> 
+    <h3>Notes<span class="Apple-tab-span"> </span></h3> 
+    <ul> 
+      <ul> 
+        <li>Chrome browser is currently not supported. </li> 
+        <li>Also note that SCCT tool is still in beta.</li> 
+      </ul> 
+    </ul> 
+    <h3>Links</h3><br />Mikko Koponen is the author of SCCT tool. Here is the project page on <a href="https://github.com/mtkopone/scct" target="_blank">github</a>. Here is the <a href="http://mtkopone.github.com/scct/" target="_blank">SCCT home page</a>. <br /><span style="white-space: pre-wrap; "><br /></span> 
+  </div>

@@ -1,0 +1,26 @@
+---
+layout: post
+title: 'Apache Usergrid: We have graduated!'
+date: '2015-08-28T15:43:15+00:00'
+categories: usergrid
+---
+<p>
+<img src="https://blogs.apache.org/usergrid/mediaresource/9d935a86-1f6d-429e-8a5f-49e7eb8f3b5e"/>
+</p>
+
+<p>
+We are happy and proud to announce that <b>Apache Usergrid has graduated from the Apache Incubator</b> and we are now an <a href="https://github.com/apache/usergrid/blob/master/tlp-resolution.txt">official “top-level” project</a> of the Apache Software Foundation.
+</p>
+
+<p>
+Usergrid has been an open source project since 2011 and has been used in production for many customers over the years since then, but now, we’ve gone through the Apache Incubator, learned the Apache Way, grown our community, made three Incubator approved 
+<a href="http://usergrid.apache.org/releases/">releases</a> and made huge progress on development of a new persistence & indexing engine for the yet-to-be released Usergrid 2 — more about that later.  
+</p>
+
+<p>
+We're ready to stand on our own an ASF project and  and like every Apache project, we welcome all contributors. We’ve got lots of work to do. If you’d like to help out, please join us on our 
+<a href="http://usergrid.apache.org/community">mailing lists</a> and in our 
+<a href="https://www.hipchat.com/gDDIQrdQa">HipChat room</a>. 
+</p>
+
+<p>Usergrid, over and out...</p>

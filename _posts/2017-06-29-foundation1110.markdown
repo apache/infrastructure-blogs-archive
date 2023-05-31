@@ -1,0 +1,62 @@
+---
+layout: post
+title: The Apache® Software Foundation Announces Annual Report for 2017 Fiscal Year
+date: '2017-06-29T09:00:10+00:00'
+categories: foundation
+---
+<div><strong><em>Apache's community-led projects bring billions in value to users, developers, and critical applications; organization poised to foster continued growth</em></strong></div> 
+  <div><br /></div> 
+  <div><strong>Forest Hill, MD —29 June 2017—</strong> The Apache® Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of the annual report for its 2017 fiscal year, which ended 30 April 2017.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Now in its 18th year, the ASF's operational highlights include:</div> 
+  <div> 
+    <ol> 
+      <li>35M page views per week across <a href="http://apache.org/">apache.org</a>;</li> 
+      <li>Web requests received from every Internet-connected country on the planet;</li> 
+      <li>ASF's 100M functional lines of code (out of 150M+ total) have been developed over 65,000 person years, valued at US$7B;</li> 
+      <li>65+M lines of code committed over the past year;</li> 
+      <li>20% of all Apache lines of code are comments (nearly 3x the entire Linux codebase);</li> 
+      <li>3,300 Apache code Committers made 214,398 commits;</li> 
+      <li>More than half of all contributions made by individuals new to Apache;</li> 
+      <li>Nearly 300 new code contributors and 300-400 new people filing issues each month;</li> 
+      <li>25,154 authors sent 2,105,992 emails on 834,045 topics over the past year;</li> 
+      <li>Approximately 9M source code downloads served from Apache mirrors on a yearly basis (excluding convenience binaries);</li> 
+      <li>64 new individual ASF Members elected, bringing the total to 684;</li> 
+      <li>Exceeded 6,000 code Committers;</li> 
+      <li>Remains all-volunteer for all code/development-related activities;</li> 
+      <li>182 Top-Level communities overseeing 300+ Apache projects and sub-projects;</li> 
+      <li>Dozens of Apache projects continue to dominate the enterprise Big Data ecosystem</li> 
+      <li>Record 64 &quot;podlings&quot; undergoing incubation during FY2017 (59 at end of FY2017);</li> 
+      <li>New innovations include IoT, Microfinance, Machine Learning, and Cryptography;</li> 
+      <li>22nd anniversary of the Apache HTTP Server (18 years under the ASF umbrella);</li> 
+      <li>Apache OpenOfficeTM exceeded 200M downloads (value to users $25M+ per day);</li> 
+      <li>Apache GroovyTM downloaded 12M times during the first 4 months of 2017;</li> 
+      <li>976 Individual Contributor License Agreements (CLAs) signed;</li> 
+      <li>42 Corporate Contributor License Agreements signed (totalling 384);</li> 
+      <li>30 Software Grant Agreements signed;</li> 
+      <li>Apache License remains one of the most popular Open Source licenses;</li> 
+      <li>Apache Infrastructure services running 24x7x365 at near 100% uptime on an annual budget of less than US$5,000 per project;</li> 
+      <li>New &quot;Gitbox&quot; service launched to allow communities to host their read/write Git repositories on GitHub;</li> 
+      <li>Continued reduction in Infrastructure costs by moving select services to the Cloud;</li> 
+      <li>Improved buildbot and Jenkins build farms for continuous integration, testing, and automated Website generation;</li> 
+      <li>Increased trademarks, brand management, and legal support for dozens of projects;</li> 
+      <li>Launched new Apache Community survey, newsletter, and social media resources;</li> 
+      <li>ASF serves as a mentoring organization in Google Summer of Code for 12th consecutive year;</li> 
+      <li>Participated in hundreds of events globally, including ApacheCon North America and Europe;</li> 
+      <li>Increased corporate backing, with 51 ASF Sponsors and 11 Infrastructure partners;</li> 
+      <li>Improved individual giving program and outreach tactics;</li> 
+      <li>Completed first-time budgetary planning with five-year projections;</li> 
+      <li>FY17 ended with a 15.3-month cash reserve (more than double the industry average);</li> 
+      <li>ASF operational areas (Brand Management, Fundraising, Marketing and Publicity, Infrastructure, Conferences, and Travel Assistance) now supported by professional staff overseen by appointed ASF Members;</li> 
+      <li>FY17 tapped as an investment year, with resources committed to core Infrastructure and Marketing &amp; Publicity services.</li> 
+    </ol> 
+  </div> 
+  <div><br /></div> 
+  <div>The full report is available online at <a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 680 individual Members and 6,000 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, ODPi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, Target, WANdisco, and Yahoo. For more information, visit <a href="https://www.apache.org/">https://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div># # #</div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Apache Groovy&quot;, &quot;Groovy&quot;, &quot;Apache HTTP Server&quot;, &quot;Apache OpenOffice&quot;, &quot;OpenOffice&quot;, and &quot;ApacheCon&quot;, are registered trademarks or trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</div>

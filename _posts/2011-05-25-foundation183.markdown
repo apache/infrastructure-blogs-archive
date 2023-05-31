@@ -1,0 +1,30 @@
+---
+layout: post
+title: 'The Apache Software Foundation Announces Apache Libcloud as a Top-Level Project '
+date: '2011-05-25T12:00:17+00:00'
+categories: foundation
+---
+<div><b><i>Vendor-neutral, Standard Client Library Interfaces with Leading Cloud Computing Providers Including Amazon EC2, Eucalyptus, IBM Cloud, and Rackspace Cloud</i></b></div> 
+  <div> 
+    <p><b>25 May 2011 —FOREST HILL, MD—</b>The Apache Software Foundation (ASF) is pleased to announce that Apache Libcloud has graduated from the Apache Incubator as a Top-Level Project (TLP). </p> 
+  </div> 
+  <div>Apache Libcloud is an Open Source Python library that provides a vendor-neutral interface to cloud provider APIs. The current version of Apache Libcloud includes backend drivers for more than twenty leading providers including Amazon EC2, Rackspace Cloud, GoGrid and Linode. Graduation signifies that both the Apache Libcloud product and community have been well-governed under the Foundation’s meritocratic, consensus-driven process and principles.</div> 
+  <div><br />&quot;Graduation is a terrific milestone for Libcloud and will help make it a top choice for anyone looking at cloud management solutions,&quot; said Anthony Elder, ASF Vice President and Libcloud Incubation mentor.<br /><br /></div> 
+  <div><b>Diversification Without Vendor Lock-in</b></div> 
+  <div>Libcloud was accepted to the Apache Incubator in November 2009 with a primary focus on cloud computing functionality, and since that time has developed a strong community and preliminary support for more cloud services such as cloud storage and load-balancers as a service. With one simple API, operations teams can write once and deploy anywhere, avoiding vendor lock-in.</div> 
+  <div><br />Original Libcloud developer and Cloudkick co-founder/CEO Alex Polvi said, &quot;I'm happy to see that Libcloud has grown into such a successful community-based Open Source project.&quot;</div> 
+  <div><br />&quot;Our goal going forward is to support all the major cloud services offered by different providers,&quot; explained Apache Libcloud Vice President Tomaz Muraus. &quot;Developers love the existing Libcloud interface because it is clean and easy to use and we plan to bring this simplicity and ease of use to other services such as storage and load-balancers.&quot;</div> 
+  <div>Apache Libcloud is used extensively in diverse production environments such as OOI Cyberinfrastructure, Cloudkick, GlobalRoute and ServerDensity.</div> 
+  <div><br />&quot;More than half our customers use multiple cloud vendors, since adding Libcloud compatibility we've been able to more effectively support their computing aims in the cloud through cross platform compatibility,&quot; said Robert Jenkins, CTO of CloudSigma, a European IaaS provider based in Zurich, Switzerland.</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>All Apache products are released under the Apache Software License v2.0, and are overseen by a self-selected team of active contributors to the project. Upon a Project's maturity to a TLP, a Project Management Committee (PMC) is formed to guide its day-to-day operations, including community development and product releases. Apache Libcloud source code, documentation, and related resources are available at http://libcloud.apache.org/.</div> 
+  <p><b>About The Apache Software Foundation (ASF)<br /></b>Established in 1999, the all-volunteer Foundation oversees nearly one hundred fifty leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 300 individual Members and 2,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by individual donations and corporate sponsors including AMD, Basis Technology, Cloudera, Facebook, Google, IBM, HP, Matt Mullenweg, Microsoft, SpringSource, Talend, and Yahoo!. For more information, visit http://www.apache.org/.</p> 
+  <div><br /></div> 
+  <div>&quot;Apache&quot; and &quot;Apache Libcloud&quot; are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</div> 
+  <p># # #</p> 
+  <div><b>Contact:</b></div> 
+  <div>Sally Khudairi</div> 
+  <div>The Apache Software Foundation</div> 
+  <div>+1 617 921 8656</div> 
+  <div>press@apache.org </div>

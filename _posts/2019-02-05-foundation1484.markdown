@@ -1,0 +1,40 @@
+---
+layout: post
+title: 'Success at Apache: For Love or Money: Volunteer vs. Professional Open Source'
+date: '2019-02-05T15:18:47+00:00'
+categories: foundation
+---
+<div> 
+    <p><u>EDITOR'S NOTE</u>: <em>&quot;Success at Apache&quot; reflects diverse, personal experiences from our community members, with particular focus on the people and processes behind why the ASF &quot;just works&quot;. The post below is the result of a discussion with the author that originated in early September 2018 and remained unpublished as its tone deviates from the general tenor of this series.Over the past few months, this topic has increased in visibility and relevance with the greater community, and we have made an exception in publishing due its timeliness and representation of the evolution of Open Source communities, both within and without Apache.</em></p> 
+  </div> 
+  <div> 
+    <div><strong><em>by Rich Bowen</em></strong></div> 
+    <div> 
+      <div> 
+        <p>A few weeks ago, a colleague asked me what I believed to be the biggest threat facing Open Source today. I answered that I think it's full-time Open Source developers, and the effect they have on part-time volunteer developers.</p> 
+        <p>Long ago (it actually hasn't been very long, it just seems that way sometimes) Open Source was developed primarily by part-time hobbyist developers, working on their evenings and weekends on things that they were passionate about. Sure, there were full-time developers, but they were in the minority. Those of us working a few hours on the weekends envied them greatly. We wished that we, too, could get paid to do the thing that we love.</p> 
+        <p>Now, 20 years on, the overwhelming majority of Open Source development is done by full-timers, working 9-5 on Open Source software. And those who are working nights and weekends are often made to feel that they are less important than those that are putting in the long hours.</p> 
+        <p>Most of the time, this is unintentional. The full-timers are not intentionally marginalizing the part-timers. It just happens as a result of the time that they're able to put into it.</p> 
+        <p>Imagine, if you will, that you're an &quot;evenings-and-weekends&quot; contributor to a project. You have an idea to add a new feature, and you propose it on the mailing list, as per your project culture. And you start working on it, a couple of hours on Friday evening, and then a few more hours on Saturday morning before you have to mow the lawn and take your kids to gymnastics practice. Then there's the cross country meet, and next thing you know, it's Monday morning, and you're back at work.</p> 
+        <p>All week you think about what you're going to do next weekend.</p> 
+        <p>But, Friday evening comes, and you `git pull`, and, lo and behold, one of the full-timers has taken your starting point, turned it in a new direction, completed the feature, and there's been a new release of the project. All while you were punching the clock on your unrelated job.</p> 
+        <p>This is great for the product, of course. It moves faster. Users get features faster. Releases come out faster.</p> 
+        <p>But, meanwhile, you have been told pretty clearly that your contribution wasn't good enough. Or, at the very least, that it wasn't fast enough.<br /></p> 
+        <p><strong>The Cost of Professionalism</strong></p> 
+        <p>And of course there are lots of other benefits, too. Open Source code, as a whole, is probably better than it used to be, because people have more time to focus. The features are more driven by actual use cases, since there's all sorts of customer feedback that goes into the road map. But the volunteerism that made Open Source work in the first place is getting slowly squelched.</p> 
+        <p>This is happening daily across the Open Source world, and MOST of it is unintentional. People are just doing their jobs, after all.</p> 
+        <p>We are also starting to see places where projects are actively shunning the part timers, because they are not pulling their weight. Indeed, in recent weeks I've been told this explicitly by a prominent developer on a project that I follow. He feels that the part timers are stealing his glory, because they have their names on the list of contributors, but they aren't keeping up with the volume of his contributions.</p> 
+        <p>But, whether or not it is intentional, I worry about what this will do to the culture of open source as a whole. I do not in any way begrudge the full-timers their jobs. It's what I dreamed of for *years* when I was an evenings-and-weekends open source developer, and it's what I have now. I am *thrilled* to be paid to work full time in the Open Source world. But I worry that most new Open Source projects are completely corporate driven, and have none of the passion, the scratch-your-own-itch, and the personal drive with which Open Source began.</p> 
+        <p>While most of the professional Open Source developers I have worked with in my years at Red Hat have been passionate and personally invested in the projects that they work on, there's a certain percentage of them for whom this is just a job. If they were reassigned to some other project tomorrow, they'd switch over with no remorse. And I see this more and more as the years go by. Open Source projects as passion is giving way to developers that are working on whatever their manager has assigned, and have no personal investment whatsoever.</p> 
+        <p>This doesn't in any way mean that they are bad people. Work is honorable.</p> 
+        <p>I just worry about what effect this will have, and what Open Source will look like 20 years from now.</p> 
+        <div> 
+          <p><em><br />Rich Bowen has been doing open source-y stuff since about 1995, and has been a member of the Apache Software Foundation since 2002. He currently serves on the ASF Board of Directors. By day, he's the CentOS Community Manager, working for Red Hat. Read Rich's earlier post, <a href="https://s.apache.org/TGuO">&quot;Success at Apache: Wearing Small Hats&quot;</a>.</em></p> 
+          <p># # #</p> 
+        </div> 
+      </div> 
+      <div> 
+        <p>&quot;Success at Apache&quot; is a monthly blog series that focuses on the people and processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+      </div> 
+    </div> 
+  </div>

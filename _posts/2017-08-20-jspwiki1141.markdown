@@ -1,0 +1,13 @@
+---
+layout: post
+title: Read Excel spreadsheets in JSPWiki
+date: '2017-08-20T19:49:44+00:00'
+categories: jspwiki
+---
+<p>
+Displaying Microsoft Excel spreadsheet content in JSPWiki pages is supported by using the JSPWiki<em> Worksheet</em> plugin—developed by Christian Fröhler.
+</p> 
+  <p>Installation is straightforward, consisting of adding a few extra Java libraries to your application server and the plugin itself. After a restart, insert some easy JSPWiki markup to display the contents of an attached Excel file directly in the wiki page:<br /></p> 
+  <p><img src="https://blogs.apache.org/jspwiki/mediaresource/8199533f-ceab-413a-bb51-d0c16664ff8f" alt="JSPWiki Worksheet Plugin" width="897" height="517" /><br /></p> 
+  <p>The content can be visually customised with JSPWiki's wide range of <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=JSPWikiStyle#top" target="_blank" title="JSPWiki styles">styles</a>. </p> 
+  <p>For more information see the <a href="https://jspwiki-wiki.apache.org/Wiki.jsp?page=WorksheetPlugin" target="_blank" title="JSPWiki Worksheet plugin page">Worksheet Plugin</a> page. Development contributions to enhance and improve the plugin are welcome!<br /></p>

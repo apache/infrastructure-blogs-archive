@@ -1,0 +1,105 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache Tika™ v1.0
+date: '2011-11-09T13:18:09+00:00'
+categories: foundation
+---
+<p style="margin-bottom: 0in; "><i><b>Standards-based, Content and
+Metadata Detection and Analysis Toolkit Powers Large-scale,
+Multi-lingual, Multi-format Repositories at Adobe, the Internet
+Archive, NASA Jet Propulsion Laboratory, and more.</b></i></p> 
+  <p style="margin-bottom: 0in; "><b>9 November 2011 —FOREST HILL, MD—
+</b>The Apache Software Foundation (ASF), the all-volunteer
+developers, stewards, and incubators of nearly 150 Open Source
+projects and initiatives, today announced Apache Tika v1.0, an
+embeddable, lightweight toolkit for content detection and analysis.</p> 
+  <p style="margin-bottom: 0in; ">&quot;The Apache Tika v1.0 release is five
+years in the making, providing numerous improvements and new parsing
+formats,&quot; said Chris Mattmann, Apache Tika Vice President, Senior
+Computer Scientist at NASA Jet Propulsion Laboratory, and University
+of Southern California Adjunct Assistant Professor of Computer
+Science. &quot;From a toolkit perspective, it's easy to integrate, and
+provides maximum functionality with little configuration.&quot;</p> 
+  <p style="margin-bottom: 0in; ">With the increasing amount of
+information available on the Internet today, automatic information
+processing and retrieval is urgently needed to understand content
+across cultures, languages, and continents.</p> 
+  <p style="margin-bottom: 0in; ">Apache Tika is a one-stop shop for
+identifying, retrieving, and parsing text and metadata from over
+1,200 file formats including HTML, XML, Microsoft Office,
+OpenOffice/OpenDocument, PDF, images, ebooks/EPUB, Rich Text,
+compression and packaging formats, text/audio/image/video, Java class
+files and archives, email/mbox, and more.</p> 
+  <p style="margin-bottom: 0in; ">Tika entered the Apache Incubator in
+2007, became a sub-project of Apache Lucene in 2008, and graduated as
+an ASF Top-level Project (TLP) in April 2010. Apache Tika has been
+tested extensively in repositories exceeding 500 million documents
+across a variety of applications in industry, academia and government
+labs.</p> 
+  <p style="margin-bottom: 0in; ">&quot;At NASA, we leverage Apache Tika
+on several of our Earth science data system projects,&quot; explained
+Dan Crichton, Program Manager and Principal Computer Scientist, NASA
+Jet Propulsion Laboratory. &quot;Tika helps us processes hundreds of
+terabytes of scientific data in myriad formats and their associated
+metadata models. Using Tika with other Apache technologies such as
+OODT, Lucene, and Solr, we are able to automate, virtualize and
+increase the efficiency of NASA's
+science data processing pipeline.&quot;</p> 
+  <p style="margin-bottom: 0in; ">Users
+and software applications use Apache Tika to explore the information
+landscape through flexible interfaces in Java, from the command line,
+REST-ful Web services, and also by consuming its functionality from a
+multitude of programming languages directly, including Python, .NET
+and C++. Tika defines a standard application programming interface
+(API) and makes use of existing libraries such Apache POI and PDFBox
+to detect and extract metadata and structured text content from
+various documents using existing parser libraries.</p> 
+  <p style="margin-bottom: 0in; ">&quot;We've used Apache Tika
+extensively for a wide range of content extraction tasks, including
+parsing almost 600 million pages and documents from a large web
+crawl,&quot; said Ken Krugler, Founder and President of Scale
+Unlimited. &quot;It's proven invaluable as a simple yet robust
+solution to the challenges of extracting text and metadata from the
+jungle of formats you find on the web.&quot;</p> 
+  <p style="margin-bottom: 0in; ">&quot;Hippo CMS 7 uses Apache Jackrabbit
+to index content repositories containing as many as 500,000
+documents,&quot; explained Arjé Cahn, CTO of Hippo. &quot;We are exploring
+ways that Apache Tika can enhance access to metadata in our faceted
+navigation feature, which may result in a possible future patch.&quot;</p> 
+  <p style="margin-bottom: 0in; "><b>Availability and Oversight</b></p> 
+  <p style="margin-bottom: 0in; ">As with all Apache products, Apache
+Tika software is released under the Apache License v2.0, and is
+overseen by a self-selected team of active contributors to the
+project. A Project Management Committee (PMC) guides the Project’s
+day-to-day operations, including community development and product
+releases. Apache Tika source code, documentation, and related
+resources are available at <a href="http://tika.apache.org/">http://tika.apache.org/</a>.</p> 
+  <p style="margin-bottom: 0in; "><b>Apache Tika in Action!</b></p> 
+  <p style="margin-bottom: 0in; ">Apache Tika v1.0 will be featured at
+ApacheCon's Content Technologies track on 10 November 2011. PMC Chair
+Mattmann will describe the modern genesis of the project and its
+ecosystem, as well as the newly-launched Manning Publications book,
+&quot;Tika in Action&quot; co-authored by Mattmann and Zitting.</p> 
+  <p style="margin-bottom: 0in; "><b>About The Apache Software Foundation
+(ASF)</b></p> 
+  <p style="margin-bottom: 0in; ">Established in 1999, the all-volunteer
+Foundation oversees nearly one hundred fifty leading Open Source
+projects, including Apache HTTP Server — the world's most popular
+Web server software. Through the ASF's meritocratic process known as
+&quot;The Apache Way,&quot; more than 350 individual Members and
+3,000 Committers successfully collaborate to develop freely available
+enterprise-grade software, benefiting millions of users worldwide:
+thousands of software solutions are distributed under the Apache
+License; and the community actively participates in ASF mailing
+lists, mentoring initiatives, and ApacheCon, the Foundation's
+official user conference, trainings, and expo. The ASF is a US
+501(3)(c) not-for-profit charity, funded by individual donations and
+corporate sponsors including AMD, Basis Technology, Cloudera,
+Facebook, Google, IBM, HP, Matt Mullenweg, Microsoft, PSW Group,
+SpringSource/VMware, and Yahoo!. For more information, visit
+<a href="http://www.apache.org/">http://www.apache.org/</a>.</p> 
+  <p style="margin-bottom: 0in; ">&quot;Apache&quot;, &quot;Apache Tika&quot;,
+and &quot;ApacheCon&quot; are trademarks of The Apache Software
+Foundation. All other brands and trademarks are the property of their
+respective owners.</p> 
+  <p style="margin-bottom: 0in; "># # #</p>

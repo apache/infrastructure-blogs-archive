@@ -1,0 +1,19 @@
+---
+layout: post
+title: "[ANNOUNCE] Apache NetBeans (incubating) 11.0 Released"
+date: '2019-04-05T14:56:29+00:00'
+categories: netbeans
+---
+The Apache NetBeans team is proud to announce the release of Apache NetBeans (incubating) 11.0.
+
+<p><b>Apache NetBeans (incubating) 11.0 constitutes all clusters in the Apache NetBeans Git repo, which together provide the NetBeans Platform (i.e., the underlying application framework), as well as all the modules that provide the Java SE, Java EE, PHP, JavaScript and Groovy features of Apache NetBeans.</b></p>
+
+<p>In short, Apache NetBeans (incubating) 11.0 is a full IDE for Java SE, Java EE, PHP and JavaScript development with some Groovy language support.</p>
+
+<p>Read more on our download page:</p>
+
+<p><a href="https://netbeans.apache.org/download/nb110/nb110.html">https://netbeans.apache.org/download/nb110/nb110.html</a></p>
+
+<p>New & Noteworthy features of the 11.0 Release:</p>
+
+<p><a href="https://netbeans.apache.org/download/nb110/index.html">https://netbeans.apache.org/download/nb110/index.html</a></p>

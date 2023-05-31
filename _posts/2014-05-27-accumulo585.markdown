@@ -1,0 +1,33 @@
+---
+layout: post
+title: Getting Started with Apache Accumulo 1.6.0
+date: '2014-05-27T16:04:52+00:00'
+categories: accumulo
+---
+<p>&nbsp;This post was moved<a href="https://accumulo.apache.org/blog/2014/05/27/getting-started-with-accumulo-1.6.0.html" title="Updated location"> to the Accumulo project site</a>. <br /></p> 
+  <p>On May 12th, 2014, the Apache Accumulo project happily announced version 1.6.0 to the community. This is a new major release for the project which contains many numerous new features and fixes. For the full list of notable changes, I'd recommend that you check out the <a href="http://accumulo.apache.org/release_notes/1.6.0.html" title="Apache Accumulo 1.6.0 release notes">release notes</a> that were published alongside the release itself. For this post, I'd like to cover some of the changes that have been made at the installation level that are a change for users who are already familiar with the project.<br /></p> 
+  <h3>Download the release</h3> 
+  <p>Like always, you can find out releases on the our downloads page at <a href="http://accumulo.apache.org/downloads/.">http://accumulo.apache.org/downloads/.</a>&nbsp; You have the choice of downloading the source and building it yourself, or choosing the binary tarball which already contains pre-built jars for use.<br /></p> 
+  <h3>Native Maps</h3> 
+  <p>One of the major components of the original <a title="BigTable" href="http://research.google.com/archive/bigtable.html">BigTable</a> design was an &quot;In-Memory Map&quot; which provided fast insert and read operations. Accumulo implements this using a C++ sorted map with a custom allocator which is invoked by the TabletServer using JNI. Each TabletServer uses its own &quot;native&quot; map. It is highly desirable to use this native map as it comes with a notable performance increase over a Java map (which is the fallback when the Accumulo shared library is not found) in addition to greatly reducing the TabletServer's JVM garbage collector stress when ingesting data.</p> 
+  <p>In previous versions, the binary tarball contained a pre-compiled version of the native library (under lib/native/). Shipping a compiled binary was a convenience but also left much confusion when it didn't work on systems which had different, incompatible versions of GCC toolchains installed than what the binary was built against. As such, we have stopped bundling the pre-built shared library in favor of users building this library on their own, and instead include an accumulo-native.tar.gz file within the lib directory which contains the necessary files to build the library yourself.<br /></p> 
+  <p>To reduce the burden on users, we've also introduced a new script inside of the bin directory:</p> 
+  <pre>  build_native_map.sh</pre> 
+  <p>Invoking this script will automatically unpack, build and install the native map in $ACCUMULO_HOME/lib/native. If you've used older versions of Accumulo, you will also notice that the library name is different in an attempt to better follow standard conventions: libaccumulo.so on Linux and libaccumulo.dylib on Mac OS X.</p> 
+  <h3>Example Configurations</h3> 
+  <p>Apache Accumulo still bundles a set of example configuration files in conf/examples. Each sub-directory contains the complete set of files to run on a single node with the named memory limitations. For example, the files contained in conf/examples/3GB/native-standalone will run Accumulo on a single node, with native maps (don't forget to build them first!), within a total memory footprint of 3GB. Copy the contents of one of these directories into conf/ and make sure that your relevant installation details (e.g. HADOOP_PREFIX, JAVA_HOME, etc) are properly set in accumulo-env.sh. For example:<br /></p> 
+  <pre>  cp $ACCUMULO_HOME/conf/examples/3G/native-standalone/* $ACCUMULO_HOME/conf
+
+</pre> 
+  <p>Alternatively, a new script, bootstrap_config.sh, was also introduced that can be invoked instead of manually copying files. It will step through a few choices (memory usage, in-memory map type, and Hadoop major version), and then automatically create the configuration files for you.</p> 
+  <pre>  $ACCUMULO_HOME/bin/bootstrap_config.sh
+</pre> 
+  <p>One notable change in these scripts over previous versions is that they default to using Apache Hadoop 2 packaging details, such as the Hadoop conf directory and jar locations. It is highly recommended by the community that you use Apache Accumulo 1.6.0 with at least Apache Hadoop 2.2.0, most notably, to ensure that you will not lose data in the face of power failure. If you are still running on a Hadoop 1 release (1.2.1), you will need to edit both accumulo-env.sh and accumulo-site.xml. There are comments in each file which instruct you what needs to be changed.</p> 
+  <h3>Starting Accumulo</h3> 
+  <p>Initializing and starting Accumulo hasn't changed at all! After you have created the configuration files and, if you're using them, built the native maps, run:</p> 
+  <pre>  accumulo init</pre> 
+  <p>This will prompt you to name your Accumulo instance and set the Accumulo root user's password, then start Accumulo using </p> 
+  <pre>  $ACCUMULO_HOME/bin/start-all.sh
+</pre> 
+  <p> </p> 
+  <p> </p>

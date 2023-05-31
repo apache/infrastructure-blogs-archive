@@ -1,0 +1,33 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache Stanbol as a Top-Level Project
+date: '2012-10-01T12:00:15+00:00'
+categories: foundation
+---
+<div><b><i>European Union-seeded modular Open Source framework enables and extends semantic content management.</i></b></div> 
+  <div><br /></div> 
+  <div><b>Forest Hill, MD – 1 October 2012 – </b>The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of nearly 150 Open Source projects and initiatives, today announced that Apache Stanbol has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the Project’s community and products have been well-governed under the ASF's meritocratic process and principles.</div> 
+  <div><br /></div> 
+  <div>Created to extend traditional content management systems with semantic services, Apache Stanbol offers semantic services for automatic content enhancement, a process where plain text is automatically enriched with meta-data, e.g. about persons, places and organizations, from external data sources. Stanbol’s customized enhancement engines and process chains can be designed for user-specific enhancement tasks, enabling automatic content annotation and linking.</div> 
+  <div><br /></div> 
+  <div>&quot;The graduation also acknowledges the success of Apache Stanbol in bringing semantic technologies and content management communities together,&quot; explained Fabian Christ, Vice President of Apache Stanbol.</div> 
+  <div><br /></div> 
+  <div>Providing reusable components that can be used to enhance content automatically is an important step in lifting existing content to a level that makes it more useable for all kinds of tasks, including a better search experience. Adding meta-data to content and linking the content to other existing resources adds the kind of value that could make the difference in many industrial use cases.</div> 
+  <div><br /></div> 
+  <div>&quot;Searchbox is leveraging the Stanbol framework for the Fusepool project as the core framework for processing unstructured and plain text information sources,&quot; explained Stéphane Gamard from Searchbox. &quot;Thanks to Stanbol, different information sources can be processed, semantically enhanced and delivered to a front-end web application for an intuitive and advanced user experience.&quot;</div> 
+  <div><br /></div> 
+  <div>Initially developed within the European Union's IKS EU Research Project, Stanbol entered the Apache Incubator in November 2010 and was quickly embraced as an ideal framework that makes semantic technologies usable for developers of content management systems. The Project provides a set of predefined enhancement engines including engines for language detection, named entity recognition, and engines for linking entities to linked open data (LOD) sources like DBPedia or geonames.org.</div> 
+  <div><br /></div> 
+  <div>&quot;CELI France, thanks to the integration with Stanbol, we were able to integrate our curriculum vitae (CV) parsing technology with main stream open source document management system, said Luca Dini from CELI. &nbsp;&quot;Moreover the final user experience was empowered by automatic linking with external LOD sources, which allowed true semantic reasoning over information linguistically extracted from CVs&quot;.</div> 
+  <div><br /></div> 
+  <div>&quot;GOSS Interactive demonstrated integration with Apache Stanbol to automatically add semantic mark-up and additional meta-data to managed content while it was still an incubator project,&quot; said Gary Ratcliffe from GOSS. &quot;The graduation ensures the availability of Stanbol as a platform on which new semantic services can be developed in the future.&quot;</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache Stanbol software is released under the Apache License v2.0, and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. Apache Stanbol source code, documentation, mailing lists, and related resources are available at <a href="http://stanbol.apache.org/">http://stanbol.apache.org/</a>. A timeline of the project's history through graduation is also available from the Apache Incubator.</div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees nearly one hundred fifty leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way&quot;, more than 400 individual Members and 3,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by individual donations and corporate sponsors including AMD, Basis Technology, Citrix, Cloudera, Facebook, Go Daddy, Google, HP, Hortonworks, Huawei, IBM, InMotion Hosting, Matt Mullenweg, Microsoft, PSW Group, SpringSource/VMware,&nbsp;WANdisco, and Yahoo!. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or follow @TheASF on Twitter.</div> 
+  <div> 
+    <p>&quot;Apache&quot;,&nbsp;&quot;Stanbol&quot;,&nbsp;&quot;Apache Stanbol&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</p> 
+    <p># # #</p> 
+  </div>

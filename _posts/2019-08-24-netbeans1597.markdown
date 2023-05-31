@@ -1,0 +1,17 @@
+---
+layout: post
+title: Simplified Apache NetBeans Welcome Screen
+date: '2019-08-24T09:08:19+00:00'
+categories: netbeans
+---
+To simplify the Welcome Screen and, in particular, replace all links to netbeans.org with netbeans.apache.org, I have created this issue and pull request:
+
+<p><a href="https://issues.apache.org/jira/browse/NETBEANS-3020">https://issues.apache.org/jira/browse/NETBEANS-3020</a></p>
+
+<p><a href="https://github.com/apache/netbeans/pull/1457">https://github.com/apache/netbeans/pull/1457</a></p>
+
+<p>All references to netbeans.org are replaced with equivalents at netbeans.apache.org and the News column, which pointed to netbeans.org, is removed from the tab below, while the Blogs column is renamed to News, since newsworthy items now come from here, i.e., from this blog:</p>
+
+<p><img width="400", height="292", src="https://issues.apache.org/jira/secure/attachment/12978380/apache-netbeans-welcome-new.png"/></p>
+
+<p>Also, the Featured Demo on the first tab is removed, best to have as few links to external places as possible, i.e., help reduce potential points of failure, especially here where having that demo in the page doesn't add all that much while removing it reduces the need for external URL calls that could cause problems and slow things down.</p>

@@ -1,0 +1,9 @@
+---
+layout: post
+title: New Apache NetBeans (incubating) Logo!
+date: '2018-03-06T12:59:43+00:00'
+categories: netbeans
+---
+After a discussion and voting process on the Apache NetBeans (incubating) dev and user mailing lists... we have a new logo! Here it is:
+
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/d6be3d7d-8a18-4c13-89a5-76c660164890"><img src="https://blogs.apache.org/netbeans/mediaresource/d6be3d7d-8a18-4c13-89a5-76c660164890?t=true" alt="netbeans-logo-32@3x.png"></img></a></p>

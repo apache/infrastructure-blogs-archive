@@ -1,0 +1,11 @@
+---
+layout: post
+title: ASF Members share their experiences with Apache
+date: '2009-07-25T21:23:36+00:00'
+categories: foundation
+---
+<p><span>Watch the interviews with ASF
+Members <a title="Interview with Rich Bowen" href="http://www.youtube.com/watch?v=mTrCuKRLf60">Rich Bowen</a>, <a title="Interview with Jean-Frederic Clere" href="http://www.youtube.com/watch?v=vwPVlqe9tzk&amp;feature=related">Jean-Frederic Clere</a>, <a title="Interview with Doug Cutting" href="http://www.youtube.com/watch?v=XyDQAY9dwsQ&amp;feature=related">Doug Cutting</a>, <a title="Interview with Paul Fremantle" href="http://www.youtube.com/watch?v=ZFo90HFThVk&amp;feature=related">Paul Fremantle</a>, and <a title="Interview with Ross Gardler" href="http://www.youtube.com/watch?v=KNS7g6l7N-4&amp;feature=related">Ross Gardler</a>, on their experiences with Apache. Select clips from a series of interviews with ASF Members as well as Apache users and developers will be posted online through ApacheCon US, taking place 2-6 November 2009 in Oakland, California. Join us in celebrating the
+ASFs 10th anniversary at ApacheCon, featuring the largest
+conference program to date, including a number of free events open to
+the public in appreciation of their support over the past decade. <a title="ApacheCon US 2009" href="http://www.us.apachecon.com/">Sign up today</a> </span>-- we look forward to seeing you there!</p>

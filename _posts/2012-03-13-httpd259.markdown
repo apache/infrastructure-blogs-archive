@@ -1,0 +1,81 @@
+---
+layout: post
+title: Require and friends
+date: '2012-03-13T11:19:31+00:00'
+categories: httpd
+---
+<em>Related documentation</em> 
+  <ul> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#require">Require</a></li> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requireall">RequireAll</a></li> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requireany">RequireAny</a></li> 
+    <li><a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requirenone">RequireNone</a></li> 
+  </ul>
+
+The <code>Allow</code>, <code>Deny</code> and <code>Order</code> directives have long been ones that people have found confusing and counterintuitive. And although they could be combined in various ways, using the <code>Satisfy</code> directive, they were still rather limiting. Complex combinations of restrictions were often very difficult.
+
+Among the <a href="http://httpd.apache.org/docs/2.4/new_features_2_4.html">new features on 2.4</a> are new Require directives and syntaxes that allow very complex combinations of requirements.
+
+<a href="http://httpd.apache.org/docs/2.4/mod/mod_access_compat.html">mod_access_compat</a> retains the old Allow, Deny, Order, Satisfy syntax, to ease the transition off of it. However, these directives have been removed from all example configurations, and you're encouraged to stop using them.
+
+The <a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#require">Require</a> works much like it always has, although new options are added to it to replace the Allow/Deny syntax:
+
+    
+  
+  
+  
+  
+  <dl> <dt><code>Require all granted</code></dt> <dd>Access is allowed unconditionally.</dd> <dt><code>Require all denied</code></dt> <dd>Access is denied unconditionally.</dd> <dt><code>Require env <var>env-var</var> [<var>env-var</var>]
+      ...</code></dt> <dd>Access is allowed only if one of the given environment variables is
+          set.</dd> <dt><code>Require method <var>http-method</var> [<var>http-method</var>]
+      ...</code></dt> <dd>Access is allowed only for the given HTTP methods.</dd> <dt><code>Require expr <var>expression</var> </code></dt> <dd>Access is allowed if <var>expression</var> evaluates to true.</dd> </dl> 
+  <p>
+
+The <code>Require expr</code> syntax uses the <a href="http://httpd.apache.org/docs/2.4/expr.html">new expression engine</a>, and so allows for very complex requirements.
+
+Additionally, various other modules can augment the <code>Require</code> syntax with other requirements. For example, <a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_host.html">mod_authz_host</a> provides access control by IP address:
+
+<code>Require ip 192.168</code>
+
+Other than the <code>Require expr</code> syntax, much of the above is as before, just stated more clearly. But the other directives I want to talk about here give you ways to combine the requirements that were not possible at all before.</p> 
+  <p>&nbsp;The <a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requireall">RequireAll</a>&nbsp;directive allows you to combine several requirements and enforce all of them. <a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requireany">RequireAny</a>&nbsp;says that any one of the requirements is similar. And <a href="http://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requirenone">RequireNone</a>&nbsp;says that none of the requirements must be true. What's really powerful about these is that they are containers, and so can be nested within one another to create arbitrarily complex scenarios.</p> 
+  <p>&nbsp;First, a few simple examples:</p> 
+  <p>&nbsp;In the first example, we require that a client be either on our local network, or that they be authenticated with a username and password. Either one is sufficient. That is, if they're on our local network, they won't be asked for a password. </p> 
+  <pre>&lt;RequireAny&gt;
+<span class="Apple-tab-span">	</span>Require ip 10.2
+<span class="Apple-tab-span">	</span>Require valid-user&nbsp;
+&lt;/RequireAny&gt;</pre> 
+  <p>Alternately, we could require both - that they be on our local network and that they provode a password:</p> 
+  <pre>&lt;RequireAll&gt;
+<span class="Apple-tab-span">	</span>Require ip 10.2
+<span class="Apple-tab-span">	</span>Require valid-user&nbsp;
+&lt;/RequireAll&gt;&nbsp;
+</pre> 
+  <p>Finally, we could require that we won't permit any access from someone who's on our local network, or who is logged in.</p> 
+  <pre>&lt;RequireNone&gt;
+<span class="Apple-tab-span">	</span>Require ip 10.2
+<span class="Apple-tab-span">	</span>Require valid-user&nbsp;
+&lt;/RequireNone&gt;
+</pre> 
+  <p>This gets really interesting when you want to enforce several different kinds of access control in different ways:</p> 
+  <p> </p> 
+  <pre><span class="s1">&lt;RequireAll&gt;
+</span><span class="s1">  &lt;RequireAny&gt;
+</span><span class="s1">    Require user superadmin
+</span><span class="s1">    &lt;RequireAll&gt;
+</span><span class="s1">      Require group admins
+</span><span class="s1">      Require ldap-group cn=Administrators,o=Airius
+</span><span class="s1">      &lt;RequireAny&gt;
+</span><span class="s1">        Require group sales
+</span><span class="s1">        Require ldap-attribute dept="sales"
+</span><span class="s1">      &lt;/RequireAny&gt;
+</span><span class="s1">    &lt;/RequireAll&gt;
+</span><span class="s1">  &lt;/RequireAny&gt;
+</span><span class="s1">  &lt;RequireNone&gt;
+</span><span class="s1">    Require group temps
+</span><span class="s1">    Require ldap-group cn=Temporary Employees,o=Airius
+</span><span class="s1">  &lt;/RequireNone&gt;
+</span>&lt;/RequireAll&gt;</pre> 
+  <p>As you can see, we've combined several different sets of requirements to ensure that the user is in the sales or admin group, isn't a temporary employee, and various other combinations.</p> 
+  <p>&nbsp;As with other features that are new in 2.4, you'll start to see more and more examples of their use as time goes by. We hope that this has given you a taste of what the new syntax makes possible that was difficult, or even impossible, before.</p> 
+  <p> </p>

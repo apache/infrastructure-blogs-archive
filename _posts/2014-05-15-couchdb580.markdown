@@ -1,0 +1,24 @@
+---
+layout: post
+title: Recap CouchDB Meetup Hamburg No. 1
+date: '2014-05-15T07:26:55+00:00'
+categories: couchdb
+---
+<p><strong>This is the recap from our first CouchDB User Group Hamburg Meeting at May 13th 2014.</strong></p>
+
+<p>First of all thanks to everyone for attending. Also a big thank you to <a href="http://www.ubilabs.net/en">Ubilabs</a>  for hosting the meetup at their awesome office in Hamburg "Schanzenviertel".</p>
+
+<p>Six people have been attending at this first meeting. Although it was a quite small meeting, we have discussed many things. At the beginning, everybody introduced themselves and dropped some info about what they are doing - especially with CouchDB. Andy spoke about the CouchDB history, the Apache Software Foundation and the ASF CouchDB project. After that, Klaus was giving some insights about coding in CouchDB's core and explained various internals. And Robert showed the new awesome Fauxton webinterface for CouchDB.</p>
+
+<p>Julius attended accidentally, because he originally was thinking about founding a "Hamburg Beamers" - an Erlang user group. He got in touch with Dave Cottlehuber, who is a member from the "Vienna Beamers", pointing Julius to our first meetup (thanks Dave :) ). When digging a bit deeper into CouchDB, Julius was excited about what CouchDB offers.</p>
+
+<p>We were also thinking about putting the Beamers and Couchers together in one user group because we thought that one of the main topics will be Erlang. This is not decided though. We did also look into Elixir and Klaus and Julius gave some basic insights. Elixir looks really cool and promising.</p>
+
+<p>After nearly three hours, we finished our beers (thanks to Ubilabs for sponsering the drinks). Everybody was happy with the first meeting and we are looking forward to the next one. We plan to have the meeting every month. So the next meeting will be in mid June. Klaus will give the first talk where he is introducing a web service he is creating for measuring software complexity with Elixir and CouchDB.</p>
+
+<p>We have now created a G+ Community called <a href="https://plus.google.com/u/0/communities/103656875572948787245">CouchDB Meetup Hamburg</a>. We will use this community to announce upcoming events. This is the easiest way at the moment.</p>
+
+<p>Finally, we decided to meet again at June, 10th and again at Ubilabs. Thanks a lot in advance.</p>
+
+<p>Looking forward to see also new interested folks. So please spread the word.</p>
+

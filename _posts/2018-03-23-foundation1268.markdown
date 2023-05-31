@@ -1,0 +1,73 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 23 March 2018'
+date: '2018-03-23T12:19:55+00:00'
+categories: foundation
+---
+<div>It's time to review our weekly activities! The Apache Community has been working on:</div> 
+  <div> 
+    <div> 
+      <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Welcome new ASF Board of Directors&nbsp;<a href="http://s.apache.org/Opxf">http://s.apache.org/Opxf</a><br />&nbsp;-&nbsp;The Apache Software Foundation Operations Summary: November 2017 - January 2018<a href="https://s.apache.org/UtBD">&nbsp;https://s.apache.org/UtBD</a><br />&nbsp;- Next Board Meeting: 18 April. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    </div> 
+    <p>ApacheCon™ –the ASF's official global conference series.<br />&nbsp;- ONE WEEK LEFT: CFP for ApacheCon 24-29 September in Montreal&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- Welcome CloudStack Collaboration Conference and Geospatial Track to ApacheCon ...we look forward to seeing your Apache communities there too!<br />&nbsp;- Travel Assistance applications now being accepted for ApacheCon/Montreal&nbsp;<a href="https://www.apache.org/travel/">https://www.apache.org/travel/</a></p> 
+    <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield stupendous performance at 99.97% uptime.&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>ASF Operations Factoid&nbsp;–this week, 555 Apache contributors changed 961,293 lines of code over 3,660 commits. Top 5 contributors, in order, are: James Clampffer, Carlos Sanchez Gonzalez, Andrea Cosentino, Claus Ibsen, and Hanisha Koneru.</p> 
+    <p>Apache Arrow™ –a cross-language development platform for in-memory data.<br />&nbsp;-&nbsp;A Native Go Library for Apache Arrow&nbsp;<a href="http://arrow.apache.org/blog/">http://arrow.apache.org/blog/</a><br />&nbsp;- Apache Arrow 0.9.0 released&nbsp;<a href="http://arrow.apache.org/">http://arrow.apache.org/</a></p> 
+    <p>Apache Calcite™ –a framework for writing data management systems.<br /><span style="white-space: pre;"> - </span>Apache Calcite 1.16.0 released&nbsp;<a href="https://calcite.apache.org/">https://calcite.apache.org/</a></p> 
+    <p>Apache Drill™ –&nbsp;a distributed MPP query layer that supports SQL and alternative query languages against NoSQL and Apache Hadoop data storage systems.<br />&nbsp;- Apache Drill 1.13.0 released&nbsp;<a href="https://drill.apache.org/">https://drill.apache.org/</a></p> 
+    <p>Apache HAWQ (incubating)&nbsp;–an advanced enterprise SQL on Apache Hadoop analytic engine.<br />&nbsp;-&nbsp;Apache HAWQ 2.3.0.0-incubating released&nbsp;<a href="http://hawq.apache.org/">http://hawq.apache.org/</a></p> 
+    <p> </p> 
+    <p> </p> 
+    <p>Apache Log4j™ –a well-known framework for logging application behavior.<br />&nbsp;- Apache Log4j2 2.11.0 released&nbsp;<a href="https://logging.apache.org/log4j/">https://logging.apache.org/log4j/</a></p> 
+    <p>Apache MINA™ –a network application framework that helps users easily develop high performance and high scalability network applications.<br />&nbsp;- Apache MINA 2.0.17 released <a href="http://mina.apache.org/">http://mina.apache.org/</a></p> 
+    <p>Apache ODE™ –a WS-BPEL 1.1/2.0 compliant Web Services orchestration engine.<br />&nbsp;-&nbsp;Apache ODE 1.3.8 released&nbsp;<a href="http://ode.apache.org/">http://ode.apache.org/</a></p> 
+    <p>Apache Struts™ –an elegant, extensible framework for creating enterprise-ready Java Web applications.<br />&nbsp;- Apache Struts 2.5.16 GA<span style="white-space: pre;">&nbsp;released <a href="http://struts.apache.org/">http://struts.apache.org/</a></span></p> 
+    <p>Apache Syncope™ –an Open Source system for managing digital identities in enterprise environments, implemented in Java EE technology.<br />&nbsp;- Apache Syncope 1.2.11 and 2.0.8 released <a href="http://syncope.apache.org/">http://syncope.apache.org/</a><br />&nbsp;-&nbsp;CVE-2018-1321: Remote code execution by administrators with report and template entitlements&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3C2412ad22-6e9a-04f4-996f-9f061b678b01%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3C2412ad22-6e9a-04f4-996f-9f061b678b01%40apache.org%3E</a><br />&nbsp;-&nbsp;CVE-2018-1322: Information disclosure via FIQL and ORDER BY sorting&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3Cc4057b57-bfac-7765-2a0a-4e726674ceef%40apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201803.mbox/%3Cc4057b57-bfac-7765-2a0a-4e726674ceef%40apache.org%3E</a></p> 
+    <p> </p> 
+    <p>Apache Trafodion™ –a Web-scale SQL-on-Hadoop solution enabling transactional or operational workloads on Apache Hadoop.<br />&nbsp;- Apache Trafodion 2.2.0 released&nbsp;<a href="https://trafodion.apache.org/">https://trafodion.apache.org/</a></p> 
+    <p><font color="#000000"><a href="https://trafodion.apache.org/"></a>Apache UIMA</font>™ DUCC –a component framework supporting development, discovery, composition, and deployment of multi-modal analytics tasked with the analysis of unstructured information.&nbsp;Distributed UIMA Cluster Computing.<br /><font color="#000000">&nbsp;-&nbsp;</font>Apache UIMA DUCC 2.2.2 released&nbsp;<a href="https://uima.apache.org/">https://uima.apache.org/</a><br /><br /></p> 
+    <p><strong>Did You Know?</strong></p> 
+    <div> 
+      <p>&nbsp;- Did you know that Netflix run 400 microservices with 33,000 network connections per broker using Apache Kafka?&nbsp;<a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p> 
+      <p>&nbsp;- Did you know that Apache CouchDB run a weekly news&nbsp;series? Catch up today at&nbsp;<a href="https://blog.couchdb.org/">https://blog.couchdb.org/</a></p> 
+      <p>&nbsp;- Did you know that Apache Airflow (incubating) has a podcast series?&nbsp;<a href="https://soundcloud.com/the-airflow-podcast/">https://soundcloud.com/the-airflow-podcast/</a><br /><br /></p> 
+    </div> 
+    <div><strong>Apache Community Notices:</strong></div> 
+    <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+    <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+    <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+    <div> 
+      <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+      <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a> and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+    </div> 
+    <div> 
+      <p><a href="https://feathercast.apache.org/"></a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="https://twitter.com/ApacheCommunity">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Members of the Apache community will be presenting at DataWorks Summit 16-19 April 2018 in Berlin&nbsp;<a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+      <p>&nbsp;- Open Expo Europe - 6-7 June 2018 in Madrid <a href="https://openexpoeurope.com/">https://openexpoeurope.com/</a></p> 
+      <p>&nbsp;- Meet members of the Apache community at Open Expo Madrid 6-7 June 2018&nbsp;<a href="http://www.openexpo.es/en/">http://www.openexpo.es/en/</a></p> 
+      <p>&nbsp;- We're teaming up with Berlin Buzzwords - 10-12 June 2018 (Apache Lounge dates: 11-12 June) <a href="https://berlinbuzzwords.de/">https://berlinbuzzwords.de/</a></p> 
+      <p>&nbsp;- The 2018 Apache EU Roadshow will be held during FOSS Backstage in Berlin 13-14 June 2018&nbsp;<a href="https://foss-backstage.de/">https://foss-backstage.de/</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- Apache Big Data project communities will be participating at DataWorks Summit 17-21 June 2018 in San Jose <a href="https://dataworkssummit.com/">https://dataworkssummit.com/</a></p> 
+      <p>&nbsp;- ApacheCon North America&nbsp;will be held 24-29 September in Montreal <a href="http://apachecon.com/">http://apachecon.com/</a>&nbsp;**CFP IS OPEN!**</p> 
+      <p>&nbsp;- ASF Quarterly Report: Operations Summary Q2 FY2018&nbsp;<a href="https://s.apache.org/j1GJ">https://s.apache.org/j1GJ</a></p> 
+    </div> 
+    <div> 
+      <p>&nbsp;- ASF Annual Report is available at&nbsp;<a href="https://s.apache.org/FY2017AnnualReport">https://s.apache.org/FY2017AnnualReport</a></p> 
+    </div> 
+    <div>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+    <p># # #</p> 
+  </div>

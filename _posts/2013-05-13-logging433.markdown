@@ -1,0 +1,55 @@
+---
+layout: post
+title: Apache Log4j 2.0-beta6 released
+date: '2013-05-13T08:30:46+00:00'
+categories: logging
+---
+<p>The Apache Log4j 2 team is pleased to announce the Log4j 2.0-beta6 release!</p>
+
+<p>Apache log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to
+Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides
+many of the improvements available in Logback while fixing some inherent problems in Logback's
+architecture.</p>
+
+<p>This is the eighth release of Log4j 2 and is being made available to encourage use and feedback from the community.</p>
+
+<h3>Fixed Bugs:</h3>
+<ul>
+<li>LOG4J2-231:  Logger.getParent() was not returning the correct Logger.</li>
+<li>LOG4J2-201:  Renamed Plugin annotation attribute from "type" to "category".</li>
+<li>LOG4J2-219:  Fix: install default root logger if not configured (this is unchanged),
+        but make sure to include configured named loggers. Clarified documentation. Thanks to Peter DePasquale.</li>
+<li>LOG4J2-159:  Use OSGi version format in Fragment-Host</li>
+<li>LOG4J2-234:  RegexFilter threw a NullPointerException when used as a context-wide filter.</li>
+<li>LOG4J2-192:  Add support for interpolating Environment variables when processing the configuration.</li>
+<li>LOG4J2-235:  Removed dependency on tools jar from core module, made jconsole dependency optional. Thanks to Sebastian Oerding.</li>
+<li>LOG4J2-233:  Fixed link to log4j-user mailing list.</li>
+<li>LOG4J2-222:  Disruptor will now shutdown during Tomcat shutdown. Thanks to Steven Yang.</li>
+<li>LOG4J2-224:  The FlumeAppender failed to start if the Flume RPCClient could not connect to any Flume agents.</li>
+<li>LOG4J2-223:  Fix LoggerContext start and stop to eliminate IllegalStateException and NoClassDefFound errors.</li>
+<li>LOG4J2-221:  Remove hundreds of compiler warnings. Thanks to Nick Williams.</li>
+<li>LOG4J2-215:  Various small documentation fixes.</li>
+<li>LOG4J2-217:  Ensure PluginManager streams are always closed. Thanks to Fabien Sanglard.</li>
+</ul>
+
+
+<h3>Changes:</h3>
+
+<ul>
+<li>LOG4J2-237:  Moved JMX Client GUI classes into separate jmx-gui submodule.</li>
+<li>LOG4J2-230:  Improved error reporting when misconfigured. Thanks to Wojciech Zaręba.</li>
+<li>Renamed AsynchAppender to AsyncAppender. Plugin name became Async (was Asynch).</li>
+<li>Removed CheckStyle false positives for NewlineAtEndOfFile and whitespace following '*' at end of line in javadoc.</li>
+<li>Moved Clock interface to package org.apache.logging.log4j.core.helpers.</li>
+<li>LOG4J2-225:  Documentation updates to clarify use and impact of location in pattern layouts.</li>
+</ul>
+
+<p>Apache Log4j 2.0-beta5 requires a minimum of Java 6 to build and run. Basic compatibility with
+Log4j 1.x is provided through the log4j-1.2-api component, however it does not implement some of the
+very implementation specific classes and methods. The package names and Maven groupId have been changed to
+org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug reports,
+patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+
+<a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a>

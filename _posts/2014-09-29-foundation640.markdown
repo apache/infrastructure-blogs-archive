@@ -1,0 +1,22 @@
+---
+layout: post
+title: Apache™ TomEE™ Wins Duke's Choice Award and Geek Choice Award at JavaOne 2014
+date: '2014-09-29T02:45:06+00:00'
+categories: foundation
+---
+<div><b><i>Open Source project, Apache TomEE, receives Oracle's Duke's Choice Award and RebelLabs' Geek Choice Award at JavaOne, the premier Java technology conference</i></b></div> 
+  <p>Apache TomEE, the all-Apache Java EE 6 Web Profile certified stack, receives a Duke's Choice Award and Geek Choice Award at JavaOne 2014. Oracle's Duke's Choice Award is given to innovative projects and efforts that are invaluable to the Java Community. RebelLabs' annual Geek Choice Awards are awarded to the top 10 technologies that profoundly improve modern software development. The Award winners are to be announced at the JavaOne 2014 conference.</p> 
+  <div>&quot;The increasing popularity and enterprise use rate of Apache TomEE is a success story for Open Source, Java EE and the ASF,&quot; said David Blevins, Vice President of Apache TomEE. &quot;Born line by line and contributor by contributor entirely in Open Source, TomEE shows what can happen when JCP standards become open and community-driven, Open Source communities are fueled by business, and de facto standards like Tomcat meet industry standards like Java EE. &nbsp;It's quite rare when market conditions align to pave the way for something like TomEE. &nbsp;It's a victory for us all.&quot;</div> 
+  <div> 
+    <p>Apache TomEE is the Java Enterprise Edition 6 Web Profile Certified edition of Apache Tomcat, the world's most popular Java application server software, with more than 70% market penetration within the enterprise. TomEE is available in three flavors: &nbsp;TomEE, TomEE JAX-RS and TomEE Plus with version 1.7.1 as the latest release. The rapid large-scale uptick of TomEE in Enterprise deployments is a tribute of quality Open Source solutions driven by committed developers who bring real use cases and requirements to the collaborative development process. TomEE's reputation for reliability and simplicity has grown among businesses seeking a high performance alternative to proprietary commercial products and services.</p> 
+  </div> 
+  <div> 
+    <p>The Duke's Choice Award, the Java community equivalent of winning an Oscar, is awarded for compelling use of Java Technology. It recognizes distinguished projects that bring invaluable innovation, Java-Powered Technologies and Contributions to Java. One of this year's winners includes The Apache Software Foundation's TomEE project, written in Java, a vanilla Apache Tomcat stack with Java EE features. TomEE is a solution that simplifies the patchwork of APIs enabling enterprise features within Tomcat.</p> 
+    <p>The developer-centric Geek Choice Award is the end result of ZeroTurnaround's RebelLabs annual report on &quot;10 Kick-ass Technologies Modern Developers Love&quot; http://zeroturnaround.com/rebellabs/10-kick-ass-technologies-modern-developers-love/. &nbsp;This report reveals the industry's best technology based on market data, developer feedback, public interaction volume and anecdotal evidence. Of ten selected winners, Apache Tomcat + TomEE, won for their popularity and high usage rate by development teams. In RebelLabs' survey, Tomcat was the obvious leading application server for developers, with TomEE providing Java EE support for existing Tomcat base and new projects.&nbsp;</p> 
+  </div> 
+  <div>&quot;We are proud to receive such highly regarded awards by Oracle and RebelLabs for one of the Apache's many successful Open Source projects,&quot; added Blevins.</div> 
+  <div><br /><b>Availability and Oversight<br /></b>A Top-level Project at The Apache Software Foundation, Apache TomEE software is released under the Apache License v2.0, and overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache TomEE, visit http://tomee.apache.org/ &nbsp;and follow @ApacheTomEE on Twitter.</div> 
+  <div> 
+    <p>&quot;Apache&quot;, &quot;Apache Tomcat&quot;, &quot;Apache TomEE&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</p> 
+  </div> 
+  <div># # #</div>

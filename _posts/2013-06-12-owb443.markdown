@@ -1,0 +1,11 @@
+---
+layout: post
+title: Welcome Romain Manni-Bucau as new OpenWebBeans PMC member
+date: '2013-06-12T06:28:36+00:00'
+categories: owb
+---
+<p>The Apache OpenWebBeans team is proud to announce that Romain Manni-Bucau 
+has accepted the invitation to our Project Management Committee.</p> 
+  <p>Romain has been contributing to OpenWebBeans for a few years and responsible for integrating OWB into Apache TomEE.<br /></p> 
+  <p> </p> 
+  Welcome on board, Romain!

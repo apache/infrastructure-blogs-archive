@@ -1,0 +1,24 @@
+---
+layout: post
+title: CouchDB Conf is Next Week
+date: '2013-11-05T17:04:21+00:00'
+categories: couchdb
+---
+<p>It’s almost time for <a href="http://conf.couchdb.org/ ">CouchDB Conf</a>, held in Vancouver on November the 13th. That’s the day before Cascadia JS. If you don’t have your ticket to CouchDB Conf yet, there’s still time secure a place. Come meet the community, and learn about the future of CouchDB. The ticket includes a reception at Cascadia JS, which starts the day after CouchDB Conf.</p>
+
+<p><a href="http://couchdbconf.eventbrite.com/">Purchase your ticket for CouchDB Conf now</a></p>
+
+<p>The conference will include sessions that span Apache CouchDB and related technologies — covering everything from getting started to advanced features as well as CouchDB internals, application development, and best practices. Attendees will also get updates on other projects in the community such as <a href="http://pouchdb.com/">PouchDB</a>, a Web browser-based database capable of replicating data with Apache CouchDB and other compatible databases. Featured speakers include <a href="http://jan.prima.de/">Jan Lehnardt</a>, <a href="http://hood.ie/">Hoodie</a>; Joan Touzet, <a href="http://www.atypical.net/">Atypical</a>; <a href="http://brianbenz.com/">Brian Benz</a>, Microsoft; and <a href="http://arandomurl.com/">Dale Harvey</a>, Mozilla.</p>
+
+<p>Featured Discussions:</p>
+
+<ul>
+<li>Apache CouchDB is the database that replicates. CouchDB-style replication is now supported in a wide range of databases that live in browsers (PouchDB), mobile (TouchDB), and the cloud. Many of the talks will cover various aspects of using replication and modeling your data to work with it.</li>
+<li>Fauxton is the new Futon, CouchDB's Web-based administration console. Fauxton brings a fresh, modular approach to UI for Apache CouchDB. It is available at /_fauxton in Apache CouchDB 1.5, and will eventually become the new /_utils UI.</li>
+</ul>
+
+<p>Apache CouchDB Conf is the event to attend to expand knowledge, meet project committers and contributors, and find out where Apache CouchDB is headed.</p>
+
+<p>Visit <a href="http://conf.couchdb.org/">the conference website</a> for more information.</p>
+
+<p>We hope to see you there!</p>

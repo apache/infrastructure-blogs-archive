@@ -1,0 +1,7 @@
+---
+layout: post
+title: 'Introduction to "Enterprise" OSGi '
+date: '2009-12-03T09:10:07+00:00'
+categories: aries
+---
+<p>Last Saturday (28th November 2009) was the first ever London Java Community Unconference. I had never been to an unconference so I decided to go along and see what unconferences were all about. The first thing I knew was that I had to take a presentation along, so I decided to take a presentation along about Apache Aries. Given that &quot;Enterprise OSGi&quot; is new I also covered this as well.</p><p>The way it worked was that anyone wishing to give a presentation wrote their talk title on a post it and put it on the agenda. People them came along to the talks they were interested in. I ended up choosing a session in the afternoon and when I started my presentation there were about 30 people in the room. The talk went well and I was glad to see so much interest in Apache Aries and Enterprise OSGi.</p><p>&nbsp;If you want to see my slides they are <a href="http://blogs.apache.org/aries/resource/ljc-apache-aries.pdf" title="here">here</a>.</p><p>&nbsp;Alasdair</p>

@@ -1,0 +1,20 @@
+---
+layout: post
+title: "[ANNOUNCE] Apache NetBeans 11.2 Released"
+date: '2019-11-01T13:30:11+00:00'
+categories: netbeans
+---
+The Apache NetBeans team is pleased to announce the release of Apache NetBeans 11.2. Apache NetBeans is a full IDE for Java SE, Java EE, PHP and JavaScript development with some Groovy language support.
+
+<p>Apache NetBeans 11.2 is the second Apache NetBeans release outside the Apache Incubator and the second release of the new quarterly release cycle.  The LTS release of the Apache NetBeans 11 cycle is Apache NetBeans 11.0. The 11.2 release has not been as heavily tested as the LTS release. Use 11.2 to access the latest features and to provide feedback for the next LTS release, scheduled for April 2020.</p>
+
+<p><b>New & noteworthy features of the 11.2 release:</b></p>
+
+<p><a href="https://netbeans.apache.org/download/nb112/index.html">https://netbeans.apache.org/download/nb112/index.html</a></p>
+
+<p><b>Downloads:</b></p>
+
+<p><a href="https://netbeans.apache.org/download/nb112/nb112.html">https://netbeans.apache.org/download/nb112/nb112.html
+</a></p>
+
+<p>Feel free to share the good news!</p>

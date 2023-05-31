@@ -1,0 +1,11 @@
+---
+layout: post
+title: Apache Tomcat 6.0.30 released
+date: '2011-01-14T14:48:25+00:00'
+categories: tomcat
+---
+<p>The Apache Tomcat team is pleased to announce the release of Apache Tomcat 6.0.30. This is primarily a security and bug-fix release with one moderate security vulnerability addressed and around 100 bug fixes and enhancements.</p>
+
+<p>Apache Tomcat 6.0.30 can be downloaded from the <a href="http://tomcat.apache.org/download-60.cgi">Tomcat 6 download page</a>.</p>
+
+<p>The full <a href="http://tomcat.apache.org/tomcat-6.0-doc/changelog.html">changelog</a> is available in the Tomcat documentation.</p>

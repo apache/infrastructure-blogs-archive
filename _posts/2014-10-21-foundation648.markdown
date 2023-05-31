@@ -1,0 +1,56 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache™ Tajo™ v0.9
+date: '2014-10-21T10:00:07+00:00'
+categories: foundation
+---
+<div><b><i>Robust, Open Source &quot;SQL-on-Hadoop&quot; Big Data warehouse solution now faster, with improved performance and enhanced integration with Apache Hadoop™.</i></b></div> 
+  <p> </p> 
+  <div> 
+    <p><b>Forest Hill, MD –21 October 2014–</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 200 Open Source projects and initiatives, announced today the availability of Apache™ Tajo™ v0.9, the advanced Open Source data warehousing system in Apache Hadoop™.</p> 
+  </div> 
+  <div>&quot;With Apache Tajo v0.9, our goal of bringing traditional SQL performance to massive data is a step closer,&quot; said Hyunsik Choi, Vice President of Apache Tajo. &quot;We really enjoyed working to improve Tajo's leading-edge native SQL support, and its lightning performance across divergent workloads.&quot;</div> 
+  <p> </p> 
+  <div> 
+    <p>Dubbed an &quot;SQL-on-Hadoop&quot; solution, Apache Tajo is used for low-latency and scalable ad-hoc queries, online aggregation, and ETL (extract-transform-load process) on large data sets stored on HDFS (Hadoop Distributed File System) and other data sources. By supporting SQL standards and leveraging advanced database techniques, Tajo allows direct control of distributed execution and data flow across a variety of query evaluation strategies and optimization opportunities. Overall, Apache Tajo v0.9 delivers more powerful native SQL support on an even faster platform.</p> 
+  </div> 
+  <div>&quot;We have been determined from the outset to find ways of boosting query processing speed without compromising system robustness and solution accessibility,&quot; said Jihoon Son, member of the Apache Tajo Project Management Committee. &quot;In practice, that means using cutting-edge query techniques and processing algorithms as our source of 'speed', meanwhile maintaining three key features: Fault tolerance, the ability to fully utilize working memory and write to disk, and data source neutrality. We think those design choices give Apache Tajo long-run flexibility and coherence.&quot;</div> 
+  <p> </p> 
+  <div> 
+    <p>Features and enhancements in Apache Tajo v0.9 include:</p> 
+  </div> 
+  <div> 
+    <ul> 
+      <li>More comprehensive and powerful SQL capabilities, such as TIMESTAMP, DATE, TIME, and INTERVAL type support, as well as WINDOW functions, OVER clause support, and multiple distinct aggregation;</li> 
+      <li>Performance improvements, such as offheap sort algorithm for ORDER BY and Runtime code generation for evaluating expressions push the boundaries of massive data query speeds;</li> 
+      <li>Improvements to the hash shuffle I/O, boosting bottom-line speeds by 200-300% on &quot;heavy&quot;, complex queries;</li> 
+      <li>Enhanced Hadoop integration, including support for Hadoop 2.2.0 up to Hadoop 2.5.1, and expanded Hive Metastore access;</li> 
+      <li>Improved catalog backup and restore feature, as well as accessibility enhancements streamline performance across disparate technology environments.</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Apache Tajo is part of the Apache Hadoop ecosystem at a variety of organizations, including Gruter, Korea University, and NASA JPL's Radio Astronomy and Airborne Snow Observatory projects, among others. At SK Telecom, South Korea's largest wireless carrier, Apache Tajo has undergone a brutal testing regimen, where it has had to deal with telco-sized data stores, node growth and cluster expansion, and a grueling company-wide data analysis and reporting schedule. &quot;The fast processing capabilities of Apache Tajo have allowed us to build an entirely new big data warehouse and OLAP system,&quot; said Eddy Park, Hadoop-based Data Warehouse Project Manager at SK Telecom. &quot;Apache Tajo now plays a vital role in data-driven decision making at our company.&quot;</div> 
+  <p> </p> 
+  <div> 
+    <p>Hyoungjun Kim, CTO of Gruter, said &quot;We run Apache Tajo in-house on 30 cluster nodes in order to power Seenal, our social network analysis service that supplies social media insight to government and corporate clients. On the one hand, this involves running complex ETL processes on hundreds of gigabytes of data per day in order to detect market and opinion signals. On the other hand, analysts and project teams often need to run very specific analyses on much smaller data sets. Tajo is able to handle the full spectrum of Seenal’s data processing and query needs at high speed and with minimal fuss.&quot;</p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p>&quot;We're very excited about the release of Apache Tajo 0.9,&quot; added Choi. &quot;The Apache Tajo community, committers, and supporters have really done our mission proud.&quot;</p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p><b>Availability and Oversight<br /></b>As with all Apache products, Apache Tajo software is released under the Apache License v2.0, and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Tajo, visit <a href="http://tajo.apache.org/">http://tajo.apache.org/</a> and <a href="https://twitter.com/ApacheTajo">https://twitter.com/ApacheTajo</a></p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p><b>About The Apache Software Foundation (ASF)<br /></b>Established in 1999, the all-volunteer Foundation oversees more than two hundred leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 450 individual Members and 4,000 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Budget Direct, Citrix, Cloudera, Comcast, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, Matt Mullenweg, Microsoft, Pivotal, Produban, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.</p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p>&quot;Apache&quot;, &quot;Apache Hadoop&quot;, &quot;Hadoop&quot;, &quot;Apache Tajo&quot;, &quot;Tajo&quot;, &quot;ApacheCon&quot;, and the Apache Tajo logo are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p># # #</p> 
+  </div>

@@ -1,0 +1,32 @@
+---
+layout: post
+title: Announcing Apache JSPWiki 2.10.4
+date: '2018-05-31T10:59:05+00:00'
+categories: jspwiki
+---
+<p>We're pleased to announce the availability of <strong>Apache JSPWiki version 2.10.4</strong>. Following are the notable changes included in this release.<br /><strong></strong></p> 
+  <h4>Improvements to the Haddock template</h4> 
+  <p><a href="https://blogs.apache.org/jspwiki/entry/introducing_the_haddock_template" target="_blank" title="Introducing the Haddock Template">Haddock</a> is JSPWiki's next generation template. Building on the <a href="https://blogs.apache.org/jspwiki/entry/announcing-apache-jspwiki-2-10" target="_blank" title="Haddock changes in JSPWiki 2.10.3">huge number of new features shipped in 2.10.3</a>, changes in 2.10.4 include a floating editing toolbar (<a href="https://issues.apache.org/jira/browse/JSPWIKI-1058" target="_blank" title="JIRA issue for floating toolbar support">JSPWIKI-1058</a>). This is especially useful when editing long pages, as the toolbar is always visible without having to scroll to the top of the page:</p> 
+  <p><img src="https://blogs.apache.org/jspwiki/mediaresource/342c6ee0-7912-46af-970b-2966fa3d1880" alt="JSPWiki floating editor toolbar" /><br /> </p> 
+  <p> </p> 
+  <p>Work is also continuing to improve support for mobile devices (<a href="https://issues.apache.org/jira/browse/JSPWIKI-835" target="_blank" title="JIRA issue for improved mobile support">JSPWIKI-835</a>), and a new favicon has been added.</p> 
+  <h4>Fixes for ACLs </h4> 
+  <ul> 
+    <li><a href="https://issues.apache.org/jira/browse/JSPWIKI-1039" target="_blank" title="JIRA issue for an ACL fix">JSPWIKI-1039</a> – ACLs are not taken into account when cache is disabled</li> 
+    <li><a href="https://issues.apache.org/jira/browse/JSPWIKI-1047" target="_blank" title="JIRA issue for an ACL fix">JSPWIKI-1047</a> – Access Control Lists do not work if page cache is deactivated</li> 
+    <li><a href="https://issues.apache.org/jira/browse/JSPWIKI-1067" target="_blank" title="JIRA issue for an ACL fix">JSPWIKI-1067</a> – View-only ACLs are not enforced</li> 
+  </ul> 
+  <div> 
+    <h4>Other fixes</h4> 
+    <p>JSPWiki 2.10.4 corrects German language translation errors, and a rendering cache fix.</p> 
+    <h4>For more information<br /></h4> 
+    <p>For a full list of changes see the <a class="external" href="https://github.com/apache/jspwiki/blob/2.10.4/ChangeLog" target="_blank" title="JSPWiki changelog file">ChangeLog</a> file or our <a class="external" href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310732&amp;version=12342771" target="_blank" title="JSPWiki issue tracker">issue tracker</a>.</p> 
+    <p>The release is available for download at:</p> 
+    <ul> 
+      <li><a href="http://www.apache.org/dyn/closer.cgi/jspwiki/" target="_blank" title="JSPWiki 2.10.4 downloads">http://www.apache.org/dyn/closer.cgi/jspwiki/</a></li> 
+    </ul> 
+    <p>JSPWiki Maven artifacts are available under <em>org.apache.jspwiki groupId, version 2.10.4</em><br /></p> 
+    <p>All JSPWiki site administrators are encouraged to update. To get involved, visit the project website at <a href="http://jspwiki.apache.org/" target="_blank" title="JSPWiki project main website">http://jspwiki.apache.org</a>. For feedback, help, and developer queries please visit us on the <a href="https://jspwiki.apache.org/community/mailing_lists.html" target="_blank" title="JSPWiki mailing lists">mailing lists</a>.</p> 
+  </div> 
+  <ul> </ul> 
+  <p><br /></p>

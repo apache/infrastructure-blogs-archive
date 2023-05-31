@@ -1,0 +1,38 @@
+---
+layout: post
+title: 'The Apache Software Foundation Announces Apache™ MetaModel™ as a Top-Level
+  Project '
+date: '2014-12-09T10:00:22+00:00'
+categories: foundation
+---
+<div><b><i>Dynamic, metadata-driven Open Source framework provides uniform data access and code consolidation across various data stores.&nbsp;</i></b></div> 
+  <div><br /></div> 
+  <div><b>Forest Hill, MD –09 December 2014–</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 200 Open Source projects and initiatives, announced today that Apache™ MetaModel™ has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the project's community and products have been well-governed under the ASF's meritocratic process and principles.&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;It's a great privilege for us to have MetaModel graduated to a Top Level Project at Apache. It makes us proud and excited about welcoming more people into our community of coders and users,&quot; said Kasper Sørensen, Vice President of Apache MetaModel. &quot;We've learned a lot about the Apache Way since entering the Apache Incubator in July 2013.&quot;&nbsp;</div> 
+  <div><br /></div> 
+  <div>Apache MetaModel is a data access framework that provides a common interface for the discovery, exploration, and querying of different types of data sources. Unlike traditional mapping frameworks, MetaModel emphasizes metadata of the data source itself and the ability to add more data sources at runtime. MetaModel's schema model and SQL-like query API is applicable to databases, CSV files, Excel spreadsheets, NoSQL databases, Cloud-based business applications, and even regular Java objects. This level of abstraction makes MetaModel great for dynamic data processing applications, less so for applications modelled strictly around a particular domain.&nbsp;</div> 
+  <div><br /></div> 
+  <div>MetaModel is so called as it's a model for interacting with data based on metadata, enabling developers to go above the physical data layer and apply their application to just about any data.&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;MetaModel enables you to consolidate code and consolidate data a lot quicker than any other library out there,&quot; Sørensen explained. &quot;In these 'Big Data days' there's a lot of focus on performance and scalability, and surely these topics also surround Apache MetaModel. The Big Data challenge is not always about massive loads of data, but instead massive variation and feeding a lot of different sources into a single application. Now to make such an application you both need a lot of connectivity capabilities and a lot of modelling flexibility. Those are the two aspects where Apache MetaModel shines. We make it possible for you to build applications that retain the complexity of your data – even if that complexity may change over time. The trick to achieve this is to model on the metadata and not on your assumptions.&quot;&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;The performance and flexibility of Apache MetaModel is a key building block for us to improve the usability and power for the thousands of users of DataCleaner – the leading Open Source data quality solution, supported by Neopost,&quot; said Enno Ebels, Executive Vice President of Customer Information Management at Neopost.&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;It's been a joy to follow the growth in the community and in functionality,&quot; added Sørensen. &quot;Over the last year we've introduced connectivity for Apache HBase, JSON files, ElasticSearch, Apache Cassandra and a whole lot more. It's always a great pleasure to see the excitement in people's eyes when they realize that you can develop for these data sources using the same API.&quot;&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache MetaModel is the core technology used underneath our MDM offering at Human Inference, providing us an abstraction layer above the different database schemes we currently support, including Postgres, DB2, Oracle, SQL Server, and ElasticSearch,&quot; said Ankit Kumar, Technical Lead at Human Inference and Member of the Apache MetaModel Project Management Committee.</div> 
+  <div><br /></div> 
+  <div>&quot;The MetaModel query language helps us write code agnostic of the underlying database. Within our MDM offering we have even implemented some virtual data stores using MetaModel,&quot; said Winfried van Holland, CTO of Neopost Customer Information Management. &quot;These expose our data model in a custom view for our consultants - stripping away the technical complexities and exposing the business value in a data model that is natural for the business people to consume.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Apache MetaModel is a key technology in Stratio Datavis, allowing us to manage metadata and create SQL-based connectors for a bunch of data stores,&quot; said David Morales, Big Data Architect at Stratio. &quot;Thanks to Apache MetaModel, Datavis users can create beautiful dashboards using their SQL skills, instead of knowing several query languages. That's why we are proud to be contributors of MetaModel and we will continue to collaborate with this great project.&quot;&nbsp;</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight&nbsp;</b></div> 
+  <div>As with all Apache products, Apache MetaModel software is released under the Apache License v2.0, and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For documentation and ways to become involved with Apache MetaModel, visit <a href="http://metamodel.apache.org">http://metamodel.apache.org</a> and <a href="https://twitter.com/ApacheMetaModel">https://twitter.com/ApacheMetaModel</a> </div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)&nbsp;</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than two hundred leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 500 individual Members and 4,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Budget Direct, Citrix, Cloudera, Comcast, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, Matt Mullenweg, Microsoft, Pivotal, Produban, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.&nbsp;</div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache,&quot; &quot;Apache MetaModel,&quot; &quot;MetaModel,&quot; ApacheCon,&quot; and the Apache MetaModel logo are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.&nbsp;</div> 
+  <div><br /></div> 
+  <div># # #&nbsp;</div>

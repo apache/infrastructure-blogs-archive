@@ -1,0 +1,26 @@
+---
+layout: post
+title: 'Revisiting Pools '
+date: '2011-11-15T10:36:11+00:00'
+categories: esme
+---
+<div>Recently, we've had a few questions about the concept of pools in ESME. I spent some time reading old threads from our mailing lists to collect the motivations behind our design decisions. This blog is a collection of tidbits from these mail threads.&nbsp;</div> 
+  <div><br /></div> 
+  <div>First of all, “pools&quot; are not interchangeable with &quot;groups&quot;. They mean different things. A pool is about the messages. A group is about the people.</div> 
+  <div><br /></div> 
+  <div>Groups are personal things where I assign different people into different groups and the meaning of a group is individual to me and it's all about my view of the world. &nbsp;This keeps to the &quot;opt in&quot; mechanism that we absolutely must preserve in ESME. &nbsp;If we do this type of group in the future, that's way cool, but once again, it's a personal thing that has nothing to do with access control or &quot;sending&quot;.</div> 
+  <div><br /></div> 
+  <div>Using the term &quot;group&quot; might lead people to think they are sending a message to a group of people, whereas they will actually be making it *available* to a group of people, should anyone in that group choose to look in the pool.</div> 
+  <div><br /></div> 
+  <div>Pools are collections of messages that can only be read by people who have been granted access to that pool. A person who has access to a pool is able to see messages put into that pool that otherwise meet the person's criteria (who they are following, what their filter rules are.) &nbsp;There is no &quot;send to a pool&quot; concept. &nbsp;It's &quot;place a message in a pool&quot; and all messages are placed in one and only one pool and by default, that pool is the server-local public pool. &nbsp;ESME is opt-in.</div> 
+  <div><br /></div> 
+  <div>A user has a relationship with a pool. &nbsp;That relationship is read/read-write/administer (which implies read-write). &nbsp;</div> 
+  <div><br /></div> 
+  <div>So, how do you get a message into a pool? &nbsp;You will define your default pool. &nbsp;This is the pool that your messages get put into unless you specify otherwise. &nbsp;This means that the CEO can choose to put things in the &quot;c-level&quot; pool. &nbsp;Most people will post to the public pool by default. &nbsp;</div> 
+  <div><br /></div> 
+  <div>If a pool is deleted, the messages in the users’ timeline stay, but it is as if all the users were deleted from the pool.</div> 
+  <div><br /></div> 
+  <div>A message may only be in one pool. &nbsp;There is no way for a message to escape the pool (eg. resend cannot change the pool) and any replies are in the pool of the original message (this is for performance and security purposes.)</div> 
+  <div><br /></div> 
+  <div>We are using groups and pools to mean something different than people are used to. &nbsp;ESME is a different medium than people are used to. &nbsp;That gives&nbsp;ESME&nbsp;its power. &nbsp;ESME is powerful because it is a dynamic, opt-in, social medium rather than a point-to-point communications medium. There are different concepts in ESME than in point-to-point mediums. &nbsp;Let's do the extra work now to make sure we understand those differences and celebrate those differences and get others excited about those differences so that ESME can thrive for what it is... a social tool for social animals.</div> 
+  <div><br /></div>

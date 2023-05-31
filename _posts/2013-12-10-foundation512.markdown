@@ -1,0 +1,46 @@
+---
+layout: post
+title: 'The ASF asks: Have you met Apache™ Marmotta™?'
+date: '2013-12-10T14:00:20+00:00'
+categories: foundation
+---
+<div>The all-volunteer Apache Software Foundation (ASF) develops, stewards, and incubates over 200 Open Source projects and initiatives, many of which power mission-critical applications in financial services, aerospace, publishing, big data, government, healthcare, research, infrastructure, and more.</div> 
+  <div><br /></div> 
+  <div>Did you know that 50% of the Top 10 downloaded Open Source products are Apache<span style="background-color: #f9f7ed; color: #222222; font-family: 'Helvetica Neue', 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif; font-size: 15px; font-weight: bold;">™</span>&nbsp;projects? Did you know that one of the <a href="https://www.ohloh.net/orgs/apache/projects">ASF's most active projects</a> is <a href="http://marmotta.apache.org">Apache Marmotta</a><span style="background-color: #f9f7ed; color: #222222; font-family: 'Helvetica Neue', 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif; font-size: 15px; font-weight: bold;">™</span>?</div> 
+  <div><br /></div> 
+  <div> 
+    <p><b>Quick peek:</b> Apache Marmotta is an Open Platform for <a href="http://www.w3.org/standards/semanticweb/data">Linked Data</a>, a paradigm promoted by the World Wide Web Consortium (W3C) for large scale data integration across the Web based the RDF technology stack.</p> 
+  </div> 
+  <div> </div> 
+  <div> 
+    <p><b>Background:</b>&nbsp;Initiated in 2008 by a group of researchers from <a href="http://www.salzburgresearch.at">Salzburg Research</a>&nbsp;as the EU-funded KiWi project (investigated the idea of &quot;Semantic Wikis&quot; and aimed at combining easily editable Web content with Semantic Web technologies to provide data to both human and machine users), later refocused and renamed as <a href="http://lmf.googlecode.com">LMF</a>. The project was contributed as &quot;Marmotta&quot; to the Apache Incubator in December of 2012. Apache Marmotta graduated as an Apache Top-Level Project in November 2013.</p> 
+  </div> 
+  <div>A history of the project is available at <a href="http://redlink.co/apache-marmotta/">http://redlink.co/apache-marmotta/</a> and <a href="http://www.salzburgresearch.at/en/2013/apache-marmotta-graduated-top-level-project/">http://www.salzburgresearch.at/en/2013/apache-marmotta-graduated-top-level-project/</a>&nbsp;.</div> 
+  <div><br /></div> 
+  <div> 
+    <p><b>Why Marmotta</b>: Apache Marmotta was created to provide an Open Source implementation of Linked Data technologies in general, and <a href="http://www.w3.org/TR/ldp/">Linked Data Platform</a>&nbsp;in particular. Usually organizations who want to use this technology need to assemble together different pieces of software, with the obvious problems derived, both technical and legal. Apache Marmotta satisfies that need of the industry, supporting almost any use-case with a permissive Open Source license.</p> 
+    <p>Apache Marmotta powers <a href="http://search.salzburg.com/news/">Salzburger Nachrichten</a>'s search and archive, the Open Data portal at <a href="http://data.enel.com/">Enel</a>, as well as <a href="http://redlink.co/">Redlink</a>'s cloud infrastructure, among other implementations.</p> 
+  </div> 
+  <div><br /></div> 
+  <div><b>What's under the hood:</b> Apache Marmotta includes features that make easier building Linked Data applications, including: full Read-Write Linked Data with basic security mechanism, exchangeable RDF triple stores, SPARQL and LDPath languages for querying, transparent Linked Data caching and an extensible modules architecture where you can plug-in your own modules.</div> 
+  <div><br /></div> 
+  <div>Apache Marmotta comprises the following components:</div> 
+  <div><br /></div> 
+  <div> 
+    <ul> 
+      <li>The Marmotta Platform, a JavaEE web application providing the Linked Data server;</li> 
+      <li><a href="http://marmotta.apache.org/kiwi">KiWi</a>, a Sesame-based triple store built on top of a relational database, including reasoning and versioning;</li> 
+      <li><a href="http://marmotta.apache.org/ldpath">LDPath</a>, a path language to navigate across Linked Data resources;</li> 
+      <li><a href="http://marmotta.apache.org/ldclient">LDClient</a>, a client that allows retrieval of remote legacy resources not available as Linked Data; and</li> 
+      <li><a href="http://marmotta.apache.org/ldcache">LDCache</a>, a cache system that automatically retrieves resources by internally using LDClient</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><b>Latest release:</b> Apache Marmotta v3.1.0-incubating on 13 October 2012 under the Apache License v.2.0. More details can be found in the <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314321&amp;version=12324026&amp;styleName=Text">Release Notes</a>.</div> 
+  <div><br /></div> 
+  <div>In the upcoming weeks the Project plans to release its next version --the first one as on official Apache Top-Level Project. Stay tuned via the Apache Marmotta developer, user, and commit lists at <a href="http://marmotta.apache.org/mail-lists.html">http://marmotta.apache.org/mail-lists.html</a></div> 
+  <div><br /></div> 
+  <div><b>Downloads, documentation, examples, and more information:</b> visit <a href="http://marmotta.apache.org">http://marmotta.apache.org</a></div> 
+  <div><br /></div> 
+  <p>&quot;Apache&quot;, &quot;Apache Marmotta&quot;, and &quot;Marmotta&quot; are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.&nbsp;</p> 
+  <div># # #</div>

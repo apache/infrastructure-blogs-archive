@@ -1,0 +1,27 @@
+---
+layout: post
+title: Apache Flex 4.16.1 Released!
+date: '2017-11-23T23:40:14+00:00'
+categories: flex
+---
+The Apache Flex community is pleased to announce the release of Apache Flex SDK 4.16.1
+
+The Apache Flex SDK is a highly productive, open source application framework for building and maintaining expressive applications that deploy consistently on all major browsers, desktops and devices (including smartphones, tablets and tv). 
+
+The Apache Flex SDK 4.16.1 is an update to Apache Flex SDK 4.16.0 that adds support for the latest Flash Player and AIR runtimes and some bug fixes. 
+
+For more details, see the release notes at: <a href="http://www.apache.org/dist/flex/4.16.1/RELEASE_NOTES">http://www.apache.org/dist/flex/4.16.1/RELEASE_NOTES</a>
+
+The Apache Flex SDK is available in source form from the following download page: 
+<a href="http://flex.apache.org/download-source.html">http://flex.apache.org/download-source.html </a>
+
+It's recommended you install the Apache Flex SDK by using the Apache Flex SDK installer 3.3.0: 
+<a href="http://flex.apache.org/installer.html">http://flex.apache.org/installer.html </a>
+
+When downloading from a mirror site, please remember to verify the downloads using signatures or MD5 hashes. 
+
+For more information on Apache Flex, visit the project home page: 
+<a href="http://flex.apache.org">flex.apache.org</a>
+
+Thank you for using Apache Flex, 
+The Apache Flex Community

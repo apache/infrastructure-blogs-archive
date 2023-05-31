@@ -1,0 +1,8 @@
+---
+layout: post
+title: test blog post using an upload image
+date: '2012-06-28T01:35:34+00:00'
+categories: test
+---
+<p>penguins.jpg</p><a href="https://blogs.apache.org/test/mediaresource/b7daa099-fd35-4e24-93df-9874496a98a5"><img width="120" height="90" alt="penguins.jpg" src="https://blogs.apache.org/test/mediaresource/b7daa099-fd35-4e24-93df-9874496a98a5?t=true" /></a>
+Seems I can upload images ok.

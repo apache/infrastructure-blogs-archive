@@ -1,0 +1,47 @@
+---
+layout: post
+title: "[ANN] Apache Isis 1.8.0"
+date: '2015-02-24T07:59:38+00:00'
+categories: isis
+---
+<div>The Isis team is pleased to announce the release of:</div> 
+  <div> 
+    <ul> 
+      <li>Apache Isis Core version 1.8.0</li> 
+      <li>SimpleApp Archetype 1.8.0</li> 
+    </ul> 
+  </div> 
+  <div>New features in this release include:</div> 
+  <div> 
+    <ul> 
+      <li>a new theme-able look-n-feel for the Wicket viewer, using <a href="http://www.getbootstrap.com/" target="_blank">Twitter Bootstrap</a>&nbsp;and <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">font awesome icons</a></li> 
+      <li>a new simplified set of annotations (@Property, @DomainObject, @CollectionLayout etc) to make features more discoverable; see <a href="http://isis.apache.org/intro/resources/cheat-sheet.html" target="_blank">cheat-sheet</a></li> 
+      <li>support to enable multi-tenancy (in particular in conjunction with <a href="https://github.com/isisaddons/isis-module-security" target="_blank">Isis addons security module</a>)</li> 
+      <li>new <a href="http://isis.apache.org/config/i18n-support.html" target="_blank">i18n support</a> using gettext .po files, honouring user locale</li> 
+      <li><a href="http://isis.apache.org/reference/services/user-registration-service.html" target="_blank">sign-up/self-registration</a> support (so that end-users can create own user accounts)</li> 
+      <li><a href="http://isis.apache.org/reference/services/email-service.html" target="_blank">EmailService</a> for sending HTML emails, optionally with attachments</li> 
+      <li>ability to validate individual parameters imperatively</li> 
+      <li>config property to flag use of deprecated annotations/method prefixes</li> 
+      <li>Maven plugin to validate domain object model with respect to Isis programming conventions</li> 
+      <li>improved support for Neo4J</li> 
+      <li>experimental support for more <a href="http://isis.apache.org/components/viewers/restfulobjects/suppressing-elements-of-the-representations.html" target="_blank">flexibility of generating Restful Objects representations</a></li> 
+    </ul> 
+  </div> 
+  <div>Full <a href="http://isis.apache.org/core/release-notes/isis-1.8.0.html" target="_blank">release notes</a> are available on the Isis website.</div> 
+  <div><br /></div> 
+  <div>Note that:</div> 
+  <div> 
+    <ul> 
+      <li>as of 1.8.0 the Wicket Viewer is bundled in with Core</li> 
+      <li>the ToDoApp archetype is no longer provided, however the <a href="https://github.com/isisaddons/isis-app-todoapp" target="_blank">example todoapp</a> is available from Isis addons (not ASF) to fork and adapt.</li> 
+      <li>this release drops support for JDK 1.6, standardizes on JDK 1.7</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>You can access this release directly from the <a href="http://search.maven.org" target="_blank">Maven central repo</a>, or download the release and build it <a href="http://isis.apache.org/download.html" target="_blank">from source</a>.</div> 
+  <div><br /></div> 
+  <div>Enjoy!</div> 
+  <div><br /></div> 
+  <div>--The Apache Isis team</div> 
+  <div><br /></div> 
+  <div><br /></div>

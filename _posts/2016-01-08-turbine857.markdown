@@ -1,0 +1,72 @@
+---
+layout: post
+title: Apache Turbine 4.0 Milestone 2 released
+date: '2016-01-08T13:45:50+00:00'
+categories: turbine
+---
+<h1>The Apache Turbine team is pleased to announce the 4.0-M2 milestone release!</h1> 
+  <p>Apache Turbine is a servlet based framework that allows experienced Java developers to quickly build secure web applications. Parts of Turbine can also be used independently of the web portion of Turbine as well. In other words, we strive to make portions of Turbine easily available for use in other applications.</p> 
+  <p>Apache Turbine is a long time citizen of the Apache Software Foundation, the first commits date back to 2000 and 2001. The project has influenced quite a number of other projects such as Apache DB Torque, Apache Maven and a number of Apache Commons components.</p> 
+  <p>This milestone release is made for verification of the new security implementation, the quartz scheduler and the new annotations. Many deprecated methods have been removed. The milestone release is not meant for production use. We hope to get lots of feedback from you.</p> 
+  <p>Note that this version requires JDK 1.6+ to run.</p> 
+  <h2>New features</h2> 
+  <ul>
+    <li>Add QuartzSchedulerService</li> 
+    <li>Add Annotation @TurbineActionEvent to annotate action methods with arbitrary event names.</li> 
+    <li>Add Annotation @TurbineLoader to inject a loader instance into objects.</li> 
+    <li>Add Annotation @TurbineConfiguration to inject a configuration instance into objects.</li> 
+    <li>Add Annotation @TurbineService to inject Turbine service instance into assemblers such as screens, actions, navigations etc. and pipeline valves. See VelocityActionWithServiceInjection for an example.</li> 
+    <li>Add class cache for TurbineRunDataService</li>
+  </ul> 
+  <h2>Fixed Bugs</h2> 
+  <ul>
+    <li>Fix Velocity logging.</li> 
+    <li>Fix possible NPE in TurbinePullService.</li> 
+    <li>Use lastIndexOf() to get the template extension in TurbineTemplateService. Issue: TRB-82.</li> 
+    <li>Fix TurbineYaafiComponentService to set its applicationRoot properly.</li> 
+    <li>Fix TurbineMacros to comply with the implementation of HtmlPageattributes</li> 
+    <li>Port the handling of template encoding from Turbine 2.3.3</li>
+  </ul> 
+  <h2>Changes</h2>
+  <ul> 
+    <li>Update dependencies</li> 
+    <ul>
+      <li>commons-codec to 1.10</li> 
+      <li>commons-collections to 3.2.2</li> 
+      <li>commons-logging to 1.2</li> 
+      <li>commons-beanutils to 1.9.2</li> 
+      <li>jython to 2.7.0</li> 
+      <li>log4j to 1.2.17</li>
+    </ul>
+    <li>Update dependencies</li> 
+    <ul>
+      <li>fulcrum-security to 1.1.0</li> 
+      <li>fulcrum-intake to 1.2.0</li>
+    </ul> 
+    <li>Update to Torque 4.0.0</li> 
+    <li>Update dependencies</li> 
+    <ul>
+      <li>servlet-api to 2.5 (Tomcat 6.0)</li> 
+      <li>commons-codec to 1.8</li> 
+      <li>commons-configuration to 1.9</li> 
+      <li>commons-email to 1.3</li> 
+      <li>fulcrum-parser to 1.0.3</li>
+    </ul>
+    <li>Update Turbine Parent POM to version 3</li> 
+    <li>Switch to Fulcrum Security API</li> 
+    <li>Refactor handling of annotated fields into AnnotationProcessor.</li> 
+    <li>Reintroduce VelocityCachedLayout/Screen classes</li> 
+    <li>Adjust site for Apache Turbine Parent POM version 2</li> 
+    <li>Use Apache Turbine Parent POM version 2</li> 
+    <li>Remove duplicate data storage in DefaultTurbineRunData and DefaultPipelineData</li> 
+    <li>Services that implement TurbineServiceProvider are inited early by default Issue: TRB-72.</li> 
+    <li>Switch from String keys to Class keys for AssemblerBrokerService</li> 
+    <li>Refine interface of PipelineData and add user and acl objects to pipelineData.</li> 
+    <li>Continue generification</li>
+  </ul> 
+  <h2>Removed</h2>
+  <ul> 
+    <li>Remove all deprecated methods using RunData as a parameter to clean	up the API. Further cleanup is needed.</li>
+  </ul> 
+  <p>Have fun!<br />
+-Apache Turbine team</p>

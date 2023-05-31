@@ -1,0 +1,7 @@
+---
+layout: post
+title: Welcome Ivan Habunek
+date: '2010-07-18T00:00:00+00:00'
+categories: logging
+---
+The Apache Logging team is pleased to announce Ivan Habunek as new committer for Log4PHP. Welcome, Ivan!

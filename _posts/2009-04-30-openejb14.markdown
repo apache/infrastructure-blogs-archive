@@ -1,0 +1,17 @@
+---
+layout: post
+title: Lookups into the openejb namespace
+date: '2009-04-30T00:00:00+00:00'
+categories: openejb
+---
+To ease the burden in looking up things from OpenEJB's internal JNDI tree, we've added a new "openejb" JNDI URL prefix which can be used in any context to do lookups.
+<p>
+The following will work in a TestCase or EJB or any code running in the same VM as the EJB Container.
+<p>
+<pre>
+InitialContext context = new InitialContext();
+
+TransactionManager tm = (TransactionManager) context.lookup("openejb:TransactionManager");
+DataSource dataSource = (DataSource) context.lookup("openejb:Resource/MyDataSource");
+</pre>
+

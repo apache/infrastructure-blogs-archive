@@ -1,0 +1,29 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 31 October 2014'
+date: '2014-10-31T19:33:30+00:00'
+categories: foundation
+---
+<div>Noteworthy items from The Apache Software Foundation's more than 200 projects and initiatives that have taken place over the past week include:</div> 
+  <p>The ASF @ 15 - The Apache Software Foundation Marks 15 Years of Open Source Innovation and Community Leadership<br />&nbsp;- Chairman's Statement&nbsp;<a href="http://s.apache.org/RYD">http://s.apache.org/RYD</a></p> 
+  <p>ApacheCon™ –the official conference series of The Apache Software Foundation<br />&nbsp;- Early registration incentives for ApacheCon, Cassandra Days, and CloudStack Collaboration Conference Europe end soon <a href="http://events.linuxfoundation.org/">http://events.linuxfoundation.org/</a></p> 
+  <p> </p> 
+  <p>Apache Any23™ –used in major Web of Data applications and can be used as a library in Java applications that consume structured data from the Web, as a command-line tool for extracting and converting between the supported formats, and as online service API available at any23.org.<br />&nbsp;- Apache Any23 1.1 released&nbsp;<a href="http://s.apache.org/any231.1">http://s.apache.org/any231.1</a></p> 
+  <div> 
+    <p>Apache Camel™ –powerful Open Source integration framework based on known Enterprise Integration Patterns.<br />&nbsp;- Apache Camel 2.12.5 released&nbsp;<a href="http://camel.apache.org/download.html">http://camel.apache.org/download.html</a></p> 
+    Apache Flex™ –a highly productive, Open Source application framework for building and maintaining expressive Web applications that deploy consistently on all major browsers, desktops and devices (including smartphones, tablets and TV).<br />&nbsp;- Apache Flex Squiggly 1.1 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/flex/squiggly/1.1/RELEASE_NOTES">http://www.apache.org/dyn/closer.cgi/flex/squiggly/1.1/RELEASE_NOTES</a> 
+    <p>Apache jclouds™ –Open Source multi-cloud toolkit for the Java platform that gives you the freedom to create applications that are portable across clouds while giving you full control to use cloud-specific features.<br />&nbsp;- Apache jclouds 1.8.1 released&nbsp;<a href="https://issues.apache.org/jira/browse/JCLOUDS/fixforversion/12327548">https://issues.apache.org/jira/browse/JCLOUDS/fixforversion/12327548</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Kafka™ –a single Kafka broker can handle hundreds of megabytes of reads and writes per second from thousands of clients. Kafka is designed to allow a single cluster to serve as the central data backbone for a large organization, and can be elastically and transparently expanded without downtime.<br />&nbsp;- Apache Kafka 0.8.2-beta released&nbsp;<a href="https://archive.apache.org/dist/kafka/0.8.2-beta/RELEASE_NOTES.html">https://archive.apache.org/dist/kafka/0.8.2-beta/RELEASE_NOTES.html</a></p> 
+    <p>Apache MINA™ –a network application framework which helps users develop high performance and high scalability network applications easily.<br />&nbsp;- Apache MINA 2.0.9 released&nbsp;<a href="http://mina.apache.org/downloads.html">http://mina.apache.org/downloads.html</a></p> 
+    <p>Apache Onami™ –focused on the development and maintenance of a set of Google Guice extensions.<br />&nbsp;- Apache Onami Persist 1.0.1 released <a href="http://onami.apache.org/">http://onami.apache.org/</a></p> 
+    <p>Apache Tomcat™ –a web server that is an Open Source software implementation of the Java Servlet and JavaServer Pages technologies.<br />&nbsp;- Apache Tomcat Native 1.1.32 released&nbsp;<a href="http://tomcat.apache.org/native-doc/miscellaneous/changelog.html">http://tomcat.apache.org/native-doc/miscellaneous/changelog.html</a></p> 
+    <p>Apache Software Foundation Graphics –graphical assets that can be used by third parties when referring to The Apache Software Foundation or one of its projects.<br />&nbsp;- Download new &quot;Powered By Apache&quot; general and project logos <a href="http://apache.org/foundation/press/kit/#poweredby">http://apache.org/foundation/press/kit/#poweredby</a></p> 
+  </div> 
+  <div> 
+    <p>= = =</p> 
+  </div> 
+  <div>Want more? For real-time updates, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">sign up for Apache-related news</a> at announce@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.&nbsp;</div> 
+  <div><br /></div> 
+  <div>For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select <a href="http://people.apache.org/">ASF Committers</a>.</div>

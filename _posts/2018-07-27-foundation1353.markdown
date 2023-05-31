@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 27 July 2018'
+date: '2018-07-27T16:18:56+00:00'
+categories: foundation
+---
+<p>Farewell, July! Let's check out the Apache community's activities from the past week:<br /></p> 
+  <p>ASF Board –management and oversight of the business affairs of the corporation in accordance with the Foundation's bylaws.<br />&nbsp;- Next Board Meeting: 15 August. Board calendar and minutes <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <p>ApacheCon™ –the ASF's official global conference series. Join us!<br />&nbsp;- 24-27 September: Registration for ApacheCon North America/Montreal is open&nbsp;<a href="http://apachecon.com/acna18/">http://apachecon.com/acna18/</a><br />&nbsp;- 8 October: Apache Roadshow and Open Source Job Fair/Fairfax, VA --Save The Date!<br />&nbsp;- Media and Community Partner opportunities available for *all* official Apache events: drop us a note at press@apache.org to help.</p> 
+  <p>ASF Infrastructure –our distributed team on three continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield zippity performance at 93.91% uptime.&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  <p>ASF Operations Factoid&nbsp;–this week, 506 Apache contributors changed 968,003 lines of code over <font color="#333333" face="Helvetica Neue, Helvetica, Arial, sans-serif"><span style="font-size: 14px;">3,133</span></font>&nbsp;commits. Top 5 contributors, in order, are: Tellier Benoit, Karl Heinz Marbaise, Andrea Cosentino, Roberto Cortez, and Gary Gregory.</p> 
+  <p>Apache Accumulo™ –a sorted, distributed key/value store that provides robust, scalable Big Data storage and retrieval.<br />&nbsp;- Apache Accumulo 1.9.2 released&nbsp;<a href="https://accumulo.apache.org/">https://accumulo.apache.org/</a></p> 
+  <p>Apache Calcite™ –a framework for writing Big Data management systems.<br />&nbsp;- Apache Calcite 1.17.0 released&nbsp;<a href="http://calcite.apache.org/">http://calcite.apache.org/</a></p> 
+  <p>Apache Directory™ Fortress –computer security access management facility written in Java.<br />&nbsp;- Apache Fortress 2.0.1 released&nbsp;<a href="https://directory.apache.org/fortress/">https://directory.apache.org/fortress/</a></p> 
+  <p> </p> 
+  <p>Apache HBase™ –Open Source, distributed, versioned, non-relational database.<br />&nbsp;- Apache HBase&nbsp;2.1.0 released&nbsp;<a href="https://hbase.apache.org/">https://hbase.apache.org/</a></p> 
+  <p>Apache HttpComponents™ HttpAsyncClient–a library for client-side HTTP communication built on HttpCore.<br />&nbsp;-&nbsp;HttpComponents HttpAsyncClient 4.1.4 GA released&nbsp;<a href="http://hc.apache.org/">http://hc.apache.org/</a></p> 
+  <p> </p> 
+  <p>Apache Kafka™ –distributed, fault tolerant, publish-subscribe messaging.<br />&nbsp;- CVE-2017-12610: Authenticated Kafka clients may impersonate other users&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAOJcB383nmC%2BpxBXoc2JcuD4TXgQrvgjCuovNavmt6sFs4%2BsBQ%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAOJcB383nmC%2BpxBXoc2JcuD4TXgQrvgjCuovNavmt6sFs4%2BsBQ%40mail.gmail.com%3E</a><br />&nbsp;- CVE-2018-1288: Authenticated Kafka clients may interfere with data replication<span style="white-space: pre;"> <a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAOJcB3905-NRw3baEUGhEaqKipzQ%2BNryJHsK%3DAtF_aFFsF1nOA%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAOJcB3905-NRw3baEUGhEaqKipzQ%2BNryJHsK%3DAtF_aFFsF1nOA%40mail.gmail.com%3E</a></span></p> 
+  <p>Apache OpenWhisk (incubating)&nbsp;–distributed serverless computing platform.<br />&nbsp;-&nbsp;CVE-2018-11756 PHP Runtime for Apache OpenWhisk&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAAC1_d4geVGr-%2BOk95Gq9C9P81BXUDT3d9N7-2r%2BqsiPrM5r3w%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAAC1_d4geVGr-%2BOk95Gq9C9P81BXUDT3d9N7-2r%2BqsiPrM5r3w%40mail.gmail.com%3E</a><br />&nbsp;-&nbsp;CVE-2018-11757 Docker Skeleton Runtime for Apache OpenWhisk&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAAC1_d7x6buq1aREekk_Eh9SjevQLPLkXc%2BaidiFBMcNz7GGwQ%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3CCAAC1_d7x6buq1aREekk_Eh9SjevQLPLkXc%2BaidiFBMcNz7GGwQ%40mail.gmail.com%3E</a></p> 
+  <p>Apache Qpid™ –messaging tools that speak AMQP and support many languages and platforms.<br />&nbsp;-&nbsp;Apache Qpid JMS 0.35.0 released&nbsp;<a href="http://qpid.apache.org/">http://qpid.apache.org/</a></p> 
+  <p> </p> 
+  <p>Apache Tomcat™ –an Open Source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.<br />&nbsp;- CVE-2018-8019 Apache Tomcat Native Connector - Mishandled OCSP invalid response&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180721095943.GA24320%40minotaur.apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180721095943.GA24320%40minotaur.apache.org%3E</a><br />&nbsp;- CVE-2018-8020 Apache Tomcat Native Connector - Mishandled OCSP responses can allow clients to authenticate with revoked certificates&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180721101944.GA45239%40minotaur.apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180721101944.GA45239%40minotaur.apache.org%3E</a><br />&nbsp;- CVE-2018-1336 Apache Tomcat - Denial of Service&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180722090435.GA60759%40minotaur.apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180722090435.GA60759%40minotaur.apache.org%3E</a><br />&nbsp;- CVE-2018-8037 Apache Tomcat - Information Disclosure&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180722090623.GA92700%40minotaur.apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180722090623.GA92700%40minotaur.apache.org%3E</a><br />&nbsp;- CVE-2018-8034 Apache Tomcat - Security Constraint Bypass&nbsp;<a href="http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180722091057.GA70283%40minotaur.apache.org%3E">http://mail-archives.apache.org/mod_mbox/www-announce/201807.mbox/%3C20180722091057.GA70283%40minotaur.apache.org%3E</a></p> 
+  <p><strong><br />Did You Know?</strong></p> 
+  <div> 
+    <p>&nbsp;- Did you know that you can easily help promote ApacheCon?&nbsp;<a href="http://www.apachecon.com/acna18/banners/">http://www.apachecon.com/acna18/banners/</a></p> 
+    <p>&nbsp;- Did you know that you can achieve Machine Learning on SQL by using Apache Hivemall (incubating) on Apache Hive or Apache Spark?&nbsp;<a href="http://hivemall.incubator.apache.org/">http://hivemall.incubator.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that the&nbsp;highest code contribution value during FY2018 was by Apache Mynewt? $61,769,063 worth of code!&nbsp;<a href="https://s.apache.org/FY2018AnnualReport">https://s.apache.org/FY2018AnnualReport</a><br /><br /></p> 
+    <p><strong>Apache Community Notices:</strong></p> 
+  </div> 
+  <p>&nbsp;- ASF Annual Report for FY2018&nbsp;<a href="https://s.apache.org/FY2018AnnualReport">https://s.apache.org/FY2018AnnualReport</a></p> 
+  <p>&nbsp;- The Apache<span style="font-size: 10.8333px;"> </span>Software Foundation Celebrates 19 Years of Open Source Leadership &quot;The Apache Way&quot;&nbsp;<a href="https://s.apache.org/gK4Q">https://s.apache.org/gK4Q</a></p> 
+  <p>&nbsp;- Read &quot;Open – For Business – At the ASF&quot; by Merv Adrian, VP Research at Gartner&nbsp;<a href="https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/">https://blogs.gartner.com/merv-adrian/2018/03/27/open-for-business-at-the-asf/</a><br /></p> 
+  <p>&nbsp;- The Apache Software Foundation 2018 Vision Statement&nbsp;<a href="https://s.apache.org/zqC3">https://s.apache.org/zqC3</a></p> 
+  <p>&nbsp;- Apache in 2017 - By The Digits&nbsp;<a href="https://s.apache.org/h8do">https://s.apache.org/h8do</a></p> 
+  <p>&nbsp;- Foundation Statement –Apache Is Open. <a href="https://s.apache.org/PIRA">https://s.apache.org/PIRA</a></p> 
+  <div> 
+    <p>&nbsp;- &quot;Success at Apache&quot; focuses on the processes behind why the ASF &quot;just works&quot;. <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">https://blogs.apache.org/foundation/category/SuccessAtApache</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Please follow/like/re-tweet the ASF on social media: @TheASF on Twitter and on LinkedIn at <a href="https://www.linkedin.com/company/the-apache-software-foundation">https://www.linkedin.com/company/the-apache-software-foundation</a></p> 
+    <p>&nbsp;- Do friend and follow us on the Apache Community Facebook page <a href="https://www.facebook.com/ApacheSoftwareFoundation/">https://www.facebook.com/ApacheSoftwareFoundation/</a>and Twitter account <a href="https://twitter.com/ApacheCommunity">https://twitter.com/ApacheCommunity</a></p> 
+  </div> 
+  <div> 
+    <p><a href="https://feathercast.apache.org/"></a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://events.apache.org/event/meetups.html">http://events.apache.org/event/meetups.html</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- ApacheCon North America&nbsp;will be held 24-27 September in Montreal <a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- Save the Date: Apache Roadshow DC and Open Source/Government/Cyber/Job Fair - 8 October 2018 in Fairfax, VA&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Apache HTTP Server, Avro, ComDev (community development), Directory, Incubator, OODT, POI, Polygene, Syncope, Tika, Trafodion, and more! <a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for Apache-related news by sending mail to announce-subscribe@apache.org and follow @TheASF on Twitter. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <p># # #</p>

@@ -1,0 +1,7 @@
+---
+layout: post
+title: Apache Kato M1-incubating release
+date: '2010-02-19T13:37:50+00:00'
+categories: kato
+---
+<p>Welcome to the Apache Kato incubator project blog. For the first blog entry I am pleased to announce the release of M1-incubating.</p><p> The Apache Kato project is closely tied with JSR-326 with is a specifications for an API for generating and reading dumps from JVM's. Much like Java Reflection, the JSR-326 API will allow Java programs to read JVM entities from JVM dumps. These JVM dumps could in principle be core files, or they can be JVM generated dumps, such as hprof files.</p><p>&nbsp;For more information, please see our project website:</p><p><a href="http://incubator.apache.org/kato/site/index.html">http://incubator.apache.org/kato/site/index.html</a></p><p>&nbsp;The principle for incubator projects is to release early and to release often. This early release contains implementation of the API which will allow hprof files and cjvmti files to be read through the API, along with the DLL for generating CJVMTI dumps (which is the projects own dump format). In addition there are two tools, a program to allow Java debuggers to attach to JVM dumps (jdiserver) and a command line tool for querying dumps (katoview). There is also the JSR specification and api javadoc.</p><p>If you download and try it out, please join us on the mailing list and tell us what you think. As this is only the first milestone release, there will be plenty of opportunities to influence the project.</p><p><br /></p><p><br /></p>

@@ -1,0 +1,92 @@
+---
+layout: post
+title: Apache Maven Remote Resources Plugin Version 1.6.0 Released
+date: '2018-11-01T12:55:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+<a href="https://maven.apache.org/plugins/maven-remote-resources-plugin/">Apache Maven Remote Resources Plugin, version 1.6.0</a></p>
+
+<p>This plugin is used to retrieve JARs of resources from remote repositories,
+process those resources, and incorporate them into JARs you build with Maven.</p>
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-remote-resources-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>1.6.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins/maven-remote-resources-plugin/download.cgi">download page</a></p>
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317825&amp;version=12331230&amp;styleName=Text">Release Notes &ndash; Apache Maven Remote Resources Plugin &ndash; Version 1.6.0</a></p>
+
+<p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-70">MRRESOURCES-70</a> &ndash; SVN settings: eol-style and keywords</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-73">MRRESOURCES-73</a> &ndash; remote resources depends on unavailable maven filtering verison</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-74">MRRESOURCES-74</a> &ndash; maven remote resources plugin not compatible with Java 8</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-75">MRRESOURCES-75</a> &ndash; Currently running -Prun-its clean verify &ndash; fails</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-76">MRRESOURCES-76</a> &ndash; Updated plexus-interpolation to fix possible concurrency issues</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-91">MRRESOURCES-91</a> &ndash; Avoid overwrite of the destination file if the produced contents is the same</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-94">MRRESOURCES-94</a> &ndash; Performance issue in ProcessRemoteResourcesMojo.configureVelocityContext(&hellip;)</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-101">MRRESOURCES-101</a> &ndash; NPE &ndash; Error rendering velocity resource</li>
+</ul>
+
+
+<p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-79">MRRESOURCES-79</a> &ndash; Removed dependency plexus-container-default:1.0-alpha-9-stable-1</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-84">MRRESOURCES-84</a> &ndash; Print warning in case no encoding has been set.</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-86">MRRESOURCES-86</a> &ndash; Remove unused dependency maven-monitor</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-88">MRRESOURCES-88</a> &ndash; Added a note about .vm on the usage page</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-89">MRRESOURCES-89</a> &ndash; Removed deprecated attributes</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-90">MRRESOURCES-90</a> &ndash; Using project.isExecutionRoot() instead of the old way.</li>
+</ul>
+
+
+<p>Wish:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-111">MRRESOURCES-111</a> &ndash; add INFO message on number of resources bundled/copied</li>
+</ul>
+
+
+<p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-77">MRRESOURCES-77</a> &ndash; Upgrade maven-filtering to 1.3</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-78">MRRESOURCES-78</a> &ndash; Upgrade maven-plugin-testing-harness to 1.3</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-80">MRRESOURCES-80</a> &ndash; Upgrade to maven-parent version 26</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-82">MRRESOURCES-82</a> &ndash; Upgrade to maven-plugins parent version 27</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-87">MRRESOURCES-87</a> &ndash; Upgrade JUnit from 3.8.1 to 4.11</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-95">MRRESOURCES-95</a> &ndash; Upgrade plexus-resources from 1.0-alpha-7 to 1.0.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-97">MRRESOURCES-97</a> &ndash; Upgrade mavenplugins parent to version 30</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-99">MRRESOURCES-99</a> &ndash; Upgrade of plexus-interpolation to 1.24.</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-100">MRRESOURCES-100</a> &ndash; Upgrade maven-filtering to 3.1.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-103">MRRESOURCES-103</a> &ndash; Upgrade parent to 32</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-104">MRRESOURCES-104</a> &ndash; Upgrade parent to 31</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-107">MRRESOURCES-107</a> &ndash; Upgrade JUnit from 4.11 to 4.12</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-108">MRRESOURCES-108</a> &ndash; Upgrade plexus-interpolation to 1.25</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-109">MRRESOURCES-109</a> &ndash; Upgrade plexus-utils from 3.0.24 to 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MRRESOURCES-110">MRRESOURCES-110</a> &ndash; Upgrade parent to version 33</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

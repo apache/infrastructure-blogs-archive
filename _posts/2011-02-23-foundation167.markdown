@@ -1,0 +1,53 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache Chemistry as a Top-Level Project
+date: '2011-02-23T13:01:06+00:00'
+categories: foundation
+---
+<font size="3" face="Times New Roman">
+<p class=" "><b><i>Open Source implementation of the CMIS standard widely used in Enterprise Content Management solutions, such as Adobe, Alfresco, Nuxeo, OpenText, SAP, and more.</i></b>
+</p>
+<p class=" "><b>Forest Hill, MD – 23 February 2011 –</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of nearly 150 Open Source projects and initiatives, today announced that Apache Chemistry has graduated from the Apache Incubator as a Top-Level Project (TLP). This signifies that the Apache Chemistry community and products have been well-governed under the ASF's meritocratic, consensus-driven process and principles.
+</p>
+<p class=" ">Apache Chemistry is an Open Source implementation of the OASIS CMIS (Content Management Interoperability Services) standard. The project provides an interoperable API to CMIS repositories such as Alfresco, EMC Documentum, IBM FileNet, Microsoft SharePoint, Nuxeo, OpenText Enterprise Library Services, and other CMIS-compliant content repositories. It also provides libraries to build CMIS-compliant repository connectors.
+</p>
+<p class=" ">"Apache Chemistry is successfully driving adoption of the CMIS standard," said Apache Chemistry Vice President Florian Müller. "An Apache Open Source implementation of CMIS is ideal for growing a developer community around the standard, which will improve interoperability, create new tools, and foster innovation."
+</p>
+<p class=" ">Originally submitted to the Apache Incubator in May 2009 as a single, Java-focused project, Apache Chemistry today comprises the following sub-projects:
+</p>
+<ol style="MARGIN-TOP: 0in" type="1">
+  <li class=" ">OpenCMIS – CMIS client and server libraries for Java, as well as test tools for content repository developers and client application developers. Version 0.2 was released in January 2011; </li>
+  <li class=" ">cmislib – CMIS client library for Python. Version 0.4 was released in February 2011; </li>
+  <li class=" ">phpclient – CMIS client library for PHP. Already used in production, the sub-project’s first release will be made in the near future; </li>
+  <li class=" ">DotCMIS – CMIS client library for .NET.<span>&nbsp; </span>Contributed to the Apache Chemistry project in January 2011; work is underway on its initial release. </li>
+</ol>
+<p class=" ">Apache Chemistry is widely used in enterprise content management solutions and for CMIS implementation verification. Its flagship sub-project, OpenCMIS, is deployed in both Open Source and commercial products and solutions by Adobe, Alfresco, Metaversant, Nuxeo, OpenText, OpenWGA, and SAP, among others.
+</p>
+<p class=" ">"Nuxeo is very happy to see Apache Chemistry finalize its incubation phase and move forward to become a top-level Apache project", said Florent Guillaume, Director of R&amp;D at Nuxeo. "We have supported Chemistry from the start, and we are so confident in the technology that we have included it as a core connector for the Nuxeo Enterprise Platform. Through Chemistry, many software platforms, such as Java, Python, PHP, and .NET, will be able to adopt the CMIS specification, which benefits both servers storing content documents or other assets, and the applications interacting with them."
+</p>
+<p class=" ">"CMIS is here, it works and it works well," said Nathan McMinn, Software Engineer at Ansell. "Having a standard interface to our content repositories makes integrating Ansell's various CMS systems with our applications much simpler. While the server support for the standard is of course essential, it is of limited value without stable client libraries. Sure, we could write our own client interface to CMIS, but with a project like Apache Chemistry there is no need. Chemistry gives us the tools we need to connect most of our major platforms (based on PHP, Python and Java) to our existing content stores, saving us time, money and headaches in the process."
+</p>
+<p class=" "><b>Supporting Standards Drives Industry Adoption</b>
+</p>
+<p class=" ">Many Apache Chemistry code committers are also members of the OASIS CMIS Technical Committee. The project is community-driven, allowing for greater transparency and direct feedback during the definition and improvement process of future CMIS specifications. Two OpenCMIS sandbox projects are currently being used to implement and test new CMIS 1.1 features.
+</p>
+<p class=" ">"As a supporter for open source and open standards, Alfresco is pleased to have contributed resources to the Apache Chemistry project and to see it pass through the incubation phase," said John Newton, CTO and Chairman at Alfresco. "Alfresco was instrumental in driving the CMIS standard from its inception. The Apache Chemistry project will drive wider adoption of CMIS and allow developers to build new social content management applications leveraging the Alfresco open source platform."
+</p>
+<p class=" ">"The big benefit of CMIS for customers is that it lets them do more with content no matter where it's located across the enterprise," said Richard Anstey, Vice President of Product Management at OpenText. "With the graduation of Apache Chemistry to the top level, a number of barriers to broader CMIS adoption are being removed. This will help ensure that customers derive maximum benefit from their investment in the OpenText ECM Suite 2010, which offers CMIS support for server-to-server and server-to-client interoperability."
+</p>
+<p class=" ">"SAP envisions the usage of OpenCMIS as a base technology in the SAP NetWeaver® platform," said Björn Goerke, senior vice president, Technology and Innovation Platform Core, SAP. "The OASIS specification, which has been developed through co-innovation efforts, is driving forward standardization, through which our customers will be able to gain more from their existing content management systems with SAP® applications."
+</p>
+<p class=" ">"Apache Jackrabbit welcomes Apache Chemistry as a sibling top-level project," said Apache Jackrabbit Vice President Jukka Zitting. "We helped mentor the Chemistry community early on, and we are excited to see them reach this milestone. The success of Chemistry and CMIS is another testament to the combined strength of open source and open standards."
+</p>
+<p class=" "><b>Availability and Oversight</b>
+</p>
+<p class=" ">All Apache products are released under the Apache Software License v2.0, and are overseen by a self-selected team of active contributors to the project. Upon a Project's maturity to a TLP, a Project Management Committee (PMC) is formed to guide its day-to-day operations, including community development and product releases. Apache Chemistry source code, documentation, and related resources are available at <a href="http://chemistry.apache.org/">http://chemistry.apache.org/</a>.
+</p>
+<p class=" "><b>About The Apache Software Foundation (ASF)</b>
+</p>
+<p class=" ">Established in 1999, the all-volunteer Foundation oversees nearly one hundred fifty leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through the ASF's meritocratic process known as "The Apache Way," more than 300 individual Members and 2,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by individual donations and corporate sponsors including AMD, Basis Technology, Cloudera, Facebook, Google, IBM, HP, Matt Mullenweg, Microsoft, SpringSource, and Yahoo!. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a>.
+</p>
+<p class=" "><i>"Apache" and "Apache Chemistry" are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</i>
+</p>
+<p class=" "># # #
+</p></font>

@@ -1,0 +1,29 @@
+---
+layout: post
+title: The Apache Software Foundation Accepted as a Google Summer of Code 2015 Mentoring
+  Organization
+date: '2015-03-17T09:30:04+00:00'
+categories: foundation
+---
+<div> 
+    <p><b><i>Hundreds of students mentored in &quot;The Apache Way&quot; of community-driven development since the program's inception in 2005.</i></b></p> 
+    <p><b>Forest Hill, MD –17 March 2015–</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today that it has been accepted as a Google Summer of Code (GSoC) mentoring organization for the 11th consecutive year.</p> 
+  </div> 
+  <div> 
+    <p>The Google Summer of Code program offers student developers stipends to write code for various Open Source projects over a three month period. This year, students will be paired with mentors from 137 Open Source, free software, and technology-related groups that include CERN, GNU Project, KDE, MIT Media Lab, WikiMedia Foundation, and many more. </p> 
+    <p>The ASF was amongst the initial 39 organizations selected to participate in the very first GSoC in 2005, and has participated every year since. At the ASF, the GSoC program is overseen by the Apache Community Development project, which comprises volunteers who help guide newcomers to The Apache Software Foundation, provide insight and advice on The Apache Way of meritocratic development, including how to contribute to Apache projects and to the Open Source community at-large.</p> 
+  </div> 
+  <div> 
+    <p>&quot;Over the summer, Apache Committers will mentor students that are sponsored by Google and will be working on many of our projects,&quot; said Ulrich Stärk, Vice President of Community Development at the ASF. &quot;The program helps us to not only get some great code written, but also to introduce students into Open Source development and hopefully recruit some new long-term Committers.&quot;</p> 
+    <p>Students are encouraged to discuss ideas with mentoring organizations and finalize proposals for projects of interest by the 27 March deadline. ASF mentors have proposed 129 ideas for Apache projects in Big Data, Cloud, Enterprise Integration, Enterprise Search, Project Management, Semantic Web &amp; Linked Data, along with other categories. Students may choose from the Apache &quot;Ideas Page&quot; at <a href="http://s.apache.org/gsoc2015ideas">http://s.apache.org/gsoc2015ideas</a> or suggest their own project for approval. Coding will begin 25 May and end 21 August.</p> 
+  </div> 
+  <p>&quot;GSoC gives students the chance to work on industry-leading Open Source projects, collaborate with diverse communities, and gain real world experience related to their academic pursuits,&quot; added Stärk. &quot;We are proud to have mentored so many talented students over the years, and furthered our mission of providing software products for the public good. It's a rewarding experience both for the students and the Apache community at-large.&quot;</p> 
+  <p>Since the program's inception, GSoC has brought together over 8,500 successful student participants from over countries and over 8,000 mentors from 109 countries worldwide to produce over 55 million lines of code.</p> 
+  <p>&quot;Being accepted once again as a Google Summer of Code mentoring organization reinforces The Apache Software Foundation's leadership in community-driven development,&quot; said ASF Vice Chairman Greg Stein, who, in 2005 co-created the GSoC program while working at Google. &quot;Hundreds of students have been mentored in 'The Apache Way' --many have continued on to become long-term code committers on a variety of Apache projects, with some active program participants elected as ASF Members.&quot;</p> 
+  <p>Information on the ASF's participation in Google Summer of Code is available at <a href="http://community.apache.org/gsoc.html">http://community.apache.org/gsoc.html</a> </p> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 500 individual Members and 4,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Budget Direct, Cerner, Citrix, Cloudera, Comcast, Facebook, Google, Hortonworks, HP, IBM, InMotion Hosting, iSigma, Matt Mullenweg, Microsoft, Pivotal, Produban, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or follow <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div> 
+    <p>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Apache HTTP Server&quot;, and &quot;ApacheCon&quot;, are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</p> 
+    <p># # #</p> 
+  </div>

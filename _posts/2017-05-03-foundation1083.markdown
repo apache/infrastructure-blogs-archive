@@ -1,0 +1,31 @@
+---
+layout: post
+title: The Apache Software Foundation Welcomes 64 New Members
+date: '2017-05-03T18:41:22+00:00'
+categories: foundation
+---
+<div>The Apache Software Foundation welcomes the following new Members who were elected during the annual ASF Members' Meeting on 28-30 March 2017:</div> 
+  <div><br /></div> 
+  <div>Taher A. Alkhateeb, Ryan Blue, Davor Bonaci, Michael Brohl, Cédric Champeau, Byung-Gon Chun, William Colen, Radu Cotescu, Jaroslaw Cwiklik, Dániel Dékány, Mike Drob, Eric Evans, Olaf Flebbe, Lars Francke, Roberto Galoppini, Robert Gemmell, Jorge Luis Betancourt Gonzalez, Thamme Gowda, Scott Gray,Stefan Hett, Jonathan Hsieh, Claus Ibsen, Bilgin Ismet Ibryam, Jeff Jirsa, Evgeny Kotkov, Andrew Kurth, Chris Lambertus, T Jake Luciani, Nicolas Malin, Stephen Mallette, Karl Heinz Marbaise, Sidney Markowitz, Gary Martin, Jan Materne, Nate McCall, Larry McCay, Robert Munteanu, Kay Ousterhout, Anil Patel, Christine Poerschke, Matt Post, Dominik Psenner, Chris Riccomini, Carlos Rovira, Daniel Ruggeri, Guergana K. Savova, Felix Schumacher, Anthony Shaw, Matt Sicker, Karanjeet Singh, Stian Soiland-Reyes, Lee Moon Soo, Michael Starch, Daniel Takamori, Josh Tynjala, Ashish Vijaywargiya, Jay Vyas, Andrew Wang, Claude Warren, Michael Semb Wever, Evans Ye, Piotr Zarzycki, Jeff Zhang, and Jordan Zimmerman.</div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div>When the ASF incorporated in 1999, the Foundation's core membership comprised 21 individuals who oversaw the progress of the Apache HTTP Server. This group grew with Committers --developers who contributed code, patches, or documentation, and were subsequently granted access by the Membership:</div> 
+  <div> 
+    <ol> 
+      <li>to &quot;commit&quot; or &quot;write&quot; (contribute) directly to the code repository;<br /><br /></li> 
+      <li>the right to vote on community-related decisions; and<br /><br /></li> 
+      <li>the ability propose an active user for Committership.</li> 
+    </ol> 
+  </div> 
+  <div><br /></div> 
+  <div>Those Committers who demonstrate merit in the Foundation’s growth, evolution, and progress are nominated for ASF Membership by existing members.</div> 
+  <div><br /></div> 
+  <div>This election brings the total number of ASF Members to 684 today. Individuals elected as ASF Members legally serve as the &quot;shareholders&quot; of the Foundation <a href="https://www.apache.org/foundation/governance/members.html">https://www.apache.org/foundation/governance/members.html</a></div> 
+  <div> 
+    <p>For more information on how the ASF works, visit <a href="http://www.apache.org/foundation/how-it-works.html">http://www.apache.org/foundation/how-it-works.html</a> .</p> 
+    <p># # #&nbsp;</p> 
+  </div> 
+  <p> </p> 
+  <div> 
+    <p><br /></p> 
+  </div>

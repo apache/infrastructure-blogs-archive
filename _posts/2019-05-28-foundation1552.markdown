@@ -1,0 +1,33 @@
+---
+layout: post
+title: The Apache Software Foundation Welcomes Craig L. Russell as Chairman
+date: '2019-05-28T21:22:13+00:00'
+categories: foundation
+---
+<p>Following the 15 May face-to-face Board meeting, Craig L. Russell was today named Chairman of the ASF. Russell is a 12-year Member of the ASF and has served as ASF Secretary from September 2010 to his election to the Board in March 2019. He succeeds Phil Steitz, who served as ASF Chairman since August 2017.
+
+</p> 
+  <p>As announced earlier [1], Danny Angus and Ted Dunning were named Board Members to fill the position held by ASF co-founder Jim Jagielski and Steitz, who resigned earlier this month. David Nalley was also appointed ASF Executive Vice President, a position held by Ross Gardler from October 2016 until his resignation in May 2019.
+
+</p> 
+  <p>&quot;We thank Phil, Jim, and Ross for playing instrumental roles in helping shape the ASF where it is today,&quot; said Russell. &quot;We are grateful for their countless hours of service and look forward to building upon their efforts.&quot;
+</p> 
+  <p>
+ASF Members elect the Board of Directors to run the Foundation and to set and ensure policy. The Board of Directors are: Danny Angus, Rich Bowen, Shane Curcuru, Ted Dunning, Myrle Krantz, Daniel Ruggeri, Craig Russell, Roman Shaposhnik, and Joan Touzet.
+
+</p> 
+  <p>In addition to Russell and Nalley, the ASF's corporate officers include:</p> 
+  <p> </p> 
+  <ul> 
+    <li>Vice Chairman Shane Curcuru</li> 
+    <li>President Sam Ruby</li> 
+    <li> Treasurer Ulrich Stärk</li> 
+    <li> Secretary Matt Sicker
+</li> 
+  </ul> 
+  <p> </p> 
+  <p>
+The complete officer roster is available at <a href="http://apache.org/foundation/">http://apache.org/foundation/
+</a></p> 
+  <p>
+[1] <a href="https://s.apache.org/rEAx">https://s.apache.org/rEAx</a></p>

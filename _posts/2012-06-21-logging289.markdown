@@ -1,0 +1,7 @@
+---
+layout: post
+title: Welcome Dominik Psenner
+date: '2012-06-21T04:26:49+00:00'
+categories: logging
+---
+The Apache log4net team would like to welcome Dominik Psenner as a new committer! Welcome!

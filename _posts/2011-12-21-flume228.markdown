@@ -1,0 +1,19 @@
+---
+layout: post
+title: Apache Flume Hackathon
+date: '2011-12-21T04:13:49+00:00'
+categories: flume
+---
+<div>Apache Flume is currently undergoing incubation at The Apache Software Foundation. More information on this project can be found at <a href="http://incubator.apache.org/flume" title="Apache Flume">http://incubator.apache.org/flume</a>.</div> 
+  <div><br /></div> 
+  <div>The next generation of Apache’s log ingestion framework, Flume NG, has bolted out of the starting blocks. &nbsp;Last Friday, employees from a diversity of enterprises packed Cloudera Headquarters to learn more and to contribute to the project themselves. &nbsp;With over 40 folks attending the hackathon, what’s clear is that major enterprises value reliable, performant data ingestion, and that Flume’s new branch is well-positioned to make that kind of ingest a reality. &nbsp;During the session, 10 JIRAs were filed, with one resolved, one code review in progress, and four patches in the works. &nbsp;</div> 
+  <div><br /></div> 
+  <div>Cloudera captured the morning session on video and has made it <a href="http://vimeo.com/34003767" title="Video of Apache Flume Hackathon">available</a> for members of the flume user and dev lists and for the community at large. &nbsp;During the morning Teach-In, Flume committers covered NG’s design, the mechanics of contributing to the Apache project, and more. &nbsp;</div> 
+  <div> 
+    <p>Get a better understanding of NG’s design by reading Arvind Prabhakar’s recent post, which does a nice job covering the ins and outs of the new framework: <a href="https://blogs.apache.org/flume/entry/flume_ng_architecture" title="Architecture of Flume NG">https://blogs.apache.org/flume/entry/flume_ng_architecture</a>.</p> 
+    <p><img src="http://i.imgur.com/5BC1f.jpg" alt="Flume Hackathon Discussion" /></p> 
+    <p><i>Guest Post by Basier Aziz.</i></p> 
+    <p><i>Photo by Kate Ting and Video by Cloudera.</i> </p> 
+    <p> </p> 
+    <p> </p> 
+  </div>

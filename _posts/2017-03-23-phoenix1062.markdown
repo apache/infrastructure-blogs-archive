@@ -1,0 +1,90 @@
+---
+layout: post
+title: Column Mapping and Immutable Data Encoding
+date: '2017-03-23T22:43:39+00:00'
+categories: phoenix
+---
+<!--StartFragment--> 
+  <p class=" "><font size="3" face="arial, helvetica, sans-serif">With Phoenix 4.10, we are rolling out a new feature that introduces a layer of column mapping between Phoenix column names and HBase column qualifiers. We have also added the capability of packing all column values for a column family into a single HBase cell. These improvements have helped improve performance across the board for the majority of use cases. In this blog, I will be going providing a bit more detailed info on these performance improvements.</font></p> 
+  <p class=" "><font size="4"><font face="arial, helvetica, sans-serif"></font><strong><font face="arial, helvetica, sans-serif">Column Mapping</font></strong></font></p> 
+  <p><font face="arial, helvetica, sans-serif" size="3">The motivation behind column mapping came from <a href="https://issues.apache.org/jira/browse/PHOENIX-1598">PHOENIX-1598</a>. The key idea being that we should be using number based hbase column qualifiers for non-pk Phoenix columns instead of directly using column names. This helps Phoenix replace the need of having to do a binary search when looking for a cell in the sorted list of cells returned by HBase.&nbsp;This helps improve performance of certain queries (like ORDER BY or GROUP BY on non-pk axis) as the number of non-pk columns go up.</font></p> 
+  <p><font face="arial, helvetica, sans-serif" size="3">The indirection also enables us to write fast DDL operations like column rename (<span style="color: #222222;"><a href="https://issues.apache.org/jira/browse/PHOENIX-2341">PHOENIX-2341</a></span>) and metadata level column drops (<a href="https://issues.apache.org/jira/browse/PHOENIX-3680">PHOENIX-3680</a>). Further, because these number based qualifiers are generally smaller (1 to 4 bytes) than column names, the disk size of tables is smaller which improves performance across the board.</font></p> 
+  <p><font face="arial, helvetica, sans-serif"><font size="3">To compare performance and disk space usage, we loaded 600 million rows of TPC-H data for LINEITEM table (downloaded from </font><a href="https://gist.githubusercontent.com/xvrl/9552286/raw/77a134359ba73eaffcb30de0792ed3f19c209535/download-data.sh" style="font-size: medium;">here</a><font size="3">) on to our test cluster using 1-byte qualifiers. HDFS disk size with column mapping was 40% smaller (100 GB) than with non-column mapped tables (160GB). As a consequence, the queries in the TPC-H benchmark against&nbsp;</font></font><font face="arial, helvetica, sans-serif" size="3">LINEITEM table&nbsp;(obtained from <a href="https://gist.githubusercontent.com/xvrl/9552286/raw/77a134359ba73eaffcb30de0792ed3f19c209535/queries.sql">here</a>) were also found to be 30-40% faster.</font></p> 
+  <p><font face="arial, helvetica, sans-serif" size="3">Column mapping also enables us to write custom projection and comparison filters that improve query performance as <span style="color: #222222; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">the number of columns being projected or filtered on go up (<a href="https://issues.apache.org/jira/browse/PHOENIX-3667">PHOENIX-3667</a>). We did a test run where we compared query performance against non-column mapped and column mapped tables as the number of columns go up. As the graph below shows, as the number of columns projected increased, the performance gain by using the new filter also went up.&nbsp;</span></font></p> 
+  <p><font face="arial, helvetica, sans-serif"><img src="https://blogs.apache.org/phoenix/mediaresource/6871221f-a261-4eea-82bb-f94961ec88a4" /></font></p> 
+  <p><font face="arial, helvetica, sans-serif" size="3">Using column mapping is generally recommended unless you expect number of columns in your table and views on it to exceed <strong>2147483647 (</strong>which is a lot!<strong>)</strong>. Keep in mind though that for mutable tables this limit applies across all column families. For immutable tables, when using SINGLE_CELL_ARRAY_WITH_OFFSETS encoding scheme, this limit applies to per column family. In general, we expect that using a 2-byte column mapping scheme, which gives you 65535 columns, is good enough. One can override these defaults by using various table properties and configs. For more details on how to use column mapping and immutable data encoding, go <a href="http://phoenix.apache.org/columnencoding.html">here</a>.</font> </p> 
+  <p class=" "><font size="4" face="arial, helvetica, sans-serif"><strong>Immutable Data Encoding</strong></font></p> 
+  <p class=" "><font size="3" face="arial, helvetica, sans-serif">The immutable storage scheme called SINGLE_CELL_ARRAY_WITH_OFFSETS packs columns belonging to a column family in a single cell. This drastically reduces the size of immutable data resulting in impressive size reduction and faster performance across the board.</font></p> 
+  <p class=" "><font size="3" face="arial, helvetica, sans-serif">To compare performance of queries for immutable encoded and non-encoded tables, we created a table with 25 VARCHAR non-pk columns, with each column name being 10 characters long having 15 character wide values. The table was dense i.e. more than 50% of the columns had values. HBase FAST_DIFF encoding was enabled which is the default with phoenix tables. All the queries were run with NO_CACHE hint to negate the effect of query performance because of block cache. We also made sure to take into consideration the effect of data being present in the OS page cache by ignoring query results for the first few runs.</font></p> 
+  <p class=" "><font size="3" face="arial, helvetica, sans-serif">As the graphs below show, using SINGLE_CELL_ARRAY_WITH_OFFSETS encoding drastically improves the performance for most kinds of queries. Data load time for 1M records using UPSERT with a batch size of 1000 was 3x faster. So were aggregate queries and queries that filtered on key value column. There was no significant impact on point queries though, which is expected.</font></p> 
+  <p><font face="arial, helvetica, sans-serif"><img src="https://blogs.apache.org/phoenix/mediaresource/7c782f8d-328e-4760-9ecb-a1b983417a9f" style="font-size: 12pt;" /></font></p> 
+  <p> </p> 
+  <p class=" "><font face="arial, helvetica, sans-serif" size="3">It is important to note that this encoding could only be used when one of the numbered column mapping schemes is used. This is because internally the encoding relies on these number based column qualifiers to look up values of columns.</font></p> 
+  <p><strong><font size="4" face="arial, helvetica, sans-serif">Future work/Limitations</font></strong></p> 
+  <p><font face="arial, helvetica, sans-serif" size="3">Using the SINGLE_CELL_ARRAY_WITH_OFFSETS encoding scheme is recommended when the data is not sparse.&nbsp;Our general recommendation is to use this encoding when data is sufficiently dense (around 50% of columns have values). With growing sparseness the overhead of encoding starts negatively affecting performance&nbsp;(<a href="https://issues.apache.org/jira/browse/PHOENIX-3559">PHOENIX-3559</a>). Also, we have seen that with the default HBase block size of 64K, performance starts to degrade once the size of the packed cell starts exceeding 50 KB. By default, for immutable multi-tenant tables, we use the ONE_CELL_PER_COLUMN encoding. Because of the way we assign column qualifiers for columns in views, it tends to make the data sparse especially when columns are added to views (<a href="https://issues.apache.org/jira/browse/PHOENIX-3575">PHOENIX-3575</a>). T</font><font face="arial, helvetica, sans-serif" size="3">here is also work that needs to be done for cleaning up data when a column is dropped from an immutable table with&nbsp;SINGLE_CELL_ARRAY_WITH_OFFSETS encoding&nbsp;(<a href="https://issues.apache.org/jira/browse/PHOENIX-3605">PHOENIX-3605</a>).</font></p> <!--EndFragment--> 
+  <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"ＭＳ 明朝";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"ＭＳ 明朝";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"ＭＳ 明朝";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"ＭＳ 明朝";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>

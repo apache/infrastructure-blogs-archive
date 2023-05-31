@@ -1,0 +1,28 @@
+---
+layout: post
+title: '"Community Over Code. Code Over Community"'
+date: '2019-09-27T08:12:55+00:00'
+categories: press
+---
+<div><strong><em>A special project in collaboration with technologist and photographer <a href="http://www.peteradamsphoto.com/">Peter Adams</a> in celebration of the <a href="https://blogs.apache.org/foundation/date/20190326">20th Anniversary of The Apache Software Foundation (ASF)</a>.</em></strong></div> 
+  <div><br /></div> 
+  <div>Growing from a single project to <a href="https://projects.apache.org/">more than 300 projects and initiatives</a>, the ASF is the world's largest Open Source foundation. The collective efforts of 765 individual Members and 7,000+Committers steward 200+ Million lines of code, and provides $20B+ worth of software for the public good at 100% no cost.</div> 
+  <div> 
+    <p>The ASF's unofficial tagline, &quot;Community Over Code&quot;, underscores that a healthy community is far more important than good code, and is one of the cornerstones of <a href="http://apache.org/theapacheway/">&quot;The Apache Way&quot; of community-led development</a>. </p> 
+    <p>&quot;Community Over Code&quot; are group photographs of members of select <a href="http://apache.org/foundation/governance/pmcs.html">Apache Project Management Committees (PMCs)</a>. </p> 
+    <p>&quot;Code Over Community&quot; are individual portraits of select PMC members with their Project's code projected onto them.&nbsp;</p> 
+  </div> 
+  <div> 
+    <p>Photographed September 2019 in Las Vegas during <a href="https://www.apachecon.com/">ApacheCon</a>, the ASF's global conference series.</p> 
+    <p style="text-align: center;"><a href="https://blogs.apache.org/press/mediaresource/01fdef37-c728-492b-b4d9-f582b35fd04a"><img src="https://blogs.apache.org/press/mediaresource/01fdef37-c728-492b-b4d9-f582b35fd04a?t=true" alt="ApacheCon-PeterAdamsCode1.jpg" /></a> <a href="https://blogs.apache.org/press/mediaresource/d9ee441e-bc4e-4361-a49d-47057f64f6a7"><img src="https://blogs.apache.org/press/mediaresource/d9ee441e-bc4e-4361-a49d-47057f64f6a7?t=true" alt="ApacheCon-PeterAdams-PMCs-small.gif" /></a> <a href="https://blogs.apache.org/press/mediaresource/5388392d-87b5-4cf9-a9dc-a203ef6ac3e6"><img src="https://blogs.apache.org/press/mediaresource/5388392d-87b5-4cf9-a9dc-a203ef6ac3e6?t=true" alt="ApacheCon-PeterAdams2.jpg" /></a> <a href="https://blogs.apache.org/press/mediaresource/d4ed5830-8e25-4d97-9816-ff12062dd8dd"><img src="https://blogs.apache.org/press/mediaresource/d4ed5830-8e25-4d97-9816-ff12062dd8dd?t=true" alt="ApacheCon-PeterAdamsCode4.jpg" /></a><br /><em>click on the thumbnails for larger size images</em></p> 
+    <p> </p> 
+    <p> </p> 
+  </div> 
+  <div style="text-align: center;"><strong>[<a href="http://www.peteradamsphoto.com/apache-20th-anniversary/">visit the full image gallery</a>]</strong></div> 
+  <p> </p> 
+  <p> </p> 
+  <p> </p> 
+  <div> 
+    <p style="text-align: center;"># # #</p> 
+  </div> 
+  <div><br /></div>

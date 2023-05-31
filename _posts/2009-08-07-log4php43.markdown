@@ -1,0 +1,16 @@
+---
+layout: post
+title: New Website online
+date: '2009-08-07T14:00:00+00:00'
+categories: log4php
+---
+As you may have noticed, we recently spent lots of time for updating the website. A new version of the Log4PHP Site can be found here:
+http://incubator.apache.org/log4php/
+
+We included project reports like Code coverage or PHPUnit testing results. Additionally we published all the changes which are currently done in the trunk. Besides that we have updated some documentation.
+
+A "how to contribute" for the guys of you who always wanted to help with Log4PHP can be found here:
+http://incubator.apache.org/log4php/volunteering.html
+http://incubator.apache.org/log4php/contributingpatches.html
+
+Please feel free to help with the development! Any suggestions, contributions are welcome, be it documentation, users experience, code patches.

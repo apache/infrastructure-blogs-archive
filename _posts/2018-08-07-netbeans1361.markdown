@@ -1,0 +1,11 @@
+---
+layout: post
+title: Audio of Virtual Apache NetBeans Meeting 1
+date: '2018-08-07T00:00:00+00:00'
+categories: netbeans
+---
+The first of a series of informal virtual meetups took place today.
+
+<p>The audio of the meeting is available here and takes about an hour:</p>
+
+<p><a href="https://www.youtube.com/watch?v=tibK6A8CzYs">https://www.youtube.com/watch?v=tibK6A8CzYs</a></p>

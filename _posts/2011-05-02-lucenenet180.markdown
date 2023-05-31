@@ -1,0 +1,12 @@
+---
+layout: post
+title: Lucene.Net 2.9.2 Released
+date: '2011-05-02T16:09:18+00:00'
+categories: lucenenet
+---
+<p style="font-family: Calibri; font-size: 12px; ">It took us quite a while, but we finally got Lucene.Net 2.9.2 out the door.</p> 
+  <ul> 
+    <li style="font-family: Calibri; font-size: 12px; ">2 API changes - Deprecated Version.LUCENE_CURRENT and added a new CustomScoreProvider class</li> 
+    <li style="font-family: Calibri; font-size: 12px; ">Numerous test cases and optimizations</li> 
+    <li style="font-family: Calibri; font-size: 12px; ">11 bug fixes</li> 
+  </ul>

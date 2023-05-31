@@ -1,0 +1,54 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 30 October 2015'
+date: '2015-10-30T14:52:58+00:00'
+categories: foundation
+---
+<p>We're wrapping up October with the following activities from the Apache Community:</p> 
+  <p>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 18 November. Board calendar and minutes available at&nbsp;<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 6M weekly checks yielded a peachy 99.44% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a>&nbsp;Check against established SLAs&nbsp;<a href="http://status.apache.org/sla/">http://status.apache.org/sla/</a></p> 
+    <p>Apache Directory™ LDAP Client API –an ongoing effort to provide an enhanced LDAP API, as a replacement for JNDI and the existing LDAPAPI (jLdap and Mozilla LDAP API).<br />&nbsp;- Apache Directory LDAP API 1.0.0-M32 released&nbsp;<a href="http://directory.apache.org/api/downloads.html">http://directory.apache.org/api/downloads.html</a></p> 
+    <p>Apache OpenOffice™ –an open-source, office-document productivity suite providing six productivity applications based around the OpenDocument Format (ODF), and released on multiple platforms and in dozens of languages.<br />&nbsp;- Apache OpenOffice 4.1.2 released&nbsp;<a href="http://www.openoffice.org/download/">http://www.openoffice.org/download/</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Tajo™ –mature, efficient &quot;SQL-on-Hadoop®&quot; engine used for advanced data warehousing and analysis.<br />&nbsp;- The Apache Software Foundation announces Apache Tajo v0.11.0&nbsp;<a href="http://s.apache.org/ZMF">http://s.apache.org/ZMF</a></p> 
+    <p>Apache Tika™ –a toolkit for detecting and extracting metadata and structured text content from various documents using existing parser libraries.<br />&nbsp;- Apache Tika 1.11 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/tika/apache-tika-1.11-src.zip">http://www.apache.org/dyn/closer.cgi/tika/apache-tika-1.11-src.zip</a></p> 
+    <p>Apache UIMA™ DUCC –(Distributed UIMA Cluster Computing); a cluster management system providing tooling, management, and scheduling facilities to automate the scale-out of applications written to the UIMA (Unstructured Information Management Applications) framework.<br />&nbsp;- Apache UIMA DUCC 2.0.1 released&nbsp;<a href="http://uima.apache.org/doc-uimaducc-whatitam.html">http://uima.apache.org/doc-uimaducc-whatitam.html</a></p> 
+    <p>Apache Wicket™ –with proper mark-up/logic separation, a POJO data model, and a refreshing lack of XML, Apache Wicket makes developing Web-apps simple and enjoyable again.<br />&nbsp;- Apache Wicket 7.1.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/wicket/7.1.0">http://www.apache.org/dyn/closer.cgi/wicket/7.1.0</a></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that The ASF, on behalf of our many Apache DevOps projects, was named one of DevOps.com's inaugural DevOps Dozen?&nbsp;<a href="http://devops.com/2015/10/28/the-devops-dozen/">http://devops.com/2015/10/28/the-devops-dozen/</a></p> 
+    <p>&nbsp;- Did you know that videos, photos, and presentation slides from ApacheCon:Core Europe are available at <a href="http://bit.ly/1goHDAJ">http://bit.ly/1goHDAJ</a>?</p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that 4 new podlings entered the Apache Incubator this month? Welcome Concerted, Eagle, Mynewt, and Unomi!&nbsp;<a href="http://incubator.apache.org/projects/index.html">http://incubator.apache.org/projects/index.html</a> </p> 
+  </div> 
+  <div> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+    <p><strong></strong>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+  </div> 
+  <div></div> 
+  <div>&nbsp;- The São Paulo Cassandra Users Group will meet 31 October&nbsp;<a href="http://www.meetup.com/Sao-Paulo-Cassandra-Users/events/225844767/">http://www.meetup.com/Sao-Paulo-Cassandra-Users/events/225844767/</a></div> 
+  <div> 
+    <p>&nbsp;- The Advanced Apache Spark Meetup, featuring Apache Kafka and Spark, will take place 2 November in Zurich <a href="http://www.meetup.com/Advanced-Apache-Spark-Meetup/events/225815218/">http://www.meetup.com/Advanced-Apache-Spark-Meetup/events/225815218/</a> </p> 
+    <p>&nbsp;- The Apache Apex (incubating) Meetup will take place 3 November in Pune&nbsp;<a href="http://www.meetup.com/Apache-Apex-incubating-Meetup-Pune/">http://www.meetup.com/Apache-Apex-incubating-Meetup-Pune/</a></p> 
+    <p>&nbsp;- The Barcelona Spark MeetUp will take place 3 November <a href="http://www.meetup.com/Spark-Barcelona/events/226143035/">http://www.meetup.com/Spark-Barcelona/events/226143035/</a></p> 
+    <p>&nbsp;- Cassandra Day Dallas will take place 5 November <a href="http://www.meetup.com/Dallas-Cassandra-Users/events/226212738/">http://www.meetup.com/Dallas-Cassandra-Users/events/226212738/</a> </p> 
+    <p>&nbsp;- The Bay Area Apache Aurora Users Group will meet 10 November in Palo Alto&nbsp;<a href="http://www.meetup.com/Bay-Area-Apache-Aurora-Users-Group/events/225412389/">http://www.meetup.com/Bay-Area-Apache-Aurora-Users-Group/events/225412389/</a></p> 
+    <p>&nbsp;- Apache CloudStack will hold a MeetUp in London on 12 November&nbsp;<a href="http://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-18631038939?aff=es2">http://www.eventbrite.co.uk/e/cloudstack-european-user-group-tickets-18631038939?aff=es2</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- The ASF will be at FOSDEM 2016 in Brussels 30-31 January 2016 <a href="https://fosdem.org/">https://fosdem.org/</a></p> 
+    <p>&nbsp;- The ASF Operations Summary: First Quarter, Fiscal Year 2016 (May-July 2015) is available at&nbsp;<a href="http://s.apache.org/c2P">http://s.apache.org/c2P</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

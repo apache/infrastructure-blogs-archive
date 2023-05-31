@@ -1,0 +1,178 @@
+---
+layout: post
+title: 'HBase on Azure: Import/Export snapshots from/to ADLS'
+date: '2017-03-27T23:04:06+00:00'
+categories: hbase
+---
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 3pt;" id="docs-internal-guid-19570d40-1201-f310-c6fe-a53b1e1fd037"><span style="background-color: transparent; font-family: Arial; font-size: 11pt;">by Apekshit Sharma, HBase Committer.</span></p> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 20pt; margin-bottom: 6pt;"><span style="font-size: 20pt; font-family: Arial; background-color: transparent; font-weight: 400; vertical-align: baseline;">Overview</span></h1> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">Azure Data Lake Store (ADLS) is Microsoft’s cloud alternative for Apache HDFS. In this blog, we’ll see how to use it as backup for storing snapshots of Apache HBase tables. You can export snapshots to ADLS for backup; and for recovery, import the snapshot back to HDFS and use it to clone/restore the table. In this post, we’ll go over the configuration changes needed to make HDFS client talk to ADLS, and commands to copy HBase table snapshots from HDFS to ADLS and vice-versa.</span></p> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 20pt; margin-bottom: 6pt;"><span style="font-size: 20pt; font-family: Arial; background-color: transparent; font-weight: 400; vertical-align: baseline;">Introduction</span></h1> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-indent: 36pt;"><span style="font-size: 12pt; font-family: Arial; color: #222222; font-style: italic; vertical-align: baseline;">“The Azure Data Lake store is an Apache Hadoop file system compatible with Hadoop Distributed File System (HDFS) and works with the Hadoop ecosystem.” </span></p> 
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: disc; font-size: 12pt; font-family: Arial; font-style: italic; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview"><span style="font-size: 12pt; color: #1155cc; text-decoration: underline; vertical-align: baseline;">ADLS documentation</span></a></p> 
+    </li> 
+  </ul> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">ADLS can be treated as any HDFS service, except that it’s in the cloud. But then how do applications talk to it? That’s where the </span><a href="https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html"><span style="font-size: 11pt; font-family: Arial; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">hadoop-azure-datalake module</span></a><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> comes into the picture. It enables an HDFS client to talk to ADLS whenever the following access path syntax is used:</span></p> 
+  <div dir="ltr" style="margin-left: 0pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">adl://&lt;Account Name&gt;.azuredatalakestore.net/</span></p><br /> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">For eg.</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /></span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">hdfs dfs -mkdir adl://&lt;Account Name&gt;.azuredatalakestore.net/test_dir</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">However, before it can access any data in ADLS, the module needs to be able to authenticate to Azure. That requires a few configuration changes. These we describe in the next section.</span></p> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 20pt; margin-bottom: 6pt;"><span style="font-size: 20pt; font-family: Arial; background-color: transparent; font-weight: 400; vertical-align: baseline;">Configuration changes</span></h1> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">ADLS requires an OAuth2 bearer token to be present as part of request’s HTTPS header. Users who have access to an ADLS account can obtain this token from the Azure Active Directory (Azure AD) service. To allow an HDFS client to authenticate to ADLS and access data, you’ll need to specify these tokens in </span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">core-site.xml </span><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">using the following four configurations:</span></p><br /> 
+  <div dir="ltr" style="margin-left: 0pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">&lt;property&gt;&lt;name&gt;dfs.adls.oauth2.access.token.provider.type&lt;/name&gt;&lt;value&gt;ClientCredential&lt;/value&gt;&lt;/property&gt;</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">&lt;property&gt;&lt;name&gt;dfs.adls.oauth2.refresh.url&lt;/name&gt;&lt;value&gt;xxx&lt;/value&gt;&lt;/property&gt;</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /></span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">&lt;property&gt;&lt;name&gt;dfs.adls.oauth2.client.id&lt;/name&gt;&lt;value&gt;xxx&lt;/value&gt;&lt;/property&gt;</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /></span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">&lt;property&gt;&lt;name&gt;dfs.adls.oauth2.credential&lt;/name&gt;&lt;value&gt;xxx&lt;/value&gt;&lt;/property&gt;</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">To find the values for </span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">dfs.adls.oauth2.*</span><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> configurations, refer to </span><a href="https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html"><span style="font-size: 11pt; font-family: Arial; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">this</span></a><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> document.</span></p><br /> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">Since all files/folders in ADLS are owned by the account owner, it’s ACL environment works well with that of HDFS which can have multiple users. Since the user issuing commands using the HDFS client will be different than what’s in Azure’s AD, any operation which checks for ACL will fail. To workaround this issue, use the following configuration which will tell the HDFS client that in case of ADLS requests, assume that the current user owns all files.</span></p><br /> 
+  <div dir="ltr" style="margin-left: 0pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">&lt;property&gt;&lt;name&gt;adl.debug.override.localuserasfileowner&lt;/name&gt;&lt;value&gt;true&lt;/value&gt;&lt;/property&gt;</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">Make sure to deploy the above configuration changes to the cluster.</span></p> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 20pt; margin-bottom: 6pt;"><span style="font-size: 20pt; font-family: Arial; background-color: transparent; font-weight: 400; vertical-align: baseline;">Export snapshot to ADLS</span></h1> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">Here are the steps to export a snapshot from HDFS to ADLS.</span></p> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Create a new directory in ADLS to store snapshots.</span><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /><br class="kix-line-break" /></span></p> 
+    </li> 
+  </ol> 
+  <div dir="ltr" style="margin-left: 36pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">$ hdfs dfs -mkdir adl://appy.azuredatalakestore.net/</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">hbase</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /></span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">$ hdfs dfs -ls adl://appy.azuredatalakestore.net/</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">Found 1 items</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">drwxr-xr-x &nbsp;&nbsp;- systest hdfs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 2017-03-21 23:43 adl://appy.azuredatalakestore.net/hbase</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;" start="2"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Create the snapshot. To know more about this feature and how to create/list/restore snapshots, refer to </span><a href="http://hbase.apache.org/book.html#ops.snapshots"><span style="font-size: 11pt; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">HBase Snapshots</span></a><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"> section in the </span><a href="http://hbase.apache.org/book.html"><span style="font-size: 11pt; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">HBase reference guide</span></a><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">.</span></p> 
+    </li> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Export snapshot to ADLS</span><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /><br class="kix-line-break" /></span></p> 
+    </li> 
+  </ol> 
+  <div dir="ltr" style="margin-left: 36pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">$ sudo -u hbase hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot </span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">&lt;snapshot_name&gt;</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> -copy-to adl://appy.azuredatalakestore.net/</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">hbase</span></p><br /> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">[Output]</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">17/03/21 23:50:24 INFO snapshot.ExportSnapshot: Copy Snapshot Manifest</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">…</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">…</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">17/03/21 23:50:48 INFO snapshot.ExportSnapshot: Export Completed: snapshot_1</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;" start="4"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Verify that the snapshot was copied to ADLS.</span></p> 
+    </li> 
+  </ol><br /> 
+  <div dir="ltr" style="margin-left: 36pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">$ hbase snapshotinfo -snapshot </span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">&lt;snapshot_name&gt;</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> -remote-dir adl://appy.azuredatalakestore.net/</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">hbase</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;"><br class="kix-line-break" /><br class="kix-line-break" /></span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">Snapshot Info</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">----------------------------------------</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> &nbsp;&nbsp;Name: snapshot_1</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> &nbsp;&nbsp;Type: FLUSH</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> &nbsp;Table: t</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> Format: 2</span></p> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">Created: 2017-03-21T23:42:56</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;" start="5"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">It’s now safe to </span><a href="http://hbase.apache.org/book.html#ops.snapshots.delete"><span style="font-size: 11pt; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">delete</span></a><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"> the local snapshot (one in HDFS).</span></p> 
+    </li> 
+  </ol> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 20pt; margin-bottom: 6pt;"><span style="font-size: 20pt; font-family: Arial; background-color: transparent; font-weight: 400; vertical-align: baseline;">Restore/Clone table from a snapshot in ADLS</span></h1> 
+  <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">If you have a snapshot in ADLS which you want to use either to restore an original table to a previous state, or create a new table by cloning, follow the steps below.</span><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /><br class="kix-line-break" /></span></p> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Copy the snapshot back from ADLS to HDFS. Make sure to copy to ‘hbase’ directory on HDFS, because that’s where HBase service will look for snapshots.</span><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /><br class="kix-line-break" /></span></p> 
+    </li> 
+  </ol> 
+  <div dir="ltr" style="margin-left: 36pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">$ sudo -u hbase hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot </span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">&lt;snapshot_name&gt;</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> -copy-from adl://appy.azuredatalakestore.net/</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; font-weight: 700; vertical-align: baseline;">hbase</span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> -copy-to hdfs:///hbase</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;" start="2"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Verify that the snapshot exists in HDFS. (Note that there is no </span><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">-remote-dir</span><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"> parameter)</span><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"><br class="kix-line-break" /><br class="kix-line-break" /></span></p> 
+    </li> 
+  </ol> 
+  <div dir="ltr" style="margin-left: 36pt;"> 
+    <table style="border: medium none; border-collapse: collapse; width: 468pt;"><colgroup><col width="*" /></colgroup> 
+      <tbody> 
+        <tr style="height: 0pt;"> 
+          <td style="border-width: 1pt; border-style: solid; border-color: #000000; vertical-align: top; padding: 5pt;"> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">$ hbase snapshotinfo -snapshot snapshot_1</span></p><br /> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">Snapshot Info</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">----------------------------------------</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> &nbsp;&nbsp;Name: snapshot_1</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> &nbsp;&nbsp;Type: FLUSH</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> &nbsp;Table: t</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;"> Format: 2</span></p> 
+            <p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: &quot;Courier New&quot;; background-color: transparent; vertical-align: baseline;">Created: 2017-03-21T23:42:56</span></p> 
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div><br /> 
+  <ol style="margin-top: 0pt; margin-bottom: 0pt;" start="3"> 
+    <li dir="ltr" style="list-style-type: decimal; font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;"> 
+      <p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;">Follow the instructions in </span><a href="http://hbase.apache.org/book.html#ops.snapshots"><span style="font-size: 11pt; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">HBase Snapshots</span></a><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"> section of </span><a href="http://hbase.apache.org/book.html"><span style="font-size: 11pt; color: #1155cc; background-color: transparent; text-decoration: underline; vertical-align: baseline;">HBase reference guide</span></a><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline;"> to restore/clone from the snapshot.</span></p> 
+    </li> 
+  </ol> 
+  <h1 dir="ltr" style="line-height: 1.38; margin-top: 20pt; margin-bottom: 6pt;"><span style="font-size: 20pt; font-family: Arial; background-color: transparent; font-weight: 400; vertical-align: baseline;">Summary</span></h1><span style="font-size: 11pt; font-family: Arial; background-color: transparent; vertical-align: baseline;">The Azure module in HDFS makes it easy to interact with ADLS. We can keep using the commands we are already know and our applications that use the HDFS client just need a few configuration changes. What what a seamless integration! In this blog, we got a glimpse of the HBase integration with Azure - Using ADLS as a backup for storing snapshots. Let’s see what the future has in store for us. Maybe, a HBase cluster fully backed by ADLS!</span>

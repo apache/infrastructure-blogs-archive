@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'Example: Testing Transaction Rollback'
+date: '2010-03-10T13:00:00+00:00'
+categories: openejb
+---
+We've coded up a nice little <a href="http://svn.apache.org/repos/asf/openejb/trunk/openejb3/examples/transaction-rollback/">example project</a> that shows various ways to rollback transactions in unit tests.
+<p/>
+The example also serves to show the various options in EJB that pertain to how to rollback transactions via either a UserTransaction, SessionContext.setRollbackOnly(), or throwing a RuntimeException.  The example also shows how to mark a RuntimeException with @ApplicationException to bypass the rollback behavior.
+<p/>
+Here's a snippet from the test case to show how simple it is to test:
+<p/>
+<pre>
+/**
+ * Transaction is marked for rollback inside the bean via
+ * calling the javax.ejb.SessionContext.setRollbackOnly() method
+ *
+ * This is the cleanest way to make a transaction rollback.
+ */
+public void testMarkedRollback() throws Exception {
+
+    userTransaction.begin();
+
+    try {
+        entityManager.persist(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
+        entityManager.persist(new Movie("Joel Coen", "Fargo", 1996));
+        entityManager.persist(new Movie("Joel Coen", "The Big Lebowski", 1998));
+
+        List<Movie> list = movies.getMovies();
+        assertEquals("List.size()", 3, list.size());
+
+        movies.callSetRollbackOnly();
+    } finally {
+        try {
+            userTransaction.commit();
+            fail("A RollbackException should have been thrown");
+        } catch (RollbackException e) {
+            // Pass
+        }
+    }
+
+    // Transaction was rolled back
+    List<Movie> list = movies.getMovies();
+    assertEquals("List.size()", 0, list.size());
+
+}
+</pre>

@@ -1,0 +1,18 @@
+---
+layout: post
+title: Adding Bitcoin to Donation Methods for the Apache Software Foundation
+date: '2014-08-29T16:13:28+00:00'
+categories: foundation
+---
+<p><img src="http://www.apache.org/foundation/images/bitcoin_logo.png" align="left" valign="top" /></p> 
+  <p> On August 26th, the Apache Software Foundation (ASF) received a request to accept donations via Bitcoin. Shortly after publishing a wallet on the 28th, the ASF has received more than 3BTC in donations, or about $1,500 at the current exchange rate.&nbsp;</p> 
+  <p>Rich Bowen pushed the <a href="https://blockchain.info/address/1BtjAzWGLyAavUkbw3QsyzzNDKdtPXk95D">Bitcoin address</a> to the ASF <a href="http://www.apache.org/foundation/contributing.html">donations page</a>, without any fanfare or general announcement. The intention was to work out any bugs (we haven't seen any) before making an announcement, but it seems that the Apache-loving Bitcoin community found the information without much prompting. (A hat-tip to <a href="http://newsbtc.com/2014/08/29/apache-software-foundation-now-accepts-bitcoin-donations/">NewsBTC</a> for its scoop this morning.</p> 
+  <h2 id="the-story-so-far">The Story so Far&nbsp;&nbsp;</h2> 
+  <p>The ASF has long taken individual donations, in addition to <a href="http://www.apache.org/foundation/thanks.html">sponsorships from companies</a> that help keep the lights on, servers running, and bits flowing. But Bitcoin hadn't been on the radar until Brian Taylor made the request and Apache's VP of Fundraising, Upayavira, decided the ASF should give it a try.&nbsp;&nbsp;&nbsp;</p> 
+  <p><a href="http://www.reddit.com/r/Bitcoin/comments/2evwqn/apacheorg_begins_accepting_bitcoin_donations_less/">Taylor mentioned it on Reddit</a> and the donations started flowing in.&nbsp;&nbsp;</p> 
+  <h2 id="why-public">Why Public?&nbsp;&nbsp;</h2> 
+  <p>A few questions have come in about why the ASF isn't handling its Bitcoin donations anonymously. Simple! The ASF is a public non-profit, and we want to be transparent about how we take in (and spend) money.</p> 
+  <p>At the moment we are still exploring the accounting issues around paying vendors with Bitcoins as opposed to fiat currency. We want to make sure that as a charity we can deal with the issues around transparency and accounting in a sound manner. Obviously keeping money indefinitely in BitCoin (or fiat) and not using it doesn't achieve any benefit, and isn't the intention of the donor, so depending on what the levels of donation are, we will likely move some to fiat, if we don't spend that all with vendors.</p> 
+  <h2 id="about-bitcoin">About Bitcoin&nbsp;&nbsp;</h2> 
+  <p>If you're not familiar with Bitcoin, now's a great time to catch up. The <a href="https://bitcoin.org/en/how-it-works">Bitcoin site</a> has a quick primer on the basics for new users, which includes info on transactions, mining coins, and <a href="https://bitcoin.org/en/getting-started">how to get started</a>. You'll find the QR code for the ASF Bitcoin address at the bottom of this post.</p> 
+  <p>And, of course, we happily take donations via more traditional methods as well. We <a href="http://www.apache.org/foundation/contributing.html">accept Amazon Payments, PayPal, and even good old-fashioned paper checks</a>. Most of all, we love it when people use and contribute to the many, many projects that make up the ASF – whether that's the Apache Web Server, Apache Hadoop, Apache OpenOffice, Apache CloudStack, or any of the other more than 150 top-level projects, we are here to serve the public good by making and distributing fantastic open source software.&nbsp;</p> <img src="http://www.apache.org/foundation/images/bitcoin.png" />

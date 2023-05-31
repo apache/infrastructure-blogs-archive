@@ -1,0 +1,101 @@
+---
+layout: post
+title: What's New in Apache Kafka 3.1.0
+date: '2022-01-24T16:57:32+00:00'
+categories: kafka
+---
+<p>
+On behalf of the Apache Kafka® community, it is my pleasure to announce the release of <a href="https://kafka.apache.org/downloads">Apache Kafka 3.1.0</a>. The 3.1.0 release contains many improvements and new features. We’ll highlight some of the more prominent features in this blog post, but see the <a href="https://dist.apache.org/repos/dist/release/kafka/3.1.0/RELEASE_NOTES.html">release notes</a> for the full list of changes.
+</p>
+<p>
+While KRaft is still not recommended for production (<a href="https://github.com/apache/kafka/blob/trunk/config/kraft/README.md#missing-features">known gaps</a>), we have fixed multiple bugs and we have continued to add missing features.
+<p>
+Tiered Storage work continues, with the goal of unlocking infinite scaling and faster rebalance times.
+</p>
+<p>
+You can also watch the <a href="https://www.youtube.com/embed/hkUaF9Ur1ZM">release video</a> for a summary of what’s new in Apache Kafka 3.1.0.
+</p>
+
+<h2>Kafka broker, Producer, Consumer and AdminClient</h2>
+<h3>KIP-516: Topic identifiers</h3>
+<p>
+Starting from Apache Kafka 3.1, the <code>FetchRequest</code> supports topic IDs. Topic IDs provide a safer way to fetch data from topics without any chance of incorrectly interacting with stale topics with the same name. It also improves the efficiency of the fetch protocol because sending <code>Uuids</code> on the wire is generally smaller than sending <code>Strings</code>. This is a major step forward in the development of <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-516%3A+Topic+Identifiers">KIP-516</a>.
+</p>
+
+<h3>KIP-773: Differentiate consistently metric latency measured in millis and nanos</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-773%3A+Differentiate+consistently+metric+latency+measured+in+millis+and+nanos">KIP-773</a> enhances naming consistency for three new client metrics with millis and nanos. For example, <code>io-waittime-total</code> is reintroduced as <code>io-wait-time-ns-total</code>. The previously introduced metrics without <code>ns</code> will be deprecated but available for backward compatibility. 
+</p>
+
+<h3>KIP-768: Extend SASL/OAUTHBEARER with support for OIDC</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=186877575">KIP-768</a> provides a built-in and production-grade implementation of the interfaces defined in KIP-255 to allow Kafka to connect to an OpenID identity provider (e.g., Okta, Auth0, and Microsoft Azure) for authentication and token retrieval.
+</p>
+
+<h3>KIP-748: Add broker count metrics</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-748%3A+Add+Broker+Count+Metrics">KIP-748</a> introduces two new metrics that are exposed by both the ZooKeeper and KRaft controller: <code>ActiveBrokerCount</code> and <code>FencedBrokerCount</code>. They respectively expose the number of active brokers in the cluster known by the controller and the number of fenced brokers known by the controller. 
+</p>
+
+<h2>Kafka Streams</h2>
+<h3>KAFKA-13439: The eager rebalance protocol is deprecated</h3>
+<p>
+The cooperative rebalancing protocol has been the default since Kafka 2.4, but we have continued to support the eager rebalancing protocol to provide an upgrade path from earlier client versions. This support will be dropped in a future release, so any users still on the eager protocol should prepare to finish upgrading their applications to the cooperative protocol in version 3.1. See <a href="https://issues.apache.org/jira/browse/KAFKA-13439">KAFKA-13439</a> for more details.
+</p>
+
+<h3>KIP-783: Add <code>TaskId</code> field to <code>StreamsException</code></h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-783%3A+Add+TaskId+field+to+StreamsException">KIP-783</a> guarantees that every exception thrown up to the uncaught exception handler, whether that be the new <code>StreamsUncaughtExceptionHandler</code> or the old generic <code>UncaughtExceptionHandler</code>, is wrapped as a <code>StreamsException</code>. The KIP also introduces a new <code>TaskId</code> field to the <code>StreamsException</code> class, with a getter API to expose it. This field is set for any exception that originates from, or is tied to, a specific task.
+</p>
+
+<h3>KIP-775: Custom partitioners in foreign-key joins</h3>
+<p>
+Today, foreign-key (FK) joins in Kafka Streams only work if both tables being joined (the primary table and the foreign-key table) use the default partitioner.
+</p>
+<p>
+This limitation is due to the subscription and response topics in the implementation being hardwired to use the default partitioner. If the foreign-key table is not co-partitioned with the subscription topic, then foreign-key lookups may be routed to a Streams instance that does not have state for the foreign-key table, resulting in missing join records. Similarly, if the primary table is not co-partitioned with the response topic, then subscription responses may be routed to an instance that does not contain the original (triggering) record, resulting in a failed hash comparison and a dropped join result.
+</p>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-775%3A+Custom+partitioners+in+foreign+key+joins">KIP-775</a> introduces support for foreign-key joins on tables with custom partitioners, by extending the foreign-key join interface to allow custom partitioners to be passed in.
+</p>
+
+<h3>KIP-766: fetch/findSessions queries with open endpoints for SessionStore/WindowStore</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=186876596">KIP-766</a> extends the semantics of the existing range interfaces in the <a href="https://kafka.apache.org/31/javadoc/org/apache/kafka/streams/state/ReadOnlySessionStore.html"><code>ReadOnlySessionStore</code></a> and the <a href="https://kafka.apache.org/31/javadoc/org/apache/kafka/streams/state/ReadOnlyWindowStore.html"><code>ReadOnlyWindowStore</code></a> to support unbounded ranges. Specifically, the interfaces now support the use of null values as a way to represent unbounded ranges.
+</p>
+
+<h3>KIP-763: Range queries with open endpoints</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-763%3A+Range+queries+with+open+endpoints">KIP-763</a> extends the semantics of the existing <code>range</code> and <code>reverseRange</code> interfaces in the <a href="https://kafka.apache.org/31/javadoc/org/apache/kafka/streams/state/ReadOnlyKeyValueStore.html"><code>ReadOnlyKeyValueStore</code></a> to support unbounded ranges. Specifically, the interfaces now support the use of null values as a way to represent unbounded ranges.
+</p>
+
+<h3>KIP-761: Add total blocked time metric to Streams</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-761%3A+Add+Total+Blocked+Time+Metric+to+Streams">KIP-761</a> introduces a new metric called <code>blocked-time-total</code> that measures the total time a Kafka Streams thread has spent blocked on Kafka since it was started. Users can sample this metric periodically and use the difference between samples to measure time blocked during an interval. This is very useful to debug Kafka Streams application performance as it gives the proportion of time the application was blocked on Kafka vs. processing records.
+</p>
+
+<h2>MirrorMaker</h2>
+<h3>KIP-690: Add additional configuration to control MirrorMaker2 internal topics naming convention</h3>
+<p>
+MirrorMaker2 (MM2) internal topic names (heartbeats, checkpoints, and offset syncs) are hardcoded in the source code, which makes it hard to run MM2 with any Kafka cluster that has rules around a topic’s naming convention and doesn’t allow auto-creation for topics. In this case, you will need to create these internal topics upfront manually and make sure they do follow the cluster rules and guidance for topic creation, so MM2 should have flexibility to let you override the name of internal topics to use the ones you create.
+</p>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-690%3A+Add+additional+configuration+to+control+MirrorMaker+2+internal+topics+naming+convention">KIP-690</a> introduces new methods to <a href="https://kafka.apache.org/31/javadoc/org/apache/kafka/connect/mirror/ReplicationPolicy.html"><code>ReplicationPolicy</code></a> that define how MM2 internal topics are named based on some new configuration.
+</p>
+
+<h2>Summary</h2>
+<p>
+Apache Kafka 3.1 has a lot of great fixes and improvements in addition to the KIPs listed here. To learn more:
+</p>
+<ul>
+    <li>See the <a href="https://dist.apache.org/repos/dist/release/kafka/3.1.0/RELEASE_NOTES.html">release notes</a> for the full list of changes</li>
+    <li>Check out the <a href="https://www.youtube.com/embed/hkUaF9Ur1ZM">video</a> or the <a href="https://developer.confluent.io/podcast/apache-kafka-3-1">podcast</a> to learn more</li>
+    <li>Download <a href="https://kafka.apache.org/downloads">Apache Kafka 3.1.0</a> to get started with the latest release</li>
+</ul>
+
+<p>
+This was a huge community effort, so thank you to everyone who contributed to this release, including all our users and our 114 authors and reviewers:
+</p>
+<p>
+A. Sophie Blee-Goldman, Alexander Iskuskov, Alexander Stohr, Almog Gavra, Andras Katona, Andrew Patterson, Andy Chambers, Andy Lapidas, Anna Sophie Blee-Goldman, Antony Stubbs, Arjun Satish, Bill Bejeck, Boyang Chen, Bruno Cadonna, CHUN-HAO TANG, Cheng Tan, Chia-Ping Tsai, Chris Egerton, Christo Lolov, Colin P. McCabe, Cong Ding, Daniel Urban, David Arthur, David Jacot, David Mao, Dmitriy Fishman, Edoardo Comar, Ewen Cheslack-Postava, Greg Harris, Guozhang Wang, Igor Soarez, Ismael Juma, Israel Ekpo, Ivan Ponomarev, Jakub Scholz, James Galasyn, Jason Gustafson, Jeff Kim, Jim Galasyn, JoeCqupt, Joel Hamill, John Gray, John Roesler, Jongho Jeon, Jorge Esteban Quilcate Otoya, Jose Sancio, Josep Prat, José Armando García Sancio, Jun Rao, Justine Olshan, Kalpesh Patel, Kamal Chandraprakash, Kevin Zhang, Kirk True, Konstantine Karantasis, Kowshik Prakasam, Leah Thomas, Lee Dongjin, Lucas Bradstreet, Luke Chen, Manikumar Reddy, Matthew Wong, Matthias J. Sax, Michael Carter, Mickael Maison, Nigel Liang, Niket, Niket Goel, Oliver Hutchison, Omnia G H Ibrahim, Patrick Stuedi, Phil Hardwick, Prateek Agarwal, Rajini Sivaram, Randall Hauch, René Kerner, Richard Yu, Rohan, Ron Dagostino, Ryan Dielhenn, Sanjana Kaundinya, Satish Duggana, Sergio Peña, Sherzod Mamadaliev, Stanislav Vodetskyi, Ted Yu, Tom Bentley, Tomas Forsman, Tomer Wizman, Uwe Eisele, Victoria Xia, Viktor Somogyi-Vass, Vincent Jiang, Walker Carlson, Weisheng Yang, Xavier Léauté, Yanwen(Jason) Lin, Yi Ding, Zara Lim, andy0x01, dengziming, feyman2016, ik, ik.lim, jem, jiangyuan, kpatelatwork, leah, loboya~, lujiefsi, sebbASF, singingMan, vamossagar12, wenbingshen
+</p>

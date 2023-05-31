@@ -1,0 +1,13 @@
+---
+layout: post
+title: And the winner is - a new OWB logo!
+date: '2011-05-18T23:19:20+00:00'
+categories: owb
+---
+<h1><font size="5">A New Logo for Apache OpenWebBeans!</font></h1> 
+  <p>The Apache OpenWebBeans community has voted on a new Logo recently and is happy to announce the winner today:</p> 
+  <p><img src="http://people.apache.org/~struberg/owb/owb_logo-large.png" alt="owb logo" /></p> 
+  <p> </p> 
+  <p>We'd like to say thanks to Adonis Raduca for doing this excellent design and especially thank</p> <a href="http://irian.at">Irian</a> 
+  <p>(yea those excellent bunch of folks who originally wrote and donated Apache MyFaces)<br />for covering the expenses of the new logo design!</p> 
+  <p><br /> </p>

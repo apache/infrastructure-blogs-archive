@@ -1,0 +1,93 @@
+---
+layout: post
+title: Conception and validation of Hadoop BigData stack.
+date: '2011-12-28T00:59:00+00:00'
+categories: bigtop
+---
+<p>
+With more and more people jumping on the bandwagon of big data it is very gratifying to see that Hadoop is gaining momentum every day.<br /> <br />
+Even more fascinating is too see how the idea of putting together a 
+bunch of service components on top of Hadoop proper is getting more and 
+more steam. IT and software development professionals are getting 
+better understanding of benefits that a flexible set of loosely 
+coupled yet compatible components provides when one needs to customize 
+a data processing solution at scale.<br /> <br />
+The biggest problem for most businesses trying to add Hadoop 
+infrastructure into their existing IT is a lack of the knowledge, 
+professional support, and/or clear understanding of what's out there on 
+the market to help you. Essentially, Hadoop exists in one incarnation - 
+this is the open-source project under the umbrella of Apache Software 
+Foundation (ASF). This is where all the innovations in Hadoop are coming
+ from. And essentially this is a source of profit for a few commercial 
+offerings. <br /> <br />
+What's wrong with the picture, you might ask? Well, the main issue with 
+most of those offerings are mostly two folds. They are 
+either immature and based on sometimes unfinished nor unreleased 
+Hadoop code, or provide no significant value add compare to Hadoop 
+proper available in source form from <a href="http://hadoop.apache.org/">hadoop.apache.org</a>.
+ And no matter if any of above (or both of them together) apply to a 
+commercial solution based on Hadoop, you can be sure of one thing: these
+ solutions will cost you literally tons of money - as much as&nbsp; 
+$1k/node/year in some cases - for what is essentially available for 
+free.<br /> <br />
+&quot;What about neat packages I can get from a commercial provider and 
+perhaps some training too?&quot; one might ask. Well, yeah if you are willing
+ to pay top bucks per node for packaging bugs<a href="http://is.gd/WKBkuI"> </a> to get fixed or learn how to install packages on a virtual machine - go ahead by all means.<br /> <br />
+However, keep in mind that you always can get a set of packages for Hadoop produced by another open source project called <a href="https://incubator.apache.org/bigtop/">Bigtop</a>,
+ hosted by Apache. What essentially you get from it are packages for your Linux
+ distro, which can be easily installed on your cluster's nodes. A great 
+benefit is that you can easily trim your Hadoop stack to only include 
+what you need: Hadoop + Hive, or perhaps Hadoop + HBase (which will 
+automatically pick up Zookeper for you).<br /> <br />
+At any rate, the best part of the story isn't a set of packages that can
+ be installed: after all this is what packages are usually being created
+ for, right? The problem with the packages or other forms of component 
+distribution is compatibility: you don't know in advance if A-package will nicely 
+work with B-package v.1.2 unless somebody has tested this assumption.
+ Even then, testing environment might be significantly different from 
+your production environment and then all bets are off. Unless - again - 
+you're willing to pay through your nose to someone who's willing to get 
+it for you. And that's where true miracle of something like BigTop is 
+coming for a rescue.<br /> <br />
+Before I'll explain more, I wanna step back a bit and look upon 
+some recent history. A couple of years ago Yahoo's Hadoop development 
+team had to address an issue of putting together working and 
+well-validated Hadoop stack including a number of components developed 
+by different engineering organizations with their own development 
+schedule and integration criteria. The main integration point of all of 
+the pieces was the operations team which was in charge of a big number of 
+cluster deployments, provisioning and support. Without their own QA 
+staff they were oftentimes at mercy of an assumed code or configuration 
+quality coming from all the corners of the company. Even with
+ a chance of the high quality of all these components there were no 
+guarantees that they will work together as expected once put together on a cluster. And indeed, integration problems were many.<br /> <br />
+That's were a small team of engineers including yours truly who put together
+ a prototype of a system called FIT (Final Integration Testing). The 
+system essentially allowed you to pick up a packaged component you wanted 
+to validate against your cluster environment and perform the deployment,
+ configuration, and testing with the integration scenarios provided by 
+either the component's owner or your own team.<br /> <br />
+The approach was so effective that the project was continued and funded 
+further in the form of HIT (Hadoop Integration Testing). At which point 
+two of us have left for what seemed like a greener pasture back then.<br /> <br />
+We thought the idea was the real deal so we have continued on the path 
+of developing a less custom and more adoptable technology based on open 
+standards such as Maven and Groovy. Here you can find the <a href="http://www.scribd.com/doc/63012489/Big-Data-Stacks-Validation" target="_blank">slides from the talk</a>
+ we gave at eBay about a year ago. The presentation is putting the 
+concept of Hadoop data stack in open writing for the first time, as well as 
+defines stacks customization and validation technology. When this presentation 
+were given we already had <a href="http://is.gd/XvhqFW" target="_blank">well working mechanism</a> of creating, deploying, and validating both packaged and non-packaged Hadoop components.<br /> <br />
+BigTop - <i>open-sourced for the second time</i> just a few months ago and 
+based on our project above - has added up a packaging creation layer on 
+top of the stack validation product. This, of course, makes your life 
+even easier. And even more so with a number of Puppet recipes allowing 
+you to deploy and configure your cluster in highly efficient and 
+automatic manner. I encourage you to check it out.<br /> <br />
+BigTop has been successfully used for validating release of Apache 
+Hadoop 0.20.205 which has become a foundation of Hadoop 1.0.0 
+Another release of Hadoop - 0.22 - was using BigTop for release 
+candidates validation and so on. </p> 
+  <p>On top of &quot;just packages&quot; BigTop now produces ready to go VMs pre-installed with Hadoop stack for different Linux distributions: just download one and instantiate your very own cluster in minutes! We'll tell about it next time.<br /></p> 
+  <p>I encourage to check BigTop project, contribute to it your ideas, time, and knowledge!</p> 
+  <p> </p> 
+  <p><a href="http://is.gd/06yvPM">Cross-posted</a><br /> </p>

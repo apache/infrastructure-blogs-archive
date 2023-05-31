@@ -1,0 +1,7 @@
+---
+layout: post
+title: Welcome Florian Semm
+date: '2012-02-10T00:00:00+00:00'
+categories: logging
+---
+The Apache log4php team would like to welcome Florian Semm as a new committer! Welcome Florian! 

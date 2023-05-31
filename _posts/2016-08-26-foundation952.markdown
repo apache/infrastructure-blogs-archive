@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 26 August 2016'
+date: '2016-08-26T14:01:56+00:00'
+categories: foundation
+---
+<p>We've hit our 100th Weekly News Round-up! Here's what the Apache community has been up to:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 21 September 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield sparkly performance at 99.91% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- CFP closes 9 September for Apache: Big Data and ApacheCon&nbsp;Europe/Seville&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br />&nbsp;- UPDATE: Travel Assistance applications due 16 September&nbsp;<a href="http://www.apache.org/travel/">http://www.apache.org/travel/</a></p> 
+    <p>Apache Allura™ –an Open Source implementation of a software forge, a Web site that manages source code repositories, bug reports, discussions, wiki pages, blogs, and more for any number of individual projects.<br />&nbsp;- Apache Allura 1.5.0 released&nbsp;<a href="https://allura.apache.org/">https://allura.apache.org/</a></p> 
+    <p>Apache CloudStack™ –mature, easy-to-deploy Open Source Cloud computing software that meets the demands of the world's largest Cloud providers.<br />&nbsp;- Apache CloudStack 4.9 released&nbsp;<a href="https://s.apache.org/jU7Q">https://s.apache.org/jU7Q</a></p> 
+    <p>Apache Commons™ Configuration –provides a generic configuration interface which enables an application to read configuration data from a variety of sources.<br />&nbsp;- Commons Configuration 2.1 released&nbsp;<a href="http://commons.apache.org/proper/commons-configuration/download_configuration.cgi">http://commons.apache.org/proper/commons-configuration/download_configuration.cgi</a></p> 
+    <p>Apache Geode (incubating)&nbsp;–a data management platform that provides &nbsp;a database-like consistency model, reliable transaction processing and a shared-nothing architecture to maintain very low latency performance with high concurrency processing.<br />&nbsp;- Apache Geode 1.0.0-incubating.M3 released&nbsp;<a href="http://geode.incubator.apache.org/releases/">http://geode.incubator.apache.org/releases/</a></p> 
+    <p>Apache Johnzon™ –an implementation of JsonProcessing (aka jsr-353) and a set of useful extension for this specification like an Object mapper, some JAX-RS providers and a WebSocket module provides a basic integration with Java WebSocket API (JSR 356).<br />&nbsp;- Apache Johnzon 0.9.5 released <a href="http://johnzon.apache.org/">http://johnzon.apache.org/</a> </p> 
+    <p>Apache Kudu™ –an Open Source storage engine for structured data that supports low-latency random access together with efficient analytical access patterns.<br />&nbsp;- Apache Kudu 0.10.0 released&nbsp;<a href="http://kudu.apache.org/releases/0.10.0/">http://kudu.apache.org/releases/0.10.0/</a><br /><br /></p> 
+    <p><b>Did You Know?</b></p> 
+    <p>&nbsp;- Did you know that in Apache Phoenix 4.8 a DISTINCT query went from a full table scan to distinct value seeks (300sec -&gt; 0.5sec)?&nbsp;<a href="http://phoenix.apache.org/">http://phoenix.apache.org/</a></p> 
+    <p>&nbsp;- Did you know that the Apache HBase project is seeking anonymous feedback? <a href="https://www.surveymonkey.com/r/NCZDXLJ">https://www.surveymonkey.com/r/NCZDXLJ</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that since its inception in 1999, nearly 15,000 people have contributed code to the ASF?&nbsp;<a href="https://twitter.com/snoot_io/status/762939854984450048">https://twitter.com/snoot_io/status/762939854984450048</a></p> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+  </div> 
+  <div> 
+    <div> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Avro, ComDev, Directory, Apache HTTP Server, OODT, Poi, Syncope, Tika, Trafodion, and Zest!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+      <p><strong></strong></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- The next Cassandra Summit will be held 7-9 September 2016 in San Jose <a href="https://cfp.cassandrasummit.org/">https://cfp.cassandrasummit.org/<br /></a></p> 
+    </div> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <div> 
+      <p>&nbsp;- The second ASF Annual Report is available at <a href="https://s.apache.org/pTMX">https://s.apache.org/pTMX</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

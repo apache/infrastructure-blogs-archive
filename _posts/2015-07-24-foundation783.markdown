@@ -1,0 +1,59 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 24 July 2015'
+date: '2015-07-24T19:26:42+00:00'
+categories: foundation
+---
+<div> 
+    <p>It's week 30 of the year --we're more than halfway through 2015. Here's what's we've been working on:</p> 
+    <p>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Announcing Program for ApacheCon™: Core Europe –REGISTRATION NOW OPEN! <a href="http://s.apache.org/31N">http://s.apache.org/31N</a></p> 
+  </div> 
+  <div>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.</div> 
+  <div>&nbsp;- Upcoming Board Meeting: 19 August. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></div> 
+  <div><br /></div> 
+  <div>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 35,000+ weekly infrastructure checks yielded a nifty 99.17% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a></div> 
+  <div> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.3.3 released <a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a> </p> 
+  </div> 
+  <div> 
+    <p>Apache NiFi™ –Big Data automation system acquires and delivers data easily, securely, and reliably across enterprise systems in real time.<br />&nbsp;- The Apache Software Foundation Announces Apache™ NiFi™ as a Top-Level Project <a href="http://s.apache.org/kc">http://s.apache.org/kc</a></p> 
+    <p>Apache PDFBox™ –an Open Source Java tool for working with PDF documents.<br />&nbsp;- Apache PDFBox 1.8.10 released <a href="http://pdfbox.apache.org/download.cgi">http://pdfbox.apache.org/download.cgi</a></p> 
+  </div> 
+  <p>Apache POI™ –a library for reading and writing Microsoft Office file formats, such as Excel, PowerPoint, Word, Visio, Publisher and Outlook.<br />&nbsp;- Apache POI 3.13-beta1 released&nbsp;<a href="http://poi.apache.org/download.html">http://poi.apache.org/download.html</a></p> 
+  <div><br /></div> 
+  <div><b>Did You Know?</b></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that there were 12 new projects submitted to the Apache Incubator this year? 4 projects also graduated as Top-level Projects, and 1 was retired.&nbsp;<a href="http://incubator.apache.org/">http://incubator.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that there are currently 38 initiatives in development at the Apache Labs (our innovation &quot;sandbox&quot; to test technical concepts)?&nbsp;<a href="http://labs.apache.org/">http://labs.apache.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Did you know that the newly-designed Apache Projects page at <a href="https://projects.apache.org/">https://projects.apache.org/</a>&nbsp;documents the evolution of the ASF's more than 300 projects,&nbsp;From Abdera to ZooKeeper, including charts, PMCs, languages, contributor trends, and more?</div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div><b>Apache Community Notices:</b></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The next Apache Flink Berlin MeetUp will take place 29 July <a href="http://www.meetup.com/Apache-Flink-Meetup/events/223574589/">http://www.meetup.com/Apache-Flink-Meetup/events/223574589/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The CloudStack Silicon Valley MeetUp (&quot;Jenkins + jclouds + CloudStack = On-demand Continuous Integration&quot;) will be held 4 August in Santa Clara <a href="http://www.meetup.com/CloudStack-Silicon-Valley-User-Group/events/223921012/">http://www.meetup.com/CloudStack-Silicon-Valley-User-Group/events/223921012/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The second annual MesosCon will be held 20-21 August in Seattle <a href="https://mesoscon2015.sched.org/">https://mesoscon2015.sched.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- ASF Member Joan Touzet will keynote the Texas Linux Fest 21-22 August in San Marcos <a href="https://2015.texaslinuxfest.org/">https://2015.texaslinuxfest.org/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Apache: Big Data and ApacheCon: Core Europe will be held 28 September - 1 October in Budapest <a href="http://apachecon.com/">http://apachecon.com/</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The first Apache Flink Conference, Flink Forward, will be held 12-13 October in Berlin <a href="http://flink-forward.org">http://flink-forward.org</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- CFP open for Lucene/Solr Revolution, to be held 13-16 October in Austin <a href="http://www.lucenerevolution.org">http://www.lucenerevolution.org</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- The ASF FY 2014-2015 Annual Report is available at <a href="http://s.apache.org/ZVp">http://s.apache.org/ZVp</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and <a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">sign up for Apache-related news</a> by sending mail to announce-subscribe@apache.org and <a href="https://twitter.com/theASF/">follow @TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

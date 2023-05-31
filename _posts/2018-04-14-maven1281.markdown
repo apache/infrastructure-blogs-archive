@@ -1,0 +1,73 @@
+---
+layout: post
+title: Apache Maven Clean Plugin Version 3.1.0 Released
+date: '2018-04-14T13:43:18+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+<a href="http://maven.apache.org/plugins/maven-clean-plugin/">Apache Maven Clean Plugin, version 3.1.0</a>.</p>
+
+<p>The Clean Plugin is used when you want to remove files generated at build-time
+in a project&rsquo;s directory.</p>
+
+<p>Important Note:</p>
+
+<ul>
+<li>Maven 3.X only</li>
+<li>JDK 7 minimum requirement</li>
+</ul>
+
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-clean-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317224&amp;version=12337984">Release Notes &ndash; Maven Clean Plugin &ndash; Version 3.1.0</a></p>
+
+<p>Bug:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-77">MCLEAN-77</a> &ndash; Remove link to non-existing Codehaus wiki</li>
+</ul>
+
+
+<p>Tasks:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-73">MCLEAN-73</a> &ndash; Upgrade of maven-shared-utils to 3.0.1.</li>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-74">MCLEAN-74</a> &ndash; Upgrade of commons-io to 2.5.</li>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-83">MCLEAN-83</a> &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-84">MCLEAN-84</a> &ndash; Lift JDK minimum to JDK 7</li>
+</ul>
+
+
+<p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-75">MCLEAN-75</a> &ndash; Upgrade maven-plugins to version 30</li>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-80">MCLEAN-80</a> &ndash; Upgrade maven-shared-utils to 3.2.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-81">MCLEAN-81</a> &ndash; Upgrade parent to 31</li>
+<li><a href="https://issues.apache.org/jira/browse/MCLEAN-85">MCLEAN-85</a> &ndash; Upgrade maven-shared-utils to 3.2.1</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

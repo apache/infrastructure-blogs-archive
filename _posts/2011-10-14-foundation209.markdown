@@ -1,0 +1,53 @@
+---
+layout: post
+title: The Apache Software Foundation Statement on Apache OpenOffice.org
+date: '2011-10-14T12:00:20+00:00'
+categories: foundation
+---
+<div>On 1 June 2011, Oracle Corporation submitted the OpenOffice.org code base to The Apache Software Foundation. That submission was accepted, and the project is now being developed as a podling in the Apache Incubator under the ASF's meritocratic process informally dubbed &quot;The Apache Way&quot;.&nbsp;</div> 
+  <div><br /></div> 
+  <div>OpenOffice.org is now officially part of the Apache family.&nbsp;</div> 
+  <div><br /></div> 
+  <div>The project is known as Apache OpenOffice.org (incubating).</div> 
+  <div><br /></div> 
+  <div>Over its 12-year history, the ASF has welcomed contributions from individuals and organizations alike, but, as a policy, does not solicit code donations. The OpenOffice.org code base was not pursued by the ASF prior to its acceptance into the Apache Incubator.&nbsp;</div> 
+  <div><br /></div> 
+  <div>The Apache OpenOffice.org Podling Project Management Committee (PPMC) and Committer list are nearly 10 times greater than those of other projects in the Apache Incubator, demonstrating the tremendous interest in this project.</div> 
+  <div><br /></div> 
+  <div>As with many highly-visible products, there has been speculation and conjecture about the future of OpenOffice.org at Apache. More recently, destructive statements have been published by both members of the greater FOSS community and former contributors to the original OpenOffice.org product, suggesting that the project has failed during the 18 weeks since its acceptance into the Apache Incubator.</div> 
+  <div><br /></div> 
+  <div>Whilst the ASF operates in the open –our code and project mailing lists are publicly accessible– ASF governance permits for projects to make information and code freely available when the project deems them ready to be released. Apache OpenOffice.org is not at risk.</div> 
+  <div><br /></div> 
+  <div>As an end-user-facing product, OpenOffice.org is unique in comparison to the other nearly 170 products currently being developed, incubated, and shepherded at the ASF. Considered to be &quot;ingredient brands&quot;, countless competing Web server, Cloud computing, data handling, and other solutions behind the products serving millions of users worldwide are, unbeknown to most, &quot;Powered by Apache&quot;.</div> 
+  <div><br /></div> 
+  <div>And we're OK with that.</div> 
+  <div><br /></div> 
+  <div>More than 70 project Committers are actively collaborating to ensure that the future of the OpenOffice.org code base and community are in alignment with The Apache Way. The project's extensive plans include assessing the elements necessary to update a product that hasn't had an official release in nearly a year; parts of the product's functionality encumbered by non-Apache-Licensed components; and a code base that has been forked and maintained by a community pursuing market dominance. As such, it is critical that we remain pragmatic about the project's next steps during this transition phase.</div> 
+  <div><br /></div> 
+  <div>We understand that stakeholders of a project with a 10+ year history --be they former product managers or casual users-- may be unfamiliar with The Apache Way and question its methods. Those following the project's migration to process and culture unique to the Apache community may challenge the future sustainability of the project.</div> 
+  <div><br /></div> 
+  <div>Such concerns are not atypical with the incubation of Open Source projects with well-established communities -- the successful graduation of Apache Subversion and Apache SpamAssassin, among others, are proof that <a href="http://apache.org/foundation/how-it-works.html">The Apache Way</a> works.</div> 
+  <div><br /></div> 
+  <div>As an all-volunteer organization, we do not compensate any contributors to develop Apache code. We do, however, support those individuals with relevant expertise to pursue consulting/remuneration opportunities with interested parties, but must reiterate that they are barred from doing so on behalf of the ASF or any <a href="http://projects.apache.org/index.html">Apache initiatives</a>&nbsp;-- be they Top-level Projects (TLPs) or emerging products in the Apache <a href="http://incubator.apache.org/">Incubator</a> and <a href="http://labs.apache.org/">Labs</a>. Otherwise, they would be in violation of the Apache trademark policy, which the ASF strongly defends in order to protect its communities.</div> 
+  <div><br /></div> 
+  <div>At the ASF, the answer is openness, not further fragmentation. There is ample room for multiple solutions in the marketplace that are Powered by Apache. We welcome differences of opinion: a requirement at Apache is that a healthy project be supported by an open, diverse community comprising multiple organizations and individual contributors.</div> 
+  <div><br /></div> 
+  <div>We congratulate the LibreOffice community on their success over their inaugural year and wish them luck in their future endeavors. We look forward to opening up the dialogue between Open Document Format-oriented communities to deepen understanding and cease the unwarranted spread of misinformation.</div> 
+  <div><br /></div> 
+  <div>We welcome input and participation in the form of constructive contributions to Apache OpenOffice.org. There are myriad ways to help, from code development and documentation to community relations and &quot;help desk&quot; forums support to licensing and localization, and more.&nbsp;</div> 
+  <div><br /></div> 
+  <div>The way to move this forward is via the ASF, which owns the OpenOffice.org trademark and official code base. This is our chance to be able to pull together our talents towards a cohesive goal and protect the project's ecosystem.</div> 
+  <div><br /></div> 
+  <div>At a minimum, we owe that to the hundreds of millions of users of OpenOffice.org.</div> 
+  <div><br /></div> 
+  <div>-- the ASF Press team and Apache OpenOffice.org incubating mentors</div> 
+  <div> 
+    <p><br /></p> 
+    <p>- Join the Apache OpenOffice.org project MeetUp at ApacheCon, 7-11 November 2011 in Vancouver, BC, Canada. For more information, visit <a href="http://apachecon.com/">http://apachecon.com/</a><br />- For more on Apache OpenOffice.org see <a href="http://incubator.apache.org/openofficeorg/">http://incubator.apache.org/openofficeorg/</a><br />- For more information on the Apache Incubator see <a href="http://incubator.apache.org/">http://incubator.apache.org/</a><br />- The ASF trademark policy can found at <a href="http://www.apache.org/foundation/marks/">http://www.apache.org/foundation/marks/</a></p> 
+  </div> 
+  <div><br /></div> 
+  <div>&quot;Apache&quot;, &quot;OpenOffice.org&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.</div> 
+  <p><br /></p> 
+  <div> 
+    <p># # #</p> 
+  </div>

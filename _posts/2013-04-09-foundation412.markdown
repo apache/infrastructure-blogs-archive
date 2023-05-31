@@ -1,0 +1,35 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache cTAKES™ as a Top-Level Project
+date: '2013-04-09T12:00:21+00:00'
+categories: foundation
+---
+<div><b><i>Open Source natural language processing (NLP) tool for information extraction from electronic medical record clinical free-text</i></b></div> 
+  <div><br /></div> 
+  <div><b>Forest Hill, MD –9 April 2013–</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of nearly 150 Open Source projects and initiatives, today announced that Apache cTAKES has graduated from the Apache Incubator to become a Top-Level Project (TLP), signifying that the Project's community and products have been well-governed under the ASF's meritocratic process and principles.</div> 
+  <div><br /></div> 
+  <div>Apache cTAKES (clinical Text Analysis and Knowledge Extraction System) is an Open Source natural language processing system for information extraction from electronic medical record clinical free-text. Widely used in production by numerous organizations across the healthcare sector, cTAKES was started in 2006 by a team of physicians, computer scientists and software engineers at Mayo Clinic, and was submitted to the Apache Incubator in June 2012.&nbsp;</div> 
+  <div><br /></div> 
+  <div>Apache cTAKES was built using the Apache UIMA framework and the Apache OpenNLP natural language processing toolkit. Its components are specifically trained for the clinical domain out of diverse manually annotated datasets, and create rich linguistic and semantic annotations that can be utilized by clinical decision support systems and clinical research.&nbsp;</div> 
+  <div><br /></div> 
+  <div>&quot;As a well-developed NLP tool with a mature codebase, cTAKES is the cornerstone of a variety of use cases in the domain of biomedicine such as phenotype discovery, translational science, pharmacogenomics and pharmacogenetics,&quot; said Pei Chen, Vice President of Apache cTAKES. &quot;We are pleased to have proven our adoption of the 'Apache Way', and welcome additional contributors to our growing community.&quot;</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache cTAKES software is released under the Apache License v2.0, and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. Apache cTAKES source code, documentation, mailing lists, and related resources are available at <a href="http://ctakes.apache.org/">http://ctakes.apache.org/</a>.&nbsp;</div> 
+  <div><br /></div> 
+  <div><b>About the Apache Incubator</b></div> 
+  <div>The Apache Incubator is the entry path for projects and codebases wishing to become part of the efforts at The Apache Software Foundation. All code donations from external organizations and existing external projects wishing to join the ASF enter through the Incubator to: 1) ensure all donations are in accordance with the ASF legal standards; and 2) develop new communities that adhere to our guiding principles. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF. For more information, visit <a>http://incubator.apache.org/</a>.</div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees nearly one hundred fifty leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way&quot;, more than 400 individual Members and 3,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by individual donations and corporate sponsors including AMD, Basis Technology, Citrix, Cloudera, Facebook, Go Daddy, Google, HP, Hortonworks, Huawei, IBM, InMotion Hosting, Matt Mullenweg, Microsoft, PSW Group, SpringSource/VMware, WANdisco, and Yahoo!. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> or <a href="https://twitter.com/TheASF">follow @TheASF on Twitter</a>.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache&quot;, &quot;cTAKES&quot;, &quot;Apache cTAKES&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div> 
+  <div><br /></div> 
+  <div>Contact:</div> 
+  <div>Sally Khudairi</div> 
+  <div>Vice President</div> 
+  <div>The Apache Software Foundation</div> 
+  <div>press@apache.org</div> 
+  <div>+1 617 921 8656</div>

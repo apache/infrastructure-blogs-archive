@@ -1,0 +1,15 @@
+---
+layout: post
+title: Apache Sentry 1.6.0-Incubating released!
+date: '2015-09-22T03:28:27+00:00'
+categories: sdp
+---
+Apache Sentry 1.6.0-Incubating released!
+
+On September 22,  the Sentry community announced the release of Apache Sentry 1.6.0-incubating.  Significant works have gone into this release where 115 defects or improvements were fixed and made, and 4 new features were added by the team.   
+
+The most notable feature added to this release was "Sqoop2 integration with sentry".  This new feature allows for the authorization policies will be managed in Sentry. With the feature "Add Audit Log Support for Solr Sentry Handlers", some sensitive operations will be recorded in Sentry audit log. Sentry 1.6.0-incubating also supports CredentialProvider, so that the passwords can be specified in an external encrypted file. Sentry also provides tool to dump entire content in sentry specific format and load the data into another instance of the Sentry Service, it is very helpful for backups, migration from one backend store to another and debugging content of the underlying database.
+
+The complete list of bugfixes, improvements and features in Sentry 1.6.0-incubating can be viewed at: http://s.apache.org/w5
+
+- Dapeng Sun (Release Manager) 

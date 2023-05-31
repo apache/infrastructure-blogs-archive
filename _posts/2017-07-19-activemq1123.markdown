@@ -1,0 +1,11 @@
+---
+layout: post
+title: New ActiveMQ Logo
+date: '2017-07-19T21:09:32+00:00'
+categories: activemq
+---
+<p>The ActiveMQ PMC is glad to announce the results of the call for logo vote.</p>
+<p><b>The winner is.. with a total of 80 votes:</b></p>
+<div><img src="https://github.com/apache/activemq/raw/master/docs/img/logo-1024.png" alt="Smiley face" height="165" width="512"></div>
+<P>Thank you for all the 293 participants who helped making the selection, and for the 16 submissions</p>
+<p>This was a great community experience!</p>

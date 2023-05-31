@@ -1,0 +1,29 @@
+---
+layout: post
+title: Apache Hama now supports YARN, runs at Samsung Electronics
+date: '2015-03-05T04:16:21+00:00'
+categories: hama
+---
+The Apache Hama team is pleased to announce that we’re now supporting not only the Mesos but the YARN (Thanks to Minho Kim who is a main contributor of YARN module).
+
+Apache Hama is a High-Performance BSP computing engine, which can be used to perform  compute-intensive general scientific BSP applications, Google’s Pregel-like graph applications, and machine learning algorithms.
+
+YARN is the resource management technology that lets multiple computing frameworks run on the same Hadoop cluster using the same underlying storage. So, for example, a company could analyze the data using MapReduce, Spark, and Apache Hama.
+
+“From the next release, you’ll be able to submit scientific BSP applications to the existing open source Hadoop, CDH, and HDP clusters without any installation” said Edward J. Yoon(@eddieyoon), a original creator of Apache Hama.
+
+<div align="center" style="margin-top: 40px; margin-bottom: 40px;"><img src="https://lh6.googleusercontent.com/-92ycZNzV_Y4/VPfXXhRDZgI/AAAAAAAAE8c/l_rIlsrvqGc/w1131-h808-no/HamaonYARN.png" width="600"></div>
+
+Meanwhile, we’re also working on support the HPC environment such as InfiniBand and GPUs — According to General Dynamics<sup>[1]</sup>, they already proved the 10x performance improvement of Apache Hama on HPC cluster — and also plan to support deployment and automation configurations to the Hybrid Clouds for solving various problems of Manufacturing Engineering, Science, Finance, Research areas.
+
+This contribution is mainly coming from Samsung Electronics. “Unlike most web services companies, our challenge is numerical or signal data, not text data. That’s why we’re investing in High-Performance computing for scientific advanced analytics.” said SeungHun Jeon, a Head of Cloud Tech Lab at Samsung Electronics.
+
+“Since we build our own analytics platform in the Cloud by leveraging open source technologies such as Apache Hadoop, Storm, and Hama, we intend to keep making contributions to the Open Source communities. ” added Hyok S. Choi, a Principal Software Engineer at Samsung Electronics.
+
+<b>About Apache Hama</b>
+
+Apache Hama<sup>[2]</sup> was established in 2012 as a Top-Level Project of The Apache Software Foundation. It provides High-Performance BSP<sup>[3]</sup> computing engine on top of Hadoop.
+
+1. <a href="http://www.gd-ais.com/News/General-Dynamics-at-SC14-Delivering-Real-time-Intelligence-with-High-Performance-Data-Analytics">http://www.gd-ais.com/News/General-Dynamics-at-SC14-Delivering-Real-time-Intelligence-with-High-Performance-Data-Analytics</a>
+2. <a href="http://hama.apache.org/">http://hama.apache.org/</a>
+3. <a href="http://hama.apache.org/">http://en.wikipedia.org/wiki/Bulk_synchronous_parallel</a>

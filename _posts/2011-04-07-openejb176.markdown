@@ -1,0 +1,16 @@
+---
+layout: post
+title: Apache OpenEJB and Apache TomEE at JAX London 2011
+date: '2011-04-07T12:00:00+00:00'
+categories: openejb
+---
+Join us next week at <a href="http://jaxlondon.com/">JAX London 2011</a> where <a href="http://twitter.com/dblevins">David Blevins</a> and <a href="http://twitter.com/jongallimore">Jonathan Gallimore</a> will be presenting two presentations on EJB and Java EE.
+
+<ul>
+<li><a href="http://jaxlondon.com/2011s/trackssessions#session-17708">Fun with EJB 3.1 and OpenEJB</a> Tuesday, April 12th</li>
+<li><a href="http://jaxlondon.com/2011s/trackssessions#session-17709">Apache TomEE: Tomcat with a Kick</a> Wednesday, April 13th</li>
+</ul>
+
+Both sessions will be demo heavy and hands on.   See some of the neat innovations happening in the OpenEJB 4.0 codebase such as meta annotations.  Get an demo and introduction to the new Apache TomEE platform a Tomcat-focused Java EE 6 Web Profile implementation assembled in minimalist fashion from all-Apache projects.  And of course, a good chance to talk with the developers and ask all the questions you want!
+
+You won't want to miss it!

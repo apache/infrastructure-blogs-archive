@@ -1,0 +1,7 @@
+---
+layout: post
+title: Tiles 2.1.3 released
+date: '2009-07-10T07:55:42+00:00'
+categories: tiles
+---
+<p>Tiles 2.1.3 is available for <a href="http://tiles.apache.org/download.html">download</a>. This version is essentially a bugfix release, in particular:</p><ul><li>it works better in an OSGi environment, see <a href="https://issues.apache.org/struts/browse/TILES-404">TILES-404</a>;</li><li>some annoyances with <a href="https://issues.apache.org/struts/browse/TILES-365">list attribute inheritance</a> and with <a href="https://issues.apache.org/struts/browse/TILES-429">attributes not copied</a> have been fixed.</li></ul>I hope that this will be the last release of the 2.1.x branch, to concentrate on 2.2.0.<br />

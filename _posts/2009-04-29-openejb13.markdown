@@ -1,0 +1,33 @@
+---
+layout: post
+title: Alternate descriptors for testing
+date: '2009-04-29T00:00:00+00:00'
+categories: openejb
+---
+Inspired by some user blog posts, we've added a new feature so support for altDD (alternative deployment descriptors) can be done in a test or other environment without much work.
+<p>
+Basically, just set the new "<a href="http://openejb.apache.org/3.0/alternate-descriptors.html">openejb.altdd.prefix</a>" system property or initialcontext property to something like "test", then any descriptors in your META-INF/ directory that start with "test." will override the regular descriptor.  So for example with an app like this:
+
+<li>META-INF/ejb-jar.xml
+<li>META-INF/test.ejb-jar.xml
+<li>META-INF/persistence.xml
+<li>META-INF/test.env-entry.properties
+<p>
+Just initialize your test case like so:
+<p>
+<pre>
+ Properties properties = new Properties();
+ properties.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+      "org.apache.openejb.client.LocalInitialContextFactory");
+ properties.setProperty("openejb.altdd.prefix", "test");
+
+ InitialContext initialContext = new InitialContext(properties);
+</pre>
+The logical result will be:
+<p>
+<li> META-INF/ejb-jar.xml (via test.ejb-jar.xml)
+<li> META-INF/persistence.xml
+<li> META-INF/env-entry.properties (via test.env-entry.properties)
+<p>
+This will work in any environment in which OpenEJB works (embedded, standalone, tomcat, geronimo, etc.).
+

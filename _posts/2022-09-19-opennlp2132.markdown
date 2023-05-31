@@ -1,0 +1,159 @@
+---
+layout: post
+title: Hugging Face Transformers now enabled in Apache OpenNLP by ONNX Runtime
+date: '2022-09-19T04:00:00+00:00'
+categories: opennlp
+---
+<p><i>Written by <a href="https://www.linkedin.com/in/jeffzemerick/">Jeff Zemerick</a> of the Apache OpenNLP team.</i></p>
+
+<p><a href="https://opennlp.apache.org/">Apache OpenNLP</a> is an open source machine learning library for natural language processing (NLP) for Java used by many popular open source applications, including Apache Solr, Apache UIMA, and Apache Lucene, as well as many commercial and research applications. Its development goes back to the early 2000s and provides NLP capabilities for sentence detection, tokenization, parts-of-speech, lemmatization, language detection, and named-entity recognition using maximum entropy and perceptron-based algorithms. These rich capabilities have led to adoption by a variety of <a href="https://opennlp.apache.org/powered-by-opennlp.html">academic and commercial projects</a>.</p>
+
+<p>Apache OpenNLP’s NLP maximum entropy and perceptron model training methods have relatively low overhead (no GPU needed!) but the trained models can fall short of the performance of modern NLP models utilizing the <a href="https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)">transformer architecture</a>. While a lot of NLP development has shifted to the Python ecosystem in recent years, Java developers still have a need for robust NLP capabilities as Java is one of the world’s most popular programming languages in use by millions of programmers.</p>
+
+<p>Apache OpenNLP 2.0 was released in early 2022 with a goal to start bridging the gap between modern deep learning NLP models and Apache OpenNLP’s ease of use as a Java NLP library. The addition of ONNX Runtime in Apache OpenNLP helps achieve that goal and does so without requiring any duplicate model training. ONNX Runtime is a runtime accelerator for models trained from all popular deep learning frameworks. Optimized for performance, ONNX Runtime also supports flexible build options for compatibility with various hardware targets. With Apache OpenNLP 2.0, transformer-based models, such as those available through the <a href="https://huggingface.co/models">Hugging Face Hub</a>, can be converted to ONNX and used directly from Apache OpenNLP via ONNX Runtime. Or, as we will show in this blog post, you can train your own models with your favorite tools from the Python ecosystem and then use the models from Java and Apache OpenNLP.</p>
+
+<p>In this blog post we show how you can train a sequence classification model using PyTorch and Hugging Face transformers, convert the trained model to ONNX, and use it for inference from Apache OpenNLP. A sequence classification model is capable of predicting a class label to an object. In our case, the object is a movie review and the predicted classes are negative and positive sentiments.</p>
+
+<p>Our motivation is a use-case to classify documents being indexed into Apache Solr. By assigning a classification to each document, a search powered by Apache Solr can leverage those classifications to provide an improved search experience with more relevant search results. In the world of improving search relevance, having this inference available in the document indexing pipeline can have significant positive impacts!</p>
+
+<h2>Training a Model</h2>
+
+<p>In this section we will train a sequence classification model based on positive and negative labeled movie reviews. If you want to skip this step and get a pre-trained model ready to export to ONNX, you can use the pre-trained model <a href="https://huggingface.co/jzonthemtn/distilbert-imdb">jzonthemtn/distilbert-imdb</a> from the Hugging Face hub. This model was trained using the steps described below.</p>
+
+<p>We will now train a sequence classification model that predicts a category for each document. Given a document, the model will assign it a value of either 0 or 1, where zero is negative sentiment and 1 is positive sentiment. We will use the <a href="https://ai.stanford.edu/~amaas/data/sentiment/">Large Movie Review Dataset</a> via the Hugging Face datasets library.</p>
+
+<p>We will use the Hugging Face transformers library to train a sequence classification model using this data. The following training steps and code are adapted from this Hugging Face <a href="https://huggingface.co/blog/sentiment-analysis-python">blog</a> post.  First, let’s install the required packages:</p>
+
+<code>pip install transformers onnxruntime torch sklearn</code>
+
+<p>Now we can write some code! The following code parses the training text and sets up the model training. For a more in-depth discussion of what’s happening in this code, refer to the Hugging Face <a href="https://huggingface.co/blog/sentiment-analysis-python">blog</a>.</p>
+
+<pre>
+from datasets import load_dataset
+imdb = load_dataset("imdb")
+
+small_train_dataset = imdb["train"].shuffle(seed=42)
+small_test_dataset = imdb["test"].shuffle(seed=42)
+
+from transformers import AutoTokenizer
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+
+def preprocess_function(examples):
+   return tokenizer(examples["text"], truncation=True)
+ 
+tokenized_train = small_train_dataset.map(preprocess_function, batched=True)
+tokenized_test = small_test_dataset.map(preprocess_function, batched=True)
+
+from transformers import DataCollatorWithPadding
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
+from transformers import AutoModelForSequenceClassification
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2)
+
+from transformers import TrainingArguments, Trainer
+
+training_args = TrainingArguments(
+   output_dir="checkpoints",
+   learning_rate=2e-5,
+   per_device_train_batch_size=16,
+   per_device_eval_batch_size=16,
+   num_train_epochs=2,
+   weight_decay=0.01,
+   save_strategy="epoch",
+   push_to_hub=False,
+)
+ 
+trainer = Trainer(
+   model=model,
+   args=training_args,
+   train_dataset=tokenized_train,
+   eval_dataset=tokenized_test,
+   tokenizer=tokenizer,
+   data_collator=data_collator
+)
+
+trainer.train()
+trainer.save_model("distilbert-imdb")
+</pre>
+
+<p>Once the model training is complete you will have some important files under the directory. This directory will contain the model (<code>pytorch_model.bin</code>), the vocabulary file (<code>vocab.txt</code>), and other files. </p>
+
+<h2>Exporting the Model to ONNX</h2>
+
+<p>We can now export our trained model to ONNX using Hugging Face transformers built-in capability with the command below:</p>
+
+<code>python -m transformers.onnx --model=local-pt-checkpoint/ --feature sequence-classification onnx</code>
+
+<p>If you are using a pre-trained model from the Hugging Face Hub, you can simply provide the name of the model instead of a local directory.</p>
+
+<code>python -m transformers.onnx –model=jzonthemtn/distilbert-imdb –feature sequence-classification onnx</code>
+
+<p>The result of this command will be a directory called onnx that contains the model. (It is important to make sure you select the appropriate feature when converting the model. Refer to the Hugging Face <a href="https://huggingface.co/docs/transformers/serialization">documentation</a> for a list of valid feature values to use when training other types of models.)</p>
+
+<h2>Using the Model from Apache OpenNLP</h2>
+
+<p>We can now use this model in our Java code using Apache OpenNLP. Include the dependency in your build tool:</p>
+
+<pre>
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.opennlp&lt;/groupId&gt;
+    &lt;artifactId&gt;opennlp-dl&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+
+<p>Next, let’s write some Java code to use our ONNX model. We will start by adding our import statements:</p>
+
+<pre>
+import opennlp.dl.doccat.DocumentCategorizerDL;
+import opennlp.dl.InferenceOptions;
+import opennlp.dl.doccat.scoring.AverageClassificationScoringStrategy;
+</pre>
+
+<p>The model variable is the ONNX model file and the <code>vocab</code> variable is the <code>vocab.txt</code> file. Both of these files are in the <code>distilbert-imdb</code> directory that was created after training the model. We need these files for the inference:</p>
+
+<pre>
+File model = new File(“/path/to/model.onnx”);      
+File vocab = new File(“/path/to/vocab.txt”);
+</pre>
+
+<p>Next, we will define the classifications that the model can assign to each document during inference. The <code>categories</code> map is derived from the <code>config.json</code> file. This map assigns label names to each of the potential categories that can be predicted by the model. (If you are using a model from the Hugging Face Hub, the model should have a <code>config.json</code> file. Open that file and look at the labels in the configuration to determine how to make the map. It will be straight-forward!)</p>
+
+<pre>
+Map<Integer, String> classifications = Map.of(0, “positive”, 1, “negative”);
+</pre>
+
+<p>Now we can create a document categorizer:</p>
+
+<pre>
+DocumentCategorizerDL documentCategorizerDL = new DocumentCategorizerDL(model, vocab, getCategories(), new AverageClassificationScoringStrategy(), new InferenceOptions());
+</pre>
+
+<p>Finally, we can invoke inference on the model using the categorize() function.</p>
+
+<pre>double[] result = documentCategorizerDL.categorize(new String[]{"I am happy"});</pre>
+
+<p>The <code>result</code> is an array containing the probabilities of the document belonging to each classification. The index of the array having the highest value corresponds to the indexes of the classifications map we made. For example, if <code>result[1]</code> has the highest value, then the model is telling us the predicted classification is “positive.” We just used the model we trained from Apache OpenNLP!</p>
+
+<h2>Model and Tools Agnostic</h2>
+
+<p>You will likely note that we did not perform any model evaluation after training our model. Of course, you should! But this blog post is focused on how to use an ONNX model from Apache OpenNLP. You would evaluate your model here just as you would any other model. Apache OpenNLP does not provide any model training or evaluation functions - all training and evaluation is done outside of Apache OpenNLP using your favorite tools and frameworks. Apache OpenNLP does not require you to use any specific tools or frameworks when creating and evaluating your models.</p>
+
+<p>Additionally, Apache OpenNLP does not require any model retraining. For instance, if you are already using a model for document classification and making it available to your Java applications through an external service, you can likely simply export the model to ONNX and use it from Apache OpenNLP directly. You will no longer need the external service and can remove it and its complexity from your application’s architecture!</p>
+
+<h2>Use-Cases</h2>
+
+<p>As mentioned in the introduction, this capability was recently leveraged in efforts to improve search relevance by assigning a classification to documents as they were indexed into Apache Solr. But there are many other possibilities! Document classification is a very useful tool to have available in an NLP pipeline. Document classification can be used to route documents based on their content, in sentiment analysis, spam filtering, and many other use-cases.</p>
+
+<p>In addition to document classification, Apache OpenNLP also currently supports ONNX Runtime for token classification models (named-entity recognition). You can use a pre-trained named-entity recognition model or train your own model just as we did here and use it from your Java applications with Apache OpenNLP. Extracting entities from documents prior to indexing in Apache Solr can also have a dramatic improvement on search relevance and findability.</p>
+
+<p>In future releases, the Apache OpenNLP project hopes to have ONNX Runtime implementations of OpenNLP interfaces for other NLP functions, such as parts-of-speech and language detection.</p>
+
+<h2>Summary</h2>
+
+<p>In conclusion, Apache OpenNLP is an open source NLP library written in Java. The recent addition of support for ONNX Runtime allows for using other types of models, in addition to OpenNLP’s own model format. This can allow you to achieve state-of-the-art results for NLP tasks such as document classification and named-entity recognition without having to train your own model.</p>
+
+<p>You can learn more about Apache OpenNLP at <a href="https://opennlp.apache.org/">https://opennlp.apache.org/</a> and new contributors to the project are always welcome. If you are using Apache OpenNLP I would love to hear about your use-case to learn how OpenNLP can keep improving!</p>
+
+<p>Thanks to David Fisher, Matthias Krüger, and Nate Day at <a href="https://www.opensourceconnections.com">OpenSource Connections</a> for providing feedback and comments to improve this post.</p>
+

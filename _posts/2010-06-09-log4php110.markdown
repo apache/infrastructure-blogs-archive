@@ -1,0 +1,13 @@
+---
+layout: post
+title: Log4PHP Blog closed
+date: '2010-06-09T22:50:37+00:00'
+categories: log4php
+---
+Hi All,
+
+Because Log4PHP is now a part of the Logging Services project, this blog is now closed.
+All future blog posts regarding Log4PHP and other Logging Services projects will be posted
+at https://blogs.apache.org/logging - please update your bookmarks.
+
+Thanks.

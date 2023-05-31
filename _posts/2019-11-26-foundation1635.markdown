@@ -1,0 +1,25 @@
+---
+layout: post
+title: The Apache Software Foundation Objects to the For-Profit Sale of the .org Registry
+date: '2019-11-26T18:41:08+00:00'
+categories: foundation
+---
+<div>Non-profit organizations like The Apache Software Foundation serve the public good in many ways. It is critical to <a href="http://apache.org/foundation/">our mission</a> and to the mission of many other non-profits, that we be able to reliably disseminate information via the Internet. This principle of enabling the open exchange of information to and among those we serve lies at the heart of what we do at The Apache Software Foundation. Indeed it lies at the heart of a free society.</div> 
+  <div><br /></div> 
+  <div>It is for that reason that we object to the sale of the .org registry to a for-profit company. A private, for-profit registry is unlikely to protect the interests of non-profit foundations and organizations on the Internet the way a non-profit can.</div> 
+  <div><br /></div> 
+  <div>We call on ICANN to stop the sale of the Public Interest Registry to Ethos Capital, and ensure that the .org registry remains in the hands of a body capable of governing neutrally and with sensitivity to the issues that are unique to the non-profit business sector.</div> 
+  <div><br /></div> 
+  <div><br /></div> 
+  <div><strong><em>Background information</em></strong></div> 
+  <div> 
+    <ul> 
+      <li><a href="https://savedotorg.org/">https://savedotorg.org/</a></li> 
+      <li><a href="http://blogs.harvard.edu/sj/2019/11/23/a-tale-of-icann-and-regulatory-capture-the-dot-org-heist/">http://blogs.harvard.edu/sj/2019/11/23/a-tale-of-icann-and-regulatory-capture-the-dot-org-heist/</a></li> 
+      <li><a href="https://www.theregister.co.uk/2019/11/20/org_registry_sale_shambles/">https://www.theregister.co.uk/2019/11/20/org_registry_sale_shambles/</a></li> 
+      <li>ASF Mission&nbsp;<a href="http://apache.org/foundation/">http://apache.org/foundation/</a> </li> 
+    </ul> 
+  </div> 
+  <div> 
+    <p># # #&nbsp;</p> 
+  </div>

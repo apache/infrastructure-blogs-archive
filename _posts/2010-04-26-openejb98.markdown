@@ -1,0 +1,7 @@
+---
+layout: post
+title: 'User Blog: OpenEJB : Rapid J2EE Development & Testing'
+date: '2010-04-26T12:00:00+00:00'
+categories: openejb
+---
+Matthew B. Jones writes a great piece, <a href="http://www.matthewbjones.com/2010/04/openejb-rapid-j2ee-development-testing.html">OpenEJB : Rapid J2EE Development & Testing</a>, sharing his team's experience using OpenEJB to aid in the development of their very large JBoss application.  His team of 10 has been using OpenEJB since February and by his most conservative estimations has saved 26 man-weeks on deployment time alone.  A shocking amount even to our ears.

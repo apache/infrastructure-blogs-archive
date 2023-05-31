@@ -1,0 +1,7 @@
+---
+layout: post
+title: Carter Kozak joined the Apache Logging PMC
+date: '2018-07-31T09:57:27+00:00'
+categories: logging
+---
+We are very happy that Carter Kozak joined the Apache Logging Services PMC. He has made many contributions to the development of Log4j 2 especially in the areas of concurrency, performance and memory management. Thanks Carter for all you did so far and all the best for your new role at Apache Logging.

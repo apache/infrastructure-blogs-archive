@@ -1,0 +1,14 @@
+---
+layout: post
+title: Apache Phoenix releases next major version 5.0.0
+date: '2018-07-14T00:01:54+00:00'
+categories: phoenix
+---
+<p>The&nbsp;<a href="http://phoenix.apache.org/" target="_blank" title="Apache Phoenix">Apache Phoenix</a> team is pleased to announce release of it's <a href="http://phoenix.apache.org/download.html">next major version 5.0.0</a> compatible with HBase 2.0+. Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store and providing integration with other projects in the Apache ecosystem such as Spark, Hive, Pig, Flume, and MapReduce.&nbsp;</p> 
+  <p>The 5.0.0 release has feature parity with recently released <a href="https://blogs.apache.org/phoenix/entry/announcing-phoenix-4-14-released">4.14.0</a>. Highlights of the release include:&nbsp;</p> 
+  <ul> 
+    <li>Cleanup deprecated APIs and leveraged new <a href="https://issues.apache.org/jira/browse/PHOENIX-4297">Performant APIs</a></li> 
+    <li><a href="https://issues.apache.org/jira/browse/PHOENIX-4338">Refactored coprocessor implementations </a>to make use new Coprocessor or Observer APIs in HBase 2.0</li> 
+    <li>Hive and Spark Integration works in latest versions of Hive(<a href="https://issues.apache.org/jira/browse/PHOENIX-4423">3.0.0</a>) and Spark(<a href="https://issues.apache.org/jira/browse/PHOENIX-4787">2.3.0</a>) respectively.</li> 
+  </ul> 
+  <p>Source and binary downloads are available&nbsp;<a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>.</p>

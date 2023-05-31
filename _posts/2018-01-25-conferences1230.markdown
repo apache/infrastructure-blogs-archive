@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'Save The Date: Apache EU Roadshow, 13-14 June in Berlin'
+date: '2018-01-25T21:20:06+00:00'
+categories: conferences
+---
+<p>Save the date!</p> 
+  <p>2018 Apache EU Roadshow will be held during <a href="https://foss-backstage.de/tickets">FOSS Backstage</a> on 13-14 June in Berlin.</p> 
+  <p>We'll have an Apache Lounge, 2 Apache Devrooms with two full tracks as well shared Apache / FOSS Backstage Devroom with presentations &amp; workshops as well as places to relax and program.</p> 
+  <p>The Apache EU Roadshow will be a free add-on to FOSS Backstage All you need is tickets to FOSS Backstage.</p> 
+  <p>&nbsp;P.S.: Attending <a href="https://berlinbuzzwords.de/">Berlin Buzzwords</a>? June 10-12. Plan to stop by our Apache Lounge on Days 2 and 3 (11-12 June).</p> 
+  <p>Follow <a href="http://twitter.com/apachecon">@ApacheCon</a>, and check back at <a href="http://apachecon.com/">apachecon.com</a> for more details as they become available.&nbsp;</p>

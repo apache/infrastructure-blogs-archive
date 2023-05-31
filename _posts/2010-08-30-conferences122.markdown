@@ -1,0 +1,141 @@
+---
+layout: post
+title: Registration Opens for ApacheCon North America 2010
+date: '2010-08-30T01:38:51+00:00'
+categories: conferences
+---
+<span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #464646; line-height: 12px; "> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><b><i>Open Source Users, Developers, and Members of the Global Apache Community Gather to Share Insight on &quot;Servers, The Cloud, and Innovation&quot;</i></b></p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">The Apache Software Foundation (ASF) and Stone Circle Productions today announced the opening of registration for ApacheCon North America, taking place <span class="xn-chron" style="font-family: Helvetica, Arial, sans-serif; ">1-5 November 2010</span> at the Westin Peachtree in <span class="xn-location" style="font-family: Helvetica, Arial, sans-serif; ">Atlanta, Georgia</span>.</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">The theme of the ASF's official user conference, trainings, and expo is &quot;Servers, The Cloud, and Innovation,&quot; featuring an array of educational sessions on Open Source technology, business, and community topics at the beginner, intermediate, and advanced levels.</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">Experts will share professionally directed advice, tactics, and lessons learned to help users, enthusiasts, software architects, administrators, executives, and community managers successfully develop, deploy, and leverage existing and emerging Open Source technologies critical to their businesses.</p> 
+    <div class="divOverflow" style="width: 692px; overflow-x: auto; overflow-y: hidden; "> 
+      <div style="margin-bottom: 0.0001in; margin-top: 0.0001in; "> 
+        <table cellpadding="3" cellspacing="0" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-collapse: collapse; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; "><col style="padding-top: 0pt; padding-right: 5.4pt; padding-bottom: 5.4pt; padding-left: 5.4pt; " /> 
+          <tbody> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">The conference program features in-depth coverage of topics that include:</span></p> 
+              </td> 
+              <td style="text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "><br /></td> 
+              <td style="text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Cassandra/NoSQL</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Commons</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Content Technologies</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">(Java) Enterprise Development</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Felix/OSGi</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Geronimo</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Hadoop + friends/Cloud Computing</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Lucene, Mahout + friends/Search</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Tomcat</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Tuscany</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">Business &amp; Community</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "><br /></td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "><br /></td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">The event comprises:</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "><br /></td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">78 sessions, case studies, and panel discussions</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">24 pre-conference trainings</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td valign="bottom" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> 
+                <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; "><span class="prnews_span" style="font-family: Arial; font-size: 8pt; color: black; ">3 keynote presentations</span></p> 
+              </td> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+            <tr> 
+              <td style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; "> </td> 
+            </tr> 
+          </tbody> 
+        </table><br /><br /> 
+      </div> 
+    </div> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">Special events include BarCamp Apache, Hackathon, MeetUps, expo hall, receptions, and ample networking opportunities with peers and new connections.</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">Sponsor and exhibitor opportunities are available; for more information, contact <span class="xn-person" style="font-family: Helvetica, Arial, sans-serif; ">Delia Frees</span> at <a target="_blank" href="mailto:delia@apachecon.com" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; color: #6099e9; text-decoration: none; outline-style: none; outline-width: initial; outline-color: initial; ">delia@apachecon.com</a>.</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">Media registration is available for members of the press with valid credentials. For more information, or to become a media partner, contact <span class="xn-person" style="font-family: Helvetica, Arial, sans-serif; ">Sally Khudairi</span> at <a target="_blank" href="mailto:sk@apache.org" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; color: #6099e9; text-decoration: none; outline-style: none; outline-width: initial; outline-color: initial; ">sk@apache.org</a>.</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">Early-bird registration incentives include savings of up to <span class="xn-money" style="font-family: Helvetica, Arial, sans-serif; ">$150</span> with the Hotel+Registration package, 20% off Full-Conference+Trainings Immersion, and group registration rates. For the complete list of sessions and to register, visit<a target="_blank" href="http://apachecon.com/" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; color: #993399; text-decoration: none; outline-style: none; outline-width: initial; outline-color: initial; ">http://apachecon.com/</a> and follow the @ApacheCon feed on Twitter.</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">About The Apache Software Foundation (ASF)</p> 
+    <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.333em; padding-top: 0px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; ">Established in 1999, the all-volunteer Foundation oversees nearly one hundred fifty leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 300 individual Members and 2,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is funded by individual donations and corporate sponsors including AMD, Basis Technology, Facebook, Google, HP, Microsoft, Progress Software, VMware, and Yahoo!. For more information, visit <a target="_blank" href="http://www.apache.org/" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; color: #993399; text-decoration: none; outline-style: none; outline-width: initial; outline-color: initial; ">http://www.apache.org/</a>.</p> 
+    <p>&nbsp;# # #</p></span>

@@ -1,0 +1,11 @@
+---
+layout: post
+title: Share your Apache TomEE stories!
+date: '2012-12-12T05:00:00+00:00'
+categories: openejb
+---
+If you love and use TomEE and want good things to come to it, share your experience!  We've created a new <a href="https://plus.google.com/communities/105208241852045684449">Google+ Community for TomEE</a> with a <a href="https://plus.google.com/communities/105208241852045684449/stream/ca33d312-8470-4f0b-a5a2-8ade02160bb2">"User Stories" section</a> where anyone can post.  Take 5 minutes and say how TomEE has helped you and what you like about it.
+
+  <a href="https://plus.google.com/communities/105208241852045684449/stream/ca33d312-8470-4f0b-a5a2-8ade02160bb2">https://plus.google.com/communities/105208241852045684449/stream/ca33d312-8470-4f0b-a5a2-8ade02160bb2</a>
+
+Sharing your experience is the best possible "thank you" the hard working TomEE community can get!  Helping the community that helps you is good karma! :)

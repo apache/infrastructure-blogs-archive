@@ -1,0 +1,111 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache TomEE Certified as Java EE
+  6 Web Profile Compatible
+date: '2011-10-04T19:17:22+00:00'
+categories: foundation
+---
+<p style="margin-bottom: 0in; "><i><b><font face="Arial Narrow, sans-serif" size="3">Groundbreaking,
+lightweight, scalable, all-Apache stack ideal for use in
+enterprise-grade Cloud applications</font></b></i></p> 
+  <p style="margin-bottom: 0in; "><font size="3"><font face="Arial Narrow, sans-serif">The
+Apache Software Foundation (ASF), the all-volunteer developers,
+stewards, and incubators of nearly 150 Open Source projects and
+initiatives, today announced that Apache TomEE has obtained
+certification as Java EE 6 Web Profile Compatible Implementation.</font></font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">Making
+its certification debut at JavaOne, Apache TomEE (pronounced &quot;Tommy&quot;)
+is the Java Enterprise Edition of Apache Tomcat (Tomcat + Java EE =
+TomEE) that unites several quality Java enterprise projects including
+Apache OpenEJB, Apache OpenWebBeans, Apache OpenJPA, Apache MyFaces
+and more.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">&quot;It
+is with great pride that we're announcing Apache TomEE as a certified
+implementation of the Java EE 6 Web Profile,&quot; said David
+Blevins, Vice President of Apache OpenEJB and original co-developer
+of TomEE. &quot;Apache TomEE is the newest addition to the Java EE
+server space, standing alongside the likes of GlassFish, JBoss, and
+Apache Geronimo.&quot;</font></p> 
+  <p style="margin-bottom: 0in; "><font size="3"><font face="Arial Narrow, sans-serif">Developers
+build applications using Java EE-certified products to ensure
+portability across Java Enterprise Edition-compatible solutions.
+Apache TomEE is one of only six certified implementations available
+to the industry today. </font> </font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3"><b>Redefining
+Enterprise Cloud; Unifying Communities</b></font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">The
+three core design objectives for TomEE were: 1) do not alter Tomcat;
+2) maintain simplicity; and 3) avoid architecture overhead. This
+enables developers to quickly and easily build highly performant
+lightweight enterprise solutions using leading Apache projects
+without the need for complex modifications or customization. Apache
+TomEE's integration of Apache OpenWebBeans, Apache MyFaces, Apache
+ActiveMQ, Apache OpenJPA, and Apache CXFis simple, to-the-point, and
+focused on the singular task of delivering the Java EE 6 Web Profile
+in a minimalist fashion.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">The
+simple, all-Apache stack is both incredibly light and fully
+embeddable, making it ideal for testing and usage in today's
+evolution of the enterprise Cloud, where the key to scalability is
+hundreds of tiny servers, as opposed to the traditional definition of
+how large your servers. Apache TomEE boasts groundbreaking
+performance in the following areas:</font></p> 
+  <p style="margin-bottom: 0in; "><font size="3"><font face="Arial Narrow, sans-serif">-
+Size: exceptionally small (about 24MB for the entire Web profile),
+consumes very little resources;  </font> </font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">-
+Memory: TCK (Technology Compatibility Kit) passed with no additional
+memory settings beyond the default – a first in Java EE; and</font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">-
+Speed: runs exceptionally fast in embedded mode:
+start/deploy/test/undeploy/stop in 2-3 seconds.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">&quot;No
+longer do developers have to ask 'Do we use Tomcat or Java EE?' at
+the start of a project, as has been the case for the last 10 years,&quot;
+explained Blevins. &quot;These two camps have historically been
+separate, and certification is a major step in unifying these
+communities. With TomEE, developers can now retire untested legacy
+stacks and use a reliable product that doesn't deviate from the
+Tomcat that they know and love.&quot;</font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">Blevins
+and members of the Apache OpenEJB community will be presenting
+several sessions, including &quot;TomEE – Tomcat with a Kick&quot;,
+in the &quot;Servers/Tomcat &amp; Geronimo&quot; track at ApacheCon,
+7-11 November 2011, in Vancouver, Canada.  To register,
+visit <a href="http://apachecon.com/">http://apachecon.com/</a></font></p> 
+  <p style="margin-bottom: 0in; "><font size="3"><font face="Arial Narrow, sans-serif"><b>Availability
+and Oversight<br /></b></font><font face="Arial Narrow, sans-serif">Apache
+TomEE software is released under the Apache License v2.0, and is
+overseen by the Apache OpenEJB Project Management Committee (PMC)
+that guides the Project's day-to-day operations, community
+development, and product releases. Apache TomEE is certified on
+Amazon EC2 t1.micro, m1.small, and m1.large 32bit images;
+certification on 64bit EC2 images and other Cloud platforms are in
+the Project's future plans. Those Cloud vendors wishing to donate
+resources for TomEE to be certified on their platforms are encouraged
+to contact the Apache OpenEJB Project for information on how to
+participate. Apache TomEE source code, documentation, mailing lists,
+and related resources are available at <a href="http://openejb.apache.org/">http://openejb.apache.org/</a>.</font></font></p> 
+  <p style="margin-bottom: 0in; "><font size="3"><font face="Arial Narrow, sans-serif"><b>About
+The Apache Software Foundation (ASF)<br /></b></font><font face="Arial Narrow, sans-serif">Established
+in 1999, the all-volunteer Foundation oversees nearly one hundred
+fifty leading Open Source projects, including Apache HTTP Server --
+the world's most popular Web server software. Through the ASF's
+meritocratic process known as &quot;The Apache Way,&quot; more than
+350 individual Members and 3,000 Committers successfully collaborate
+to develop freely available enterprise-grade software, benefiting
+millions of users worldwide: thousands of software solutions are
+distributed under the Apache License; and the community actively
+participates in ASF mailing lists, mentoring initiatives, and
+ApacheCon, the Foundation's official user conference, trainings, and
+expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by
+individual donations and corporate sponsors including AMD, Basis
+Technology, Cloudera, Facebook, Google, HP, Hortonworks, IBM, Matt
+Mullenweg, Microsoft, PSW Group, SpringSource/VMware, and Yahoo!. For
+more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a>.</font></font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">&quot;Apache&quot;,
+&quot;Apache OpenEJB&quot;, and &quot;Apache TomEE&quot; are
+trademarks of The Apache Software Foundation. All other brands and
+trademarks are the property of their respective owners.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="Arial Narrow, sans-serif" size="3">#
+# #</font></p>

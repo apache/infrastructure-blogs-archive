@@ -1,0 +1,36 @@
+---
+layout: post
+title: Turbine Parent POM 2 released.
+date: '2012-11-18T15:44:30+00:00'
+categories: turbine
+---
+<div>The Apache Turbine team is pleased to announce the turbine-parent-2 release!</div> 
+  <div><br /></div> 
+  <div>This is the Parent POM for the Apache Turbine and Fulcrum project. Despite it's version 2 this is the first official release. This POM is supposed to be used as parent for all modules in the Apache Turbine Project.</div> 
+  <div><br /></div> 
+  <div>Changes in this version include:</div> 
+  <div><br /></div> 
+  <div>New features:</div> 
+  <div> 
+    <ul> 
+      <li>Add customization of apache-release profile&nbsp;</li> 
+    </ul> 
+  </div> 
+  <div>Changes:</div> 
+  <div> 
+    <ul> 
+      <li>Move changelog to standard location&nbsp;</li> 
+      <li>Update Apache Parent POM to version 11 and remove all duplicate settings&nbsp;</li> 
+    </ul> 
+  </div> 
+  <div>Removed:</div> 
+  <div> 
+    <ul> 
+      <li>Remove definition of dummy repository as Nexus now is supposed to handle actual promotion of artifacts.&nbsp;</li> 
+      <li>Remove old release and rc profiles&nbsp;</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div> 
+    <p>It was necessary to create a new set of project configuration to be able to publish artifacts using the&nbsp;<a href="https://repository.apache.org" target="_blank" title="Nexus Repository Manager">Nexus Repository Manager</a>. </p> 
+  </div>

@@ -1,0 +1,40 @@
+---
+layout: post
+title: Apache Flex - Alive and Kicking at 360Flex 2012
+date: '2012-04-16T21:16:19+00:00'
+categories: flex
+---
+It's amazing to see the Apache Flex community alive and kicking at  <a href="http://www.360flex.com" target="_blank">360 Flex 2012</a>. 
+
+Thanks to Mr. Wilker himself, we have our own room in Lone Tree: The Apache Flex Discovery Room. Come by the room and find out about Apache Flex, figure out how you can be a part of our growing community, or just stop by to get some help. By the way, if you're just getting started Justin Mclean has offered to show you how to download and build the SDK. Just find him in the room and say hello.
+
+Also, there's plenty of committers here and a number of activities going on throughout the week.
+
+Committers and active mailing list participants that have been spotted at 360Flex:
+
+<ul>
+<li>Alex Harui</li>
+<li>Carol Frampton</li>
+<li>Mike Labriola</li>
+<li>Jeffry Houser</li>
+<li>Nicholas Kwiatkowski</li>
+<li>Kevin Korngut</li>
+<li>Justin Mclean</li>
+<li>Doug Arthur</li>
+<li>Jonathan Campos</li>
+<li>Roland Zwaga</li>
+<li>Christophe Herreman</li>
+<li>JP Bader</li>
+<li>Jun Heider</li>
+</ul>
+
+Activity breakdown:
+
+<ul>
+<li>Monday 9:30a - 10:40a - Apache Flex made it's presence known at the 360 Flex Keynote</li>
+<li>Monday 4:00p - 5:10p - Apache Flex committer and SDK Engineer Alex Harui will be giving a talk on Apache Flex</li>
+<li>Tuesday 9:30a - 10:40a - Mike Labriola and any of the Apache Flex committers that show up will be giving a quick talk followed by an open Q&A and mingle.</li>
+<li>Tuesday 8:00p - 9:00p - If you want to meet the Apache Flex Committers there will be a birds of a feather event.</li>
+</ul>
+
+So come by and join our community!

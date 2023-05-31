@@ -1,0 +1,41 @@
+---
+layout: post
+title: 'The Little Things(1): Do Not Delete'
+date: '2014-04-08T10:55:46+00:00'
+categories: couchdb
+---
+<p>CouchDB takes data storage extremely seriously. This usually means we work hard to make sure that the CouchDB storage modules are as robust as we can make them. Sometimes though, we go all the way to the HTTP API to secure against accidental data loss, saving users from their mistakes, rather than dealing with hard drives and kernel caches that usually stand in the way of safe data storage.</p>
+
+<h2>The scenario:</h2>
+
+<p>To delete a document in CouchDB, you issue the following HTTP request:</p>
+
+<code><pre>DELETE /database/docid?rev=12345 HTTP/1.1</pre></code>
+
+<p>A common way to program this looks like this:</p>
+
+<code><pre>http.request('DELETE', db + '/' + docId + '?rev=' + docRev);</pre></code>
+
+<p>So far so innocent. Sometimes though, users came to us and complained that their whole database was deleted by that code.</p>
+
+<p>Turns out the above code creates a request that deletes the whole database, if the docId variable isn’t set correctly. The request then looks like:</p>
+
+<code><pre>DELETE /database/?rev=12345 HTTP/1.1</pre></code>
+
+<p>It looks like an honest mistake, once you check the CouchDB log file, but good old CouchDB would just go ahead and delete the database, ignoring the <code>?rev=</code> value.</p>
+
+<p>We thought this is a good opportunity to help users not accidentally losing their data. So since late 2009 (yes, this is an oldie, but it came up in a recent discussion and we thought it is worth writing about :), CouchDB will not delete a database, if it sees that a <code>?rev=</code> parameter is present and it looks like that this is just a malformed request, as database deletions have no business requiring a <code>?rev=</code>.</p>
+
+<p>One can make an easy argument that the code sample is fairly shoddy and we’d agree. But we are not here to argue how our users use our database beyond complying with the API and recommended use-cases. And if we can help them keep their data, that’s a win in our book</p>
+
+<p>Continuing down this thought, we thought we could do one better. You know that to delete a document, you must pass the current rev value, like you see above. This is to ensure that we don’t delete the document accidentally without knowing that someone else may have added an update to it that we don’t actually want to delete. It’s CouchDB’s standard multi version currency control (MVCC) mechanism at work.</p>
+
+<p>Databases don’t have revisions like documents, and deleting a database is a simple <code>HTTP DELETE /database</code> away. Databases, however, do have a sequence id, it’s the ID you get from the changes feed, it’s an number that starts at 0 when the database is created and increments by 1 each time a document is added, updated or deleted. Each state of the database has a single sequence ID associated with it.</p>
+
+<p>Similar to a rev, we could require the latest sequence ID to delete a database, as in:</p>
+
+<code><pre>DELETE /database?seq_id=6789</pre></code>
+
+<p>And deny database deletes that don’t carry the latest <code>seq_id</code>. We think this is a decent idea, but unfortunately, this would break backwards compatibility with older versions of CouchDB and it would break a good amount of code in the field, so we are hesitant to add this feature. In addition, sequence IDs change a little when BigCouch finally gets merged, so we’d have to look at this again then.</p>
+
+<p>In the meantime, we have the protection against simple coding errors and we are happy that our users keep their hard earned data more often now.</p>

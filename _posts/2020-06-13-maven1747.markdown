@@ -1,0 +1,66 @@
+---
+layout: post
+title: Apache Maven WAR Plugin Version 3.3.0 Released
+date: '2020-06-13T10:08:05+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+<a href="https://maven.apache.org/plugins/maven-war-plugin/">Apache Maven WAR Plugin, version 3.3.0</a>.</p>
+
+<p>The WAR Plugin is responsible for collecting all artifact dependencies, classes
+and resources of the web application and packaging them into a web application
+archive.</p>
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-war-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.3.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins/maven-war-plugin/download.cgi">download page</a>.</p>
+
+<!-- more -->
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12318121&amp;version=12345578">Release Notes &ndash; Maven WAR Plugin &ndash; Version 3.3.0</a></p>
+
+<ul>
+<li><p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-314">MWAR-314</a> &ndash; failOnMissingWebXml ignored when webXml set</li>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-427">MWAR-427</a> &ndash; WAR plugin includes the same artifact twice if used without clean</li>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-429">MWAR-429</a> &ndash; Failed to execute goal org.apache.maven.plugins:maven-war-plugin:3.2.3:exploded (pre-exploded-war) on project alfresco-platform</li>
+</ul>
+</li>
+<li><p>New Feature:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-432">MWAR-432</a> &ndash; Reproducible Builds: make entries in output jar files reproducible (order + timestamp)</li>
+</ul>
+</li>
+<li><p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-375">MWAR-375</a> &ndash; Remove the useCache with its implementation</li>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-397">MWAR-397</a> &ndash; Replace XStream with Modello to merge overlays</li>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-430">MWAR-430</a> &ndash; support JakartaEE namespace: remove or adapt hardcoded reference to javax.servlet package</li>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-431">MWAR-431</a> &ndash; make build Reproducible</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

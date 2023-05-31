@@ -1,0 +1,21 @@
+---
+layout: post
+title: Apache™ PDFBox™ named an Open Source Partner Organization of the PDF Association
+date: '2015-02-03T08:21:41+00:00'
+categories: foundation
+---
+<div><strong><em>Liaison helps enterprise users benefit from enhanced PDF technology and serves as a foundation to other software applications.</em></strong><br /><br /></div> 
+  <div><strong>Forrest Hill, MD —03 February 2015—</strong> Apache PDFBox™, a Top-Level Project of The Apache Software Foundation, today announced the project has been named as a Partner Organization of the PDF Association.&nbsp;</div> 
+  <div><br />The Apache PDFBox™ library is an Open Source Java tool for working with Portable Document Format (PDF) documents. It allows for the creation of new PDF documents, manipulation, rendering, signing of existing documents and the ability to extract content from documents. Apache PDFBox also includes several command line utilities.</div> 
+  <div><br />&quot;We are proud to be recognized by the PDF Association as a driver of ISO-­standardized PDF technology for electronic documents,&quot; said Andreas Lehmkühler, Vice President of Apache PDFBox. &quot;Our liaison will help further strengthen the development of Apache PDFBox by providing access to knowledge and resources around PDF technology.&quot;</div> 
+  <p>PDF was first released by Adobe Systems in 1993, became an ISO International Standard - ISO 32000-1 in 2008.</p> 
+  <div>Founded in 2006, the PDF Association (<a href="http://www.pdfa.org/">http://www.pdfa.org/</a>) is an international organization promoting awareness and adoption of open standards in digital document applications using PDF technology. The association facilitates education, networking, communication, and sharing of expertise and experience with interested parties worldwide. It offers its membership of over 150 enterprises and individual subject-matter experts from more than 20 countries direct contact with PDF technology experts and access to documents from ISO working groups, including release candidates for PDF upcoming standards.</div> 
+  <div> 
+    <p>The PDF Association's Partner Organizations are international associations concerned with document management, enterprise content management, long-term archiving and accessibility. Apache PDFBox the PDF Association's first Open Source Partner Organization. The PDF Association delivers vital information about implementing PDF technology to software developers and IT decision makers, and helps document management and ECM implementers understand and leverage ISO-standardized PDF technology. In turn, enterprise systems implementers and end-users benefit from enhanced PDF technology.<br /></p> 
+    <p>&quot;With Apache PDFBox, the first Open Source organization is joining our Association,&quot; said Thomas Zellmann, Managing Director of the PDF Association. &quot;This is our contribution to support the growth of freely available PDF solutions and their functionality to further expand the market penetration of the PDF standard.&quot;</p> 
+    <p>&quot;Being part of the PDF Association recognizes our commitment to making ISO standardized electronic document technology easily available by leveraging Apache PDFBox as a foundation for other software applications,&quot; added Lehmkühler.</p> 
+  </div> 
+  <div><strong>About Apache PDFBox</strong></div> 
+  <div>The Apache PDFBox™ library is an Open Source Java tool that allows users to create new PDF documents, manipulate existing documents, extract content, digitally sign, print, and validate files against the PDF/A-1b standard. It also includes several command line utilities, including encrypt, decrypt, overlay, debugger, merger, PDFToImage, and TextToPDF. Apache PDFBox software is released under the Apache License v2.0, and is overseen by a self-selected volunteer team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache PDFBox, visit <a href="http://pdfbox.apache.org/">http://pdfbox.apache.org/</a></div> 
+  <p># # #</p> 
+  <div><br /></div>

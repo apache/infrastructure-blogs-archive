@@ -1,0 +1,37 @@
+---
+layout: post
+title: Milestone 1.0.0 Release for Apache MXNet
+date: '2017-12-05T00:19:02+00:00'
+categories: mxnet
+---
+ <p>
+We are excited about the availability of the milestone 1.0.0 release of the Apache MXNet deep learning engine. These new capabilities (1) simplify training and deploying deep learning models, and (2) enable implementation of cutting-edge performance enhancements. The new capabilities in MXNet provide the following benefits to users: 
+</p>
+<ol>
+<li> MXNet is faster: The 1.0.0 release includes implementation of cutting-edge features that optimize the performance of training and inference. Gradient compression enable users to train models up to five times faster by reducing communication bandwidth between compute nodes without loss in convergence rate or accuracy. For speech recognition acoustic modeling like the Alexa voice, this feature can reduce network bandwidth up to three orders of magnitude during training. With the support of NVIDIA Collective Communication Library (NCCL), users can train a model 20% faster on multi-GPU systems. 
+</li>
+<ul>
+<li>
+Optimize network bandwidth with gradient compression: In distributed training, each machine must communicate frequently with others to update the weight-vectors and thereby collectively build a single model, leading to high network traffic. Gradient compression algorithm enables users to train models up to five times faster by compressing the model changes communicated by each instance. 
+</li>
+<li>
+Optimize the training performance by taking advantage of NCCL: NCCL implements multi-GPU and multi-node collective communication primitives that are performance optimized for NVIDIA GPUs. NCCL provides communication routines that are optimized to achieve high bandwidth over interconnection between multi-GPUs. MXNet supports NCCL to train models about 20% faster on multi-GPU systems.
+</li>
+</ul>
+<li>
+MXNet is easier to use: The 1.0.0 release includes an advanced indexing capability that enables users to perform matrix operations in a more intuitive manner. 
+<ul>
+<li>
+Advanced indexing for array operations in MXNet: It is now more intuitive for developers to leverage the powerful array operations in MXNet. They can use the advanced indexing capability by leveraging existing knowledge of Numpy/SciPy arrays. For example, it supports MXNet NDArray and Numpy ndarray as index, e.g. (a[mx.nd.array([1,2], dtype = ‘int32’).
+</li>
+</ul>
+</ol>
+<p>
+MXNet has helped developers and researchers make progress with everything from language translation to autonomous vehicles and behavioral biometric security. We are excited to see the broad base of users that are building production artificial intelligence applications powered by neural network models developed and trained with MXNet. For example, the autonomous driving company TuSimple recently piloted a self-driving truck on a 200-mile journey from Yuma, Arizona to San Diego, California using MXNet. This release also includes a full-featured and performance optimized version of the Gluon programming interface. The ease-of-use associated with it combined with the extensive set of tutorials has led significant adoption among developers new to deep learning. The flexibility of the interface has driven interest within the research community, especially in the natural language processing domain.
+</p>
+<h3>
+Getting started with MXNet
+</h3>
+<p>
+Getting started with <a href="http://mxnet.incubator.apache.org/install/index.html"> MXNet </a> is simple. To learn more about the Gluon interface and deep learning, you can reference this <a href="http://gluon.mxnet.io/">comprehensive set of tutorials</a>, which covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. If you’re a contributor to a machine learning framework, check out the interface specs on <a href="https://github.com/gluon-api/gluon-api/">GitHub</a>. 
+</p>

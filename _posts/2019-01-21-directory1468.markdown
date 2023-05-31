@@ -1,0 +1,30 @@
+---
+layout: post
+title: Apache Directory project has a new Chairman !
+date: '2019-01-21T10:45:58+00:00'
+categories: directory
+---
+Hi all,
+
+<br><br>
+This project has a tradition of rotating the PMC Chair about every 2 years,
+to ensure continuity while at the same time preventing potential
+contributor burn-out.
+<br><br>
+
+Recently the PMC has undertaken the necessary actions for this and has
+found contributor (and PMC Member) <em>Shawn McKinney</em> willing and ready to take
+the gavel from <em>Stefan Seelmann</em> to head our great project, and the Board of
+the ASF has, in their meeting on Jan 16th 2019 (see [1], ratified the
+rotation.
+<br><br>
+Please join me in thanking <em>Stefan Seelmann</em> for heading the project in 2017
+and 2018 and welcoming <em>Shawn McKinney</em> as the new PMC Chair and Vice
+President of the Apache Directory project.
+<br><br>
+
+[1] https://whimsy.apache.org/board/agenda/2019-01-16/Change-Directory-Chair
+<br><br>
+Best regards,
+<br><br>
+Pierre Smits

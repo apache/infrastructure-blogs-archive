@@ -1,0 +1,95 @@
+---
+layout: post
+title: What's new in Apache Kafka 3.4
+date: '2023-02-07T15:01:34+00:00'
+categories: kafka
+---
+<h2>Apache Kafka ® 3.4.0</h2>
+
+<p>
+We are proud to announce the release of <a href="https://kafka.apache.org/downloads" target="_blank">Apache Kafka® 3.4</a> on behalf of the Apache Kafka community. The 3.4 release contains many new features and improvements. This blog post will highlight some of the more prominent features. For a full list of changes, be sure to check the <a href="https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html" target="_blank">release notes</a>.
+</p>
+
+<p>
+One of the highlights of this release is the ability to migrate Kafka clusters from ZK to KRaft mode with no downtime. This is an early access feature, which is currently only suitable for testing in non production environments. It is another key step on the journey towards KRaft mode. See <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-866+ZooKeeper+to+KRaft+Migration" target="_blank">KIP-866</a> for more details.
+</p>
+
+<h2>Kafka Broker, Controller, Producer, Consumer and Admin Client</h2>
+
+<h3>KIP-866: ZooKeeper to KRaft Migration (Early Access)</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-866+ZooKeeper+to+KRaft+Migration" target="_blank">KIP-866</a> adds the capability to migrate a Kafka cluster from ZooKeeper to KRaft mode. The migration copies the cluster metadata from ZooKeeper to the KRaft metadata log. During the migration, brokers are restarted in KRaft mode one at a time allowing the whole migration process to happen without cluster downtime. ZooKeeper to KRaft migrations are Early Access in 3.4 and should not be used in production yet, though we are looking for people to provide feedback on this feature. Notably, support for migrating ACLs and downgrading to ZooKeeper mode during or after the migration is not supported in 3.4.
+</p>
+
+<h3>KIP-792: Add "generation" field into consumer protocol</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=191336614" target="_blank">KIP-792</a> expands the metadata each group member passes to the group leader in its JoinGroup subscription to include the highest stable generation that consumer was a part of. This information can be used by the partition assignor to determine whether the <code style="font-size:1.2em">ownedPartitions</code> claimed by a consumer are still owned and thus valid, and which consumer has the most recent claim to a given partition in case no one has a valid claim to it.
+</p>
+
+<h3>KIP-830: Allow disabling JMX Reporter</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-830%3A+Allow+disabling+JMX+Reporter" target="_blank">KIP-830</a> includes a new configuration setting that allows you to disable the JMX reporter for environments where it’s not being used. 
+</p>
+
+<h3>KIP-840: Config file option for MessageReader/MessageFormatter in ConsoleProducer/ConsoleConsumer</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=211884652" target="_blank">KIP-840</a> provides a new config file option for configuring the MessageReader/Formatter of the console Consumer/Producer by introducing the new parameters <code style="font-size:1.2em">--reader-config</code> and <code style="font-size:1.2em">--formatter-config</code>.
+</p>
+
+<h3>KIP-854: Separate configuration for producer ID expiry</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-854+Separate+configuration+for+producer+ID+expiry" target="_blank">KIP-854</a> introduces changes to clean up producer IDs more efficiently, to avoid excess memory usage. It introduces a new timeout parameter, with a default of 1 day, that affects the expiry of producer IDs and updates the old parameter to only affect the expiry of transaction IDs.
+</p>
+
+<h3>KIP-876: Time based cluster metadata snapshots</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-876%3A+Time+based+cluster+metadata+snapshots" target="_blank">KIP-876</a> adds a new property that defines the maximum amount of time that the server will wait to generate a snapshot; the default is 1 hour. This feature was only implemented for the KRaft Controllers in 3.4.
+</p>
+
+<h3>KIP-881: Rack-aware Partition Assignment for Kafka Consumers</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-881%3A+Rack-aware+Partition+Assignment+for+Kafka+Consumers" target="_blank">KIP-881</a> is an extension of KIP-392, which makes it so that consumers can be rack-aware when it comes to partition assignments and consumer rebalancing. Note that only the protocol changes have been implemented in 3.4.0 but none of the out-of-the-box assignors utilize this yet, so the rack-aware assignment is only available to those who plug in a custom assignor at this point.
+</p>
+
+<h2>Kafka Streams</h2>
+
+<h3>KIP-770: Replace cache.max.bytes.buffering with cache.max.bytes</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=186878390" target="_blank">KIP-770</a> deprecates the existing <code style="font-size:1.2em">cache.max.bytes.buffering</code> config and introduces a new <code style="font-size:1.2em">cache.max.bytes</code> config to replace it. The semantics and default value of the cache size config is unchanged. This KIP also adds a new <code style="font-size:1.2em">cache.size</code> metric at the DEBUG level for users to monitor the actual size of the Kafka Streams cache.
+</p>
+
+<h3>KIP-837: Allow MultiCasting a Result Record</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=211883356" target="_blank">KIP-837</a> allows users to multicast result records to every partition of downstream sink topics and adds functionality for users to choose to drop result records without sending.
+</p>
+
+<h3>KIP-865: Support "--bootstrap-server" in kafka-streams-application-reset</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/x/UY9rDQ" target="_blank">KIP-865</a> updates the Kafka Streams application reset tool’s server parameter name to conform to the other Kafka tooling by deprecating the <code style="font-size:1.2em">--bootstrap-servers</code> parameter and introducing a new <code style="font-size:1.2em">--bootstrap-server</code> one in its place.
+</p>
+
+<h2>Kafka Connect</h2>
+
+<h3>KIP-787: MirrorMaker2 custom Kafka Admin interface for managing Kafka resources</h3>
+<p>
+<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=191335620" target="_blank">KIP-787</a> allows users to run MirrorMaker2 with custom implementations for the Kafka resource manager and makes it easier to integrate with your ecosystem.  This allows users to load a custom implementation of the Kafka Admin interface through the use of a new ForwardingAdmin class delegate.  A custom resource implementation solves the issues of providing MM2 with the correct authorization and authentication in organizations that use federated or resource management systems. 
+</p>
+
+<h2>Summary</h2>
+
+<p>
+In addition to all of the KIPs listed above, Apache Kafka 3.4 includes a number of fixes and improvements. To learn more:
+<ul>
+<li>See the release notes for 3.4.0 for the full list of changes</li>
+<li>Watch the video</li>
+<li>Listen to the podcast</li>
+<li>Download Apache Kafka 3.4 and get started</li>
+</ul>
+</p>
+
+<p>
+This was a community effort, so thank you to everyone who contributed to this release, including all our users and our 117 authors:
+</p>
+<p>
+A. Sophie Blee-Goldman, Ahmed Sobeh, Akhilesh C, Akhilesh Chaganti, Alan Sheinberg, aLeX, Alex Sorokoumov, Alexandre Garnier, Alyssa Huang, Andras Katona, Andrew Borley, Andrew Dean, andymg3, Artem Livshits, Ashmeet Lamba, Badai Aqrandista, Bill Bejeck, Bruno Cadonna, Calvin Liu, Chase Thomas, Chia-Ping Tsai, Chris Egerton, Christo Lolov, Christopher L. Shannon, Colin P. McCabe, Colin Patrick McCabe, Dalibor Plavcic, Dan Stelljes, Daniel Fonai, David Arthur, David Jacot, David Karlsson, David Mao, dengziming, Derek Troy-West, Divij Vaidya, Edoardo Comar, Elkhan Eminov, Eugene Tolbakov, Federico Valeri, Francesco Nigro, FUNKYE, Greg Harris, Guozhang Wang, Hao Li, Himani Arora, Huilin Shi, Igor Soarez, Ismael Juma, James Hughes, Janik Dotzel, Jason Gustafson, Jeff Kim, Jim Galasyn, JK-Wang, Joel Hamill, John Roesler, Jonathan Albrecht, Jordan Bull, Jorge Esteban Quilcate Otoya, José Armando García Sancio, Justine Olshan, K8sCat, Kirk True, Kvicii, Levani Kokhreidze, Liam Clarke-Hutchinson, LinShunKang, liuzc9, liuzhuang2017, Lucas Brutschy, Lucia Cerchie, Luke Chen, Manikumar Reddy, Matthew de Detrich, Matthew Stidham, Matthias J. Sax, Mickael Maison, Nandini Anagondi, Nick Telford, nicolasguyomar, Niket, Niket Goel, Nikolay, Okada Haruki, Oliver Eikemeier, Omnia G H Ibrahim, Orsák Maroš, Patrik Marton, Peter Nied, Philip Nee, Philipp Trulson, Pratim SC, Proven Provenzano, Purshotam Chauhan, Rajini Sivaram, Ramesh, Rens Groothuijsen, RivenSun, Rohan, Ron Dagostino, runom, Sanjana Kaundinya, Satish Duggana, Shawn, Shay Lin, Shenglong Zhang, srishti-saraswat, Stanislav Vodetskyi, Sushant Mahajan, Tom Bentley, vamossagar12, venkatteki, Vicky Papavasileiou, Walker Carlson, Yash Mayya, zou shengfu, 行路难行路
+</p>

@@ -1,0 +1,11 @@
+---
+layout: post
+title: NetBeans Status Interview at JavaOne 2017
+date: '2017-10-03T12:22:51+00:00'
+categories: netbeans
+---
+Watch this quick interview to learn about the status of the process at Apache NetBeans (incubating):
+
+<p><a href="https://www.youtube.com/watch?v=o5qDm0yS8mc"><img src="https://blogs.apache.org/netbeans/mediaresource/5c417969-6563-4142-b9ba-b2984d30a691?t=true" alt="Screen Shot 2017-10-03 at 05.23.31.png"></img></a></p>
+
+<p>Click the pic above or go here to see the interview: <a href="https://www.youtube.com/watch?v=o5qDm0yS8mc">https://www.youtube.com/watch?v=o5qDm0yS8mc</a></p>

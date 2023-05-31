@@ -1,0 +1,7 @@
+---
+layout: post
+title: Apache OpenWebBeans-2.0.1 has been released
+date: '2017-09-11T07:16:37+00:00'
+categories: owb
+---
+The Apache OpenWebBeans Team is proud to announce the release of Apache OpenWebBeans-2.0.1<br /><br />Apache OpenWebBeans is an Apache License v2 licensed implementation of the JSR-365 CDI-2.0 specification. <br />OpenWebBeans has a modular structure and provides Dependency Injection scaling from Java SE environments up to Java EE7 server clusters with complicated ClassLoader hierarchies or OSGi environments.<br /><br />This is a maintenance release targetting the Contexts and Dependency Injection CDI 2.0 specification!<br /><br /><br />CDI is a JavaEE standard (JSR-365) but fully available under Apache License v2.0.<br />http://cdi-spec.org/<br />https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html<br /><br />Apache OpenWebBeans-2.0.1 implements the CDI-2.0 API, and passes the JSR-330 and JSR-365 TCKs.<br /><br />Distribution packages can be downloaded from http://www.apache.org/dyn/closer.lua/openwebbeans/2.0.1/<br /><br />Hashes can be found here http://www.apache.org/dist/openwebbeans/2.0.1/<br /><br />The release is also available in maven.central<br /><br />https://repo1.maven.apache.org/maven2/org/apache/openwebbeans/<br /><br />More info can be found at http://openwebbeans.apache.org&nbsp;

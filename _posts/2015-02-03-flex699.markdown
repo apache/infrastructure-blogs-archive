@@ -1,0 +1,28 @@
+---
+layout: post
+title: Apache Flex 4.14 Released!
+date: '2015-02-03T15:08:32+00:00'
+categories: flex
+---
+<a href="http://flex.apache.org/"><img src="https://blogs.apache.org/flex/mediaresource/7752016a-8d90-472a-a43e-dd52f766affa?t=true" alt="Apache Flex" align="left"></img></a>The Apache Flex community is pleased to announce the release of Apache Flex 4.14.
+
+Apache Flex is a highly productive, open source application framework for building and maintaining expressive applications that deploy consistently on all major browsers, desktops and devices (including smartphones, tablets and tv).
+
+Apache Flex 4.14 is a update to Apache Flex 4.13.0 and follows the trend of compatibility of Adobe Flex 4.6.  Apache Flex 4.14 adds support for the latest Flash Player and AIR runtimes, <a href="https://cwiki.apache.org/confluence/x/cIH_Ag">promises</a>, native support for tables in TLF, the Spark RichTextEditor component, <a href="https://cwiki.apache.org/confluence/x/wQEIAw">FlatSpark skins and components</a>, and <a href="https://cwiki.apache.org/confluence/x/7AAIAw">iOS7 and Android 4.x mobile themes</a>.
+
+Apache Flex is available in source form from the following download page:
+<a href="http://flex.apache.org/download-source.html">http://flex.apache.org/download-source.html</a>
+
+You can read the release notes from the following page to find out what has changed from the last version:
+<a href="http://www.apache.org/dist/flex/4.14.0/RELEASE_NOTES"> http://www.apache.org/dist/flex/4.14.0/RELEASE_NOTES</a>
+
+It's recommended you install Apache Flex by using the Apache Flex IDE installer:
+<a href="http://flex.apache.org/installer.html">http://flex.apache.org/installer.html</a>
+
+When downloading from a mirror site, please remember to verify the downloads using signatures or MD5 hashes.
+
+For more information on Apache Flex, visit the project home page:
+<a href="http://flex.apache.org">http://flex.apache.org</a>
+
+Thank you for using Apache Flex,
+The Apache Flex Community

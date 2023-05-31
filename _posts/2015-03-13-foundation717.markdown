@@ -1,0 +1,68 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 13 March 2015'
+date: '2015-03-13T23:11:45+00:00'
+categories: foundation
+---
+<div>It's certainly been a productive week! Here's what's happened within the Apache community:</div> 
+  <p> </p> 
+  <div> 
+    <p>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- Special Registration Rates for ApacheCon North America available through 21 March&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br /></p> 
+  </div> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- Whilst currently undergoing maintenance, uptime over the past week was a stellar 99.987%&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+    <p>ASF Community Development&nbsp;–our team of volunteers that help guide newcomers to The Apache Software Foundation, provide insight and advice on The Apache Way of meritocratic development, including how to contribute to our many projects and to the Apache community at-large.<br />&nbsp;- The ASF has been accepted as a Google Summer of Code mentoring organization for the 11th consecutive year http://community.apache.org/gsoc.html</p> 
+    <p>Apache Incbuator™ –the entry path into The Apache Software Foundation (ASF) for projects and codebases wishing to become part of the Foundation's efforts. All code donations from external organisations and existing external projects wishing to join Apache enter through the Incubator.<br />&nbsp;- AsterixDB, CommonsRDF, Myriad, and SAMOA are new podlings <a href="http://incubator.apache.org/projects/index.html">http://incubator.apache.org/projects/index.html</a> <br />&nbsp;-&nbsp;Groovy&nbsp;Submitted to Become a Project at The Apache Software Foundation <a href="http://s.apache.org/zj7">http://s.apache.org/zj7</a></p> 
+  </div> 
+  <div> 
+    <p>Apache Hive™ –data warehouse software facilitates querying and managing large datasets residing in distributed storage; built on top of Apache Hadoop.<br />&nbsp;- Apache Hive 1.1.0 released&nbsp;<a href="https://hive.apache.org/downloads.html">https://hive.apache.org/downloads.html</a></p> 
+    <p>Apache Jackrabbit™ –scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.1.7 released&nbsp;<a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a></p> 
+    <p>Apache Kafka™ –high-throughput, publish-subscribe messaging system rethought of as a distributed commit log.<br />&nbsp;- Apache Kafka 0.8.2.1 released&nbsp;<a href="http://kafka.apache.org/downloads.html">http://kafka.apache.org/downloads.html</a></p> 
+    <p>Apache Tajo™ –mature Open Source relational Big Data warehousing solution provides advanced &quot;SQL-on-Hadoop&quot; functionality and support.<br />&nbsp;-&nbsp;The Apache Software Foundation Announces Apache™ Tajo™ v0.10.0&nbsp;<a href="http://s.apache.org/mwx">http://s.apache.org/mwx</a></p> 
+    <p>Apache UIMA™ –component architecture and framework for the analysis of unstructured content like text, video and audio data.<br />&nbsp;-&nbsp;Apache UIMA Java SDK 2.7.0 released&nbsp;<a href="http://uima.apache.org">http://uima.apache.org</a><br /><br /></p> 
+    <p> </p> 
+  </div> 
+  <div> 
+    <p><b><u>Did You Know?</u></b></p> 
+    <p><b><u></u></b>&nbsp;- Did you know the top 5 Apache projects in terms of number of
+committers are: Apache OpenOffice (140), Apache Commons (121), Apache HTTP Server (111), Apache Hadoop (108), and Apache CloudStack (100)?</p> 
+  </div> 
+  <p>&nbsp;- Did you know that Apache Spark helps analyze and process more than 2.5 petabytes of data per day for some of the world's largest telcos?&nbsp;</p> 
+  <div> 
+    <p>&nbsp;- Did you know that we're always looking for Apache success stories that we can share with the community? Send newsworthy metrics/users/datapoints of Apache products to &lt;press@apache.org&gt;!</p> 
+  </div> 
+  <div><br /></div> 
+  <div> 
+    <p><b><u>Apache Community Notices:</u></b></p> 
+    <p>&nbsp;- SparkSummit East will be held 18-19 March in New York <a href="http://spark-summit.org/">http://spark-summit.org/</a> </p> 
+    <p>&nbsp;- Apache OFBiz Community Day will be held 21 March&nbsp;<a href="https://cwiki.apache.org/confluence/display/OFBIZ/OFBiz+Community+Days">https://cwiki.apache.org/confluence/display/OFBIZ/OFBiz+Community+Days</a></p> 
+    <p>&nbsp;- Apache Mesos User Group MeetUp will take place 25 March in London <a href="http://www.meetup.com/London-Mesos-User-Group/events/220602962/">http://www.meetup.com/London-Mesos-User-Group/events/220602962/</a></p> 
+    <p>&nbsp;- Apache Flink MeetUp will take place&nbsp;31 March in Berlin&nbsp;<a href="http://www.meetup.com/Apache-Flink-Meetup/events/221037302/">http://www.meetup.com/Apache-Flink-Meetup/events/221037302/</a></p> 
+    <p>&nbsp;- The Apache CouchDB community published guidelines on running a CouchDB Day&nbsp;<a href="http://blog.couchdb.org/2015/02/25/how-to-organise-your-own-couchdb-day-its-easy/">http://blog.couchdb.org/2015/02/25/how-to-organise-your-own-couchdb-day-its-easy/</a></p> 
+    <p>&nbsp;- The Apache Mesos community is planning an initial MeetUp in Shanghai in Q2 <a href="http://www.weibo.com/u/3068800961">http://www.weibo.com/u/3068800961</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Apache Calcite will be featured in Enterprise Data World's New Data Management Technologies/NoSQL&nbsp;track 2 April in Washington DC&nbsp;<a href="http://edw2015.dataversity.net/">http://edw2015.dataversity.net/</a> </p> 
+    <p>&nbsp;- The Women of ASF Luncheon will be held on 14 April at ApacheCon <a href="http://events.linuxfoundation.org/events/apachecon-north-america/attend/women-asf-luncheon">http://events.linuxfoundation.org/events/apachecon-north-america/attend/women-asf-luncheon</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;-&nbsp;CloudStack Days will take place 16 April during ApacheCon (future events planed for Budapest, Dublin, Seattle, and Tokyo)&nbsp;<a href="http://cloudstack.apache.org/">http://cloudstack.apache.org/</a></p> 
+    <p>&nbsp;- Apache Spark Mini-Summit will take place 16 April in tandem with ApacheCon <a href="http://s.apache.org/ojh">http://s.apache.org/ojh</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Apache TrafficServer Spring Summit will take place 16-17 April in Austin <a href="https://cwiki.apache.org/confluence/display/TS/Spring+2015+Summit">https://cwiki.apache.org/confluence/display/TS/Spring+2015+Summit</a></p> 
+    <p>&nbsp;- Apache Lucene-Solor MeetUp will take place 21 April in London&nbsp;<a href="http://www.meetup.com/Apache-Lucene-Solr-London-User-Group">http://www.meetup.com/Apache-Lucene-Solr-London-User-Group</a> </p> 
+  </div> 
+  <p>&nbsp;- HBaseCon, the fourth annual event for the Apache HBase contributor/developer/admin/user community, will take place 7 May in San Francisco <a href="http://hbasecon.com/">http://hbasecon.com/</a></p> 
+  <p>&nbsp;- Apache Usergrid will be featured in CODESHOW SE on 21 May in Charleston&nbsp;<a href="https://www.codeshowse.com/">https://www.codeshowse.com/</a> </p> 
+  <div> 
+    <p>&nbsp;- The next Berlin Buzzwords conference will feature Apache projects such as Lucene, Spark, Solr and Cassandra and will take place 31 May-3 June in Berlin <a href="http://berlinbuzzwords.de/">http://berlinbuzzwords.de</a></p> 
+    <p>&nbsp;- Apache Kafka and Samza will be featured at the GeekOut conference 11-12 June in Estonia&nbsp;<a href="http://2015.geekout.ee/">http://2015.geekout.ee/</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos <a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://mail-archives.apache.org/mod_mbox/www-announce/">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="https://twitter.com/PlanetApache">https://twitter.com/PlanetApache</a> provides an aggregate of both Project activities and the personal blogs of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

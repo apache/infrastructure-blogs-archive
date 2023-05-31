@@ -1,0 +1,8 @@
+---
+layout: post
+title: 'Article: Coarse Grained Unit Testing'
+date: '2010-03-04T13:00:00+00:00'
+categories: openejb
+---
+Dr. Dobb's has a great article titled <a href="http://www.drdobbs.com/java/222601023">Coarse-Grained Unit Testing: Using OpenEJB and DBUnit to write repeatable unit tests for Java components</a>which shows how to combine OpenEJB with DBUnit to get a very effective testing setup.  The article is complete with an example based on the fictitious Blue Star Galactic spaceship company.  All source code is available to download.
+

@@ -1,0 +1,75 @@
+---
+layout: post
+title: Apache Maven Plugin Tools, Version 3.6.4 Released
+date: '2022-01-18T10:25:25+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+  <a href="https://maven.apache.org/plugin-tools/">Apache Maven Plugin Tools, version 3.6.4</a>.</p>
+
+  <p>The Maven Plugin Tools contains the necessary tools to generate<br/>
+    rebarbative content like descriptor, help and documentation. In addition,<br/>
+    it provides tools to write Maven Plugins in scripting languages like Ant<br/>
+    or Beanshell.</p>
+
+  <p>The Maven Plugin Plugin is used to create a Maven plugin descriptor for<br/>
+    any Mojo&rsquo;s found in the source tree, to include in the JAR. It is also<br/>
+    used to generate report files for the Mojos as well as for updating the<br/>
+    plugin registry, the artifact metadata and generating a generic help goal.</p>
+
+  <ul>
+    <li><a href="https://maven.apache.org/plugin-tools/">https://maven.apache.org/plugin-tools/</a></li>
+    <li><a href="https://maven.apache.org/plugin-tools/maven-plugin-plugin/">https://maven.apache.org/plugin-tools/maven-plugin-plugin/</a></li>
+  </ul>
+
+
+  <p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-plugin-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.6.4<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  <p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins-tools/download.cgi">download page</a>.</p>
+
+  <!-- more -->
+
+
+  <p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317820&amp;version=12351222">Release Notes &ndash; Maven Plugin Tools &ndash; Version 3.6.4</a></p>
+
+  <ul>
+    <li><p>Bugs:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MPLUGIN-382">MPLUGIN-382</a> &ndash; Too many dependencies in plugin descriptor</li>
+        <li><a href="https://issues.apache.org/jira/browse/MPLUGIN-383">MPLUGIN-383</a> &ndash; Missing prerequisites in plugin pom</li>
+        <li><a href="https://issues.apache.org/jira/browse/MPLUGIN-384">MPLUGIN-384</a> &ndash; Nexus Staging Plugin &ndash; incompatibility</li>
+      </ul>
+    </li>
+    <li><p>Task:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MPLUGIN-386">MPLUGIN-386</a> &ndash; Filter out maven-archiver and maven-jxr from scope warning</li>
+      </ul>
+    </li>
+    <li><p>Dependency upgrade:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MPLUGIN-387">MPLUGIN-387</a> &ndash; Upgrade dependencies</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <p>Enjoy,</p>
+
+  <p>-The Apache Maven team</p>
+</div>

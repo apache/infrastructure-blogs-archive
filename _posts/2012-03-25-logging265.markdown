@@ -1,0 +1,7 @@
+---
+layout: post
+title: Welcome Gary Gregory
+date: '2012-03-25T20:00:00+00:00'
+categories: logging
+---
+The Apache log4j team would like to welcome Gary Gregory as a new committer! Welcome Gary!

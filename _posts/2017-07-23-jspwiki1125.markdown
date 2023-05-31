@@ -1,0 +1,11 @@
+---
+layout: post
+title: A new website for Apache JSPWiki
+date: '2017-07-23T10:46:49+00:00'
+categories: jspwiki
+---
+<p>
+We're pleased to announce a new look for Apache JSPWiki's main website at <a href="https://jspwiki.apache.org/" target="_blank" title="JSPWiki's main website">http://jspwiki.apache.org/</a>. It's now running the latest release of the <a href="https://blogs.apache.org/jspwiki/entry/introducing_the_haddock_template" target="_blank" title="More information on JSPWiki's Haddock template">Haddock template</a> for a clean, modern look and feel:</p> 
+  <p><img src="https://blogs.apache.org/jspwiki/mediaresource/eeca035a-3ca5-447d-aa34-b5c5052d8774" alt="The new JSPWiki website homepage" width="920" height="530" /><br /></p> 
+  <p>Previously we had two sites for the JSPWiki project—a main site containing news and downloads, and a secondary site containing documentation. These have now been consolidated into the single site linked above.</p> 
+  <p>If you notice any problems with the new site please let us know in the <a href="https://jspwiki.apache.org/community/mailing_lists.html" target="_blank" title="JSPWiki mailing lists">mailing lists</a> or in a <a href="https://issues.apache.org/jira/projects/JSPWIKI" target="_blank" title="JSPWiki issue tracker">JIRA ticket</a>. And if you're currently running a JSPWiki site with the legacy template, consider enabling Haddock for an all-round superior experience (see <a href="https://blogs.apache.org/jspwiki/entry/introducing_the_haddock_template" target="_blank" title="Introducing the Haddock template">here</a> for more information).<br /></p>

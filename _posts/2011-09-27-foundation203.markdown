@@ -1,0 +1,121 @@
+---
+layout: post
+title: The Apache Software Foundation Announces 10th Anniversary of Apache Lucene
+date: '2011-09-27T11:59:21+00:00'
+categories: foundation
+---
+<p style="margin-bottom: 0in; "><i><b><font face="arial, helvetica, sans-serif">Powers
+smart search and indexing solutions for AOL, Apple, Comcast, Disney,
+IBM, LinkedIn, Twitter, Wikipedia, and more.</font></b></i></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif"><b>Forest
+Hill, MD – 27 September 2011 –</b>
+The Apache Software Foundation (ASF),  the all-volunteer developers,
+stewards, and incubators of nearly 150 Open Source projects and
+initiatives, today announced the 10th anniversary of <a href="http://lucene.apache.org">Apache Lucene</a>.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">The
+Lucene information retrieval software was first developed in 1997,
+entered the ASF as a sub-project of the Apache Jakarta project in
+2001, and became a standalone, Top-Level Project (TLP) in 2005.
+Apache Top-Level Projects and their communities demonstrate that they
+are well-governed under the Foundation’s meritocratic,
+consensus-driven process and principles.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">&quot;Ten
+years ago, Apache provided Lucene a home where it could build a solid
+community. Today we can see the fruit of that community, both through
+the wide breadth of Lucene-based applications deployed, and through
+the depth of improvements to Lucene made in the past decade,&quot;
+said Doug Cutting, ASF Chairman and original Lucene creator.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">Apache
+Lucene powers smart search and indexing for eCommerce, financial
+services, business intelligence, travel, social networking,
+libraries, publishing, government, and defense solutions.  </font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">&quot;Lucene
+has changed the world by opening doors that didn't exist before it
+arrived on the Open Source scene,” said ASF Member and Apache
+Lucene Committer Erik Hatcher. “Lucene has massively disrupted the
+enterprise/proprietary search market, with wide adoption around the
+globe in every industry.”</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">Highly
+performant, Apache Lucene is in use across an array of applications,
+from mobile to Internet scale, and powers enterprise-grade search
+solutions for AOL, Apple, IBM (including its artificial
+intelligence-driven supercomputer Watson), LinkedIn, Netflix,
+Wikipedia, Zappos, and many other global organizations.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">&quot;When
+it arrived to ASF, Lucene immediately made a huge impact --Lucene was
+one of those technologies that made a whole generation of businesses
+possible-- it was fast, easy to use, free, and had a growing
+community of users and developers. Apache Lucene can be found in an
+amazing number of products and services we all know and use, as well
+as in products and services we have never heard of,” said ASF
+Member and Apache Lucene Committer Otis Gospodnetic.  </font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">&quot;While
+it's been six years since I joined the Lucene community, the last two
+were certainly the most exciting,” said Simon Willnauer, Vice
+President of Apache Lucene.  </font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">Current
+Apache Lucene sub-projects are PyLucene and Open Relevance; other
+sub-projects, including Droids, Lucene.Net, and Lucy, have spun out
+of the project and are undergoing further development in the Apache
+Incubator with the intention of becoming standalone TLPs. Solr, the
+high-speed Open Source enterprise search platform, has merged into
+the Lucene project itself, whilst former Lucene sub-projects Hadoop,
+Mahout, Nutch, and Tika have all successfully graduated as autonomous
+Apache Hadoop, Apache Mahout, Apache Nutch, and Apache Tika TLPs.</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">Originally
+written in Java, Apache Lucene is available in many programming
+languages such as Perl, C#, C++, PHP, Python, and Ruby. “Now, 10
+years later, Apache Lucene is backed by a large community of users,
+contributors and developers with incredible energy poured into Lucene
+every hour of every day of the year,&quot; said Gospodnetic, who is
+also co-author of Lucene in Action, and founder of Sematext
+International.  </font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">“Even
+after 10 years, it seems this blazing community and codebase hasn't
+reached its potential yet,” added Willnauer. “I'm proud to be
+part of this community and look forward to another decade of Open
+Source Search.&quot;</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">Hatcher,
+who is also co-author of Lucene in Action and co-founder of Lucid
+Imagination, added, “if you need search (and you do!), Lucene is
+the best core technology choice.&quot;</font></p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">Hatcher,
+Willnauer, and other members of the Apache Lucene community will be
+presenting sessions on data handling and analytics –a.k.a. “Lucene
+and Friends”-- including what's upcoming in Apache Lucene 4.0 (with
+performance improvements up to 20,000% from previous versions and
+more) at ApacheCon, 7-11 November 2011, in Vancouver, Canada.  To
+register, visit <a href="http://apachecon.com/">http://apachecon.com/</a></font></p> 
+  <p style="margin-bottom: 0in; "><b><font face="arial, helvetica, sans-serif">Availability
+and Oversight<br /></font></b> </p> 
+  <p><font face="arial, helvetica, sans-serif">Apache
+Lucene software is released under the Apache License v2.0, and is
+overseen by a self-selected team of active contributors to the
+project. A Project Management Committee (PMC) guides the Project’s
+day-to-day operations, including community development and product
+releases. Apache Lucene source code, documentation, mailing lists,
+and related resources are available at <a href="http://lucene.apache.org/">http://lucene.apache.org/</a>.<br /></font></p> 
+  <p><b><font face="arial, helvetica, sans-serif">About The Apache Software Foundation (ASF)</font></b> </p> 
+  <p><font face="arial, helvetica, sans-serif">Established
+in 1999, the all-volunteer Foundation oversees nearly one hundred
+fifty leading Open Source projects, including Apache HTTP Server --
+the world's most popular Web server software. Through the ASF's
+meritocratic process known as &quot;The Apache Way,&quot; more than
+350 individual Members and 3,000 Committers successfully collaborate
+to develop freely available enterprise-grade software, benefiting
+millions of users worldwide: thousands of software solutions are
+distributed under the Apache License; and the community actively
+participates in ASF mailing lists, mentoring initiatives, and
+ApacheCon, the Foundation's official user conference, trainings, and
+expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by
+individual donations and corporate sponsors including AMD, Basis
+Technology, Cloudera, Facebook, Google, HP, Hortonworks, IBM, Matt
+Mullenweg, Microsoft, PSW Group, SpringSource/VMware, and Yahoo!. For
+more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a>.</font></p> 
+  <p> </p> 
+  <p style="margin-bottom: 0in; "><font face="arial, helvetica, sans-serif">&quot;Apache&quot;
+and “Apache Lucene” are trademarks of The Apache Software
+Foundation. All other brands and trademarks are the property of their
+respective owners.</font></p> 
+  <p style="margin-bottom: 0.14in; "><font face="arial, helvetica, sans-serif">#
+#</font><font face="Arial Narrow, sans-serif"> #</font> </p>

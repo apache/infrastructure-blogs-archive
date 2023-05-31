@@ -1,0 +1,19 @@
+---
+layout: post
+title: 'BigTop: the way to grow open Hadoop stack acceptance'
+date: '2013-04-19T06:27:14+00:00'
+categories: bigtop
+---
+I should've written this blog right after the Strata BigData conference back in February '13, so it is long overdue. However, it is still very much actual, so better late than never.<br /> 
+  <p>It was interesting and reassuring to see that so many commercial vendors have jumped on the Hadoop bandwagon this year. I won't even go into details regarding who came up with what here, but you can google that easily or simply read this <a href="http://is.gd/7tmOPy">short overview.</a><br /><br />What I want to put in the spotlight is a fact that hasn't been widely publicized, if at all: the vast majority of these distributions are using the Apache BigTop project to build and maintain their stacks. The list of companies that publicly attribute their product to BigTop can be found <a href="https://cwiki.apache.org/confluence/display/BIGTOP/Powered+By+Bigtop">here.</a><br /><br />Here are three major points behind the growing popularity of the BigTop project:<br /></p> 
+  <ul> 
+    <li>to date, this is the only framework available that allows anyone to <br /></li> 
+    <ul> 
+      <li>build a Hadoop-based data stack with a predefined set of properties in a matter of a few hours</li> 
+      <li>test it in both a secured and non-secured environment using painless deployment with state-of-the-art Puppet recipes</li> 
+    </ul> 
+    <li>stacks powered by BigTop have uniform management and administration interfaces, so you don't need to learn how to install/update your cluster if you ever decide to switch from Apache release components to the Best-Distribution-From-Elbonia brand</li> 
+    <li>BigTop helps to keep the torrent of changes in check on all levels of the stack that might affect intercomponent compatibility. This is of tremendous help to release managers who want to be good citizens of this ecosystem.</li> 
+    <li>BigTop provides a place where people of all backgrounds can <a href="https://cwiki.apache.org/confluence/display/BIGTOP/April+Fool%27s+hackathon.">come and work together</a> to solve the problems they are faced with<br /></li> 
+  </ul> 
+  <p>With the coming release of 0.6 -- stay tuned -- we are going to push the bar a little bit higher again and make the next version of the stack better than ever -- with the great help of all the free-minded developers of the Apache Software Foundation! Come and join us at bigtop.apache.org and #bigtop on freenode.net.<br /></p>

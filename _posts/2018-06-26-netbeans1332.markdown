@@ -1,0 +1,13 @@
+---
+layout: post
+title: 1.5 M Lines Of Oracle Code Now in Apache NetBeans Git
+date: '2018-06-26T16:21:04+00:00'
+categories: netbeans
+---
+Hurray! The 2nd Oracle donation of NetBeans to the Apache Software Foundation, constituting 1.5M lines of code, providing tools for enterprise Java, JavaScript, PHP, Groovy, and more, has now landed on a branch of Apache NetBeans Git: 
+
+<p><a href="https://github.com/apache/incubator-netbeans/tree/2ndDonation"><img src="https://blogs.apache.org/netbeans/mediaresource/77fa7b9d-31f4-4402-9551-ba7ae22645cd?t=true" alt="Screen Shot 2018-06-26 at 17.53.37.png"></img></a></p>
+
+<p>Go here to see the new branch containing the 2nd donation: <a href="https://github.com/apache/incubator-netbeans/tree/2ndDonation">https://github.com/apache/incubator-netbeans/tree/2ndDonation</a></p>
+
+

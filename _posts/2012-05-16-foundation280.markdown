@@ -1,0 +1,105 @@
+---
+layout: post
+title: " The Apache Software Foundation Announces Unprecedented Growth During First
+  Quarter of 2012"
+date: '2012-05-16T12:00:16+00:00'
+categories: foundation
+---
+<p><i><b>
+Demand for best-in-class Open Source solutions drives landmark achievements</b></i></p> 
+  <p>
+
+Forest Hill, MD -–16 May 2012-– The Apache Software Foundation (ASF), developers, stewards, and incubators of nearly 150 Open Source projects and initiatives, today announced key milestones achieved in the first quarter of 2012.
+
+</p> 
+  <p>Recognized as one of the most compelling communities in Open Source for shepherding, developing, and incubating innovations &quot;The Apache Way&quot;, the ASF is responsible for millions of lines of code overseen by an all-volunteer community across six continents. Apache technologies power more than half the Internet, petabytes of data, teraflops of operations, billions of objects, and enhance the lives of countless users and developers.
+
+</p> 
+  <p>The record-setting first quarter marked new highs across an array of Apache initiatives, including Top-Level Projects, incubating innovations, sponsorship, individual and corporate contributions, and infrastructure. This unprecedented growth reinforces the broad-reaching success of the ASF's best-in-class software products, the power of the Apache brand, and its highly-emulated community development practices.
+</p> 
+  <p>
+&quot;Our landmark success can be attributed to Apache’s longstanding commitment to providing exceptional Open Source products, each with a stable codebase and an active community,&quot; said ASF President Jim Jagielski. &quot;The ASF makes it easy for all contributors, regardless of any affiliations, to collaborate.&quot;
+
+</p> 
+  <p><b>Top-Level Projects:</b> the ASF's core activities [1] involve the development of its Top-Level Projects (TLPs), whose day-to-day activities are overseen by a self-selected team of active contributors to each project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. As of 2002, the process for establishing new TLPs has been through the Apache Incubator. On occasion, a sub-project of an existing TLP may graduate to become a new, standalone TLP.
+</p> 
+  <p>
+New TLPs graduating from the Apache Incubator in Q1 2012 are Apache Accumulo, Apache BVal, Apache Empire-db, Apache Gora, Apache Lucy, Apache OpenNLP, Apache Rave, and Apache Sqoop. This brings the total of TLPs to 104, marking the first time more than 100 TLPs are in active development (the ASF has had 121 TLPs in total; 20 have been retired to the Apache Attic).
+</p> 
+  <p>
+Apache projects span Cloud computing and &quot;Big Data&quot; to Search and Semantics to application frameworks and build tools, providing the ability to meet the strong demand for interoperable, adaptable, ubiquitous, and sustainable Open Source solutions. There have been 87 new TLP software releases since January 2012, with milestone releases from Apache Cassandra, Apache Hadoop, Apache HTTP Server, and Apache TomEE.
+</p> 
+  <p>
+After six years in development, Big Data powerhouse Apache Hadoop released v1.0 in January 2012, bolstering its popularity &quot;as measured by substantial growth in client inquiries, dramatic rises in attendance at industry events, increasing financial investments, and the introduction of products from leading data management and data integration software vendors,&quot; according to Gartner Vice President Merv Adrian [2]. In addition, IDC’s Worldwide Hadoop-MapReduce Ecosystem Software Forecast [3] predicts market growth for Apache Hadoop and supporting Big Data products will exceed 60% annually.
+</p> 
+  <p>
+The ASF's flagship project, the Apache HTTP Server, remains the world’s leading Web server, powering an all-time record of more than 425 million websites globally [4], and more than 500 community-developed modules to extend its functionality. In addition, the Apache HTTP Server celebrated its 17th Anniversary with the release of v2.4 in February 2012.
+
+</p> 
+  <p><b>Apache Incubator:</b> Open Source innovations intending to become fully-fledged Apache projects, including code donations from external organizations and existing external projects, must enter through the Apache Incubator [5]. Initiatives in development at the Apache Incubator –-known as &quot;podlings&quot;-- comprise both the project’s codebase and community. There were 19 new software releases from Apache Incubator podlings since January 2012.
+</p> 
+  <p>
+A record 51 podlings are currently undergoing incubation, including Apache Bloodhound, Apache Cordova (formerly Callback), Apache Flex, Apache Giraph, and Apache Wave. Apache OpenOffice --the leading Open Source office productivity suite, and ASF’s first end-user-facing project-- successfully transitioned nearly 10 million lines of code in preparation for the release of OpenOffice v3.4, the first official Apache release under the auspices of The ASF. Apache OpenOffice v3.4 is now fully compliant under the Apache License v2, and was downloaded over 1 million times in its first week.
+
+</p> 
+  <p>Over the past decade, 85 podlings have graduated from the Apache Incubator; 3 projects were retired, and 27 are considered dormant. New podlings in 2012 are Apache CloudStack, Apache DeviceMap, and Apache Syncope.
+
+</p> 
+  <p><b>Sponsors:</b> as a private, 501(c)(3) non-profit charitable organization, The ASF is funded through tax-deductible contributions from corporations, foundations, and private individuals [6]. For the past six years, The ASF Sponsorship Program [7] has helped offset day-to-day operating expenses such as bandwidth and connectivity, servers and hardware, legal and accounting services, marketing and public relations, general office expenditures, and support staff. New sponsors in 2012 include Citrix (Platinum), GoDaddy (Silver), Huawei (Silver), and Twitter (Bronze). They join Facebook, Google, Microsoft, and Yahoo! at the Platinum level; AMD, Hortonworks, HP, and IBM at the Gold level; Basis Technology, Cloudera, Matt Mullenweg, PSW Group, and SpringSource at the Silver level; and AirPlus International, BlueNog, Digital Primates, FuseSource, Intuit, Liip AG, Lucid Imagination, Talend, Two Sigma Investments, and WANdisco at the Bronze level.
+
+</p> 
+  <p><b>Apache Members and Committers:</b> in 1999, the ASF incorporated with an inaugural membership of 21 individuals who oversaw the progress of the Apache HTTP Server. Additions to this core group grew with developers who contributed code, patches, or documentation. Some of these contributors were subsequently granted &quot;Committer&quot; status by the Membership [8], granting access to: commit (write) directly to the code repository, vote on community-related decisions, and propose an active user for Committership. Those Committers [9] that demonstrate merit in the Foundation's growth, evolution, and progress are nominated for ASF Membership by existing members. The meritocratic &quot;Contributor-Committer-Member&quot; approach is the central governing process [10] across the Apache ecosystem.
+
+</p> 
+  <p>The ASF's 391 active Members (449 total elected; 55 emeritus, 3 deceased); will be voting in new ASF Members in the upcoming annual Members meeting. The Committership process is ongoing, with no formal nomination or election timeframe. There are currently 2,967 active Apache Committers.
+</p> 
+  <p><b>
+Contributions:</b> in order for a project to become hosted at Apache it has to be licensed to the ASF [11] with a grant or contributor agreement in order for the ASF to gain the necessary intellectual property rights for the development and distribution of its projects. Whist all contributors of ideas, code, or documentation to the ASF must sign a Contributor License Agreement (CLA), copyright remains with the contributor --a license for reuse is given to the Foundation.
+</p> 
+  <p><i>
+  - Individuals</i> --a signed Individual CLA (ICLA) is required before an individual is given commit rights to an ASF project to clearly define the terms under which intellectual property has been contributed, and allow the project to be defended should there be a legal dispute regarding its software. 251 Individual CLAs have been signed in 2012 thus far; a total of 4,651 have been signed overall.
+</p> 
+  <p><i>
+  - Corporations/Institutions</i> --organizations whose employees are assigned to work on Apache projects as part of an employment agreement may sign a Corporate CLA (CCLA) to contribute intellectual property via the corporation. In addition, every developer must also sign their own ICLA to cover any of their contributions as an individual that are not owned by the corporation signing the CCLA. Companies that have signed CCLAs include Cloudera, Facebook, Hortonworks, kippdata GmbH, LinkedIn, and SoundCloud. In 2012 thus far, 17 new Corporate CLAs have been signed, totaling 384 overall.
+
+</p> 
+  <p><b>Software Grants:</b> those individuals or corporations that donate a body of existing software or documentation to an Apache project needs to execute a formal Software Grant Agreement (SGA) with the ASF. Typically, this is done after negotiating approval with the ASF Incubator or one of the PMCs, as the ASF will not accept software without a viable community to support a collaborative project. 9 SGAs have been signed during Q1 2012, with 337 SGAs on file.
+
+</p> 
+  <p><b>Community Relations:</b> in addition to Apache Members and Committers, countless developers and users contribute to the growth of Apache-based activities across the Open Source landscape. Two of the ASF's outreach-oriented committees include Community Development [12], which handles initiatives such as Google Summer of Code (17 TLPs and 9 Podlings are currently mentoring 41 student projects); and Conference Planning [13], which oversees Apache-themed BarCamps and MeetUps, and ApacheCon, the ASF's official conference, trainings, and expo. 2012 marks the return of ApacheCon Europe, taking place late Fall in Germany.
+</p> 
+  <p><b>
+Infrastructure:</b> a distributed team on two continents comprising 10 rotating volunteers and 4 paid staff keep the ASF infrastructure [14] of roughly two dozen servers and more than 75 distinct hosts --accessed by millions of people across the globe-- running 24x7x365. The Apache Infrastructure team has released 99.96GB of artifacts so far this year.
+</p> 
+  <p>
+&quot;There's no stopping the interest in Apache-led projects --from the number of innovations in the Incubator, to best-in-breed solutions powering mission-critical applications, to the widespread popularity of the Apache License,&quot; added Jagielski. &quot;The Apache community at-large is driving this momentum by providing code, documentation, bug reports, design feedback, testing, evangelizing, mentoring, and more. There’s always a way to contribute!&quot;
+
+</p> 
+  <p><b>About The Apache Software Foundation (ASF)</b> <br />Established in 1999, the all-volunteer Foundation oversees nearly one hundred fifty leading Open Source projects, including Apache HTTP Server — the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 400 individual Members and 3,500 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(3)(c) not-for-profit charity, funded by individual donations and corporate sponsors including AMD, Basis Technology, Citrix, Cloudera, Facebook, GoDaddy, Google, IBM, HP, Hortonworks, Huawei, Matt Mullenweg, Microsoft, PSW Group, SpringSource, and Yahoo!. For more information, visit http://www.apache.org/.</p> 
+  <p>
+
+&quot;Apache&quot;, &quot;Apache ACE&quot;, &quot;Apache Bloodhound&quot;, &quot;Apache CloudStack&quot;, &quot;Apache Cordova&quot;, &quot;Apache Deltacloud&quot;, &quot;Apache DeviceMap&quot;, &quot;Apache Flex&quot;, &quot;Apache Giraph&quot;, &quot;Apache Hadoop&quot;, &quot;Apache OpenOffice&quot;, &quot;Apache Rave&quot;, &quot;Apache Sqoop&quot;, &quot;Apache Syncope&quot;, &quot;Apache TomEE&quot;, &quot;Apache Wave&quot;, and &quot;ApacheCon&quot; are trademarks of The Apache Software Foundation. All other brands and trademarks are the property of their respective owners.
+</p> 
+  <p><b>
+Resources:
+<br /></b>[1] Foundation Overview - http://www.apache.org/foundation/
+<br />[2] Apache Hadoop v1.0 press release - http://blogs.apache.org/foundation/date/20120104
+<br />[3] IDC Worldwide Hadoop-MapReduce Ecosystem Software Forecast - http://www.idg.com/www/pr.nsf/ByID/MBEN-8U6JAG
+<br />[4] Netcraft May 2012 Web Server Survey - http://news.netcraft.com/archives/2012/05/02/may-2012-web-server-survey.html
+<br />[5] Apache Incubator - http://incubator.apache.org/
+<br />[6] List of ASF Sponsors - http://www.apache.org/foundation/thanks.html
+<br />[7] ASF Sponsorship Program - http://apache.org/foundation/sponsorship.html
+<br />[8] ASF Members - http://apache.org/foundation/members.html
+<br />[9] ASF Committer Index - http://people.apache.org/committer-index.html
+<br />[10] How the ASF Works - http://www.apache.org/foundation/how-it-works.html
+<br />[11] Apache Licenses, CLAs, and Software Grants - http://www.apache.org/licenses/
+<br />[12] Apache Community Development - http://community.apache.org/
+<br />[13] Apache Conferences Committee - http://www.apache.org/foundation/conferences.html
+<br />[14] Apache Infrastructure - http://www.apache.org/dev/infrastructure.html
+</p> 
+  <p>
+#  #  #
+
+
+
+</p>

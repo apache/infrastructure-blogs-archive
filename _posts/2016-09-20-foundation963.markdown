@@ -1,0 +1,48 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® CouchDB™ v2.0
+date: '2016-09-20T09:28:35+00:00'
+categories: foundation
+---
+<div><b><i>Pioneering Open Source database that scales from Big Data to Mobile in use at Apple, Deutsche Telekom, DHL, and IBM, among many others.</i></b></div> 
+  <div><b><br /></b></div> 
+  <div><b>Forest Hill, MD —20 September 2016—</b> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of Apache® CouchDB™ v2.0, the database that scales from Big Data to Mobile.</div> 
+  <div><br /></div> 
+  <div>Apache CouchDB is widely recognized as the pioneering NoSQL database that first brought the simplicity of JSON and HTTP to the database world. CouchDB's seamless multi-master synchronisation make it ideal for Big Data applications and mobile devices.</div> 
+  <div><br /></div> 
+  <div>&quot;CouchDB 2.0 finally fulfills the project’s original vision to bring reliable data sync to Big Data and Mobile in one seamless solution,&quot; said Jan Lehnardt, Vice President of Apache CouchDB. &quot;The team has been working tirelessly to make that vision a reality, and we're extremely proud of the resulting 2.0 release.&quot;</div> 
+  <div><br /></div> 
+  <div>Apache CouchDB 2.0 is the result of the donation and subsequent merger of IBM Cloudant's BigCouch project to The Apache Software Foundation, giving the project significant features and production-ready code in one go. CouchDB 2.0 features include:</div> 
+  <div> 
+    <ul> 
+      <li>Built-in clustering for Big Data-scale and high-availability (based on the Amazon Dynamo paper);</li> 
+      <li>99% API compatibility with previous versions (most applications will continue to just work);</li> 
+      <li>&quot;Mango&quot;, the new, developer-friendly querying language;</li> 
+      <li>Significant performance improvements in all areas, specifically replication and compaction; and</li> 
+      <li>Completely rewritten and modern admin interface.</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div>Apache CouchDB is in use at an array of global organizations such as Apple, Deutsche Telekom, and DHL, among many others. It is at the core of the emerging Offline First movement (as identified on the ThoughtWorks Radar in November 2015) with its cross-project Couch Replication Protocol implemented by independent sister-projects such as a) PouchDB (targeting in-browser as well as Node.js JavaScript environments), b) Couchbase Lite (for iOS and and Android), and c) Cloudant Mobile Sync. This ecosystem of projects and products allows developers to build offline capable Web- and native applications that provide a superior user experience, even in the face adverse network connectivity.</div> 
+  <div><br /></div> 
+  <div>CouchDB was instrumental in providing offline-first applications in the 2014-2015 Ebola outbreak in West Africa, allowing first-responders to help more people more efficiently, including launching an Ebola vaccination trial in Sierra Leone. No other technology was suited to face the adversity of the lack of network infrastructure and a challenging human crisis spanning five countries.</div> 
+  <div><br /></div> 
+  <div>In addition, CouchDB drives innovation at industry giants like IBM, through their Cloudant acquisition as the core of its Cloud Data Services portfolios, solving Big Data as a Service for startups and the enterprise.</div> 
+  <div><br /></div> 
+  <div>&quot;CouchDB 2.0 is the result of several years of hard work, bringing Cloudant's clustering code back into the project from which it sprang,&quot; said Robert Newson, member of the Apache CouchDB Project Management Committee and Senior Database Engineer for Cloudant, IBM. &quot;2.0 reinvigorates the CouchDB project with new features and better performance. I hope the CouchDB community is as thrilled as I am to reach this milestone in our journey and hope many of you will be active participants in the journey ahead.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;CouchDB 2.0 really takes CouchDB to the next level. The new Fauxton interface is gorgeous, and the long-awaited debut of real clustering should satisfy any scaling needs,&quot; said Nolan Lawson, Web Platform PM at Microsoft Edge and PouchDB project maintainer. &quot;And of course, we've been making a lot of effort on PouchDB to ensure it stays compatible – CouchDB 2.0 and PouchDB are a solid combination for modern Web development.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;Using Apache CouchDB we can focus developing features on our cross platform scenario, without the high and unpredictable cost of implementing our own sync,&quot; said Dr. Marten Schönherr, CTO of immmr GmbH, 100% subsidiary of Deutsche Telekom AG. &quot;With CouchDB 2.0, replication performance will be vastly improved.&quot;</div> 
+  <div><br /></div> 
+  <div>&quot;We encourage everyone interested in CouchDB to have a look what we have to offer with version 2.0, and we are looking forward to many success stories of existing users upgrading,&quot; added Lehnardt.</div> 
+  <div><br /></div> 
+  <div><b>Availability and Oversight</b></div> 
+  <div>Apache CouchDB software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache CouchDB, visit <a href="http://couchdb.apache.org/">http://couchdb.apache.org/</a> and <a href="https://twitter.com/CouchDB">https://twitter.com/CouchDB</a></div> 
+  <div><br /></div> 
+  <div><b>About The Apache Software Foundation (ASF)</b></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 550 individual Members and 5,300 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSIGMA, LeaseWeb, Microsoft, OPDi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;CouchDB&quot;, &quot;Apache CouchDB&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

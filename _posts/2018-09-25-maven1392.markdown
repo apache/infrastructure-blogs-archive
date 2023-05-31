@@ -1,0 +1,77 @@
+---
+layout: post
+title: Apache Maven JXR Plugin Version 3.0.0
+date: '2018-09-25T00:00:00+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+<a href="https://maven.apache.org/jxr/maven-jxr-plugin/">Apache Maven JXR, version 3.0.0</a>.</p>
+
+<p>This module generates browsable HTML pages from Java source code.</p>
+
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;artifactId&gt;</span>maven-jxr-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>NOTE: Special thanks for the contributions retrieved during the hackathon at JCreate.</p>
+
+
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317527&amp;version=12330848">Release Notes &ndash; Maven JXR &ndash; Version 3.0.0</a></p>
+
+<p>Bugs:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/JXR-68">JXR-68</a> &ndash; ignores classes with same name in other packages</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-98">JXR-98</a> &ndash; Nested classes aren&rsquo;t linked correctly</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-100">JXR-100</a> &ndash; Method declaration: using spaces before or after parenthesis prevents cross references generation</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-126">JXR-126</a> &ndash; File write using platform default encoding</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-135">JXR-135</a> &ndash; Invalid representation of inner class</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-140">JXR-140</a> &ndash; Proper URL handling</li>
+</ul>
+
+
+<p>Improvements:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/JXR-110">JXR-110</a> &ndash; Use equivalent css/images of javadoc</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-124">JXR-124</a> &ndash; Remove excluded DEPENDENCIES file if new parent is used.</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-125">JXR-125</a> &ndash; Upgrade to Maven 3.0 compatiblity</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-127">JXR-127</a> &ndash; Create anchor for classes generated from a Java source file</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-131">JXR-131</a> &ndash; Reports &lsquo;jxr&rsquo; and &lsquo;test-jxr&rsquo; do not contain generated sources.</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-132">JXR-132</a> &ndash; Aggregator reports should not require modules to be installed/deployed.</li>
+</ul>
+
+
+<p>Task:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/JXR-134">JXR-134</a> &ndash; switch to Git</li>
+</ul>
+
+
+<p>Dependency upgrades:</p>
+
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/JXR-128">JXR-128</a> &ndash; Upgrade maven parent to version 30</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-129">JXR-129</a> &ndash; Upgrade of plexus-utils to 3.0.24.</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-130">JXR-130</a> &ndash; Upgrade of commons-io to 2.5.</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-136">JXR-136</a> &ndash; Upgrade plexus-utils 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/JXR-138">JXR-138</a> &ndash; Upgrade parent to 31</li>
+</ul>
+
+
+<p>Enjoy,</p>
+
+<p>-The Apache Maven team</p>
+</div>

@@ -1,0 +1,203 @@
+---
+layout: post
+title: Apache Polygene 3.0.0 Released!
+date: '2017-07-30T07:32:11+00:00'
+categories: polygene
+---
+Apache Polygene™ 3.0 has been released this week. It has been in the works for a long time, and we promise it will not be as slow in upcoming releases.
+
+<h2>What’s Polygene 3.0 All About?</h2>
+
+There has been 3 major themes in the work that has gone into this release;
+<ol>
+<li>Breaking compatibility</li>
+<ul>
+<li>Java 8 Required</li>
+<li>org.apache.polygene namespace</li>
+<li>Serialization overhaul</li>
+<li>EntityStore overhaul</li>
+<li>Dropping explicit OSGi support</li>
+</ul>
+<li>Simplify Use</li>
+<ul>
+<li>Better error reporting</li>
+<li>Layered application assembly</li>
+<li>Code Generator for getting started</li>
+<li>Better Assemblers</li>
+</ul>
+<li>More Functionality</li>
+<li>Powerful Rest API library</li>
+<li>Apache Cassandra EntityStore</li>
+<li>Apache Geode Entity</li>
+<li>Full Scripting API support</li>
+</ol>
+And I will cover each below in better detail.
+
+<h2>Breaking Compatibility</h2>
+
+<h3>Java 8</h3>
+<p>
+In Polygene 2.x, we had our own Streaming and Functional APIs, which were originally modeled after the announcements made how it would work. Instead of waiting for Java 8, the entire runtime was written in a functional and streaming style. Once Java 8 is here, it was natural to drop org.qi4j.core.functional and org.qi4j.core.io and fully convert to Java Functional API and Java Streaming API.
+</p>
+<p>
+Practically all places where Iterable was used as a Streaming alternative are now Stream, as well as new methods to fully embrace this style of coding.
+</p>
+<h3>org.apache.polygene Namespace</h3>
+<p>
+We decided to keep the org.qi4j namespace in the Apache Polygene 2.1 release about 2 years ago, to remain compatible with previous versions of Qi4j.
+</p>
+<p>
+Since we were set to break compatibility, it is natural to adopt the org.apache.polygene namespace. Most classes remain in the sub-packages from original root package, but not 100%. Some classes have been moved around to clean the design further.
+</p>
+<h3>New Serialization SPI</h3>
+<p>
+The Serialization SPI was in dire need of clean up. We have adopted the javax.json extensions, and recommend Apache Johnzon. Any other javax.json compatible implementation can be used.
+</p>
+<p>
+Additionally, there is an XML serialization service using javax.xml and its extension mechanism. And we also have MsgPack format available.
+</p>
+<h3>EntityStore SPI improvements</h3>
+<p>
+There has been a large number of changes in the EntityStore SPI. The most important ones are described below.
+</p>
+<p>
+Storage format for JsonMapEntityStore has changed a little bit and existing data is not compatible. This is very unfortunate, but we feel we need to do this to ensure long-term compatibility from here on. Existing entity stores support that the data can be exported in JSON format and conversion to the new format is relatively easy to do offline. Contact dev@polygene.apache.org if help with this is needed.
+</p>
+<p>
+UnitOfWorkFactory is now a Service Composite, and by default it creates UnitOfWork instances as Transient Composites. This opens up a lot of opportunities of custom code around UnitOfWork management.
+</p>
+<p>
+Type management has been cleaned up and some Visibility bugs have been squashed in the process. All type handling is now done via a TypeLookup SPI, available from Module.
+</p>
+<h3>Dropping OSGi</h3>
+<p>
+When Qi4j started, OSGi was the hottest thing around and we felt obliged to be OSGi-friendly. Unfortunately, we have not been proactively testing that we are OSGi-capable and not been keeping up with the developments in the OSGi world.
+</p>
+<p>
+So, instead of claiming that we are OSGi-compatible/friendly, we simply drop that claim, but there are no explicit changes that reduces Polygene’s ability to run in OSGi. We still generate OSGi Bundle manifests, but don’t know if they are optimal or not.
+</p>
+<p>
+The explicit OSGi support may be re-introduced in the future, especially if we have active participants who are working on OSGi+Polygene projects.
+</p>
+
+<h2>Simplify Use</h2>
+<p>
+<h3>Better error reporting</h3>
+</p>
+<p>
+Pre-3.0 it was quite tedious to get the application assembly in order. Types were not visible or was forgotten to be added to the assembly. We have tried hard to both make better messages of what is wrong, as well as trying to report more problems in the same run, so the number of edit-compile-run cycles decreases.
+</p>
+<p>
+<h3>Layered application assembly</h3>
+<p>
+It was previous rather cumbersome to build the application structure in a layered fashion. Often single layers or even single modules were used because it was too hard to make it.
+</p>
+<p>
+In 3.0, we have introduced LayeredApplicationAssembler which allows easy creation of layered applications, by using naming conventions and reflection.
+</p>
+
+<h3>Better Assemblers</h3>
+<p>
+In 2.0, we started to introduce ready-to-use, configurable assemblers for many of the extensions and some of the libraries.
+</p>
+<p>
+In order to support the code generator, there has been a a convergence of naming and what assembly configurations are available. More often than not, you should be able to rely on these assemblers for standard functionality, rather than crafting your own (still possible).
+</p>
+<p>
+<h2>More Functionality</h2>
+
+<h3>Powerful Rest API library</h3>
+
+<p>
+Polygene 2.x contains a Rest Server API, which is very flexible, but somewhat hard to use and extend. It was a conversion from a project written in the DCI-style.
+</p>
+<p>
+The new Restlet Library (fully supported by the Code Generator) makes it very easy to create CRUD operation in HATEOAS style, and/or call methods on resources. All resources are Composites and all the goodies of Composites are automatically available in the Rest API.
+</p>
+
+<h3>Apache Cassandra EntityStore</h3>
+
+Nothing much to say, EntityStore for Cassandra has been added and it does NOT use the JsonMapEntityStore SPI.
+
+<h3>Apache Geode Entity</h3>
+
+Apache Geode (commercially available as GemFire) is another addition to the family of EntityStores available.
+
+<h3>Full Scripting API support</h3>
+
+<p>
+We have supported some scripting languages for a long time, but didn’t rely on the Java Scripting API to implement it.
+</p>
+<p>
+We should now be fully compatible with all Scripting API compliant languages, and the list of explicitly supported languages are; JavaScript (Nashorn), Groovy, Kotlin, JRuby, Jython and Lua. Other languages are likely to work, but no guarantees yet.
+</p>
+<p>
+This means that for a Composite with 7 methods, we can implement each method in a different language, yet make it seem to be like a single object. This is at the extreme end of Polygene power. Different languages within an Object!!
+</p>
+
+<h1>What’s Next?</h1>
+
+There are already many things being worked on for the next couple of releases. It is too early to tell when these are coming, but we have a vague idea of what they will contain.
+
+<h2>Polygene 3.1</h2>
+
+Three big features are being worked on, and should be ready in 3-4 months time.
+
+<h3>Enterprise-friendly SQL EntityStore</h3>
+
+<p>
+The current SQL EnityStore is effectively a Key/Value store backing the JsonMapEntityStore. This is not friendly for SQL processing by other applications and worrisome for DBA and Data managers who wants the data to survive for long in accessible formats. This is the norm and environment in large IT departments, a.k.a The Enterprise.
+</p>
+<p>
+The new SQL EntityStore in the works, will store all properties in their own columns, and built relationships across them in the defacto standard of how SQL models are built. Any data manager looking at a the resulting SQL model will not object to it on the previous grounds.
+</p>
+<p>
+However, we don’t intend to support mapping any SQL model to the Polygene model, as that will sink us into the same swamp that JPA is desperately fighting with endless problems. We might provide tooling, perhaps in later releases, to convert a SQL data model into a working Polygene model, but we can’t promise at this point in time that it will be feasible.
+</p>
+
+<h3>Kotlin assembly</h3>
+Kotlin is a very neat programming language from Jetbrains. And it turns out that with a few additions to Polygene, very nice application assembly can be written in Kotlin instead of Java.
+
+<h3>Code Generator for getting started</h3>
+<p>
+One of the biggest new features in Polygene 3.x is the Yeoman-powered code generator.
+</p>
+<p>
+Answer a few questions about name, package and which modules you want to use, and a ready-to-deploy skeleton is created, complete with a Gradle build system, layered and things like Apache Shiro security, Scripting API and JMX optionally included.
+</p>
+<p>
+It is possible to supply a JSON document which may contain definitions for entities, values and services, incl their properties and association. This will hopefully lead to a web service where you can build your model interactively and have the skeletal application be fully generated for you.
+</p>
+<p>
+It is similar to Spring Boot and Spring Initializr, except much better and creates a full application, not only bringing down loosely coupled parts not working together.
+</p>
+
+<h2>Polygene 3.2</h2>
+
+<h3>New Indexing/Query system</h3>
+
+<p>
+Currently, Indexing and Query is the weakest part of Apache Polygene and we need to improve it. Not only do we need to improve the API, but more importantly, we need to unify that all queries work on all implementations. We will probably keep the existing Indexing/Query system as-is, for compatibility reasons and introduce a parallel system that can be used instead.
+</p>
+<p>
+Effort will also be made to try to create an abstraction at a higher level, to make it easier to create an Indexing extension. Currently all the effort is in the extension, and it is very hard to get it right. Something similar to the JsonMapEntityStore is what we want to see.
+</p>
+
+<h2>Polygene 3.3</h2>
+<h3>Timeseries Support</h3>
+
+<p>
+If one wants to store Timeseries in an Polygene application, it becomes very ineffective and slow.
+</p>
+<p>
+Timeseries support should be both at UnitOfWork and Querying level as well as REST API support for Grafana and other visualization tools.
+</p>
+
+<h1>Final Thoughts</h1>
+
+<p>
+Polygene (Qi4j) has come a long way, and even though the journey has been up and down, the slow progress is eventually paying off. I am really looking forward to the next few years and see Polygene’s uptake increase, mostly due to its solid object model with extraordinary flexibility in the Composition features, a nicely integrated persistence mechanism and other useful extensions.
+</p>
+<p>
+The two major hurdles for Polygene adoption is addressed in the next release, the steep learning curve to get started and the lack of enterprise-friendly SQL support. With that, I think there is no arguments against using Polygene for green-field projects, and strong arguments for using it in existing projects. And Polygene remains an unchallenged platform for Domain Driven Design.
+</p>

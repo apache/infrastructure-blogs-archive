@@ -1,0 +1,19 @@
+---
+layout: post
+title: Apache Hadoop Wins MediaGuardian "Innovator Of The Year" Award
+date: '2011-03-24T20:40:11+00:00'
+categories: foundation
+---
+<p>Congratulations to the Apache Hadoop Project for winning the top prize at the 2011 MediaGuardian Innovation Awards in London!
+</p>
+<p>Beating out nominess such as the iPad and WikiLeaks, judges of the fourth annual Media Guardian Innovation Awards (Megas) considered Apache Hadoop a "Swiss Army knife of the 21st Century" and a&nbsp;greater catalyst for innovation by "having the potential to completely change the face of media innovations across the globe."
+</p>
+<p>ASF Chairman and original Hadoop creator Doug Cutting said, "it's great to see the continued recogntition for the technology and I am happy to accept the MediaGuardian Innovator of the Year award on behalf of this flourishing Apache community."
+</p>
+<p>Kudos to all involved with the Apache Hadoop Project!
+</p>
+<p>For more information on Apache Hadoop, visit <a href="http://hadoop.apache.org/">http://hadoop.apache.org/</a>
+  <br />For more infomration on the Megas, please see <a href="http://www.guardian.co.uk/megas">http://www.guardian.co.uk/megas</a>
+</p>
+<p># # #
+</p>

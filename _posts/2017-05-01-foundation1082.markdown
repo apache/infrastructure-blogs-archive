@@ -1,0 +1,46 @@
+---
+layout: post
+title: The Apache Software Foundation Announces Apache® Mahout™ v0.13.0
+date: '2017-05-01T10:00:09+00:00'
+categories: foundation
+---
+<div><strong><em>Open Source scalable machine learning and data mining library for Big Data artificial intelligence now more powerful and easier to use.</em></strong></div> 
+  <div><strong><br /></strong></div> 
+  <div><strong>Forest Hill, MD —1 May 2017—</strong> The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today the availability of Apache® MahoutTM v0.13.0, the latest version of the Open Source scalable machine learning library.</div> 
+  <div><br /></div> 
+  <div>Apache Mahout provides an environment for quickly creating machine-learning applications that scale and run on the highest-performance parallel computation engines available. Mahout is the first scalable generalized tensor and linear algebra solving engine taking data scientists from interactive experiments to production use.</div> 
+  <div><br /></div> 
+  <div>&quot;Apache Mahout 0.13.0 is more powerful with its new algorithm framework that allows for easier implementation of machine learning algorithms,&quot; said Andrew Palumbo, Vice President of Apache Mahout. &quot;The enhanced Mahout code base and development framework make machine learning even more accessible, which is a game changer in the field of artificial intelligence.&quot;</div> 
+  <div><br /></div> 
+  <div>Mahout provides a wide variety of premade algorithms (Matrix Factorization, QR via ALS, SSVD, PCA, etc.) for Scala + Apache Spark, H2O, and Apache Flink, as well as on-GPU compute for performance improvements in very large tensor math. Apache Mahout provides the data science tools to automatically find meaningful patterns in Big Data sets by supporting the following main data science use cases:</div> 
+  <div> 
+    <ul> 
+      <li>Collaborative filtering – mines user behavior and makes product recommendations (such as eCommerce product recommenders);</li> 
+      <li>Regression – estimates a numerical value based on values of other inputs;</li> 
+      <li>Clustering – takes items in a particular class (such as Web pages or newspaper articles) and organizes them into naturally occurring groups, such that items belonging to the same group are similar to each other; and</li> 
+      <li>Classifying – learns from existing categorizations and then assigns unclassified items to the best category.</li> 
+    </ul> 
+  </div> 
+  <div><br /></div> 
+  <div><strong>New in v0.13.0</strong></div> 
+  <div>Apache Mahout now makes it easier to do matrix math on graphics cards, which is relevant for most modern machine-learning and deep-learning methods. In addition, v0.13.0 allows shared nothing computation on GPUs, on multi-core CPU, or in the JVM as appropriate, as well as a simplified framework for building new algorithms. As Mahout comprises an interactive environment and library that support generalized scalable linear algebra and include many modern machine-learning algorithms, the project has also collaborated with developers on other projects, including the Open Source linear algebra library ViennaCL, the Java wrapper library interface JavaCPP, and the graphics processor technology manufacturer NVIDIA to add CUDA bindings directly into Mahout for simplicity of development.</div> 
+  <div><br /></div> 
+  <div>The v0.13.0 release reflects 62 separate JIRA issues from v0.12.2, including numerous enhancements to Mahout-Samsara, the vector math experimentation environment with R-like syntax that works at scale. Complete release notes are at <a href="https://mahout.apache.org/general/powered-by-mahout.html">http://mahout.apache.org/release-notes/Apache-Mahout-0.13.0-Release-Notes.pdf</a></div> 
+  <div><br /></div> 
+  <div>Future versions of Mahout will include support for native iterative solvers, a more robust algorithm library, and smarter probing and optimization of multiplications, among other features.</div> 
+  <div><br /></div> 
+  <div>A comprehensive list of users of Apache Mahout is available at <a href="https://mahout.apache.org/general/powered-by-mahout.html">https://mahout.apache.org/general/powered-by-mahout.html</a> ; current users are mostly researchers and developers actively involved in building distributed machine-learning pipelines and tools.</div> 
+  <div><br /></div> 
+  <div>&quot;We thank our community of developers and users who helped make this milestone release possible, and welcome new contributors to help us advance machine learning,&quot; added Palumbo.</div> 
+  <div><br /></div> 
+  <div>Catch Apache Mahout in action at Apache: Big Data, where attendees learn first-hand from many original project creators and companies from the greater Mahout community. Apache: Big Data will be held 16-18 May 2017 in Miami, FL. To register, and for more information, visit <a href="http://apachecon.com/">http://apachecon.com/</a></div> 
+  <div><br /></div> 
+  <div><strong>Availability and Oversight</strong></div> 
+  <div>Apache Mahout software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Mahout, visit <a href="http://mahout.apache.org/">http://mahout.apache.org/</a> and <a href="https://twitter.com/ApacheMahout">https://twitter.com/ApacheMahout</a></div> 
+  <div><br /></div> 
+  <div><strong>About The Apache Software Foundation (ASF)</strong></div> 
+  <div>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as &quot;The Apache Way,&quot; more than 620 individual Members and 6,000 Committers successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Alibaba Cloud Computing, ARM, Bloomberg, Budget Direct, Capital One, Cash Store, Cerner, Cloudera, Comcast, Confluent, Facebook, Google, Hortonworks, HP, Huawei, IBM, InMotion Hosting, iSigma, LeaseWeb, Microsoft, ODPi, PhoenixNAP, Pivotal, Private Internet Access, Produban, Red Hat, Serenata Flowers, Target, WANdisco, and Yahoo. For more information, visit <a href="http://www.apache.org/%20">http://www.apache.org/</a> and <a href="https://twitter.com/TheASF">https://twitter.com/TheASF</a></div> 
+  <div><br /></div> 
+  <div>© The Apache Software Foundation. &quot;Apache&quot;, &quot;Flink&quot;, &quot;Apache Flink&quot;, &quot;Mahout&quot;, &quot;Apache Mahout&quot;, &quot;Spark&quot;, &quot;Apache Spark&quot;, and &quot;ApacheCon&quot; are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</div> 
+  <div><br /></div> 
+  <div># # #</div>

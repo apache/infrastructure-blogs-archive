@@ -1,0 +1,70 @@
+---
+layout: post
+title: Announcing the release of Apache Samza 0.10.1
+date: '2016-08-10T00:30:10+00:00'
+categories: samza
+---
+<p>I am excited to announce that the <a href="http://samza.apache.org/">Apache Samza</a> 0.10.1 has been released. This is our <i>fourth</i> release as an Apache Top-level Project! 
+
+<br /><br />
+Apache Samza is a distributed stream-processing framework that uses Apache Kafka for messaging, and Apache Hadoop YARN to provide fault tolerance, processor isolation, security, and resource management. It was originally created at LinkedIn and still continues to be used in production. The project is currently under active development with contributions from a diverse group of contributors and committers. Samza still continues to be used in production by many companies (such as Netflix, Uber, TripAdvisor etc. See <a href="https://cwiki.apache.org/confluence/display/SAMZA/Powered+By">PoweredBy</a>) in the industry. 
+</p>
+
+<p>A source download of the 0.10.1 release is available <a href="http://www.apache.org/dyn/closer.cgi/samza/0.10.1">here</a>. The release JARs are also available in <a href="https://repository.apache.org/content/groups/public/org/apache/samza/">Apache's Maven repository</a>. See Samza's <a href="http://samza.apache.org/startup/download/">download</a> page for details. </p>
+
+<p>
+Overall, 72 JIRAs were <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20fixVersion%20%3D0.10.1%20ORDER%20BY%20updated%20DESC">resolved</a> in this release. This is a minor release consisting of some bug-fixes and robust improvements to features like coordinator stream, host-affinity etc. Samza continues to require <i>Java 1.7+</i> and <i>Yarn 2.6.1+</i>.
+<br /><br />
+
+A few notable enhancements are:
+<ul>
+  <li>Support static partition assignment in ProcessJobFactory (<a href="https://issues.apache.org/jira/browse/SAMZA-41">SAMZA-41</a>) </li>
+  <li>Slow start of Samza jobs with large number of containers (<a href="https://issues.apache.org/jira/browse/SAMZA-843">SAMZA-843</a>) </li>
+  <li>Change log not working properly with In memory Store (<a href="https://issues.apache.org/jira/browse/SAMZA-889">SAMZA-889</a>)  </li>
+  <li>Refactor and fix Container allocation logic (<a href="https://issues.apache.org/jira/browse/SAMZA-866">SAMZA-866</a>)  </li>
+  <li>Detect partition count changes in input streams (<a href="https://issues.apache.org/jira/browse/SAMZA-882">SAMZA-882</a>) </li>
+  <li>Host Affinity - State restore doesn't work if the previous shutdown was uncontrolled (continuous offset) (<a href="https://issues.apache.org/jira/browse/SAMZA-905">SAMZA-905</a>) </li>
+  <li>Broadcast stream is not added properly in the prioritized tiers in the DefaultChooser (<a href="https://issues.apache.org/jira/browse/SAMZA-944">SAMZA-944</a>)  </li>
+ </ul>
+
+Some notable performance improvements are:
+<ul>
+  <li>Improve the performance of the continuous OFFSET checkpointing for logged stores (<a href="https://issues.apache.org/jira/browse/SAMZA-964">SAMZA-964</a>) </li>
+  <li>Host Affinity - Minimize task reassignment when container count changes (<a href="https://issues.apache.org/jira/browse/SAMZA-906">SAMZA-906</a>) </li>
+  <li>Improve event loop timing metrics (<a href="https://issues.apache.org/jira/browse/SAMZA-951">SAMZA-951</a>) </li>
+  <li>Avoid unnecessary flushes in CachedStore (<a href="https://issues.apache.org/jira/browse/SAMZA-873">SAMZA-873</a>) </li> 
+</ul>
+
+Known issues in this release:
+<ul>
+  <li>Incompatible change in Kafka producer that does not honor custom partitioners (<a href="https://issues.apache.org/jira/browse/SAMZA-839">SAMZA-839</a>) </li>
+</ul>
+
+<p>
+We've also made a lot of community progress during this release:
+<ul>
+  <li>We had 2 successful meetups - one in February and the other in June. The <a href="https://www.meetup.com/Stream-Processing-Meetup-LinkedIn/events/232864129/">upcoming meetup</a> is scheduled for August 23.
+  <li>Apache Samza was presented at the Apache Big Data (North America) conference in May 2016 and at the Hadoop Summit in June 2016. Check out the content <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=51812876#Papers&Talks-Talks">here</a>.
+  <li>Samza paper/workshop was also accepted at notable academic conferences: 
+    <ul>
+        <li><a href="https://www.computer.org/csdl/proceedings/ipdpsw/2016/3682/00/3682b627-abs.html">SamzaSQL: Scalable Fast Data Management with Streaming SQL</a> presented at <a href="https://www.computer.org/csdl/proceedings/ipdpsw/2016/3682/00/index.html">IEEE International Parallel and Distributed Processing Symposium Workshops </a> (IPDPSW) in May 2016 </li>
+        <li>Effective Multi-stream Joining in Apache Samza Framework in 5th IEEE International Congress on Big Data, June 27 - July 2, 2016, San Francisco, USA </li>
+    </ul>
+   <li>380 emails sent to the developer mailing list in past 3 months </li>
+</ul>
+</p>
+  
+There are a lot more exciting features to expect in our future release. Some of them are:
+<ul>
+  <li>Support multi-threading in samza tasks (<a href="https://issues.apache.org/jira/browse/SAMZA-863">SAMZA-863</a>) </li>
+  <li>Disk Quotas: Add throttler and disk quota enforcement (<a href="https://issues.apache.org/jira/browse/SAMZA-956">SAMZA-956</a>) </li> 
+  <li>REST API for starting and stopping Samza jobs (<a href="https://issues.apache.org/jira/browse/SAMZA-865">SAMZA-865</a>) </li>
+  <li>Samza standalone mode (<a href="https://issues.apache.org/jira/browse/SAMZA-516">SAMZA-516</a>) </li> 
+  <li>High-level language for Samza (<a href="https://issues.apache.org/jira/browse/SAMZA-390">SAMZA-390</a>) </li>
+</ul> 
+ 
+<p>
+It’s a great time to get involved. You can start by running through the <a href="http://samza.apache.org/startup/hello-samza/0.10/">hello-samza</a> tutorial, signing up for the <a href="http://samza.apache.org/community/mailing-lists.html">mailing list</a>, and grabbing some <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20labels%20%3D%20newbie%20AND%20status%20%3D%20Open">newbie JIRAs</a>. Also, don’t miss out the upcoming meetup on August 23. <a href="https://www.meetup.com/Stream-Processing-Meetup-LinkedIn/events/232864129/">Sign up now!</a>
+</p>
+
+I'd like to close by thanking everyone who's been involved in the project. It's been a great experience to be involved in this community, and I look forward to its continued growth.

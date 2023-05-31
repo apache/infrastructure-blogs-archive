@@ -1,0 +1,53 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 12 August 2016'
+date: '2016-08-12T13:57:37+00:00'
+categories: foundation
+---
+<p>Happy Friday! The Apache Community has had another great week --here's what happened:</p> 
+  <div> 
+    <p>ASF Board –management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 17 August 2016. Board calendar and minutes available at <a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 7M+ weekly checks yield fab performance at 99.80% uptime&nbsp;<a href="http://status.apache.org/">http://status.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><a href="http://status.apache.org/"></a>ApacheCon™ –the official conference series of The Apache Software Foundation.<br />&nbsp;- CFP and registration open for Apache: Big Data and ApacheCon&nbsp;Europe/Seville&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a><br /></p> 
+    <p>Apache Commons™ Crypto – a cryptographic library optimized with AES-NI (Advanced Encryption Standard New Instructions).<br />&nbsp;- Apache Commons Crypto 1.0.0 released&nbsp;<a href="http://commons.apache.org/proper/commons-crypto/download_crypto.cgi">http://commons.apache.org/proper/commons-crypto/download_crypto.cgi</a></p> 
+    <p>Apache Commons™ parent –the Maven parent of most commons components.<br />&nbsp;- Apache Commons parent 41 released&nbsp;<a href="http://commons.apache.org/commons-parent-pom.html">http://commons.apache.org/commons-parent-pom.html</a></p> 
+    <p>Apache Jackrabbit™ Oak –a scalable, high-performance hierarchical content repository designed for use as the foundation of modern world-class Web sites and other demanding content applications.<br />&nbsp;- Apache Jackrabbit Oak 1.4.6 released <a href="http://jackrabbit.apache.org/downloads.html">http://jackrabbit.apache.org/downloads.html</a> </p> 
+    <p>Apache Kafka™ –high-throughput, publish-subscribe messaging system rethought of as a distributed commit log.<br />&nbsp;- Apache Kafka 0.10.0.1 released <a href="https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.0.1/k%20afka-0.10.0.1-src.tgz">https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.0.1/kafka-0.10.0.1-src.tgz</a></p> 
+    <p>Apache OpenMeetings™ –video conferencing, instant messaging, white board, collaborative document editing and other groupware tools using API functions of the Red5 Streaming Server for Remoting and Streaming.<br />&nbsp;- Apache OpenMeetings 3.1.2 released&nbsp;<a href="http://openmeetings.apache.org/downloads.html">http://openmeetings.apache.org/downloads.html</a></p> 
+    <p>Apache Sqoop™ –a tool designed for efficiently transferring bulk data between Apache Hadoop and structured datastores, such as relational databases.<br />-&nbsp;Apache Sqoop 1.99.7 released&nbsp;<a href="http://www.apache.org/dyn/closer.lua/sqoop/1.99.7">http://www.apache.org/dyn/closer.lua/sqoop/1.99.7</a></p> 
+    <p>Apache Storm™ –a distributed, fault-tolerant, and high-performance realtime computation system that provides strong guarantees on the processing of data.<br />&nbsp;- Apache Storm 1.0.2 released&nbsp;<a href="http://storm.apache.org/downloads.html">http://storm.apache.org/downloads.html</a></p> 
+    <p>Apache Stratos™ –a PaaS framework that is designed to address the various challenges currently faced in the Cloud PaaS space.<br />&nbsp;- Apache Stratos 4.1.6 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/stratos">http://www.apache.org/dyn/closer.cgi/stratos</a></p> 
+    <p>Apache UIMA™ DUCC –Distributed UIMA Cluster Computing is a cluster management system providing tooling, management, and scheduling facilities to automate the scale-out of applications written to the UIMA framework.<br />&nbsp;- Apache UIMA DUCC 2.1.0 released&nbsp;<a href="http://uima.apache.org/doc-uimaducc-whatitam.html">http://uima.apache.org/doc-uimaducc-whatitam.html</a></p> 
+    <p><b><br />Did You Know?</b></p> 
+    <p>&nbsp;- Did you know that&nbsp;Savings Banks Group Finland uses Apache Wicket?&nbsp;<a href="https://wicket.apache.org">https://wicket.apache.org</a> </p> 
+    <p>&nbsp;- Did you know that Didi Chuxing uses Apache Flume, Apache Kafka, and Apache Samza in their real time architecture?&nbsp;<a href="http://flume.apache.org/">http://flume.apache.org/</a> <a href="http://kafka.apache.org/">http://kafka.apache.org/</a> <a href="http://samza.apache.org/">http://samza.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that you can support the ASF by becoming a Sponsor?&nbsp;<a href="http://apache.org/foundation/thanks">http://apache.org/foundation/thanks</a>&nbsp;Join us in thanking our Sponsors:</p> 
+    <p>&nbsp; -- <u>Platinum Sponsors</u>: Cloudera, Facebook, Google, LeaseWeb, Microsoft, Pivotal, and Yahoo.<br />&nbsp; -- <u>Gold Sponsors</u>: ARM, Bloomberg, Comcast, Hewlett Packard, Hortonworks, IBM, ODPi, and PhoenixNAP.<br />&nbsp; -- <u>Silver Sponsors</u>: Alibaba Cloud Computing, Budget Direct, Capital One, Cerner,&nbsp;Confluent, Huawei,&nbsp;InMotion Hosting, iSIGMA, Private Internet Access, Produban, Red Hat, Serenata Flowers, and&nbsp;WANdisco.<br />&nbsp; -- <u>Bronze Sponsors</u>: 01 Casinos, Basis Technology, Binary Option Robot Info, Bluehost, Casino2k, ChameleonJohn Coupons, Cloudsoft Corporation, HostingAdvice.com, The Linux Foundation, Samsung, Stags and Hens, Talend, Tobi, Twitter, Travel Ticker Hotels, and Web Hosting Secret Revealed.<br />&nbsp; -- Infrastructure Sponsors: Bintray, Freie Universität Berlin, Hotwax Systems, No-IP, OSU Open Source Labs, PagerDuty, Ping My Box, Rackspace, Sonatype, SURFnet, and Symantec.</p> 
+  </div> 
+  <div> 
+    <div> 
+      <p><strong><br />Apache Community Notices:</strong></p> 
+      <p>&nbsp;- Find out how you can participate with Apache community/projects/activities --opportunities open with Avro, ComDev, Directory, Apache HTTP Server, OODT, Poi, Syncope, Tika, and Zest!&nbsp;<a href="https://helpwanted.apache.org/">https://helpwanted.apache.org/</a></p> 
+      <p><strong></strong></p> 
+      <p>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+      <p>&nbsp;- Atlanta Hadoop Users Group present Cutting edge with HBASE&nbsp;on 17 August 2016&nbsp;<a href="http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344766/">http://www.meetup.com/Atlanta-Hadoop-Users-Group/events/230344766/</a></p> 
+    </div> 
+    <p>&nbsp;- CFP is open for the next Cassandra Summit 7-9 September 2016 in San Jose <a href="https://cfp.cassandrasummit.org/">https://cfp.cassandrasummit.org/</a></p> 
+    <p>&nbsp;- CloudStack Collaboration Conference Brasil will take place 29-30 September 2016 in Sao Paolo&nbsp;<a href="http://cloudstack.usp.br/en/index.php">http://cloudstack.usp.br/en/index.php</a></p> 
+    <p>&nbsp;- ApacheCon Europe will take place 14-18 November 2016 in Seville, Spain&nbsp;<a href="http://apachecon.com/">http://apachecon.com/</a></p> 
+    <div> 
+      <p>&nbsp;- The second ASF Annual Report is available at <a href="https://s.apache.org/pTMX">https://s.apache.org/pTMX</a></p> 
+    </div> 
+    <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+    <div><br /></div> 
+    <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a>--all proceeds benefit the ASF!&nbsp;</div> 
+    <div><br /></div> 
+    <div>= = =</div> 
+    <div><br /></div> 
+    <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community,&nbsp;<a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  </div> 
+  <p># # #</p>

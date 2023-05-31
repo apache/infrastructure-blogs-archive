@@ -1,0 +1,46 @@
+---
+layout: post
+title: Announcing the release of Apache Incubator Samza 0.7.0
+date: '2014-07-11T15:44:35+00:00'
+categories: samza
+---
+<p>I am very excited to announce that <a href="http://samza.incubator.apache.org/">Apache Incubator Samza</a> 0.7.0 has been released. Samza is a distributed stream processing framework. It uses Apache Kafka for messaging, and Apache Hadoop YARN to provide fault tolerance, processor isolation, security, and resource management. The project entered Apache Incubator in 2013 and was originally created at LinkedIn, where it's in production use. The project is currently under active development from a diverse group of committers.</p>
+
+<p>A source download of the 0.7.0 release is available <a href="http://www.apache.org/dyn/closer.cgi/incubator/samza/0.7.0-incubating">here</a>. The release JARs are also available in <a href="https://repository.apache.org/content/groups/public/org/apache/samza/">Apache's Maven repository</a>. See Samza's <a href="http://samza.incubator.apache.org/startup/download/">download</a> page for details.</p>
+
+<p>In all, 156 JIRAs were <a href="https://issues.apache.org/jira/browse/SAMZA-309?jql=project%20%3D%20SAMZA%20AND%20fixVersion%20%3D%200.7.0%20AND%20status%20in%20(Resolved%2C%20Closed)">resolved</a> in this release. Notable work done includes:</p>
+
+<ul>
+<li>Initial import of code into Apache. (<a href="https://issues.apache.org/jira/browse/SAMZA-1">SAMZA-1</a>)</li>
+<li>Upgraded to YARN 2.2 from YARN 2.05-alpha. (<a href="https://issues.apache.org/jira/browse/SAMZA-9">SAMZA-9</a>)</li>
+<li><a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20fixVersion%20%3D%200.7.0%20AND%20status%20in%20(Resolved%2C%20Closed)%20and%20component%20%3D%20kv">Numerous</a> state management bug fixes.</li>
+<li>Java 7 support. (<a href="https://issues.apache.org/jira/browse/SAMZA-16">SAMZA-16</a>)</li>
+<li>A <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20fixVersion%20%3D%200.7.0%20AND%20status%20in%20(Resolved%2C%20Closed)%20and%20component%20%3D%20docs">ton</a> of work on <a href="http://samza.incubator.apache.org/learn/documentation/0.7.0/">documentation</a>, <a href="http://samza.incubator.apache.org/learn/tutorials/0.7.0/">tutorials</a>, <a href="http://samza.incubator.apache.org/startup/hello-samza/0.7.0/">hello-samza</a>, and <a href="http://samza.incubator.apache.org/learn/documentation/0.7.0/api/javadocs/">Javadocs</a>.</li>
+<li>Scala 2.10 support, and removal of support for Scala 2.8 (<a href="https://issues.apache.org/jira/browse/SAMZA-128">SAMZA-128</a>, <a href="https://issues.apache.org/jira/browse/SAMZA-160">SAMZA-160</a>)</li>
+<li>One-off resets for input stream offsets. (<a href="https://issues.apache.org/jira/browse/SAMZA-180">SAMZA-180</a>)</li>
+<li>Upgrade to support <a href="http://kafka.apache.org/">Apache Kafka</a> 0.8.1, which includes log compaction. (<a href="https://issues.apache.org/jira/browse/SAMZA-180">SAMZA-180</a>)</li>
+<li>A consensus based shutdown API. (<a href="https://issues.apache.org/jira/browse/SAMZA-253">SAMZA-253</a>)</li>
+<li>A pluggable message sorting API. (<a href="https://issues.apache.org/jira/browse/SAMZA-2">SAMZA-2</a>)</li>
+</ul>
+
+<p>We've also made a lot of community progress during this release:</p>
+
+<ul>
+<li>Added 4 new <a href="http://samza.incubator.apache.org/community/committers.html">committers</a> (Garry Turkington, Martin Kleppmann, Zhijie Shen, and Yan Fang).</li>
+<li>Accepted patches from 14 distinct contributors.</li>
+<li><a href="http://wiki.apache.org/samza/PapersAndTalks">Presented on Samza's architecture and usage.</a></li>
+<li>Had over 1000 emails to the <a href="http://mail-archives.apache.org/mod_mbox/incubator-samza-dev/">developer mailing list</a>.</li>
+</ul>
+
+Even after all this work, there's still <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20resolution%20%3D%20Unresolved%20ORDER%20BY%20priority%20DESC">a lot to be done</a>. In our next release (0.8.0), we're planning to focus on performance. This work includes:
+
+<ul>
+<li>Switching Samza's state feature to use RocksDB instead of LevelDB. (<a href="https://issues.apache.org/jira/browse/SAMZA-236">SAMZA-236</a>)</li>
+<li>Supporting pluggable partition-container assignment strategies. (<a href="https://issues.apache.org/jira/browse/SAMZA-71">SAMZA-71</a>)</li>
+<li>Improving consumer performance. (<a href="https://issues.apache.org/jira/browse/SAMZA-245">SAMZA-245</a>)</li>
+<li>Upgrading Samza's YARN UI. (<a href="https://issues.apache.org/jira/browse/SAMZA-32">SAMZA-32</a>, <a href="https://issues.apache.org/jira/browse/SAMZA-237">SAMZA-237</a>, <a href="https://issues.apache.org/jira/browse/SAMZA-290">SAMZA-290</a>)</li>
+</ul>
+
+<p>Now is a great time to get involved. You can start by running through the <a href="http://samza.incubator.apache.org/startup/hello-samza/0.7.0/">hello-samza</a> tutorial, signing up for the <a href="http://samza.incubator.apache.org/community/mailing-lists.html">mailing list</a>, and grabbing some <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20labels%20%3D%20newbie%20AND%20status%20%3D%20Open">newbie JIRAs</a>.</p>
+
+<p>I'd like to close by thanking everyone who's been involved in the project. It's been a great experience to be involved in this community, and I look forward to its continued growth.</p>

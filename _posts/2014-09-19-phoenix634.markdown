@@ -1,0 +1,7 @@
+---
+layout: post
+title: Getting started with Phoenix just got easier
+date: '2014-09-19T01:37:15+00:00'
+categories: phoenix
+---
+Just wanted to pass along a very nice blog from <a href="http://sequenceiq.com/" target="_blank" title="SequenceIQ">SequenceIQ</a> on a pre-cooked Docker that they setup for Phoenix+HBase:&nbsp;<a href="http://blog.sequenceiq.com/blog/2014/09/04/sql-on-hbase-with-apache-phoenix/" title="blog">http://blog.sequenceiq.com/blog/2014/09/04/sql-on-hbase-with-apache-phoenix/</a>

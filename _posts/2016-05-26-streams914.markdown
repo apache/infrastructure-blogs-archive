@@ -1,0 +1,148 @@
+---
+layout: post
+title: ApacheCon NA 2016 Shark Tank - Apache Streams
+date: '2016-05-26T19:04:46+00:00'
+categories: streams
+---
+Earlier this month I had the pleasure of presenting Apache Streams (Incubating) to three distinguished judges and a conference room full of Apache members, contributors, and enthusiasts during a 'Podling Shark Tank' session at ApacheCon NA 2016 in Vancouver.  This is the presentation I gave, with notes reflecting more or less what I said.
+
+<p/>
+
+You can also browse through the presentation <a href="http://sblackmon-apache-org.herokuapp.com/apacheconna2016-lightning.html">here</a>.
+
+<hr/>
+
+<h2>Problem - Silos!</h2>
+
+<ul>
+<li>It's challenging to get a composite picture of a person or organization</li>
+<li>Data resides in many systems, many of which are 'walled gardens'</li>
+<li>No universally adopted standard for representing social data</li>
+<li>No API standards for accessing and transmitting activities across data silos</li>
+</ul>
+
+Any good pitch starts with a problem. The problem Streams solves
+is data silos.  Data about people, places, things, and the events they are involved with
+are spread across many systems within our organizations and the web at large.
+Distributed data is not inherently bad, but for the most part these datasets lack common
+shape and common access patterns, making it difficult to reason over their facts in place or even to collect them so they can be reasoned about locally.
+
+<hr/>
+
+<h2>Solution</h2>
+
+<h4>Make data interoperable by default</h4>
+
+This state of affairs means many of us are corralling data from the same hundred sources into our own preferred representations, writing and running needless data translations at scale, and making imperfect copies of the same data ad-infinitum. We, the open source community, can make an impact by writing and supporting code that makes it easier and more pleasant to work with datasets and data-sources based on community-driven standards.  We can also write and support code that translates specialized datasets into standardized datasets: one domain (even one API) at a time.
+
+<hr/>
+
+<h2>Activity Streams</h2>
+
+A public specification for describing digital activities and identities in JSON format
+
+<ul>
+<li>1.0 : 2011</li>
+<li>2.0 : WIP</li>
+</ul>
+
+Unfortunately, enthusiasm by organizations controlling data silos has been absent or inconsistent
+
+<p/>
+
+Fortunately, their active participation is not essential (beyond providing API access)
+
+<p/>
+
+Many organizations have acknowledged this pain and want to see it solved. The activity streams community wrote a specification for representing digital entity and event datasets in an all-encompassing yet flexible way in 2011, and that work continues still in 2016 under the W3C's Social Working Group.  The organizations controlling the largest datasets however are no longer actively participating.  In fact, several have taken steps contrary to the groups purpose by shutting down activity streams endpoints that were already in production.  We can't and shouldn't expect companies with a commercial interest in data scarcity to support efforts to make their data easier to collect and analyze off-platform.  The good news is, so long as these firms have a commercial incentive to provide API access, the intricacies of those APIs and any oddities of their data syntax can be overcome with or without their support.
+
+<hr/>
+
+<h2>Apache Streams (incubating)</h2>
+
+<h4>Goals</h4>
+
+<ul>
+<li>Unify a diverse world of digital profiles and online activities into common vocabularies and formats</li>
+<li>Facilitate easy and efficient collection, normalization, and processing</li>
+<li>Make these datasets accessible across a variety of databases, devices, and platforms</li>
+</ul>
+
+<p/>
+
+Apache Streams was started to break down boundaries between data silos, and that mission
+continues.  Datasets are more valuable when viewed together than apart, and it is possible both to imagine and to build an ecosystem where data unity is as common as dis-unity.  Data integration doesn't have to dominate the workday of a typical data analyst, data scientist, or data engineer as it does today.
+
+<hr/>
+
+<h2>Example</h2>
+
+<img src="http://sblackmon-apache-org.herokuapp.com/example.dot.svg" width=1200/>
+
+Here's an example use case that demonstrates the value of the project.  Say your company creates and publishes short-form video content on YouTube and on Instagram.  You've developed an audience on both platforms, and have access to analytics from both.  How do you go about counting your viewers, views, impressions, or comments in total?  Without a consolidated dataset, you are limited to spreadsheets or arithmetic.  You could instead hook up an Apache Streams pipeline to your YouTube channels and Instagram accounts and store normalized JSON datasets of followers, videos, views, and comments into HDFS and Elasticsearch.  Now your team can search and aggregate the full stream across both platforms in Kibana and Hue, allowing you to answer simple and complex questions about what transpired on your properties, involving whom, when, and why, with greater precision.
+
+<hr/>
+
+<h2>Schemas</h2>
+
+Apache Streams contains libraries and patterns for:
+
+<ul>
+<li>specifying document schemas</li>
+<li>converting documents to and from ActivityStreams schemas</li>
+<li>collecting specific data sub-sets from provider APIs</li>
+<li>generating boilerplate to improve quality of code touching documents with schemas</li>
+</ul>
+
+Data conversion on semi-structured data is only possible when you know the structure of your input and output dataset, which is why we need schemas.  Once upon a time, you could hardly work with data at all without defining a schema up-front.  We now have access to tools that relax the need for schemas or don't require them at all, but schemas are still important.  Apache Streams supports documents without schemas just fine, but becomes far more useful when schemas are available.  
+
+<hr/>
+
+<h2>Schema Library</h2>
+
+<h4>streams-pojo contains json schemas for the full activitystreams 1.0 vocabulary</h4>
+
+<pre>
+$ find * -name *.json | grep pojo | grep jsonschema | wc -l
+133
+</pre >
+
+<h4>streams-contrib contains json schemas for non-activitystreams APIs</h4>
+
+<pre>
+$ find * -name *.json | grep provider | grep jsonschema | wc -l
+39
+</pre >
+
+Many Streams modules rely on source code generated from schemas organized within the streams code base and hosted on the streams website - both activity streams formats and other third-party schemas.  Schemas and modules don't have to be part of the official project to interoperate with the wider platform.  Many of the same tools used within the project to work with schemas and compliant documents can also be used outside the project to ease the burden of data integration in proprietary implementations.
+
+<hr/>
+
+<h2>Schema-based source and resource Generation</h2>
+
+<img src="http://sblackmon-apache-org.herokuapp.com/plugins.dot.svg" width=1200/>
+
+<p/>
+
+In the months leading up to this conference, the project has explored using schemas for more than just java source code generation.  We've shown that the schemas under management in the project, or any json schemas anywhere on the web, can be indexed and transformed into source code in Scala or other languages, and into resources that can impress schema efficiently upon database systems, relieving us of the need to create and maintain these artifacts by hand for every data-type.
+
+<hr/>
+
+<h2>How you can help</h2>
+
+<ol>
+<li>Join and participate on the mailing list</li>
+<li>Use streams to collect and index data</li>
+<li>Improve testing, documentation, and flexibility within existing modules</li>
+<li>Write new schemas, providers, and converters</li>
+<li>Help integrate streams with your preferred platform</li>
+<li>Contribute examples showing how your organization uses Streams</li>
+</ol>
+
+Apache Streams is an ambitious project and I'm here to ask for your help.  If these challenges ring true for you and your organization, consider using Streams and building it with us.  Visit our newly re-launched website to learn more about the project and how to get started, and please send us ideas and feedback on the mailing list.
+
+<hr/>
+
+<a href="http://streams.incubator.apache.org">http://streams.incubator.apache.org</a>
+
+@SteveBlackmon

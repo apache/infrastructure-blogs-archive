@@ -1,0 +1,50 @@
+---
+layout: post
+title: 'The Apache News Round-up: week ending 20 November 2015'
+date: '2015-11-20T18:48:52+00:00'
+categories: foundation
+---
+<p>Here's to another productive week at The Apache Software Foundation! Below is a summary of what the community has been working on:</p> 
+  <p>ASF Board –the ASF Board is responsible for management and oversight of the business and affairs of the corporation in accordance with the Foundation's Bylaws.<br />&nbsp;- Next Board Meeting: 16 December. Board calendar and minutes available at&nbsp;<a href="http://apache.org/foundation/board/calendar.html">http://apache.org/foundation/board/calendar.html</a></p> 
+  <div> 
+    <p>ASF Infrastructure –our distributed team on four continents keeps the ASF's infrastructure running around the clock.<br />&nbsp;- 6M weekly checks yielded a meritorious&nbsp;99.98% uptime over the past week <a href="http://status.apache.org/">http://status.apache.org/</a>&nbsp;Check against established SLAs&nbsp;<a href="http://status.apache.org/sla/">http://status.apache.org/sla/</a></p> 
+    <p>Apache Apex (Incubating)&nbsp;–an enterprise grade native YARN big data-in-motion platform that unifies stream processing as well as batch processing.<br />&nbsp;- Apache Apex Malhar 3.2.0-incubating released&nbsp;<a href="http://apex.incubator.apache.org/downloads.html">http://apex.incubator.apache.org/downloads.html</a></p> 
+    <p>Apache Commons™ Collections –a project to develop and maintain collection classes based on and inspired by the JDK collection framework.<br />&nbsp;- Apache Commons Collections 3.2.2 released&nbsp;<a href="http://commons.apache.org/proper/commons-collections/download_collections.cgi">http://commons.apache.org/proper/commons-collections/download_collections.cgi</a></p> 
+    <p>Apache Flex™ –the server-based Java remoting and Web messaging technology that enables developers to easily connect to back-end distributed data and push data in real-time to Adobe Flex and Adobe AIR applications or more responsive rich Internet application (RIA) experiences.<br />&nbsp;- Apache Flex BlazeDS 4.7.2 released&nbsp;<a href="http://www.us.apache.org/dist/flex/BlazeDS/4.7.2/">http://www.us.apache.org/dist/flex/BlazeDS/4.7.2/</a></p> 
+    <p>Apache Flink™ –&nbsp;an Open Source system for expressive, declarative, fast, and efficient data analysis. It combines the scalability and programming flexibility of distributed MapReduce-like platforms with the efficiency, out-of-core execution, and query optimization capabilities found in parallel databases.<br />&nbsp;- Apache Flink 0.10.0 released&nbsp;<a href="http://flink.apache.org/news/2015/11/16/release-0.10.0.html">http://flink.apache.org/news/2015/11/16/release-0.10.0.html</a></p> 
+    <p>Apache Qpid™ Proton –an AMQP 1.0 messaging library. It can be used in a wide range of messaging applications including brokers, clients, routers, bridges, proxies, and more.<br />&nbsp;- Apache Qpid Proton 0.11.0 released&nbsp;<a href="http://qpid.apache.org/download.html">http://qpid.apache.org/download.html</a></p> 
+    <p>Apache Tomcat™ –an Open Source software implementation of the Java Servlet, JavaServer Pages, Java Unified Expression Language and Java WebSocket technologies.<br />&nbsp;- Apache Tomcat 9.0.0.M1 released&nbsp;<a href="http://tomcat.apache.org/download-90.cgi">http://tomcat.apache.org/download-90.cgi</a></p> 
+    <p>Apache Wicket™ –&nbsp;an Open Source Java component oriented Web application framework.<br />&nbsp;- Apache Wicket 6.21.0 released&nbsp;<a href="http://www.apache.org/dyn/closer.cgi/wicket/6.21.0">http://www.apache.org/dyn/closer.cgi/wicket/6.21.0</a></p> 
+    <p>Apache Zeppelin (Incubating) –a&nbsp;collaborative data analytics and visualization tool for distributed, general-purpose data processing systems such as Apache Spark, Apache Flink, etc.<br />&nbsp;- Apache Zeppelin 0.5.5-incubating released&nbsp;<span style="white-space: pre-wrap;"><a href="http://zeppelin.incubator.apache.org/download.html">http://zeppelin.incubator.apache.org/download.html</a></span></p> 
+    <p><strong><br />Did You Know?</strong></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that you can index tweets with Apache Solr using one line of code?&nbsp;<a href="http://lucene.apache.org/solr/">http://lucene.apache.org/solr/</a></p> 
+    <p>&nbsp;- Did you know that CIO Magazine recommends that small businesses consider using Apache OFBiz and OpenOffice as Open Source software options for full-blown ERP and productivity systems?&nbsp;<a href="http://ofbiz.apache.org/">http://ofbiz.apache.org/</a>&nbsp;and&nbsp;<a href="http://openoffice.apache.org/">http://openoffice.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p>&nbsp;- Did you know that the Los Angeles County Department of Public Social Services uses Apache Wicket? <a href="http://wicket.apache.org/">http://wicket.apache.org/</a></p> 
+  </div> 
+  <div> 
+    <p><strong><br />Apache Community Notices:</strong></p> 
+    <p><strong></strong>&nbsp;- The list of Apache project-related MeetUps can be found at <a href="http://apache.org/events/meetups.html">http://apache.org/events/meetups.html</a></p> 
+  </div> 
+  <p>&nbsp;- The Emerging Technologies Conference will be holding a Spark Bootcamp on 21 November in San Ramon <a href="http://www.meetup.com/Emerging-Technologies-Conference/events/226246926/">http://www.meetup.com/Emerging-Technologies-Conference/events/226246926/</a></p> 
+  <p>&nbsp;- Big Data Developers Bangalore will present an introduction to Apache Spark on 21 November 2015 <a href="http://www.meetup.com/Big-Data-Developers-in-Bangalore/events/226419828/">http://www.meetup.com/Big-Data-Developers-in-Bangalore/events/226419828/</a></p> 
+  <p>&nbsp;- The Metroplex Mesos Group will meet 23 November 2015 in Addison <a href="http://www.meetup.com/Metroplex-Mesos-Group/events/226162140/">http://www.meetup.com/Metroplex-Mesos-Group/events/226162140/</a></p> 
+  <p>&nbsp;- The Chicago Apache Flink Meetup will be held 24 November 2015&nbsp;<a href="http://www.meetup.com/Chicago-Apache-Flink-Meetup/events/226602856/">http://www.meetup.com/Chicago-Apache-Flink-Meetup/events/226602856/</a></p> 
+  <p>&nbsp;- The Toronto Cassandra Users Group will meet 24 November 2015&nbsp;<a href="http://www.meetup.com/Toronto-Cassandra-Users-Group/events/226725003/">http://www.meetup.com/Toronto-Cassandra-Users-Group/events/226725003/</a></p> 
+  <p>&nbsp;- &quot;Get to know CouchDB&quot; will be presented 27 November in Hamburg&nbsp;<a href="http://www.silpion.de/event/externes-silpion-knowhowcamp-no1/">http://www.silpion.de/event/externes-silpion-knowhowcamp-no1/</a></p> 
+  <p>&nbsp;- The ASF will be at FOSDEM 2016 in Brussels 30-31 January 2016 <a href="https://fosdem.org/">https://fosdem.org/</a></p> 
+  <div> 
+    <p>&nbsp;- The ASF Operations Summary: First Quarter, Fiscal Year 2016 (May-July 2015) is available at&nbsp;<a href="http://s.apache.org/c2P">http://s.apache.org/c2P</a></p> 
+  </div> 
+  <div>&nbsp;- Are your software solutions Powered by Apache? Download &amp; use our &quot;Powered By&quot; logos&nbsp;<a href="http://www.apache.org/foundation/press/kit/#poweredby">http://www.apache.org/foundation/press/kit/#poweredby</a></div> 
+  <div><br /></div> 
+  <div>&nbsp;- Show your support for Apache with ASF-approved swag from <a href="http://www.zazzle.com/featherwear">http://www.zazzle.com/featherwear</a> and&nbsp;<a href="http://s.apache.org/landsend">http://s.apache.org/landsend</a> --all proceeds benefit the ASF!&nbsp;</div> 
+  <div><br /></div> 
+  <div>= = =</div> 
+  <div><br /></div> 
+  <div>For real-time updates, sign up for <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">Apache-related news</a> by sending mail to announce-subscribe@apache.org and follow <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>. For a broader spectrum from the Apache community, <a href="http://s.apache.org/landsend">https://twitter.com/PlanetApache</a> provides an aggregate of Project activities as well as the personal blogs and tweets of select ASF Committers.</div> 
+  <div><br /></div> 
+  <div># # #</div>

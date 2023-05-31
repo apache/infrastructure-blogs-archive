@@ -1,0 +1,99 @@
+---
+layout: post
+title: LOG4J2 2.13.0 Released
+date: '2019-12-16T01:47:16+00:00'
+categories: logging
+---
+<p>The Apache Log4j 2 team is pleased to announce the Log4j 2.13.0 release!</p>
+<p>Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade
+to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides
+many other modern features such as support for Markers, lambda expressions for lazy logging,
+property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous
+Loggers. Another notable Log4j 2 feature is the ability to be "garbage-free" (avoid allocating
+temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring.</p>
+<p>The artifacts may be downloaded from <a href="https://logging.apache.org/log4j/2.x/download.html">https://logging.apache.org/log4j/2.x/download.html</a>.</p>
+<p>This release contains bugfixes and minor enhancements. Some of the new features in this release are:</p>
+<ol>
+<li>Log4j 2 now requires Java 8 or higher to build and run.</li>
+<li>Experimental support for Log4j 1 configuration files. See
+<a href="https://logging.apache.org/log4j/2.x/manual/compatibility.html">Log4j 2 Compatiblity with Log4j 1</a>.</li>
+<li>The Logger API has been enhanced to support a builder pattern. This can dramatically improve the overhead of
+capturing location information. See <a href="https://logging.apache.org/log4j/2.x/manual/logbuilder.html">Log Builder</a>.</li>
+<li>Better integration with Spring Boot by providing access to Spring variables in Log4j 2 configuration files and
+allowing Log4j 2 system properties to be defined in the Spring configuration.
+See <a href="https://logging.apache.org/log4j/2.x/manual/cloud.html#Managing_Logging_Configuration">Logging in the Cloud</a>.</li>
+<li>Support for accessing Kubernetes information via a Log4j 2 Lookup.</li>
+<li>The Gelf Layout now allows the message to be formatted using a PatternLayout pattern.
+<a href="https://logging.apache.org/log4j/2.x/manual/cloud.html#Log4j_Configuration">Logging in the Cloud</a> provides an example of this, as well
+as the use of the Spring and Kubernetes Lookups.</li>
+</ol>
+<p>Due to a break in compatibility in the SLF4J binding, Log4j now ships with two versions of the SLF4J to Log4j adapters.
+log4j-slf4j-impl should be used with SLF4J 1.7.x and earlier and log4j-slf4j18-impl should be used with SLF4J 1.8.x and
+later.</p>
+<p>Note that the XML, JSON and YAML formats changed in the 2.11.0 release: they no longer have the "timeMillis" attribute
+and instead have an "Instant" element with "epochSecond" and "nanoOfSecond" attributes.</p>
+<p>The Log4j 2.13.0 API, as well as many core components, maintains binary compatibility with previous releases.</p>
+<h2><a id="user-content-ga-release-2130" class="anchor" aria-hidden="true" href="#ga-release-2130"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GA Release 2.13.0</h2>
+<p>Changes in this version include:</p>
+<h3><a id="user-content-new-features" class="anchor" aria-hidden="true" href="#new-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New Features</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2732" rel="nofollow">LOG4J2-2732</a>:
+Add ThreadContext.putIfNotNull method. Thanks to Matt Pavlovich.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2731" rel="nofollow">LOG4J2-2731</a>:
+Add a Level Patttern Selector.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-63" rel="nofollow">LOG4J2-63</a>:
+Add experimental support for Log4j 1 configuration files.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2716" rel="nofollow">LOG4J2-2716</a>:
+Add the ability to lookup Kubernetes attributes in the Log4j configuration. Allow Log4j properties to
+be retrieved from the Spring environment if it is available.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2710" rel="nofollow">LOG4J2-2710</a>:
+Allow Spring Boot application properties to be accessed in the Log4j 2 configuration. Add
+lower and upper case Lookups.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2639" rel="nofollow">LOG4J2-2639</a>:
+Add builder pattern to Logger interface.</li>
+</ul>
+<h3><a id="user-content-fixed-bugs" class="anchor" aria-hidden="true" href="#fixed-bugs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed Bugs</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2058" rel="nofollow">LOG4J2-2058</a>:
+Prevent recursive calls to java.util.LogManager.getLogger().</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2725" rel="nofollow">LOG4J2-2725</a>:
+LOG4J2-2725 - Added try/finally around event.execute() for RingBufferLogEventHandler to clear memory
+correctly in case of exception/error Thanks to Dzmitry Anikechanka.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2635" rel="nofollow">LOG4J2-2635</a>:
+Wrong java version check in ThreadNameCachingStrategy. Thanks to Filipp Gunbin.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2674" rel="nofollow">LOG4J2-2674</a>:
+Use a less confusing name for the CompositeConfiguration source. Thanks to Anton Korenkov.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2727" rel="nofollow">LOG4J2-2727</a>:
+Add setKey method to Kafka Appender Builder. Thanks to Clément Mathieu.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2707" rel="nofollow">LOG4J2-2707</a>:
+ArrayIndexOutOfBoundsException could occur with MAC address longer than 6 bytes. Thanks to Christian Frank.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2712" rel="nofollow">LOG4J2-2712</a>:
+The rolling file appenders would fail to compress the file after rollover if the file name matched the
+file pattern.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2693" rel="nofollow">LOG4J2-2693</a>:
+@PluginValue does not support attribute names besides "value".</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2647" rel="nofollow">LOG4J2-2647</a>:
+Validation blocks definition of script in properties configuration.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2680" rel="nofollow">LOG4J2-2680</a>:
+Set result of rename action to true if file was copied. Thanks to Guillermo Xavier Hurtado Garcia.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J-2672" rel="nofollow">LOG4J-2672</a>:
+Add automatic module names where missing. Thanks to Stephen Colebourne.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2673" rel="nofollow">LOG4J2-2673</a>:
+OutputStreamAppender.Builder ignores setFilter(). Thanks to Yuichi Sugimura.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2725" rel="nofollow">LOG4J2-2725</a>:
+Prevent a memory leak when async loggers throw errors. Thanks to Dzmitry Anikechanka.</li>
+</ul>
+<h3><a id="user-content-changes" class="anchor" aria-hidden="true" href="#changes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2701" rel="nofollow">LOG4J2-2701</a>:
+Update Jackson to 2.9.10.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2709" rel="nofollow">LOG4J2-2709</a>:
+Allow message portion of GELF layout to be formatted using a PatternLayout. Allow
+ThreadContext attributes to be explicitly included or excluded in the GelfLayout.</li>
+</ul>
+<hr>
+<p>Apache Log4j 2.13.0 requires a minimum of Java 8 to build and run. Log4j 2.3 was the
+last release that supported Java 6 and Log4j 2.11.2 is the last release to support Java 7.</p>
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug
+reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="https://logging.apache.org/log4j/2.x/" rel="nofollow">https://logging.apache.org/log4j/2.x/</a></p>

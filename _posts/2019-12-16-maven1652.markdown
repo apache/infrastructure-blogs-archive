@@ -1,0 +1,112 @@
+---
+layout: post
+title: Apache Maven Release Plugin Version 3.0.0-M1 Released
+date: '2019-12-16T20:26:03+00:00'
+categories: maven
+---
+<div class="entry-content"><p>The Apache Maven team is pleased to announce the release of the
+  <a href="http://maven.apache.org/maven-release/">Apache Maven Release, version 3.0.0-M1</a>.</p>
+
+  <p>This plugin is used to release a project with Maven, saving a lot of
+    repetitive, manual work. Releasing a project is made in two steps: prepare and
+    perform.</p>
+
+  <p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>maven-release-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>3.0.0-M1<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  <p>You can download the appropriate sources etc. from the download page:</p>
+
+  <p><a href="https://maven.apache.org/maven-release/download.cgi">https://maven.apache.org/maven-release/download.cgi</a></p>
+
+  <!-- more -->
+
+
+  <p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317824&amp;version=12331214">Release Notes &ndash; Apache Maven Release Plugin &ndash; Version 3.0.0-M1</a></p>
+
+  <ul>
+    <li><p>Bugs:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-229">MRELEASE-229</a> &ndash; release:rollback is missing remove tag implementation</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-601">MRELEASE-601</a> &ndash; The Maven 2 release plugin modifies CDATA elements in pom.xml files.</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-694">MRELEASE-694</a> &ndash; -SNAPSHOT is unexpectedly appended to version in branched pom.xml</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-908">MRELEASE-908</a> &ndash; Git HTTP authentication failing if there are spaces in the password</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-928">MRELEASE-928</a> &ndash; exposing the password for SCM URL if build failed to commit files to SCM</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-947">MRELEASE-947</a> &ndash; Wiki page URL for maven-release-plugin is wrong &ndash; post Codehaus termination</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-964">MRELEASE-964</a> &ndash; Error injecting: org.apache.maven.shared.release.phase.RewritePomsForReleasePhase</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-966">MRELEASE-966</a> &ndash; release plugin does not respect &ldquo;mvn -f&rdquo;</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-968">MRELEASE-968</a> &ndash; Maven release plugin missing plexus-cipher dependency</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-975">MRELEASE-975</a> &ndash; NPE when using an unknown project versionpolicy id</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-997">MRELEASE-997</a> &ndash; Unable to release:perform on windows if a file name contains spaces on windows</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1009">MRELEASE-1009</a> &ndash; Compilation failure when using Java 10</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1034">MRELEASE-1034</a> &ndash; Remove SCM tag blocks rollback in some situations</li>
+      </ul>
+    </li>
+    <li><p>New Features:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-956">MRELEASE-956</a> &ndash; Release Strategy Interface</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-980">MRELEASE-980</a> &ndash; Provide the ability to control commit messages</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-985">MRELEASE-985</a> &ndash; Override SNAPSHOT dependencies from command line</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-998">MRELEASE-998</a> &ndash; Add ability to create custom phases</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1029">MRELEASE-1029</a> &ndash; update project.build.outputTimestamp property on prepare</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1031">MRELEASE-1031</a> &ndash; display release phases to give insight on what&rsquo;s going on during release</li>
+      </ul>
+    </li>
+    <li><p>Improvements:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-703">MRELEASE-703</a> &ndash; [PATCH] Migration from obsolete plexus-maven-plugin to plexus-containers-component-metadata</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-873">MRELEASE-873</a> &ndash; Remove possibly confusing non-standard goals from example</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-896">MRELEASE-896</a> &ndash; Disable by default and deprecate useReleaseProfile parameter</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-909">MRELEASE-909</a> &ndash; Add workItem/task support for scm deliver</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-958">MRELEASE-958</a> &ndash; Using three digit version number (semver)</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-976">MRELEASE-976</a> &ndash; release:branch should also support project version policies</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-977">MRELEASE-977</a> &ndash; release:branch should prompt for branch name if none is given</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-979">MRELEASE-979</a> &ndash; Support NamingPolicies to manage Branch and Tag names</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-992">MRELEASE-992</a> &ndash; Deprecated maven flag &mdash;no-plugin-updates shows warnings in the console output</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-993">MRELEASE-993</a> &ndash; Use shallow checkout per default (git scm)</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-994">MRELEASE-994</a> &ndash; Drop Maven2 support</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1005">MRELEASE-1005</a> &ndash; Extract ResourceGenerator from ReleasePhase</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1007">MRELEASE-1007</a> &ndash; Rework usage workingDirectory and commonBasedir</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1023">MRELEASE-1023</a> &ndash; Minor code cleanups</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1032">MRELEASE-1032</a> &ndash; add <a href="https://m.a.o/xsd/maven-4.0.0.xsd">https://m.a.o/xsd/maven-4.0.0.xsd</a> schema instead of <a href="http://m.a.o/maven-v4_0_0.xsd">http://m.a.o/maven-v4_0_0.xsd</a></li>
+      </ul>
+    </li>
+    <li><p>Tasks:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-356">MRELEASE-356</a> &ndash; Deprecate the automated release profile</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-990">MRELEASE-990</a> &ndash; switch to Git</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1027">MRELEASE-1027</a> &ndash; New Release</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1033">MRELEASE-1033</a> &ndash; Site: Dead link to wiki</li>
+      </ul>
+    </li>
+    <li><p>Dependency upgrades:</p>
+
+      <ul>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-952">MRELEASE-952</a> &ndash; Replace JDom as XML transformer</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1010">MRELEASE-1010</a> &ndash; Upgrade maven-plugins parent to version 32</li>
+        <li><a href="https://issues.apache.org/jira/browse/MRELEASE-1024">MRELEASE-1024</a> &ndash; Upgrade to SCM 1.11.2</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <p>Enjoy,</p>
+
+  <p>-The Apache Maven team</p>
+</div>
+

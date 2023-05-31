@@ -1,0 +1,40 @@
+---
+layout: post
+title: Apache Maven Dependency Tree Version 3.2.0 Released
+date: '2022-08-25T17:15:15+00:00'
+categories: maven
+---
+<div class="post_body"><p>The Apache Maven team is pleased to announce the release of the
+<a href="https://maven.apache.org/shared/maven-dependency-tree/">Apache Shared Component: Apache Maven Dependency Tree Version 3.2.0</a></p>
+<p>A tree-based API for resolution of Maven project dependencies.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.shared<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>maven-dependency-tree<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  <span class="nt">&lt;version&gt;</span>3.2.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nt">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317922&amp;version=12351759">Release Notes Apache Shared Componet Maven Dependency Tree 3.2.0</a></p>
+<ul>
+<li>
+<p>Bug:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHARED-1016">MSHARED-1016</a> - Transitive provided dependencies are not removed from collected dependency graph</li>
+</ul>
+</li>
+<li>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHARED-1070">MSHARED-1070</a> - Migrate plexus component to JSR-330</li>
+<li><a href="https://issues.apache.org/jira/browse/MSHARED-1071">MSHARED-1071</a> - Drop maven 3.0 compatibility</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrade:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MSHARED-1114">MSHARED-1114</a> - Bump maven-shared-components from 36 to 37</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Maven team</p>
+
+    </div>

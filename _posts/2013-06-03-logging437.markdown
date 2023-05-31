@@ -1,0 +1,7 @@
+---
+layout: post
+title: Dominik Psenner to join the Apache Logging PMC
+date: '2013-06-03T08:36:25+00:00'
+categories: logging
+---
+Dominik Psenner, active mostly in log4net, has been elected into the Apache Logging PMC. All the best for your new role and thank you for your valuable contributions so far.
