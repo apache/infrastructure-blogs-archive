@@ -1,8 +1,0 @@
----
-layout: post
-title: 'User Blog: Tomcat, OpenEJB and Jersey, oh my'
-date: '2009-12-23T00:00:00+00:00'
-categories: openejb
----
-Russ Jackson writes on his success getting <a href="http://usna86-techbits.blogspot.com/2009/12/tomcat-openejb-and-jersey-oh-my.html">Tomcat, OpenEJB and Jersey</a> all hooked up and running together.  More than anything, it's great to see people exploring this stack.  Certainly there are cool things that can be done with the three.  A note on the @EJB injection; if there is some way to extend or enhance the injection that Jersey does, it would definitely be possible to add support for @EJB, @Resource, @PersistenceContext and more to Jersey components running in a Tomcat/OpenEJB stack.  Wonderful area for contribution if anyone has the itch!
-

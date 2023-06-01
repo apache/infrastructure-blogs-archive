@@ -1,0 +1,255 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Getting Started With Geode
+author:
+  display_name: Vince Ford
+  login: vford13
+  email: vford13@apache.org
+author_login: vford13
+author_email: vford13@apache.org
+id: 4b693d81-1ff4-4df6-8ca0-294061f6e270
+date: '2015-10-14 23:09:34 -0400'
+categories:
+- General
+tags:
+- tutorial
+- geode
+comments:
+- id: 0
+  author: technicalonline
+  author_email: technicalonline24x7@gmail.com
+  author_url: ''
+  date: '2019-07-03 15:42:11 -0400'
+  content: http://advancefms.com/ | advancefms.com | http://www.advancefms.com/ |
+    www.advancefms.com/ |
+- id: 0
+  author: Wills
+  author_email: willsmarry21@gmail.com
+  author_url: ''
+  date: '2019-11-26 15:35:31 -0500'
+  content: Home Depot store officially taking the customer's opinion to improve their
+    services. Home Depot store management is very interested in taking customer feedback
+    on this official website https://patronsurvey.com/www-lowes-com-survey/. In return,
+    they are giving the $5000 or $3000 gift card for free to the winners of this survey.
+    You can take more surveys on this official https://patronsurvey.com/ website.
+- id: 8
+  author: Metformin
+  author_email: subskohydney1971@gmail.com
+  author_url: http://de-online-apotheke.com/product/metformin.html?lang=de
+  date: '2019-07-19 19:16:24 -0400'
+  content: Nice work! :) 帅的~
+- id: 8398
+  author: technicalonline
+  author_email: technicalonline24x7@gmail.com
+  author_url: ''
+  date: '2019-07-03 15:42:44 -0400'
+  content: "http://www.housekeepingmumbai.in/ |\thttp://housekeepingmumbai.in/ | www.housekeepingmumbai.in
+    | housekeepingmumbai.in/ |"
+permalink: geode/entry/getting_started_with_geode
+---
+<p><!--<br />
+<style>
+span#bgc {<br />
+	background-color: #DBDAD8;<br />
+}<br />
+</style>
+<p> --><br />
+<body></p>
+<p>
+<h2><b>1.0 - Getting Started With Geode</b></h2></p>
+<hr>
+<p>Welcome to Geode, this blog entry is a beginners guide and tutorial covering the usage and features of Apache Geode. Geode is a performance orientated in-memory datastore with features that can be used for data caching, a NoSQL database, lightweight distributed messaging or for distributed compute tasks. Each of these aspects of Geode will be explored in greater detail in future blog articles with today's focus on simply getting the Geode source, building and then validating with a very simple example using Geode demonstrating basic caching of a key-value pair.</p>
+<p>Chances are if you are reading this blog then you have already been looking at the Apache Geode website and this has further sparked your interest in what is Geode and how you can use it. Currently Geode is an incubating project and as such hasn't yet met all the requirements to be a first level Apache project, as an incubating project this provides the opportunity for new open source contributions and their developers to address Apache organization requirements, build a community and get the source into the public. Geode itself is derived from the long running commercial GemFire product and today has a rich feature set that can be immediately be used for creating applications. Let's dive in...</p>
+<p>One assumption we are going to make upfront is that all the operations are being done within a Linux terminal window and using the Bash shell. </p>
+<p>Next validate that a compatible version of the Java JDK is installed. The Java version needs to be a version greater than JDK 1.7.75. </p>
+<p><span id="bgc">$ <b>java -version</b><br><br />
+java version "1.8.0_31"<br><br />
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)<br><br />
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)</span><br><br></p>
+<p><span id="bgc">$ <b>jps -v</b><br><br />
+12195 Jps -Denv.class.path=. -Dapplication.home=/hostdisk/jdk1.8.0_31 -Xms8m<br></span></p>
+<p>If you see an error or other issues using jps, you may not have a full JDK installed which will be important for later blogs as tools such as jconsole, jstack and jmap will used.</p>
+<p>Then validate that git is installed and available which will be used to download the source code from the Apache servers. </p>
+<p><span id="bgc">$ <b>git --version</b><br><br />
+git version 1.7.9.5</span><br></p>
+<hr>
+<p>Now we are ready to get the Geode source and build Geode. The next step is to use git to clone the Geode source repository to your host machine. </p>
+<p><span id="bgc">$ <b>git clone https://git-wip-us.apache.org/repos/asf/incubator-geode.git</b><br><br />
+Cloning into 'incubator-geode'...<br><br />
+remote: Counting objects: 12658, done.<br><br />
+remote: Compressing objects: 100% (8547/8547), done.<br><br />
+remote: Total 12658 (delta 4802), reused 10141 (delta 3412)<br><br />
+Receiving objects: 100% (12658/12658), 27.18 MiB | 1.84 MiB/s, done.<br><br />
+Resolving deltas: 100% (4802/4802), done.</span><br></p>
+<p>The source code is also mirrored from the Apache server onto GitHub and can be downloaded from there as well. In most cases downloading the source should only take a few minutes at most. Once completed there should be a directory called incubator-geode created which now contains a copy of the Geode source repository.</p>
+<p>Change into the new incubator-geode directory and list the files and directory.</p>
+<p><span id="bgc">$ <b>cd incubator-geode</b><br><br />
+$ <b>ls </b><br><br />
+build.gradle  etc  gemfire-core gemfire-joptsimple gemfire-junit  gemfire-web-api  gradle.properties  gradlew.bat  NOTICE RUNNING.txt COMPILING.txt  gemfire-assembly  gemfire-jgroups  gemfire-json	  gemfire-web  gradle	gradlew LICENSE.txt  README.md  settings.gradle<br />
+</span><br></p>
+<p>Because the Geode project uses git, the whole project along with many feature branches are available. The initial default starting branch is the master branch which should be considered stable and is only periodically updated.  Check which branch you are using with the  following command.</p>
+<p><span id="bgc">$ <b>git branch</b><br><br />
+* master</span><br><br></p>
+<p>If on the master branch like above then change to the develop branch. The develop branch is currently very active with updates and is where new features are being added.</p>
+<p>$  <span id="bgc"><b>git branch develop origin/develop</b><br><br />
+$  <b>git checkout develop</b><br><br />
+Checking out files: 100% (2822/2822), done.<br><br />
+Switched to branch 'develop'<br><br />
+</span></p>
+<p>The file build.gradle is the build script which is used by the Gradle build tool to create the Geode binary.  You can find out more about Gradle from http://gradle.org/ but for our simple build needs we are just going to use just one command.  Don't worry if you don't have Gradle installed, the script will download the required files to run the build and create the binaries. So for just getting started quickly we will skip doing the tests at this time but you should run the full test suite as some future time (especially if making changes to the Geode source).</p>
+<p><span id="bgc">$<b>./gradlew clean build installDist -Dskip.tests=true</b><br><br />
+:gemfire-assembly:clean UP-TO-DATE<br><br />
+:gemfire-core:clean UP-TO-DATE<br><br />
+:gemfire-jgroups:clean UP-TO-DATE<br><br />
+:gemfire-joptsimple:clean UP-TO-DATE<br><br />
+:gemfire-json:clean UP-TO-DATE<br><br />
+:gemfire-junit:clean UP-TO-DATE<br><br />
+&hellip; <br><br />
+:gemfire-web-api:compileTestJava UP-TO-DATE<br><br />
+:gemfire-web-api:processTestResources UP-TO-DATE<br><br />
+:gemfire-web-api:testClasses UP-TO-DATE<br><br />
+:gemfire-web-api:distributedTest UP-TO-DATE<br><br />
+:gemfire-web-api:integrationTest UP-TO-DATE<br><br />
+:gemfire-web-api:test UP-TO-DATE<br><br />
+:gemfire-web-api:check UP-TO-DATE<br><br />
+:gemfire-web-api:build<br></p>
+<p>BUILD SUCCESSFUL<br></p>
+<p>Total time: 4 mins 5.779 secs</span><br><br></p>
+<p>The build process will download Gradle if needed, then it will use the build script to create the binary files and normally will perform unit tests to validate the build. If the build took more than 5 minutes then you may have forgotten the skip.tests flag, the tests are fairly extensive and take many hours to complete. Once the build is complete, the Geode binary artifacts are placed in the directory  gemfire-assembly/build/install/apache-geode and should now be ready to use. Time to change to this directory and do a few simple tests to validate the build for ourselves.</p>
+<p><span id="bgc">$ <b>cd gemfire-assembly/build/install/apache-geode</b><br><br />
+$ <b>ls</b><br><br />
+bin  config  lib  tools</span><br><br></p>
+<p>There should be four directories created, the bin directory contains scripts to run the gfsh command line tool, config contains some default configuration files, lib is all the jar files used by Geode and last is the tools directory which is where extensions to Geode live.  Lets start a simple Geode distributed cache and put a little data into it to test it ourselves.</p>
+<hr>
+<p>First we will start the Geode command shell and use this to start everything and enter some data.  We will discuss further in a future blog using the gfsh shell, for now follow the basic commands.</p>
+<p>$ <span id="bgc"><b>./bin/gfsh</b><br><br />
+    _________________________     __<br><br />
+   / _____/ ______/ ______/ /____/ /<br><br />
+  / /  __/ /___  /_____  / _____  /&nbsp; <br><br />
+ / /__/ / ____/  _____/ / /    / /&nbsp;<br><br />
+/______/_/      /______/_/    /_/&nbsp;&nbsp;v1.0.0-incubating-SNAPSHOT<br><br />
+<br><br />
+Monitor and Manage GemFire<br><br />
+gfsh><br></span><br><br></p>
+<p>Now that the gfsh shell is started lets start the first process which is the Locator and this provides a number of services to the cache with the most important being it helps servers find each other by providing a list of members started in the distributed system. The Locator doesn't store any application data but instead is used to manage and share metadata about the servers and is a critical component which needs to be started first.
+ </p>
+<p><span id="bgc">gfsh> <b>start locator --name=locator</b><br><br />
+Starting a GemFire Locator in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/locator...<br><br />
+Locator in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/locator on localhost[10334] as locator is currently online.<br><br />
+Process ID: 10773<br><br />
+Uptime: 17 seconds<br><br />
+GemFire Version: 1.0.0-incubating-SNAPSHOT<br><br />
+Java Version: 1.8.0_31<br><br />
+Log File: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/locator/locator.log<br><br />
+JVM Arguments: -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806<br><br />
+Class-Path: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/lib/gemfire-core-1.0.0-incubating-SNAPSHOT.jar:/hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/lib/gemfire-core-dependencies.jar<br><br />
+Successfully connected to: [host=localhost, port=1099]<br><br />
+Cluster configuration service is up and running.<br><br />
+</span><br></p>
+<p>Next lets start two servers that will manage and store our user created data.</p>
+<p><span id="bgc">gfsh> <b>start server --name=server1</b><br><br />
+Starting a GemFire Server in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server1...<br><br />
+Server in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server1 on localhost[40404] as server1 is currently online.<br><br />
+Process ID: 10946<br><br />
+Uptime: 4 seconds<br><br />
+GemFire Version: 1.0.0-incubating-SNAPSHOT<br><br />
+Java Version: 1.8.0_31<br><br />
+Log File: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server1/server1.log<br><br />
+JVM Arguments: -Dgemfire.default.locators=10.118.32.27[10334] -Dgemfire.use-cluster-configuration=true -XX:OnOutOfMemoryError=kill -KILL %p -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806<br><br />
+Class-Path: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/lib/gemfire-core-1.0.0-incubating-SNAPSHOT.jar:/hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/lib/gemfire-core-dependencies.jar<br><br />
+</span><br></p>
+<p>The first server is started using a default port of 40404, so in starting a second server we will need to use a different server port than what the first server is using.</p>
+<p><span id="bgc"><b>gfsh>start server --name=server2 --server-port=40405</b><br><br />
+Starting a GemFire Server in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server2...<br><br />
+Server in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server2 on localhost[40405] as server2 is currently online.<br><br />
+Process ID: 11081<br><br />
+Uptime: 4 seconds<br><br />
+GemFire Version: 1.0.0-incubating-SNAPSHOT<br><br />
+Java Version: 1.8.0_31<br><br />
+Log File: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server2/server2.log<br><br />
+JVM Arguments: -Dgemfire.default.locators=10.118.32.27[10334] -Dgemfire.use-cluster-configuration=true -XX:OnOutOfMemoryError=kill -KILL %p -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806<br><br />
+Class-Path: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/lib/gemfire-core-1.0.0-incubating-SNAPSHOT.jar:/hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/lib/gemfire-core-dependencies.jar<br><br />
+</span></p>
+<p>All the members of the distributed system can be listed, some of values below will be different based on the environment but you should at this point see three members ( locator, server1 and server2).</p>
+<p><span id="bgc">gfsh><b>list members</b><br><br />
+ Name   | Id<br><br />
+------- | -------------------------------------<br><br />
+server1 | localhost(server1:10946)<v1>:7916<br><br />
+locator | localhost(locator:10773:locator)<v0>:25259<br><br />
+server2 |localhost(server2:11081)<v2>:28703</span><br></p>
+<p>To store data in the servers a Region must be created. The Region is very similar to a Java hashmap in usage with many additional features with one of the most important being that the data stored within the region will be shared between the two servers.</p>
+<p><span id="bgc"> gfsh> <b>create region --name=region --type=REPLICATE</b><br><br />
+Member  | Status<br><br />
+------- | -------------------------------------<br><br />
+server2 | Region "/region" created on "server2"<br><br />
+server1 | Region "/region" created on "server1"<br><br />
+<br><br />
+gfsh><b>list regions</b><br><br />
+List of regions<br><br />
+---------------<br><br />
+region<br><br />
+</span></p>
+<p>Time to put some data into our servers and use the region that was created earlier. Again similar to a hashmap a key-value pair will be inserted or put into the region to be stored by the servers. In this case the key is a simple string as well as the value. </p>
+<p><span id="bgc">gfsh><b>put --key=abc --value=def --region=region</b><br><br />
+Result      : true<br><br />
+Key Class   : java.lang.String<br><br />
+Key         : abc<br><br />
+Value Class : java.lang.String<br><br />
+Old Value   : <NULL></span><br></p>
+<p>Once the data has been put in the servers the value can retrieved using the get command and the key.  </p>
+<p><span id="bgc"> gfsh><b>get --key=abc --region=region</b><br><br />
+Result      : true<br><br />
+Key Class   : java.lang.String<br><br />
+Key         : abc<br><br />
+Value Class : java.lang.String<br><br />
+Value       : def</span><br></p>
+<p>Let's exit from gfsh. </p>
+<p><span id="bgc">gfsh> <b>exit</b><br><br />
+Exiting...</span><br></p>
+<p>From the command line we can see that gfsh has started three processes that continue to run after stopping the gfsh shell. </p>
+<p><span id="bgc">$ <b>jps</b><br><br />
+10946 ServerLauncher<br><br />
+11081 ServerLauncher<br><br />
+10773 LocatorLauncher<br><br />
+21340 Jps</span><br></p>
+<p>Back into gfsh and time to stop the servers. </p>
+<p><span id="bgc">$ <b>./bin/gfsh</b></span><br></p>
+<p>Reconnect to the locator using the default port of 10334 after having exited and restarted gfsh.</p>
+<p><span id="bgc">gfsh><b>connect --locator=localhost[10334]</b><br><br />
+Connecting to Locator at [host=localhost, port=10334] ..<br><br />
+Connecting to Manager at [host=localhost, port=1099] ..<br><br />
+Successfully connected to: [host=localhost, port=1099]</span><br></p>
+<p>Before stopping servers we should clean up a bit and delete the region that was created for testing the build. </p>
+<p><span id="bgc">gfsh><b>destroy region --name=region</b><br><br />
+"region"  destroyed successfully.<br></span></p>
+<p>Stop the servers and locator processes. Once both servers are stopped the data which was stored only in memory will no longer be available even if the servers are restarted. </p>
+<p><span id="bgc">gfsh><b>stop server --name=server1</b><br><br />
+Stopping Cache Server running in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server1 on localhost[40404] as server1...<br><br />
+Process ID: 10946<br><br />
+Log File: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server1/server1.log<br><br />
+....<br><br />
+gfsh><b>stop server --name=server2</b><br><br />
+Stopping Cache Server running in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server2 on localhost[40405] as server2...<br><br />
+Process ID: 11081<br><br />
+Log File: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/server2/server2.log<br><br />
+....<br><br />
+gfsh><b>stop locator --name=locator</b><br><br />
+Stopping Locator running in /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/locator on localhost[10334] as locator...<br><br />
+Process ID: 10773<br><br />
+Log File: /hostdisk/incubator-geode/gemfire-assembly/build/install/apache-geode/locator/locator.log<br><br />
+...<br><br />
+No longer connected to localhost[1099].<br><br />
+gfsh><b>quit</b><br><br />
+Exiting... </span></p>
+<hr>
+<p>If you inspect the build directory there have been three new directories created, one for the Locator and each Server created by gfsh and are named the same as the name parameter used in the gfsh commands to start each process. The log files for each process will be written to these directories and if you encounter any issues then those log files should be reviewed for exceptions.</p>
+<p>At the end here we have completed getting Geode, building it from source and doing some manual testing (putting and getting a string from the cache). We have introduced the Locator and Servers along with using the GFSH shell to create and start these processes.  In the next blog entry we will discuss the use cases for Geode and how it can be used in an application.</p>
+<hr>
+<p>For additional details and information see the following URL&acute;s:</p>
+<p><a href="https://geode-docs.cfapps.io/docs/tools_modules/gfsh/configuring_gfsh.html">https://geode-docs.cfapps.io/docs/tools_modules/gfsh/configuring_gfsh.html</a><br><br />
+<a href="https://cwiki.apache.org/confluence/display/GEODE/Index#Index-Geodein5minutes">https://cwiki.apache.org/confluence/display/GEODE/Index#Index-Geodein5minutes</a><br><br />
+<a href="https://geode-docs.cfapps.io/docs/tools_modules/gfsh/quick_ref_commands_by_area.html">https://geode-docs.cfapps.io/docs/tools_modules/gfsh/quick_ref_commands_by_area.html</a><br><br />
+<a href="https://geode-docs.cfapps.io/docs/basic_config/data_regions/chapter_overview.html">https://geode-docs.cfapps.io/docs/basic_config/data_regions/chapter_overview.html</a><br><br />
+</body></p>

@@ -1,0 +1,86 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Example: Common Troubleshooting flags'
+author:
+  display_name: David Blevins
+  login: dblevins
+  email: dblevins@apache.org
+author_login: dblevins
+author_email: dblevins@apache.org
+id: be02953f-b51e-4d8e-a665-293a053d3e20
+date: '2010-03-12 13:02:00 -0500'
+categories:
+- Java
+tags:
+- troubleshooting
+- ejb3
+- openejb
+- testing
+comments:
+- id: 4
+  author: ingrossasli1977
+  author_email: ingrossasli1977@gmail.com
+  author_url: https://blogss.apache.org
+  date: '2019-07-18 16:48:32 -0400'
+  content: Unreal, MIND BLOWING!
+- id: 133
+  author: health
+  author_email: geanichacu1973@gmail.com
+  author_url: https://trusted-canadian-online-pharmacy.com/cancer/nolvadex.html
+  date: '2019-07-20 22:58:39 -0400'
+  content: amazing work please you look at me my work.i am new amazing colors and
+    setup! it all works great! I love it!
+permalink: openejb/entry/example_common_troubleshooting_flags
+---
+<p>Having trouble with a test?  It's bound to happen eventually.  We've coded up a <a href="http://svn.apache.org/repos/asf/openejb/trunk/openejb3/examples/troubleshooting/">little example</a> that employs some of the more common ways to get more information to help resolve issues.</p>
+<p/>
+The heart of the example is the following setup method:</p>
+<p/>
+<pre>
+public void setUp() throws Exception {
+    Properties p = new Properties();
+    p.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.openejb.client.LocalInitialContextFactory");
+    p.put("movieDatabase", "new://Resource?type=DataSource");
+    p.put("movieDatabase.JdbcDriver", "org.hsqldb.jdbcDriver");
+
+    // These two debug levels will get you the basic log information
+    // on the deployment of applications. Good first step in troubleshooting.
+    p.put("log4j.category.OpenEJB.startup", "debug");
+    p.put("log4j.category.OpenEJB.startup.config", "debug");
+
+    // This log category is a good way to see what "openejb.foo" options
+    // and flags are available and what their default values are
+    p.put("log4j.category.OpenEJB.options", "debug");
+
+    // This will output the full configuration of all containers
+    // resources and other openejb.xml configurable items.  A good
+    // way to see what the final configuration looks like after all
+    // overriding has been applied.
+    p.put("log4j.category.OpenEJB.startup.service", "debug");
+
+    // Want timestamps in the log output?
+    p.put("log4j.appender.C.layout", "org.apache.log4j.PatternLayout");
+    p.put("log4j.appender.C.layout.ConversionPattern", "%d - %-5p - %m%n");
+
+    // Will output a generated ejb-jar.xml file that represents
+    // 100% of the annotations used in the code.  This is a great
+    // way to figure out how to do something in xml for overriding
+    // or just to "see" all your application meta-data in one place.
+    // Look for log lines like this "Dumping Generated ejb-jar.xml to"
+    p.put("openejb.descriptors.output", "true");
+
+    // Setting the validation output level to verbose results in
+    // validation messages that attempt to provide explanations
+    // and information on what steps can be taken to remedy failures.
+    // A great tool for those learning EJB.
+    p.put("openejb.validation.output.level", "verbose");
+
+    initialContext = new InitialContext(p);
+
+    initialContext.bind("inject", this);
+}
+</pre>
+<p/>
+In practice it is not a good idea to enable so many debug flags as the output will be too much.  Best to start with one, read the log output, and see if that doesn't give some direction.  If not, disable it and move on to the next.</p>

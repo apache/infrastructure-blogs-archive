@@ -1,0 +1,32 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Tiles 2.2 will have Velocity and Freemarker support
+author:
+  display_name: Antonio Petrelli
+  login: apetrelli
+  email: apetrelli@apache.org
+author_login: apetrelli
+author_email: apetrelli@apache.org
+excerpt: Tiles 2.0 and 2.1 can only use JSP (and Freemarker with a trick), but with
+  Tiles 2.2, Velocity and Freemarker will be supported natively.
+id: 910bf495-b026-48a6-996c-dcbbbce47956
+date: '2009-07-08 15:50:44 -0400'
+categories:
+- Development
+tags:
+- freemarker
+- velocity
+- tiles
+comments: []
+permalink: tiles/entry/tiles_2_2_will_have
+---
+<p>Tiles 2.0 and 2.1 have only the possibility to use JSP natively. Freemarker is usable through its ability to load JSP tags.</p>
+<p>With Tiles 2.2 it will be possible to write templates with Velocity and Freemarker. In Subversion repository, two submodules have been created for this:</p>
+<ul>
+<li><a href="http://svn.eu.apache.org/repos/asf/tiles/framework/trunk/tiles-velocity/">http://svn.eu.apache.org/repos/asf/tiles/framework/trunk/tiles-velocity/</a></li>
+<li><a href="http://svn.eu.apache.org/repos/asf/tiles/framework/trunk/tiles-freemarker/">http://svn.eu.apache.org/repos/asf/tiles/framework/trunk/tiles-freemarker/</a></li>
+</ul>
+<p>Documentation can be generated from the <a href="http://svn.eu.apache.org/repos/asf/tiles/framework/trunk/">tiles-parent project</a>.</p>
+<p>Moreover, the support for future template languages is simplified by the presence of the <a href="http://svn.eu.apache.org/repos/asf/tiles/framework/trunk/tiles-template/">tiles-template</a> module, that expresses, in a template-language-neutral way, the tags to create Tiles templates.</p>

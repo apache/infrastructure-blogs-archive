@@ -1,0 +1,48 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache TomEE 1.0 Final Released!
+author:
+  display_name: David Blevins
+  login: dblevins
+  email: dblevins@apache.org
+author_login: dblevins
+author_email: dblevins@apache.org
+id: a47ff31f-2f42-4d2e-814d-6daf5bf3e4fb
+date: '2012-04-30 12:53:15 -0400'
+categories:
+- Java
+tags:
+- release
+- announcement
+- final
+- tomee
+comments:
+- id: 0
+  author: medicine
+  author_email: comnabedead1984@gmail.com
+  author_url: https://trusted-canadian-online-pharmacy.com/antibiotics/amoxil.html
+  date: '2019-07-20 19:35:58 -0400'
+  content: So good This is PERFECT in so many levels i don't even know where to start
+- id: 240
+  author: film izle
+  author_email: dadadada@gmail.com
+  author_url: https://altyazilifilm.live
+  date: '2019-06-29 20:30:38 -0400'
+  content: "Attendees to Experience \"Tomorrow's Technology Today\" and Celebrate
+    Two Decades of Open Source Innovation \"The Apache Way\" in Chicago, Las Vegas,
+    and Berlin\r\n\r\n"
+permalink: openejb/entry/apache_tomee_1_0_final
+---
+<p>The Apache TomEE community is excited to announce the long awaited final release of <a href="http://openejb.apache.org/downloads.html">Apache TomEE 1.0</a>.</p>
+<p>A primary focus of the final release is performance tuning and production.  Tuning was focused on large Applications such as Confluence, Ralio, and Lift.  Large applications can expect major improvements over anywhere from a 100% to a 300% improvement in startup time over beta-2.</p>
+<p>Railo 3.3 Custom (44mb WAR): 21.3% of beta2 startup time (369% faster)<br />
+Lift/Scala sample app (23mb WAR): 43.8% of beta2 startup time (128% faster)<br />
+Confluence 3.5.5 (149mb unpacked): 37.6% of beta2 startup time (166% faster)</p>
+<p>Reduced classloading and a rewrite of the annotation scanning code account for the bulk of the increase.  Improved TLD file scanning accounts for a large portion as well.  New features also include, but not used in the above numbers, the ability to pinpoint which classes and jars should be scanned via scan.xml file placed in the application.</p>
+<p>Server startup times have greatly improved as well.  On a modern MacBookPro, without an SSD, startup time should be about 1200ms from the command line with all the default applications present or about 700ms via the Tomcat adapter in Eclipse.  Issues with deploying applications to TomEE in Eclipse via the Tomcat adapter have all been eliminated.  The steps of setting up a server setup are now quite easy and with the improved startup to deploy times the results are quite impressive.</p>
+<p><iframe width="420" height="315" src="http://www.youtube.com/embed/Lr8pxEACVRI" frameborder="0" allowfullscreen></iframe></p>
+<p>New features include a Remote Adapter for Arquillian to round out the Arquillian support debuted in beta2.  Shipped in a separate zip file that can be extracted into any server is an experimental new feature for provisioning applications using online Maven repositories. The functionality works great and we're excited to get feedback on it before considering it polished and stable.  Write the dev list for details.</p>
+<p>Of course a major new feature of TomEE is Tomcat itself.  TomEE 1.0 uses the days old Tomcat 7.0.27 which adds support for the WebSocket protocol (RFC6455).  Both streaming and message based APIs are provided and the implementation currently fully passes the Autobahn test suite.</p>
+<p>We'd like to thank everyone who gave feedback during the beta releases.  Your feedback has been critical maturing TomEE quickly and with results that even shocked us.  We are incredibly pleased with the results and excited to see TomEE reach its potential.</p>

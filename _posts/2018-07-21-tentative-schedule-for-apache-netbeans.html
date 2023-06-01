@@ -1,0 +1,87 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Tentative Schedule for Apache NetBeans (incubating) 9.0 Release
+author:
+  display_name: GeertjanWielenga
+  login: geertjan
+  email: geertjan@apache.org
+author_login: geertjan
+author_email: geertjan@apache.org
+id: 41d92785-3228-4024-b7a2-b2650e95456b
+date: '2018-07-21 09:05:20 -0400'
+categories:
+- General
+tags: []
+comments:
+- id: 0
+  author: Oleksiy Lukin
+  author_email: alukin@gmail.com
+  author_url: ''
+  date: '2018-07-10 13:37:52 -0400'
+  content: "NB-9 RC1 had a long list of plugins, including C/C++. But this buld (VC3)
+    does not allow to load plugins, list is almost empty.\r\nCould you please clarify
+    situation with plugins?"
+- id: 0
+  author: Geertjan Wielenga
+  author_email: geertjan@apache.org
+  author_url: ''
+  date: '2018-07-10 13:58:02 -0400'
+  content: 'Apache NetBeans is only focused on Java SE. For all other features, you
+    can use the 8.2 Update Center, at your own risk, and after registering it yourself,
+    using the URL for that from 8.2. However, these features, though in most cases
+    usable, have not been tested with Apache NetBeans and are not part of the release. '
+- id: 0
+  author: Alan Mathewson
+  author_email: mathewson_alan@hotmail.com
+  author_url: ''
+  date: '2018-07-11 06:44:02 -0400'
+  content: "I have tried profiling applications with java 9 & 10. It works fine for
+    telemetry and Objects(all classes) but not for Methods: EXCEPTION_ACCESS_VIOLATION
+    then crash.\r\n\r\nPlease advise."
+- id: 0
+  author: sviatopolk
+  author_email: wadev@mailbox.hu
+  author_url: ''
+  date: '2018-07-26 14:18:31 -0400'
+  content: "..um, pardon, but what?\r\nI mean, while NetBeans is an excellent IDE
+    to learn and develop in Java, now literally every second bush releases their Java
+    IDE, even for free.\r\n\r\nDoes the above mean that there are even licensing issues
+    with e.g. NetBeans PHP and all the others?\r\nIf not, at least a non-Oracle mirror
+    of the \"historical\" plugins would be essential.\r\n\r\nThat aside, in general,
+    we - users who try to cope simultaneously with the unparalleled evolution of hipster
+    technologies, some of which we use or would use, *and* the current issues NetBeans
+    are going through - could use some more transparency.\r\n\r\nAt a very basic level,
+    I think what you proclaimed here should be headlines on the incubation page, and
+    not an obscure comment with a 12 pixel font size under a blog page."
+- id: 9
+  author: Geertjan Wielenga
+  author_email: geertjan@apache.org
+  author_url: ''
+  date: '2018-07-11 08:09:10 -0400'
+  content: Join the dev mailing list as described at netbeans.apache.org and provide
+    your problem description and steps to reproduce there, as well as by means of
+    the issue tracker.
+- id: 654
+  author: Geertjan Wielenga
+  author_email: g_wielenga@yahoo.com
+  author_url: ''
+  date: '2018-07-26 14:21:05 -0400'
+  content: 'Not sure I understand, but does this blog entry help: https://blogs.apache.org/netbeans/entry/what-s-happened-to-my'
+permalink: netbeans/entry/tentative-schedule-for-apache-netbeans
+---
+<p>We're currently running two processes, both of which it would be great if everyone would participate in -- and in fact it's really important that everyone does these two things:</p>
+<ol>
+<li>Vote in the PPMC thread:
+<p><a href="https://lists.apache.org/thread.html/a644bb8e3ba2cbd06328bb004f1b18b4171763cd3d78a9131615f687@%3Cdev.netbeans.apache.org%3E">https://lists.apache.org/thread.html/a644bb8e3ba2cbd06328bb004f1b18b4171763cd3d78a9131615f687@%3Cdev.netbeans.apache.org%3E</a></p>
+<p>Doing the above means more than putting a +1, it means downloading the sources, building them, looking at keys, etc, as described above.</p>
+</li>
+<li>Fill out the Community Acceptance survey, which is focused on the functionality (versus the sources, which is what the PPMC thread is about), which takes about 5 minutes:
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfw1WT1HDjR-nPMcXn8gBCQXk5k3IiXSoXW85FZezaPQQzGTQ/viewform">https://docs.google.com/forms/d/e/1FAIpQLSfw1WT1HDjR-nPMcXn8gBCQXk5k3IiXSoXW85FZezaPQQzGTQ/viewform<br />
+</a></p>
+<p>The Community Acceptance Survey runs until Sunday the 22nd of July. Issues found in the meantime will hopefully not be critical and not require a new voting candidate, but we'll need to see how things go and nothing can be guaranteed here of course -- i.e., someone could find a blocker of some kind during the community acceptance survey process.</p>
+</li>
+</ol>
+<p>Hopefully, nothing going wrong and everything going well, we'll then be at a point to start the IPMC vote thread on the 23rd and, if everything goes well, release Apache NetBeans (incubating) 9.0 at the beginning of August.</p>
+<p>After that we'll work on the 2nd donation, relicensing it, moving it into master etc.</p>

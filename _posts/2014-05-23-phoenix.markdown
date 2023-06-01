@@ -1,7 +1,0 @@
----
-layout: post
-title: Apache Phoenix graduates as top level project
-date: '2014-05-23T00:00:00+00:00'
-categories: phoenix
----
-I'm pleased to announce that Apache Phoenix, the SQL database engine over HBase, has graduated as a top level Apache project. Congratulations to the entire team!

@@ -1,0 +1,60 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: CloudStack and the "Ghost" glibc vulnerability
+author:
+  display_name: John Kinsella
+  login: jlk
+  email: 'jlk@apache.org '
+author_login: jlk
+author_email: 'jlk@apache.org '
+id: b0d62790-8ce4-45cd-9359-a07cfcb67e8d
+date: '2015-01-28 20:26:50 -0500'
+categories:
+- News
+tags:
+- security
+comments:
+- id: 0
+  author: Rohit Yadav
+  author_email: rohit.yadav@shapeblue.com
+  author_url: http://bhaisaab.org
+  date: '2015-01-28 20:03:41 -0500'
+  content: "NOTE: There is correction in the above:\r\n\r\n1. Mark openswan to not
+    upgrade, or else VPN related functionality may break:\r\n\r\napt-mark hold openswan\r\n\r\n2.
+    Clean old cache (not clean can cause disk space issues):\r\n\r\napt-get clean\r\n\r\n3.
+    Now upgrade:\r\n\r\napt-get update && apt-get upgrade\r\n\r\n4. Restart the VM
+    (if that is not the options, restart remote services such as SSH, DNS, DHCP, VPN
+    etc).\r\n\r\nUpdated systemvm templates are available for download from here:\r\nhttp://packages.shapeblue.com/systemvmtemplate/\r\n\r\nMore
+    information on packages here: http://shapeblue.com/packages\r\n"
+- id: 0
+  author: 192.168.0.1
+  author_email: giangbebe.1703@gmail.com
+  author_url: https://19216801help.com/
+  date: '2017-07-03 04:03:26 -0400'
+  content: See how far we go now
+- id: 62
+  author: Dotbuffer.com
+  author_email: dotbuffer@gmail.com
+  author_url: http://dotbuffer.com/
+  date: '2015-02-03 00:22:09 -0500'
+  content: Thank you for this important vulnerability notification.
+permalink: cloudstack/entry/cloudstack_and_the_ghost_glibc
+---
+<p><b>UPDATE: mitigation instructions have been improved (don't update openswan) and we forgot to mention rebooting.</b><br><br />
+<b>UPDATE: Links to updated System VM templates are now below</b><br><br />
+<br></p>
+<p>Yesterday, a buffer overflow vulnerability was announced in glibc that affects most current Linux distributions. In CloudStack, the system VMs contain a vulnerable version of glibc. </p>
+<p>CloudStack community members have built an updated system VM template, which ShapeBlue is hosting at <a href="http://packages.shapeblue.com/systemvmtemplate/">http://packages.shapeblue.com/systemvmtemplate/</a> (More information on the packages at <a href="http://shapeblue.com/packages">http://shapeblue.com/packages</a>). </p>
+<p>For instructions on how to update the SystemVM template in CloudStack, see <a href="http://support.citrix.com/article/CTX200024">here</a>.</p>
+<p>For those who wish to patch their running system VMs, ssh into each one and run:</p>
+<pre>
+apt-mark hold openswan
+apt-get clean
+apt-get update && apt-get upgrade
+</pre>
+<p>After updating glibc, the system will need to be rebooted.</p>
+<p>Information about how to connect to your System VMs is available <a href="https://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.2.0/html/Admin_Guide/accessing-system-vms.html">here</a>.</p>
+<h2>Other CloudStack-related systems may be affected!</h2>
+<p>Please review security updates from Linux distributions you use on your management server, storage systems, hypervisors, as well as other Linux VMs and bare-metal systems running in your environments. <a href="http://www.cyberciti.biz/faq/cve-2015-0235-patch-ghost-on-debian-ubuntu-fedora-centos-rhel-linux/">This post</a> provides instructions for determining if a system is vulnerable, as well as patching directions for common Linux distributions.</p>

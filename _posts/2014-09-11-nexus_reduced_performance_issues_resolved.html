@@ -1,0 +1,32 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Nexus reduced performance issues resolved.
+author:
+  display_name: asf blog administrator
+  login: asfadmin
+  email: gmcdonald@apache.org
+author_login: asfadmin
+author_email: gmcdonald@apache.org
+id: 8efdabbf-62f1-44af-82a8-63beec71110a
+date: '2014-09-11 09:19:46 -0400'
+categories:
+- Status
+tags:
+- nexus
+comments: []
+permalink: infra/entry/nexus_reduced_performance_issues_resolved
+---
+<p>&nbsp;&nbsp; &nbsp;HI All,</p>
+<p>So Tuesday morning we got a report in IRC that a committer was trying to get a release out <br />and could not deploy. Shortly after a Nexus issue was reported in Jira INFRA-8321. A few <br />hours later another issue INFRA-8322 related to Nexus was opened. So far, nothing unusual <br />about that.</p>
+<p>Yesterday, more issues reported on IRC/HipChat, and more issues opened.<br />(INFRA-8326,INFRA-8327,INFRA-8328, INFRA-8334). By then it was obvious this more than <br />a coincidence and it was already being looked into.</p>
+<p>Twitter notifications and emails were sent out declaring the degraded performance an outage <br />and On Call was full time looking into the issue. Others joined the call to assist and eventually <br />the outage was determined to be a change to LDAP configuration made 2 days ago by Infra.</p>
+<p>(See infra:r921805 for the revert of that.)</p>
+<p>The LDAP change was made to improve response times as it was being reported as being slow<br />to return queries. Reverting the change cured the issues Nexus was having contacting the <br />groups that committers belonged to.</p>
+<p>There will be another avenue looked into for improving LDAP query response times whilst not <br />affecting those services that connect via anon bind.</p>
+<p>Infra thanks everyone for their patience whilst this was looked into and resolved.</p>
+<p>Thanks go to those involved in working towards the solution:-</p>
+<p>Gavin McDonald (gmcdonald) <br />Tony Stevenson (pctony)<br />Chris Lambertus (cml)<br />Daniel Gruno (humbedooh)<br />Brian Fox (brianf)</p>
+<p>Cheers</p>
+<p>Gav&hellip;</p>

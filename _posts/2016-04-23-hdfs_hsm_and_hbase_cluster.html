@@ -1,0 +1,489 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'HDFS HSM and HBase: Cluster setup (Part 2 of 7)'
+author:
+  display_name: Michael Stack
+  login: stack
+  email: stack@apache.org
+author_login: stack
+author_email: stack@apache.org
+id: a1ef2e00-3c52-4272-be0b-01f24a42edd3
+date: '2016-04-23 00:14:52 -0400'
+categories:
+- General
+tags:
+- evaluation
+- performance
+- part2of7
+- setup
+comments: []
+permalink: hbase/entry/hdfs_hsm_and_hbase_cluster
+---
+<p><span class="gI">This is part 2 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)</span></p>
+<ol>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_part"><font size="1">Introduction</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster"><font size="1">Cluster Setup</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_tuning"><font size="1">Tuning</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster1"><font size="1">Experiment</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster2"><font size="1">Experiment (continued)</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster3"><font size="1">Issues</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster4"><font size="1">Conclusions</font></a></li>
+</ol>
+<h1 dir="ltr" style="line-height: 1.38; margin-top: 24pt; margin-bottom: 6pt;" id="docs-internal-guid-a9ae7799-404b-ef16-5131-7237ef9a17fd"><span style="font-size: 21.3333px; font-family: Calibri; color: #2e74b5; font-weight: 400; vertical-align: baseline; background-color: transparent;">Cluster Setup</span></h1>
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In all, five nodes are used in the testing. Figure 1 shows the topology of these nodes; the services on each node are listed in Table 3.</span></p>
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;"><img src="https://lh3.googleusercontent.com/p38KkJ84jhG65eKIVicvoqPLI2Ts5-97yiIRlsS48Qe9OPObGucj2ddmV2_gAizAwol1nn0ZCWGAe_ZSjXdYz_IisclBSc576pPjF3uFc5_sNwZHlz4szj6kLd9VFzbbTgrUzjd2" width="506" height="284" style="transform: rotate(0rad);" /></span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Figure 1. Cluster topology</span></p>
+<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">For HDFS, one node serves as NameNode, three nodes as DataNodes.</span></p>
+</li>
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">For HBase, one HMaster is collocated together with NameNode. Three RegionServers are collocated with DataNodes.</span></p>
+</li>
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">All the nodes in the cluster are connected to the full duplex 10Gbps DELL N4032 Switch. Network bandwidth for client-NameNode, client-DataNode and NameNode-DataNode is 10Gbps. Network bandwidth between DataNodes is 20Gbps (20Gbps is achieved by network bonding).</span></p>
+</li>
+</ol>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse; width: 624px;">
+<colgroup>
+<col width="61" />
+<col width="100" />
+<col width="95" />
+<col width="87" />
+<col width="104" />
+<col width="92" />
+<col width="*" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Node</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">NameNode</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">DataNode</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">HMaster</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">RegionServer</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Zookeeper</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">YCSB client</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">2</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"></td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">3</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">4</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;"></td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">5</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;"></td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">&radic;</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 3. Services run on each node</span></p>
+<h2 dir="ltr" style="line-height: 1.38; margin-top: 18pt; margin-bottom: 4pt;"><span style="font-size: 17.3333px; font-family: Calibri; color: #1e4d78; font-weight: 400; vertical-align: baseline; background-color: transparent;">Hardware</span></h2>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Hardware configurations of the nodes in the cluster is listed in the following tables.</span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse;">
+<colgroup>
+<col width="161" />
+<col width="480" />
+<col width="40" />
+<col width="216" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Item</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Model/Comment</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">CPU</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Intel&reg; Xeon&reg; CPU E5-2695 v3 @ 2.3GHz, dual sockets</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Memory</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Micron 16GB DDR3-2133MHz, 384GB in total</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">NIC</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Intel 10-Gigabit X540-AT2</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Intel S3500 800G</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Seagate Constellation&trade; ES ST2000NM0011 2T 7200RPM</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">RAMDISK</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">300GB</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 4. Hardware for DataNode/RegionServer</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Note: OS is stored on an independent SSD (Intel&reg; SSD DC S3500 240GB) for both DataNodes and NameNode. The number of SSD or HDD (OS SSD not included) in DataNode varies for different testing cases., See Section &lsquo;</span><a href="https://docs.google.com/document/d/1CEpvMfrh5HxbUl7DfkrRXZHI4wCzOIehFlvDlfYr4LA/edit#heading=h.hwe0gol6g5t1"><span style="font-size: 12px; font-family: Calibri; color: #1155cc; font-style: italic; text-decoration: underline; vertical-align: baseline; background-color: transparent;">Methodology</span></a><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">&rsquo; for details</span><span style="font-size: 12px; font-family: Arial; font-style: italic; vertical-align: baseline; background-color: transparent;">.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;"> </span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse;">
+<colgroup>
+<col width="155" />
+<col width="483" />
+<col width="28" />
+<col width="151" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Item</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Model/Comment</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">CPU</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Intel&reg; Xeon&reg; CPU E5-2697 v2 @ 2.70GHz, dual sockets</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Memory</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Micron 16GB DDR3-2133MHz, 260GB in total</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">NIC</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Intel 10-Gigabit X540-AT2</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Intel S3500 800G</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 5. Hardware for NameNode/HBase MASTER</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p> </p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse;">
+<colgroup>
+<col width="217" />
+<col width="421" />
+<col width="21" />
+<col width="115" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Item</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Value</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Intel Hyper-Threading Tech</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">On</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Intel Virtualization</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Disabled</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Intel Turbo Boost Technology</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Enabled</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Energy Efficient Turbo</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Enabled</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 6. Processor configuration</span></p>
+<h2 dir="ltr" style="line-height: 1.38; margin-top: 18pt; margin-bottom: 4pt;"><span style="font-size: 17.3333px; font-family: Calibri; color: #1e4d78; font-weight: 400; vertical-align: baseline; background-color: transparent;">Software</span></h2>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse;">
+<colgroup>
+<col width="254" />
+<col width="368" /></colgroup>
+<tbody>
+<tr style="height: 5px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Software</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Details</span></p>
+</td>
+</tr>
+<tr style="height: 17px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">OS</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">CentOS release 6.5</span></p>
+</td>
+</tr>
+<tr style="height: 17px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Kernel</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">2.6.32-431.el6.x86_64</span></p>
+</td>
+</tr>
+<tr style="height: 5px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Hadoop</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">2.6.0</span></p>
+</td>
+</tr>
+<tr style="height: 5px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">HBase</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1.0.0</span></p>
+</td>
+</tr>
+<tr style="height: 12px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Zookeeper</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">3.4.5</span></p>
+</td>
+</tr>
+<tr style="height: 5px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">YCSB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">0.3.0</span></p>
+</td>
+</tr>
+<tr style="height: 12px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">JDK</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">jdk1.8.0_60</span></p>
+</td>
+</tr>
+<tr style="height: 11px;">
+<td rowspan="4" style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">JVM Heap</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">NameNode: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32GB</span></p>
+</td>
+</tr>
+<tr style="height: 11px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">DataNode: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4GB</span></p>
+</td>
+</tr>
+<tr style="height: 11px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">HMaster: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4GB</span></p>
+</td>
+</tr>
+<tr style="height: 17px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RegionServer: &nbsp;64GB</span></p>
+</td>
+</tr>
+<tr style="height: 5px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">GC</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">G1GC</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 7. Software stack version and configuration</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">NOTE: as mentioned in </span><a href="https://docs.google.com/document/d/1CEpvMfrh5HxbUl7DfkrRXZHI4wCzOIehFlvDlfYr4LA/edit#heading=h.hwe0gol6g5t1"><span style="font-size: 12px; font-family: Calibri; color: #1155cc; font-style: italic; text-decoration: underline; vertical-align: baseline; background-color: transparent;">Methodology</span></a><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">, HDFS and HBase have been enhanced to support this test</span></p>
+<h2 dir="ltr" style="line-height: 1.38; margin-top: 18pt; margin-bottom: 4pt;"><span style="font-size: 17.3333px; font-family: Calibri; color: #1e4d78; font-weight: 400; vertical-align: baseline; background-color: transparent;">Benchmarks</span></h2>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">We use YCSB 0.3.0 as the benchmark and use one YCSB client in the tests.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">This is the workload configuration for 1T dataset:</span></p>
+<div dir="ltr" style="margin-left: -10.5pt;">
+<table style="border: none; border-collapse: collapse;">
+<colgroup>
+<col width="638" /></colgroup>
+<tbody>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"># cat ../workloads/1T_workload</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">fieldcount=5</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">fieldlength=200</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">recordcount=1000000000</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">operationcount=0</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">workload=com.yahoo.ycsb.workloads.CoreWorkload</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">readallfields=true</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">readproportion=0</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">updateproportion=0</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">scanproportion=0</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">insertproportion=0</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">requestdistribution=zipfian</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">And we use following command to start the YCSB client:</span></p>
+<div dir="ltr" style="margin-left: -9.75pt;">
+<table style="border: none; border-collapse: collapse;">
+<colgroup>
+<col width="637" /></colgroup>
+<tbody>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">./ycsb load hbase-10 -P ../workloads/1T_workload -threads 200 -p columnfamily=family -p clientbuffering=true -s > 1T_workload.dat</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+</p></div></p>
+<p>Go to part 3,&nbsp;<a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_tuning">Tuning</a></p>
+</p></div>

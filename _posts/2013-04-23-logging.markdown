@@ -1,7 +1,0 @@
----
-layout: post
-title: Welcome Remko Popma
-date: '2013-04-23T00:00:00+00:00'
-categories: logging
----
-The Apache log4j team would like to welcome Remko Popma as a new committer! Welcome Remko!

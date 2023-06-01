@@ -1,0 +1,42 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Sample Application with JSF, JPA and OpenWebBeans
+author:
+  display_name: Gurkan Erdogdu
+  login: gerdogdu
+  email: gerdogdu@apache.org
+author_login: gerdogdu
+author_email: gerdogdu@apache.org
+id: dc5ca012-6adf-424c-8055-9f684a92d209
+date: '2009-05-14 20:17:09 -0400'
+categories:
+- General
+tags:
+- owb
+comments:
+- id: 27
+  author: Jeramia
+  author_email: sinidu.lk@gmail.com
+  author_url: ''
+  date: '2013-07-28 10:23:07 -0400'
+  content: "Hi, \r\nI got this error. Can you help me to get rid of this.\r\n\r\n[INFO]
+    Scanning for projects...\r\n[ERROR] The build could not read 1 project -> [Help
+    1]\r\n[ERROR]   \r\n[ERROR]   The project org.apache.openwebbeans.samples:reservation:1.2.0-SNAPSHOT
+    (D:\\Dev Support\\OpenWebBeans\\res_ver\\pom.xml) has 1 error\r\n[ERROR]     Non-resolvable
+    parent POM: Could not find artifact org.apache.openwebbeans:samples:pom:1.2.0-SNAPSHOT
+    and 'parent.relativePath' points at wrong local POM @ line 21, column 13 -> [Help
+    2]\r\n[ERROR] \r\n[ERROR] To see the full stack trace of the errors, re-run Maven
+    with the -e switch.\r\n[ERROR] Re-run Maven using the -X switch to enable full
+    debug logging.\r\n[ERROR] \r\n[ERROR] For more information about the errors and
+    possible solutions, please read the following articles:\r\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException\r\n[ERROR]
+    [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException\r\n\r\n\r\nThanks,"
+permalink: owb/entry/sample_application_with_jsf_jpa
+---
+<p>We have written a real sample application written with <b>JSF + JPA +OWB</b>. It is called "<b><span id="lw_1242331916_6" class="yshortcuts">Hotel Reservation Application</span></b>". You can create "Admin" and "Normal" user accounts. "Admin" is responsible for defining hotels etc, and user&nbsp; creates a <span id="lw_1242331916_7" class="yshortcuts" style="background: transparent none repeat scroll 0% 50%; cursor: pointer; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">hotel reservation</span>.<br />Altough it is a simple application, it uses and shows most of the functionality that are defined in the <b>JSR-299</b>, including <b><i>Scope and Contexts, Interceptors,Decorators, Events and Observer</i></b>s etc.</p>
+<p><b>STEPS TO RUN</b><br />-------------------------------<br />It is located in the trunk[1]/samples/reservation directory. In this directory</p>
+<p>> mvn clean install -Pjetty --> to compile and install<br />> mvn jetty:run -Pjetty &nbsp;--> to run the jetty container</p>
+<p>Then, <a target="_blank" href="http://localhost:8080/reservation"><span id="lw_1242331916_8" class="yshortcuts">http://localhost:8080/reservation</span></a><br />Voila, enjoys it!</p>
+<p>[1]http://svn.apache.org/repos/asf/incubator/openwebbeans/trunk/</p>
+<p>OWB Team</p>

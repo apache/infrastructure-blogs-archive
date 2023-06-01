@@ -1,0 +1,44 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Porting Apache OpenOffice (incubating) to FreeBSD -- Ready to test!
+author:
+  display_name: Rob Weir
+  login: robweir
+  email: robweir@apache.org
+author_login: robweir
+author_email: robweir@apache.org
+id: 55b65022-4268-4a52-9756-7dc26a674b1b
+date: '2012-06-26 02:03:27 -0400'
+categories:
+- General
+tags: []
+comments:
+- id: 8
+  author: FreeBSD News
+  author_email: contact@freebsdnews.net
+  author_url: http://www.freebsdnews.net
+  date: '2012-03-07 22:56:15 -0500'
+  content: Please check out the Apache Open Office link. It should be http://incubator.apache.org/openofficeorg/
+permalink: OOo/entry/apache_openoffice_has_been_ported
+---
+<p>We are pleased to note that NAKATA, Maho and Pedro Giffuni have ported <a href="http://incubator.apache.org/openofficeorg/">Apache OpenOffice</a> to <a href="http://www.freebsd.org/">FreeBSD</a>.&nbsp;&nbsp; The results of their porting effort are now in the FreeBSD <a href="http://www.freebsd.org/cgi/cvsweb.cgi/ports/editors/openoffice-3-devel/">ports tree</a>, so everyone can easily build and use it.&nbsp;&nbsp; FreeBSD users are invited to help test this port and report bugs.</p>
+<p> FreeBSD is a free operating system based on Berkeley's 4.4 BSD source release. The code base has undergone over thirty years of continuous development, improvement, and optimization by large number of individuals. There are approximately 400 FreeBSD committers (those who can commit to the source code repository).&nbsp; Development is especially focused on networking, security, performance and porting applications (they have over 20,000 well-maintained applications).&nbsp; FreeBSD is used as a platform for devices and products from many of the world's largest IT companies, including, Apple, Cisco, Juniper and NetApp.&nbsp; It has broken ftp<br />
+performance records and powers important sites like Yahoo, Hotmail and<br />
+the Apache Software Foundation's infrastructure.</p>
+<p>Historically, the FreeBSD port of OpenOffice has been very active, stable and well maintained.&nbsp; There are the legacy OpenOffice.org 3.3 and 3.4Beta ports, no longer being maintained, and the active version 3.4 port, for ongoing development.&nbsp; Notably, Jung-uk Kim ported to amd64, and fixed many technical<br />
+issues, and Jack Low provided builds until development<br />
+migration to Apache.</p>
+<p>Maho@, Pfg@ and other volunteers are working with each other, and with the Apache OpenOffice project, in this work.&nbsp; The FreeBSD team did not fork.&nbsp; They are working as Apache OpenOffice committers, directly with the Apache project.&nbsp; </p>
+<p>Technically, porting has not been very difficult.&nbsp; It has required only small, almost trivial patches, since Linux and FreeBSD are<br />
+very similar.&nbsp; MacOSX and FreeBSD also share many similarities which<br />
+has helped improve both ports.&nbsp;&nbsp; Porting to other BSDs would be easy as well,&nbsp;<br />
+since the developers have marked their fixes by adding "FREEBSD" or "BSD" comments in the code, and they wrote up many Bugzilla issues. Many build fixes for other BSDs would be<br />
+same as those needed for FreeBSD's port.</p>
+<p>Since the OpenOffice project migrated to Apache, upstreaming has become much easier than before.&nbsp; Pfg@ joined the project and has pushed upstream over 30 patches.&nbsp; Currently, Maho@ is concentrating on porting and consulting frequently with Pfg@.&nbsp; Of course, Pfg@ not only pushes patches upstream, but also is actively working on porting.&nbsp; Maho@ will commit directly to Apache's Subversion repository very soon.&nbsp;&nbsp; </p>
+<p> Final words: This is not the end.&nbsp;&nbsp; Maho@ and Pfg@ continue their work on porting.&nbsp; Bug reports are always welcome to {pfg,<a href="mailto:maho%7D@apache.org">maho}@apache.org</a>.&nbsp; And if you are interested in learning more about the FreeBSD port of Apache OpenOffice, you can join our mailing list: office@FreeBSD.org. </p>
+<p>Finally, please remember that porting to FreeBSD also is a benefit for all OpenOffice users, since it increases the overall portability of the code and provides another valuable testing environment.</p>
+<p>Thanks, </p>
+<p>Nakata Maho </p>
+<p> <img src="https://blogs.apache.org/OOo/mediaresource/bc1d3f35-8a7a-47c6-8b90-3788b71a7e5d" /></p>

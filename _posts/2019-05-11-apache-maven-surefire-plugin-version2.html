@@ -1,0 +1,114 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Surefire Plugin Version 2.22.2 Released
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: ab3711dd-ae47-4fa6-8592-9df049fefc7d
+date: '2019-05-11 07:37:42 -0400'
+categories:
+- Plugin Release
+tags:
+- maven-plugin
+comments: []
+permalink: maven/entry/apache-maven-surefire-plugin-version2
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+    <a href="http://maven.apache.org/plugins/maven-surefire-plugin/">Apache Maven Surefire Plugin, version 2.22.2</a>.</p>
+<p>The release contains 17 bug fixes.<br />
+        Again we received contributions from the community in form of bug reports<br />
+        and bug fixes.<br />
+        Thank you and keep them coming!</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-surefire-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.22.2<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>or for failsafe:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-failsafe-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.22.2<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>or for surefire-report:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-surefire-report-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.22.2<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>    <!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317927&amp;version=12343425">Release Notes &ndash; Maven Surefire &ndash; Version 2.22.2</a></p>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1614">SUREFIRE-1614</a>&ndash; JUnit Runner that writes to System.out corrupts Surefire&rsquo;s STDOUT when using JUnit&rsquo;s Vintage Engine</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>

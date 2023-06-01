@@ -1,0 +1,172 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Using SBT in Apache ESME
+author:
+  display_name: Anne Kathrine Petterøe
+  login: akpetteroe
+  email: akpetteroe@apache.org
+author_login: akpetteroe
+author_email: akpetteroe@apache.org
+id: dfcc5646-32ee-4523-ad17-7bacb3ab0675
+date: '2011-01-12 09:38:17 -0500'
+categories:
+- General
+tags:
+- esme
+- sbt
+comments: []
+permalink: esme/entry/using_sbt_in_apache_esme
+---
+<h3>Introduction</h3>
+<p>While many projects have been using Apache Maven as widely adopted and recognized project management tool, Scala-based Simple Build Tool (SBT) became very popular dependency management tool recently. SBT has following advantages:</p>
+<ul>
+<li>Buld file is written in Scala language which is much more concise comparing to verbose XML and provides full power of Scala platform and libraries</li>
+<li>SBT intelligently tracks changes in source code to make accurate recompilation</li>
+<li>SBT console mode keeps scalac in resident, which really improves compile times on subsequent runs. This is important for scalac, which is quite slow as compared to javac</li>
+<li>SBT supports continious compilation and testing</li>
+<li>While SBT is based on Apache Ivy,  also very popular dependency management tool, it is possible to use both remote and local Maven repository with SBT</li>
+<li>SBT has Custom Actions</li>
+</ul>
+<p>That said SBT integration with popular IDEs and CI tools is not as good as Maven integration yet (I'll show an example of SBT and IDEA integration and give links to resources related to Hudson integration).</p>
+<p>It is possible to build ESME project both with Maven and SBT. At the moment Maven is main build tool. SBT might be used locally by developers to improve performance. Subject of this article is building project with SBT.</p>
+<p></br></p>
+<h3>Installation and configuration</h3>
+<p>1. Download SBT jar file and place it into local directory<br />
+2. Create script to launch SBT and specify path to SBT jar.  For example, below is a script for Linux platform:</p>
+<p><i>java -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m -Xmx512M -Xss2M -jar `dirname $0`/sbt-launch-0.7.4.jar "$@"</i></p>
+<p>*JVM options above were added to launch script to avoid frequent OutOfMemory errors.</p>
+<p>Now it is possible to launch SBT. But before proceeding to project structure, it would be useful to know how SBT manages its dependencies.</p>
+<p></br></p>
+<h3>Dependency management</h3>
+<p>As noted before, SBT is based on Apache Ivy &mdash; popular dependency management tool. It means that all dependencies will be downloaded to local repository (located by default in <i>$USER_HOME/.ivy2</i> folder) and orginized in a manner similar to Maven: <i>organization/module/artifact/revision</i>, where <i>organization</i> and <i>revision</i> are analogs to Maven's <i>groupId</i> and <i>version</i> accordingly. All automatically managed dependencies, specified in project definition file, are placed into <i>PROJECT_ROOT/lib_managed</i> directory.</p>
+<p></br></p>
+<h3>Project structure</h3>
+<p>Overall project structure has following form:</p>
+<p><i>--->ESME root<br />
+|<br />
+--->server<br />
+       |<br />
+       --->project<br />
+              |<br />
+              ---->build<br />
+              |   |<br />
+              |   -----EsmeProject.scala<br />
+              |<br />
+              ---->plugins<br />
+              |   |<br />
+              |   -----Plugins.scala<br />
+              |<br />
+              ----- build.properties</i></p>
+<p>SBT build artifacts have only been added to ESME server module, therefore they are located under <i>server/project</i> folder. These artifacts include:<br />
+	<i>ESMEProject.scala</i> &mdash; project definition file containing build configuration<br />
+ 	<i>Plugins.scala</i> &mdash; plugins for project definition are declared in this file<br />
+	<i>build.properties</i> &mdash; contains project name, version, organization, Scala and SBT versions and other custom properties</p>
+<p>The most important file among these is project file, so lets review it step-by-step.</p>
+<p></br></p>
+<h3>Project File</h3>
+<p>Project definition class for web project EsmeProject should extend <i>DefaultWebProject</i> (which in turn implements base class for all types of projects <i>sbt.Project</i>):<br />
+<i>class EsmeProject(info: ProjectInfo) extends DefaultWebProject(info)</i></p>
+<p>Dependency versions are defined as vals:<br />
+<i>val liftVersion = "2.2-RC6"<br />
+val compassVersion = "2.1.1"<br />
+val luceneVersion = "2.4.0"</i></p>
+<p>It is possible to tell SBT to search dependencies in local Maven repository. To do that it's neccessary to define mavenLocal val and assign it to the path in the local filesystem where Maven repository resides:<br />
+<i>val mavenLocal = "Local Maven Repository" at "file://"+Path.userHome+"/.m2/repository"</i></p>
+<p>All additional repositories are also defined as vals. To include Scala Tools Snaphots repository predefined constant <i>ScalaToolsSnapshots</i> is used, for other repos explicit URL is specified:<br />
+<i>val scalatoolsSnapshot = ScalaToolsSnapshots<br />
+val compassRepo = "Compass Repository" at "http://repo.compass-project.org"<br />
+val twitterRepo = "Twitter Repository" at "http://maven.twttr.com"</i></p>
+<p>Project might contain additional files like licenses and notices. To include them in target jar it is neccessary to define method <i>extraResources</i> and override <i>mainResources</i> method, as shown below (assuming that both files are located in project's root directory) :<br />
+<i>def extraResources = "LICENSE" +++ "NOTICE"<br />
+override def mainResources = super.mainResources +++ extraResources</i></p>
+<p>It's possible to specify dependency definition with Ivy configuration file inline (for example to include or exclude dependent modules). To do that, it is neccessary to override <i>ivyXML</i> method:<br />
+<i>override def ivyXML =<br />
+    <dependencies><br />
+      <dependency org="net.lag" name="configgy" rev="2.0.1"><br />
+        <exclude org="org.scala-tools" module="vscaladoc"/><br />
+      </dependency><br />
+      <dependency org="com.twitter" name="ostrich" rev="2.3.2"><br />
+        <exclude org="org.scala-tools" module="vscaladoc"/><br />
+      </dependency><br />
+    </dependencies></i></p>
+<p>SBT manages dependencies based on dependency expressions in project's definition file. Dependency expressions have following form:<br />
+<i>groupID % artifactID % revision % configuration</i></p>
+<p>In case dependency was build with SBT, it is neccessary to change first <i>%</i> to <i>%%</i>:<br />
+<i>groupID %% artifactID % revision % configuration</i></p>
+<p>That way SBT knows how to download correct jar corresponding to Scala version which is used to build project (for example <i>lift-webkit_2.8.1-2.2-RC6.jar</i>).</p>
+<p>It is possible to use range to specify version like in Maven. For example, value [6.1.6,) corresponds to all versions greater or equal to 6.1.6.</p>
+<p>Configuration has form <i>A->B</i>, where configuration A use a dependencys configuration B. ESME project definition contains compile and test configurations. As an example, expression <i>"junit" % "junit" % "4.4" % "test->default"</i> says that ESME test configuration uses JUnit default configuration. </p>
+<p>If no configuration mapping is specified explicitly, <i>compile->default</i> mapping is used by default.</p>
+<p>One way to list all dependencies is to define <i>libraryDependencies</i> method containing Set of dependency expressions:<br />
+<i>override def libraryDependencies = Set(<br />
+    "net.liftweb" %% "lift-webkit" % liftVersion % "compile->default",<br />
+    "net.liftweb" %% "lift-mapper" % liftVersion % "compile->default",<br />
+...<br />
+    "org.compass-project" % "compass" % compassVersion % "compile->default",<br />
+    "org.apache.lucene" % "lucene-core" % luceneVersion % "compile->default",<br />
+...<br />
+    "org.mortbay.jetty" % "jetty" % "[6.1.6,)" % "test->default",<br />
+    "junit" % "junit" % "4.4" % "test->default",<br />
+...<br />
+  ) ++ super.libraryDependencies</i>    </p>
+<p> </br>  </p>
+<h3>Build properties</h3>
+<p>SBT loader reads the versions of Scala and sbt to use to build the project from the <i>project/build.properties</i> file. If this is the first time the project has been built with those versions, the loader downloads the appropriate versions to <i>project/boot</i> directory. The sbt loader will then load the right version of the main sbt builder using the right version of Scala. Other user-defined properties might also be set in this file. Below is an example of build properties file for ESME:</p>
+<p><i>project.organization=Apache Software Foundation<br />
+project.name=Apache Enterprise Social Messaging Environment (ESME)<br />
+sbt.version=0.7.4<br />
+project.version=1.2<br />
+def.scala.version=2.8.1<br />
+build.scala.versions=2.8.1<br />
+project.initialize=false</i></p>
+<p></br></p>
+<h3>Plugins</h3>
+<p>All plugins for SBT are specified in plugins definition file <i>Plugins.scala</i>. It's structure is very similar to project definition file. Lets review plugins configuration via example of <i>sbt-idea</i> plugin which is used to generate project artifacts for IntelliJ IDEA.</p>
+<p>Plugins class should extend PluginDefinition base class:<br />
+<i>class Plugins(info : ProjectInfo) extends PluginDefinition(info)</i></p>
+<p>Additional repositories which are used by plugins are declared as vals:<br />
+<i>val sbtIdeaRepo = "sbt-idea-repo" at "http://mpeltonen.github.com/maven/"</i></p>
+<p>Like in a project definition file, dependencies for plugins are specified via dependency expressions:<br />
+<i>val sbtIdea = "com.github.mpeltonen" % "sbt-idea-plugin" % "0.1.0"</i></p>
+<p>With sbt-idea plugin configured, it is possible to issue commands:<br />
+<i>sbt update<br />
+sbt idea</i></p>
+<p>and IDEA project file will be generated in project's root directory.</p>
+<p></br></p>
+<h3>Main commands</h3>
+<p>All interaction with SBT is performed via commands, which are usually executed in SBT console. To enter into SBT console, it's necessary to run <i>sbt</i> in a project directory.</p>
+<p><b>Clean</b><br />
+First group of commands is used to clean generated and downloaded artifacts.<br />
+<i>clean</i> command deletes <i>target</i> directory where all generated files are located.<br />
+<i>clean-cache</i> command deletes local Ivy repository where downloaded artifacts and metadata for automatically managed dependencies for this user are resides.<br />
+<i>clean-lib</i> command deletes <i>lib_managed</i> - managed library directory for this project.</p>
+<p><b>Update</b><br />
+<i>update</i> command is used to resolve and download all external dependencies into local Ivy repository.</p>
+<p><b>Compile</b><br />
+<i>compile</i> command preforms compilation of all Scala source files located in <i>src/main/scala</i> folder. It's possible to specify additional options for compile task by overriding <i>compileOptions</i> method.</p>
+<p><b>Test</b><br />
+<i>test</i> command executes all tests that have been found during compilation. Runs <i>test-compile</i> command first (similar to <i>compile</i> task it's possible to specify additional options for <i>test-compile</i> task by overriding method <i>testCompileOptions</i>).</p>
+<p><b>Jetty</b><br />
+<i>jetty-run</i> command starts the Jetty server and serves this project as a web application on http://localhost:8080 by default. This variant of starting Jetty is intended to be run from the interactive prompt.<br />
+<i>jetty-stop</i> command stops the Jetty server that was started with the jetty-run action.</p>
+<p></br></p>
+<h3>Dependencies list</h3>
+<p>Sometimes it's necessary to analyze all tree of used dependencies (to prevent conflicts between them for example). Maven has specific plugin <i>dependency:tree</i> to do just that. It's also possible to perform similar task with SBT via Project Console.</p>
+<p><i>console-project</i> command starts the Scala interpreter with access to project and to sbt.</p>
+<p>For example, to get list of dependencies in compile classpath, <i>current.publicClasspath</i> command should be executed. Similar commands <i>current.testClasspath</i> and <i>current.optionalClasspath</i> exist for test classpath and optional classpath accordingly.</p>
+<p></br></p>
+<h3>Integration with Hudson</h3>
+<p>While integration of SBT with Hudson, popular Continious Integration tool, hasn't been used in ESME project yet, there are some resources on this available:<br />
+Hudson SBT plugin: <a href="https://github.com/hudson/sbt-plugin">https://github.com/hudson/sbt-plugin</a><br />
+Christoph Henkelmann&rsquo;s Blog entry - &ldquo;How to build sbt projects with Hudson and integrate test results&rdquo; : <a href="http://henkelmann.eu/2010/11/14/sbt_hudson_with_test_integration">http://henkelmann.eu/2010/11/14/sbt_hudson_with_test_integration</a></p>
+<p></br></p>
+<h3>Links</h3>
+<p>Simple Build Tool home: <a href="http://code.google.com/p/simple-build-tool/">http://code.google.com/p/simple-build-tool/</a><br />
+Apache Ivy home: <a href="http://ant.apache.org/ivy/">http://ant.apache.org/ivy/</a><br />
+Lift Wiki page related to SBT: <a href="http://www.assembla.com/wiki/show/liftweb/Using_SBT">http://www.assembla.com/wiki/show/liftweb/Using_SBT</a><br />
+Mikko Peltonen's sbt-idea plugin home: <a href="https://github.com/mpeltonen/sbt-idea">https://github.com/mpeltonen/sbt-idea</a><br />
+</br><br />
+A big thank you goes out to Vladimir Ivanov for the SBT implementation and for writing up this blog post explaining how it works!<br />
+</br></p>

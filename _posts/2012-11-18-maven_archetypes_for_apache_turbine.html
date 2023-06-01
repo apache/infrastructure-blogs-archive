@@ -1,0 +1,86 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Maven archetypes for Apache Turbine applications - easier startup with Turbine
+author:
+  display_name: Thomas Vandahl
+  login: tv
+  email: tv@apache.org
+author_login: tv
+author_email: tv@apache.org
+id: 9777b421-e19b-4797-8d77-9f7a0c76208f
+date: '2012-11-18 16:39:56 -0500'
+categories:
+- Status
+tags:
+- maven
+- archetype
+comments: []
+permalink: turbine/entry/maven_archetypes_for_apache_turbine
+---
+<p>This is to announce that two Maven archetypes for the creation of Apache Turbine web applications have been released. They have been created to take the hassle out of the process of creating a new working Turbine project.</p>
+<ul>
+<li>Maven Archetype for the creation of a web application based on Turbine 4.0M1</li>
+<li>Maven Archetype for the creation of a web application based on Turbine 2.3.3</li>
+</ul>
+<p>According to the <a href="https://docs.sonatype.org/display/Repository/Central+Repository+FAQ" target="_blank" title="Central Repository FAQ">Central Repository FAQ</a>, the archetype catalog will be updated every Sunday, so with some luck the archetypes will be available tomorrow.</p>
+<h4>How to use them:</h4>
+<p>Use "<span style="color: #ff0000; ">mvn archetype:generate</span>" in interactive mode to select one of (the numbers might be different):
+  </p>
+<pre>...
+673: remote -> org.apache.turbine:turbine-webapp-4.0 (This archetype sets up a web application project based on Apache Turbine 4.0M1)
+674: remote -> org.apache.turbine:turbine-webapp-2.3.3 (This archetype sets up a web application project based on Apache Turbine 2.3.3)
+...
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 227: <span style="color: #ff0000;">672</span></pre>
+<p>and follow the steps:</p>
+<pre>Define value for property 'groupId': : com.mycompany.turbine
+Define value for property 'artifactId': : myturbineapp
+Define value for property 'version': 1.0-SNAPSHOT:
+Define value for property 'package': com.mycompany.turbine:</pre>
+<p>
+Maven will now give you a summary of all settings of the new application and ask for confirmation: </p>
+<pre>[INFO] Using property: turbine_app_name = My Turbine Web Application
+[INFO] Using property: turbine_database_adapter = mysql
+[INFO] Using property: turbine_database_jndipath = java:comp/env/jdbc/Turbine
+[INFO] Using property: turbine_database_name = turbine
+[INFO] Using property: turbine_intake_file = intake.xml
+Confirm properties configuration:
+groupId: com.mycompany.turbine
+artifactId: myturbineapp
+version: 1.0-SNAPSHOT
+package: com.mycompany.turbine
+turbine_app_name: My Turbine Web Application
+turbine_database_adapter: mysql
+turbine_database_jndipath: java:comp/env/jdbc/Turbine
+turbine_database_name: turbine
+turbine_intake_file: intake.xml
+Y: <span class="Apple-style-span" style="color: rgb(255, 0, 0);">Y</span></pre>
+<p>
+If you respond with Y, Maven generates your project in the directory "<span style="color: #ff0000; ">myturbineapp</span>" (the artifactId that you chose above):</p>
+<pre>[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: turbine-webapp-2.3.3:1.0.0
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: com.mycompany.turbine
+[INFO] Parameter: artifactId, Value: myturbineapp
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: package, Value: com.mycompany.turbine
+[INFO] Parameter: packageInPathFormat, Value: com/mycompany/turbine
+[INFO] Parameter: turbine_database_jndipath, Value: java:comp/env/jdbc/Turbine
+[INFO] Parameter: groupId, Value: com.mycompany.turbine
+[INFO] Parameter: turbine_app_name, Value: My Turbine Web Application
+[INFO] Parameter: turbine_database_name, Value: turbine
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: turbine_intake_file, Value: intake.xml
+[INFO] Parameter: turbine_database_adapter, Value: mysql
+[INFO] Parameter: package, Value: com.mycompany.turbine
+[INFO] Parameter: artifactId, Value: myturbineapp
+[INFO] project created from Archetype in dir: /Users/thomas/Dev/myturbineapp
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2 minutes 25 seconds
+[INFO] Finished at: Sun Nov 18 17:11:02 CET 2012
+[INFO] Final Memory: 12M/62M
+[INFO] ------------------------------------------------------------------------</pre>
+<p>You can now start to use the project, add your own modules, templates and other resources. Running "<span style="color: #ff0000; ">mvn package</span>" will create a complete WAR file, ready to be deployed.</p>

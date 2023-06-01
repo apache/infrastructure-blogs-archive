@@ -1,7 +1,0 @@
----
-layout: post
-title: Announcing New ASF Board of Directors
-date: '2022-03-03T00:00:00+00:00'
-categories: foundation
----
-<p>At The Apache Software Foundation (ASF) Annual Members' Meeting held this week, the following individuals were elected to the ASF Board of Directors:<br></p><ul><li>Rich Bowen (former Director)</li><li>Bertrand Delacretaz (current Director)</li><li>Christofer Dutz (new Director)</li><li>Roy T. Fielding (current Director)</li><li>Sharan Foga (current Director)</li><li>Willem Jiang (new Director)</li><li>Sam Ruby (current Director)</li><li>Roman Shaposhnik (current Director)</li><li>Sander Striker (current Director)</li></ul><p><br></p><p>The ASF thanks Justin Mclean, Craig Russell, and Sheng Wu for their service, and welcomes our new and returning directors.</p><p>An overview of the ASF's governance, along with the complete list of ASF Board of Directors, Executive Officers, and Project/Committee Vice Presidents, can be found at <a href="http://apache.org/foundation/" target="_blank">http://apache.org/foundation/</a>&nbsp;</p><p>For more information on the Foundation's operations and structure, see <a href="http://apache.org/foundation/how-it-works.html#structure" target="_blank">http://apache.org/foundation/how-it-works.html#structure</a>&nbsp;</p><p># # #</p>

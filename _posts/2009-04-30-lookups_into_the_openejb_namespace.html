@@ -1,0 +1,54 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Lookups into the openejb namespace
+author:
+  display_name: David Blevins
+  login: dblevins
+  email: dblevins@apache.org
+author_login: dblevins
+author_email: dblevins@apache.org
+id: '02839c50-fb78-4719-8030-f1d68faa25a4'
+date: '2009-04-30 00:03:01 -0400'
+categories:
+- Java
+tags:
+- openejb
+- ejb
+- newfeatures
+- 3.1.1
+- jndi
+comments:
+- id: 0
+  author: cipro
+  author_email: utripesma1978@gmail.com
+  author_url: https://atopy-pharmacy.com/antibiotics/cipro_fr.html
+  date: '2019-07-19 16:06:22 -0400'
+  content: Wow, this is so incredible!
+- id: 0
+  author: Henry
+  author_email: lsadfhslad@gmail.com
+  author_url: ''
+  date: '2019-08-24 09:10:41 -0400'
+  content: I am glad to see that now you have added the URL prefix in their software
+    in the open JNDI. This is really very beneficial as they have it helped to better
+    use http://teacherhabits.com/10-things-every-new-teacher-should-know/ fast because
+    it used to take a lot of time without this URL.
+- id: 61
+  author: statovdere1971
+  author_email: statovdere1971@gmail.com
+  author_url: https://blogss.apache.org
+  date: '2019-07-18 16:50:19 -0400'
+  content: Good :)))
+permalink: openejb/entry/lookups_into_the_openejb_namespace
+---
+<p>To ease the burden in looking up things from OpenEJB's internal JNDI tree, we've added a new "openejb" JNDI URL prefix which can be used in any context to do lookups.</p>
+<p>
+The following will work in a TestCase or EJB or any code running in the same VM as the EJB Container.</p>
+<p><pre>
+InitialContext context = new InitialContext();
+
+TransactionManager tm = (TransactionManager) context.lookup("openejb:TransactionManager");
+DataSource dataSource = (DataSource) context.lookup("openejb:Resource/MyDataSource");
+</pre>

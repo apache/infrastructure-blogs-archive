@@ -1,0 +1,104 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Apache Software Foundation Security Report: 2019'
+author:
+  display_name: Sally Khudairi
+  login: sk
+  email: sk@haloworldwide.com
+author_login: sk
+author_email: sk@haloworldwide.com
+id: 022ee1a0-9933-4561-a668-c6448cbfb3a0
+date: '2020-01-31 07:13:09 -0500'
+categories:
+- General
+tags:
+- security
+- '2019'
+- calendar
+- cox
+- report
+- apache
+- foundation
+- vulnerabilities
+- software
+- mark
+- year
+comments: []
+permalink: foundation/entry/apache-software-foundation-security-report
+---
+<div><strong>Synopsis:</strong> This report explores the state of security across all Apache Software Foundation projects for the calendar year 2019. We review key metrics, specific vulnerabilities, and the most common ways users of ASF projects were affected by security issues.</div>
+<div></div>
+<div><strong>Released:</strong> 31 January 2020</div>
+<div></div>
+<div><strong>Author:</strong> Mark Cox, Vice President Security, The Apache Software Foundation</div>
+<p><strong>Background<br /></strong>The security committee of The Apache Software Foundation (ASF) oversee and co-ordinate the handling of vulnerabilities across all of the 300+ Apache projects.&nbsp; Established in 2002 and comprising of all volunteers, we have a <a href="https://s.apache.org/cveprocess">consistent process</a> for how issues are handled, and this process includes how our projects must disclose security issues.</p>
+<div>Anyone finding security issues in any Apache project can report them to security@apache.org where they are recorded and passed on to the relevant <a href="https://apache.org/security/projects.html">dedicated security teams</a> or project management committees (PMC) to handle.&nbsp; The security committee see all the issues reported across all the addresses and keep track of the issues throughout the vulnerability lifecycle.&nbsp;&nbsp;</div>
+<div></div>
+<div>The security committee is responsible for ensuring that issues are dealt with properly and will actively remind projects of their outstanding issues and responsibilities.&nbsp; As a board committee, we have the ability to take action including blocking their future releases or, worst case, archiving a project if such projects are unresponsive to handling their security issues.&nbsp; This, along with the Apache Software License, are key parts of the ASF&rsquo;s general oversight function around official releases, allowing the ASF to protect individual developers and giving users confidence to deploy and rely on ASF software.&nbsp;&nbsp;</div>
+<div></div>
+<div>The oversight into all security reports, along with tools we have developed, gives us the ability to easily create statistics on the issues.&nbsp;</div>
+<div>
+<p><strong>Statistics for 2019<br /></strong>In 2019 our security addresses received in total over 18,000 emails. After spam filtering and thread grouping this comes to 620 non-spam threads.&nbsp; Unfortunately many security reports do look like spam and so the security team are careful to review all messages to ensure real reports are not missed for long.</p>
+</p></div>
+<div><img src="https://blogs.apache.org/foundation/mediaresource/fa9b3fe8-0616-40ee-a93e-b96b5dce460f" /></div>
+<div></div>
+<div>Diagram 1: Breakdown of ASF security email threads for calendar year 2019*</div>
+<div></div>
+<div>Diagram 1 gives the breakdown of those 620 threads.&nbsp; 138 threads (22%) were people confused by the Apache License.&nbsp; As many projects use the Apache License, not just those under the ASF umbrella, users can get confused when they see the Apache License and they don't understand what it is.&nbsp; This is most common for example on mobile phones where the licenses are displayed in the settings menu, usually due to the inclusion of software by Google released under the Apache License.</div>
+<div></div>
+<div>The next 162 of the 620 (26%) are email threads that are not spam but are also not reports of new vulnerabilities.&nbsp; These are generally people asking support-type questions or how old vulnerabilities were dealt with.</div>
+<div></div>
+<div>That left 320 reports of new vulnerabilities in 2019, which spanned across 84 of the top level projects.&nbsp; These 320 reports are a mix of both external reporters and internal; for example where a project has found an issue themselves and followed the ASF process to assign it a CVE name and address it.&nbsp; Note that we don&rsquo;t track the reporter affiliation, and ASF reporters often use non-ASF email addresses for reporting, so we can&rsquo;t give a break down of internal vs external reports .</div>
+<div></div>
+<div>The next step is that the appropriate project triages the report to see if it's really an issue or not.&nbsp; At this stage invalid reports, or things that are not actually vulnerabilities at all, get rejected back to the reporter.&nbsp; Of the remaining issues that are accepted they are are assigned appropriate CVE names and eventually fixes are released.</div>
+<div></div>
+<div>As of January 1st 2020, 19 of those 320 reports were still under triage (i.e. the project had not yet determined if the report is accepted or rejected).&nbsp; The process of triage and investigation varies in time depending on the project, availability of resources, and number of issues to be assessed.&nbsp; As a general guideline we try to ensure projects have triaged issues within 90 days of the report.&nbsp; The timeline for the fixing of issues depends on the schedules of the projects themselves and issues of lower severity are most often held to future pre-planned releases.&nbsp;&nbsp;</div>
+<div></div>
+<div>The remaining closed 301 reports led to us assigning 122 CVE names.&nbsp; Some vulnerability reports may include multiple issues, some reports are across multiple projects, and some reports are duplicates where the same issue is found by different reporters, so there isn't an exact one-to-one mapping of accepted reports to CVE names.&nbsp; The Apache Security committee handle CVE name allocation and are a Mitre Candidate Naming Authority (CNA), so all requests for CVE names in any ASF project are routed through us, even if the reporter is unaware and contacts Mitre directly or goes public with an issue before contacting us.&nbsp;</div>
+<div>
+<p><strong>Noteworthy events<br /></strong>During 2019 there were a few events worth discussion; either because they were severe and high risk, they had readily available exploits, or otherwise due to media attention.&nbsp; &nbsp;These included:</p>
+</p></div>
+<div>
+<ul>
+<li>January 2019: Securonix <a href="https://www.securonix.com/resources/securonix-threat-research-detecting-persistent-cloud-infrastructure-hadoop-yarn-attacks-using-security-analytics-moanacroner-xbash/">published a report</a> outlining an increase of attacks of Apache Hadoop instances that have not been configured with authentication.&nbsp; Public exploits and a Metasploit module exist to perform remote code execution on unprotected Hadoop YARN systems.
+</li>
+<li>April 2019: A flaw in Apache HTTP Server 2.4 (<a href="https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2019-0211">CVE-2019-0211</a>).&nbsp; A user who has access to write scripts on a web server could elevate those privileges to root.&nbsp; A public exploit is available for this issue.
+</li>
+<li>April 2019: A flaw in older versions of Apache Axis that parsed a <a href="https://rhinosecuritylabs.com/application-security/cve-2019-0227-expired-domain-rce-apache-axis/">file retrieved insecurely from an expired domain</a>, allowing remote code execution (CVE-2019-0227).
+</li>
+<li>June 2019: Jonathan Leitschuh contacted us after finding a number of Java <a href="https://twitter.com/JLLeitschuh/status/1138116614623244288">build dependencies were being downloaded over insecure paths</a> (i.e. HTTP rather than HTTPS).&nbsp; We did not classify these as security vulnerabilities in themselves as exploiting them would require MITM attacks at build time.&nbsp; We worked with ASF projects including those identified by the reporter to ensure that we use secure URLs.&nbsp; Now, in 2020, a number of repositories <a href="https://central.sonatype.org/articles/2019/Apr/30/http-access-to-repo1mavenorg-and-repomavenapacheorg-is-being-deprecated/">are requiring</a> secure URLs.
+</li>
+<li>August 2019: The Black Duck Synopsys team reviewed older Struts releases and advisories and found some discrepancies in the reported affected versions.&nbsp; &nbsp;The Struts team worked through their findings and <a href="https://cwiki.apache.org/confluence/display/WW/S2-058">issued corrections</a> where needed.&nbsp; This can be important if users are running older versions that they don't think are affected by an issue based on the advisories, but they actually are.&nbsp; However, those same users are likely vulnerable to the other issues that have since been fixed and so we'd always recommend users upgrade to the latest version of Struts to ensure they have a version that contains fixes for all the published security issues.
+</li>
+<li>August 2019: Netflix found a number of denial of service vulnerabilities affecting various HTTP/2 implementations. ASF projects containing HTTP/2 implementations were investigated and analysed the issues reported. Both Apache HTTP Server and Apache TrafficServer <a href="https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2019-9517">released</a> <a href="https://lists.apache.org/thread.html/2653c56545573b528f3f6352a29eccaf498bd6fb2a6a59568d81a61d%40%3Cannounce.trafficserver.apache.org%3E">updates</a> to address denial of service issues that affected them.&nbsp; Apache Tomcat also made performance improvements to HTTP/2 handling but the issues <a href="https://mail-archives.apache.org/mod_mbox/tomcat-announce/201908.mbox/%3C71e8f5f2-86ff-26b3-e792-73eeb8655acb%40apache.org%3E">were not classed as denial of service</a>.
+</li>
+<li>September 2019: A <a href="https://info.risksense.com/ransomware_report">RiskSense report</a> highlighted vulnerabilities known to be used by Ransomware which included four in ASF projects.&nbsp; The four vulnerabilities were all fixed in earlier years and all had updates and mitigations available before any ransomware took advantage of them.&nbsp; Users should always ensure they pay attention to security updates in any ASF projects they use and prioritise updating for any remote or critical vulnerabilities. The four vulnerabilities were:
+<p>&nbsp;-- CVE-2016-3088 in Apache ActiveMQ.&nbsp; Targeted by <a href="http://blog.nsfocusglobal.com/threats/vulnerability-analysis/xbash-malware-security-advisory/">XBash</a>, this issue was trivial to exploit.&nbsp; It was fixed in Active MQ 5.14.0 and mitigation was also available.</p>
+<p>&nbsp;-- CVE-2017-12615 in Apache Tomcat.&nbsp; It is surprising to see this issue on the list as it affects a non-default and quite unlikely flaw.&nbsp; However, it's an <a href="http://blog.nsfocusglobal.com/categories/trend-analysis/satan-variant-analysis-handling-guide/">issue that is probed by Lucky</a> (a variant of "Satan"), so if there is a server configured in this way it will get exposed. This issue only affected Windows platforms on non-default config, it was fixed in Tomcat 7.0.81, and mitigation is also available.&nbsp; Note that Lucky will also do brute force attacks targeting weak passwords on&nbsp; accessible Tomcat Web Admin consoles.</p>
+<p>&nbsp;-- CVE-2017-5638 in Apache Struts.&nbsp; This issue is <a href="https://blog.talosintelligence.com/2017/03/apache-0-day-exploited.html">known to be exploited in the wild</a>, however the first exploitation was discovered after the advisory and fix was published.&nbsp; <a href="https://blog.talosintelligence.com/2017/03/apache-0-day-exploited.html">Used by Lucky</a> (a variant of Satan).&nbsp; It was fixed in Struts 2.3.32 and 2.5.10.1, and a mitigation is also available.</p>
+<p>&nbsp;-- CVE-2018-11776 in Apache Struts.&nbsp; This issue is also used by <a href="https://brica.de/alerts/alert/public/1239920/satan-ransomware-variant-exploits-10-server-side-flaws/">Lucky</a>.&nbsp; It was fixed in Struts 2.3.35, 2.5.17, a possible mitigation is available but upgrading is advised.</p>
+</li>
+<li>Dec 2019: A flaw in Apache Olingo allowing XML External Entity (XXE) attacks (<a href="https://mail-archives.apache.org/mod_mbox/olingo-user/201912.mbox/%3CCAGSZ4d7Ty%3DL-n_iAzT6vcQp65BY29XZDS5tMoM8MdDrb1moM7A%40mail.gmail.com%3E">CVE-2019-17554</a>).&nbsp; This issue could be used, for example, to retrieve arbitrary files from a server.&nbsp; A public exploit example exists for this issue.
+</li>
+<li>A number of flaws in Apache Solr <a href="https://cwiki.apache.org/confluence/display/solr/SolrSecurity">through the year</a> that could allow remote code execution.&nbsp; Public exploits exist for some of the issues as well as a Metasploit module.
+</li>
+<li>The European Commission EU-FOSSA 2 project sponsored bug bounty programs for users finding security issues in both Apache Kafka and Apache Tomcat.&nbsp; No issues were fixed in Apache Kafka.&nbsp; Two issues were fixed in Apache Tomcat: <a href="https://tomcat.apache.org/security-9.html#CVE-2019-0232">CVE-2019-0232</a> (Important severity, affecting Windows platforms, public exploits including a Metasploit module are available) and <a href="https://tomcat.apache.org/security-9.html#CVE-2019-0221">CVE-2019-0221</a> (Low severity).&nbsp; &nbsp;As well as running the bug bounties, EU-FOSSA 2 also <a href="https://joinup.ec.europa.eu/collection/eu-fossa-2/news/eu-fossa-2-apache-hackathon">sponsored a successful hackathon</a> in June 2019.</li>
+</ul></div>
+<div><strong>Conclusion</strong></div>
+<div>
+<p>Apache Software Foundation projects are highly diverse and independent.&nbsp; They have different languages, communities, management, and security models.&nbsp; However one of the things every project has in common is a consistent process for how reported security issues are handled.</p>
+<p>The ASF Security Committee work closely with the project teams, communities, and reporters to ensure that issues get handled quickly and correctly.&nbsp; This responsible oversight is a principle of The Apache Way and helps ensure Apache software is stable and can be trusted.</p>
+</p></div>
+<div>This report gave metrics for calendar year 2019 showing from the 18,000 emails received we triaged over 300 vulnerability reports leading to fixing just over 100 (CVE) issues.&nbsp; If you have vulnerability information you would like to share with or comments on this report <a href="http://apache.org/security/#reporting-a-vulnerability">please contact us</a>.</div>
+<p># # #</p>
+<p>graphic created by <a href="http://sankeymatic.com/build/">http://sankeymatic.com/build/</a> using code :</p>
+<p>Threads [138] License Confusion</p>
+<p>Threads [162] Support Questions</p>
+<p>Threads [320] Vulnerability Reports</p>
+<p>Vulnerability Reports [19] Under Triage</p>
+<p>Vulnerability Reports [301] Closed</p>
+<p>Closed [122] CVE</p>
+<p>1000x600</p>
+<p>colour B source </p>

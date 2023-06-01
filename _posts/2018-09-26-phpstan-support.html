@@ -1,0 +1,78 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: PHPStan Support
+author:
+  display_name: Junichi Yamamoto
+  login: junichi11
+  email: junichi11@apache.org
+author_login: junichi11
+author_email: junichi11@apache.org
+id: 28144a36-e2f4-4277-95d5-9a0bbb5c94b8
+date: '2018-09-26 06:11:25 -0400'
+categories:
+- PHP
+tags:
+- php
+comments:
+- id: 0
+  author: Tom&aacute;&scaron; My&scaron;&iacute;k
+  author_email: tomas.mysik@gmail.com
+  author_url: ''
+  date: '2018-09-26 19:14:00 -0400'
+  content: Great job Junichi!
+- id: 1
+  author: hendryjullius
+  author_email: hendryjullius@gmail.com
+  author_url: ''
+  date: '2018-09-26 06:36:48 -0400'
+  content: 'good
+
+    '
+- id: 4
+  author: Junichi Yamamoto
+  author_email: junichi11@apache.org
+  author_url: ''
+  date: '2018-09-26 21:20:56 -0400'
+  content: Tomas, definitely, thanks to your existing code, of course :)
+- id: 94
+  author: Jack
+  author_email: jacmesj@gmail.com
+  author_url: ''
+  date: '2018-09-28 13:22:36 -0400'
+  content: |
+    Great job! Brilliant!!
+
+    Jack G.
+- id: 618
+  author: Petru
+  author_email: petruciucur@yahoo.com
+  author_url: ''
+  date: '2018-09-26 23:39:38 -0400'
+  content: Wow, brilliant !
+permalink: netbeans/entry/phpstan-support
+---
+<p>
+    Hi all. Today, we will show you about <a href="https://github.com/phpstan/phpstan">PHPStan</a> integration which will be available in the <b>next NetBeans version</b> i.e. <b>NetBeans 10</b> as a new code analysis feature.<br />
+    If you have already used other code analysis features(e.g. Code Sniffer), you should be able to use this with similar way soon.</p>
+<h3>Options</h3>
+<p>
+    First of all, let's set the Options (Tools > Options > PHP > Code Analysis > PHPStan). You can set a script path, a configuration file path and a level.<br />
+    At least you have to set the PHPStan script path to "PHPStan". If you don't set "Configuration" path, the configuration file of project root directory would be used.</p>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/fb6ddce7-8803-4cc5-a193-f53b4b8f0658"><img src="https://blogs.apache.org/netbeans/mediaresource/fb6ddce7-8803-4cc5-a193-f53b4b8f0658" alt="Nb10-php-phpstan-support-options.png"></img></a></p>
+<h3>Inspect project/directory/file</h3>
+<p>
+    Then, let's inspect a project/direcoty/file using PHPStan. Please click "Source > Inspect...".<br />
+    The inspect dialog is shown.</p>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/8f1dbf55-e46e-4425-bac5-00df2dd7cf80"><img src="https://blogs.apache.org/netbeans/mediaresource/8f1dbf55-e46e-4425-bac5-00df2dd7cf80" alt="Nb10-php-phpstan-support-inspect-dialog.png"></img></a></p>
+<p>
+    Please choose "Scope" which you would like to inspect and PHPStan as "Configuration".<br />
+    The files are inspected when you click the "inspect" button.<br />
+    Finally, The results are shown in the inspector window after the inspection is done.</p>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/a517bb1f-1926-430b-ba87-eae912f6d1dc"><img src="https://blogs.apache.org/netbeans/mediaresource/a517bb1f-1926-430b-ba87-eae912f6d1dc" alt="Nb10-php-phpstan-support-results.png"></img></a></p>
+<p>
+    That's all for today. As always, please test it. You can download a development version from<br />
+    <a href="https://builds.apache.org/job/incubator-netbeans-linux/lastSuccessfulBuild/artifact/nbbuild/">Jenkins Build</a>.<br />
+    If you find some issues or enhancements, please report them to <a href="https://issues.apache.org/jira/projects/NETBEANS/issues">JIRA</a><br />
+    <i>(Components: php - Code)</i>. Thanks.</p>

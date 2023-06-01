@@ -1,0 +1,59 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: EJBContext.getCallerPrincipal() improvements
+author:
+  display_name: David Blevins
+  login: dblevins
+  email: dblevins@apache.org
+author_login: dblevins
+author_email: dblevins@apache.org
+id: 559316ed-9a74-4646-b893-681ae1172908
+date: '2009-04-28 21:29:34 -0400'
+categories:
+- Java
+tags:
+- ejb
+- improvements
+- security
+- 3.1.1
+- openejb
+comments:
+- id: 0
+  author: flagyl
+  author_email: sellepermi1988@gmail.com
+  author_url: https://safe-canadian-store.com/antibiotics/flagyl.html
+  date: '2019-07-19 18:06:44 -0400'
+  content: Очень круто! *artistic
+- id: 45
+  author: tergdehealthra1978
+  author_email: tergdehealthra1978@gmail.com
+  author_url: ''
+  date: '2019-07-18 16:47:58 -0400'
+  content: Way nice! like all the versions you came up with.
+permalink: openejb/entry/ejbcontext_getcallerprincipal_improvements
+---
+<p>The getCallerPrincipal() method has been improved to always return the username used to login.</p>
+<p>Now any LoginModule implementation can use the new @CallerPrincipal annotation to flag the Principal object they want to be the one returned from getCallerPrincipal() method.  The security service will iterate over the Principal objects in the current Subject and return the first one that is annotated as @CallerPrincipal.  If no Principal is found with the @CallerPrincipal annotation, the security service will return the first Principal in the Subject as before.  All the OpenEJB supplied LoginModules have been updated to use this new annotation.</p>
+<p>If you have implemented your own LoginModule, here's an example of a Principal implementation that uses the new annotation:</p>
+<p><pre>
+import org.apache.openejb.spi.CallerPrincipal;
+
+@CallerPrincipal
+public class UserPrincipal implements java.security.Principal {
+
+    private final String name;
+
+    public UserPrincipal(String name) {
+        if (name == null) throw new IllegalArgumentException("name cannot be null");
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // don't forget to implement equals() and hashCode()
+}
+</pre>

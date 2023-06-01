@@ -1,0 +1,595 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'LDAP-based Authentication with Apache ESME and Apache Directory Server '
+author:
+  display_name: Richard Hirsch
+  login: rhirsch
+  email: rhirsch@apache.org
+author_login: rhirsch
+author_email: rhirsch@apache.org
+id: 26b59d18-74a0-4ce0-a081-a696bfcccc1d
+date: '2011-04-13 07:12:33 -0400'
+categories:
+- Development
+tags:
+- esme
+- ldap
+- ads
+comments:
+- id: 85
+  author: Stefan Seelmann
+  author_email: seelmann@apache.org
+  author_url: http://directory.apache.org/studio
+  date: '2011-04-13 17:01:15 -0400'
+  content: 'Instead of JXplorer you can of course also use another Apache product:
+    Apache Directory Studio (http://directory.apache.org/studio)'
+- id: 37667
+  author: Vladimir Ivanov
+  author_email: lester.mail@gmail.com
+  author_url: ''
+  date: '2011-04-15 08:02:53 -0400'
+  content: "Resorce bundle was misused in this article. Lift's net.liftweb.util.Props
+    class should have been used instead.\r\n\r\nI moved LDAP settings to default.props.\r\n\r\nFollwoing
+    changes have been applied to UserAuth class:\r\n\r\n-To check if LDAP is enabled\r\n\r\nval
+    ldapEnabled = Props.getBool(\"ldap.enabled\") openOr false\r\n\r\n-To get other
+    string properties:\r\n\r\nval ldapSrvHost = Props.get(\"ldap.server.host\") openOr
+    \"\"\r\n\r\nThanks Derek Chen-Becker who pointed to this issue in Lift Google
+    Group."
+- id: 66575363
+  author: Inquisitor
+  author_email: graser@gmail.com
+  author_url: ''
+  date: '2011-04-28 08:51:54 -0400'
+  content: "??? ?? ?????? ?????????, ????? ? ???? ??? ??????"
+permalink: esme/entry/test
+---
+<p class=" "><span>This blog was written by our new committer&nbsp;<i>Vladimir Ivanov</i>&nbsp;who implemented a feature that users have been wanting for a long time.&nbsp;</span> </p>
+<p class=" "><span>In this blog, I'll discuss how container-managed authentication works<br />
+with an LDAP server and how to connect and get additional information from it.<br />
+I'll use Jetty and Apache Tomcat web servers with Apache Directory Server (ADS)<br />
+1.5.7 - a certified LDAPv3 compatible server. It is also possible to use<br />
+different LDAP compatible server such as a 389 Directory Server or MS Active<br />
+Directory.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>An LDAP server is a directory service that contains objects organized in<br />
+a hierarchical manner.</span></p>
+<h2><span>Apache Directory Server (ADS)</span></h2>
+<p class=" "><span> </span></p>
+<p class=" "><span>The ADS project page provides a detailed server installation and<br />
+configuration guide, but here are the basic steps: during the installation, the<br />
+default server instance will be created. The configuration settings for this<br />
+instance are defined in the <em>server.xml</em> file as Spring bean definitions.<br />
+Below is an excerpt from the configuration file that was used for this<br />
+blog.<span> </span></span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>server.xml</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<p class=" "><span>First of all, it is necessary to create a new partition:</span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">...</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">
+<partitions>
+</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">... </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><jdbmPartition id="lester"<br />
+suffix="dc=lester,dc=org" /> </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></partitions> </span></p>
+</blockquote>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><span>Ports that LDAP server will use are specified as tcpTransport elements:</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><font face="'Courier New'"><span style="font-size: 12px; "> </span></font></p>
+<p class="MsoNormal"><font face="'Courier New'"><span style="font-size: 12px; "> </span></font></p>
+<p><font face="'Courier New'"><span style="font-size: 12px; "> </span></font></p>
+<p class="MsoNormal"><font face="'Courier New'"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><ldapServer<br />
+id="ldapServer" <o:p /></span></font></p>
+<p><font face="'Courier New'"> </p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>allowAnonymousAccess="false" <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><span> </span>saslHost="ldap.example.com" <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>saslPrincipal="ldap/ldap.example.com@EXAMPLE.COM" <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>searchBaseDn="ou=users,ou=system" <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>maxTimeLimit="15000" <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>maxSizeLimit="1000"> <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><br />
+<transports> <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><tcpTransport address="0.0.0.0" port="10389"<br />
+nbThreads="8" backLog="50" enableSSL="false"/><br />
+<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><tcpTransport address="localhost" port="10636"<br />
+enableSSL="true"/> <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span></transports> <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span></ldapServer><o:p /></span></p>
+<p></font> </p></p>
+</blockquote>
+<p>The local path to the directory containing LDIF files should also be<br />
+specified: </p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><font face="'Courier New'"><span style="font-size: 12px; "> </span></font></p>
+<p class="MsoNormal"><font face="'Courier New'"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><apacheDS<br />
+id="apacheDS"> <o:p /></span></font></p>
+<p><font face="'Courier New'"> </p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><ldapServer>#ldapServer</ldapServer> <o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span><ldifDirectory><b>PATH_TO_ADS_INSTALL_DIR/instances/default/ldif</b></ldifDirectory><br />
+<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span></apacheDS>&nbsp;<o:p /></span></p>
+<p></font> </p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span> </span></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>Other configuration settings were left unchanged.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>Now It is time to create the directory structure. I used the popular<br />
+open source tool JXplorer for this task.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>It is possible to export the directory structure from the JXplorer tool<br />
+to the LDIF file &mdash; directory content in text format. Let's review the generated<br />
+file.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>lester.ldif</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<p class=" "><span>Below is a record list beginning from the top. Note that each record has<br />
+specific set of object classes defined in this schema. Each object class<br />
+defines specific set of attributes, for example, <em>person</em> class defines <em>Surname</em><br />
+(<em>sn</em>) and <em>Given Name</em> (<em>givenName</em>) attributes. One object<br />
+class can extend another, for example <em>organizationalPerson </em>class extends<br />
+<em>person </em>class. <em>top</em> is a superclass for all other classes.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>Domain <em>lester.org</em> is the root of this hierarchy:<span> </span></span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dn: dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: extensibleObject </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: domain </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: top </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dc: lester </span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The Organizational Unit <em>esme </em>is placed one level lower:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dn: ou=esme,dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: organizationalUnit </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: top </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ou: esme </span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The Organizational Unit<em> Groups </em>resides under the <em>esme</em><br />
+Organizational Unit:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dn: ou=Groups,ou=esme,dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: organizationalUnit </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: top </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ou: Groups </span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>There is only one group <em>esme-users</em> on the lowest level of the hierarchy<br />
+and it has the <em>vivanov</em> user (specified by a <span> </span>full path) as a unique member:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dn: cn=esme-users,ou=Groups,ou=esme,dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: groupOfUniqueNames </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: top </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">cn: esme-users </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ou: Groups </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">uniqueMember:<br />
+uid=vivanov,ou=Users,ou=esme,dc=lester,dc=org </span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The Organizational Unit<em> Users </em>resides under the <em>esme</em><br />
+organizational unit:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dn: ou=Users,ou=esme,dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: organizationalUnit </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: top </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ou: Users </span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The user <em>vivanov </em>and its corresponding attributes are defined on the<br />
+lowest level of the hierarchy:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">dn: uid=vivanov,ou=Users,ou=esme,dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: organizationalPerson </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: person </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: uidObject </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: inetOrgPerson </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">objectClass: top </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">cn: vivanov </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">givenName: Vladimir </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">mail: vivanov@lester.org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ou: Users </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">sn: Ivanov </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">telephoneNumber: +7 111 222 33 44 </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">uid: vivanov </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userPassword:: cXdlcnR5 </span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>There is also a special user with administrative rights: <em>uid=admin,ou=system<br />
+</em>(default password: <em>secret</em>) defined in <em>system</em> schema. It was<br />
+used to connect to ADS from JXplorer.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>Those were all basic steps necessary to configure ADS for purpose of<br />
+this b log. Let's move to the configuration of the web servers.</span></p>
+<h2><span>Configuration</span></h2>
+<p class=" "><strong><span> </span></strong></p>
+<p class=" "><span>Before digging into the configuration details specific for each web<br />
+server, let's review the common properties used to connect to the LDAP server.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>First of all, it is necessary to specify the hostname / ip address and the<br />
+port of our LDAP server &mdash; <em>localhost:10389</em>, as well as the credentials<br />
+for an account that has rights to perform search operation and get attributes<br />
+for users and roles in a directory tree. The special <em>admin</em> user<br />
+described in previous section was also used for this purpose in this blog.<br />
+Sometimes anonymous access is also permitted.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>The next set of properties, user base and group base, specify the base<br />
+context with which to lookup users and groups. For our configuration web server<br />
+will search users under <em>ou=Users,ou=esme,dc=lester,dc=org</em> and groups<br />
+under <em>ou=Groups,ou=esme,dc=lester,dc=org</em> paths in the directory tree<br />
+accordingly.<span> </span></span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>The user id and role name attributes specify the prefix for user/group<br />
+search filter. In our example, it has the <span> </span><em>uid</em> value for users and the <em>cn </em>value<br />
+for groups.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>The <em>uniqueMember</em> attribute is<br />
+used to check whether the user belongs to the specified group.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>Now it is time to review the configuration for each of the web servers.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><strong><span>Note:</span></strong><span> The required <em>lift-ldap</em><br />
+dependency has been already included in <em>pom.xml</em>.</span></p>
+<h3><span>Jetty</span></h3>
+<p class=" "><span>In order to configure Jetty to use LDAP server, two additional Maven<br />
+dependencies: <em>jetty-plus</em> and <em>jetty-ldap-jaas</em> should be added to<br />
+the <em>pom.xml </em><span>file</span>.<br />
+Configuration of <em>maven-jetty-plugin </em>includes the following steps: set the<br />
+<em>JAASUserRealm<strong> </strong></em>as an user realm implementation and specify the <span> </span><em>ldaploginmodule </em>as the login module<br />
+name. It is also necessary to set the system property <em>java.security.auth.login.config<br />
+</em>with the<em> ldap-loginModule.conf </em>value:</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>pom.xml</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><dependency></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><groupId>org.mortbay.jetty</groupId></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><artifactId>jetty-plus</artifactId></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><version>[6.1.6,)</version></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><scope>compile</scope></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></dependency></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><dependency></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><groupId>org.mortbay.jetty</groupId></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><artifactId><strong>jetty-ldap-jaas</strong></artifactId></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><version>[6.1.6,)</version></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><scope>compile</scope></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></dependency></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">
+<plugin></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><groupId>org.mortbay.jetty</groupId></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><artifactId>maven-jetty-plugin</artifactId></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><configuration></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><contextPath>/</contextPath></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><scanIntervalSeconds>0</scanIntervalSeconds></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><userRealms></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><userRealm<br />
+implementation="org.mortbay.jetty.plus.jaas.JAASUserRealm"></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><name>ESMERealm</name></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><loginModuleName><strong>ldaploginmodule</strong></loginModuleName></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></userRealm></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></userRealms></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><systemProperties></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><systemProperty></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><name>java.security.auth.login.config</name></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><value>ldap-loginModule.conf</value></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></systemProperty></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></systemProperties></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></configuration></span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "></plugin></span></p>
+</blockquote>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The file <em>ldap-loginModule.conf</em> is placed under the <em>ESME_ROOT/server</em><br />
+folder. It specifies login module implementation class - <em>LdapLoginModule </em>as<br />
+well as LDAP-specific connection properties:</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>ldap-loginModule.conf</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldaploginmodule {</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">org.mortbay.jetty.plus.jaas.ldap.LdapLoginModule<br />
+required</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">debug="true"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">useLdaps="false"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">contextFactory="com.sun.jndi.ldap.LdapCtxFactory"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">hostname="localhost"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">port="10389"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">bindDn="uid=admin,ou=system"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">bindPassword="secret"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">authenticationMethod="simple"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">forceBindingLogin="false"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userBaseDn="ou=Users,ou=esme,dc=lester,dc=org"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userRdnAttribute="uid"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userIdAttribute="uid"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userPasswordAttribute="userPassword"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userObjectClass="inetOrgPerson"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleBaseDn="ou=Groups,ou=esme,dc=lester,dc=org"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleNameAttribute="cn"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleMemberAttribute="uniqueMember"</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleObjectClass="groupOfUniqueNames";</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">};</span></p>
+</blockquote>
+<p class=" "><font face="'Courier New'"><span style="font-size: 12px; "><a name="id.85a2218e86a9"></a></span></font></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>Note that for some environments <em>forceBindingLogin </em>attribute<em> </em>must<br />
+also be set to <em>true</em>.</span></p>
+<h3><span>Tomcat</span></h3>
+<p class=" "><strong><span> </span></strong></p>
+<p class=" "><span>The only required change in the Tomcat's <em>server.xml</em> configuration<br />
+file (compared to the changes described in the last blog) is a different realm<br />
+-<span> </span><em>JNDIRealm</em>. This realm is used<br />
+to connect to LDAP server and search users/groups:</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>server.xml</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">...</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><Realm<br />
+className="org.apache.catalina.realm.JNDIRealm" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">connectionName="uid=admin,ou=system" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">connectionPassword="secret" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">connectionURL="ldap://localhost:10389" debug="99" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">referrals="follow" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleBase="ou=Groups,ou=esme,dc=lester,dc=org" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleName="cn" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleSearch="(uniqueMember={0})" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">roleSubtree="true" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userBase="ou=Users,ou=esme,dc=lester,dc=org" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userSearch="(uid={0})" </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">userSubtree="true"/> </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">&hellip;</span></p>
+</blockquote>
+<p class=" "><span> </span></p>
+<h3><span>LDAPVendor and ESMELdap.properties<br />
+file</span></h3>
+<p class=" "><strong><span> </span></strong></p>
+<p class=" "><span>The web server is now configured to perform CMA. But the Servlet API<br />
+makes only the user principal available for application. In order to fill ESME<br />
+user's profile, additional attributes such as firstname, lastname and email are<br />
+needed. We will use LDAP server to retrieve these attributes. Let's review<br />
+changes in UserAuth.scala, specifically in <em>ContainerManagedAuthModule </em>object:</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>UserAuth.scala</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<p class=" "><span>To connect to the LDAP server from application first of all, <span> </span>it is necessary to create aq subclass of <em>net.lift.ldap.LDAPVendor</em><br />
+class:</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>object<br />
+myLdapVendor extends LDAPVendor</span></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>All LDAP-specific connection properties are placed into a resource<br />
+bundle &mdash; plaintext property file with key-value pairs. It is possible to get<br />
+property values by key with the <em>S.?</em> method:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">def myLdap :<br />
+LDAPVendor = {</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvHost = S.?("ldap.server.host")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvPort = S.?("ldap.server.port")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvBase = S.?("ldap.server.base")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvUsrName = S.?("ldap.server.userName")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvPwd = S.?("ldap.server.password")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvAuthType = S.?("ldap.server.authType")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvReferral= S.?("ldap.server.referral")</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">val<br />
+ldapSrvCtxFactory = S.?("ldap.server.initial_context_factory")</span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The next step is to configure the <em>LDAPVendor </em>subclass with these<br />
+values:</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">myLdapVendor.configure(Map("ldap.url" -><br />
+"ldap://%s:%s".format(ldapSrvHost, ldapSrvPort),</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">"ldap.base" -> ldapSrvBase,</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">"ldap.userName" -> ldapSrvUsrName,</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">"ldap.password" -><br />
+ldapSrvPwd,</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">"ldap.authType" -> ldapSrvAuthType,</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">"referral" -> ldapSrvReferral,</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">"ldap.initial_context_factory" -> ldapSrvCtxFactory))</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">myLdapVendor</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">}</span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The method <em>getAttrs</em> takes the username as a parameter and returns<br />
+a map of [attribute name / list of attribute values] pairs (attribute in LDAP<br />
+might contain more than one value) for this user. Let's review the method<br />
+definition. It is possible to get attributes for user with <em>LDAPVendor.attributesFromDn()</em><br />
+method.<span> </span>It takes the distinguished name<br />
+as a parameter, so it is necessary to append the prefix and the user base from the<br />
+property file to the username to construct it. Note that the <em>attributesFromDn</em><br />
+method returns <em>javax.naming.directory.Attributes</em> therefore the interfaces<br />
+from <a name="id.e82d238b7d29"></a><em>javax.naming.directory </em>package must be<br />
+imported correctly:</span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">import _root_.javax.naming.directory.{Attributes,<br />
+Attribute => Attr}</span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The shorthand <em>Attr </em>is used for the <em>javax.naming.directory.Attribute</em><br />
+because the <em>scala.xml.Attribute</em> trait<em> </em>has already been imported<br />
+and placed in scope.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>Then attribute's id and values are used to populate the result map. </span></p>
+<p class=" "><span> </span></p>
+<p class=" "><span>The<em> getAttrs</em></span><span> method definition<br />
+is shown below:<span> </span><em></em></span></p>
+<p class=" "><span> </span></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><font face="'Courier New'"><span style="font-size: 12px; "> </span></font></p>
+<p class="MsoNormal"><font face="'Courier New'"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>def<br />
+getAttrs(who : String) : Map[String, List[String]] = {<o:p /></span></font></p>
+<p><font face="'Courier New'"> </p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><o:p> </o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+uidPrefix = S.?("ldap.uidPrefix")<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val userBase<br />
+= S.?("ldap.userBase")<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><o:p> </o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>var attrsMap<br />
+= Map.empty[String, List[String]]<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val dn =<br />
+"%s=%s,%s".format(uidPrefix, who, userBase)<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><o:p> </o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val attrs :<br />
+Attributes = myLdap.attributesFromDn(dn)<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>if (attrs !=<br />
+null) {<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+allAttrs = attrs.getAll();<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>if<br />
+(allAttrs != null) {<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>while(allAttrs.hasMore()) {<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+attribute = allAttrs.next().asInstanceOf[Attr];<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>var<br />
+attrValues = List.empty[String]<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>for(i<br />
+<- 0 until attribute.size()) {<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>attrValues ::= attribute.get(i).toString<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>}<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>attrsMap += (attribute.getID() -> attrValues)<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>}<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>}<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>}<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>attrsMap<o:p /></span></p>
+<p class="MsoNormal"><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>}<o:p /></span></p>
+<p></font> </p>
+</blockquote>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The last step is to modify the <em>performInit</em> method. First of all, it<br />
+is necessary to check if LDAP is enabled as configured in the property file.<br />
+Then the values for attributes <em>givenName</em>, <em>sn</em> and <em>mail</em> are<br />
+extracted from the map, returned via the <em>getAttrs</em> method call and then used<br />
+to populate <em>User</em> instance.</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><font face="'Courier New'"> </font></p>
+<p class="MsoNormal" style="font-size: 12px; "><font face="'Courier New'"><span style="font-size: 9pt; font-family: 'Courier New'; ">def performInit(): Unit = {<o:p /></span></font></p>
+<p><font face="'Courier New'"><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>...<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val usr =<br />
+User.createAndPopulate.nickname(username).saveMe<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>//find and<br />
+save additional attributes in LDAP if It is enabled<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+ldapEnabled = S.?("ldap.enabled")<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>if(ldapEnabled.toBoolean) {<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+ldapAttrs = getAttrs(username)<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+firstName = ldapAttrs("givenName").head<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val<br />
+lastName = ldapAttrs("sn").head<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>val mail<br />
+= ldapAttrs("mail").head<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>usr.firstName(firstName).lastName(lastName).save<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>}<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; "><span> </span>...<o:p /></span></p>
+<p><span style="font-size: 12px; "> </span> </p>
+<p class="MsoNormal" style="font-size: 12px; "><span style="font-size: 9pt; font-family: 'Courier New'; ">}<o:p /></span></p>
+<p></font> </p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The<em> ESMELdap </em></span><span>property file is<br />
+shown below. It essentially resembles connection properties in web server<br />
+configuration files that we have seen previously.<em></em></span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>ESMELdap.properties file</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">#This flag specifies whether LDAP should be used </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.enabled=true </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Hostname or IP of LDAP server </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.host=localhost </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Port<br />
+ of LDAP server </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.port=10389 </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Base DN from the LDAP Server </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.base=ou=esme,dc=lester,dc=org </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># User that has access to LDAP server to perform<br />
+search operations </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.userName=uid=admin,ou=system </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Password for user above </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.password=secret </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Authentication type </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.authType=simple </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Referral </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.referral=follow </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Initial context factory class </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.server.initial_context_factory=com.sun.jndi.ldap.LdapCtxFactory<br />
+</span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># Prefix for user to whom additional LDAP attributes<br />
+belong, for example 'uid' or 'sAMAccountName' </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.cnPrefix=uid </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "># User base DN for user to whom additional LDAP<br />
+attributes belong </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">ldap.userBase=ou=Users,ou=esme,dc=lester,dc=org</span></p>
+</blockquote>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; "> </span></p>
+<p class=" "><em><span> </span></em></p>
+<p class=" "><span>The last thing that must be done is to tell Lift where to look for the <em>ESMELdap.properties</em><br />
+file. The list of resource file names is assigned to <em>LiftRules.resourceNames<br />
+</em>var<em> </em>in<em> Boot.scala</em>:</span></p>
+<p class=" "><span> </span></p>
+<p class=" "><u><span>Boot.scala</span></u></p>
+<p class=" "><u><span> </span></u></p>
+<blockquote class="webkit-indent-blockquote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 40px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+<p class=" "><span style="font-size: 9pt; font-family: 'Courier New'; ">LiftRules.resourceNames = "ESMELdap" :: "ESMECustom"<br />
+:: "ESMEBase" :: "ESMEUI" :: Nil</span></p>
+</blockquote>
+<p class=" "><em><span> </span></em></p>
+<h2><span>Conclusion</span></h2>
+<p class=" "><strong><span> </span></strong></p>
+<p class=" "><span>We have just configured both web servers - Jetty and Tomcat - to perform<br />
+authentication and authorization via LDAP. We have also improved <em>ContainerManagedAuthModule</em><br />
+to get additional attributes for authenticated user from LDAP with Lift LDAP<br />
+API.</span></p>
+<p class=" "><span> </span></p>
+<h2><span>Links</span></h2>
+<p class=" " style="margin-left: 0cm; text-indent: 0cm; "><!--[if !supportLists]--><strong><span style="font-size: 10pt; font-family: 'Times New Roman'; "><span>1.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></span></strong><!--[endif]--><strong><span>Apache Directory Server: </span></strong><span><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">directory</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">apache</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">apacheds</span></a><a href="http://directory.apache.org/apacheds/1.5/"><span style="color: black; text-decoration: none; ">/1.5/</span></a></span><strong><span></span></strong></p>
+<p class=" " style="margin-left: 0cm; text-indent: 0cm; "><!--[if !supportLists]--><strong><span style="font-size: 10pt; font-family: 'Times New Roman'; "><span>2.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></span></strong><!--[endif]--><strong><span>Jxplorer: </span></strong><span><a href="http://jxplorer.org/"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://jxplorer.org/"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://jxplorer.org/"><span style="color: black; text-decoration: none; ">jxplorer</span></a><a href="http://jxplorer.org/"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://jxplorer.org/"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://jxplorer.org/"><span style="color: black; text-decoration: none; ">/</span></a></span><strong><span></span></strong></p>
+<p class=" " style="margin-left: 0cm; text-indent: 0cm; "><!--[if !supportLists]--><strong><span style="font-size: 10pt; font-family: 'Times New Roman'; "><span>3.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></span></strong><!--[endif]--><strong><span>Jetty login modules:&nbsp;</span></strong><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">docs</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">codehaus</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">display</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">JETTY</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://docs.codehaus.org/display/JETTY/JAAS"><span style="color: black; text-decoration: none; ">JAAS</span></a></p>
+<p class=" "><span></span></p>
+<p class=" "><span><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">codehaus</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">-6/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">apidocs</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">mortbay</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">plus</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">jaas</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">ldap</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">LdapLoginModule</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/ldap/LdapLoginModule.html"><span style="color: black; text-decoration: none; ">html</span></a></span><span></span></p>
+<p class=" " style="margin-left: 0cm; text-indent: 0cm; "><!--[if !supportLists]--><strong><span style="font-size: 10pt; font-family: 'Times New Roman'; "><span>4.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></span></strong><!--[endif]--><strong><span>Tomcat user realms: </span></strong><span><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">tomcat</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">apache</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">tomcat</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">-6.0-</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">doc</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">realm</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">-</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">howto</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html"><span style="color: black; text-decoration: none; ">html</span></a></span><strong><span></span></strong></p>
+<p><strong><span style="font-size: 10pt; font-family: 'Times New Roman'; "><span>5.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></span></strong><strong><span>Lift API:</span></strong><span> </span><span><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">scala</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">-</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">tools</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">mvnsites</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">liftweb</span></a><a href="http://scala-tools.org/mvnsites/liftweb-2.3/"><span style="color: black; text-decoration: none; ">-2.3/</span></a></span> </p></p></p>

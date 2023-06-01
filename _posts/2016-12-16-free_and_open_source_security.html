@@ -1,0 +1,165 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Feedback from The Apache Software Foundation on the Free and Open Source Security
+  Audit (FOSSA)
+author:
+  display_name: Sally Khudairi
+  login: sk
+  email: sk@haloworldwide.com
+author_login: sk
+author_email: sk@haloworldwide.com
+id: e36196d1-9d9c-4e17-8465-ee5739933e79
+date: '2016-12-16 16:06:17 -0500'
+categories:
+- General
+tags:
+- web
+- open
+- foundation
+- fossa
+- free
+- security
+- software
+- audit
+- http
+- server
+- apache
+- source
+comments: []
+permalink: foundation/entry/free_and_open_source_security
+---
+<div><em>by Dirk-Willem van Gulik <dirkx(at)apache(punto)org></em></div>
+<div></div>
+<div>December 2016, v1.09</div>
+<h2><span style="font-weight: normal;">Background</span></h2>
+<div>The important role of open source software in key infrastructures was brought to collective attention by two major security vulnerabilities in the core of the internet infrastructure. Heartbleed and Shellshock of 2014 caused significant concern. It made a lot of people realise how important the collective efforts around these open source infrastructures are. And how much key internet infrastructure relies on open source communities. Such as the Apache community.</div>
+<div>
+<p>Two of those people were Julia Reda and Max Andersson; Members of the <a href="https://en.wikipedia.org/wiki/European_Parliament">European Parliament</a>. As a result they proposed (and directed Europe to fund) a pilot project: &nbsp;the "<a href="https://juliareda.eu/2014/12/1-million-for-open-source-security/" title="Link to Julia Reda her Member of European Parliament page">Free and Open Source Software Audit (FOSSA)" within a larger workstream that was about "&euro;1 million to demonstrate security and freedom are not opposites</a>".</p>
+</p></div>
+<div>One part of the money was about developing a methodology; the other about actually auditing some widely used open source software. After soliciting votes from the public - two projects "won": KeePass and the Apache Web Server.</div>
+<h2><span style="font-weight: normal;">Audit Process</span></h2>
+<div>The European Commission (easiest thought of as executive part of <a href="https://en.wikipedia.org/wiki/Institutions_of_the_European_Union" title="and note the diagram on the right -- even java code has simpler dependencies!">Europe</a>) commissioned Spanish Aerospace and Defence company Everis to carry out the review on the Apache HTTPD server (and associated APR). &nbsp;Their first draft had a considerable number of false positives and a fair bit of focus on some of the more arcane build tools (e.g. our libtool that is used on OS/2 where there is no gnu-libtool). At &nbsp;Apache vulnerabilty scans are most valuable if we see analysis and at least a theory as to why something is vulnerable -- so we then worked with Everis to improve the report. <a href="https://joinup.ec.europa.eu/sites/default/files/ckeditor_files/files/DLV%20WP6%20-01-%20ApacheCoreAPR%20Code%20Review_published.pdf" title="Link to the report at the European Commission site">Their final report on Apache HTTPD and APR has since gone live</a>&nbsp;along with the other <a href="https://joinup.ec.europa.eu/community/eu-fossa/og_page/project-deliveries">audits reports and results</a>.</div>
+<div></div>
+<div>As none of the vulnerabilities found were particularly severe, we did not need to go through a responsible disclosure path; but could <a href="http://mail-archives.apache.org/mod_mbox/apr-dev/201611.mbox/\%3c9643AB52-078F-4779-B80C-9CE39A2121AF@webweaving.org\%3e" title="Archived copy of the initial post">post</a> the issues publicly to the developer mailing list.</div>
+<h2><span>Feedback on FOSSA</span></h2>
+<div>As part of this work, we were also asked for feedback - especially important now that Julia Reda and Max Andersson have managed to <a href="https://juliareda.eu/2016/10/ep-votes-to-extend-fossa/">secure a recent vote</a> in the the European Parliament for additional budget.</div>
+<div></div>
+<div>So in the remainder of this post I'll try to outline some of the conflicting forces around a security issue report v.s. a report of a vulnerability.</div>
+<h2><span style="font-weight: normal;">Security Reports</span></h2>
+<div>Infrastructure software needs constant maintenance to accommodate the evolving platforms; and to back port or propagate improvements and new learnings throughout the code. It is not a static piece of code with 'security holes' waiting to be found. `Fixing' a hole without `lifting the helicopter' is not net-positive by definition; in fact it can be negative. For example if a 'fix' makes the code more complex, if it reduces the number of people that understand it, or if it has an adverse effect on systems that use a different CPU architecture, build environment or operating system.</div>
+<div></div>
+<div>So in general terms, the main metric is whether security overall gets better - and indirectly about optimising efficient use of the available (existing and extra), but always limited, capacity and capabilities of the resources. At any given time there is both a known 1) backlog of deficiencies and known loose ends and 2) a reservoir of unknown issues. Tackling the first will generally make things more secure. Whereas searching in the latter space only makes things more secure if one finds issues that are severe enough to warrant the time spent on the unknown versus the time not spent on the known deficiencies.</div>
+<div></div>
+<div>To illustrate this with examples; a report from a somewhat outdated automated vulnerability tool often reduces overall security. Time that could be spent on fixing real issues and cleanups is instead spent on dealing with the false positives and minor stuff. The opposite is also true: bringing a verified security issue to us with a modest bit of analysis as to how such is exploitable, is virtually always a straight win. This obviously is even more true for a very severe issue (where it is immediately clear how it is exploitable).&nbsp;</div>
+<div></div>
+<div>But it is also true for the case where someone bestows time on us on a small deficiency (e.g. initially found by a tool) - provided they spend significant time and engineering on handing us the 'fix' on a well tested silver platter. And it is even more useful if a class of issues is tackled throughout; with things like updated test cases.</div>
+<div></div>
+<div>Throughout this it is very important to consider the threat model and what or whom the bad actors are that you are protecting against. This includes questions like: Is it when the server runs in production? Or also during build? What is the attack surface?. This is particularly important when using (modern!) automated scanning tools (even after you laboriously winnow down the 1000's of false positives for the 1 nugget).</div>
+<div></div>
+<div>The reason for this is that it is common for constructs such as:</div>
+<pre>&nbsp; ....
+&nbsp; results = (results_t *) mallocOrDie(sizeof(results_t));
+&nbsp; results->sum = 0;
+&nbsp; for(int i = 0; i < ptr->array_len; i++) {
+&nbsp; &nbsp; results->sum += ptr->array[i];
+&nbsp; ....</pre>
+<div>to be automatically flagged by (old-fashioned) tools. This is because there is seemingly no error trapping on mallocOrDie() and because there is no bound checking on <font face="courier new, courier, monospace">ptr->array[i].</font> So in those cases you need to carefully analyse how this code is used; and what assumptions there are in the API; how exposed it is and so on (e.g is len public or private to the API).&nbsp;</div>
+<div></div>
+<div>The last thing you want (when the situation is more complex) is to add a whole load of sentinels to the above code. That would make the code harder to maintain, harder to test and introduce things like the risk of a dangling else going unnoticed. As then you've just reduced security by tackling a non-existent issue. It would have been better to focus, for example, on making sure that mallocOrDie() always bombs out reliably when it fails to allocate.</div>
+<h2><span style="font-weight: normal;">People and Community versus tools</span></h2>
+<div>So specifically this means people, rather than tools, spending a lot of time analysing issues are the thing that is most valuable to Open Source communities.</div>
+<div></div>
+<div>By the time open source infrastructure code sees use in the market that is significant enough for the likes of FOSSA to consider it 'infrastructure and important' by some metric, it is likely that it is reasonably robust and secure. &nbsp;As it is open source, it has some standing and is probably used by sizeable organisations that care about security or are regulated. Therefore, it has probably seen a fair bit of (automated and manual) security testing.&nbsp;</div>
+<div></div>
+<div>In fact, once an open source project has become part of the landscape every security vendor worth their salt will probably test their tools on it - and try to use it as a wonderful (because you are public) example they can talk about in their sales pitches (that is, if they find something).</div>
+<div></div>
+<div>It also means that the issues that remain tend to be hard; and are more likely to require structural improvements (e.g. hardening an API) and large scale, systematic changes. Which result in totally disproportional amounts of time to be spent on updating test cases, testing and manual validation. As otherwise it would probably already have been done before. To some extent this also applies to automated tooling; we see that modern/complex tools that are hard to run; require a lot of manual work to update their rule bases for false positives or require sizeable investments (such as certain types of fuzzing, code coverage tools, automated condition testing/swaps) are used less often (but thus tend to sometimes yield promising new strains of issues).</div>
+<div></div>
+<div>
+<p>Secondly there is the process of impact and the cost of dealing with the report and changes. &nbsp;Often the report will find a lot of 'low' issues and perhaps one or two serious ones. For the latter it is absolutely warranted to 'light up' the security response of an open source project; and have people rush into action to do triage, fix and follow up with responsible disclosure. </p>
+<p>Given that the code is already open source, the same cannot be said for the 'low' issues. Generally anyone (bad actors and good actors) can find these too. So in a lot of cases it is better to work with the community to file these as bug reports; or even better - as simple issues usually have simple non controversial fixes, submit the fixes and associated test cases as contributions. (It is often less work for the finder of the bug to submit a technical patch &amp; test case than to fully write up a nicely formatted PDF report)</p>
+</p></div>
+<div>
+<h2><span>Bug Bounties - a Panacea ?</span></h2>
+</p></div>
+<div>One 'solution' which is getting a lot of media attention is that of bug bounties; where the romantic concept of a lone open source volunteer coder code the internet is replaced by a lone bounty hunter - valiantly searching for holes &amp; getting paid if they shoot first.&nbsp;</div>
+<div></div>
+<div>If we review that solution against the needs of large, stable, communities that deal with relatively mature and stable infrastructure code (as opposed to commercial project or new code that is still evolving) we have seen a number of counter-indications stack up:</div>
+<div>
+<ul>
+<li>Fees are not high enough for the expert volunteers one would need to be enticed by the fee alone `in bulk'.
+<p>Take the recent <a href="http://www.theregister.co.uk/2016/11/28/microsoft_update_servers_left_all_azure_rhel_instances_hackable/">Azure-Linux update reporting</a>&nbsp;or the <a href="http://www.theregister.co.uk/2016/12/09/yahoo_mail_bug_bounty/">Yahoo issue</a> as examples. 5 to 10k is unlikely to come even close to the actual out of cost of a few weeks to a few months of engineering time at that quality level (or compensating the years invested in training) that was required to find, analyse and report that issue.</p>
+</li>
+<li>The same applies for the higher `competition' fees - topping out at 30-100k. In those cases only the <b>first</b> to report gets it. So your actual payment-per-issue found is lower on average; with some 4 to 8 top global teams at this level and with 2 to 4 high-value target events per year - that works out at well below 8k/teammember per year on average.</li>
+</ul></div>
+<div>That in itself has a number of ramifications:</div>
+<div>
+<ul>
+<li>The very best people will only engage in this as a hobby and (hence) for personal credit and pride; OR when they work for a vulnerability company that wants the PR and marketing.</li>
+</ul></div>
+<div>
+<p>BUT that means that it is personal&nbsp;<strong>credit &amp; marketing</strong> that is the real driving value, not the money itself. So what then happens if we introduce money into this (already credit and marketing driven) situation?&nbsp;</p>
+</p></div>
+<div>
+<ul>
+<li>Very large numbers of people without sufficient skill may be tempted --- but then one has to worry about the impact on the open source community: is dealing with reports at that level a better time spend for volunteers than having insiders look for things ? Will time spent on these fixes distract from the important things ?
+<p>Should we ask people to pre-filter; or ask people managing bug hunting programmes to pre-vet or otherwise carry an administrative burden ? (Keep in mind that there are third party bug-hunting programmes for Apache code that the Apache Software Foundation has no control over).</li>
+</ul></div>
+<div> </div>
+<div>Secondly - we know (from various dissertations and experience) that introducing money into a volunteer arrangement has an impact on group dynamics and how volunteers feel rewarded; or what work they seek to get rewarded for.&nbsp;</div>
+<div></div>
+<div>With that - it may be so that:</div>
+<div>
+<ul>
+<li>It is likely that `<i>grunt</i>' and `<i>boring</i>' work in the security area will suffer --- `<i>let that be done by paid folks</i>';
+</li>
+<li>It fundamentally shifts the non-monetary (and monetary - but not relevant as too low) reward from writing secure/good code and caring/maintaining --- to the negative - finding a flaw in (someone else) code. So feel-good, job-well-done and other feedback cycles now bypass primary production processes (that of writing good code), or at the very least, make that feedback loop involve a bug bounty party.</li>
+</ul></div>
+<div>Finally - in complex/mature code - the class of vulnerabilities that we probably want to get fixed tend to be very costly to fix/find - and any avenue you go down has a high risk of not finding a security issue but a design/quality issue.&nbsp;</div>
+<div></div>
+<div>Bug bounty finders, unlike the coding volunteers are NOT incentivised to report/fix these. &nbsp;</div>
+<div></div>
+<div>On top of this, they are more likely to go for the higher reward/lower risk kind of niggle stuff. Stuff that, without digging deeper, is likely to cause higher layers of the code to get convoluted and messy. As these groups have no incentive to reduce complexity or fix deeper issues (in fact, if one were cynical - they have every reason to stay clear of such - as it means ripe hunting grounds during periods of drought).</div>
+<div></div>
+<div>So at some level Bug bounties are about the trade-off between rewarding, paying, a single person versus saddling a community of motivated volunteers with the fallout - not so much of genuine reports; but of everything else.</div>
+<div>
+<p>So ultimately - it is about the risks of what Economists call "<i><a href="https://en.wikipedia.org/wiki/Externality">Externalisation</a></i>"; making a cost affects a party who did not choose to incur that cost - or denying that party a choice how to spend their resources most effectively.</p>
+<h2><strong style="font-family: arial, verdana, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 16px; letter-spacing: -0.018em;">Summary and suggestions for the next FOSSA Audits</strong></h2>
+</p></div>
+<div>In summary:</div>
+<div>
+<ol>
+<li>Submitting the results of automated validation (even with some human vetting) is generally a negative contribution to security.&nbsp;
+</li>
+<li>Submitting a specific detailed vulnerability that includes some sort of analysis as how this could be exploitable is generally a win.&nbsp;
+</li>
+<li>Broad classes of issues which (perhaps rightly!) give you hits all over the code base are generally only worth the time spent on them if there are <b>additional</b>&nbsp;resources willing to work on the structural fixes, write the test cases and test them on the myriad of platforms and settings -- and if a lot of the analysis and planning for this work has been done prior to submitting the issue (to generally a public mailing list).
+<p>From this it also follows that narrow and specific (and hence more "<i>new</i>" and "<i>unique</i>") is generally more likely to increase overall security; while making public the results of something broad and shallow is at best not going to decrease security.</p>
+</li>
+<li>Lighting up the security apparatus of an open source project is not '<i>free</i>'. People are volunteers. So consider splitting your issues into: ones that need a responsible disclosure path; and ones that can go straight to the public lists. Keep in mind that, as the code is open source, you generally can err towards the open path a bit - other (bad) actors can run the same tools and processes as you.
+</li>
+<li>Consider raising the bar; rather than report a potential vulnerability - analyse it; have the resources to (help) solve it and support the community with expensive things; such as the human manpower for subsequent regression testing, documentation, unit tests or searching the code for similar issues.&nbsp;
+</li>
+<li>Security is a process; over very long periods of time. So consider if you can consistently spend resources over long periods on things which are hard to do for (isolated) volunteers. And if it is something like comprehensive fuzzing, code-coverage, condition/exchange testing - &nbsp;then consider the fact that it is only valuable if it is; a) done over long periods of time and b) comes with a large block of human manpower that do things like analyses of the results and updates of test cases.
+</li>
+<li>Anything that increases complexity is a risk; and may have long term negative consequences. As it may lead to code which is harder to read, harder to maintain or where the pool of people that can maintain it becomes disproportionally smaller. A broad sweeping change that increases complexity may need to be backed by a significant (5.10+ years) commitment of maintenance in order to be safe to implement; especially if the security improvement it brings is modest.
+</li>
+<li>Carefully consider threat model and actors when you are classing things a security hole - especially around APIs.
+</li>
+<li>Carefully consider what type of resources you want to mobilise in the wider community; and what incentivises the people and processes that are most likely to improve the overall security and safety. And take the overall, longterm, health and social patterns of the receiving community into account when there such forces for good are "<i>external</i>". &nbsp;It is all to easy to in essence to in effect cause a "Denial of Service" style effect; no mater how well intentioned.
+</li>
+<li>World-class expertise is rare; and by extension - the experts are often isolated. Bringing them together for long periods of time in relatively neutral settings gives synergy which is hard to get otherwise. Consider using a JRC or ENISA setting as a base for long term committed efforts. An effort that is perhaps more about strengthening and improving large scale (IT) infrastructures and (consumer) safety - rather than security.
+</li>
+<li>Bug bounties are not the only option. Some open source communities have benefited from "<i>grants</i>" or "<i>stipend</i>"; where a specific issue got tackled or addressed. In some cases, such as in for example Google its Summer of Code - it is focused on relatively young people; and helps train them up; in other cases it gives established experts room for a (few) year(s) to really bottom out some long standing issue.</li>
+</ol>
+<p>With respect to the final point - security engineering (and its associated areas; such as privacy, trust and so on) is a "hard" thing to hire; the market generally lacks capacity and capability. Also in Europe.&nbsp;</p></div>
+<div>
+<ol> </ol>
+</p></div>
+<div>
+<p>While open source its access to `lots of eyeball's does help; it does not magically give us access to a lot of the right eyeballs.</p>
+<p>Yet increasing both Capacity and Capability in society does help. And that is a long process that starts early.</p>
+</p></div>
+<div># # #</div>

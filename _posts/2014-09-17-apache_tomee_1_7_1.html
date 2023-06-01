@@ -1,0 +1,77 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: " Apache TomEE 1.7.1 Released"
+author:
+  display_name: andygumbrecht
+  login: andygumbrecht
+  email: andygumbrecht@apache.org
+author_login: andygumbrecht
+author_email: andygumbrecht@apache.org
+id: 71d71aa5-b458-4a28-9721-3744f704458f
+date: '2014-09-17 08:42:48 -0400'
+categories:
+- General
+tags:
+- tomee
+- tomcat
+comments:
+- id: 0
+  author: skin care
+  author_email: liagofunbi1978@gmail.com
+  author_url: https://safe-canadian-store.com/skin-care.html
+  date: '2019-07-19 17:48:59 -0400'
+  content: impressive colors :) Цветовая палитра вообще кайф прям
+- id: 0
+  author: Jessica Wondle
+  author_email: sdflksahdkl@gmail.com
+  author_url: ''
+  date: '2019-12-19 11:26:46 -0500'
+  content: I am glad that you share <a href="https://edubirdie.org/what-is-edubirdie/">https://edubirdie.org/what-is-edubirdie/</a>
+    everyday with us
+- id: 60852
+  author: trucocrobe1974
+  author_email: trucocrobe1974@gmail.com
+  author_url: https://blogss.apache.org
+  date: '2019-07-18 15:14:15 -0400'
+  content: Very nice! Love this!
+- id: 89184976
+  author: Jassica
+  author_email: ksaldfhsalkh@gmail.com
+  author_url: ''
+  date: '2019-11-25 10:31:16 -0500'
+  content: The Apache Software Foundation is providing what is best for the world
+    and for the people for a really long time in the form of launching Apache TomEE
+    1.7.1. Click https://www.paperwritingpro.com/our-services/dissertation/ to get
+    more information about essay writing. Every version of it is much better than
+    the previous one.
+permalink: tomee/entry/apache_tomee_1_7_1
+---
+<p><a href="http://tomee.apache.org">http://tomee.apache.org</a></p>
+<p>After the huge buzz getting version 1.7.0 off the press it is time to get back to the day to day. As promised we are committed to providing the best for our community, and so without further a do here is TomEE 1.7.1 - This is a maintenance release that fixes some minor issues and a few tweaks (We understand it is not so minor if you are waiting for it, so thanks for your patience). This version is still shipped upon Apache Tomcat 7.0.55.</p>
+<p>Please note that the TomEE 1.7.1 drop in WAR file will not work on Apache Tomcat 8. If you are interested in a Tomcat 8.x version then please feel free to check out and <a href="http://tomee.apache.org/contribute.html">contribute to the developer branch</a> - We are always interested in any help from the community that we can get.</p>
+<p>The Apache TomEE 1.7.1 release files can be downloaded from here:</p>
+<p><a href="http://tomee.apache.org/downloads.html">http://tomee.apache.org/downloads.html</a></p>
+<p>Note: Issue <a href="https://issues.apache.org/jira/browse/TOMEE-1339">TOMEE-1339</a> introduced a default (but configurable) check for a static <em>index.html</em> file when an empty JAX-RS resource URL is specified by a client. You can use this file to return a descriptive response to the client for example. Make sure that this optional file does not contain sensitive information when made available. Currently it is not a JSP and it is not parsed in any way by the Servlet container - This may change in the next version.</p>
+<p>Or just update your existing Maven JavaEE-API, OpenEJB and or TomEE pom.xml entries to point to the latest versions:</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;<dependency><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<groupId>org.apache.openejb</groupId><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<artifactId>javaee-api</artifactId><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<version>6.0-6</version><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<scope>provided</scope><br />
+&nbsp;&nbsp;&nbsp;&nbsp;</dependency><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<dependency><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<groupId>org.apache.openejb</groupId><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<artifactId>openejb-core</artifactId><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<version>4.7.1</version><br />
+&nbsp;&nbsp;&nbsp;&nbsp;</dependency><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<dependency><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<groupId>org.apache.openejb</groupId><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<artifactId>tomee</artifactId><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<version>1.7.1</version><br />
+&nbsp;&nbsp;&nbsp;&nbsp;</dependency></p>
+<p>A complete <a href="http://tomee.apache.org/tomee-1.7.1-release-notes.html">Changelog</a> can be viewed here:</p>
+<p><a href="http://tomee.apache.org/tomee-1.7.1-release-notes.html">tomee-1.7.1-release-notes.html</a></p>
+<p>So please feel free to jump in feet first and <a href="http://tomee.apache.org/documentation.html">get started with TomEE</a>. You will nearly always find someone to help you on one of our <a href="http://tomee.apache.org/support.html">support channels</a>.</p>

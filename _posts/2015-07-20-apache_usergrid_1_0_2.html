@@ -1,0 +1,62 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Usergrid 1.0.2 released
+author:
+  display_name: Dave Johnson
+  login: snoopdave
+  email: snoopdave@apache.org
+author_login: snoopdave
+author_email: snoopdave@apache.org
+id: 6c51c315-d32b-4ebd-9820-02cc44c3ec4f
+date: '2015-07-20 13:33:07 -0400'
+categories:
+- Releases
+tags: []
+comments: []
+permalink: usergrid/entry/apache_usergrid_1_0_2
+---
+<p>Apache Usergrid 1.0.2 is now officially released and available for <a href="http://usergrid.incubator.apache.org/releases/">DOWNLOAD HERE</a>.</p>
+<p><br></p>
+<p>Here's the release announcement that was posted to the Usergrid dev mailing list last week:</p>
+<p>Apache Usergrid (incubating) is a multi-tenant Backend-as-a-Service (BaaS) stack for web and mobile applications, based on RESTful APIs. Usergrid consists of a Java-based web application that persists data to Apache Cassandra, an HTML5/JavaScript based management portal and a set of SDKs for JavaScript, iOS, Android, PHP, Java and more. </p>
+<p>Usergrid 1.0.2 is a minor release with bug fixes and small improvements. </p>
+<p>Bugs fixed</p>
+<ul>
+<li>S3 upload fails on OpenJDK and Java 8 (fixed by JClouds upgrade)</li>
+<li> Asset data deleted when connection to Asset deleted</li>
+<li> Portal stores app password as clear-text</li>
+</ul>
+<p>Improvements</p>
+<ul>
+<li>Cassandra key-space names are now configurable</li>
+</ul>
+<p>Experimental new features</p>
+<ul>
+<li> ExportAdmins: a new tool to export Admin Users, credentials and organizations</li>
+<li> ImportAdmins: a new tool to import Admin Users, credentials and organizations</li>
+<li> Central SSO: Usergrid-Usergrid SSO via new /management/externaltoken end-point</li>
+</ul>
+<p>
+<br></p>
+<p>Here's the full list of JIRA issues resolved:<br><br />
+<a href="https://issues.apache.org/jira/issues/?jql=project%3Dusergrid%20and%20fixVersion%3D1.0.2"><br />
+https://issues.apache.org/jira/issues/?jql=project%3Dusergrid%20and%20fixVersion%3D1.0.2</a></p>
+<p>The release is available at:<br><br />
+<a href="http://www.apache.org/dyn/closer.cgi/incubator/usergrid/usergrid-1/v1.0.2"><br />
+http://www.apache.org/dyn/closer.cgi/incubator/usergrid/usergrid-1/v1.0.2</a></p>
+<p>The tag used to create the release with is 1.0.2:<br><br />
+<a href="https://git-wip-us.apache.org/repos/asf?p=incubator-usergrid.git;a=commit;h=1.0.2"><br />
+https://git-wip-us.apache.org/repos/asf?p=incubator-usergrid.git;a=commit;h=1.0.2</a></p>
+<p>The release's Git commit ID is d52427b279306e19c163e89e9d5025760fc0b50a</p>
+<p>The MD5 checksum of the release can be found at:<br><br />
+<a href="https://dist.apache.org/repos/dist/release/incubator/usergrid/usergrid-1/v1.0.2/apache-usergrid-1.0.2-incubating.tar.gz.md5"><br />
+https://dist.apache.org/repos/dist/release/incubator/usergrid/usergrid-1/v1.0.2/apache-usergrid-1.0.2-incubating.tar.gz.md5</a></p>
+<p>The signature of the release can be found at:<br><br />
+<a href="https://dist.apache.org/repos/dist/release/incubator/usergrid/usergrid-1/v1.0.2/apache-usergrid-1.0.2-incubating.tar.gz.asc"><br />
+https://dist.apache.org/repos/dist/release/incubator/usergrid/usergrid-1/v1.0.2/apache-usergrid-1.0.2-incubating.tar.gz.asc</a></p>
+<p>The GPG key used to sign the release are available at:<br><br />
+<a href="https://dist.apache.org/repos/dist/release/incubator/usergrid/KEYS"><br />
+https://dist.apache.org/repos/dist/release/incubator/usergrid/KEYS</a></p>
+<p>

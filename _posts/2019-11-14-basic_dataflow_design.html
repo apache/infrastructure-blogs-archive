@@ -1,0 +1,286 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Apache NiFi: Thinking Differently About Dataflow'
+author:
+  display_name: markap14@apache.org
+  login: markap14
+  email: markap14@apache.org
+author_login: markap14
+author_email: markap14@apache.org
+id: 3a785e19-2ac1-48cf-812e-121b57974981
+date: '2019-11-14 13:30:41 -0500'
+categories:
+- Dataflow
+tags:
+- nifi
+- bigdata
+- dataflow
+- etl
+- provenance
+- lineage
+comments:
+- id: 0
+  author: itxxz
+  author_email: 2732391467@qq.com
+  author_url: http://www.itxxz.com
+  date: '2015-01-13 01:08:03 -0500'
+  content: First impressions are half the battle.
+- id: 0
+  author: Srujana
+  author_email: srujanakuntumalla@gmail.com
+  author_url: ''
+  date: '2016-02-14 23:17:31 -0500'
+  content: "Hi Mark,\r\n\r\nYour article is really great. I am currently evaluating
+    Nifi for one of our usecase. \r\n\r\nI have one question, it would be grea, if
+    you could answer it. \r\n\r\nWe needed to find a way to execute whole dataflow
+    from the command line. Is there a way to execute it in that manner in Nifi.? "
+- id: 0
+  author: mamm0nth
+  author_email: mont.duke.qa@gmail.com
+  author_url: ''
+  date: '2015-07-21 00:41:21 -0400'
+  content: Thanks, Mark (y)
+- id: 0
+  author: Meghavi Wellness Spa
+  author_email: smhussaini.imi@gmail.com
+  author_url: http://meghaviwellness.com/
+  date: '2019-05-08 08:53:27 -0400'
+  content: "read this complete article on Dataflow design. helpful for large scale
+    websites like local busiess,blog site,e-commerce webpages, therefore they contain
+    useful of pages and info. thank you for your work. Thanks\r\n"
+- id: 0
+  author: cytotec
+  author_email: spermagedmusc1970@gmail.com
+  author_url: https://safe-canadian-store.com/gastrointestinal/cytotec.html
+  date: '2019-07-19 20:45:29 -0400'
+  content: Amazing as always Its really awesome in the night!
+- id: 1
+  author: mamm0nt
+  author_email: mont.duke.qa@gmail.com
+  author_url: ''
+  date: '2015-07-10 00:53:02 -0400'
+  content: Thanks Mark. I have another question. The processor with name CheckedIfCompress,
+    if the flow file came from datasource, generate at the same time, how it will
+    handle? It will run in parallel? Let say I set the Concurrent task to 4.
+- id: 4
+  author: Orrin
+  author_email: oedenfield@gmail.com
+  author_url: http://about.me/orrin
+  date: '2015-01-19 14:02:33 -0500'
+  content: Thank you again Mark - with details like this - I think I've got it now.  :-)
+- id: 5
+  author: Mark
+  author_email: markap14@hotmail.com
+  author_url: ''
+  date: '2016-02-15 15:35:43 -0500'
+  content: "@Srujana, NiFi was designed to be an always-on automated dataflow system.
+    So the flows are not really intended to be run from the command-line. However,
+    there has been some talk recently about a new sub-project of NiFi that is intended
+    to be more of an Agent. I would encourage you to send an email to dev@nifi.apache.org
+    and explain the use case in a little more detail, so that we can provide better
+    guidance."
+- id: 7
+  author: Gerald
+  author_email: gerald.sousa@gmail.com
+  author_url: ''
+  date: '2016-02-19 20:18:43 -0500'
+  content: 'All the responses are great but I''d like to go back to a variation of
+    the original question.  How do you develop and manager a system where there may
+    be 50 or 100 dataflows into a system.  Is there a way to isolate them so that
+    you can just look at and control a single flow on one sheet/view?  We use Nifi
+    at my company and I get the impression that although Nifi can do alot of general
+    purpose ETL work it still is just designed to do more basic data flow control.  Get
+    a file or files and make simple decisions to figure out where to send it or place
+    it on a file system so a real ingest subsystem can do the real ETL.  Is this a
+    fair assumption?  '
+- id: 9
+  author: HP Printer Support
+  author_email: jenifferleio12@gmail.com
+  author_url: https://customer-support-en.com/printer/hp/
+  date: '2019-08-06 12:04:33 -0400'
+  content: "Thanks for sharing your thoughts, this blog is great. It is really useful
+    and easy to understand. Hope everyone get benefit. Thanks for sharing your Knowledge
+    and experience with us.\r\n"
+- id: 9
+  author: trend micro
+  author_email: parkjonasa@gmail.com
+  author_url: https://itrendmicrodownload.org
+  date: '2019-09-25 06:43:15 -0400'
+  content: "\r\nYou are my aspiration, I own few blogs and infrequently run out from
+    post :\r\n"
+- id: 18
+  author: Mark
+  author_email: markap14@hotmail.com
+  author_url: ''
+  date: '2015-07-09 11:43:01 -0400'
+  content: "mamm0nth,\r\n\r\nGreat question! Absolutely, the funnel can be used there.
+    It's not really necessary but can make the flow easier to visualize and manage.
+    Funnels become particularly useful in the case that the Processor you want to
+    connect to is far away on the graph - in that case, instead of drawing 4 connections
+    all the way across the graph, you can funnel them into a single connection and
+    draw 1 connection across the graph. The other case when funnels are important
+    is if you want to prioritize the data in a connection. If you have 4 separate
+    connections, you can't prioritize across all of them. To achieve this, you can
+    simply funnel the data into a single connection and then prioritize that one connection.
+    For more information on prioritizing the data in your queues, see http://nifi.incubator.apache.org/docs/nifi-docs/html/user-guide.html#settings\r\n\r\nThanks\r\n-Mark"
+- id: 184
+  author: Hibachi
+  author_email: maqbul.imi@gmail.com
+  author_url: https://www.hibachi.in
+  date: '2018-09-18 11:21:23 -0400'
+  content: Described complete information on Dataflow design. Useful for large scale
+    websites like e-commerce sites, hence they contain lot of pages and info. Keep
+    posting. Thanks
+- id: 674
+  author: Mark
+  author_email: ''
+  author_url: ''
+  date: '2015-07-11 12:23:27 -0400'
+  content: mamm0nth, yes, they would be processed in parallel (assuming that concurrent
+    tasks is high enough to allow for that). If there are not enough tasks to handle
+    it, the data will be queued. The processor will round-robin between all of the
+    incoming connections to pull data, so which one gets processed first just depends
+    on which queue it pulled from last time.
+- id: 981
+  author: geek squad
+  author_email: parkjonasa@gmail.com
+  author_url: https://geeksupportsquad.me
+  date: '2019-09-25 06:41:33 -0400'
+  content: "Thanks for your submission. I also think that laptop computers are getting
+    to be more and more popular right now, and now \r\n\r\nare sometimes the only
+    sort of computer found in a household. This is due to the fact that at the same
+    time potentially \r\n\r\nthey are becoming more and more economical, their processing
+    power is growing to the point where they&rsquo;re as strong as \r\n\r\ndesktop
+    computers from just a few years ago."
+- id: 6199
+  author: mamm0nth
+  author_email: mont.duke.qa@gmail.com
+  author_url: ''
+  date: '2015-07-09 07:35:35 -0400'
+  content: "Hi, I think Funnel can be use there right? I have a request, can you explain
+    the difference of that method, the direct from Datasources to 1 processor vs Datasources
+    to funnel and to 1 \r\nprocessor? Thanks!:)"
+permalink: nifi/entry/basic_dataflow_design
+---
+<h1>
+Apache NiFi: Thinking Differently About DataFlow<br />
+</h1>
+<p>
+   <span class="author">Mark Payne -&nbsp;</span><br />
+   <span class="author"><a href="mailto:markap14@hotmail.com">markap14@hotmail.com</a></span></p>
+<hr />
+<p>
+Recently a question was posed to the Apache NiFi (Incubating) Developer<br />
+<a href="http://mail-archives.apache.org/mod_mbox/incubator-nifi-dev/201501.mbox/%3C95DC1A334F3B2F4BA0F990EF1C1FD507278E1ACC8B%40USATL02ERMS50.amer.prgx.com%3E">Mailing List</a><br />
+about how best to use Apache NiFi to perform Extract, Transform, Load (ETL) types of tasks. The question was "Is it possible to have NiFi service setup<br />
+and running and allow for multiple dataflows to be designed and deployed (running) at the same time?"</p>
+<p>
+The idea here was to create several disparate dataflows that run alongside one another in parallel.<br />
+Data comes from Source X and it's processed this way. That's one dataflow.<br />
+Other data comes from Source Y and it's processed this way. That's a second dataflow entirely.<br />
+Typically, this is how we think about dataflow when we design it with an ETL tool. And this is a<br />
+pretty common question for new NiFi users. With NiFi, though, we tend to think about designing dataflows<br />
+a little bit differently. Rather than having several disparate, "stovepiped" flows, the preferred approach with<br />
+NiFi is to have several inputs feed into the same dataflow. Data can then be easily routed (via RouteOnAttribute,<br />
+for example) to "one-off subflows" if need be.</p>
+<p>
+One of the benefits to having several disparate dataflows, though, is that it makes it much easier<br />
+to answer when someone comes to you and says "I sent you a file last week. What did you do with it?" or<br />
+"How do you process data that comes from this source?" You may not know exactly what happened to a specific file<br />
+that they sent you, step-by-step, because of the different decision points in the flow,<br />
+but at least you have a good idea by looking at the layout of the dataflow.</p>
+<p>
+So we can avoid merging the data if we would like. For the sake of an example, let's assume that we have 4<br />
+different data sources. For each of them, they are going to send us some text data that needs to be pushed into<br />
+HDFS. Maybe it's compressed, maybe it's not. So your flow will look like this:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/3726d969-b80b-46fc-8b11-65810c770c98" alt="Disparate Flows" /></p>
+<p>
+Now, let's say that that you've got a new requirement. When you're sending text data to HDFS, each file that is<br />
+pushed to HDFS needs to have 1,000 lines of text or less (yes, that's a contrived example and that's probably<br />
+never a good idea, but the point is valid.) Now, consider how much work it is to make all of those modifications.<br />
+And let's hope that you don't miss any!</p>
+<p>
+If we continue down this path, this can get hairy quickly, as we have several different dataflows side-by-side<br />
+on the same graph. In order to aid in the visual representation, we can use Process Groups<br />
+to provide a nice logical separation. If we do that for each of those, we end up with something like:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/3dd03551-563f-473c-a9a3-43a988f38e0a" alt="Grouped Disparate Flows" /></p>
+<p>
+We can then double-click each of those Process Groups and see/edit what's inside. But we still have the issue of<br />
+having to change 4 different flows to make the change mentioned.</p>
+<p>
+So let us consider the alternate approach of merging it all into a single dataflow, and we end up with a flow like this:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/91f15182-d4e7-4fda-9180-c30948729f31" alt="Merged Flow" /></p>
+<p>
+Now, we have all of the data going to a single stream. If we want to update it, we just insert one new Processor:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/fe110d5e-7b5f-440b-b475-f0fbfc77748c" alt="Updated Merged Flow" /></p>
+<p>
+And we're done. We don't have to make this change to insert a SplitText processor 3 more times.</p>
+<p>
+The concern that we have here, though, as mentioned earlier, is that if all of the data is mixed together, as the dataflow<br />
+grows larger, how do we know what happens to data that came from Source X, for example?</p>
+<p>
+This is where the Data Provenance feature comes in. In the top right-hand corner there's a toolbar with 8 icons. The 4th one is<br />
+the Provenance icon (<img src="https://blogs.apache.org/nifi/mediaresource/ba0a6ccb-aa5a-434f-bdb1-8be0c77f456e" alt="Provenance Icon" />).<br />
+If we click on that, we can then search for data that has been processed. For this example, let's simply searched for RECEIVE events.</p>
+<p>
+This shows us all of the RECEIVE events that this instance of NiFi has seen within the time range searched:</p>
+<p><img class="centered" width="1366" src="https://blogs.apache.org/nifi/mediaresource/996bb99e-c89f-4bc8-8a44-81535a07c47e" alt="Provenance Search Results" style="margin-top: 1.5em; margin-bottom: 3em;" /></p>
+<p>
+If we click the Lineage Graph icon (<img src="https://blogs.apache.org/nifi/mediaresource/cbbc9e7b-cba1-4dec-bb74-bd6b2f76da58" />) on the right,<br />
+for the first file, we see exactly what happened to this piece of data:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/8e1d921e-bcbc-4e6b-b23c-00c20a590a22" alt="Data Lineage" /></p>
+<p>
+We see that a RECEIVE event occurred, and that generated a FlowFile. That FlowFile's attributes were then modified,<br />
+its content was modified, and then the FlowFile was forked, and dropped. At this point, we can right-click on each of these event nodes<br />
+and choose to view the details of the event. For the RECEIVE event, we see:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/404bc06f-b394-44c2-a01a-b67c1367b014" alt="Receive Event" /></p>
+<p>
+From here, we can see that the RECEIVE event took place at 16:55:51 EST on 01/11/2015. The component that reported the event was named "Data From Source X" and was a<br />
+GetFile Processor. We can also see that the URI of the data was file:/C:/temp/in/debug/LICENSE.gz. If we follow the lineage of that FlowFile, we see that the next event is<br />
+an ATTRIBUTES_MODIFIED Event:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/751bc911-238f-4c6d-8196-fbc3db9db738" alt="Attrs Modified Event" /></p>
+<p>
+Since the event is of type ATTRIBUTES_MODIFIED, it immediately begs the question "What attributes were modified?" So clicking the "Attributes" tab shows us this:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/c75c386d-34c3-4b66-9d77-71726f8717d6" alt="Attrs Modified Event" /></p>
+<p>
+As with any Provenance Event, we can see all of the attributes that were present on the FlowFile when the event occurred. Of interest here, we can see that the value of the "mime.type"<br />
+attribute was changed from "<i>No value set</i>" (the attribute didn't exist) to "application/gzip". The next event in our lineage is a CONTENT_MODIFIED Event. If we view the details<br />
+here, we will see:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/c8a92a1a-84fc-43f0-923c-81c5a660168c" alt="Content Modified Event" /></p>
+<p>
+Here, we can see that the content was modified by a Processor named Decompress. This makes sense, since the previous Event showed us that the MIME Type was "application/gzip".<br />
+After decompressing the data, we arrive at a FORK Event:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/8cda0d45-dc64-406c-b957-98a495dfda3e" alt="Fork Event" /></p>
+<p>
+This event shows us that the FORK happened by the SplitText Processor. That is, the SplitText Processor broke a large FlowFile into many smaller FlowFiles. On the right-hand<br />
+side of this dialog, we see that the file was broken into six different "child" FlowFiles. This is where things get fun! If we then close this dialog, we can right-click on the FORK Event<br />
+and choose the "Expand" option. This will then pull back the lineage for each of those children, providing us with a more holistic view of what happened to this piece of data:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/556e03ef-0e9a-456c-ba4f-2c9222c89933" alt="Expanded Lineage" /></p>
+<p>
+Now, we can see that each of those six children was sent somewhere. Viewing the details of these events shows us where they were sent:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/5c1aba35-2340-440e-bb47-a2d3dbed75b4" alt="Send Event" /></p>
+<p>
+The first file, for instance, was sent via the PutHDFS Processor with the filename "/nifi/blogs/thinking-differently/LICENSE.gz". This occurred at 16:55:53 EST on 01/11/2015. We can<br />
+also see in this dialog the "Lineage Duration" was "00:00:02.712" or 2.712 seconds. The "Lineage Duration" field tells us how long elapsed between the time when the original source<br />
+data was received and the time at which this event occurred.</p>
+<p>
+Finally, we have the DROP event. The DROP event signifies the end of line for a FlowFile. If we look at the details of this event, we see:</p>
+<p><img class="centered" style="margin-top: 1.5em; margin-bottom: 3em;" src="https://blogs.apache.org/nifi/mediaresource/e1eca707-1187-40ec-84ac-f9701250a6fa" alt="Drop Event" /></p>
+<p>
+Of note here, we see that the DROP event was emitted by PutHDFS. That is, PutHDFS was the last component in NiFi to process this piece of information. We can also see in the<br />
+"Details" field why the FlowFile was dropped: it was Auto-terminated by the "success" relationship.</p>
+<p>
+NiFi's Data Provenance capability allows us to understand exactly what happens to each piece of data that is received. We are<br />
+given a directed graph that shows when a FlowFile was received, when it was modified, when it was routed in a particular way,<br />
+and when and where it was sent - as well as which component performed the action. We are also able to see, for each event,<br />
+the attributes (or metadata) associated with the data so that we can understand why the particular event occurred. Additionally,<br />
+when many pieces of data are merged together or a single piece of data is split apart, we are able to understand fully the provenance<br />
+of this data from the that it was received until the time at which it exited the flow. This makes it very easy to answer the question<br />
+"I sent you a file last week. What did you do with it?" while providing a much more holistic view of the enterprise dataflow than<br />
+would be available if we used many disparate flows.</p>
+<p>
+Hopefully this post helps you to understand not only the way that we like to setup the flows with NiFi but<br />
+also the benefits that we have as a result and the features that allow us to overcome any challenges<br />
+that this approach may create.</p>

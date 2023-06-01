@@ -1,0 +1,53 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Using annotations in Turbine 4
+author:
+  display_name: Thomas Vandahl
+  login: tv
+  email: tv@apache.org
+author_login: tv
+author_email: tv@apache.org
+id: d9aaccaa-503c-468a-b696-626f7e41453d
+date: '2016-01-08 13:59:42 -0500'
+categories:
+- Java
+tags:
+- annotation
+- turbine
+comments: []
+permalink: turbine/entry/using_annotations_in_turbine_4
+---
+<p>The Milestone 2 release of Turbine 4 has added support for dependency injection into modules and valves using annotations. This can simplify your code a lot. Consider a screen template thats uses some Turbine service:</p>
+<pre>...
+protected void doBuildTemplate(RunData data, Context context)
+{
+&nbsp; &nbsp; // Get service instance
+&nbsp; &nbsp; MyService myservice = (MyService)&nbsp;TurbineServices
+      .getInstance().getService(MyService.SERVICE_NAME);
+
+&nbsp; &nbsp; // do something
+&nbsp; &nbsp; myservice.doSomething(...)
+&nbsp; &nbsp; ...&nbsp;
+}
+</pre>
+<p>Looks a bit complicated, doesn't it? Now with Turbine annotations, you simply do </p></p>
+<pre>...
+<span style="color: rgb(255, 0, 0);">@TurbineService
+private MyService myservice;
+</span>
+protected void doBuildTemplate(RunData data, Context context)
+{
+&nbsp; &nbsp; // do something
+&nbsp; &nbsp; myservice.doSomething(...)
+&nbsp; &nbsp; ...&nbsp;
+}
+</pre>
+<p>In addition to services, the annotations <tt>@TurbineConfiguration</tt> and <tt>@TurbineLoader</tt> inject instances of the<br />
+Turbine configuration or subsets of it and the Assembler loaders for a certain page, screen or action.</p>
+<p>See the&nbsp;</p>
+<ul style="margin: 0px; padding: 0px; font-size: small; font-family: Verdana, Helvetica, Arial, sans-serif;">
+<li class="none" style="font-size: smaller; list-style-type: none; background-image: none; padding-left: 16px; list-style-position: outside; line-height: 1.2em; text-indent: -1em; margin-left: 1em; background-position: 0px 0.4em; background-repeat: no-repeat no-repeat;"><strong><a href="http://turbine.apache.org/turbine/turbine-4.0-M2/howto/annotations.html" target="_blank" title="Annotations Howto">Annotations Howto</a></strong></li>
+</ul>
+<p>&nbsp;for the documentation of these features.</p>

@@ -1,9 +1,0 @@
----
-layout: post
-title: Enable UTF-8 Encoding for your Applications
-date: '2009-03-30T00:00:00+00:00'
-categories: turbine
----
-<p>On the Mailing List I found an interesting Post about how to enable UTF-8 if you are running Turbine 2.3.2 and later</p>
-  <p><font face="Consolas">services.VelocityService.input.encoding=UTF-8<br /></font><font face="Consolas">services.VelocityService.output.encoding=UTF-8<br /></font><font face="Consolas">locale.default.charset=UTF-8<br /></font><font face="Consolas">input.encoding=UTF-8</font></p>
-  <p>Enjoy</p>

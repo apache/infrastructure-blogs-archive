@@ -1,0 +1,59 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: The Apache Software Foundation Announces Apache&reg; Subversion&reg; 1.14.0-LTS
+author:
+  display_name: Sally Khudairi
+  login: sk
+  email: sk@haloworldwide.com
+author_login: sk
+author_email: sk@haloworldwide.com
+id: f293da88-32e3-42ac-8347-65c002ed963d
+date: '2020-05-28 12:00:16 -0400'
+categories:
+- General
+tags:
+- svn
+- software
+- version
+- tracking
+- lts
+- apache
+- issue
+- open
+- foundation
+- community
+- source
+- service
+- control
+- 1.14.0
+- long-term
+- subversion
+- code
+- management
+- tool
+comments: []
+permalink: foundation/entry/the-apache-software-foundation-announces62
+---
+<p><b><i>Community-led Version Control Software and Source Code Management Tool Available on Most Integration Servers, Integrated Development Environments, Issue Tracking Systems, and more.</i></b><br></p>
+<p><span style="font-size: 14px;">Wakefield, MA &mdash;28 May 2020&mdash; The Apache Software Foundation (ASF), the all-volunteer developers, stewards, and incubators of more than 350 Open Source projects and initiatives, announced today Apache&reg; Subversion&reg; 1.14.0-LTS, the latest release of the popular centralized software version control system.</span></p>
+<p><span style="font-size: 14px;">Apache Subversion ("SVN") provides a version controlled backing store for any kind of data. It records an accurate log of changes made to that data over time, and keeps track of who made them. Subversion allows users to commit files and directories, recover previous revisions, and even maintain multiple variations of their work in parallel. Able to service projects of any size, from individuals up to large scale collaborative efforts, Subversion is ideal for work in vast swaths of industries, from software development to semiconductor design, scientific research to medical technology. An Apache Top-Level Project for over a decade, Subversion celebrated its 20th Anniversary earlier this year.</span></p>
+<p><span style="font-size: 14px;">"First and foremost, I'd like to thank all of our developers and community members who helped make this release possible," said Nathan Hartman, Vice President of Apache Subversion. "We are excited to publish our latest LTS release, and the first in the 1.14 line."</span></p>
+<p><span style="font-size: 14px;">As an LTS release, the focus is on stability and availability. These are achieved through the project's policies. For any change in core code to be included in updates to 1.14.x, the change must first undergo a process of nomination and voting for backport. At least three Subversion developers must support the change, with none having concerns about it.</span></p>
+<p><span style="font-size: 14px;">LTS (Long Term Support) is an industry designation that a particular release line is planned to be maintained for a longer period of time than regular, non-LTS releases. For the Subversion project, this means that later updates to the 1.14.x series may contain bug fixes and security updates only. Any bleeding edge new features, even if developed during the lifetime of 1.14.x, will have to be introduced in a separate release line. Server operators and system administrators usually prefer LTS releases for stability, while end users often choose the latest release (LTS or not) to get the newest features.</span></p>
+<p><span style="font-size: 14px;">Numerous third parties provide Subversion install packages for Windows, macOS, Linux, OpenBSD, FreeBSD, and other operating systems. To maximize platform independence, Subversion is implemented with strict conformance to ISO C90, one of the most widely supported software coding standards worldwide. In addition, the Subversion developers provide bindings that enable integrations with software coded in popular web languages: Java, Ruby, Perl, and Python.</span></p>
+<p><span style="font-size: 14px;">Particularly noteworthy for this release, Subversion's language bindings for Python received significant attention. Python 3 is supported, up from Python 2 in prior Subversion releases, an oft requested improvement that keeps Subversion 1.14.0-LTS current with the changing Python landscape. While this was a major undertaking, the project also tackled the challenge of maintaining compatibility with the older Python 2. This legacy support is expected to phase out gradually, as Python 3 continues to gain mindshare across the computing industry, but the Subversion project has a long tradition of maintaining compatibility wherever practical, giving operators of legacy systems some much-needed breathing room as they make the transition.</span></p>
+<p><span style="font-size: 14px;">Among Subversion's strengths are its extensive support for working with giant repositories. The bedrock of this support is its centralized model, which allows users to check out only the portions of a repository that they need. The ASF uses Subversion this way in its own infrastructure, housing more than 80 of its Apache Top-Level Projects and sub-projects comprising millions of lines of code, including Subversion itself, in a single Subversion repository that makes all 1.8 million revisions of that information available to collaborators worldwide.</span></p>
+<p><span style="font-size: 14px;">When dealing with such vast amounts of data, including all of its revisions, one might wonder about storage costs. Subversion uses a variety of techniques to minimize storage, including temporal compression, spacial compression, and data deduplication.</span></p>
+<p><span style="font-size: 14px;">Another improvement in Subversion 1.14.0-LTS is a new tool in support of deduplication that could help some administrators reduce future storage costs. The deduplication feature uses an internal database named rep-cache.db. If deduplication was previously disabled, the database may not contain all necessary entries. The new feature, known as the 'svnadmin build-repcache' command, allows re-adding such missing entries and provides a way for those who had previously turned off deduplication to regain some of its benefits.</span></p>
+<p><span style="font-size: 14px;">The release also includes several experimental features. One of these, Shelving and Checkpointing, allows users to save, restore, and roll back snapshots of their work, without making commits to the central repository. This is useful for setting aside a work in progress to work on something else, or for taking temporary snapshots when a network connection to the server is unavailable. Another experimental feature, Viewspec, allows users who create different cross-sections or "views" into their version controlled data, to save the layouts of those views and easily recreate them later. These experimental features are designated as such because they are not yet considered feature-complete. In Subversion 1.14.0-LTS, they are turned off and hidden by default, but are made available on an opt-in basis to entice open source community members to help further their development.</span></p>
+<p><span style="font-size: 14px;">Subversion users, developers, and other stakeholders routinely communicate with each other through email lists. One ongoing discussion taking place there centers around a proposal to make Subversion even stronger at handling big files. The discussion thread, titled "Who else is using SVN for large-binary-asset storage?" has already generated some enthusiasm.</span></p>
+<p><span style="font-size: 14px;">"Apache Subversion is more than code, it's a community," added Hartman. "As an open source and purely volunteer-driven effort, we thrive on participation from enthusiastic users and developers worldwide. We welcome their involvement in the future of Subversion and on our email lists."</span></p>
+<p><span style="font-size: 14px;">Subversion 1.14.0-LTS is available now. The complete software source code can be downloaded from </span><a href="https://subversion.apache.org/download.html" target="_blank">https://subversion.apache.org/download.html</a><a href="https://subversion.apache.org/download.html" target="_blank"></a>&nbsp;,<span style="font-size: 14px;">&nbsp;with a list of install packages which are maintained by numerous third parties at </span><a href="https://subversion.apache.org/packages.html" target="_blank">https://subversion.apache.org/packages.html</a><span style="font-size: 14px;">&nbsp;.</span></p>
+<p><span style="font-size: 14px;">Over its 20-year history, Subversion has grown to become the most popular version control system on the market, and remains the leading centralized versioning and revision control software today. Millions of users worldwide depend on the collaboration-friendly system to easily access all files and historical data simultaneously without code conflicts or corruption.&nbsp;</span></p>
+<p><span style="font-size: 14px;">Apache Subversion is used for mission-critical code distribution and collaboration workflow by Adobe Dreamweaver, Eclipse, Google, Halliburton, Microsoft Visual Studio, Python, Ruby, Skype, SourceForge, and WordPress, among many others. The ASF's infrastructure uses Apache Subversion across millions of lines of code and nearly two million commits by more than 300 Apache projects.</span></p>
+<p><span style="font-size: 14px;"><b>Availability and Oversight<br></b></span>Apache Subversion software is released under the Apache License v2.0 and is overseen by a self-selected team of active contributors to the project. A Project Management Committee (PMC) guides the Project's day-to-day operations, including community development and product releases. For downloads, documentation, and ways to become involved with Apache Subversion, visit <a href="http://subversion.apache.org/" target="_blank" style="background-color: rgb(255, 255, 255);">http://subversion.apache.org/</a>&nbsp;.</p>
+<p><span style="font-size: 14px;"><b>About The Apache Software Foundation (ASF)<br></b></span>Established in 1999, the all-volunteer Foundation oversees more than 350 leading Open Source projects, including Apache HTTP Server --the world's most popular Web server software. Through the ASF's meritocratic process known as "The Apache Way," more than 813 individual Members and 7,800 Committers across six continents successfully collaborate to develop freely available enterprise-grade software, benefiting millions of users worldwide: thousands of software solutions are distributed under the Apache License; and the community actively participates in ASF mailing lists, mentoring initiatives, and ApacheCon, the Foundation's official user conference, trainings, and expo. The ASF is a US 501(c)(3) charitable organization, funded by individual donations and corporate sponsors including Aetna, Alibaba Cloud Computing, Amazon Web Services, Anonymous, Baidu, Bloomberg, Budget Direct, Capital One, CarGurus. Cerner, Cloudera, Comcast, Facebook, Google, Handshake, Huawei, IBM, Inspur, Leaseweb, Microsoft, Pineapple Fund, Red Hat, Target, Tencent, Union Investment, Verizon Media, and Workday. For more information, visit <a href="http://apache.org/" target="_blank" style="background-color: rgb(255, 255, 255);">http://apache.org/</a>&nbsp;and <a href="https://twitter.com/TheASF" target="_blank" style="background-color: rgb(255, 255, 255);">https://twitter.com/TheASF</a>&nbsp;</p>
+<p><span style="font-size: 14px;">&copy; The Apache Software Foundation. "Apache", "Subversion", "Apache Subversion", and "ApacheCon" are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other brands and trademarks are the property of their respective owners.</span></p>
+<p><span style="font-size: 14px;"># # #</span></p>

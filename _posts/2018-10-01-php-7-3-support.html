@@ -1,0 +1,85 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: PHP 7.3 Support
+author:
+  display_name: Junichi Yamamoto
+  login: junichi11
+  email: junichi11@apache.org
+author_login: junichi11
+author_email: junichi11@apache.org
+id: 5f77485f-c5c3-41b4-baae-544a07997f76
+date: '2018-10-01 04:06:36 -0400'
+categories:
+- PHP
+tags:
+- php
+comments:
+- id: 0
+  author: Junichi Yamamoto
+  author_email: junichi11@apache.org
+  author_url: ''
+  date: '2018-10-03 12:39:13 -0400'
+  content: "Hi Peter,\r\nI'm using JDK8. If you have a problem, please ask about it
+    via mailing lists: https://netbeans.apache.org/community/mailing-lists.html"
+- id: 4
+  author: Peter Schumacher
+  author_email: peter@schumacher.dk
+  author_url: ''
+  date: '2018-10-03 12:31:55 -0400'
+  content: Great work! Which is the preferred JRE to use for testing? Tried latest
+    OpenJDK under Ubuntu and it's hanging when opening a project.
+- id: 58
+  author: Junichi Yamamoto
+  author_email: junichi11@apache.org
+  author_url: ''
+  date: '2018-10-04 09:54:37 -0400'
+  content: Hi Chris, Thanks for testing it :) Unfortunately, No.  We cannot add new
+    features in the current phase(NetCAT program). So, as I wrote above, just submit
+    it to the JIRA.
+- id: 9897
+  author: Chris
+  author_email: krzysztof.mortka@gmail.com
+  author_url: ''
+  date: '2018-10-04 07:12:02 -0400'
+  content: A huge thank you for your work! I've been using dev version for some time
+    and it works great.The only thing I miss is support for PSR-4. Is there a chance
+    to add it?
+permalink: netbeans/entry/php-7-3-support
+---
+<p>
+    Hi all. Today, we will briefly show you about PHP7.3 support which will be available in the <b>next NetBeans version</b> i.e. <b>NetBeans 10</b>.</p>
+<p>
+    First of all, I strongly hope that new features are tested by PHP users before NetBeans 10 is released because there should be bugs.<br />
+    Definitely, need your help!<br />
+    If you are interested in them, just test them. You can download a dev version <a href="https://builds.apache.org/job/incubator-netbeans-linux/lastSuccessfulBuild/artifact/nbbuild/">here</a>.</p>
+<h3>PHP 7.3 Support</h3>
+<p>
+    To enable it, you have to set PHP 7.3 as the PHP version of your PHP project.</p>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/caa46cc9-4573-4cc7-b16c-33facd7f3359"><img src="https://blogs.apache.org/netbeans/mediaresource/caa46cc9-4573-4cc7-b16c-33facd7f3359" alt="Nb10-php7.3-support-project-properties.png"></img></a></p>
+<p>
+    NetBeans provides support for the new three syntaxes.</p>
+<h4>Allow a trailing comma in function calls</h4>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/9d09346e-e083-4384-9ab4-eb30cfb2fc28"><img src="https://blogs.apache.org/netbeans/mediaresource/9d09346e-e083-4384-9ab4-eb30cfb2fc28" alt="Nb10-php73-trailing-comma-in-function-calls.png"></img></a></p>
+<h4>list() Referenct Assignment</h4>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/cd35d9af-901c-4d4b-8df5-f8115e682cd5"><img src="https://blogs.apache.org/netbeans/mediaresource/cd35d9af-901c-4d4b-8df5-f8115e682cd5" alt="Nb10-php73-list-reference-assignment.png"></img></a></p>
+<h4>Flexible Heredoc and Nowdoc Syntaxes</h4>
+<p><a href="https://blogs.apache.org/netbeans/mediaresource/ea1ba304-5aca-4775-af78-baaec9481715"><img src="https://blogs.apache.org/netbeans/mediaresource/ea1ba304-5aca-4775-af78-baaec9481715" alt="Nb10-php73-flexible-heredoc-and-nowdoc-syntaxes.png"></img></a></p>
+<p>
+    <b>Note:</b> We won't provide support for the old syntax any longer.<br />
+    i.e. NetBeans treats the following code as an error.</p>
+<pre>
+$heredoc = <<< END
+END{$variable}
+END;
+</pre>
+<h3>PHP 7.1, 7.2 and more PHP features</h3>
+<p>
+    The other PHP features for NetBeans 10 are <a href="https://cwiki.apache.org/confluence/display/NETBEANS/Feature%3A+PHP">here</a>.<br />
+    We have also implemented PHP7.1, 7.2, new hints, new code foldings and more.</p>
+<p>
+    That's all for today. As always, please test it. You can download a development version from<br />
+    <a href="https://builds.apache.org/job/incubator-netbeans-linux/lastSuccessfulBuild/artifact/nbbuild/">Jenkins Build</a>.<br />
+    If you find some issues or enhancements, please report them to <a href="https://issues.apache.org/jira/projects/NETBEANS/issues">JIRA</a> with your exact steps to reproduce them.<br />
+    <i>(Components: php - Editor)</i>. Thanks.</p>

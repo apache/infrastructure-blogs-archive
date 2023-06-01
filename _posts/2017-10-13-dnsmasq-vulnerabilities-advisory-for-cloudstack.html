@@ -1,0 +1,59 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Dnsmasq Vulnerabilities Advisory for CloudStack
+author:
+  display_name: Rohit Yadav
+  login: bhaisaab
+  email: bhaisaab@apache.org
+author_login: bhaisaab
+author_email: bhaisaab@apache.org
+id: 4465ed6e-8127-42a5-b494-77af9fd86e3c
+date: '2017-10-13 06:51:12 -0400'
+categories:
+- Announcements
+tags: []
+comments:
+- id: 0
+  author: addy
+  author_email: addygmail@gmail.com
+  author_url: https://www.apkfollow.com/app/simple-http-server/jp.ubi.common.http.server/
+  date: '2017-10-29 01:14:36 -0400'
+  content: Thanks for the patch!
+- id: 303
+  author: localhost/phpmyadmin
+  author_email: generator@credit.card
+  author_url: ''
+  date: '2017-11-01 16:47:58 -0400'
+  content: "i have using cloudstack on localhost with phpmyadmin \r\nthe sample acces
+    address: http://localhost.support:80/phpmyadmin\r\n\r\nCloudStack is a very easy
+    to use cloud management system. Many companies in this forum also sell VDS with
+    Wmware under cloud server name. We will give you the Cloud billing system that
+    we use today. We wanted to share because nobody shared the forum.\r\n\r\nThe DigitalOcean
+    customer panel is actually very similar. Lakin is still in beta and not fully
+    developed. We recommend your visit."
+permalink: cloudstack/entry/dnsmasq-vulnerabilities-advisory-for-cloudstack
+---
+<p>Recently, a number of security flaws were recently found in the DNSMasq tool. This tool is used by many systems to provide DNS and DHCP services, including by the CloudStack System VMs.</p>
+<p>According to Google&rsquo;s investigation into the software, out of seven issues, three &mdash; CVE-2017-14491, CVE-2017-14492, and CVE-2017-14493 &mdash; are remote code execution flaws caused by heap buffer overflow and stack buffer overflow errors through DHCP and DNS vectors.</p>
+<p>Another issue, CVE-2017-14494, can be exploited to bypass the Address space layout randomization (ASLR) memory protection function, leading to information leaks.</p>
+<p>In addition, three more bugs, CVE-2017-14495, CVE-2017-14496, and CVE-2017-13704, can lead to denial-of-service (DoS) attacks caused by invalid boundary checks, bug collision, and a coding issue.</p>
+<h2>Affect On CloudStack</h2>
+<p>CloudStack&rsquo;s System VMs use DNSMasq to provide DNS and DHCP services to the guest VMs from the virtual routers.  These services are only exposed on the internal guest interface(s) of the virtual routers. Therefore a malicious user could compromise a virtual router to which they have a guest instance attached.</p>
+<h2>The Fix</h2>
+<p>On 9th October, an updated version of DNSMasq was released by the authors of DNSMasq for the Debian Wheezy Operating System which the CloudStack System VMs use.  We have created new versions of the System VM templates which should be used to replace your existing System VMs using the procedure described below.</p>
+<p>A short-term fix for currently running System VMs (if they have internet access) is to log into the System VMs and run:</p>
+<p><code><br />
+apt-get update <br><br />
+apt-get upgrade dnsmasq -y<br />
+</code></p>
+<p>For information on logging into System VMs please see: http://docs.cloudstack.apache.org/en/latest/administration_guide.html?#accessing-system-vms</p>
+<p>The above procedure will patch existing virtual routers, but should a virtual router be destroyed and recreated or a new virtual router created, the subsequent virtual router will no longer be patched.</p>
+<p>The full fix is to replace the existing System VM template(s) with the latest patched versions as well as recreating or patch existing virtual routers.</p>
+<h2>System VM Patching Procedure</h2>
+<p>New System VM templates with updated DNSMasq for major CloudStack versions for XenServer, VMware and KVM hypervisors have been built. We advise CloudStack users to upgrade to the appropriate System VM template and either;</p>
+<p>Patch all existing virtual routers using the procedure above or recreate all virtual routers using the procedure detailed in the link for updating system VM templates (below)<br><br />
+For ACS 4.10+: http://download.cloudstack.org/systemvm/4.10/dnsmasq/<br><br />
+For ACS 4.6-4.9: http://download.cloudstack.org/systemvm/4.6/dnsmasq/</p>
+<p>The procedure for updating the system VM templates can be found at http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/systemvm.html#enhanced-upgrade-for-virtual-routers.</p>

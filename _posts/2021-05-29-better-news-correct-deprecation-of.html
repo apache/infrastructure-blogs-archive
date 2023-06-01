@@ -1,0 +1,40 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Better JEP 411 News: Correct Deprecation of SecurityManager'
+author:
+  display_name: GeertjanWielenga
+  login: geertjan
+  email: geertjan@apache.org
+author_login: geertjan
+author_email: geertjan@apache.org
+id: 1e8f9473-4c0f-4ed5-bcf6-45aefdd6c876
+date: '2021-05-29 09:55:25 -0400'
+categories:
+- General
+tags: []
+comments: []
+permalink: netbeans/entry/better-news-correct-deprecation-of
+---
+<p>See <a href="https://mail.openjdk.java.net/pipermail/jdk-dev/2021-May/005616.html">https://mail.openjdk.java.net/pipermail/jdk-dev/2021-May/005616.html</a></p>
+<pre>"We have updated the JEP with a few changes to the "Issue Warnings" 
+section [1], summarized as follows:
+
+If the Java runtime is started without setting the system property 
+'java.security.manager' then a custom Security Manager can be installed 
+dynamically by calling System::setSecurityManager, just as in Java 16. 
+No UnsupportedOperationException will be thrown. This call will, 
+however, issue a warning message explaining that the Security Manager is 
+deprecated and will be removed in a future release.
+
+We plan to change the default value of the 'java.security.manager' 
+system property to "disallow" in the next release, i.e., Java 18. That 
+will cause System::setSecurityManager to throw an 
+UnsupportedOperationException in Java 18.
+
+With these changes, the process of deprecating and eventually removing 
+the Security Manager will be consistent with our treatment of past 
+breaking changes such as, e.g., the strong encapsulation of internal 
+APIs. Maintainers of libraries and applications will be given fair 
+warning before any existing code is broken."</pre>

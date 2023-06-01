@@ -1,0 +1,79 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Release of Apache Bigtop 0.8.0
+author:
+  display_name: Konstantin I Boudnik
+  login: cos
+  email: cos@apache.org
+author_login: cos
+author_email: cos@apache.org
+excerpt: "<p style=\"margin-bottom: 0in;\">This new release brings tons of new\r\nfeatures
+  and fixes for the beloved 100% community and open source\r\ndriven big data distribution.</p>
+  \r\n  <p style=\"margin-bottom: 0in;\">Among the new features:</p> \r\n  <ul> \r\n
+  \   <li>New Gradle based build system, with better integration into underlying Bigtop
+  platform. Going forward it will allow us to improve build experience as well as
+  simplify if for new and experienced users.</li> \r\n    <li>Groovy runtime was added
+  directly to the stack, which will allow to speed-up initial HDFS cluster deployment</li>
+  \r\n    <li>BigPetStore data analytics blueprints<br /></li> \r\n    <li>JDK/OpenJDK
+  7 support. Yes, we have completely moved away from JDK6</li> \r\n    <li>Support
+  for latest Ubuntu, OpenSUSE, and CentOS</li> \r\n    <li>Removing support for some
+  outdated distros like CentOS5, Fedora17, and Ubuntu Lucid</li> \r\n    <li>The release
+  fixes close to <a href=\"http://bigtop.apache.org/release-notes.html\">200 bugs
+  and adds a lot of new features</a> focused on the usability and stability of the
+  software stack<br /></li> \r\n  </ul> \r\n  <p style=\"margin-bottom: 0in;\">Of
+  course this release brings its set\r\nof upgrades:</p> \r\n  <ul> \r\n    <li>Apache
+  Hadoop 2.4.1</li> \r\n    <li>Apache Giraph 1.1.0</li> \r\n    <li>Apache Flume
+  1.5.0.1</li> \r\n    <li>Apache Pig datafu 1.0.0</li> \r\n    <li>Apache Crunch
+  0.10.0</li> \r\n    <li>Apache HBbase 0.98.5</li> \r\n    <li>Apache Hive 0.13.0</li>
+  \r\n    <li>Hue 3.6.0</li> \r\n    <li>Pig 0.12</li> \r\n    <li>Apache Mahout 0.9</li>
+  \r\n    <li>Apache Solr 4.6.0</li> \r\n    <li>Spark 0.9.1</li> \r\n  </ul> \r\n
+  \ <p style=\"margin-bottom: 0in;\">And as usual Apache Bigtop supports and\r\nprovide
+  convenience artifacts for a wide array of GNU/Linux\r\ndistributions:</p> \r\n  <ul>
+  \r\n    <li>Centos6</li> \r\n    <li>Fedora 18</li> \r\n    <li>Ubuntu 12.04 (Precise)</li>
+  \r\n    <li>Ubuntu 13.04 (Quetzal)</li> \r\n    <li>Ubuntu 14.04 (Trusty Tahr<a
+  class=\"result__a\" href=\"http://releases.ubuntu.com/14.04/\"></a>)</li> \r\n    <li>OpenSUSE
+  13.1</li> \r\n    <li>SLES11</li> \r\n  </ul> \r\n  <p style=\"margin-bottom: 0in;\">With
+  convenience repositories available: from <a href=\"http://www.apache.org/dist/bigtop/bigtop-0.8.0/repos/\">http://www.apache.org/dist/bigtop/bigtop-0.8.0/repos/</a><br
+  /> </p> \r\n  <p style=\"margin-bottom: 0in;\">Overall Apache Bigtop 0.8.0 is a
+  great\r\nrelease and is in the continuity of what the previous ones brought to\r\nthe
+  field:</p> \r\n  <ul> \r\n    <li>Stability</li> \r\n    <li>Reliability</li> \r\n
+  \   <li>Great set of features<br /></li> \r\n  </ul> \r\n  <p style=\"margin-bottom:
+  0in;\">As a developer of the distribution and\r\na user, everything felt right and
+  worked out of the box.</p> \r\n  <p style=\"margin-bottom: 0in;\">I would like to
+  take the opportunity to\r\nthank all the members  Apache Bigtop community for all
+  the effort put\r\ninto such a great community and distribution. And am looking forward
+  for coming 0.9.0 release that will make the stack more focused on in-memory analytics
+  with addition of Apache Ignite (incubating) and other improvements.<br /></p> \r\n
+  \ <p style=\"margin-bottom: 0in;\">I would also like to encourage everyone\r\nto
+  give a try to our latest release and to not hesitate to come in,\r\nparticipate
+  and give any feedback on our mailing lists: <a href=\"http://bigtop.apache.org/mail-lists.html\">http://bigtop.apache.org/mail-lists.html</a>&nbsp;
+  .</p>"
+id: 24b56228-295a-479b-a7d5-afd141c71d76
+date: '2014-12-02 00:34:47 -0500'
+categories:
+- General
+tags:
+- bigtop
+- hadoop
+comments:
+- id: 0
+  author: jay vyas
+  author_email: jay@apache.org
+  author_url: http://jayunit100.blogspot.com
+  date: '2014-12-02 14:17:04 -0500'
+  content: "Thanks cos !  A couple of other new features to note. . . \r\n\r\nTrying
+    bigtop: the super easy vagrant recipes we now have which allow you to try out
+    bigtop on VMs (vbox) or Docker containers.  These are now configurable by a single
+    YAML file, under the bigtop-deploy/vm/ ( vagrant-puppet and docker-puppet directories
+    ).\r\n\r\nBlueprints: BigPetStore as you mentioned is upgraded and includes a
+    mapreduce as well as a spark implementation, which uses our new data generator
+    algorithm for extremely realistic time series data.\r\n\r\nSmoke tests: The new
+    smoke tests which run from zero, no gradle, or maven, or anything else required,
+    and can be used to validate a hadoop ecosystem on any cluster very easily and
+    quickly."
+permalink: bigtop/entry/release_of_apache_bigtop_01
+---
+<p>A long awaited new release of <a href="http://bigtop.apache.org/" title="Apache Bigtop">Apache Bigtop</a> has happened. Actually it has happened about a month ago, but we never had a chance to do the official blog post on that. The<br />
+community and the <a href="http://hadoop.apache.org/" title="Apache Hadoop">Apache Hadoop</a> ecosystem at large is happy to have <a href="http://mail-archives.apache.org/mod_mbox/bigtop-user/201410.mbox/%3C20141006032356.GM8064%40tpx%3E" title="Release announcement">Apache Bigtop 0.8.0</a> out and ready for you!</p>

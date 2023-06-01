@@ -1,0 +1,27 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: ActiveMQ Artemis embraces Jakarta EE
+author:
+  display_name: Domenico Francesco Bruscino
+  login: brusdev
+  email: bruscinodf@gmail.com
+author_login: brusdev
+author_email: bruscinodf@gmail.com
+id: 95cb5b7e-0a91-48f7-a539-f897648e263f
+date: '2021-09-10 12:46:18 -0400'
+categories:
+- Artemis
+tags:
+- jakarta
+- artemis
+comments: []
+permalink: activemq/entry/activemq-artemis-embraces-jakarta-ee
+---
+<p><img class="margin-auto img-responsive" src="https://www.eclipse.org/org/artwork/images/jakartaee_c.png" alt="Jakarta EE logo"></p>
+<p><a href="https://jakarta.ee/">Jakarta EE</a> is the evolution of Java EE, a set of specifications that enables the world wide community of java developers to work on cloud native java enterprise applications. With Jakarta EE, the community now has an open source project to collaborate on advancing enterprise Java. Jakarta EE&rsquo;s goal is to accelerate business application development for cloud computing, enabling the migration of real-world workloads to a world of containers, microservices, Kubernetes, service mesh, and other cloud native technologies.</p>
+<p>ActiveMQ Artemis provides two clients that implement the <a href="https://jakarta.ee/specifications/messaging/">Jakarta Messaging specifications</a>: ActiveMQ Artemis JMS Client and ActiveMQ Artemis Jakarta Client. The first client implements <a href="https://jakarta.ee/specifications/messaging/2.0/">Jakarta Messaging 2.0</a> for Jakarta EE 8 and its maven coordinates are <a href="https://search.maven.org/artifact/org.apache.activemq/artemis-jms-client">org.apache.activemq:artemis-jms-client</a>. The second implements <a href="https://jakarta.ee/specifications/messaging/3.0/">Jakarta Messaging 3.0</a> for Jakarta EE 9 and its maven coordinates are <a href="https://search.maven.org/artifact/org.apache.activemq/artemis-jakarta-client">org.apache.activemq:artemis-jakarta-client</a>.</p>
+<p>Jakarta Messaging is a Java API that allows applications to create, send, receive, and read messages. Jakarta Messaging defines a common set of interfaces and associated semantics that allow programs written in the Java programming language to communicate with other messaging implementations. See the documentation on <a href="https://activemq.apache.org/components/artemis/documentation/latest/using-jms.html">Using JMS</a> for further details.</p>
+<p>Apache ActiveMQ Artemis also provides a simple integration for Jakarta Contexts and Dependency Injection. It can use an embedded broker or connect to a remote broker, its maven coordinates are <a href="https://search.maven.org/artifact/org.apache.activemq/artemis-cdi-client">org.apache.activemq:artemis-cdi-client</a>. Jakarta Dependency Injection specifies a means for obtaining objects in such a way as to maximize reusability, testability and maintainability, compared to traditional approaches such as constructors, factories, and service locators (e.g., JNDI). See the documentation on <a href="https://activemq.apache.org/components/artemis/documentation/latest/cdi-integration.html">CDI Integration</a> for further details.</p>
+<p>Jakarta Messaging has a lot of pending new features. During the Java EE 8 cycle, a number of them have actually been worked on quite a bit and they could be included in the next release Jakarta Messaging for <a href="https://blogs.oracle.com/javamagazine/java-jakartaee-cdi-ejb-jsf-tijms">Jakarta EE 10</a>. ActiveMQ Artemis has completed the migration to Jakarta EE since the 2.18.0 version and it is ready to implement the next Jakarta Messaging specifications.</p>

@@ -1,0 +1,448 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Using Oracle Wallets with Sqoop Jobs
+author:
+  display_name: 'Venkat Ranganathan '
+  login: venkatrangan
+  email: venkatrangan@apache.org
+author_login: venkatrangan
+author_email: venkatrangan@apache.org
+id: e9f9602e-4d02-44d1-b937-d3ba2a81f798
+date: '2014-01-13 03:08:34 -0500'
+categories:
+- General
+tags:
+- wallet
+- oracle
+- sqoop
+comments:
+- id: 0
+  author: ilkertu
+  author_email: ilkertu@garanti.com.tr
+  author_url: ''
+  date: '2015-12-08 06:31:36 -0500'
+  content: "Hello,\r\n\r\nI've exactly followed the steps above however, I'm getting
+    the errors like unresolved tns identifier or invalid username password. Although
+    these, I'm able to connect to db by using wallet via the oracle client installed
+    on bda."
+- id: 0
+  author: womens health
+  author_email: sundesogamb1981@gmail.com
+  author_url: https://safe-canada-store.com/women%27s-health.html
+  date: '2019-07-19 20:57:51 -0400'
+  content: If you got the time check out some of my stuff - would be very appreciated.
+    Joyful products you got there. The grey packaging is awesome as it makes the colors
+    on the products more vibrant. I think that the rectangular icons could have been
+    more rounded to be more in touch with the logo and the products. Still, its a
+    very enjoyable concept and I bet the products are awesome too!
+- id: 0
+  author: KathrinaDupree
+  author_email: dkathrina323@gmail.com
+  author_url: ''
+  date: '2019-11-14 12:51:15 -0500'
+  content: 'This post shares information about how can we secure Apache Sqoop Jobs
+    with Oracle Wallet. That was a very good article sharing all the information regarding
+    this. Please share more articles like this. https://hostsailorservices.com/hostsailor-com-services/  It
+    will be very helpful for us. '
+- id: 1
+  author: Horea Kaii
+  author_email: horeakaii@gmail.com
+  author_url: ''
+  date: '2019-06-25 13:47:39 -0400'
+  content: "This is quite complicated to absorb but I'll do my best to learn this
+    one. Thanks for being so generous sharing this worth sharing info!\r\n-https://www.mkmesports.com/"
+- id: 4
+  author: replique montre de luxe homme The winter series of men's LACOSTE warm velvet
+    (Figure)
+  author_email: ''
+  author_url: http://www.skwatches.com/
+  date: '2014-01-24 12:01:13 -0500'
+  content: "[Trackback] Content\n\r\n Christmas is app <a href=\"http://www.rainforestwebs.com/\"
+    target=\"_blank\">replique montre de luxe homme</a> roaching, it is said that
+    this w <a href=\"http://www.alaskateamada.com/\" target=\"_blank\">r&eacute;plique
+    de montre de marque</a> inter is pa..."
+- id: 8
+  author: jordan 11 gamma blue General interpretation of international footwear China
+    not Japan Redux China clothing brand network
+  author_email: ''
+  author_url: http://www.juneausymphony.org
+  date: '2014-01-16 04:00:18 -0500'
+  content: '[Trackback] in the jordan 11 g <a href="http://www.alaskanart.net/links.html"
+    target="_blank">jordan 11 gamma blue</a> amma blue manufacturing industry  <a
+    href="http://www.alaskanart.net/tourists.html" target="_blank">jordan 11 gamma
+    blue</a> practitioners view, ...'
+- id: 75
+  author: Vinish
+  author_email: vinish.gopi@flytxt.com
+  author_url: ''
+  date: '2017-07-24 15:00:22 -0400'
+  content: "Hi,\r\n\r\nThank you, this works fine.\r\n\r\nWhat if we use TCPS protocol
+    for ssl connectivity."
+- id: 843
+  author: moses antony
+  author_email: mosesantony2013@gmail.com
+  author_url: ''
+  date: '2020-02-17 05:27:55 -0500'
+  content: 'For all the job searching features you will go in search of all the applications.
+    But it is not that easy to make use of the situation. So that http://www.cbdstrainsonly.com
+    you will have to be much careful about it. This is really too good for job search. '
+- id: 4273
+  author: my otaku world
+  author_email: iamrocklee007@gmail.com
+  author_url: https://myotakuworld.com
+  date: '2019-10-16 13:41:34 -0400'
+  content: best anime community website
+- id: 91676
+  author: Leo
+  author_email: jbreviewsonyt@gmail.com
+  author_url: https://itutuhelper.info/
+  date: '2018-11-18 19:19:28 -0500'
+  content: Thanks for sharing information about Oracle Wallet.
+- id: 97887
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2015-10-29 11:30:05 -0400'
+  content: "Hello,\r\n \r\nI&rsquo;m trying to load data from Teradata to Hadoop and
+    I have to use Teradata Wallet to get password for Teradata user.\r\nCould you
+    please tell me if it&rsquo;s possible to use TDWALLET for sqoop as I haven&rsquo;t
+    found any manual for it?\r\n \r\nThank you in advance,\r\nKateryna Babich"
+- id: 161633
+  author: Sara Taylor
+  author_email: jbourn235@yahoo.com
+  author_url: http://playdvdwindows10.com
+  date: '2018-08-29 08:16:16 -0400'
+  content: great.
+permalink: sqoop/entry/using_oracle_wallets_with_sqoop
+---
+<h1 style="margin: 2pt 16pt 0.0001pt 0in;"><a name="hpa6zse7andu6"></a><strong><span style="font-size: 12pt; line-height: 115%; font-family: Arial;">How to Secure Apache<br />
+Sqoop Jobs with Oracle Wallet</span></strong></h1>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><a href="http://hortonworks.com/hadoop/sqoop/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">Apache</span></a><a href="http://hortonworks.com/hadoop/sqoop/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;"> </span></a><a href="http://hortonworks.com/hadoop/sqoop/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">Sqoop</span></a><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> is a tool that transfers data between<br />
+the Hadoop ecosystem and enterprise data stores. Sqoop does this by providing<br />
+methods to transfer data to</span><a href="http://hortonworks.com/hadoop/hdfs/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></a><a href="http://hortonworks.com/hadoop/hdfs/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">HDFS</span></a><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> or</span><a href="http://hortonworks.com/hadoop/hive/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></a><a href="http://hortonworks.com/hadoop/hive/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">Hive</span></a><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> (using</span><a href="http://hortonworks.com/hadoop/hcatalog/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></a><a href="http://hortonworks.com/hadoop/hcatalog/"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">HCatalog</span></a><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">). Oracle Database is one of the<br />
+databases supported by Apache Sqoop.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">With Oracle Database, the database connection<br />
+credentials are stored in Oracle Wallet. Oracle Wallet can act as the store of<br />
+keys and secrets such as authentication credentials. This post describes how</span><a href="http://docs.oracle.com/cd/B28359_01/network.111/b28530/asowalet.htm#i1009041"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></a><a href="http://docs.oracle.com/cd/B28359_01/network.111/b28530/asowalet.htm#i1009041"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">Oracle</span></a><a href="http://docs.oracle.com/cd/B28359_01/network.111/b28530/asowalet.htm#i1009041"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;"> </span></a><a href="http://docs.oracle.com/cd/B28359_01/network.111/b28530/asowalet.htm#i1009041"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">Wallet</span></a><a href="http://docs.oracle.com/cd/B28359_01/network.111/b28530/asowalet.htm#i1009041"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;"> </span></a><a href="http://docs.oracle.com/cd/B28359_01/network.111/b28530/asowalet.htm#i1009041"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana; color: #1155cc;">Manager</span></a><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> adds a secure authentication layer for<br />
+Sqoop jobs.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">In order to connect to an external database,<br />
+Sqoop users must provide a set of credentials specific to that data store.<br />
+These credentials are typically in the form of user name and password.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Some enterprises may already be standardized on<br />
+credential management tools provided by their enterprise DBMS vendor. These<br />
+companies may not be comfortable with any of Sqoop&rsquo;s three authentication methods:</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Password provided on the command line</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Password read from the console during the<br />
+interactive execution of a Sqoop job.</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Password provided on a secure file system that<br />
+only the user can access.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">With Oracle Database, the database connection<br />
+credentials can be securely stored in an Oracle Wallet. The use of Oracle<br />
+Wallet can allay the security concerns mentioned above because it provides a<br />
+secure client-side software container allowing secure storage of authentication<br />
+and signing credentials.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">With support for Oracle Wallet, Sqoop jobs no<br />
+longer need to embed usernames and passwords. This reduces the risk of exposing<br />
+credentials and eases enforcement of authentication policies, since application<br />
+code and scripts need not change whenever usernames or passwords change.</span></p></p>
+<p><strong><span style="font-size: 12pt; line-height: 115%;">Instructions for Using<br />
+Oracle Wallets for External Password Store</span></strong></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Please note that the following steps were tested<br />
+with Oracle 11gR2 database. We expect these instructions should be applicable<br />
+to other versions of Oracle DB, but they were not tested on versions other than<br />
+Oracle 11gR2.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">At a high-level, these are the steps (which we<br />
+describe in detail below):</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Create an Oracle client-side wallet</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Create </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> and </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> files</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Add the database access credentials to the Oracle<br />
+wallet</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Test the Oracle wallet</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Use the Oracle wallet for Sqoop jobs</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Modify the JDBC URL for the connection to use the<br />
+wallet</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Run the Sqoop job with Oracle wallet</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="ha7dv2uc1p35e"></a><em><span style="font-size: 11pt; line-height: 115%; font-family: Arial;">Create an Oracle Client-Side Wallet</span></em></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The first step is to create an Oracle wallet to<br />
+hold the credentials used by Sqoop jobs. Oracle provides various tools to<br />
+manage the Oracle Wallet. This document describes one of those: the </span><span>mkstore</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> command line tool. The </span><span>mkstore</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> command can be used to create the<br />
+wallet:</span></p></p>
+<p><span>mkstore -wrl <wallet_location><br />
+-create</span></p>
+<p><o:p> </o:p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">That command line creates a client side wallet at<br />
+the location </span><span><wallet_location></span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">. Substitute </span><span><wallet_location></span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> to your valid directory location.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">It will be an auto-logon wallet. So before a<br />
+client process can use the wallet, the ownership of the wallet directory and<br />
+files (owner and group) must match the process uid and gid.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Make sure that the password matches the database<br />
+minimum requirements.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="h1pjrhotamekq"></a><em><span style="font-size: 11pt; line-height: 115%; font-family: Arial;">Create tnsnames.ora and<br />
+sqlnet.ora Files</span></em></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The Oracle database uses a few network<br />
+configuration files. The files </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> and </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> are used for configuring client side network<br />
+access.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hv94iygfwk3w4"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">tnsnames.ora</span></h3>
+<p>The configuration file <span style="font-family: 'Courier New';">tnsnames.ora</span> has client side local<br />
+naming parameters. The contents of <span style="font-family: 'Courier New';">tnsnames.ora</span> are used to map the<br />
+network service name to an Oracle database connection descriptor.</p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Here is an example of a </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> file:</span></p>
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="351" style="margin-left: 5pt; border-collapse: collapse;">
+<tbody>
+<tr>
+<td width="351" valign="top" style="width: 351.25pt; border: 1pt solid windowtext; padding: 5pt;">
+<p><span>W_ORCL<br />
+  =</span></p>
+<p><span> ( DESCRIPTION =</span></p>
+<p><span> </span><span style="display: none;"> </span><span>(ADDRESS<br />
+  = (PROTOCOL = TCP)(HOST = 192.168.64.51)(PORT = 1521))</span></p>
+<p><span> </span><span style="display: none;"> </span><span>(CONNECT_DATA<br />
+  =</span></p>
+<p><span> </span><span style="display: none;"> </span><span>(SERVER<br />
+  = DEDICATED)</span></p>
+<p><span> </span><span style="display: none;"> </span><span>(SERVICE_NAME<br />
+  = orcl)</span></p>
+<p><span> )</span></p>
+<p><span>)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In the above<span style="font-family: 'Courier New';"> tnsnames.ora </span>file, the network<br />
+service name <span style="font-family: 'Courier New';">W_ORCL</span> is mapped to a<br />
+connection descriptor accessing a database instance named <span style="font-family: 'Courier New';">ORCL</span> running on a host with an IP<br />
+address <span style="font-family: 'Courier New';">192.168.64.51.</span></p></p>
+<h4 style="margin: 12pt 0in 2pt;"><a name="hhga0a6u8tc72"></a><strong><span style="font-family: Arial; color: gray;">sqlnet.ora</span></strong></h4>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The configuration file </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> is used to specify client side network<br />
+configuration properties that influence the connection profiles. This file<br />
+configures tracing, authentication, routing, and advanced security parameters.</span></p>
+<p><span style="font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Here is an example of a </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> file:</span></p>
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="351" style="margin-left: 5pt; border-collapse: collapse;">
+<tbody>
+<tr>
+<td width="351" valign="top" style="width: 351.25pt; border: 1pt solid windowtext; padding: 5pt;">
+<p><span>WALLET_LOCATION<br />
+  =</span></p>
+<p><span> (SOURCE =</span></p>
+<p><span style="display: none;"> </span><span>(METHOD = FILE)</span></p>
+<p><span style="display: none;"> </span><span>(METHOD_DATA =</span></p>
+<p><span> </span><span style="display: none;"> </span><span>(DIRECTORY<br />
+  = <full path to file>)</span></p>
+<p><span style="display: none;"> </span><span>)</span></p>
+<p><span> )</span></p></p>
+<p><strong><span>SQLNET.WALLET_OVERRIDE =<br />
+  TRUE</span></strong></p>
+<p><span>SSL_CLIENT_AUTHENTICATION<br />
+  = FALSE</span></p></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The</span><span> tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> and</span><span> sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> files can be placed in separate directories or<br />
+they can both be placed in the wallet directory.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="h19sxapc111uh"></a><em><span style="font-size: 11pt; line-height: 115%; font-family: Arial;">Add the Database Access<br />
+Credentials to the Oracle Wallet</span></em></h3>
+<p>Now that we&rsquo;ve created an Oracle<br />
+Wallet, we need to populate it with the database access credentials. We can use the <span style="font-family: 'Courier New';">-createCredential<br />
+</span>option to the <span style="font-family: 'Courier New';">mkstore</span> command to do<br />
+this:</p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span><span>mkstore -wrl<br />
+<wallet-location> -createCredential <DBSvc> <DBUser><br />
+<DBPassword></span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span>●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span><wallet-location><br />
+is the directory where the wallet files will be stored</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span>●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span><DBSvc><br />
+is the service name defined in tnsnames.ora</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span>●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span><DBUser><br />
+is the username to access the database</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span>●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span><DBPassword><br />
+is the database password for the user <DBUser></span></p></p>
+<p><span>For example, with the sample service<br />
+defined in tnsames.ora, and a DB user &ldquo;sqoop&rdquo; using password &ldquo;sqooppwd&rdquo;, the<br />
+command invocation would be:</span></p></p>
+<p><span>mkstore -wrl <wallet-location><br />
+-createCredential w_orcl sqoop sqooppwd</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">This will prompt for the wallet password, which<br />
+should be same as the one used when creating the wallet.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hlpnp061oka7t"></a><em><span style="font-size: 11pt; line-height: 115%; font-family: Arial;">Test the Oracle Wallet</span></em></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">A quick way to test the password is to attempt a<br />
+DB session with </span><span>SQLPLUS</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">If the </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> and </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> settings are not in the default location </span><span>($ORACLE_HOME/network/admin</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">), then you can provide the location of<br />
+these files using the </span><span>TNS_ADMIN</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"><br />
+environment variable.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Assuming the</span><span> tnsnames.ora </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">and </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> are under </span><span>$HOME/wallet_test</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">, do the following:</span></p>
+<p><o:p> </o:p></p>
+<p><span>export TNS_ADMIN=$HOME/wallet_test</span></p>
+<p><span>sqlplus /@<svc_name> # in our case<br />
+w_orcl</span></p>
+<p><o:p> </o:p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">This command should successfully establish the<br />
+connection. If it does not, check the </span><span>tnsnames.ora </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">contents to make sure the DB host, port or<br />
+service name are correct.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">If the service name in </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> changes, then the wallet entry has to be<br />
+created/modified.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hsnmbeu8b53j5"></a><em><span style="font-size: 11pt; line-height: 115%; font-family: Arial;">Use the Oracle Wallet for Sqoop<br />
+Jobs</span></em></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">After successfully validating the wallet, it can<br />
+be used for Sqoop jobs. There are a few steps for providing the wallet with<br />
+Sqoop:</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">● Provide the wallet to the Sqoop launcher</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">● Provision the wallet to the mapper tasks</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">● Make command line changes for the Sqoop<br />
+launcher program</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">● Specify the location of the wallet and<br />
+Oracle configuration files to the mapper tasks</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">● Specify the option to localize the files<br />
+to the mapper tasks</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">● Modify the JDBC URL</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hziausk25rq38"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Provide the Wallet to the Sqoop Launcher</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">For the Sqoop client program and the mappers launched<br />
+by the Sqoop job, we have to specify the location for the wallet and the </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> and </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> files.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Add the following files to the </span><span>$SQOOP_HOME/lib</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> directory (typically </span><span>SQOOP_HOME</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> is set to /usr/lib/sqoop):</span></p></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>oraclepki.jar</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>osdt_cert.jar</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>osdt_core.jar</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>ojdbc6.jar</span></p>
+<p style="margin-left: 0.5in;"><span> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">These jars are available as part of an Oracle<br />
+Database installation.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hu263pmsy6yf3"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Provision the Wallet to the Mapper Tasks</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Copy the contents of the wallet directory from<br />
+the database host along with the</span><span> tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> and </span><span>sqlnet.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> files to a folder, such as</span><span> $HOME/wallet</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">, as the</span><span> operating system user</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> who is launching the Sqoop command.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The wallet directory will have the following<br />
+files after this step:</span></p></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>cwallet.sso</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>ewallet.p12</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>sqlnet.ora</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span>tnsnames.ora</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The first two are the wallet files and the next<br />
+two are the Oracle client network configuration files that we saw before.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><strong><em><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Make sure the wallet directory and the files in<br />
+that directory are owned by the operating system user and the group ownership<br />
+is the same as the Sqoop user group.</span></em></strong></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="h6alsmalhtkcs"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Make Command Line Changes for the Sqoop Launcher Program</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Since the wallet location and the TNS locations<br />
+are different from the defaults, we have to override the location of the wallet<br />
+and the tnsnames.ora and sqlnames.ora files.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Oracle JDBC exposes two properties for this<br />
+purpose:</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">oracle.net.tns_admin &ndash; Location of the<br />
+tnsnames.ora and sqlnet.ora files</span></p>
+<p style="margin-left: 0.5in; text-indent: -0.25in;"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">●</span><span style="font-size: 7pt; line-height: 115%; font-family: 'Times New Roman';"> </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">oracle.net.wallet_location &ndash; Location of the<br />
+wallet files, cwallet.sso and ewallet.p12</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">In this case we will set both these properties to<br />
+</span><span>$HOME/wallet</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Setting these two system properties for Sqoop can<br />
+be achieved by setting the system environment variable </span><span>HADOOP_OPTS</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> which will be used for setting<br />
+additional Java options to the JVM.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p> <span>export HADOOP_OPTS=<br />
+"-Doracle.net.tns_admin=$HOME/wallet<br />
+-Doracle.net.wallet_location=$HOME/wallet_test"</span></p>
+<p><o:p> </o:p></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="h6w1n6z4qgwjs"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Specify the Location of the Wallet and Oracle Configuration Files<br />
+to the Mapper Tasks</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">While the client program uses the DB for<br />
+retrieving metadata, the mapper tasks do the actual data transfer. To provide<br />
+the wallet files to the mapper tasks, we specify them as part of the &ndash;files<br />
+tool option to localize to each mapper. Also, we have to use the Hadoop<br />
+configuration properties to pass specific Java command line options (similar to<br />
+</span><span>HADOOP_OPTS</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> for the launcher).</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hirglz93bs0w0"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Specify the Option to Localize the Files to the Mapper Tasks</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">This can be achieved by adding the </span><span>&ndash;files</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> option to the Sqoop command line.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Please note that Hadoop options have to come<br />
+before any Sqoop options. The option and option argument can be specified as<br />
+follows:</span></p>
+<p><span>-files $HOME/wallet/cwallet.sso,\</span></p>
+<p><span>$HOME/wallet/ewallet.p12,\</span></p>
+<p><span>$HOME/wallet/sqlnet.ora,\</span></p>
+<p><span>$HOME/wallet/tnsnames.ora</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">We also have to tell the Mapper tasks the<br />
+location of wallet and TNS files. We use the hadoop configuration parameter </span><span>mapred.child.java.opts</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> to provide additional Java options to<br />
+the mappers.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Note that we use the current directory as the<br />
+location (&lsquo;.&rsquo;). This is because the files provided by the </span><span>&ndash;files</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> option will be localized to the current<br />
+directory for each mapper task.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span>-D<br />
+mapred.map.child.java.opts=&rsquo;-Doracle.net.tns_admin=.<br />
+-Doracle.net.wallet_location=.'</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">If there are additional Java options that need to<br />
+be provided for the mappers, they should be added to the Java options given<br />
+below. For example, to add the system<br />
+property -Djava.security.egd=file:/dev/./urandom, the options would be<br />
+specified as:</span></p>
+<p><span>-D<br />
+mapred.map.child.java.opts=&rsquo;-Doracle.net.tns_admin=.<br />
+-Doracle.net.wallet_location=. &ndash;Djava.security.egd=file:/dev/./urandom'</span></p></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="h51vw55n2pym2"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Modify the JDBC URL</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">The JDBC URL provided should use the format </span><span>jdbc:oracle:thin:@SVC</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> where the </span><span>SVC</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> is the service name used for accessing the<br />
+database.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">This is added as part of the createCredential<br />
+command above and should also be in the </span><span>tnsnames.ora</span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> file.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="hkmm1ehj7sweg"></a><em><span style="font-size: 11pt; line-height: 115%; font-family: Arial;">Run the Sqoop Job with Oracle<br />
+Wallet</span></em></h3>
+<p>Please make sure that Apache<br />
+Sqoop v1.4.5 is used or (if using a prior version of Sqoop) install <span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">the OracleManager fix for wallet support.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">When we use wallet-based authentication, we don&rsquo;t<br />
+provide the username or password for establishing the JDBC connection.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Sqoop code has been enhanced to properly handle<br />
+this case (please see</span><a href="https://issues.apache.org/jira/browse/SQOOP-1224"><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></a><a href="https://issues.apache.org/jira/browse/SQOOP-1224"><spancolor:>SQOOP</spancolor:></a><a href="https://issues.apache.org/jira/browse/SQOOP-1224"><spancolor:>-1224</spancolor:></a><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> for more information). Use Oracle<br />
+session user when the database user name is not explicitly provided.</span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;"> </span></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">This will be part of </span><span>Sqoop 1.4.5 </span><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">and later versions. For versions of Sqoop prior to 1.4.5, please<br />
+make sure that the Sqoop product has this patch applied.</span></p>
+<h3 style="margin: 17pt 0in 6pt;"><a name="h4ncnx486a6gi"></a><span style="font-size: 11pt; line-height: 115%; font-family: Arial; color: gray;">Run the Sqoop Job</span></h3>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Now we are ready to use the wallet with the Sqoop<br />
+job.</span></p></p>
+<p><span style="font-size: 10pt; line-height: 115%; font-family: Verdana;">Here is an excerpt from a script that can be used<br />
+after the wallet and Oracle client configuration setup are complete. This combines all of the steps previously<br />
+outlined in this post.</span></p></p>
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="351" style="margin-left: 5pt; border-collapse: collapse;">
+<tbody>
+<tr>
+<td width="351" valign="top" style="width: 351.25pt; border: 1pt solid windowtext; padding: 5pt;">
+<p><span>export<br />
+  HADOOP_OPTS= "-Doracle.net.tns_admin=$PWD/wallet<br />
+  -Doracle.net.wallet_location=$PWD/wallet "</span></p></p>
+<p><span>sqoop<br />
+  {import|export} \</span></p>
+<p><span>-D<br />
+  mapred.map.child.java.opts= '-Doracle.net.tns_admin=.<br />
+  -Doracle.net.wallet_location=.' \</span></p>
+<p><span>-files<br />
+  $HOME/wallet/cwallet.sso,\</span></p>
+<p><span>$HOME/wallet/ewallet.p12,\</span></p>
+<p><span>$HOME/wallet/sqlnet.ora,\</span></p>
+<p><span>$HOME/wallet/tnsnames.ora<br />
+  \</span></p>
+<p><span>-connect<br />
+  &lsquo;jdbc:oracle:thin:@w_orcl&rsquo; \</span></p>
+<p><span><<rest<br />
+  of sqoop options>></span></p>
+</td>
+</tr>
+</tbody>
+</table>

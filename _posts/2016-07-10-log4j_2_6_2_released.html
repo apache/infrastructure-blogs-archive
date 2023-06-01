@@ -1,0 +1,153 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Log4j 2.6.2 released
+author:
+  display_name: Remko Popma
+  login: rpopma
+  email: rpopma@apache.org
+author_login: rpopma
+author_email: rpopma@apache.org
+excerpt: "Apache Log4j is a well known framework for logging application behavior.
+  Log4j 2 is an upgrade\r\nto Log4j that provides significant improvements over its
+  predecessor, Log4j 1.x, and provides\r\nmany other modern features such as support
+  for Markers, lambda expressions for lazy logging,\r\nproperty substitution using
+  Lookups, multiple patterns on a PatternLayout and asynchronous\r\nLoggers. Another
+  notable Log4j 2 feature is the ability to be \"garbage-free\" (avoid allocating\r\ntemporary
+  objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring.\r\n"
+id: e5e801ab-de6f-420d-959e-57be928bb15c
+date: '2016-07-10 23:30:29 -0400'
+categories:
+- Java
+tags:
+- log4j
+- log42
+comments:
+- id: 0
+  author: adriendijoux
+  author_email: dijouxadrien33@gmail.com
+  author_url: ''
+  date: '2016-07-11 08:43:49 -0400'
+  content: "bonjour\r\nj'aimerai devenir modo sur le serveur svp\r\nmerci aurevoir
+    \r\n"
+- id: 0
+  author: hendry jullius
+  author_email: hendryjullius@gmail.com
+  author_url: ''
+  date: '2018-09-17 11:56:01 -0400'
+  content: Apache Log4j is a well-known framework for logging application behavior.
+    Log4j 2 is an upgrade to Log4j that provides significant improvements over its
+    predecessor, Log4j 1.x, and provides many other modern features such as support
+    for Markers, lambda expressions for lazy logging. https://www.bodno.com/
+- id: 0
+  author: film izle
+  author_email: dadadada@gmail.com
+  author_url: https://altyazilifilm.live
+  date: '2019-06-29 20:50:15 -0400'
+  content: "logger.error(&ldquo;This is the log message&rdquo;, throwable);\r\n\r\n"
+- id: 0
+  author: David Pearson
+  author_email: davidpearson006@gmail.com
+  author_url: ''
+  date: '2019-07-18 07:09:37 -0400'
+  content: sugar balance herbal supplement by proven health https://discountra.com/sugar-balance-herbal-supplement/
+- id: 3
+  author: martin garix
+  author_email: akkaran046@gmail.com
+  author_url: ''
+  date: '2018-08-28 11:30:48 -0400'
+  content: No download and registration required,easily to play and control this game,simple
+    to control this game you mobile touch or computer keyword  http://spidersolitaire.me
+    then read the basic information for this game,now click here this site and get
+    the all related ino.
+- id: 4
+  author: Marcus Utz
+  author_email: marcusutz@yopmail.com
+  author_url: ''
+  date: '2018-11-15 07:02:28 -0500'
+  content: Those people who are waiting long for the releasing of it will get lots
+    of enjoyment with read of this news. People hire best writing services from https://www.bestbritishwriter.com/uk-assignments-com-review/
+    here that are free from any type of risk.
+- id: 6
+  author: nolvadex
+  author_email: threatnatiri1974@gmail.com
+  author_url: https://safe-canada-store.com/cancer/nolvadex.html
+  date: '2019-07-19 20:15:18 -0400'
+  content: Its FF but also its a graf of lowering financial results &ndash; each next
+    is lower then previous... Great design and color choice!
+- id: 12445454
+  author: alexa amy
+  author_email: alexaamy26@gmail.com
+  author_url: https://www.garminmapupdate.org/
+  date: '2020-01-27 11:37:31 -0500'
+  content: 'Nice post. I learn something totally new and challenging on websites I
+    stumbleupon every day. It''s always useful to read through articles from other
+    authors and practice something from other sites. '
+permalink: logging/entry/log4j_2_6_2_released
+---
+<p><img src="http://logging.apache.org/log4j/2.x/images/logo.png" /></p>
+<p>The Apache Log4j 2 team is pleased to announce the Log4j 2.6.2 release!</p>
+<p>
+Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade<br />
+to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides<br />
+many other modern features such as support for Markers, lambda expressions for lazy logging,<br />
+property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous<br />
+Loggers. Another notable Log4j 2 feature is the ability to be "garbage-free" (avoid allocating<br />
+temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring.</p>
+<p>
+This is the twelfth GA release. It is primarily a bugfix release. More details on the<br />
+fixes are itemized below.</p>
+<p>
+Note that subsequent to the 2.6 release a minor source incompatibility was found due to the<br />
+addition of new methods to the Logger interface. If you have code that does:</p>
+<p><tt>logger.error(null, &ldquo;This is the log message&rdquo;, throwable);</tt></p>
+<p>or similar with any log level you will get a compiler error saying the reference is ambiguous.<br />
+To correct this either do:</p>
+<p><tt>logger.error(&ldquo;This is the log message&rdquo;, throwable);</tt></p>
+<p>
+or</p>
+<p><tt>logger.error((Marker) null, &ldquo;This is the log message&rdquo;, throwable);</tt></p>
+<p>Log4j 2.6.2 maintains binary compatibility with previous releases.</p>
+<p><h2>GA Release 2.6.2</h2>
+<p>
+Changes in this version include:</p>
+<p>New features:</p>
+<ul>
+<li> LOG4J2-1395:  Add "direct" option to ConsoleAppender for increased performance.
+<li> LOG4J2-1437:  (GC) ObjectMessage and ReusableObjectMessage now avoid calling toString() on auto-boxed primitive parameters.
+<li> LOG4J2-1415:  (GC) ParameterFormatter now avoids calling toString() on auto-boxed primitive message parameters.
+<li> LOG4J2-1412:  Unbox utility's ringbuffer of StringBuilders is now configurable.
+</ul>
+<p>Fixed Bugs:</p>
+<ul>
+<li> LOG4J2-904:  If copy and delete fails in rename action then resort to truncating the source file after copying it. Thanks to Bernhard M&auml;hr.
+<li> LOG4J2-1250:  CronTriggeringPolicy was not properly setting the prevFileTime value for the PatternProcessor so<br />
+        file dates and times on rolled files were incorrect. </p>
+<li> LOG4J2-1452:  Fixed issue where reusable messages broke flow tracing logic. Thanks to Mikael St&aring;ldal.
+<li> LOG4J2-1440:  Fix bug in OnStartupTriggeringPolicy that allowed it to roll over on every reconfiguration. Added<br />
+        minSize attribute. </p>
+<li> LOG4J2-1414:  Fixed minor issues with the 2.6.1 web site. Thanks to Ralph Goers.
+<li> LOG4J2-1434:  Ensure that the thread-local StringBuilders used by Layouts to format log events to text will not<br />
+        retain excessive memory after a large message was logged. Thanks to Luke Butters. </p>
+<li> LOG4J2-1418:  Provide MessageFactory2 to custom Logger implementations.
+<li> LOG4J2-1420:  RollingRandomAccessFileManager was not properly rolling over on startup and was getting a NullPointerException.
+<li> LOG4J2-1417:  Fixed issue where Unbox utility ignored the value Constants.ENABLE_THREADLOCALS and always stored non-JDK classes in ThreadLocals.
+<li> LOG4J2-1422:  Fixed issue where AsyncAppenderQueueFullPolicyTest sometimes hangs.
+<li> LOG4J2-1445:  OnStartupTriggeringPolicyTest fails on Windows saying the file is used by another process. Thanks to Ludovic HOCHET.
+</ul>
+<p>Changes:</p>
+<ul>
+<li> LOG4J2-1432:  Update Jackson from 2.7.4 to 2.7.5.
+<li> LOG4J2-1433:  Update Jansi from 1.11 to 1.13.
+<li> LOG4J2-1444:  Update Apache Commons Compress from 1.11 to 1.12.
+</ul>
+<p>Apache Log4j 2.6.2 requires a minimum of Java 7 to build and run. Log4j 2.3 was the last release that<br />
+supported Java 6.</p>
+<p>Basic compatibility with Log4j 1.x is provided through the log4j-1.2-api component, however it does not implement some of the<br />
+very implementation specific classes and methods. The package names and Maven groupId have been changed to<br />
+org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug reports,<br />
+patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p>
+<a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>

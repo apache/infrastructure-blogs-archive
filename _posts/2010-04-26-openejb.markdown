@@ -1,9 +1,0 @@
----
-layout: post
-title: How much time have you saved with OpenEJB?  Find out!
-date: '2010-04-26T00:00:00+00:00'
-categories: openejb
----
-Inspired by Matthew B. Jones' <a href="https://blogs.apache.org/openejb/entry/user_blog_openejb_rapid_j2ee">blog post</a> sharing his experience saving a whopping 26 person weeks in development with OpenEJB, we've put together a <a href="http://openejb.apache.org/time-saved.html">time saved calculator</a>.
-
-A fun little tool for those that develop with OpenEJB and use a different platform in production.  Check it out!

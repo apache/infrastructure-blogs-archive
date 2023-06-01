@@ -1,0 +1,59 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Apache Ignite 2.11.1: Emergency Log4j2 Update'
+author:
+  display_name: Maxim Muzafarov
+  login: mmuzaf
+  email: maxmuzaf@gmail.com
+author_login: mmuzaf
+author_email: maxmuzaf@gmail.com
+id: b586861c-933d-4987-8fae-e9a97e756b27
+date: '2021-12-21 20:16:02 -0500'
+categories:
+- General
+tags:
+- open-source
+- ignite
+- release
+- database
+- log4j2
+- in-memory
+comments: []
+permalink: ignite/entry/apache-ignite-2-11-1
+---
+<p>The new <a href="https://ignite.apache.org/">Apache Ignite</a> 2.11.1 is an emergency release that fixes<br />
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228">CVE-2021-44228</a>,<br />
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046">CVE-2021-45046</a>,<br />
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105">CVE-2021-45105</a> related to the ignite-log4j2 module usage.</p>
+<h3 id="apache-ignite-with-log4j-vulnerability">Apache Ignite with Log4j Vulnerability</h3>
+<p>All the following conditions must be met:</p>
+<ul>
+<li>The Apache Ignite version lower than 2.11.0 is used (since these vulnerabilities are already fixed in 2.11.1, 2.12, and upper versions);</li>
+<li>The <code>ignite-logj42</code> is used by Apache Ignite and located in the <code>libs</code> directory (by default it is located in the <code>libs/optional</code><br />
+directory, so these deployments are not affected);</li>
+<li>The Java version in use is older than the following versions: <code>8u191</code>, <code>11.0.1</code>. This is due to the fact that later versions<br />
+set the JVM property <code>com.sun.jndi.ldap.object.trustURLCodebase</code> to <code>false</code> by default, which disables JNDI loading of classes<br />
+from arbitrary URL code bases. </li>
+</ul>
+<p>NOTE: Relying only on the Java version as a protection against these vulnerabilities is very risky and has not been tested.</p>
+<h3 id="risk-mitigation-without-upgrading">Risk Mitigation Without Upgrading</h3>
+<p>Please note that all of these cases require a cluster downtime, but we still recommend to upgrade the Apache Ignite.</p>
+<h4 id="method-1-removing-the-vulnerable-classes">Method 1: Removing the Vulnerable Classes</h4>
+<p>When using an older Apache Ignite version, it is possible to remove the JndiLookup class from any Java application by<br />
+executing this command:</p>
+<pre><code class="lang-shell">find <span class="hljs-variable">$IGNITE_HOME</span>/ -<span class="hljs-keyword">type</span> f -name <span class="hljs-string">"*log4j-core-*.jar"</span> -exec <span class="hljs-keyword">zip</span> -q -<span class="hljs-keyword">d</span> <span class="hljs-string">"{}"</span> org/apache/logging/log4j/core/<span class="hljs-keyword">lookup</span>/JndiLookup.<span class="hljs-keyword">class</span> \;
+</code></pre>
+<p>This will recursively find all log4j-core JAR files, starting from the <code>IGNITE_HOME</code> directory, and remove the vulnerable<br />
+JndiLookup class from them.</p>
+<h4 id="method-2-disabling-message-lookups">Method 2: Disabling Message Lookups</h4>
+<p>This method can be used as an additional protection layer in case you suspect not all log4j dependencies have been<br />
+properly updated. If you are using the Apache Ignite of an older version, we recommend to disable message lookups globally<br />
+by setting the environment variable <code>LOG4J_FORMAT_MSG_NO_LOOKUPS</code> to <code>true</code> or, alternatively, run the Apache Ignite with<br />
+the <code>‐Dlog4j2.formatMsgNoLookups=true</code> command-line option.</p>
+<h4 id="method-3-replace-log4j2-dependency-manually">Method 3: Replace log4j2 Dependency Manually</h4>
+<p>It is still possible to manually replace the Log4j of 2.x version in the Apache Ignite binary distribution to the 2.17.0 Log4j<br />
+version if your log configuration does not imply to use the RoutingAppender. In case the RoutingAppender is used it may produce<br />
+some error messages in a log file at the startup or empty lines during the execution, which are considered as a minor flow,<br />
+however, we do not recommend this mitigation method in this case.</p>

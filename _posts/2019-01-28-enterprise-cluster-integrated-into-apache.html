@@ -1,0 +1,43 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Enterprise Cluster Integrated into Apache NetBeans
+author:
+  display_name: GeertjanWielenga
+  login: geertjan
+  email: geertjan@apache.org
+author_login: geertjan
+author_email: geertjan@apache.org
+id: aaa7d58c-b0da-47bd-a7fe-6ec314053b08
+date: '2019-01-28 19:11:46 -0500'
+categories:
+- General
+tags: []
+comments:
+- id: 29045
+  author: Leonardo De Seta
+  author_email: ldeseta@gmail.com
+  author_url: ''
+  date: '2019-01-29 23:18:32 -0500'
+  content: "Awesome work guys! Apache NetBeans is getting better and better. \r\n\r\nAlthough
+    EJB and EAR are really vintage technologies (and, from my point of view should
+    be avoided), I recon there are lots of places where these stuff is still being
+    used. As you suggested, maybe having a \"Vintage Java EE\" could be a temporary
+    solution. Maybe in future releases EAR/EJB support can be an optional feature?\r\n\r\n"
+- id: 214929
+  author: negora
+  author_email: negora@negora.com
+  author_url: ''
+  date: '2019-02-01 12:23:28 -0500'
+  content: "Thank you for recovering this functionality for those of us who use EARs
+    and EJBs. I still haven't had time to learn alternatives to these technologies
+    (i.e. Spring). But, honestly, I haven't needed it. EJBs work fin for my use case.\r\n"
+permalink: netbeans/entry/enterprise-cluster-integrated-into-apache
+---
+<p>Hurray, the <a href="https://github.com/apache/incubator-netbeans/tree/master/enterprise">'enterprise' cluster</a>, constituting all the modules in Apache NetBeans GitHub that provide features for Java/Jakarta EE development, provided in the 2nd Oracle donation of NetBeans to Apache, <a href="https://github.com/apache/incubator-netbeans/pull/1104">has been integrated into the daily builds</a>.</p>
+<p>Now, for the first time, out of the box, you'll have the support that was part of NetBeans IDE 8.2 for Java EE development directly available in Apache NetBeans, that is, without you needing to install any plugins.</p>
+<p>However, aside from the point that this means we do not yet have Java EE 8 support, since 8.2 did not (could not, because of being released some time prior to Java EE 8) have support for Java EE 8, another question now presents itself&mdash;whether we really want to have two categories in the New Project dialog, one named "Java EE" and the other named "Java Web", as shown below, with the former containing project types relating to EJBs and EARs, which are not (should not) be very current anymore, as shown below in the screenshots.</p>
+<p><img src="https://app.compendium.com/api/post_attachments/77820c69-ab1f-4cae-a59d-5344a1496127/view"/></p>
+<p><img src="https://app.compendium.com/api/post_attachments/ec0ff0ce-1d7e-45bc-b052-0bc32a787a5d/view"/></p>
+<p>My suggestion would be to either relabel the above to "Modern Java EE" and "Vintage Java EE". (I like the word "Vintage", which I've learned about from JUnit, i.e., that's how they refer to JUnit 4.) Once there is Java EE 8 support, we could use the name "Jakarta" instead of "Modern Java EE". Or, maybe the EJB and EAR support should simply be removed?</p>

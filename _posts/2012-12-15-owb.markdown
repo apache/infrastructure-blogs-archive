@@ -1,8 +1,0 @@
----
-layout: post
-title: New CMS managed page
-date: '2012-12-15T00:00:00+00:00'
-categories: owb
----
-<p>We finally have a nice new <a href="openwebbeans.apache.org" title="Homepage">Homepage</a>!&nbsp;</p>
-  <p>The new page is based on the ASF CMS. Read <a href="http://www.apache.org/dev/cms.html">http://www.apache.org/dev/cms.html</a>&nbsp; for more info about the background. <br /></p>

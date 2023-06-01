@@ -1,0 +1,64 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: "[ANNOUNCE] Apache Hadoop 3.3.0 release"
+author:
+  display_name: Brahma Reddy Battula
+  login: brahma
+  email: brahma@apache.org
+author_login: brahma
+author_email: brahma@apache.org
+id: 3f4560a3-e336-41a7-a2d8-be4d141b920a
+date: '2020-07-28 15:09:33 -0400'
+categories:
+- Technology
+tags: []
+comments: []
+permalink: hadoop/entry/announce-apache-hadoop-3-3
+---
+<p>
+It gives me great pleasure to announce that the Apache Hadoop community has voted to release Apache Hadoop 3.3.0.</p>
+<p>
+Apache Hadoop 3.3.0 is the first release of Apache Hadoop 3.3 line for the year 2020,which includes 2148 fixes since the previous Hadoop 3.2.0 release.</p>
+<p>
+Of these fixes:<br />
+  <LI> 525 in Hadoop Common </LI><br />
+   <LI> 804 in HDFS </LI><br />
+   <LI>763 in YARN</LI><br />
+   <LI> 56 in MapReduce</LI></p>
+<p>
+Apache Hadoop 3.3.0 contains a number of significant features and enhancements.A few of them are noted as below.</p>
+<p><B>- Support ARM:</B> This is the first release to support ARM architectures.</p>
+<p>
+<B>- Upgrade protobuf from 2.5.0 :</B> Protobuf upgraded to 3.7.1 as protobuf-2.5.0 reached EOL.</p>
+<p>
+<B>- S3A Enhancements :</B> Lots of enhancements to the S3A code including Delegation Token support, better handling of 404 caching, S3guard performance, resilience improvements.</p>
+<p>
+<B>- ABFS Enhancements :</B> Address issues which surface in the field and tune things which need tuning, add more tests where appropriate.Improve docs, especially troubleshooting.</p>
+<p>
+<B>- Tencent Cloud COS File System Implementation:</B> Tencent cloud is top 2 cloud vendors in China market and the object store COS is widely used among China&rsquo;s cloud users. COSN filesytem to support Tencent cloud COS natively in Hadoop.</p>
+<p>
+<B>-  Java11 Runtime Support :</B> Java 11 runtime support is completed.</p>
+<p>
+<B>- HDFS RBF Stabilization:</B> HDFS Router now supports security. Also contains many bug fixes and improvements.</p>
+<p>
+<B>- DNS Resolution to support Nameservices to IP Support:</B>DFS clients can use a single domain name to discover servers (namenodes/routers/observers) instead of explicitly listing out all hosts in the config.</p>
+<p>
+<B>- Scheduling of opportunistic containers :</B>  Scheduling of opportunistic container through the central RM (YARN-5220), through distributed scheduling (YARN-2877), as well as the scheduling of containers based on actual node utilization (YARN-1011) and the container promotion/demotion (YARN-5085).</p>
+<p>
+<B>- Application Catalog for YARN applications:</B> Application catalog system which provides an editorial and search interface for YARN applications. This improves the usability of YARN for managing the life cycle of applications.</p>
+<p>* For major changes included in Hadoop 3.3 line, please refer to Hadoop3.3.0 main page [1].</p>
+<p>* For more details about fixes in 3.3.0 release, please read the CHANGELOG [2] and RELEASENOTES [3].</p>
+<p>The release news is posted on the Hadoop website too, you can go to the downloads section directly [4].</p>
+<p><P> Many thanks to everyone who contributed to the release, and everyone in the Apache Hadoop community! This release is a direct result of your great contributions.</P></p>
+<p><P><br />
+[1] https://hadoop.apache.org/docs<br />
+</P><br />
+<P>[2]<br />
+https://hadoop.apache.org/docs/r3.3.0/hadoop-project-dist/hadoop-common/release/3.3.0/CHANGELOG.3.3.0.html<br />
+</P><br />
+<P>[3]<br />
+https://hadoop.apache.org/docs/r3.3.0/hadoop-project-dist/hadoop-common/release/3.3.0/RELEASENOTES.3.3.0.html<br />
+</P><br />
+<P>[4] https://hadoop.apache.org/releases.html</P></p>

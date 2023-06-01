@@ -1,0 +1,71 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Artifact Plugin Version 3.3.0 Released
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: 98a24430-d90d-4a83-8016-4f041708a8bb
+date: '2022-04-07 17:56:17 -0400'
+categories:
+- Plugin Release
+tags:
+- plugin
+- maven
+comments: []
+permalink: maven/entry/apache-maven-artifact-plugin-version
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+  <a href="https://maven.apache.org/plugins/maven-artifact-plugin/">Apache Maven Artifact Plugin, version 3.3.0</a>.</p>
+<p>The Artifact Plugin is used to manage artifacts tasks.</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-artifact-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>3.3.0<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>  <!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12350902&amp;styleName=Text&amp;projectId=12324322">Release Notes &ndash; Maven Artifact Plugin &ndash; Version 3.3.0</a></p>
+<p>Release Notes &ndash; Maven Artifact Plugin &ndash; Version 3.3.0</p>
+<ul>
+<li>
+<p>Bug:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MARTIFACT-31">MARTIFACT-31</a> &ndash; wrong comparison results when buildinfo has been published to Central</li>
+</ul>
+</li>
+<li>
+<p>New Feature:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MARTIFACT-24">MARTIFACT-24</a> &ndash; add artifact:check-buildplan goal to check that plugins versions do not have known reproducibility issues</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>

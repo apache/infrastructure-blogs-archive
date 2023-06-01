@@ -1,0 +1,139 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Surefire Plugin version 2.22.1 Released
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: 581f502a-e86b-4674-823e-d1c029904658
+date: '2018-10-14 20:17:02 -0400'
+categories:
+- Plugin Release
+tags:
+- maven-plugin
+comments: []
+permalink: maven/entry/apache-maven-surefire-plugin-version1
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+<a href="http://maven.apache.org/plugins/maven-surefire-plugin/">Apache Maven Surefire Plugin, version 2.22.1</a>.</p>
+<p>The release contains 17 bug fixes.<br />
+Again we received contributions from the community in form of bug reports<br />
+and bug fixes.<br />
+Thank you and keep them coming!</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-surefire-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.22.1<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>or for failsafe:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-failsafe-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.22.1<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>or for surefire-report:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-surefire-report-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.22.1<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p><!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317927&amp;version=12343425">Release Notes &ndash; Maven Surefire &ndash; Version 2.22.1</a></p>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1532">SUREFIRE-1532</a> &ndash; MIME type for javascript is now officially application/javascript</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1535">SUREFIRE-1535</a> &ndash; Surefire unable to run testng suites in parallel</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1538">SUREFIRE-1538</a> &ndash; Git considers PNG files as changed although there is no change</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1550">SUREFIRE-1550</a> &ndash; The surefire XSD published on maven site lacks of some rerun element</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1559">SUREFIRE-1559</a> &ndash; XML Report elements rerunError, rerunFailure, flakyFailure, flakyError should contain element stackTrace and should not be simpleContent.</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1561">SUREFIRE-1561</a> &ndash; Logs in Parallel Tests are mixed up when forkMode=never or forkCount=0</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1564">SUREFIRE-1564</a> &ndash; Can&rsquo;t override platform version through project/plugin dependencies</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1579">SUREFIRE-1579</a> &ndash; Forks mixed up characters in standard output</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1552">SUREFIRE-1552</a> &ndash; Nil element &ldquo;failureMessage&rdquo; in failsafe-summary.xml should have self closed tag</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1554">SUREFIRE-1554</a> &ndash; Fix old test resources TEST-*.xml in favor of continuing with SUREFIRE-1550</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1555">SUREFIRE-1555</a> &ndash; Elapsed time in XML Report should satisfy pattern in XSD.</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1562">SUREFIRE-1562</a> &ndash; Support Java 11</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1565">SUREFIRE-1565</a> &ndash; Surefire should support parameterized reportsDirectory</li>
+</ul>
+<p>Tasks:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1569">SUREFIRE-1569</a> &ndash; m-invoker-p:3.1.0 attempts to reolve maven-surefire-common:jar:2.22.1-SNAPSHOT from remote repo &lsquo;apache.snapshots&rsquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1578">SUREFIRE-1578</a> &ndash; Remove obsolete module surefire-setup-integration-tests</li>
+</ul>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1540">SUREFIRE-1540</a> &ndash; Upgrade maven-plugins parent to version 32</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1571">SUREFIRE-1571</a> &ndash; Upgrade maven-plugins parent to version 33</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>

@@ -1,0 +1,960 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Flume Performance Tuning - part 1
+author:
+  display_name: Mike Percy
+  login: mpercy
+  email: mpercy@apache.org
+author_login: mpercy
+author_email: mpercy@apache.org
+id: 6a304117-0b72-4c57-844f-3dae5ae31cc1
+date: '2013-01-11 20:05:41 -0500'
+categories:
+- General
+tags:
+- performance
+- flume
+- flume-ng
+comments:
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-04 12:26:38 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-04 15:18:41 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 19:52:38 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:01:12 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:01:44 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:03:36 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-07-11 20:30:38 -0400'
+  content: "[Trackback] Overview Timeline 2013-07-19 : OASIS will begin to"
+- id: 0
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-07-11 20:43:42 -0400'
+  content: "[Trackback] Overview Timeline Phase 1 2013-07-19 : OASIS will "
+- id: 0
+  author: acompanhantes sao paulo
+  author_email: acosaop@bol.com.br
+  author_url: http://www.acompanhantessaopaulo.org
+  date: '2013-08-13 23:03:12 -0400'
+  content: I would like to say that this blog really convinced me to do it ! Thanks,
+    very good. We are really happy just for this post in this website.
+- id: 0
+  author: Gamma Blue 11s 2013 [09 SIHH] Vacheron Constantin latest Heritage Series
+    (1)
+  author_email: ''
+  author_url: http://www.seltser.com
+  date: '2014-01-16 03:59:57 -0500'
+  content: "[Trackback] Vacheron Constantin Patrimony Traditionnelle calendar chronograph
+    watch \r\n\r\n\r\n\r <a href=\"http://ktbdance.com/instructors.html\" target=\"_blank\">Gamma
+    Blue 11s 2013</a> \n          the ongoing Geneva I <a href=\"http://www.banospublicos.com\"
+    target=\"_blank..."
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-05 14:57:55 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-05 14:58:02 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-05 14:58:16 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 20:29:13 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 20:39:13 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 20:59:12 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 21:01:13 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-03-18 22:51:16 -0400'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-03-31 15:37:14 -0400'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 0
+  author: Ver Filmes Online
+  author_email: pedrogato@bol.com
+  author_url: http://www.verfilmeshd.biz/
+  date: '2014-05-27 23:04:18 -0400'
+  content: "Hello, I saw your website posts excellent articles, I would visit my\r\n"
+- id: 0
+  author: dgcustomerfirst
+  author_email: dovas@4tmail.com
+  author_url: https://dgcustomerfirstsurvey.info/
+  date: '2019-12-17 12:35:36 -0500'
+  content: "Dollar General Corporation is an American chain of variety stores. The
+    first store was started in 1939 by J.L.Turner. The headquarter of the store is
+    at 100 Mission Ridge.\r\n\r\nhttps://dgcustomerfirstsurvey.info/"
+- id: 0
+  author: Davidio
+  author_email: stenste@gmail.com
+  author_url: ''
+  date: '2019-02-06 15:17:30 -0500'
+  content: Nice
+- id: 0
+  author: Shawn
+  author_email: wendysxyz@gmail.com
+  author_url: ''
+  date: '2019-03-27 08:39:56 -0400'
+  content: "Great post. \r\n\r\nMy feedback to this post is, I have read the complete
+    post on Flume Performance Tuning on this Apache.Org website. I always like to
+    give feedback to grocery stores like Kroger. \r\n\r\nRecently, I have established
+    a website that has complete information on The Kroger Co company and its survey
+    for the customers to win free 50 fuel points.\r\n\r\nThanks again,\r\nMicheal
+    Shawn Mendis,\r\nhttps://www.thekrogerfeedback.com/ (KrogerFeedback Survey Website
+    or Kroger Experience Survey site). "
+- id: 0
+  author: Rackson
+  author_email: wendysxyz@gmail.com
+  author_url: ''
+  date: '2019-04-13 08:48:07 -0400'
+  content: " https://www.thekrogerfeedback.com/ what is this website? \r\n\r\nDoes
+    it have anything to do with this topic?\r\n\r\nThanks."
+- id: 0
+  author: Krook
+  author_email: StephenStoelinga14@gmail.com
+  author_url: ''
+  date: '2019-06-05 04:33:04 -0400'
+  content: 'Thankyou for this awesome post.it&rsquo;s very informative blog thanks
+    for sharing with us. '
+- id: 0
+  author: California
+  author_email: caliusa@gmail.com
+  author_url: ''
+  date: '2020-01-30 02:20:09 -0500'
+  content: "Very Beautiful illustrations! Great website work. Viva Canada!!\r\nhttps://sites.google.com/view/siennausa/home\r\nhttp://www.amayacanada.inube.com/\r\nhttps://shaun-usa-canada.my-free.website/\r\nhttp://wadefromcanada.yolasite.com/\r\nhttp://christianusaonline.simplesite.com\r\nhttps://isabelincanada.zohosites.in/\r\nhttp://rxusacanada.mystrikingly.com/\r\nhttps://www.smore.com/n237g-harmony-usa-canada\r\nhttps://kidblog.org/class/uriah-online/posts"
+- id: 0
+  author: Elisa
+  author_email: incap22@protonmail.com
+  author_url: ''
+  date: '2019-06-13 04:52:01 -0400'
+  content: "Thank you for awesome article. <a href=\"https://bestgoodcaptions.com/best-short-instagram-captions-for-friends/\r\n\">friend
+    captions</a> & <a href=\"https://bestgoodcaptions.com/instagram-selfie-captions/\">Selfie
+    captions for Instagram</a>"
+- id: 0
+  author: Jamesmarkk
+  author_email: blogger9t9@gmail.com
+  author_url: https://www.watersoftenernow.com
+  date: '2020-02-05 04:24:44 -0500'
+  content: 'great. I search yesterday helpful post. so I see your post. very helpful.
+    thanks '
+- id: 0
+  author: James
+  author_email: blogger9t9@gmail.com
+  author_url: https://www.bloglovin.com/@muhammadahsan88/how-to-hard-water-destroy-our-environment
+  date: '2020-02-05 04:27:06 -0500'
+  content: nice.
+- id: 0
+  author: Cool Instagram Captions
+  author_email: filmymania127@gmail.com
+  author_url: http://coolgoodcaptions.info/
+  date: '2019-07-18 08:05:15 -0400'
+  content: "Awesome Post\r\nhttps://coolgoodcaptions.info/instagram-selfie-captions/\r\nhttps://coolgoodcaptions.info/christmas-instagram-captions/"
+- id: 0
+  author: Fun Sms in Hindi
+  author_email: filmymania127@gmail.com
+  author_url: https://smswishes4u.com/
+  date: '2019-07-19 10:44:00 -0400'
+  content: "Awesome Blog Post : https://smswishes4u.com/festivals/happy-raksha-bandhan-images-hd.htm\r\nhttps://smswishes4u.com/festivals/raksha-bandhan-quotes-status.htm\r\nhttps://smswishes4u.com/festivals/ganesh-chaturthi-wishes.htm\r\n"
+- id: 0
+  author: nuccafuncde1972
+  author_email: johnkerjoto1987@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/apache_log4php_2_2_0
+  date: '2019-07-20 16:44:43 -0400'
+  content: This is fantastic! yep! ;)
+- id: 0
+  author: suitepilyg1972
+  author_email: ifabecfa1988@gmail.com
+  author_url: https://blogs.apache.org/owb/entry/new_cms_managed_page
+  date: '2019-07-20 17:27:25 -0400'
+  content: epic men love the colors hmmmmm thumbs up!! Amazing work!!!
+- id: 0
+  author: wallfalgucel1983
+  author_email: raitilmafi1978@gmail.com
+  author_url: https://blogs.apache.org/tomee/entry/apache_tomee_1_6_0
+  date: '2019-07-21 00:12:27 -0400'
+  content: this is a jewelry job!! so nice～能教我吗～
+- id: 0
+  author: quattmuviri1982
+  author_email: longbanloafa1982@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/user_blog_effective_unit_testing
+  date: '2019-07-21 05:16:47 -0400'
+  content: Wow! Amazing so goooood
+- id: 0
+  author: cipbacate1970
+  author_email: disdenzprepir1982@gmail.com
+  author_url: https://blogs.apache.org/openmeetings/entry/openmeetings_on_the_road_to
+  date: '2019-07-21 06:31:15 -0400'
+  content: animation domination! @Joana Fernandes Thanks!!
+- id: 0
+  author: exdarala1987
+  author_email: hytalina1989@gmail.com
+  author_url: https://blogs.apache.org/sentry/entry/apache_sentry_1_4_0
+  date: '2019-07-21 08:39:31 -0400'
+  content: Awesome work! I love your art!! it's awesme!!!
+- id: 0
+  author: alnimrevi1982
+  author_email: tigennale1972@gmail.com
+  author_url: https://blogs.apache.org/openmeetings/entry/apache_openmeetings_2_0_incubating
+  date: '2019-07-21 09:45:02 -0400'
+  content: Beautiful job! Insane
+- id: 0
+  author: هاست وردپرس
+  author_email: amirasap@gmail.com
+  author_url: https://behsazanhost.com/wordpress-hosting.html
+  date: '2019-07-22 12:57:44 -0400'
+  content: It's a great post. thank you.
+- id: 0
+  author: david
+  author_email: takecaption@gmail.com
+  author_url: https://www.takecaption.com
+  date: '2020-02-05 19:40:08 -0500'
+  content: 'https://www.takecaption.com '
+- id: 0
+  author: Sumit
+  author_email: sumitparcha005@gmail.com
+  author_url: https://www.theipcaption.com/2019/08/120-best-selfie-caption-for-instagram.html?m=1
+  date: '2019-08-05 10:32:55 -0400'
+  content: Best caption for you
+- id: 0
+  author: joja
+  author_email: ny555644@gmail.com
+  author_url: https://joja.com
+  date: '2019-08-12 11:05:40 -0400'
+  content: i love joja
+- id: 0
+  author: jialiftkf
+  author_email: jialiftwm@hotmail.com
+  author_url: https://www.jialift.com.au
+  date: '2019-08-27 07:28:28 -0400'
+  content: "https://www.jialift.com.au\r\nhttps://www.tacis.edu.au/\r\n"
+- id: 0
+  author: Ig stories
+  author_email: georgerios7cukm@gmail.com
+  author_url: https://igstorie.com
+  date: '2019-09-02 07:01:03 -0400'
+  content: "THIS IS THE MOST AMAZING WEBSITE EVER, I LOVE EVERYTHING ABOUT THIS. YOU
+    CAN CHECK THESE COOL BLOGS ALSO \r\n\r\nhttps://igstorie. com/   IG STORIES\r\nhttps://igstorie.
+    com/    IGSTORIES\r\nhttps://tokliker. com/ . TIK TOK AUTO LIKER\r\nhttps://instroliker.com/
+    \  NSTAGRAM AUTO LIKER"
+- id: 0
+  author: minesh desai
+  author_email: minishd199@gmail.com
+  author_url: ''
+  date: '2019-09-26 03:51:40 -0400'
+  content: it is required to ensure the durability of the data. Likewise, with the
+    memory channel, there is a memory synchronization step when each transaction is
+    committed https://vipstatus.in/birthday-status-in-hindi/
+- id: 0
+  author: lucky
+  author_email: techyman80@gmail.com
+  author_url: https://www.latestigcaptions.com/
+  date: '2019-09-28 11:32:50 -0400'
+  content: this is the one I'm looking for! https://www.latestigcaptions.com
+- id: 0
+  author: Jhon
+  author_email: statuscaption19@gmail.com
+  author_url: ''
+  date: '2019-10-07 12:29:37 -0400'
+  content: "Particularity admirable lines for right way\r\nhttps://statuscaptions.com/glow-party-captions-for-instagram.html"
+- id: 0
+  author: https://caption-quotes.blogspot.com/
+  author_email: nomanimtiaz007@gmail.com
+  author_url: https://caption-quotes.blogspot.com
+  date: '2019-10-09 05:39:35 -0400'
+  content: Very useful post. https://caption-quotes.blogspot.com
+- id: 0
+  author: seo melbourne
+  author_email: sexydevilwm@gmail.com
+  author_url: https://www.kongfuseo.com.au/
+  date: '2019-11-12 23:41:10 -0500'
+  content: https://www.kongfuseo.com.au/
+- id: 0
+  author: atari breakout
+  author_email: sukaminl546@gmail.com
+  author_url: https://ataribreakout.online
+  date: '2019-11-15 04:19:26 -0500'
+  content: I have read your article, it's very informative and helpful for me. I admire
+    the valuable information you provide in your articles. Thank you for posting it.
+- id: 0
+  author: " car network"
+  author_email: sexydevilwm@gmail.com
+  author_url: https://aucn.net.au/
+  date: '2019-11-15 21:38:59 -0500'
+  content: " car network https://aucn.net.au/"
+- id: 0
+  author: Play Bazaar
+  author_email: gangacassette111@gmail.com
+  author_url: https://www.lucktest.in/resultchart.php
+  date: '2020-02-19 12:23:16 -0500'
+  content: "It is crucial that people with diabetes get a simple blood test known
+    as an HbA1c test every three months. HbA1c tests show blood sugar levels for the
+    past two to three months and can help your doctor control your diabetes. It is
+    recommended that the HbA1c is kept at or below seven percent.\r\nhttps://www.lucktest.in/ResultChart.php\r\nhttps://www.lucktest.in/"
+- id: 0
+  author: Download GHD SPORTS
+  author_email: alluraju037@gmail.com
+  author_url: https://www.ghdsports.net/
+  date: '2020-02-20 13:14:30 -0500'
+  content: Thank you for sharing article and information. this is very helpful for
+    beginner.
+- id: 0
+  author: Vancouver BC
+  author_email: bcbc@gmail.com
+  author_url: ''
+  date: '2020-02-20 17:07:48 -0500'
+  content: Thank you flume. With a little work and some decent content, you could
+    become a big fish in a small pond on https://nobletowing.ca/scrap-car-removal-program/
+    the demands of scrapping a car can feel paralyzing.
+- id: 1
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 19:52:15 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 1
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:08:10 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 1
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2016-02-03 17:17:01 -0500'
+  content: So when the part 2 ?
+- id: 1
+  author: IMGCAPTION
+  author_email: lossangel99@gmail.com
+  author_url: https://imgcaption.com/
+  date: '2019-08-12 11:14:03 -0400'
+  content: Latest life pic <a href="https://imgcaption.com/whatsapp-profile-pic-life/">Pro
+    pic</a>
+- id: 1
+  author: Guyu
+  author_email: Guyugt@gmail.com
+  author_url: https://freeiptvm3u.xyz
+  date: '2019-09-08 04:45:05 -0400'
+  content: Really appreciate your post thx for taking your time to share these informations
+    with us https://freeiptvm3u.xyz
+- id: 1
+  author: Annabel
+  author_email: juicernow12@gmail.com
+  author_url: https://www.bloglovin.com/@annabel97/perfect-weight-loss-juice-recipe
+  date: '2020-01-24 12:42:01 -0500'
+  content: 'Heartfelt thanks for it. '
+- id: 1
+  author: upserscom
+  author_email: negahi@mail-search.com
+  author_url: https://latestsurvey.info/upsers-login/
+  date: '2019-09-12 09:18:56 -0400'
+  content: "In the United States, the largest parcel service is provided by UPS named
+    as United Parcel Service. In 1907, UPS founded as the messenger company.\r\n\r\nhttps://latestsurvey.info/upsers-login/"
+- id: 1
+  author: Ocean Of games
+  author_email: sharadgames@gmail.com
+  author_url: https://www-oceanofgames.com
+  date: '2019-12-11 05:54:27 -0500'
+  content: Free PC games Download For Free on https://www-oceanofgames.com
+- id: 2
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-05 14:57:46 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 2
+  author: Jogo do Bicho
+  author_email: pedrogato@bol.com
+  author_url: http://www.jogodobicho.biz/
+  date: '2014-05-27 23:04:56 -0400'
+  content: Animal game, learn how to win at the numbers game
+- id: 2
+  author: mecaphiwhe1989
+  author_email: yrlapero1971@gmail.com
+  author_url: https://blogs.apache.org/trafficserver/entry/bin_chen_is_a_new
+  date: '2019-07-21 07:03:54 -0400'
+  content: There is something very ethereal about your illustrations. I really like
+    them :) Excellent work!!! I want to know your opinion on my works!!!
+- id: 2
+  author: Top rated fitness bands 2020
+  author_email: minthrani@mailnow2.com
+  author_url: https://iotindiamag.com/best-fitness-bands/
+  date: '2019-10-05 11:55:25 -0400'
+  content: Apache Flume is a distributed, reliable, and available service for efficiently
+    collecting, aggregating, and moving large amounts of streaming data into the Hadoop
+    Distributed File System (HDFS).
+- id: 3
+  author: nonton livescore bola
+  author_email: akumanda11@gmail.com
+  author_url: ''
+  date: '2019-05-29 17:07:16 -0400'
+  content: "http://www.rss6.com/nonton-tv-bola-online-live-streaming-hd-malam-hari\r\nhttp://www.rss6.com/yalla-shoot-watch-football-mobile-hd-tv-sport/\r\nhttp://www.rss6.com/nonton-live-streaming-siaran-tv-online-bola-malam-/\r\nhttp://www.rss6.com/live-streaming-nonton-bola-tv-online-gratis-malam-/\r\nhttp://www.rss6.com/nonton-live-streaming-bola-online-malam-hari-ini-g/\r\nhttp://www.rss6.com/live-streaming-tv-online-nonton-siaran-bola-malam-/\r\nhttp://www.rss6.com/jadwal-live-streaming-bola-online/
+    \r\nhttp://www.rss6.com/nonton-live-streaming-bola-online-hd-terbaik-malam/\r\nhttp://www.rss6.com/nonton-gratis-tv-online-indonesia-live-streaming-b
+    \r\nhttp://www.rss6.com/tv-online-bola-malam-hari-ini-nonton-siaran-live-s/\r\nhttp://www.rss6.com/jadwal-bola-nonton-live-streaming-yalla-shoot-mala/\r\nhttp://www.rss6.com/berita-bola-terbaru-hari-ini-/\r\nhttp://www.rss6.com/jadwal-live-streaming-tv-bola-online-/\r\nhttp://www.rss6.com/kabar-berita-bola-terbaru-hari-ini/"
+- id: 4
+  author: bloggoberpoi1987
+  author_email: giconfborea1973@gmail.com
+  author_url: https://blogs.apache.org/apex/entry/apache_apex_malhar_3_6
+  date: '2019-07-20 18:54:29 -0400'
+  content: That are really nice pictures! wow nice
+- id: 5
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 20:47:13 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 5
+  author: walparinta1974
+  author_email: achenkederp1989@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/openejb_eclipse_plugin_alpha_release
+  date: '2019-07-21 04:45:06 -0400'
+  content: Less is more. Wonderful presentation of this great design project!
+- id: 6
+  author: sattamatka
+  author_email: onlywapmatka@gmail.com
+  author_url: http://sattamatkaw2m.org
+  date: '2020-01-01 17:01:33 -0500'
+  content: Once you realize that you are solely the one in charge of what is going
+    to happen to your financial future it's time to act and setup your strategy.Every
+    single day counts since time waits for no one.Don't wait till tomorrow what you
+    could have done today.
+- id: 6
+  author: Pavan Kadam
+  author_email: blogkiatseo@gmail.com
+  author_url: https://www.blogkiat.com/
+  date: '2019-07-12 14:12:09 -0400'
+  content: Helpful post. Thank you. https://www.blogkiat.com/50-best-attitude-quotes-for-girls-with-images/
+- id: 6
+  author: yuke
+  author_email: takecaption@gmail.com
+  author_url: https://takecaption.com
+  date: '2020-02-05 19:38:23 -0500'
+  content: "Thanks for the sharing such an useful information with us and we also
+    invite you to our blog\r\n\r\n <a href src=\"https://www.takecaption.com \" >blog</a>
+    manger"
+- id: 6
+  author: jjkk
+  author_email: jkjkjkj@gmail.com
+  author_url: https://loak.com
+  date: '2019-08-12 11:10:15 -0400'
+  content: hey here https://loak.com
+- id: 6
+  author: navratri vrat recipes in hindi sanjeev kapoor
+  author_email: fggyht6y@gmail.com
+  author_url: https://www.youtube.com/watch?v=xgpjfm5nqsq
+  date: '2019-10-01 14:05:51 -0400'
+  content: 'best navratri vrat recipes https://www.youtube.com/watch?v=XGpJFm5nQsQ
+    in hindi sanjeev kapoor '
+- id: 7
+  author: lippcatchpunsast1975
+  author_email: risefecbio1989@gmail.com
+  author_url: https://blogs.apache.org/click/entry/click_calendar_1_0_2
+  date: '2019-07-21 09:12:44 -0400'
+  content: Very charming illustrations! Great work. Vive Montreal!!
+- id: 8
+  author: asuper
+  author_email: amr@amrpharmacy.com
+  author_url: https://www.asupergame.com
+  date: '2019-11-08 16:36:01 -0500'
+  content: Thanks For Share This Nice Article. Interesting post take a look https://www.asupergame.com
+- id: 8
+  author: Insta captions
+  author_email: Tomarg133@gmail.com
+  author_url: https://insta-captionss.blogspot.com/2019/11/instagram-captions-for-friends.html
+  date: '2019-11-14 06:41:26 -0500'
+  content: "https://insta-captionss.blogspot.com/2019/11/instagram-captions-for-friends.html\r\n\r\nFriends
+    captions"
+- id: 9
+  author: devina trishtan
+  author_email: devina.trishtan@gmail.com
+  author_url: http://www.bandarq.live
+  date: '2020-01-13 08:20:57 -0500'
+  content: "thanks for sharing.\r\nnice infomation articles.\r\ni have a good product.\r\n\r\nhttp://bit.ly/2tprJmk"
+- id: 9
+  author: hubeltawhist1985
+  author_email: afchapobeach1985@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/welcome_dominik_psenner
+  date: '2019-07-21 08:08:00 -0400'
+  content: I think ............. its a really amazing work Just good job I really
+    appreciate the cultural exchange through something we normally don't consider
+    &mdash; bugs!
+- id: 13
+  author: bswquswdw qsqsqs
+  author_email: moibraheem1698@gmail.com
+  author_url: https://happy-birthday-wishes.me
+  date: '2020-01-24 11:12:21 -0500'
+  content: "https://happy-birthday-wishes.me\r\n\r\nHappy Birthday, Happy Birthday
+    Wishes Birthday Status <a href=\"https://happy-birthday-wishes.me\">Visit!</a>
+    For WhatsApp-Facebook-Instagram Birthday or Birthday comes once a year. On this
+    occasion, my friends, friends and family are well received with their relatives,\r\n\r\n\r\n<a
+    href=\"https://tgwleads.com\">Visit!</a>\r\n\r\n<a href=\"https://lovestatus.info>Visit!</a>"
+- id: 14
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-01-29 20:16:10 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 24
+  author: Sourav
+  author_email: souravchandra100@gmail.com
+  author_url: http://www.captionforfriend.com
+  date: '2019-10-12 18:11:21 -0400'
+  content: Thanks for giving such a nice article
+- id: 34
+  author: highbugleore1983
+  author_email: harhenohit1970@gmail.com
+  author_url: https://blogs.apache.org/sqoop/entry/inaugural_sqoop_meetup
+  date: '2019-07-21 02:44:39 -0400'
+  content: Thanks a lot. i'm really appreciate. best click . Thanks photographer.
+    best of luck
+- id: 36
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:04:27 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 44
+  author: Instagram auto liker
+  author_email: sdadsa97@gmail.com
+  author_url: https://www.autofree.in/instagram-auto-liker
+  date: '2019-12-23 13:11:42 -0500'
+  content: Best website for instagram auto liker
+- id: 44
+  author: IMGCAPTION
+  author_email: lossangel88@gmail.com
+  author_url: https://imgcaption.com
+  date: '2019-08-12 11:08:12 -0400'
+  content: best whatsapp pic and caption
+- id: 47
+  author: kargadan series
+  author_email: mansourtagani@gmail.com
+  author_url: https://varite.net/10014/%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d8%b3%d8%b1%db%8c%d8%a7%d9%84-%da%a9%d8%b1%da%af%d8%af%d9%86-%d8%a8%d8%a7-%d9%84%db%8c%d9%86%da%a9-%d9%85%d8%b3%d8%aa%d9%82%db%8c%d9%85/
+  date: '2019-10-19 14:54:49 -0400'
+  content: "I have a industry website and I created the site myself.\r\nAnd I try
+    to use new content on the website in the related field.\r\nIf you are looking
+    for the following in the industry go to these links.\r\nIndustrial ventilation\r\nAir
+    conditioning fan"
+- id: 48
+  author: xaxa
+  author_email: alisha@gmail.com
+  author_url: https://criccraze.com
+  date: '2020-02-01 10:54:03 -0500'
+  content: PSL live streaming 2020
+- id: 62
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:04:00 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 65
+  author: " seo melbourne"
+  author_email: sexydevilwm@gmail.com
+  author_url: https://www.kongfuseo.com.au/
+  date: '2019-11-15 21:36:35 -0500'
+  content: https://www.kongfuseo.com.au/
+- id: 67
+  author: dgcustomerfirst-com.com
+  author_email: daniilm@gmail.com
+  author_url: ''
+  date: '2019-10-27 11:03:25 -0400'
+  content: "Interesting post take a look https://devrant.com/users/dgcustomerfirst\r\n"
+- id: 78
+  author: Sales Automation
+  author_email: kritikas0123@gmail.com
+  author_url: https://www.salezshark.com/sales-automation
+  date: '2019-10-21 09:07:45 -0400'
+  content: Hi, ihave a website which is related to b2b business and other website
+    related to crm. Is my website be able to do well.
+- id: 79
+  author: vinita Giri
+  author_email: vinitagiri201@gmail.com
+  author_url: https://www.selfsufficient-lifestyle.com/
+  date: '2019-12-22 13:39:44 -0500'
+  content: very informative Article. Thank you so much
+- id: 80
+  author: Daniel Mortana
+  author_email: bansal.naina456@gmail.com
+  author_url: https://www.statussquare.com/
+  date: '2019-12-27 14:58:59 -0500'
+  content: "Great article. Get best Whatsapp status\r\nhttps://www.statussquare.com/2019/12/handpicked-best-attitude-whatsapp.html"
+- id: 96
+  author: yubojie
+  author_email: yubojie@ultrapower.com.cn
+  author_url: ''
+  date: '2013-01-31 02:09:30 -0500'
+  content: 'i config the agent with exec command tail -f `ls -D /home/yubojie/logtest
+    -t *.log|head -1`,I can get data from timinal tool ,but i can not collect from
+    flume ,is flume not support the command '
+- id: 98
+  author: mabedeli1980
+  author_email: unaplulu1989@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/apache_log4j_2_0_is
+  date: '2019-07-21 10:18:42 -0400'
+  content: Amazing artworks I just want the cheese :D
+- id: 99
+  author: Muhammad Moazzam Ali
+  author_email: moazzamqureshi11@gmail.com
+  author_url: https://www.truecaption.com
+  date: '2019-06-22 05:37:34 -0400'
+  content: "Yes this is one which I'm looking for!\r\nhttps://www.truecaption.com/instagram-captions-for-couples/"
+- id: 150
+  author: zain david
+  author_email: omarandemad@gmail.com
+  author_url: ''
+  date: '2019-07-15 16:50:46 -0400'
+  content: "great post.\r\n http://www.gtagame100.com\r\n http://www.subway-game.blogspot.com\r\n
+    http://www.zumagame100.blogspot.com"
+- id: 304
+  author: Landscape design
+  author_email: larrylinker56@gmail.com
+  author_url: https://www.landscapegeelong.com
+  date: '2019-10-17 23:30:08 -0400'
+  content: Excellent article!
+- id: 436
+  author: tcharter
+  author_email: hicharter24@gmail.com
+  author_url: http://tbilit.com
+  date: '2020-02-16 17:53:53 -0500'
+  content: very good apache best vps
+- id: 499
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:03:14 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 614
+  author: md
+  author_email: whatsapppcompanys@gmail.com
+  author_url: ''
+  date: '2019-09-26 03:50:11 -0400'
+  content: i love thiis  In order to accomplish this, we need a buffering mechanism
+    on each agent that allows it to store events in the case of downstream failures
+    or slowdowns https://whatsappvideostatus.in/gujarati-status-video-download/
+- id: 888
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-03-31 15:21:14 -0400'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 897
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-05-01 13:02:41 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 931
+  author: Mike Percy
+  author_email: mpercy@apache.org
+  author_url: ''
+  date: '2013-02-25 17:43:02 -0500'
+  content: You might want to consider writing a shell script to do the more complex
+    shell logic and execute that shell script from flume instead of embedding all
+    the globbing, etc. in the command itself.
+- id: 950
+  author: disimtoter1978
+  author_email: lieprepthofin1985@gmail.com
+  author_url: https://blogs.apache.org/james/entry/apache_james_3_0_m1
+  date: '2019-07-20 23:23:21 -0400'
+  content: You have a very creative portfolio. I would be grateful if you look at
+    my examples of projects. Modern & Timeless & Exquisite
+- id: 2967
+  author: Nanaimo BC
+  author_email: yesg@gmail.com
+  author_url: ''
+  date: '2020-02-17 00:54:51 -0500'
+  content: Whilst our existing customer base is hugely important from a Google SEO
+    perspective, to achieve real long-term business growth, we often need to counter
+    varying algorithm changes and depending on the use case. https://burdenmarketing.ca/
+- id: 5732
+  author: PagalGlobal
+  author_email: chikuofficial337@gmail.com
+  author_url: https://pagalglobal.com/
+  date: '2019-10-17 19:07:57 -0400'
+  content: It's Very Informative. Thanks For Share This Nice Article.
+- id: 5978
+  author: bswquswdw qsqsqs
+  author_email: moibraheem1698@gmail.com
+  author_url: https://tgwleads.com
+  date: '2020-01-24 11:13:55 -0500'
+  content: "https://happy-birthday-wishes.me\r\n\r\nHappy Birthday, Happy Birthday
+    Wishes Birthday Status https://happy-birthday-wishes.me For WhatsApp-Facebook-Instagram
+    Birthday or Birthday comes once a year. On this occasion, my friends, friends
+    and family are well received with their relatives,\r\n\r\n\r\nhttps://tgwleads.com
+    \r\n\r\nhttps://lovestatus.info"
+- id: 6591
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:08:32 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 8613
+  author: grunatdiaclus1977
+  author_email: blazacadno1974@gmail.com
+  author_url: https://blogs.apache.org/lucenenet/entry/apache_lucene_net_graduates
+  date: '2019-07-21 05:57:46 -0400'
+  content: good work! This is so sexy. Kudos.
+- id: 9861
+  author: southbistmedddust1978
+  author_email: prosagsahealth1989@gmail.com
+  author_url: https://blogs.apache.org/tiles/entry/tiles_2_1_3_released
+  date: '2019-07-21 10:51:53 -0400'
+  content: Love how the modern design elements fit so well with the illustrations!
+    The neat dual-tone brand image you chose resonates very well with the brand name.
+    I really like the inspiration taken from geometric shapes, draws a parallel with
+    the brand's practices. Great work!
+- id: 15424
+  author: tiorumsfesmi1974
+  author_email: diasulfaco1971@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/registration_is_open_for_couchdb
+  date: '2019-07-20 18:22:32 -0400'
+  content: Super cool..!!!, I Like. The bathing suit is a great touch
+- id: 37527
+  author: 'Confluence: OASIS'
+  author_email: ''
+  author_url: https://wiki.ishisystems.com/display/OASIS/Home
+  date: '2013-04-25 20:08:55 -0400'
+  content: "[Trackback] Overview &nbsp; The overarching goal of OASIS is to pro"
+- id: 39753
+  author: Divine Legend
+  author_email: seoagent814@gmail.com
+  author_url: http://racksinlahore.com/
+  date: '2020-02-10 11:58:51 -0500'
+  content: thank you so much
+- id: 45193
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 20:57:13 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 46304
+  author: dasenon 10
+  author_email: dasenon@20boxme.org
+  author_url: ''
+  date: '2019-02-06 13:40:34 -0500'
+  content: "The Walgreens Customer Satisfaction Survey is the reason for the development
+    of the company. By using the official website of the company you can take part
+    in the survey.\r\nhttps://tellpayless.xyz/www-walgreenslistens-com/\r\n"
+- id: 55738
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-03-13 14:27:56 -0400'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 60517
+  author: Mahadbt
+  author_email: mahadbtsite@gmail.com
+  author_url: https://www.mahadbt.site
+  date: '2019-12-09 07:33:48 -0500'
+  content: always do such great work.
+- id: 101936
+  author: Annabel
+  author_email: alisha@gmail.com
+  author_url: https://juicernow.com/
+  date: '2020-02-01 10:53:06 -0500'
+  content: juices
+- id: 330762
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-03-13 18:11:50 -0400'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 761530
+  author: seo company
+  author_email: sexydevilwm@gmail.com
+  author_url: https://www.kongfuseo.com.au
+  date: '2019-11-15 21:35:10 -0500'
+  content: seo melbourne ； chinese website design; seo company   https://www.kongfuseo.com.au/
+- id: 5005795
+  author: ambugalcy1982
+  author_email: zoliledi1988@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/the_little_things_1_do
+  date: '2019-07-21 07:35:52 -0400'
+  content: Brilliant work Beautiful work! Really engaging, I had fun following all
+    the scenes
+- id: 9591799
+  author: 'Confluence: SSG IT Development'
+  author_email: ''
+  author_url: https://confluence.vzbi.com/display/PRO/QA+-+Log+Management+Details
+  date: '2014-02-07 20:49:12 -0500'
+  content: "[Trackback] body, p, td, table, tr,tbody,th,thead,tr, .bodytex"
+- id: 21936662
+  author: It's Neal
+  author_email: kambleshubham1500@gmail.com
+  author_url: https://otherwayround.net/instagram-captions-for-friends/
+  date: '2019-12-04 05:02:27 -0500'
+  content: "Instagram captions!\r\n\r\nhttps://otherwayround.net/instagram-captions-for-friends/\r\n\r\nGreat
+    content!"
+- id: 29137198
+  author: soletimort1984
+  author_email: partstopinet1984@gmail.com
+  author_url: https://blogs.apache.org/openmeetings/entry/apache_openmeetings_inside_teambox
+  date: '2019-07-20 17:48:30 -0400'
+  content: So clean and minimal - yet it conveys ethnic symbols so wonderfully! love
+    the colors
+- id: 77068013
+  author: raja
+  author_email: souravchandra100@gmail.com
+  author_url: https://www.captionforfriend.com/2019-new-mobile-redmi-note-8-pro-6-53-inch-display-4500-mah-battery/
+  date: '2019-10-17 17:23:43 -0400'
+  content: thanks so much for writing such a beautiful article.
+- id: 81471898
+  author: Sumit
+  author_email: Sumitparcha005@gmail.com
+  author_url: https://www.theipcaption.com/2019/08/120-best-selfie-caption-for-instagram.html?m=1
+  date: '2019-08-05 10:28:27 -0400'
+  content: Best caption for you
+- id: 87463353
+  author: film izle
+  author_email: dadadada@gmail.com
+  author_url: https://altyazilifilm.live
+  date: '2019-06-29 20:53:40 -0400'
+  content: "Prefer the lowest batch size that gives you acceptable performance.\r\n"
+permalink: flume/entry/flume_performance_tuning_part_1
+---
+<p><strong id="internal-source-marker_0.846074462402612" style="font-weight: normal;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">This is part 1 in a series of articles about tuning the performance of </span><a href="http://flume.apache.org/"><span style="background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">Apache Flume</span></a><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">, a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of event data.</span></strong></p>
+<p><strong id="internal-source-marker_0.846074462402612" style="font-weight: normal;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"></span><strong id="internal-source-marker_0.846074462402612" style="font-weight: normal;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">To kick off this series, I&rsquo;d like to start off discussing some important Flume concepts that come into play when tuning your Flume flows for maximum performance: the </span><span style="background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">channel</span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> and the </span><span style="background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">transaction batch size</span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">.</span></strong></strong> </p>
+<p><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><b>Setting up a data flow</b></span></p>
+<p><strong style="font-weight: normal;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Imagine you want to take a heavy stream of user activity from your application server logs and store that onto your Hadoop cluster for analytics. If you have a large deployment of application servers, you would likely want to build a fan-in architecture, where you are sending data from many nodes to relatively fewer nodes.</span></strong> </p>
+<p><strong id="internal-source-marker_0.846074462402612"> </p>
+<p style="font-weight: normal;">
+<div style="text-align: center;"><strong id="internal-source-marker_0.846074462402612"><img src="https://blogs.apache.org/flume/mediaresource/a800177c-759c-4b7b-a34b-e9d6a7abeb17" alt="A Tiered Flume Topology" border="1" /></strong></div>
+<p><span style="font-weight: normal;">If you are sending these user events one at a time, each time waiting for acknowledgment that it was delivered, your throughput may be limited by network latency. Naturally, you would want to batch up the events into larger transactions, so that you amortize the latency of the acknowledgment over a larger number of events and therefore get more throughput. </span> </p>
+<p style="font-weight: normal;">
+<p style="font-weight: normal;"><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Channels</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">So, what happens if the storage tier goes down momentarily, as in the case of a network partition? What happens to the events if a Flume agent machine crashes? We still want to be able to serve our users on the application tier and retain our data somehow. In order to accomplish this, we need a buffering mechanism on each agent that allows it to store events in the case of downstream failures or slowdowns. In Flume, the </span><span style="font-weight: normal; background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">channel</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> is what persists events at each hop in the flow. Below is a diagram that illustrates where the channel sits in the architecture of a Flume agent.</span><strong id="internal-source-marker_0.846074462402612"> </strong></p>
+<p style="display: inline !important;"><strong id="internal-source-marker_0.846074462402612"> </strong></p></p>
+<p style="font-weight: normal;">
+<p style="text-align: center; font-weight: normal;"><img src="https://blogs.apache.org/flume/mediaresource/8962fbde-7f23-4b43-813a-f150c9afbc0a" alt="Flume agent architecture" /><br /><strong id="internal-source-marker_0.846074462402612" style="font-weight: normal;"> </strong></p>
+<p style="font-weight: normal; display: inline !important;"><strong id="internal-source-marker_0.846074462402612" style="font-weight: normal;"> </strong></p>
+<p><strong id="internal-source-marker_0.846074462402612"> </p>
+<h2 style="font-weight: normal; display: inline !important;"> </h2>
+<p><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Memory Channel vs. File Channel</span></p>
+<p> </strong><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">An important decision to make when designing your Flume flow is what type of channel you want to use. At the time of this writing, the two recommended channels are the </span><a href="http://flume.apache.org/FlumeUserGuide.html#file-channel" style="font-weight: normal;"><span style="background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">file channel</span></a><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> and the </span><a href="http://flume.apache.org/FlumeUserGuide.html#memory-channel" style="font-weight: normal;"><span style="background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">memory channel</span></a><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">. The file channel is a </span><span style="font-weight: normal; background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">durable </span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">channel, as it persists all events that are stored in it to disk. So, even if the Java virtual machine is killed, or the operating system crashes or reboots, events that were not successfully transferred to the next agent in the pipeline will still be there when the Flume agent is restarted. The memory channel is a volatile channel, as it buffers events in memory only: if the Java process dies, any events stored in the memory channel are lost. Naturally, the memory channel also exhibits very low put/take latencies compared to the file channel, even for a batch size of 1. Since the number of events that can be stored is limited by available RAM, its ability to buffer events in the case of temporary downstream failure is quite limited. The file channel, on the other hand, has far superior buffering capability due to utilizing cheap, abundant hard disk space.</span> </p>
+<p><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Flume event batching </span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">As mentioned earlier, Flume can batch events. </span><span style="font-weight: bold; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">The batch size is the maximum number of events that a sink or client will attempt to take from a channel in a single transaction</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">. Tuning the batch size trades throughput vs. latency and duplication under failure. With a small batch size, throughput decreases, but the risk of event duplication is reduced if a failure were to occur. With a large batch size, you get much better throughput, but increased latency, and in the case of a transaction failure, the number of possible duplicates increases.</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"></span><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Transactions are a critical concept in Flume, because the delivery and durability guarantees made by channels only take effect at the end of each successful transaction. For example, when a source receives or generates an event, in order to store that event into a channel a transaction must first be opened on that channel. Within the transaction, the source puts up to the batch size number of events into the channel, and on success </span><span style="font-weight: normal; background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">commits</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> the transaction. A sink must go through the same process of operating within a transaction when taking events from a channel.</span></strong></p>
+<p><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"></span></strong><strong id="internal-source-marker_0.846074462402612"> </strong></p>
+<p style="display: inline !important;"><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Batch size is configured at the sink level. The larger the batch, the faster the channels operate (but there is a caveat). In the case of the file channel, this speed difference is because all buffers are flushed and then synced to disk when each transaction is committed. A disk sync is a time-consuming operation (it may take several milliseconds), but it is required to ensure the durability of the data. Likewise, with the memory channel, there is a memory synchronization step when each transaction is committed. Of course, memory synchronization is much faster than a disk sync. For more information on the inner workings of the file channel, please see Brock Noland's </span><a href="https://blogs.apache.org/flume/entry/apache_flume_filechannel" style="font-weight: normal;"><span style="background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">article about the Apache Flume File Channel</span></a><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">.</span></strong></p>
+<p><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"> </strong></strong></strong></strong></p>
+<p style="display: inline !important;"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">The downside of using a large batch size is that if there is some type of failure in the middle of a transaction, such as a downstream host or network failure, there is a possibility of duplicates being created. So, for example, if you set your batch size to 1000, and the machine you are writing to goes offline, duplicates may be generated in groups of up to 1000. This may occur in special cases, for example, if the events got written to the downstream machine but then the connection failed before it could acknowledge that it had received them. However, duplicate events will only appear in exceptional circumstances.</span></strong></strong></strong></strong></strong></strong></strong></strong></p>
+<p></strong> </p>
+<p><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Choosing a batch size</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">To squeeze all the performance possible out of a Flume system, batch sizes should be tuned with care through experimentation. While I will get into this in more detail in the follow-up to this post, here are some rules of thumb for selecting batch sizes.</span> </p>
+<p style="font-weight: normal;">
+<ol style="font-weight: normal; margin-top: 0pt; margin-bottom: 0pt;">
+<li dir="ltr" style="list-style-type: decimal; background-color: transparent; vertical-align: baseline;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Start off with batch sizes equal to the sum of the batch sizes of the input streams coming into that tier. For example, if you have a downstream Flume agent running an Avro source with 10 upstream agents sending events via Avro sinks using a batch size of 100 each, consider starting that downstream agent with a batch size of 1,000. Tune / experiment from there.</span></li>
+<li dir="ltr" style="list-style-type: decimal; background-color: transparent; vertical-align: baseline;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">If you find yourself setting the batch size very high (say, higher than 10,000) then consider adding another Sink instead, in order to increase the parallelism (each sink typically runs on its own thread). Say you were going to use one HDFS sink with a batch size of 20,000. Experiment with using 2 HDFS sinks with batch sizes of 5,000 or 10,000 to see if that helps more.</span></li>
+<li dir="ltr" style="list-style-type: decimal; background-color: transparent; vertical-align: baseline;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Prefer the lowest batch size that gives you acceptable performance.</span></li>
+<li dir="ltr" style="list-style-type: decimal; background-color: transparent; vertical-align: baseline;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Monitor the steady-state channel sizes to get more tuning insight (more on this in the next article).</span></li>
+</ol>
+<p style="font-weight: normal;">
+<p><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Different batch sizes in different situations</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Due to the performance / duplication tradeoff of the batch size parameter, I often see varying batch size settings depending on the use case. In the case of using Flume to write to HBase using the HBase Sink, incrementing counters, a smaller batch size on the order of 100 is often used to reduce the impact in case of hiccups in the system. On the other hand, with an HDFS sink, in order to get maximum throughput, I see people running with batch sizes of 1,000 or even 10,000, since typically they can easily run map-reduce jobs to de-duplicate the data at processing time. Note that when writing large events with large batch sizes to HDFS, often other parameters need to be increased as well. One such parameter is </span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">hdfs.callTimeout</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">, which may be increased to 60 seconds or more to account for the long tail of occasional higher-latency calls to HDFS.</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"></span><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">At the other end of the spectrum, in cases where batching events at the application (Flume client) tier is not possible, the memory channel is often used at the collector-tier Flume agent (or a localhost agent on the app servers) to get acceptable performance with a batch size of 1, while using larger batch sizes and file channels in the downstream agents in order to get most of the benefits of durability there. For the best performance, however, all tiers including the client/application tier would perform some level of batching. (Please see above diagram for an illustration of the tiers referenced in this scenario.)</span></strong> </p>
+<p><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Configuration parameters and gotchas</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">The actual parameter used to set the batch size varies between sinks, but for most sinks it&rsquo;s simply called </span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">batchSize</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> or </span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">batch-size.</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> For the HDFS sink, it&rsquo;s actually called </span><a href="http://flume.apache.org/FlumeUserGuide.html#hdfs-sink" style="font-weight: normal;"><span style="background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">hdfs.batchSize</span></a><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> for historical reasons; I recommend setting hdfs.txnEventMax to the same value as hdfs.batchSize for simplicity. Historically, in the HDFS sink, the number of events taken in a single transaction can be different from the number of events written to HDFS before a sync() operation; In practice, there is little reason these should not be set to the same value.</span></p>
+<p><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"></span><strong id="internal-source-marker_0.846074462402612"> </strong></p>
+<p style="display: inline !important;"><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">One potentially confusing gotcha when tuning the batch size on a sink is that it must be less than or equal to the </span><a href="http://flume.apache.org/FlumeUserGuide.html#memory-channel" style="font-weight: normal;"><span style="background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">transactionCapacity</span></a><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> set on the corresponding channel. The </span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">transactionCapacity</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> should be set to the value of the largest batch size that will be used to store or remove events from that channel.</span></strong></p>
+<p><strong id="internal-source-marker_0.846074462402612"><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"></span></strong><span style="font-weight: bold; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">tl;dr</span><span style="font-weight: bold; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">:</span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> Below is a &ldquo;cheat sheet&rdquo; batch size tuning summary for your convenience. Please note that these are </span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><i>just starting points</i></span><span style="font-weight: normal; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> for tuning.</span> </p></p>
+<table style="border: none; border-collapse: collapse; width: 624px;">
+<colgroup>
+<col width="188" />
+<col width="228" />
+<col width="*" /></colgroup>
+<tbody>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Sink Type</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Config parameter</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">Typical value</span></td>
+</tr>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Avro</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">batch-size</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">100</span></td>
+</tr>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">HDFS</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">hdfs.batchSize, hdfs.txnEventMax</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">1000</span></td>
+</tr>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="vertical-align: baseline; white-space: pre-wrap;">HBaseSink</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">batchSize</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">100</span></td>
+</tr>
+<tr style="height: 0px;">
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">AsyncHBaseSink</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">batchSize</span></td>
+<td style="border: 1px solid #000000; vertical-align: top; padding: 7px;"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">100</span> </td>
+</tr>
+</tbody>
+</table>
+<p><span style="background-color: transparent; white-space: pre-wrap;">That&rsquo;s all I have space for in one blog post. Please leave feedback and questions in the comments. Look for another post in the future with tips on using Flume&rsquo;s monitoring capabilities to take advantage of important information which can aid you in your quest for optimum performance.</span></p>
+<p><i>Mike Percy is a committer and PMC member on the Apache Flume project.</i></p>

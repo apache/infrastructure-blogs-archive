@@ -1,0 +1,76 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven WAR Plugin, version 3.2.2
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: 2724c93a-9185-4779-bf82-ef5751e7858f
+date: '2018-06-10 10:48:26 -0400'
+categories:
+- Plugin Release
+tags:
+- maven-plugin
+comments: []
+permalink: maven/entry/apache-maven-war-plugin-version1
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+<a href="http://maven.apache.org/plugins/maven-war-plugin/">Apache Maven WAR Plugin, version 3.2.2</a>.</p>
+<p>The WAR Plugin is responsible for collecting all artifact dependencies, classes<br />
+and resources of the web application and packaging them into a web application<br />
+archive.</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-war-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>3.2.2<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>You can download the appropriate sources etc. from the <a href="https://maven.apache.org/plugins/maven-war-plugin/download.cgi">download page</a>.</p>
+<p>Important Note:</p>
+<ul>
+<li>Maven 3.X only</li>
+<li>JDK 7 minimum requirement</li>
+</ul>
+<p><!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12318121&amp;version=12343264">Release Notes &ndash; Maven WAR Plugin &ndash; Version 3.2.2</a></p>
+<p>Bug:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-303">MWAR-303</a> &ndash; filtering of ${project.developers[0].id} does not work</li>
+</ul>
+<p>Dependency upgrade:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MWAR-417">MWAR-417</a> &ndash; Upgrade to plexus-interpolation to version 1.25</li>
+</ul>
+<p>Many thanks to all reporters/contributors/testers of this release.</p>
+<p>Voters:</p>
+<ul>
+<li>Gabriel Belingueres</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>

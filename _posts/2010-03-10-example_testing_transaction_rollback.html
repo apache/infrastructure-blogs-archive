@@ -1,0 +1,95 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Example: Testing Transaction Rollback'
+author:
+  display_name: David Blevins
+  login: dblevins
+  email: dblevins@apache.org
+author_login: dblevins
+author_email: dblevins@apache.org
+id: ee166a75-3b4b-48be-bf51-5a1d916f76dd
+date: '2010-03-10 13:24:00 -0500'
+categories:
+- Java
+tags:
+- junit
+- applicationexception
+- rollback
+- transactions
+- ejb3
+- openejb
+- testing
+comments:
+- id: 0
+  author: Carl Niese
+  author_email: echine@lahi.me
+  author_url: ''
+  date: '2019-10-21 13:44:31 -0400'
+  content: There are some alternate and most suitable ways to rollback transactions
+    in unit tests which are extremely easy. Visit https://www.essaywritingland.com/college-essays/
+    to get educational help. You guys should also try them because they are reliable
+    and truly authentic.
+- id: 46
+  author: jetbox
+  author_email: endhukura@gmail.com
+  author_url: https://jetboxhd.com
+  date: '2018-11-19 10:51:19 -0500'
+  content: Thanks for showing various ways to roll back transactions in unit tests
+- id: 912
+  author: Amoxil
+  author_email: outharbopon1987@gmail.com
+  author_url: https://atopy-pharmacy.com/antibiotics/amoxil_fr.html
+  date: '2019-07-19 16:05:35 -0400'
+  content: It is really interesting, Im very pleasantly impressed!
+- id: 8876
+  author: short motivational captions
+  author_email: awdwawadwapune@gmail.com
+  author_url: https://captionsquotes.com/inspirational-quotes-captions/
+  date: '2019-10-14 11:11:24 -0400'
+  content: "I essentially needed to record a snappy word to express profound gratitude
+    to you for those great tips and indications you are appearing on this site. \r\nhttps://captionsquotes.com/\r\nhttps://captionsquotes.com/savage-captions/"
+permalink: openejb/entry/example_testing_transaction_rollback
+---
+<p>We've coded up a nice little <a href="http://svn.apache.org/repos/asf/openejb/trunk/openejb3/examples/transaction-rollback/">example project</a> that shows various ways to rollback transactions in unit tests.</p>
+<p/>
+The example also serves to show the various options in EJB that pertain to how to rollback transactions via either a UserTransaction, SessionContext.setRollbackOnly(), or throwing a RuntimeException.  The example also shows how to mark a RuntimeException with @ApplicationException to bypass the rollback behavior.</p>
+<p/>
+Here's a snippet from the test case to show how simple it is to test:</p>
+<p/>
+<pre>
+/**
+ * Transaction is marked for rollback inside the bean via
+ * calling the javax.ejb.SessionContext.setRollbackOnly() method
+ *
+ * This is the cleanest way to make a transaction rollback.
+ */
+public void testMarkedRollback() throws Exception {
+
+    userTransaction.begin();
+
+    try {
+        entityManager.persist(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
+        entityManager.persist(new Movie("Joel Coen", "Fargo", 1996));
+        entityManager.persist(new Movie("Joel Coen", "The Big Lebowski", 1998));
+
+        List<Movie> list = movies.getMovies();
+        assertEquals("List.size()", 3, list.size());
+
+        movies.callSetRollbackOnly();
+    } finally {
+        try {
+            userTransaction.commit();
+            fail("A RollbackException should have been thrown");
+        } catch (RollbackException e) {
+            // Pass
+        }
+    }
+
+    // Transaction was rolled back
+    List<Movie> list = movies.getMovies();
+    assertEquals("List.size()", 0, list.size());
+
+}
+</pre>

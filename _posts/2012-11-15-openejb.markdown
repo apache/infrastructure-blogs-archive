@@ -1,7 +1,0 @@
----
-layout: post
-title: Apache TomEE Logo Contest
-date: '2012-11-15T00:00:00+00:00'
-categories: openejb
----
-TomEE needs a logo! Today at Devoxx we are announcing a logo contest. From now till December 15th, you can get your artistic side going and <a href="http://tomee.apache.org/logo">submit as many logos as you want.</a> Once the entries are in the project will vote and the winner will have their creation immortalized on the website, a fresh new batch of TomEE T-Shirts and in conference swag at tons of TomEE talks in 2013.

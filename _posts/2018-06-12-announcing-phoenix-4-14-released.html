@@ -1,0 +1,87 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Announcing Phoenix 4.14 released
+author:
+  display_name: James Taylor
+  login: jamestaylor
+  email: jamestaylor@apache.org
+author_login: jamestaylor
+author_email: jamestaylor@apache.org
+id: 9d82ad27-3ab7-4af3-a685-2b3789658d38
+date: '2018-06-12 01:14:23 -0400'
+categories:
+- General
+tags:
+- rdbms
+- sql
+- source
+- index
+- release
+- global
+- relational
+- apache
+- database
+- phoenix
+- mutable
+- open
+comments:
+- id: 0
+  author: Bindiya Sharma
+  author_email: bindiyamsharma@gmail.com
+  author_url: ''
+  date: '2018-12-04 11:12:08 -0500'
+  content: Any updates on phoenix release compatible with CDH 5.15 ?
+- id: 4
+  author: Miles Yao
+  author_email: miles.yao@cgg.com
+  author_url: ''
+  date: '2018-06-12 16:44:56 -0400'
+  content: "Good news!  \r\nWe were just forced to roll back from 4.13.2-cdh5.11.2
+    due to PHOENIX-4630 breaking our prod queries.  Would love to test and deploy
+    the new release ASAP.  However, I do not see the corresponding branch created
+    in Git yet?\r\nAlso, would you consider including a client-minimal.jar, now that
+    you have CDH 5.x-specific releases?\r\nThanks again for your hard work!"
+- id: 61
+  author: Shashank U
+  author_email: shashank.upadhye@emids.com
+  author_url: ''
+  date: '2018-12-05 08:34:39 -0500'
+  content: Hi Team, Is there a compatible phoenix release for CDH 5.16.1 version?
+    The current link doesn't mention about any compatible version for 5.16.1!!! Can
+    you please suggest? Thanks, Shashank.
+- id: 62
+  author: Daniel
+  author_email: wfe5n6ue56hvwe45the5yjyhje@grr.la
+  author_url: https://glasscaller.com
+  date: '2018-06-17 00:14:15 -0400'
+  content: Great to see a new release. I hope this one is stable. Keep up the good
+    work.
+- id: 74
+  author: Bindiya Sharma
+  author_email: bindiyamsharma@gmail.com
+  author_url: ''
+  date: '2018-11-21 05:49:20 -0500'
+  content: Hi - Can we expect a phoenix release compatible with CDH 5.15 soon?
+- id: 245
+  author: 'Utkarsh '
+  author_email: utkarsh.1.khare@gmail.com
+  author_url: ''
+  date: '2018-07-05 09:45:32 -0400'
+  content: 'Hi - is there a plan to support CDH 5.15 sometime soon ? '
+permalink: phoenix/entry/announcing-phoenix-4-14-released
+---
+<p>The <a href="http://phoenix.apache.org" target="_blank" title="Apache Phoenix">Apache Phoenix</a> team is pleased to announce the immediate <a href="http://phoenix.apache.org/download.html" target="_blank" title="download">availability of the 4.14.0 release</a>. Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store and providing integration with other projects in the Apache ecosystem such as Spark, Hive, Pig, Flume, and MapReduce. This 4.x release is compatible with HBase 0.98, 1.1, 1.2, 1.3, 1.4, and CDH 5.11.2, 5.12.2, 5.13.2, and 5.14.2</p>
+<p>Highlights of the release include:</p></p>
+<ul>
+<li>Over <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&amp;version=12342145" target="_blank" title="90 bug fixes">90 bug fixes</a></li>
+<li>Support for HBase 1.4</li>
+<li>Support for CDH 5.11.2, 5.12.2, 5.13.2, and 5.14.2</li>
+<li>Support for <a href="https://phoenix.apache.org/language/index.html#grant" target="_blank" title="GRANT">GRANT</a> and <a href="https://phoenix.apache.org/language/index.html#revoke" target="_blank" title="REVOKE">REVOKE</a></li>
+<li><a href="https://issues.apache.org/jira/browse/PHOENIX-4130" target="_blank" title="Avoid server retries">Avoid server retries</a> for mutable indexes</li>
+<li><a href="https://issues.apache.org/jira/browse/PHOENIX-4278" target="_blank" title="Pure client side index maintenance">Pure client side index maintenance</a> for transactional tables</li>
+<li><a href="https://issues.apache.org/jira/browse/PHOENIX-3941" target="_blank" title="Prune local index regions">Prune local index regions</a>  scanned during query execution</li>
+<li><a href="https://issues.apache.org/jira/browse/PHOENIX-2566" target="_blank" title="Support NOT NULL constraint">Support NOT NULL constraint</a> for any columns of immutable tables</li>
+</ul>
+<p>Source and binary downloads are available&nbsp;<a href="http://phoenix.apache.org/download.html" target="_blank" title="latest release download"><strong>here</strong></a>.</p>

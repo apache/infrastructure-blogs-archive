@@ -1,0 +1,42 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache OpenWebBeans-2.0.18 has been released
+author:
+  display_name: Mark Struberg
+  login: struberg
+  email: struberg@apache.org
+author_login: struberg
+author_email: struberg@apache.org
+id: 61507f7a-f24f-482b-ad1b-3b27b541ecee
+date: '2020-09-11 07:16:43 -0400'
+categories:
+- Java
+tags:
+- owb
+- javaee
+- cdi
+comments: []
+permalink: owb/entry/apache-openwebbeans-2-0-18
+---
+<p>The Apache OpenWebBeans Team is proud to announce the release of Apache OpenWebBeans-2.0.18. </p>
+<p>Apache OpenWebBeans-2.0.x is an Apache License v2 licensed implementation of the JSR-365 CDI-2.0 specification.</p>
+<p>OpenWebBeans has a modular structure and provides Dependency<br />
+Injection scaling from Java SE environments up to Java EE8 server<br />
+clusters with complicated ClassLoader hierarchies or OSGi environments.</p>
+<p>This is a maintenance release targetting the Contexts and Dependency Injection CDI 2.0 specification!</p>
+<p>CDI is a JavaEE standard (JSR-365) but fully available under Apache License v2.0.</p>
+<p>http://cdi-spec.org/</p>
+<p>https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html</p>
+<p>Apache OpenWebBeans-2.0.18 implements the CDI-2.0 API, and passes the JSR-330 and JSR-365 TCKs.</p>
+<p>Distribution packages can be downloaded from https://www.apache.org/dyn/closer.lua/openwebbeans/2.0.18/
+  </p>
+<p>Hashes can be found here https://www.apache.org/dist/openwebbeans/2.0.18/
+  </p>
+<p>The release is also available in maven.central https://repo1.maven.apache.org/maven2/org/apache/openwebbeans/
+  </p>
+<p>More info can be found at </p>
+<p><a href="https://openwebbeans.apache.org">https://openwebbeans.apache.org</a></p></p>
+<p>The following tickets got fixed in this release:</p>
+<pre style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:9,0pt;">Sub-task<br>    [OWB-1346] - prevent scanning of generated proxies<br><br>Bug<br>    [OWB-1281] - java.lang.UnsatisfiedLinkError in scanner stops application deployment<br>    [OWB-1328] - NPE in AbstractMetaDataFactory<br>    [OWB-1332] - BeansDeployer#packageVetoCache does not work for negative hits<br>    [OWB-1333] - [junit5] @Cdi#onStart not working<br>    [OWB-1341] - Event bus: IN_PROGRESS phase should not be sent to transactionService<br>    [OWB-1342] - Improve startup performance<br>    [OWB-1344] - Ensure creating annotatedtype is thread safe at runtime<br><br>Task<br>    [OWB-1327] - Run TCK for jakarta packaging<br>    [OWB-1329] - Remove openwebbeans-maven module<br>    [OWB-1330] - Junit5 parameter resolver companion for @Cdi<br>    [OWB-1331] - Create ajunit5 @Scopes extension to be able to control a bit more the started scopes<br>    [OWB-1343] - Add a property to skip @Vetoed check on packages<br>    [OWB-1345] - Upgrade gradle shadow plugin support to v6.0.0<br>    [OWB-1347] - upgrade to apache-parent 23<br></pre>

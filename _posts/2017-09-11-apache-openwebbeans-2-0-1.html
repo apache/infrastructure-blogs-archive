@@ -1,0 +1,49 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache OpenWebBeans-2.0.1 has been released
+author:
+  display_name: Mark Struberg
+  login: struberg
+  email: struberg@apache.org
+author_login: struberg
+author_email: struberg@apache.org
+id: fe76c28d-b0d6-433b-af77-b37b12b6c877
+date: '2017-09-11 07:16:37 -0400'
+categories:
+- General
+tags:
+- cdi
+- owb
+comments:
+- id: 0
+  author: B&aacute;lint Persics
+  author_email: balint.persics@gmail.com
+  author_url: ''
+  date: '2017-09-15 22:04:26 -0400'
+  content: |
+    Are you sure, that OWB passes the TCK?
+    TCK specifically tests for implicit bean archives, yet OWB does not implement this.
+
+    See:
+    https://docs.jboss.org/cdi/spec/2.0.EDR1/cdi-spec-with-assertions.html#bean_archive_se
+
+    and
+    https://issues.apache.org/jira/projects/OWB/issues/OWB-1212
+
+    ****
+    Sorry, answering inline as comments have been disabled:
+    The SE part of the TCK assumes some weld internals which permits to run it anywhere else. We already reported this and hope it is going to be fixed soon. So we pass all the *working* SE TCKs ;) - LieGrue, strub
+permalink: owb/entry/apache-openwebbeans-2-0-1
+---
+<p>The Apache OpenWebBeans Team is proud to announce the release of Apache OpenWebBeans-2.0.1</p>
+<p>Apache OpenWebBeans is an Apache License v2 licensed implementation of the JSR-365 CDI-2.0 specification. <br />OpenWebBeans has a modular structure and provides Dependency Injection scaling from Java SE environments up to Java EE7 server clusters with complicated ClassLoader hierarchies or OSGi environments.</p>
+<p>This is a maintenance release targetting the Contexts and Dependency Injection CDI 2.0 specification!</p>
+<p>CDI is a JavaEE standard (JSR-365) but fully available under Apache License v2.0.<br />http://cdi-spec.org/<br />https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html</p>
+<p>Apache OpenWebBeans-2.0.1 implements the CDI-2.0 API, and passes the JSR-330 and JSR-365 TCKs.</p>
+<p>Distribution packages can be downloaded from http://www.apache.org/dyn/closer.lua/openwebbeans/2.0.1/</p>
+<p>Hashes can be found here http://www.apache.org/dist/openwebbeans/2.0.1/</p>
+<p>The release is also available in maven.central</p>
+<p>https://repo1.maven.apache.org/maven2/org/apache/openwebbeans/</p>
+<p>More info can be found at http://openwebbeans.apache.org&nbsp;</p>

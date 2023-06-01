@@ -1,0 +1,84 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: What's "nb-javac" in Apache NetBeans?
+author:
+  display_name: GeertjanWielenga
+  login: geertjan
+  email: geertjan@apache.org
+author_login: geertjan
+author_email: geertjan@apache.org
+id: 9f374842-4be2-4365-94ab-67300b6854e9
+date: '2018-07-22 19:50:57 -0400'
+categories:
+- General
+tags: []
+comments:
+- id: 0
+  author: "&Aacute;lvaro Gonz&aacute;lez"
+  author_email: alvaro@demogracia.com
+  author_url: https://alvaro.es/
+  date: '2018-07-23 08:01:31 -0400'
+  content: "PHP user here...\r\n\r\nIs the Java compiler something that NetBeans needs
+    for its IDE thingies or it's just needed if you want to build Java programs?"
+- id: 0
+  author: Tony G
+  author_email: pb4rdbd02@sneakemail.com
+  author_url: ''
+  date: '2018-07-29 18:23:59 -0400'
+  content: Is nb-javac keeping up with JDK 10? I'd like to make use of the latest
+    Java features but it seems nb-javac is still based on v1.8. I know this will always
+    be a moving target. I'd just like to understand the intended development pattern
+    for the best way to use the latest NetBeans _and_ try to use the latest Java tools.
+    Do we develop with nb-javac and then switch to v10 in the final stages of development?
+    That doesn't seem reasonable. Thanks.
+- id: 3
+  author: Matheus
+  author_email: matruskan@gmail.com
+  author_url: ''
+  date: '2018-07-25 12:50:03 -0400'
+  content: The Java compiler is needed only for Java programs. But "nb-javac" isn't
+    only for compiling Java programs, but also to help NetBeans IDE with some features
+    the JDK 9 compiler doesn't provide for Java code.
+- id: 79
+  author: Geertjan Wielenga
+  author_email: g_wielenga@yahoo.com
+  author_url: ''
+  date: '2018-07-29 18:49:33 -0400'
+  content: Best things is always going to be to have discussions such as this on the
+    'dev' mailing list, i.e., go to netbeans.apache.org, where you'll find steps for
+    joining in and having discussions, rather than doing so at the end of blog entries.
+- id: 9580
+  author: Geertjan Wielenga
+  author_email: g_wielenga@yahoo.com
+  author_url: ''
+  date: '2018-07-29 18:54:10 -0400'
+  content: "FYI, lots of work has been done on nb-javac with releases beyond JDK 8,
+    see [1] for example, but again, please lets have this discussion on the mailing
+    list rather than here.\r\n\r\n[1] https://gitbox.apache.org/repos/asf?p=incubator-netbeans.git;a=commit;h=9151fac31b6187c80e3cf11061d5bae67de2ec59"
+- id: 87068
+  author: Geertjan Wielenga
+  author_email: geertjan@apache.org
+  author_url: ''
+  date: '2018-07-23 08:34:44 -0400'
+  content: Did you read the blog entry and the links? Your question would be answered
+    if you did that.
+permalink: netbeans/entry/what-s-nb-javac-in
+---
+<p>Not long after you start up <a href="https://blogs.apache.org/netbeans/entry/tentative-schedule-for-apache-netbeans">Apache NetBeans (incubating) 9.0</a> <b>on top of JDK 8</b>, after accepting the license agreement and handling import settings, you're confronted with this dialog:</p>
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/120bcc60-3b3f-4323-aabe-f0445a1f7754"/></p>
+<p>What does that mean? And why, when you start up Apache NetBeans (incubating) 9.0 <b>on top of JDK 9 or above</b>, do you see the following, instead:</p>
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/48eb86e5-a9db-4d4b-8a85-87df42adce31"/></p>
+<p><b>Note:</b> The above appears in a balloon popup in the bottom right the first time you start up Apache NetBeans (incubating) 9.0 on JDK 9 or above. If you miss out on seeing or responding to the message, go to Window | IDE Tools | Notifications anytime afterwards and you'll have another opportunity to install it:</p>
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/6475dd46-b153-41c1-a123-5977654cd88e"/></p>
+<p>Let's start by looking at the question, what is "nb-javac"? Well, "nb-javac", which is a patched version of "javac", i.e., the Java compiler, has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor in NetBeans, and wasn't part of the donation of NetBeans to Apache since, of course, the Java compiler (or a fork thereof) cannot be part of the donation. That's because Oracle is not donating Java to Apache, instead, it is donating NetBeans. The Java compiler belongs to the JDK which is licensed to Oracle.</p>
+<p>Separate from Oracle's obvious understandable unwillingness to donate a Java compiler fork to Apache, or anyone else, Apache would have a problem with a fork of the Java compiler being distributed from Apache since the Java compiler is LGPL licensed.</p>
+<p>In short, neither Oracle nor Apache want the Java compiler to be part of NetBeans in Apache. Yet, NetBeans gains a lot from the patched Java compiler, as explained below:</p>
+<p><a href="http://wiki.netbeans.org/JavacDiff">http://wiki.netbeans.org/JavacDiff</a></p>
+<p>Also see this reference for details on the situation:</pL>
+<p><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac">https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac</a></p>
+<p>However, using model APIs added in JDK 9, Apache NetBeans can make use of the Java compiler directly from the JDK, as explained here:</p>
+<p><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac">https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac</a></p>
+<p>So, as can be seen, from Apache NetBeans running on JDK 9 and onwards, you have a choice: either use the Java compiler from the JDK, which means you're not benefiting from a number of enhancements especially added for NetBeans over many years in the patched Java compiler, or you need to explicitly add the patched Java compiler, since it is provided by Oracle and its licensing is such that you need to take responsibility for installing it yourself. On the other hand, if you're using Apache NetBeans with JDK 8, the choice is simpler, i.e., you need to install nb-javac, otherwise you will not be able to use Java in Apache NetBeans.</p>
+<p>It's not an ideal situation. On the other hand, if someone has a better solution, please feel free to propose that solution and also consider providing a pull request too!</p>

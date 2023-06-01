@@ -1,7 +1,0 @@
----
-layout: post
-title: Welcome Nick Williams
-date: '2013-05-11T00:00:00+00:00'
-categories: logging
----
-The Apache log4j team would like to welcome Nick Williams as a new committer! Welcome Nick!

@@ -1,0 +1,247 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Scaling Accumulo With Multi-Volume Support
+author:
+  display_name: Dave Marion
+  login: dlmarion
+  email: dlmarion@apache.org
+author_login: dlmarion
+author_email: dlmarion@apache.org
+id: d626db91-3a12-4ed4-b43d-c05ed80f6c80
+date: '2018-12-14 16:22:30 -0500'
+categories:
+- Technical
+tags: []
+comments:
+- id: 29
+  author: Michael Wall
+  author_email: ''
+  author_url: ''
+  date: '2014-07-15 23:51:56 -0400'
+  content: "In hadoop's core-site.xml for the workaround until ACCUMULO-2719 is resolved,
+    shouldn't the name be\r\n\r\n<name>fs.viewfs.mounttable.default.link./accumulo/instance_id</name>\r\n\r\n
+    instead of \r\n\r\n<name>fs.viewfs.mounttable.default.link./nameserviceA/accumulo/instance_id</name>\r\n\r\nThat
+    would be more inline with the comments on the ticket and what the shell is going
+    to look for to find the instance_id to look up in zookeeper."
+permalink: accumulo/entry/scaling_accumulo_with_multi_volume
+---
+<p>&nbsp;This post was moved <a href="https://accumulo.apache.org/blog/2014/06/25/scaling-accumulo-with-multivolume-support.html" title="Updated location">to the Accumulo project site</a>. </p>
+<p class="western">MapReduce is a commonly used approach to<br />
+querying or analyzing large amounts of data. Typically MapReduce jobs<br />
+are created using using some set of files in HDFS to produce a<br />
+result. When new files come in, they get added to the set, and the<br />
+job gets run again. A common Accumulo approach to this scenario is to<br />
+load all of the data into a single instance of Accumulo.</p>
+<p class="western">  A single instance of Accumulo can scale quite<br />
+largely[1,2] to accommodate high levels of ingest and query. The manner<br />
+in which ingest is performed typically depends on latency<br />
+requirements. When the desired latency is small, inserts are<br />
+performed directly into Accumulo. When the desired latency is allowed<br />
+to be large, then a bulk style of ingest[3] can be used. There are<br />
+other factors to consider as well, but they are outside the scope of<br />
+this article.</p>
+<p class="western">  On large clusters using the bulk style of ingest<br />
+input files are typically batched into MapReduce jobs to create a set<br />
+of output RFiles for import into Accumulo. The number of files per<br />
+job is typically determined by the required latency and the number of<br />
+MapReduce tasks that the cluster can complete in the given<br />
+time-frame. The resulting RFiles, when imported into Accumulo, are<br />
+added to the list of files for their associated tablets. Depending on<br />
+the configuration this will cause Accumulo to major compact these<br />
+tablets. If the configuration is tweaked to allow more files per<br />
+tablet, to reduce the major compactions, then more files need to be<br />
+opened at query time when performing scans on the tablet.  Note that<br />
+no single node is burdened by the file management; but, the number of<br />
+file operations in aggregate is very large.  If each server has<br />
+several hundred tablets, and there are a thousand tablet servers, and<br />
+each tablet compacts some files every few imports, we easily have<br />
+50,000 file operations (create, allocate a block, rename and delete)<br />
+every ingest cycle.</p>
+<p class="western">  In addition to the NameNode operations caused by<br />
+bulk ingest, other Accumulo processes (e.g. master, gc) require<br />
+interaction with the NameNode. Single processes, like the garbage<br />
+collector, can be starved of responses from the NameNode as the NameNode is<br />
+limited on the number of concurrent operations. It is not unusual for<br />
+an operator's request for &ldquo;<font face="Courier 10 Pitch, MS Mincho">hadoop<br />
+fs -ls /accumulo</font>&rdquo; to take a minute before returning results<br />
+during the peak file-management periods. In particular, the file<br />
+garbage collector can fall behind, not finishing a cycle of<br />
+unreferenced file removal before the next ingest cycle creates a new<br />
+batch of files to be deleted.</p>
+<p class="western"> The Hadoop community addressed the NameNode<br />
+bottleneck issue with HDFS  federation[4] which allows a datanode to<br />
+serve up blocks for multiple namenodes. Additionally, ViewFS allows<br />
+clients to communicate with multiple namenodes through the use of a<br />
+client-side mount table. This functionality was insufficient for<br />
+Accumulo in the 1.6.0 release as ViewFS works at a directory level; as an example, /dirA is mapped to<br />
+one NameNode and /dirB is mapped to another, and Accumulo uses a<br />
+single HDFS directory for its storage.</p>
+<p class="western">  Multi-Volume support (MVS), included in 1.6.0,<br />
+includes the changes that allow Accumulo to work across multiple HDFS<br />
+clusters (called volumes in Accumulo) while continuing to use a<br />
+single HDFS directory. A new property, instance.volumes, can be<br />
+configured with multiple HDFS nameservices and Accumulo will use them<br />
+all to balance out NameNode operations. The nameservices configured<br />
+in instance.volumes may optionally use the High Availability NameNode feature as it is transparent<br />
+to Accumulo. With MVS you have two options to horizontally scale your<br />
+Accumulo instance. You can use an HDFS cluster with Federation and<br />
+multiple NameNodes or you can use separate HDFS clusters.</p>
+<p class="western"> By default Accumulo will perform round-robin file<br />
+allocation for each tablet, spreading the files across the different<br />
+volumes. The file balancer is pluggable, allowing for custom<br />
+implementations. For example, if you don't use Federation and use<br />
+multiple HDFS clusters, you may want to allocate all files for a<br />
+particular table to one volume.</p>
+<p class="western">  Comments in the JIRA[5] regarding backups could<br />
+lead to follow-on work. With the inclusion of snapshots in HDFS, you<br />
+could easily envision an application that quiesces the database or<br />
+some set of tables, flushes their entries from memory, and snapshots<br />
+their directories. These snapshots could then be copied to another<br />
+HDFS instance either for an on-disk backup, or bulk-imported into<br />
+another instance of Accumulo for testing or some other use.</p>
+<p class="western">  The example configuration below shows how to<br />
+set up Accumulo with HA NameNodes and Federation, as it is likely the<br />
+most complex. We had to reference several web sites, one of the HDFS<br />
+mailing lists, and the source code to find all of the configuration<br />
+parameters that were needed. The configuration below includes two<br />
+sets of HA namenodes, each set servicing an HDFS nameservice in a<br />
+single HDFS cluster. In the example below, nameserviceA is serviced<br />
+by name nodes 1 and 2, and nameserviceB is serviced by name nodes 3<br />
+and 4.</p>
+<p class="western">[1]<br />
+<font color="#000080"><span lang="zxx"><u><a class="western" href="http://ieeexplore.ieee.org/zpl/login.jsp?arnumber=6597155">http://ieeexplore.ieee.org/zpl/login.jsp?arnumber=6597155</a></u><span style="text-decoration: none;"><span style="color: #000000;"></span></span></span></font></p>
+<p class="western"><font color="#000080"><span lang="zxx"><span style="text-decoration: none;"><span style="color: #000000;">[2</span>]<br />
+</span></span></font><font color="#000080"><span lang="zxx"><u><a class="western" href="http://www.pdl.cmu.edu/SDI/2013/slides/big_graph_nsa_rd_2013_56002v1.pdf">http://www.pdl.cmu.edu/SDI/2013/slides/big_graph_nsa_rd_2013_56002v1.pdf</a></u></span></font></p></p>
+<p class="western">[3]<br />
+<font color="#000080"><span lang="zxx"><u><a class="western" href="http://accumulo.apache.org/1.5/examples/bulkIngest.html">http://accumulo.apache.org/1.<font color="#000080">6</font>/examples/bulkIngest.html</a></u></span></font></p></p>
+<p class="western">[4]<br />
+<font color="#000080"><span lang="zxx"><u><a class="western" href="https://issues.apache.org/jira/browse/HDFS-1052">https://issues.apache.org/jira/browse/HDFS-1052</a></u></span></font></p></p>
+<p class="western">[5]<br />
+<font color="#000080"><span lang="zxx"><u><a class="western" href="https://issues.apache.org/jira/browse/ACCUMULO-118">https://issues.apache.org/jira/browse/ACCUMULO-118</a></u></span></font></p></p>
+<p class="western"><em>- By Dave Marion and Eric Newton</em></p>
+<h2>core-site.xml:<br />
+</h2>
+<pre class="text-body-indent-western">  <font style="font-size: 11pt" size="2"><property></font>
+    <font style="font-size: 11pt" size="2"><name>fs.defaultFS</name></font><font style="font-size: 11pt" size="2">
+</font>    <font style="font-size: 11pt" size="2"><value>viewfs:///</value></font>
+  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>fs.viewfs.mounttable.default.link./nameserviceA</name></font>
+<font style="font-size: 11pt" size="2">    <value>hdfs://nameserviceA</value></font>
+  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">    <name>fs.viewfs.mounttable.default.link./nameserviceB</name></font><font style="font-size: 11pt" size="2">
+</font><font size="2">      </font><font style="font-size: 11pt" size="2"><value>hdfs://nameserviceB</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">    <name>fs.viewfs.mounttable.default.link./nameserviceA/accumulo/instance_id</name></font><font style="font-size: 11pt" size="2">
+</font><font size="2">      </font><font style="font-size: 11pt" size="2"><value>hdfs://nameserviceA/accumulo/instance_id</value></font>
+<font style="font-size: 11pt" size="2">    <description>Workaround for ACCUMULO-2719</description></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">    <name>dfs.ha.fencing.methods</name></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">    <value>sshfence(hdfs:22)</font>      
+<font style="font-size: 11pt" size="2">           shell(/bin/true)</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>   
+<font style="font-size: 11pt" size="2">    <name>dfs.ha.fencing.ssh.private-key-files</name></font><font style="font-size: 11pt" size="2">
+</font><font size="2">      </font><font style="font-size: 11pt" size="2"><value><PRIVATE_KEY_LOCATION></value></font>
+  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.ha.fencing.ssh.connect-timeout</name></font>
+<font style="font-size: 11pt" size="2">    <value>30000</value></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">    <name>ha.zookeeper.quorum</name></font>   
+<font style="font-size: 11pt" size="2">    <value>zkHost1:2181,zkHost2:2181,zkHost3:2181</value></font>
+<font style="font-size: 11pt" size="2">  </property></font><font style="font-size: 11pt" size="2">
+</font>
+</pre>
+<h2>hdfs-site.xml:<br />
+</h2>
+<pre class="text-body-indent-western"><font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.nameservices</name></font>
+<font style="font-size: 11pt" size="2">    <value>nameserviceA,nameserviceB</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font><font style="font-size: 11pt" size="2">
+</font><font style="font-size: 11pt" size="2">    <name>dfs.ha.namenodes.nameserviceA</name></font>
+<font style="font-size: 11pt" size="2">    <value>nn1,nn2</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font> 
+<font style="font-size: 11pt" size="2">    <name>dfs.ha.namenodes.nameserviceB</name></font><font style="font-size: 11pt" size="2"></font>
+<font style="font-size: 11pt" size="2">    <value>nn3,nn4</value></font>
+  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.rpc-address.nameserviceA.nn1</name></font><font style="font-size: 11pt" size="2"></font>
+<font style="font-size: 11pt" size="2">    <value>host1:8020</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font>
+  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.rpc-address.nameserviceA.nn2</name></font>
+<font style="font-size: 11pt" size="2">    <value>host2:8020</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.http-address.nameserviceA.nn1</name></font>
+<font style="font-size: 11pt" size="2">    <value>host1:50070</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.http-address.nameserviceA.nn2</name></font>
+<font style="font-size: 11pt" size="2">    <value>host2:50070</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.rpc-address.nameserviceB.nn3</name></font>
+<font style="font-size: 11pt" size="2">    <value>host3:8020</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.rpc-address.nameserviceB.nn4</name></font>
+<font style="font-size: 11pt" size="2">    <value>host4:8020</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font> 
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.http-address.nameserviceB.nn3</name></font>
+<font style="font-size: 11pt" size="2">    <value>host3:50070</value></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"></property></font><font style="font-size: 11pt" size="2">
+</font>  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.http-address.nameserviceB.nn4</name></font>
+<font style="font-size: 11pt" size="2">    <value>host4:50070</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font> 
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.shared.edits.dir.nameserviceA.nn1</name></font>
+<font style="font-size: 11pt" size="2">    <value>qjournal://jHost1:8485;jHost2:8485;jHost3:8485/nameserviceA</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.shared.edits.dir.nameserviceA.nn2</name></font>   
+<font style="font-size: 11pt" size="2">    <value>qjournal://jHost1:8485;jHost2:8485;jHost3:8485/nameserviceA</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.shared.edits.dir.nameserviceB.nn3</name></font>
+<font style="font-size: 11pt" size="2">    <value>qjournal://jHost1:8485;jHost2:8485;jHost3:8485/nameserviceB</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.namenode.shared.edits.dir.nameserviceB.nn4</name></font>
+<font style="font-size: 11pt" size="2">    <value>qjournal://jHost1:8485;jHost2:8485;jHost3:8485/nameserviceB</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.client.failover.proxy.provider.nameserviceA</name></font>
+<font style="font-size: 11pt" size="2">    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font> 
+<font style="font-size: 11pt" size="2">    <name>dfs.client.failover.proxy.provider.nameserviceB</name></font>
+<font style="font-size: 11pt" size="2">    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+<font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.ha.automatic-failover.enabled.nameserviceA</name></font>
+<font style="font-size: 11pt" size="2">    <value>true</value></font>
+<font style="font-size: 11pt" size="2">  </property></font>
+  <font style="font-size: 11pt" size="2"><property></font>
+<font style="font-size: 11pt" size="2">    <name>dfs.ha.automatic-failover.enabled.nameserviceB</name></font>
+<font style="font-size: 11pt" size="2">    <value>true</value></font>
+<font style="font-size: 11pt" size="2">  </property></font><font style="font-size: 11pt" size="2">
+</font>
+</pre>
+<pre></pre>
+<h2 class="text-body-indent-western">accumulo-site.xml:</h2>
+<pre class="text-body-indent-western"><font style="font-size: 11pt" size="2">  <property></font>
+<font style="font-size: 11pt" size="2">    <name>instance.volumes</name></font>   
+<font style="font-size: 11pt" size="2">    <value>hdfs://nameserviceA/accumulo,hdfs://nameserviceB/accumulo</value></font>
+<font style="font-size: 11pt" size="2">  </property></font></pre>

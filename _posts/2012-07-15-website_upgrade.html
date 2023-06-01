@@ -1,0 +1,50 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Website upgrade
+author:
+  display_name: Christian Grobmeier
+  login: grobmeier
+  email: grobmeier@apache.org
+author_login: grobmeier
+author_email: grobmeier@apache.org
+id: 9ab5618d-3bce-48a4-9c3b-362ccfa8e132
+date: '2012-07-15 00:00:00 -0400'
+categories:
+- General
+tags: []
+comments:
+- id: 0
+  author: afifi
+  author_email: ghozliafif@gmail.com
+  author_url: http://http;//i1z2i1.heck.in
+  date: '2012-09-05 18:11:44 -0400'
+  content: good
+- id: 6
+  author: Ioan Eugen Stan
+  author_email: ieugen@apache.org
+  author_url: ''
+  date: '2012-08-05 00:06:32 -0400'
+  content: 'Great job! I think this set-up will be perfect also for Apache James.
+    Looking forward to chat with you for details. '
+- id: 637
+  author: richard
+  author_email: shubhamrock19998@gmail.com
+  author_url: ''
+  date: '2019-06-28 07:24:28 -0400'
+  content: Its so difficult to get any article like this  https://rememberpasswordsinmicrosoftedge.net
+    because its so easy for me and its so good for us.
+- id: 1507
+  author: flagyl
+  author_email: tabhargworkfas1981@gmail.com
+  author_url: https://safe-canada-store.com/antibiotics/flagyl.html
+  date: '2019-07-19 19:53:34 -0400'
+  content: Đẹp tuyệt Rice ơi! Amazing work guys, so elegant!
+permalink: logging/entry/website_upgrade
+---
+<p>The Apache Logging team upgraded all <a href="http://logging.apache.org">Logging websites</a> to the Apache CMS. This was a huge effort for the whole team. And we were very glad we got so much help from the Apache Infrastructure and the Apache Maven team (esp. Herv&eacute; Boutemy) - thank you very much to all who spent their time.</p>
+<p>Now we have a great new landing page, based on Twig and Twitters Bootstrap. Updates to the files are turned into plain HTML by the CMS. You can look at these files <a href="http://svn.apache.org/viewvc/logging/site/cms/trunk/content/">here</a>. The Logging project does maintain several subsites. These have been included as so called "extpaths". Now it is possible for us to build our subsites with maven and copy the result to a specific svn tree. From there it is taken by the CMS and published. You can look at the subsites code <a href="https://svn.apache.org/repos/infra/websites/production/logging/content/">here</a>.<br />
+Most subsites are still in the "plain maven look and feel". Except the webpages for Apache log4j 2, which does already wear the layout of the fantastic <a href="http://maven.apache.org/skins/maven-fluido-skin/">Apache Maven Fluido Skin</a>.</p>
+<p>The Apache CMS is a pretty fabulous tool. It is extremely flexible in that you can use what it offers out of the box, you can customize it to use a different templating mechanism as we did, or you can have the system run Maven to build your site.  For us, using the CMS for the main set of web pages provides us a way to quickly maintain the main part of the site while each of our subprojects is still free to generate all the build documentation Java developers have become accustomed to.</p>
+<p>Again, we really want to that the Apache Infrastructure team for creating this tool and providing support to us along the way. </p>

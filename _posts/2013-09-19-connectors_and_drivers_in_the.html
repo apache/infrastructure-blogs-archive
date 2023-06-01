@@ -1,0 +1,384 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Connectors and drivers in the world of Apache Sqoop
+author:
+  display_name: Jarek Jarcec Cecho
+  login: jarcec
+  email: jarcec@apache.org
+author_login: jarcec
+author_email: jarcec@apache.org
+excerpt: "<h1 dir=\"ltr\" style=\"letter-spacing: normal; margin-top: 10pt; margin-bottom:
+  0pt; line-height: 1.15;\"><span style=\"background-color: transparent; font-family:
+  Arial; font-size: 15px; font-weight: normal; white-space: pre-wrap; line-height:
+  1.15;\">Apache Sqoop is a tool for highly efficient data transfers between relational
+  databases and the entire Hadoop ecosystem. One of the significant benefits of Sqoop
+  is that it’s easy to use and can work with a variety of systems both inside and
+  outside of the Hadoop ecosystem. With one tool, Sqoop, you can import or export
+  data from all databases supporting the JDBC interface using the same command line
+  arguments exposed by Sqoop. Additionally, Sqoop was designed in modular fashion,
+  allowing you to plug in specialized additions to optimise transfers for particular
+  database systems.</span></h1> \r\n  <h1 dir=\"ltr\" style=\"letter-spacing: normal;
+  margin-top: 10pt; margin-bottom: 0pt; line-height: 1.15;\"><span style=\"font-size:
+  15px; font-family: Arial; background-color: transparent; font-weight: normal; vertical-align:
+  baseline; white-space: pre-wrap;\">While some users of various projects within the
+  Hadoop ecosystem use the words &quot;connector&quot; and &quot;driver&quot; interchangeably,
+  these words mean completely different things in context of Sqoop. As both connector
+  and driver are needed for every Sqoop invocation, we see a lot of confusion in the
+  use and understanding of these concepts. This blog post will explain the difference
+  between them and how Sqoop uses these concepts to transfer data between Hadoop and
+  other systems.</span></h1> \r\n  <div class=\"vimiumReset vimiumHUD\" style=\"right:
+  150px; opacity: 0; display: none;\"></div> \r\n  <div class=\"vimiumReset vimiumHUD\"
+  style=\"right: 150px; opacity: 0; display: none;\"></div>"
+id: b260c67c-38c6-4c2c-8815-ac54fe3cf7e4
+date: '2013-09-19 17:23:58 -0400'
+categories:
+- General
+tags:
+- driver
+- sqoop
+- connector
+comments:
+- id: 0
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2014-12-17 10:44:12 -0500'
+  content: wonderful article..worth the reading experience
+- id: 0
+  author: Kunal Sachdeva
+  author_email: k.singh.php@gmail.com
+  author_url: ''
+  date: '2013-10-01 10:10:33 -0400'
+  content: "First of all Thanks you very much for good article.\r\n\r\nIn first paragraph
+    , I read :\r\n'allowing you to plug in specialized additions to optimise transfers
+    for particular database systems.'\r\n\r\nI want something like : when I start
+    transfer data from one database table to other may be MySql/PosgreySql/Oracle,
+    before transferring to other Database table or file system, I want to encrypt
+    the data , so can you please tell me how to start doing that may be with custom
+    connector or any kind of plugin which I can develop. I really don't know where
+    to start and how to start.\r\n\r\nPlease help me for doing this."
+- id: 0
+  author: Mark Hurd
+  author_email: drjohnson163@gmail.com
+  author_url: http://fortune.com/2015/06/08/redemption-of-mark-hurd-oracle/
+  date: '2017-05-01 06:37:29 -0400'
+  content: Leverage the comprehensive Mark Hurd Oracle product portfolio to address
+    distinct industry-specific requirements. With solutions for financial services,
+    communications, consumer goods and more, Oracle enables you to accelerate the
+    delivery of innovation, improve customer experiences, and improve margins to drive
+    competitive advantage&hellip;..
+- id: 0
+  author: iso cert
+  author_email: prakash.factocert@gmail.com
+  author_url: http://factocert.com/iso-certification-in-oman
+  date: '2019-12-21 08:35:05 -0500'
+  content: "Thank for your writting! It is easy to understand and detailed. I feel
+    it is interesting, I hope you continue to have such good posts.\r\nregards\r\nhttp://factocert.com/iso-certification-in-oman/\r\n"
+- id: 0
+  author: Sara Taylor
+  author_email: jbourn235@yahoo.com
+  author_url: http://whatshacken.com/
+  date: '2018-08-29 08:15:29 -0400'
+  content: Thanks..
+- id: 0
+  author: freecodesmarket
+  author_email: kirna32@gmail.com
+  author_url: http://freecodesmarket.com/
+  date: '2018-10-19 07:06:39 -0400'
+  content: Hey really such a great blog dear Thanks for sharing this .
+- id: 0
+  author: Terrin
+  author_email: nis@gmail.com
+  author_url: ''
+  date: '2019-02-07 09:26:55 -0500'
+  content: I'm a follower of this site and here I can find many interesting updates
+    about Apache Sqoop. This tool is for the highly efficient data transfers between
+    relational databases and the entire Hadoop ecosystem. Thanks for this article.
+    http://www.printspoolerservices.com/
+- id: 0
+  author: spuronrola1988
+  author_email: buzzzewsbega1984@gmail.com
+  author_url: https://blogs.apache.org/sqoop/entry/inaugural_sqoop_meetup
+  date: '2019-07-20 17:59:18 -0400'
+  content: This is extremely fascinating... This is awesome. Love it
+- id: 0
+  author: ahsturreocons1989
+  author_email: favanisa1979@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/lookups_into_the_openejb_namespace
+  date: '2019-07-20 18:29:27 -0400'
+  content: Incre&iacute;ble como siempre! inspiring! Effective identity presentation,
+    congratss!
+- id: 0
+  author: dadecracap1989
+  author_email: micmehemself1982@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/the_state_of_couchdb
+  date: '2019-07-20 23:47:31 -0400'
+  content: Interesting branding. I think it really works! Great work+
+- id: 0
+  author: destiduca1979
+  author_email: paysastoman1981@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/board_report_november_2013
+  date: '2019-07-21 00:36:38 -0400'
+  content: I am mesmerised from these illustrations. your texture work is spot on!
+- id: 0
+  author: fourthpartaget1982
+  author_email: deforvipho1977@gmail.com
+  author_url: https://blogs.apache.org/mrunit/entry/apache_mrunit_0_9_0
+  date: '2019-07-21 05:00:31 -0400'
+  content: Thank you @Tatiana Komisar !! So lovely design! Very nice!
+- id: 0
+  author: viladustpe1978
+  author_email: sopdiegoldswan1976@gmail.com
+  author_url: https://blogs.apache.org/ofbiz/entry/apache-ofbiz-news-august-2018
+  date: '2019-07-21 06:46:36 -0400'
+  content: Increible. Aplausos de pie! Love this!
+- id: 0
+  author: climicitin1974
+  author_email: noblisorglo1972@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/apache_log4net_1_2_12
+  date: '2019-07-21 07:18:56 -0400'
+  content: Love it❤️너무 좋아요! Ver funny!!
+- id: 0
+  author: siosirata1978
+  author_email: ocizenun1983@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/apache_tomee_1_0_final
+  date: '2019-07-21 08:22:49 -0400'
+  content: I'm crying how good this is Nice illustrations, great presentation Jing
+    :)
+- id: 0
+  author: Keith
+  author_email: fortwayneasphalt@gmail.com
+  author_url: ''
+  date: '2020-01-29 03:17:45 -0500'
+  content: "If you might need asphalt paving just visit this website. https://www.asphaltpavingftw.com\r\n"
+- id: 0
+  author: www.treeloppinggoldcoastqld.com/
+  author_email: silverliares@gmail.com
+  author_url: https://www.treeloppinggoldcoastqld.com/
+  date: '2020-01-15 09:12:09 -0500'
+  content: 'Sqoop Connectors and Drivers. Your data management system is supported
+    by one of the bundled Sqoop connectors. Sqoop does not include a connector for
+    your database management system. '
+- id: 0
+  author: David
+  author_email: airductcleaningstlouis@gmail.com
+  author_url: ''
+  date: '2020-02-04 02:32:12 -0500'
+  content: "All your best air duct cleaning in St. Louis, MO!\r\nhttps://www.ductcleaningprosstl.com\r\n"
+- id: 0
+  author: click here
+  author_email: clickones96@gmail.com
+  author_url: https://www.floorsandingaucklandnz.info/
+  date: '2019-12-14 04:49:40 -0500'
+  content: Structured Query Language (SQL) is a programing language designed for communication
+    with relational database systems. Sqoop connectors allow Sqoop to overcome the
+    differences in SQL dialects supported by various databases along with providing
+    optimized data transfer.
+- id: 0
+  author: Jim
+  author_email: midwestmoldremoval11@gmail.com
+  author_url: ''
+  date: '2020-02-15 07:59:55 -0500'
+  content: "All your best Mold Removal Services in Fenton, MO!\r\nhttps://www.midwestmoldremoval.com/\r\n"
+- id: 2
+  author: click here
+  author_email: clickones96@gmail.com
+  author_url: https://www.floorsandingaucklandnz.info/
+  date: '2019-12-20 01:26:06 -0500'
+  content: What language does Apache use? https://topshadesailsgoldcoast.com/
+- id: 2
+  author: linpavima1980
+  author_email: sponepniper1986@gmail.com
+  author_url: https://blogs.apache.org/tomee/entry/apache-tomee-7-0-4
+  date: '2019-07-21 06:13:34 -0400'
+  content: Very nice work love the subtle use of lines
+- id: 4
+  author: Keita Yabu
+  author_email: picadon37@gmail.com
+  author_url: http://0724keita.com
+  date: '2013-09-21 00:14:00 -0400'
+  content: sakura.ne.jp doesn't conect !
+- id: 5
+  author: film izle
+  author_email: heyhat@gmail.com
+  author_url: https://altyazilifilm.live
+  date: '2019-06-29 20:09:09 -0400'
+  content: "Leverage the comprehensive Mark Hurd Oracle product portfolio to address
+    distinct industry-specific requirements. With solutions for financial services,
+    communications, consumer goods and more, Oracle enables you to accelerate the
+    delivery of innovation, improve customer experiences, and improve margins to drive
+    competitive advantage&hellip;..\r\n"
+- id: 5
+  author: Peter
+  author_email: treeserviceworkjeffersoncounty@gmail.com
+  author_url: ''
+  date: '2020-02-11 09:18:32 -0500'
+  content: "All your best tree service in Arnold, MO!\r\nhttps://www.treeservice-jeffersoncounty.com\r\n"
+- id: 7
+  author: setkingzahneu1985
+  author_email: letbbizmeomind1973@gmail.com
+  author_url: https://blogs.apache.org/nifi/entry/real-time-sql-on-event
+  date: '2019-07-20 17:15:59 -0400'
+  content: Awesome work! it's very inspiring. Great work!
+- id: 7
+  author: ndighandsubsti1975
+  author_email: graphvusickba1978@gmail.com
+  author_url: https://blogs.apache.org/sentry/entry/sentry_1_5_0_release
+  date: '2019-07-21 07:51:21 -0400'
+  content: Very very nice!!❤️ Good job.....it is nice project.
+- id: 7
+  author: ihelper
+  author_email: iamrocklee007@gmail.com
+  author_url: http://ihelper.us/
+  date: '2019-10-16 13:39:24 -0400'
+  content: 'great way to tell me that '
+- id: 9
+  author: dinultuwigg1986
+  author_email: rehydpemi1972@gmail.com
+  author_url: https://blogs.apache.org/carbondata/entry/apache-carbondata-1-1-0
+  date: '2019-07-21 10:34:18 -0400'
+  content: Great！ I have designed a food app UI kit. it's free UI kit anyone can download
+    and use for their next client project. please do check out (Foodybite - Free UI
+    Kit).
+- id: 28
+  author: Mariya Dorothy
+  author_email: dmariya14216@gmail.com
+  author_url: ''
+  date: '2019-11-07 12:40:31 -0500'
+  content: This post shares information about connectors and drivers in the world
+    of apache scoop. Thanks for the very useful information you have shared. https://hostsailorservers.com/hostsailor-com-services/
+    It explains all the information about connectors and drivers. Share more useful
+    posts like this. It will be helpful for others.
+- id: 29
+  author: flipifassan1979
+  author_email: imacplanor1983@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/user_blog_tomcat_openejb_and
+  date: '2019-07-21 08:55:27 -0400'
+  content: Great job with the different characters and scenes! AWESOMEproject
+- id: 46
+  author: sarkis matta
+  author_email: SarkisHMART@HotMail.Com
+  author_url: http://Sarkis@Matta.Com
+  date: '2013-09-21 15:47:18 -0400'
+  content: Help My ComputerBy Connector and Drivers Sarkis Matta And Moviment And
+    The Arte Contemporary for the WORLD on Facebook not good for my Computer TOSHIBA
+    , thanks
+- id: 58
+  author: unkisisting1983
+  author_email: monsaupeto1989@gmail.com
+  author_url: https://blogs.apache.org/ofbiz/entry/apache-ofbiz-news-december-2018
+  date: '2019-07-21 10:01:33 -0400'
+  content: Nice use of our typeface Tenez! Always a delight to see it in the wild!
+    They are soooo good!!Congrats!
+- id: 75
+  author: james
+  author_email: jamessmith121291@gmail.com
+  author_url: ''
+  date: '2019-06-20 14:06:59 -0400'
+  content: "Sign-in to you Microsoft account and then Enter 25 digit alphanumeric
+    office setup product key on country and language. click on next to start office
+    installation, For more visit on :\r\n\r\nhttp://officesoffice.com | http://sitesnorton.com/setup
+    | https://officekeyactivate.com | https://get-office-2019.com | https://start-product-activate.com\r\n"
+- id: 91
+  author: giotimeta1987
+  author_email: postbedownri1988@gmail.com
+  author_url: https://blogs.apache.org/click/entry/netbeans_plugin_released
+  date: '2019-07-21 01:53:32 -0400'
+  content: "@KOSHIOSHI . ah ah ah! actually i don't unfortunately. Beautiful, it's
+    an art! :)"
+- id: 158
+  author: innalilor1988
+  author_email: fockdralenel1980@gmail.com
+  author_url: https://blogs.apache.org/click/entry/clickide_2_2_0_0
+  date: '2019-07-20 20:28:37 -0400'
+  content: amaziiiiiiiiiiiiiiiing вау
+- id: 701
+  author: Roadside Assistance St. Louis
+  author_email: roadsideassistancesaintlouis@gmail.com
+  author_url: ''
+  date: '2020-01-14 22:23:06 -0500'
+  content: "All your best roadside assistance in Overland, MO!\r\n https://www.roadsideassistancestlouis.com\r\n"
+- id: 751
+  author: reilockholku1984
+  author_email: geojufunmont1986@gmail.com
+  author_url: https://blogs.apache.org/tomee/entry/apache_tomee_1_5_2
+  date: '2019-07-21 05:33:00 -0400'
+  content: 哇，太好看了吧，喜欢~ Amazing illustrations
+- id: 7421
+  author: lielubwyrmta1978
+  author_email: dwidogclanop1978@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/apache_tomee_at_jax_london
+  date: '2019-07-20 17:36:53 -0400'
+  content: 'That is really artistic and choice of colours is really bold and dynamic.
+    Keep p the great work '
+- id: 7816
+  author: my otaku world
+  author_email: iamrocklee007@gmail.com
+  author_url: https://myotakuworld.com
+  date: '2019-10-16 13:40:19 -0400'
+  content: Best anime community website must visit
+- id: 238182
+  author: Rohit Darwade
+  author_email: darwaderohit@gmail.com
+  author_url: ''
+  date: '2014-08-14 12:14:25 -0400'
+  content: How should I load driver in Hadoop sqoop to playing with database.
+- id: 635710
+  author: https://www.treeloppinggoldcoastqld.com/
+  author_email: clickones96@gmail.com
+  author_url: https://www.treeloppinggoldcoastqld.com/
+  date: '2020-01-08 05:20:34 -0500'
+  content: Your data management system is supported by one of the bundled Sqoop connectors.
+    Sqoop does not include a connector for your database management system. Your database
+    management system does not provide a Sqoop connector but a JDBC driver is available.
+- id: 31907459
+  author: orlaboughde1980
+  author_email: satorlosskris1980@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/user_blog_restarting_the_embedded
+  date: '2019-07-21 03:31:50 -0400'
+  content: very cool!! Neat!
+permalink: sqoop/entry/connectors_and_drivers_in_the
+---
+<p><span id="docs-internal-guid--f00b060-320a-bf8a-6fa3-9f8712cfd65e"> </p>
+<h1 dir="ltr" style="line-height: 1.15; margin-top: 10pt; margin-bottom: 0pt;"><span style="background-color: transparent; font-family: Arial; font-size: 15px; font-weight: normal; white-space: pre-wrap; line-height: 1.15;">Apache Sqoop is a tool for highly efficient data transfers between relational databases and the entire Hadoop ecosystem. One of the significant benefits of Sqoop is that it&rsquo;s easy to use and can work with a variety of systems both inside and outside of the Hadoop ecosystem. With one tool, Sqoop, you can import or export data from all databases supporting the JDBC interface using the same command line arguments exposed by Sqoop. Additionally, Sqoop was designed in modular fashion, allowing you to plug in specialized additions to optimise transfers for particular database systems.</span></h1>
+<h1 dir="ltr" style="line-height: 1.15; margin-top: 10pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">While some users of various projects within the Hadoop ecosystem use the words "connector" and "driver" interchangeably, these words mean completely different things in context of Sqoop. As both connector and driver are needed for every Sqoop invocation, we see a lot of confusion in the use and understanding of these concepts. This blog post will explain the difference between them and how Sqoop uses these concepts to transfer data between Hadoop and other systems.</span></h1></p>
+<h2 dir="ltr" style="line-height: 1.15; margin-top: 10pt; margin-bottom: 0pt;"><span style="font-size: 17px; font-family: 'Trebuchet MS'; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Driver</span></h2>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The word driver in Sqoop refers to a JDBC Driver. JDBC is a standard Java API for accessing relational databases and some data warehouses. The Java language only prescribes what classes and methods this interface contains and the JDK does not have any default implementation. Each database vendor is responsible for writing their own implementation that will communicate with the corresponding database with its native protocol. As drivers are created by each database vendor, they are usually offered with restrictive licenses that prohibits them to be shipped with the Sqoop distribution. As a result each user needs to download the drivers separately and install them into Sqoop prior to its use.</span></p>
+<h2 dir="ltr" style="line-height: 1.15; margin-top: 10pt; margin-bottom: 0pt;"><span style="font-size: 17px; font-family: 'Trebuchet MS'; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Connector</span></h2>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Structured Query Language (SQL) is a programing language designed for communication with relational database systems. Even though that there is a standard prescribing how the language should look like almost every database has its own dialect of SQL. The basics are usually working the same across all databases, but &nbsp;some edge conditions might be implemented differently. &nbsp;Also as SQL is a very general query processing language, it might not be always the optimal way for importing or exporting data out of the database server.</span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Sqoop connectors allow Sqoop to overcome the differences in SQL dialects supported by various databases along with providing optimized data transfer. A connector is a pluggable piece that is used to fetch metadata about transferred data (columns, associated data types, &hellip;) and to drive the data transfer itself in the most efficient manner. The most basic connector that is shipped with Sqoop is called Generic JDBC Connector and, as the name suggests, it&rsquo;s using only the JDBC interface for accessing metadata and transferring data. As a result this connector will work on most of the databases out of the box, but may not be the most optimal for your use case. Sqoop also ships with specialized connectors for MySQL, PostgreSQL, Oracle, Microsoft SQL Server, DB2 and Netezza, thus there is usually no need to download extra connectors to start transferring data. However there are special connectors available on the internet that can add support for additional database systems or improve performance of the built-in connectors.</span></p>
+<h1 dir="ltr" style="line-height: 1.15; margin-top: 10pt; margin-bottom: 0pt;"><span style="font-size: 21px; font-family: 'Trebuchet MS'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Communication example</span></h1>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Let&rsquo;s take a closer look how Sqoop is creating the connection to the database to see how both connectors and drivers are used.</span></p>
+<p dir="ltr" style="text-align: center; line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span><img src="https://lh4.googleusercontent.com/dzZMot-SsnqYr8o6_fQLllzgUQKShK1A6zw-JX029LZw_zNxXPYCKuXMODYg0FjUErfpexprgaNU7Qq9lJDi8yq2nkmNghSmWA4wx3ryUWhvVxTK5xmlZxxn" width="537" height="134" /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Depending on specified command line arguments and all available connectors Sqoop will try to load the one offering the best performance. This process will start by trying all extra manually downloaded connectors that are not usually shipped with Sqoop to see if they can be used. Each connector itself will get the opportunity to decide whether it&rsquo;s suitable for the job or not. If there are no manually installed connectors or none can be used, Sqoop will check the JDBC URL (usually starting with </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">jdbc:</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">) to see if we are connecting to database for which a built-in special connector is available. For example for </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">jdbc:mysql://</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> URL that is used for MySQL database, Sqoop will pick up the MySQL Connector that is optimized for MySQL and can take advantage of its features. Lastly, if no other technique was able to choose the connector, Sqoop will use the Generic JDBC Connector. If the selection mechanism does not suit your environment, you can use the argument </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">--connection-manager</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> with the class name of any arbitrary connector. However keep in mind that connectors are usually designed for one specific database vendor and thus for example the MySQL Connector won&rsquo;t work on the PostgreSQL database.</span></p>
+<p dir="ltr" style="text-align: center; line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span><img src="https://lh4.googleusercontent.com/hGpcjB9OTYfvIJoapbjNxXsj1RYJ4YQa3QhZsdijvKkugyiT1BDCMNB_bjRDCE4yfkjgpbVXQ3ofsEOs6tbf0o00WDfLq3NkA9LLLt4OS3UyqenLPWaQoT7u" width="537" height="189" /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">After having the connector selected, the next step is to choose the JDBC driver. As most of the connectors are specialized for a given database and each database has usually only one JDBC driver available, it&rsquo;s the connector which is determining which driver should be used. For example the MySQL connector will always use the MySQL JDBC Driver called Connector/J. The only exception is the Generic JDBC Connector that is not tied with any database, so it can&rsquo;t determine what JDBC Driver should be used. As a result you have to supply the driver name with the</span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">--driver </span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">parameter on the command line. </span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">However be careful! Using the </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">--driver</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> parameter will always force Sqoop to use the Generic JDBC Connector no matter whether there is more specialized connector available. For example if the MySQL specialized connector would be used because the URL is starting with </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">jdbc:mysql://</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">, specifying the </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">--driver</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> option will force Sqoop to use the generic connector instead. As a result in most cases you do not need to use the </span><span style="font-size: 15px; font-family: 'Courier New'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">--driver</span><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> option at all!</span></p>
+<p dir="ltr" style="text-align: center; line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span><img src="https://lh3.googleusercontent.com/276Q11XnQUdB8_pXlFeNGmaqfUHNwg5yBjcxL1yelNyiuXQzETHAwexJWab7T0SaAtS9cnBq_n65Zt6oxHNuwmUydh3XmgeMi1BMAIUJc6-nvX1for9mkaFH" width="537" height="189" /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Finally when both connector and driver has been determined, Sqoop can open a connection to your database and kick off the process of transferring your data. Once the connector is identified by Sqoop, and once the connector has identified the JDBC driver it would like to use, the connection between the Sqoop client and the target database can now be established as shown in the diagram below. Please note that the picture is only describing the process of opening the initial connection and position of both connector and driver. It&rsquo;s not describing all connections that Sqoop can open as for example the data transfer itself is done inside a MapReduce job and is not executed on the Sqoop client side.</span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> </span><img src="https://lh3.googleusercontent.com/KqehDoXsE_FQDhyBU8T8C4BRnDRSH5m2QeiXL6OuCPLrTvlCPb3vBL6w7smMoe-fhaoUmg8aplIk-yO6GpwVWsoZwy2_lihhk6r5rGSbD_w6nt9vqmKJQyI1" width="537" height="189" /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Now that we have described all the pluggable pieces that Sqoop uses in order to open a connection to your database server, let us see where each piece lives. The connector is a Sqoop specific plugin, so it&rsquo;s not surprising that it&rsquo;s part of the Sqoop installation. &nbsp;In fact Sqoop ships with a variety of connectors out of the box! And various additional extra connectors can be downloaded from the internet and installed into Sqoop easily. See the installation instructions for each connector for more details on how to install the connector.</span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Even though drivers are database specific pieces, created and distributed by the various database vendors, they are not required to be available on the database server. Instead they need to be installed on the machine where Sqoop is executed. This is because these drivers are used by connectors to establish the connection with the database server. JDBC drivers are not shipped with Sqoop as they are released with incompatible licenses, as a result you have to download and install them manually. The drivers are usually available on database vendor web pages or are distributed as part of the database installation itself. Look into your db documentation for further details how to obtain the JDBC Driver if needed.</span></p>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><b style="font-weight: normal;"><br /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></b></p>
+<p dir="ltr" style="text-align: left; line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Both connectors and drivers need to be installed only on the machine where Sqoop is being executed. You do not need to install them on all nodes in your Hadoop cluster. Sqoop itself will propagate both whenever necessary.</span></p>
+<p dir="ltr" style="text-align: center; line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span><img src="https://lh3.googleusercontent.com/I3U8tY2c68HHTx9nMjz_R1n64SCorXrsQrJRbDDMMXPWuniy8FB-epK6CrvMn4YX6cFjsqHp6TT2sJNWNHLlkDN0Fh9P6xUEuN8M4jPWAuB-dkSdBlQoyULm" width="585" height="237" /><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"></span></p>
+<h1 dir="ltr" style="line-height: 1.15; margin-top: 10pt; margin-bottom: 0pt;"><span style="font-size: 21px; font-family: 'Trebuchet MS'; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Conclusion</span></h1>
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;">
+<p dir="ltr" style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">I hope that this blog post has helped in understanding what connector and driver is referring to in Sqoop land and why both are needed in order to transfer data between relational databases and the Hadoop ecosystem. Happy Sqooping!</span></p>
+<div><span style="font-size: 15px; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span></div>
+<p></span> </p>
+<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div>
+<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div>
+<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div>
+<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div>
+<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div>
+<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div>

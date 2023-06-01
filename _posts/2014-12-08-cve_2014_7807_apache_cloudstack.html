@@ -1,0 +1,47 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: "[CVE-2014-7807] Apache CloudStack unauthenticated LDAP binds"
+author:
+  display_name: John Kinsella
+  login: jlk
+  email: 'jlk@apache.org '
+author_login: jlk
+author_email: 'jlk@apache.org '
+id: a7282388-70ae-469b-ae71-8f6af0b2966e
+date: '2014-12-08 20:12:13 -0500'
+categories:
+- News
+tags: []
+comments: []
+permalink: cloudstack/entry/cve_2014_7807_apache_cloudstack
+---
+<p>CVE-2014-7807: Apache CloudStack unauthenticated LDAP binds</p>
+<p>CVSS:<br><br />
+7.5, AV:N/AC:L/Au:N/C:P/I:P/A:P</p>
+<p>Vendors:<br><br />
+The Apache Software Foundation<br><br />
+Citrix, Inc.</p>
+<p>Versions Afffected:<br><br />
+Apache CloudStack 4.3, 4.4</p>
+<p>Description:<br><br />
+Apache CloudStack may be configured to authenticate LDAP users.<br />
+When so configured, it performs a simple LDAP bind with the name<br />
+and password provided by a user.  Simple LDAP binds are defined<br />
+with three mechanisms (RFC 4513): 1) username and password; 2)<br />
+unauthenticated if only a username is specified; and 3) anonymous<br />
+if neither username or password is specified.  Currently, Apache<br />
+CloudStack does not check if the password was provided which could<br />
+allow an attacker to bind as an unauthenticated user.</p>
+<p>Mitigation:<br><br />
+Users of Apache CloudStack 4.4 and derivatives should update to the<br />
+latest version (4.4.2)</p>
+<p>An updated release for Apache CloudStack 4.3.2 is in testing. Until<br />
+that is released, we recommend following the mitigation below:</p>
+<p>By default, many LDAP servers are not configured to allow unauthenticated<br />
+binds.  If the LDAP server in use allow this behaviour, a potential<br />
+interim solution would be to consider disabling unauthenticated<br />
+binds.</p>
+<p>Credit:<br><br />
+This issue was identified by the Citrix Security Team.</p>

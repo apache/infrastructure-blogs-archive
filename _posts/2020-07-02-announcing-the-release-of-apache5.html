@@ -1,0 +1,84 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Announcing the release of Apache Samza 1.5.0
+author:
+  display_name: Bharath Kumarasubramanian
+  login: bharathkk
+  email: bharathkk@apache.org
+author_login: bharathkk
+author_email: bharathkk@apache.org
+id: 0326f78e-18c0-45a0-bcea-7a0d1a29f05e
+date: '2020-07-02 00:28:02 -0400'
+categories:
+- General
+tags: []
+comments: []
+permalink: samza/entry/announcing-the-release-of-apache5
+---
+<p><strong>IMPORTANT NOTE</strong>: As noted in the last release, this release contains <strong>backward incompatible changes regarding samza job submission</strong>. Details can be found on <a href="https://cwiki.apache.org/confluence/display/SAMZA/SEP-23%3A+Simplify+Job+Runner">SEP-23: Simplify Job Runner</a></p>
+<p>We are thrilled to announce the release of Apache Samza 1.5.0.</p>
+<p>Today, Samza forms the backbone of hundreds of real-time production applications across a multitude of companies, such as LinkedIn, Slack, and Redfin, among many others. Samza provides leading support for large-scale stateful stream processing with:</p>
+<ul>
+<li>
+<p>First class support for local states (with RocksDB store). This allows a stateful application to scale up to 1.1 Million events/sec on a single machine with SSD.</p>
+</li>
+<li>
+<p>Support for incremental checkpointing of state instead of full snapshots. This enables Samza to scale to applications with very large states.</p>
+</li>
+<li>
+<p>A fully asynchronous programming model that makes parallelizing remote calls efficient and effortless.</p>
+</li>
+<li>
+<p>High level API for expressing complex stream processing pipelines in a few lines of code.</p>
+</li>
+<li>
+<p>Beam Samza Runner that marries Beam&rsquo;s best in class support for EventTime based windowed processing and sophisticated triggering with Samza&rsquo;s stable and scalable stateful processing model.</p>
+</li>
+<li>
+<p>A fully pluggable model for input sources (e.g. Kafka, Kinesis, DynamoDB streams etc.) and output systems (HDFS, Kafka, ElastiCache etc.).</p>
+</li>
+<li>
+<p>A Table API that provides a common abstraction for accessing remote or local databases and allows developers to &ldquo;join&rdquo; an input event stream with such a Table.</p>
+</li>
+<li>
+<p>Flexible deployment model for running the applications in any hosting environment and with cluster managers other than YARN.</p>
+</li>
+</ul>
+<h3 id="new-features-upgrades-and-bug-fixes-">New Features, Upgrades and Bug Fixes:</h3>
+<p>This release brings the following features, upgrades, and capabilities (highlights):</p>
+<h4 id="samza-container-placement">Samza Container Placement</h4>
+<p>Container Placements API gives you the ability to move / restart one or more containers (either active or standby) of your cluster based applications from one host to another without restarting your application. You can use these api to build maintenance, balancing &amp; remediation tools. </p>
+<h4 id="simplify-job-runner-configs">Simplify Job Runner &amp; Configs</h4>
+<p>Job Runner will now simply submit Samza job to Yarn RM without executing any user code and job planning will happen on ClusterBasedJobCoordinator instead. This simplified workflow addresses security requirements where job submissions need to be isolated in order to execute user code as well as operational pain points where deployment failure could happen at multiple places.</p>
+<p>Full list of the jiras addressed in this release can be found <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20and%20fixVersion%20in%20(1.5)">here</a>.</p>
+<h3 id="upgrading-your-application-to-apache-samza-1-5-0">Upgrading your application to Apache Samza 1.5.0</h3>
+<p>ConfigFactory is deprecated as Job Runner does not load full job config anymore. Instead, ConfigLoaderFactory is introduced to be executed on ClusterBasedJobCoordinator to fetch full job config.<br />
+If you are using the default PropertiesConfigFactory, simply switching to use the default PropertiesConfigLoaderFactory will work, otherwise if you are using a custom ConfigFactory, kindly creates its new counterpart following ConfigLoaderFactory. </p>
+<p>Configs related to job submission must be explicitly provided to Job Runner as it is no longer loading full job config anymore.</p>
+<h3 id="simplify-job-runner">Simplify Job Runner</h3>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2488">SAMZA-2488</a> Add JobCoordinatorLaunchUtil to handle common logic when launching job coordinator</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2471">SAMZA-2471</a> Simplify CommandLine</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2458">SAMZA-2458</a> Update ProcessJobFactory and ThreadJobFactory to load full job config</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2453">SAMZA-2453</a> Update ClusterBasedJobCoordinator to support Beam jobs</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2441">SAMZA-2441</a> Update ApplicationRunnerMain#ApplicationRunnerCommandLine not to load local file</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2420">SAMZA-2420</a> Update CommandLine to use config loader for local config file</p>
+<h3 id="container-placement-api">Container Placement API</h3>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2402">SAMZA-2402</a> Tie Container placement service and Container placement handler and validate placement requests</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2379">SAMZA-2379</a> Support Container Placements for job running in degraded state</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2378">SAMZA-2378</a> Container Placements support for Standby containers enabled jobs</p>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2515">SAMZA-2515</a> Thread safety for Kafka consumer in KafkaConsumerProxy</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2511">SAMZA-2511</a> Handle container-stop-fail in case of standby container failover</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2510">SAMZA-2510</a> Incorrect shutdown status due to race between runloop thread and process callback thread</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2506">SAMZA-2506</a> Inconsistent end of stream semantics in SystemStreamPartitionMetadata</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2464">SAMZA-2464</a> Container shuts down when task fails to remove old state checkpoint dirs</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2468">SAMZA-2468</a> Standby container needs to respond to shutdown request</p>
+<h3 id="other-improvements">Other Improvements</h3>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2519">SAMZA-2519</a> Support duplicate timer registration</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2508">SAMZA-2508</a> Use cytodynamics classloader to launch job container</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2478">SAMZA-2478</a> Add new metrics to track key and value size of records written to RocksDb</p>
+<p><a href="https://issues.apache.org/jira/browse/SAMZA-2462">SAMZA-2462</a> Adding metric for container thread pool size</p>
+<h3 id="sources-downloads">Sources downloads</h3>
+<p>A source download of Samza 1.5.0 is available <a href="https://dist.apache.org/repos/dist/release/samza/1.5.0/">here</a>, and is also available in Apache&rsquo;s Maven repository. See Samza&rsquo;s download <a href="https://samza.apache.org/startup/download/">page</a> for details and Samza&rsquo;s feature preview for new features.</p>

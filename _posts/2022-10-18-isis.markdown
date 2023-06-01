@@ -1,7 +1,0 @@
----
-layout: post
-title: Apache Isis version 2.0.0-M9 Released
-date: '2022-10-18T00:00:00+00:00'
-categories: isis
----
-<div>The Apache Isis team is pleased to announce the release of Apache Isis 2.0.0-M9.<br><br>This is primarily a security release, to fix an XSS vulnerability (CVE-2022-42466).&nbsp; There are one or two other small improvements and bug fixes.</div><div><br></div><div>Full release notes are available on the Apache Isis website at [1].<br><br>You can access this release directly from the Maven central repo [2].<br>Alternatively, download the release and build it from source [3].<br><br>--The Apache Isis team<br><br>[1] https://isis.apache.org/relnotes/2.0.0-M9/about.html<br>[2] https://search.maven.org<br>[3] https://isis.apache.org/docs/2.0.0-M9/downloads/how-to.html<br></div><div><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small;"></div>

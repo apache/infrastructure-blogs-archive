@@ -1,0 +1,37 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: CloudStack and OpenSSL CVE-2015-1793
+author:
+  display_name: John Kinsella
+  login: jlk
+  email: 'jlk@apache.org '
+author_login: jlk
+author_email: 'jlk@apache.org '
+id: 2cc8c558-3e10-47d6-b2a1-b09b09e6d321
+date: '2015-07-11 13:42:19 -0400'
+categories:
+- News
+tags:
+- security
+comments:
+- id: 56
+  author: carlogos
+  author_email: likebo@qq.com
+  author_url: http://car-logos.com
+  date: '2017-05-17 09:29:14 -0400'
+  content: great!!
+- id: 31143433
+  author: chuyen ban si quan ao tre em ho chi minh
+  author_email: longthanh4@gmail.com
+  author_url: http://xuongmaylongthanh.vn/quan-ao-tre-em/xuong-may-long-thanh-chuyen-ban-si-quan-ao-tre-em-tai-tp-ho-chi-minh/
+  date: '2018-01-12 01:20:19 -0500'
+  content: I like it
+permalink: cloudstack/entry/cloudstack_and_openssl_cve_2015
+---
+<p><b>Updated July 11th, 2015:</b></b></p>
+<p>After reviewing CloudStack components and seeing <a href="https://security-tracker.debian.org/tracker/CVE-2015-1793">Debian's advisory</a> on CVE-2015-1793 (CloudStack's "system VM" is Debian based), it looks like CloudStack is not affected by this vulnerability.</p>
+<p>Original post follows...</p>
+<p>On the 9th of July, the OpenSSL project announced a high severity vulnerability within the OpenSSL library. While this particular vulnerability does not seem to affect SSL servers, there are security issues with SSL clients powered by OpenSSL.  Because of this, we suspect there may be issues with parts of CloudStack which initiate SSL connections.</p>
+<p>At this point we are still reviewing which particular versions of OpenSSL are used by different versions of CloudStack. Once this review is complete, we will further update the community and this post as to our next steps.</p>

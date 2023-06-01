@@ -1,0 +1,76 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Log4j 2.8.2 released
+author:
+  display_name: Remko Popma
+  login: rpopma
+  email: rpopma@apache.org
+author_login: rpopma
+author_email: rpopma@apache.org
+excerpt: "The Apache Log4j 2 team is pleased to announce the Log4j 2.8.2 release!\r\nThis
+  release primarily contains bugfixes and minor enhancements. \r\n"
+id: 145ef35e-21ac-4fa2-8578-882c39033669
+date: '2019-12-16 19:49:32 -0500'
+categories:
+- General
+tags:
+- logging
+- log4j
+- log4j2
+comments: []
+permalink: logging/entry/log4j-2-8-2-released
+---
+<p><img src="http://logging.apache.org/log4j/2.x/images/logo.png" /></p>
+<p>
+The Apache Log4j 2 team is pleased to announce the Log4j 2.8.2 release!</p>
+<p>Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides many other modern features such as support for Markers, lambda expressions for lazy logging, property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous Loggers. Another notable Log4j 2 feature is the ability to be "garbage-free" (avoid allocating temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring.</p>
+<p>This release primarily contains bugfixes and minor enhancements. More details on the new features and fixes are itemized below.</p>
+<p>Note that subsequent to the 2.6 release a minor source incompatibility was found due to the addition of new methods to the Logger interface. If you have code that does:</p>
+<p><tt>logger.error(null, &ldquo;This is the log message&rdquo;, throwable);</tt></p>
+<p>
+or similar with any log level you will get a compiler error saying the reference is ambiguous. To correct this either do:</p>
+<p><tt>logger.error(&ldquo;This is the log message&rdquo;, throwable);</tt></p>
+<p>
+or</p>
+<p><tt>logger.error((Marker) null, &ldquo;This is the log message&rdquo;, throwable);</tt></p>
+<p>
+The Log4j 2.8.2 API, as well as many core components, maintains binary compatibility with previous releases.</p>
+<h2>GA Release 2.8.2</h2>
+<p>
+Changes in this version include:</p>
+<p>New Features</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1863">LOG4J2-1863</a>: Add support for filtering input in TcpSocketServer and UdpSocketServer.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1848">LOG4J2-1848</a>: Add JSON encoding support to EncodingPatternConverter %encode{}.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1843">LOG4J2-1843</a>: Add support for appending common suffix to each line of throwable stack trace. Thanks to Zilong Song.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1838">LOG4J2-1838</a>: Add support for appending common suffix to each line of extended and root throwable stack trace. Thanks to Zilong Song.
+</ul>
+<p>
+Fixed Bugs</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1861">LOG4J2-1861</a>: Fix JavaDoc on org.apache.logging.log4j.ThreadContext about inheritance.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1862">LOG4J2-1862</a>: Fix JavaDoc about @Order and OrderComparator ordering. Thanks to wangyuntao.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1849">LOG4J2-1849</a>: Fixed daylight savings time issue with FixedDateFormat.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1850">LOG4J2-1850</a>: Fix CassandraRule and unit tests on Windows. Thanks to Ludovic Hochet.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1840">LOG4J2-1840</a>: Fix typo in %replace converter documentation. Thanks to Pradeep Balasundaram.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1846">LOG4J2-1846</a>: Handle when LogEvent.getLoggerName() returns null in LoggerNameLevelRewritePolicy.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1845">LOG4J2-1845</a>: Handle when LogEvent.getLoggerName() returns null in KafkaAppender.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1853">LOG4J2-1853</a>: The default value of RandomAccessFileAppender.Builder append field is wrong. Thanks to wangyuntao.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1835">LOG4J2-1835</a>: Fix documentation about the licensing for JeroMQ.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1836">LOG4J2-1836</a>: Update the API version to 2.6.0.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1831">LOG4J2-1831</a>: NullPointerException in HtmlLayout. Thanks to Edward Serebrinskiy.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1820">LOG4J2-1820</a>: Log4j 2.8 can lose exceptions when a security manager is present. Thanks to Jason Tedor.
+</ul>
+<p>
+Changes</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1827">LOG4J2-1827</a>: Move integration tests to their own module to speed up build.
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-1856">LOG4J2-1856</a>: Update Jackson from 2.8.6 to 2.8.7.
+</ul>
+<p>
+Apache Log4j 2.8.2 requires a minimum of Java 7 to build and run. Log4j 2.3 was the last release that supported Java 6.</p>
+<p>Basic compatibility with Log4j 1.x is provided through the log4j-1.2-api component, however it does not implement some of the very implementation specific classes and methods. The package names and Maven groupId have been changed to org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>

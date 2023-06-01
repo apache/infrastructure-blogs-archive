@@ -1,0 +1,61 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 20x faster mapreduce with gridgain-hadoop accelerator
+author:
+  display_name: Konstantin I Boudnik
+  login: cos
+  email: cos@apache.org
+author_login: cos
+author_email: cos@apache.org
+excerpt: "The article will show you how to speed-up your existing MapReduce code \r\nusing
+  a new Hadoop Accelerator by GridGain. The Accelerator is now available as a part
+  of <a href=\"http://ignite.incubator.apache.org\">\r\nApache Ignite</a> (incubating)."
+id: 9f523308-148d-4a79-8322-663ddfbf1e3b
+date: '2015-02-11 07:15:20 -0500'
+categories:
+- General
+tags:
+- bigtop
+- mapreduce
+- hadoop
+comments: []
+permalink: bigtop/entry/20x_faster_mapreduce_with_gridgain
+---
+<p>Just last year, <a href="www.gridgain.org">Gridgain</a> has opened up their data fabric platform under ASL2.0. Short after, we have added a new in-memory component (aka <a href="http://www.gridgain.com/products/hadoop-accelerator/">Hadoop Accelerator</a>) into Apache bigdata  stack that provides two major features:</p>
+<ul>
+<li>in-memory HDFS caching</li>
+<li>in-memory MapReduce, transparently for any existing MapReduce code, including Hive generated queries</li>
+</ul>
+<p>With usual Bigtop focus on user experience, the setup and configuration are seamless and quick. Yet results are pretty tremendous, as you'll see in a few moments.</p>
+<p>The Accelerator will be soon be released as a part of official 0.9 Bigtop release. For now, you can quickly build the packages for your system by simply running </p>
+<blockquote>
+<p><font face="courier new,courier,monospace">  % gradlew gridgain-hadoop-[apt|yum]</font></p>
+</blockquote>
+<p> on the current Bigtop trunk. You can do it easily with </p>
+<ol>
+<li>
+<p><font face="courier new,courier,monospace">git clone https://git-wip-us.apache.org/repos/asf/bigtop.git &amp;&amp; cd bigtop</font></p>
+</li>
+<li>
+<p><font face="courier new,courier,monospace">puppet apply --modulepath=`pwd` -e "include bigtop_toolchain::installer"</font></p>
+</li>
+<li>
+<p><font face="courier new,courier,monospace">gradlew tasks</font> </p>
+</li>
+</ol>
+<p>Once packages are built you can follow the <a href="https://github.com/apache/bigtop/blob/master/bigtop-deploy/puppet/README.md">deployment process</a>, and only set "gridgain-hadoop" in the list of the desired components, if you aren't interested in HDFS or anything else.</p>
+<p>In our case, we also be installing <font face="courier new,courier,monospace">hadoop &amp; yarn</font> to have some ready MR examples for comparative performance test. Now you should have your cluster running the Accelerator in fully distributed mode. Time for test. During the deployment, new Hadoop client configurations were generated under <font face="courier new,courier,monospace">/etc/hadoop/gridgain.client.conf</font>.  You will need to point your client there using <font face="courier new,courier,monospace">HADOOP_CONF_DIR</font> environment variable. Let's run the job:</p>
+<blockquote>
+<p><font face="courier new,courier,monospace">HADOOP_CONF_DIR=/etc/hadoop/gridgain.client.conf&nbsp; hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 200 200</font></p>
+</blockquote>
+<p>This command will calculate Pi using Quasi MonteCarlo method by running 200 maps with 200 samples per map. If your cluster is similar to mine - 3 2-core VM nodes, 8 GB RAM each, then you'll see the result in about <b>7 seconds</b> from start to finish. Pi is estimated to be <font face="courier new,courier,monospace">3.1414</font>. Close enough!</p>
+<p> Now, let's run the same task but using YARN scheduler with a classic MapReduce application. Same as above, but this time let's use standard Hadoop configuration:</p>
+<blockquote>
+<p><font face="courier new,courier,monospace">hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 200 200</font></p>
+</blockquote>
+<p>We got the same Pi estimation, which is expected considering that exactly the same code was ran, but the time is very different. The execution took <b>143 seconds</b> or about 20 times longer. </p>
+<p>Thanks for great implementation of completely in-memory MapReduce algorithm we were able to get many fold performance improvement without changing a signle line of the application code. Same approach works for Hive queries, where one can make Hive to work with Gridgain Accelerator after as much as supplying a trivial client-side <font face="courier new,courier,monospace">hive-site.xml</font> configuration file.</p>
+<p>One might argue that similar performance gains could perhaps be achieved by using other in-memory technologies like <a href="http://spark.apache.org">Spark</a>. True. Yet with Spark you'll have to learn a new programming paradigm (and possible new language) and rewrite all your existing code to run on Spark cluster. Here you just point your client to a different set of configurations. By the way, Bigtop was first to recognize the value of Spark and started offering it as a part of our 0.6.0 release in early 2012 - well before any commercial vendors jumped on the band wagon. So, I am not bashing Spark in any way.</p>
+<p>The great news: Hadoop Accelerator and the full data fabric platform is now available as <a href="http://ignite.incubator.apache.org">Apache Ignite</a> (incubating) project. As we are tilting more and more towards in-memory data processing stack, we'll be adding the Ignite platform into Bigtop once their first release is out.</p>

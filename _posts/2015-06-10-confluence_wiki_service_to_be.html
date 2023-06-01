@@ -1,0 +1,27 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Confluence Wiki service to be restarted
+author:
+  display_name: asf blog administrator
+  login: asfadmin
+  email: gmcdonald@apache.org
+author_login: asfadmin
+author_email: gmcdonald@apache.org
+id: 6ef18da9-4216-4774-9135-444acdda9930
+date: '2015-06-10 08:35:24 -0400'
+categories:
+- Notices
+tags: []
+comments: []
+permalink: infra/entry/confluence_wiki_service_to_be
+---
+<p>Hi All,</p>
+<p>There will be a planned reboot of Confluence on Friday 12th June at 18:00 UTC+1</p>
+<p>This is a blog post notice as recommended in our Core Services planned downtime SLA.</p>
+<p>The Confluence wiki service configuration is stored in our Puppet configuration.</p>
+<p>We have made some modifications to the Puppet Manifest affecting the Module that<br />Confluence uses (cwiki_asf). Some code is being moved out from the module and <br />into a host specific YAML file. This will make it easier for future hosts to re-use the <br />module (such as an upgrade host currently awaiting these changes.)<br />A twitter notification will be posted 1 hour before.<br />A planned maintenance notice will be posted on status.apache.org.</p>
+<p>If necessary we will make use this outage window to apply any OS updates and reboot <br />the host VM.</p>
+<p>Actual downtime should be no more than 1 hour all being well.</p>
+<p>An email about this will be sent to infrastructure@ after the service has resumed from the planned downtime.</p>

@@ -1,0 +1,84 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Logging log4j 2.0-beta3 released
+author:
+  display_name: Christian Grobmeier
+  login: grobmeier
+  email: grobmeier@apache.org
+author_login: grobmeier
+author_email: grobmeier@apache.org
+excerpt: The Apache Logging team is pleased to announce the Apache log4j 2.0-beta3
+  release!
+id: bc75b0f5-de04-4bdb-a1a4-61c3e1b5a485
+date: '2012-11-15 19:35:50 -0500'
+categories:
+- General
+tags: []
+comments:
+- id: 0
+  author: mens health
+  author_email: therportcountals1978@gmail.com
+  author_url: https://safe-canada-store.com/men%27s-health.html
+  date: '2019-07-19 18:47:22 -0400'
+  content: This is amazingly delicious! Watched a Really well crafted, but its not
+    a big surprise when there are so many good people involved! We also had lots of
+    fun working with food recently, but in a tooootally different approach. nice colors!
+- id: 77
+  author: vedant
+  author_email: shubhamrock19998@gmail.com
+  author_url: ''
+  date: '2019-06-27 06:39:24 -0400'
+  content: I want to work with this site because here we have no need to take any
+    tension http://alarmsinwindows10.com  and here we can learn about that.
+permalink: logging/entry/apache_logging_log4j_2_02
+---
+<h2>The Apache Logging team is pleased to announce the Apache log4j 2.0-beta3 release!</h2>
+<p>Apache log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to<br />
+Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides<br />
+many of the improvements available in Logback while fixing some inherent problems in Logback's<br />
+architecture.</p>
+<p>This is the fifth release of Log4j 2 and is being made available to encourage use and feedback from the community.</p>
+<p>Changes in this version include:</p>
+<h3>New features:</h3>
+<ul>
+<li>LOG4J2-28:  Added PropertiesRewritePolicy and ability to define properties on a Logger.</li>
+<li>LOG4J2-55:  Added ability to configure from an InputSource.</li>
+</ul>
+<h3>Fixed Bugs:</h3>
+<ul>
+<li>LOG4J2-108:  Fix NullPointerException in ClassLoaderContextSelector when no class is returned from<br />
+        the SecurityManager. </li>
+<li>LOG4J2-107:  PatternParser was not properly handling adjacent nested options </li>
+<li>LOG4J2-95:  Add support for loading plugins inside the OSGi bundle. </li>
+<li>LOG4J2-103:  The LogEvent was wrapping a ThrowableProxy with another ThrowableProxy when deserializing. Thanks to Das Archive. </li>
+<li>LOG4J2-104:  Convert LogManager binding to use "regular" java properties instead of XML properties to workaround a<br />
+        bug in Oracle's xmlparserv2 jar. </li>
+<li>LOG4J2-102:  The Facility value was being improperly calculated. Thanks to Emanuele Colombo. </li>
+<li>LOG4J2-101:  A NullPointerException would occur if no format value was passed to the SyslogAppender. Thanks to Emanuele Colombo. </li>
+<li>LOG4J2-99:  MapRewritePolicy had an extra call to putAll that caused updates to behave like adds. Thanks to Das Archive. </li>
+<li>Avoid NPE when duplicate LoggerContextFactorys are present. Allow factories to specify a weight to allow<br />
+        real implementations to outrank test implementations. Provide a simple default LoggerContextFactory. </li>
+<li>LOG4J2-97:  Added several missing classes and methods for Log4j 1.x compatibility. </li>
+<li>LOG4J2-94:  Interpolator was not stripping Lookup key separator when trying to locate the default value for a variable. Thanks to Denis Treskunov. </li>
+<li>Log4j 1.2 Category.forcedLog was wrapping the message with an ObjectMessage even if the parameter was an<br />
+        ObjectMessage. </li>
+</ul>
+<h3>Changes:</h3>
+<ul>
+<li>LOG4J2-105:  Add ability to customize the names of the Levels in the LevelPatternConverter. </li>
+<li>LOG4J2-85:  Add ThreadContext.push(String format, Object... args) </li>
+<li>Created combined jar to combine API and Core contents for users who only want the Log4j implementation. </li>
+<li>LOG4J2-87:  Build pdf of user's guide. </li>
+<li>LOG4J2-29:  Added font and fontSize parameters to HTMLLayout. Replace newlines in message with br tag. </li>
+</ul>
+<p>
+Apache Log4j 2.0-beta2 requires a minimum of Java 5 to build and run. Basic compatibility with<br />
+Log4j 1.x is provided through the log4j12-api component, however it does not implement some of the<br />
+very implementation specific classes and methods. The package names and Maven groupId have been changed to<br />
+org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+<p>
+For complete information on Apache Log4j 2, including instructions on how to submit bug reports,<br />
+patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>

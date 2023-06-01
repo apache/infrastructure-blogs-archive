@@ -1,0 +1,44 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Apache Ignite 2.9 Released: Cluster snapshots and tracing'
+author:
+  display_name: Denis Magda
+  login: dmagda
+  email: dmagda@apache.org
+author_login: dmagda
+author_email: dmagda@apache.org
+id: 56623425-f5ea-45c9-a504-71bc849cbd45
+date: '2020-11-05 23:10:58 -0500'
+categories:
+- General
+tags: []
+comments: []
+permalink: ignite/entry/apache-ignite-2-9-released
+---
+<p>As of October 23, 2020, Apache Ignite 2.9 is available. Like every other Ignite release, release 2.9 includes many changes. Let's take a look at the major features of release 2.9.</p>
+<h3>Cluster Snapshots</h3>
+<p>Ignite 2.9 provides the ability to create full cluster snapshots for deployments that use Ignite Persistence. Snapshots can be taken online, when the cluster is active and accessible to users. An Ignite snapshot includes a cluster-wide copy of all data records that exist at the moment the snapshot is started. All snapshots are consistent &mdash; in terms of concurrent, cluster-wide operations as well as in terms of ongoing changes in Ignite Persistence data, index, schema, binary metadata, marshaller, and other files on nodes. See <a href="https://ignite.apache.org/docs/latest/persistence/snapshots">Ignite documentation</a> to learn about this feature.</p>
+<h3>Tracing</h3>
+<p>The Ignite monitoring system continues to improve. In Ignite 2.9, a new tracing subsystem became available. Tracing provides information that is useful for debugging &mdash; that helps with both regular, daily, basic system monitoring and with incident analysis. You can collect distributed traces of tasks that are executed in your cluster and use this information to diagnose latency problems. In the 2.9 release, the following Ignite components are instrumented for tracing:</p>
+<ul>
+<li>Discovery</li>
+<li>Communication</li>
+<li>Exchange</li>
+<li>Transactions</li>
+</ul>
+<p>See <a href="https://ignite.apache.org/docs/latest/monitoring-metrics/tracing">the documentation</a> for more information.</p>
+<h3>Other Changes</h3>
+<p>In addition to snapshots and tracing, Ignite 2.9 provides the following new features:</p>
+<ul>
+<li>Cluster discovery, cluster API, compute API, and service invocation support for thin clients (Java and .Net)</li>
+<li>Cluster-wide, read-only mode</li>
+<li>Ability to run user-defined code inside the Ignite sandbox</li>
+<li>Transparent data encryption: master key rotation</li>
+<li>Management tools to cancel user tasks and queries</li>
+<li>Platform cache (.Net)</li>
+</ul>
+<p>See the <a href="https://ignite.apache.org/releases/2.9.0/release_notes.html">release notes</a> to learn about all of the new features.</p>
+<p>Sincerely yours,<br />
+Ignite contributors and committers</p>

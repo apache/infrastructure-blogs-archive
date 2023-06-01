@@ -1,0 +1,143 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Scaling Usergrid to over 10,000 requests/second - Part 1
+author:
+  display_name: Dave Johnson
+  login: snoopdave
+  email: snoopdave@apache.org
+author_login: snoopdave
+author_email: snoopdave@apache.org
+id: 8d9c9a66-8d28-47db-bad0-d784a6855733
+date: '2015-09-16 22:06:37 -0400'
+categories:
+- Technology
+tags:
+- elasticsearch
+- performance
+- cassandra
+comments: []
+permalink: usergrid/entry/usergrid_10k_part1
+---
+<p>By Michael Russo</p>
+<p>Based on recent testing at Apigee, the upcoming Apache Usergrid 2 release is set to be the most scalable open-source Backend as a Service available. We were able to drive Usergrid to 10,000 transactions per second and, more importantly, found that Usergrid can scale horizontally. Here's the story of how we got there.</p>
+<h3>What is Usergrid?</h3>
+<p>Apache Usergrid is a software stack that enables you to run a (Backend-as-a-Service) BaaS that can store, index, and query JSON objects. It also enables you to manage assets and provide authentication, push notifications, and a host of other features useful to developers&mdash;especially those working on mobile apps. </p>
+<p>The project recently graduated from the Apache Incubator and is now a top-level project of the Apache Software Foundation (ASF). Usergrid is new at Apache, but Apigee has been using it in production for three years now as the foundation for Apigee's API BaaS product.</p>
+<h3>What's new in Usergrid 2?</h3>
+<p>Usergrid 2 features the same REST API as Usergrid 1, but under the hood just about everything has changed. Usergrid 2 includes a completely new persistence engine backed by Apache Cassandra and a query/indexing service backed by ElasticSearch.  We brought ElasticSearch into Usergrid because the query/index service in Usergrid 1 was not performing well and was complex and difficult to maintain. ElasticSearch does a much better job of query/index than we could have done ourselves. Additionally, separating key-value persistence from index/query allows us to scale each concern separately.</p>
+<p>As the architecture of Usergrid changed drastically, we needed to have a new baseline performance benchmark to make sure the system scaled as well as, if not better than, it did before. Let's talk about how we tested.</p>
+<h3>Our testing framework and approach</h3>
+<p>The Usergrid team has invested a lot of time building repeatable test cases using the Gatling load-testing framework. Performance is a high priority for us and we need a way to validate performance metrics for every release candidate. </p>
+<p>As Usergrid is open source, so are our Usergrid-specific Gatling scenarios, which you can find here: <a href="https://github.com/apache/usergrid/tree/two-dot-o-dev/stack/loadtests">stack/loadtests</a> (on Github).</p>
+<h3>Usergrid application benchmark</h3>
+<p>One of our goals was to prove that we had the ability to scale more requests per second with more hardware, so we started small and worked our way up.</p>
+<p>As the first in our series of new benchmarking for Usergrid, we wanted to start with a trivial use case to establish a solid baseline for the application. All testing scenarios use the HTTP API and test the concurrency and performance of the requests. We inserted a few million entities that we could later read from the system. The test case itself was simple. Each entity has a UUID (universally unique identifier) property. For all the entities we had inserted, we randomly read them out by their UUID:</p>
+<pre>GET /organization/application/collection/:entityUUID</pre>
+<p>First, we tried scaling the Usergrid application by its configuration. We configured a higher number of connections to use for Cassandra and a higher number of threads for Tomcat to use.  This actually yielded higher latencies and system resource usage for marginally the same throughput. We saw better throughput when there was less concurrency allowed. This made sense, but we needed more, and immediately added more Usergrid servers to verify horizontal scalability. What will it take to get to 10,000 RPS?</p>
+<table width="90%" class="blog-table">
+<tr style="background: #eee">
+<th># Usergrid Servers</th>
+<th># Cassandra Nodes</th>
+<th>Peak Requests Per Second</th>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>1420</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>2248</td>
+</tr>
+<tr>
+<td>10</td>
+<td>6</td>
+<td>3324</td>
+</tr>
+<tr>
+<td>20</td>
+<td>6</td>
+<td>3820</td>
+</tr>
+<tr style="background: #eee">
+<td colspan="3">
+	Switch to nine c3.2xlarge instances for Cassandra
+	</td>
+</tr>
+<tr>
+<td>20</td>
+<td>9</td>
+<td>6321</td>
+</tr>
+<tr style="background: #eee">
+<td colspan="3">
+	Switch to nine c3.4xlarge instances for Cassandra
+	</td>
+</tr>
+<tr>
+<td>20</td>
+<td>9</td>
+<td>7237</td>
+</tr>
+<tr>
+<td>30</td>
+<td>9</td>
+<td>9120</td>
+</tr>
+<tr>
+<td>35</td>
+<td>9</td>
+<td>10268</td>
+</tr>
+</table>
+<h3>Cassandra Performance</h3>
+<p>It was time to see if Cassandra was keeping up. As we scaled up the load we found Cassandra read operation latencies were also increasing. Shouldn't Cassandra handle more, though? We observed a single Usergrid read by UUID was translating to about 10 read operations to cassandra. Optimization #1: reduce the number of read operations from Cassandra on our most trivial use case. Given what we know, we still decided to test up to a peak 10,000 RPS in the current state.  </p>
+<p><img src="https://blogs.apache.org/usergrid/mediaresource/5dea6bbc-461e-4ae2-b0c9-372c733a8c70" alt="RPS screen shot"/></p>
+<p><img src="https://blogs.apache.org/usergrid/mediaresource/3edc219b-82f4-44fa-9a36-5d4d1a6bdf06" alt="RPS statistics screen shot/></p>
+<p>The cluster was scaled horizontally (more nodes) until we needed to vertically scale (bigger nodes) Cassandra due to high CPU usage.  We stopped at 10,268 Requests Per Second with 35 c3.xlarge Usergrid servers and 9 c3.4xlarge Cassandra nodes. By this point numerous opportunities for improvement were identified in the codebase, and we had already executed on some. We fully expect to reach the same throughput with much less infrastructure in the coming weeks. In fact, we've already reached ~7,800 RPS with only 15 Usergrid servers since our benchmarking.</p>
+<h3>Deployment/Runtime Architecture</h3>
+<p>Here are the components that we used in our Usergrid performance testing:</p>
+<ul>
+<li>Tomcat 7.0.62 where the Usergrid WAR file is deployed</li>
+<li>Cassandra 2.0.15 w/ Astyanax client</li>
+<li>Elasticsearch 1.4.4 (not utilized in these tests)</li>
+</ul>
+<p>As part of benchmarking, we wanted to ensure that all configurations and deployment scenarios exactly matched how we would run a production cluster.  The main configurations that are recommended for production use of Usergrid are:</p>
+<table style="width:90%" class="blog-table">
+<tr style="background: #eee">
+<th></th>
+<th>Usergrid (Application)</th>
+<th>Tomcat (Container)</th>
+<th>Cassandra (Database)</th>
+</tr>
+<tr>
+<td style="background: #eee">1</td>
+<td>LOCAL QUORUM read and write consistency set for Cassandra operations</td>
+<td>Blocking IO connector ( required in Usergrid)</td>
+<td>6+ node cluster size</td>
+</tr>
+<tr>
+<td style="background: #eee">2</td>
+<td>Configure separate Keyspace used for Locks vs. Main Usergrid application</td>
+<td>Use HTTP 1.1 and ensure keepAlive is configured</td>
+<td></td>
+</tr>
+<tr>
+<td style="background: #eee">3</td>
+<td>Configure max # of connections used per Cassandra node to be 15</td>
+<td>Non-SSL connector (SSL typically handled by a load balancer)</td>
+<td width="20%">Replication Factor = 3</td>
+</tr>
+</table>
+<h3>What's Next?</h3>
+<p>As part of this testing, not only did we identify code optimizations that we can quickly fix for huge performance gains, we also learned more about tuning our infrastructure to handle high concurrency. Having this baseline gives us the motivation to continually improve performance of the Usergrid application, reducing the cost for operating a BaaS platform at huge scale.</p>
+<p>This post is just the start of our performance series.  Stay tuned, as we&rsquo;ll be publishing more results in the future for the following Usergrid scenarios:</p>
+<ul>
+<li>Query performance - this includes complex graph and geo-location queries</li>
+<li>Write performance - performance of directly writing entities as well as completing indexing</li>
+<li>Push Notification performance - this is a combination of query and write performance</li>
+</ul>
+<p>See you next time!</p>

@@ -1,0 +1,92 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Logging log4j 2.0-beta2 released
+author:
+  display_name: Christian Grobmeier
+  login: grobmeier
+  email: grobmeier@apache.org
+author_login: grobmeier
+author_email: grobmeier@apache.org
+id: 5b464feb-c586-4e82-887d-2e95a0782279
+date: '2012-10-13 19:37:20 -0400'
+categories:
+- General
+tags: []
+comments:
+- id: 0
+  author: delucsiemap1989
+  author_email: delucsiemap1989@gmail.com
+  author_url: https://blogss.apache.org
+  date: '2019-07-18 15:26:00 -0400'
+  content: This looks like fun. We really like colours and delicacy of the graphic.
+    Cool animation.
+- id: 0
+  author: 'trouble tank '
+  author_email: shubhamrock19998@gmail.com
+  author_url: http://tanktrouble.xyz
+  date: '2019-08-13 08:07:21 -0400'
+  content: Thank for the promoting for the best feature for the gaming to the all
+    user in computer system. so come here.
+- id: 263
+  author: online
+  author_email: relarera1984@gmail.com
+  author_url: https://houstonmedic.com/other/deltasone_es.html
+  date: '2019-07-20 22:23:20 -0400'
+  content: Wow nice concept excellent. good job. i like this project. The images are
+    stunning.
+permalink: logging/entry/apache_logging_log4j_2_01
+---
+<h2>The Apache Logging team is pleased to announce the Apache log4j 2.0-beta2 release!</h2>
+<p>Apache log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to<br />
+Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides<br />
+many of the improvements available in Logback while fixing some inherent problems in Logback's<br />
+architecture.</p>
+<p>This is the fourth release of Log4j 2 and is being made available to encourage use and feedback from the community.</p>
+<h2>Bug fixes and enhancements</h2>
+<p>Changes in this version include:</p>
+<h3>New features:</h3>
+<ul>
+<li>LOG4J2-35:  Add interval and modulate options to TimeBasedTriggeringPolicy to allow more fine-grained control of<br />
+        when file rolling should occur. </li>
+<li>LOG4J2-58:  Add support for filtering packages from stack traces. </li>
+<li>LOG4J2-84:  If system property "disableThreadContextStack" is set pushes to the ThreadContext will be ignored. If<br />
+        system property "disableThreadContext" is set both puts and pushes will be ignored. </li>
+<li>LOG4J2-83:  If system property "disableThreadContextMap" is set puts to the ThreadContext will be ignored. If<br />
+        system property "disableThreadContext" is set both puts and pushes will be ignored. </li>
+<li>Add support for ANSI colors by adding the highlight and style pattern converters. Fix pattern<br />
+        parsing to allow nested patterns. </li>
+<li>Allow the status logging to be directed to stderr or to a file. </li>
+<li>Add getFormats to MultiformatMessage and allow StructuredDataMessage to format as XML. </li>
+</ul>
+<h3>Fixed Bugs:</h3>
+<ul>
+<li>DefaultConfiguration was not starting the Console Appender.
+<li>LOG4J2-92:  Converted DynamicThresholdFilter to use KeyValuePair. Fixed bugs in the Map-based filters<br />
+        to allow declaration of multiple values for a key to match the documentation. </li>
+<li>LOG4J2-88:  Many logging methods in AbstractLogger were set to an incorrect logging level. catching was<br />
+        using the THROWING marker and was set to debug instead of error. </li>
+<li>LOG4J2-91:  Log4j 1.2 adapter's Category class was missing 3 log methods. </li>
+<li>LOG4J2-84:  If the ThreadContext stack is empty the LogEvent will contain a null value to reduce the overhead of<br />
+        creating log events and in the size of the serialized object. Changed the ThreadContext stack to use<br />
+        a custom stack interface instead of java.util.Stack as that class is overly heavy. This change will<br />
+        cause an API incompatibility. </li>
+<li>LOG4J2-83:  If the ThreadContext map is empty the LogEvent will contain a null value to reduce the overhead of creating<br />
+        log events and in the size of the serialized object. </li>
+<li>LOG4J2-90:  Add documentation on client vs server mode to performance page. </li>
+<li>Move variable substitution from PatternLayout to appropriate converters to improve performance. </li>
+</ul>
+<h3>Changes:</h3>
+<ul>
+<li>Made ParameterizedMessage, StringFormattedMessage and ThreadDumpMessage immutable. LocalizedMessage is<br />
+        immutable except that it will be updated with the logger name when it is added to the LogEvent. </li>
+</ul>
+<h2>Requirements</h2>
+<p>Apache Log4j 2.0-beta2 requires a minimum of Java 5 to build and run. Basic compatibility with<br />
+Log4j 1.x is provided through the log4j12-api component, however it does not implement some of the<br />
+very implementation specific classes and methods. The package names and Maven groupId have been changed to<br />
+org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug reports,<br />
+patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>

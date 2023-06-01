@@ -1,0 +1,70 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven PMD Plugin, version 3.18.0
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: 402c1819-6b91-4591-adab-e1c7922754b3
+date: '2022-08-27 10:13:03 -0400'
+categories:
+- Plugin Release
+tags:
+- plugin
+- maven
+comments: []
+permalink: maven/entry/apache-maven-pmd-plugin-version4
+---
+<div class="post_body">
+<p>The Maven team is pleased to announce the release of the<br />
+<a href="https://maven.apache.org/plugins/maven-pmd-plugin/">Apache Maven PMD Plugin, version 3.18.0</a></p>
+<p>A Maven plugin for the PMD toolkit, that produces a report on both code rule<br />
+violations and detected copy and paste fragments, as well as being able to fail<br />
+the build based on these metrics.</p>
+<p>You can download the appropriate sources etc. from the<br />
+<a href="https://maven.apache.org/plugins/maven-pmd-plugin/download.cgi">download page</a>.</p>
+<p>You should specify the version in your project's plugin configuration:</p>
+<div class="highlight">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt"><plugin></span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="nt"><artifactId></span>maven-pmd-plugin<span class="nt"></artifactId></span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  <span class="nt"><version></span>3.18.0<span class="nt"></version></span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nt"></plugin></span>
+</span></span></code></pre>
+</div>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317621&amp;version=12351813">Release Notes - Apache Maven PMD Plugin - Version 3.18.0</a></p>
+<ul>
+<li>
+<p>New Feature:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-348">MPMD-348</a> - Support Java 19</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-345">MPMD-345</a> - Upgrade to PMD 6.47.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-347">MPMD-347</a> - Upgrade to PMD 6.48.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-349">MPMD-349</a> - Upgrade Maven Reporting API to 3.1.1/Maven Reporting Impl to 3.2.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-350">MPMD-350</a> - Upgrade Maven Shared Utils to 3.3.4</li>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-351">MPMD-351</a> - Upgrade Maven Artifact Transfer to 0.13.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MPMD-352">MPMD-352</a> - Upgrade Maven Common Artifact Filters to 3.3.1</li>
+</ul>
+</li>
+</ul>
+<p>Compatibility Notice:</p>
+<ul>
+<li>For technical reasons the parameter <code>sourceEncoding</code> has been replaced with <code>inputEncoding</code>.
+<ul>
+<li>For details please see <a href="https://issues.apache.org/jira/browse/MPMD-349">MPMD-349</a></li>
+<li><a href="https://github.com/apache/maven-pmd-plugin/commit/2b7d2d7065bae1f984c82d210062064376fbd430">Git commit</a></li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Maven team</p>
+</p></div>

@@ -1,0 +1,45 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache TomEE 1.6.0.1 Released!
+author:
+  display_name: andygumbrecht
+  login: andygumbrecht
+  email: andygumbrecht@apache.org
+author_login: andygumbrecht
+author_email: andygumbrecht@apache.org
+id: f1cea83b-4a38-4044-8cb9-cdc54b238f25
+date: '2014-05-06 20:23:32 -0400'
+categories:
+- General
+tags:
+- tomee
+comments:
+- id: 0
+  author: Schlafmittel
+  author_email: tiboggveti1988@gmail.com
+  author_url: http://de-online-apotheke.com/category/sleep%20aid?lang=de
+  date: '2019-07-19 20:35:08 -0400'
+  content: Niceeeee which 3d software did you do this for making this product?
+- id: 49
+  author: itlirefnoa1986
+  author_email: itlirefnoa1986@gmail.com
+  author_url: https://blogss.apache.org
+  date: '2019-07-18 15:09:21 -0400'
+  content: Thank you @Maliha Hasan and @Zuhair Mehdi
+permalink: tomee/entry/apache_tomee_1_6_0
+---
+<p>Apache TomEE is happy to announce the security related release of <a href="http://tomee.apache.org/downloads.html">Apache TomEE 1.6.0.1</a> which is now based on <a href="http://tomcat.apache.org/tomcat-7.0-doc/index.html">Apache Tomcat 7.0.53</a> - The principal focus of this release is to provide compatibility for a significant security fix introduced in Tomcat 7.0.51 for the Apache Commons FileUpload. We recommend to all TomEE 1.6.0 users that are affected by this issue to upgrade TomEE to this latest version at the earliest opportunity.</p>
+<p>Complete details of the issue can be found at the following link:</p>
+<p>*Important: Denial of Service*<br />
+CVE-2014-0050<<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0050">http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0050)</a>> </p>
+<p>It goes without saying that everyone has heard of the Heartbleed issue and we have quickly replaced the included Apache Tomcat Native library with version 1.1.30 for this release, should anyone be using it. Note, this is not the default for TomEE and it does not resolve the issue, for that you will still need to update your OpenSSL - It merely enables the use of a more recent OpenSSL version. You can find more information here:</p>
+<p><a href="http://tomcat.apache.org/native-doc/">http://tomcat.apache.org/native-doc/</a> - You may need to refresh the page if you have been checking the site as it was only recently updated. </p>
+<p>We would like to thank everyone in the community involved in the reporting, documentation and final resolution of this issue. A very special thank you goes out to Romain Manni-Bucau and Jonathan Gallimore for their tireless efforts in enabling us to provide this release so quickly.</p>
+<p>The Apache TomEE Release 1.6.0.1 files can be found here:</p>
+<p><a href="http://tomee.apache.org/downloads.html">http://tomee.apache.org/downloads.html</a></p>
+<p>A complete Changelog can be viewed here:</p>
+<p><a href="http://tomee.apache.org/tomee-1.6.0.1-release-notes.html">http://tomee.apache.org/tomee-1.6.0.1-release-notes.html</a></p>
+<p>To see the full Changelog of Apache Tomcat since version 7.0.51 follow this link:<br />
+<a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">http://tomcat.apache.org/tomcat-7.0-doc/changelog.html</a></p>

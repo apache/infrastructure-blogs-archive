@@ -1,0 +1,49 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Project Perspectives: Apache RocketMQ and The Apache Way'
+author:
+  display_name: Sally Khudairi
+  login: sk
+  email: sk@haloworldwide.com
+author_login: sk
+author_email: sk@haloworldwide.com
+id: 61e8d6f6-2eaf-43ba-aae3-0bc199ac0d9a
+date: '2019-03-20 02:17:19 -0400'
+categories:
+- SuccessAtApache
+tags:
+- how
+- rocketmq
+- the
+- way
+- them
+- apache
+- perspectives
+- helped
+- project
+- 'on'
+comments: []
+permalink: foundation/entry/project-perspectives-apache-rocketmq-and
+---
+<div>by Von Gosling, member of the <a href="https://rocketmq.apache.org/">Apache RocketMQ</a> Project Management Committee</div>
+<div></div>
+<div>Last year, I wrote a blog about <a href="https://blogs.apache.org/foundation/entry/success-at-apache-open-innovation">how communities from a non-English-speaking country understand and use Apache way for open innovation</a>. In that article, I mainly expressed the desire to be open as a developer, to be good at using mailing lists, listening to community voices and making decisions. In addition, project communities can also organize more programming activities like Google Summer of Code ("GSoC"; applications are now open for the 2019 program) to help developers learn how to become involved in the community-led development process as well as provide greater help and encouragement for developers to join the community. After that, I have been thinking about sharing some Apache RocketMQ community building and collaborative innovation stories through some real-life examples. It is my great honor to share some stories with community at the upcoming ASF anniversary celebration. IMO, The Apache Way has greatly helped Apache RocketMQ to grow its community since entering the Apache Incubator in 2016.</div>
+<div></div>
+<div>Apache RocketMQ was originally created and used as a distributed messaging engine for online e-commerce transaction processing. It could undertake billions, even trillions of&nbsp; message transmissions in many companies&rsquo; production environments. RocketMQ has been proven to be suitable for high-throughput, low-latency messaging systems in the large-scale distributed scenarios. A standard OpenMessaging project on the Linux Foundation provides a common benchmarking platform[1] for distributed messaging systems in the cloud including Apache RocketMQ. Of course, as a widely used messaging engine, the functional level, RocketMQ provides both pull and push models, supporting scheduled message, ordered message, batch message, broadcast message, message filtering, dead-letter queue and so on, almost sustaining all classic event driven or streaming scenarios. Even so, there are still a few core features not included from an enterprise perspective. Last year, the RocketMQ community announced three attractive features: transactional message, message tracing, authentication and authorization. The transactional message implements the transaction consistency guarantee between the sender and the local business operation. This feature is a very valuable feature which was initiated and contributed by several individuals from the financial industry. While based on transactional messages, we could build a full-stack distributed transaction platform, which is suitable for long-running microservice.&nbsp;</div>
+<div></div>
+<div>In the enterprise application for messaging, there has always been a troubling problem. Where did my message send to? How can I find message accumulation if the consumer has failed or not? That&rsquo;s a very difficult task especially when we are providing cloud pub/sub service, because messaging is an asynchronous decoupling process, the natural upstream and downstream are not aware of each other. Fortunately, some guys from the China Mobile Research Institute found some of the pmc members at Apache RocketMQ Meetup and mentioned their troubles. So, we showed them the latest RIP[2]&nbsp; plan from the community, which is a very challenging optimization and improvement for Apache RocketMQ intra code. Under the help of a Project Management Committee (PMC) member, RIP were proposed, discussed and accepted. After the necessary time planning, we started to design, coding and discuss, exchange code implementation details, which includes several meetups to gather together to discuss and review the code until the later online verification and released. More interesting, in the following review process, another cloud vendor from the community has joined. After simple video communication, the original implementation was optimized to be compatible with its implementation. Finally, in the community, we are happy to see that the new version has been verified in production by two cloud vendors. The ACL feature is also a process in which the PMC and the community continue to collaborate, and the final version of the RIP is finally published. Through the meetup we collected the requirements, through open discussion, coupled with the video communication using Zoom, the RocketMQ community completed the several important releases in the last year. At the same time, in order to better promote ecological flourishing, several projects residing under the Apache RocketMQ external repository were reorganized (80% above projects contributed by community during incubation). In addition to setting milestones, this time we added similar incubations and graduation mechanism further reduces the difficulty of community participation while better guarantee product quality. Today, several different language sdk projects that have graduated are from a large number of users in use and maintenance. The enthusiasm of the community completely surpasses thoughts. It also verifies that the future cloud architecture is language-independent, even serverless. Under this general trend, the community's guys actively participated in the RocketMQ multi-language ecological construction. RocketMQ now supports java, cpp, python, go, nodejs and other languages are planning and on the way. Even, the current CPP client can support up to 8 platforms, like CentOS, MacOS, Ubuntu and Windows.</div>
+<div></div>
+<div>Not only that, more and more community enthusiasts are also spontaneously self-organizing: they are also actively planning similar activities in the city station, but also need to give some attention and encouragement by PMCs. At the same time, this also provoked us to think about whether the Apache community should have a developer-oriented role like release manager, such as developer-relationship maintainer, project manager, to let more users understand, and become more involved in the product. The community development in recent years has also brought many new signs to the RocketMQ community. There are more and more active developers in the community. In roughly three months, nearly 2,000 emails were sent from the dev email list. Research has shown that 70% of top banks in China use Apache RocketMQ on the core business link, approximately 60% of Internet finance and insurance customers use RocketMQ in their production environments, and 75% of top 20 Internet companies in China widely use classic pub/sub scenarios.</div>
+<div></div>
+<div>Recently, the RocketMQ community has been discussing the development of the next-generation messaging platform. We hope it is a unified messaging engine with lightweight data processing platform, and welcome everyone to become involved and tell the PMC what features you are most looking forward to seeing in future versions of RocketMQ.</div>
+<div></div>
+<div>Many thanks to The Apache Software Foundation for its open and inclusive community culture that helps RocketMQ build a broader community. It will soon be 20th anniversary. I am pleased to represent the RocketMQ community in wishing the ASF a happy 20th anniversary, hoping for many more and continuing to thrive.</div>
+<div>
+</div>
+<div>[1] <a href="https://github.com/openmessaging/openmessaging-benchmark">https://github.com/openmessaging/openmessaging-benchmark</a><br />[2] <a href="https://github.com/apache/rocketmq/wiki/RocketMQ-Improvement-Proposal">https://github.com/apache/rocketmq/wiki/RocketMQ-Improvement-Proposal</a></div>
+<div>
+<p># # #</p>
+<p>Part of the <a href="https://blogs.apache.org/foundation/category/SuccessAtApache">"Success at Apache"</a> series, Project Perspectives chronicles how projects and their communities have benefited from The Apache Way.&nbsp;</p>
+</p></div>

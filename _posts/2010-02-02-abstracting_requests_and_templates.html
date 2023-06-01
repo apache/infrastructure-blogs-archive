@@ -1,0 +1,86 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Abstracting requests and templates
+author:
+  display_name: Antonio Petrelli
+  login: apetrelli
+  email: apetrelli@apache.org
+author_login: apetrelli
+author_email: apetrelli@apache.org
+excerpt: 'New developments in Tiles sandbox: the Tiles request microframework and
+  the &quot;Autotag&quot; project.'
+id: ad80ba9e-aaf0-45e2-a10a-c517a25e15f8
+date: '2010-02-02 13:58:16 -0500'
+categories:
+- Development
+tags:
+- freemarker
+- velocity
+- request
+- tiles
+- jsp
+comments: []
+permalink: tiles/entry/abstracting_requests_and_templates
+---
+<p>If you are following the developments of the <a href="http://svn.eu.apache.org/repos/asf/tiles/sandbox/trunk/">Tiles sandbox</a>&nbsp;you might have noticed that there are three projects:</p>
+<p>&nbsp;</p>
+<ol>
+<li>the usual Tiles project, the version 3;</li>
+<li>the "tiles-request" project, a project to abstract the concept of "request"</li>
+<li>the "tiles-autotag", a project that I would like to auto-generate tags (or tag-like) artifact from a common template code.</li>
+</ol>
+<div>
+<h1>Tiles Request microframework</h1>
+<p>We've all seen that the various technologies like Servlet, Portlet, JSP, Velocity, FreeMarker seem to have a different abstraction of a common pattern.&nbsp;They all have a concept of:</p>
+<p>&nbsp;</p>
+<ul>
+<li>request: the client request, or some sort of it;</li>
+<li>response: the response to send to the client, or to the caller, with a writer/output stream to write into;</li>
+<li>attributes: usually maps (or map-like structures) with string keys and object values;</li>
+<li>scope: places where different attribute maps are stored (request, session, etc.)</li>
+</ul>
+<p>Now all of these scopes are concentrated into the "Request" interfaces, that acts as a single point of reference for the developer. In theory, everything can be obtained by an object that implements Request.</p>
+<p>&nbsp;</p>
+<p>Currently there are bindings for Servlet, Portlet, JSP, Velocity and FreeMarker.</p>
+<p>The Tiles Request microframework is 100% developed.</p>
+<h1>Autotag: generate tags from a common template</h1>
+<p>When I wished to add FreeMarker support, in Tiles 2.2, I've seen a pattern: most of the code was perfectly the same. So I created the "Tiles template" module that contains all of this common code that will be called by JSP taglibs, FreeMarker directives and Velocity directives.</p>
+<p>There was a problem though: the request layer of Tiles 2.2 does not contain all of the needed concept of a complete abstraction. If you see <a href="http://svn.eu.apache.org/repos/asf/tiles/framework/tags/tiles-2.2.1/tiles-template/src/main/java/org/apache/tiles/template/ImportAttributeModel.java">ImportAttributeModel</a> in particular, there is an exception to the pattern: the "getImportedAttributes" returns something, the other template classes are void.</p>
+<p>Thanks to the Tiles Request microframework, in Tiles 3 these template are perfectly the same:</p>
+<p>&nbsp;</p>
+<ul>
+<li>body tags have a "start" and "end" methods with a variable number of parameters, the last one is a Request, and the body is in the "end" method, if needed;</li>
+<li>body-less tags have an "execute" method, like the "start" method above.</li>
+</ul>
+<div>
+<p>The JSP tags and directives in Velocity and FreeMarker support are simply boilerplate code, that might be generated automatically in some way.</p>
+<p>This code generation should be done in two steps:</p>
+<p>&nbsp;</p>
+<ol>
+<li>source code analisys of the template code, that extracts an object model of these classes, including Javadocs;</li>
+<li>code generation, that takes the model above and generates boilerplate code for the various platforms.</li>
+</ol>
+<div>
+<p>I almost accomplished the first task thanks to <a href="http://qdox.codehaus.org/">QDox</a>, a source code analisys tool that extracts Javadocs too (cool! cooler than Compiler Tree API that I failed to use since it was too difficult). Check out the <a href="http://svn.eu.apache.org/repos/asf/tiles/sandbox/trunk/tiles-autotag/tiles-autotag-core/">tiles-autotag-core</a> project yourself: there is a JUnit test that builds a model from some sample classes.</p>
+<p>There are still problems, in particular:</p>
+<p>&nbsp;</p>
+<ul>
+<li>how to identify mandatory parameters?</li>
+<li>how to identify the "body" parameter?</li>
+</ul>
+<div>I think that the solution is using to annotate those parameters. Expect Autotag annotations soon :-)</div>
+<p>&nbsp;</p>
+<p>The second step will use a template to parse the model above. I hope to use Velocity for this.</p>
+<p>Everything will be wrapped into a Maven plugin with two goals:</p>
+<p>
+<ol>
+<li>one to deduce the model and publish it as an artifact containing an XML;</li>
+<li>one to read the model and generate technology-specific (for JSP, Velocity etc.) code.</li>
+</ol>
+<div>I guess there's a lot of things to do :-D</div></p>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>

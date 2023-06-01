@@ -1,0 +1,917 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Flume - Architecture of Flume NG
+author:
+  display_name: Arvind Prabhakar
+  login: arvind
+  email: arvind@apache.org
+author_login: arvind
+author_email: arvind@apache.org
+excerpt: '<div style="background-color: transparent; "><font face="Arial"><span style="font-size:
+  15px; white-space: pre-wrap; ">Apache Flume is currently undergoing incubation at
+  The Apache Software Foundation. Work related to it''s next major revision is informally
+  referred to as <i>Flume NG</i>. This blog post covers the high level architecture
+  of Flume NG. This is first in a series of blog posts that will drill into the detailed
+  design and implementation of Flume NG.</span></font></div>'
+id: 3594791a-7e63-4f21-84c0-7b6d146cb2e4
+date: '2011-12-09 18:30:16 -0500'
+categories:
+- General
+tags:
+- hadoop
+- flume
+- flume-ng
+comments:
+- id: 0
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Cloudera+Flume
+  date: '2012-05-24 17:52:19 -0400'
+  content: "[Trackback] Overview https://github.com/cloudera/flume Clouder"
+- id: 0
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Cloudera+Flume
+  date: '2012-05-24 17:52:40 -0400'
+  content: "[Trackback] Overview https://github.com/cloudera/flume Clouder"
+- id: 0
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2012-05-24 18:43:52 -0400'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 0
+  author: Bee
+  author_email: beedee-flume-blogs.apache.org@grmbl.net
+  author_url: ''
+  date: '2016-10-27 13:57:28 -0400'
+  content: "It's => short for It is\r\nIts => possesive form\r\n\r\nits shape, it
+    is round\r\n\r\nit's far from its centre \r\n\r\n"
+- id: 0
+  author: Manjeet
+  author_email: manjeetsuhag@gmail.com
+  author_url: ''
+  date: '2015-12-30 11:53:14 -0500'
+  content: "I assume, Agent is a Java programs or process. \r\n\r\nIf these are processes,
+    how they are communicating with each other, IPC?\r\n\r\nIf they are programs,
+    are they running on same JVM?\r\n\r\nA little inside Transactions handling would
+    help.\r\n\r\nThanks.\r\n"
+- id: 0
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Apache+Flume+-+Flume+NG
+  date: '2013-01-04 17:01:16 -0500'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 0
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Scribe+vs+Flume+Comparison
+  date: '2013-03-11 07:08:26 -0400'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-27 15:13:09 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 09:32:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 09:42:04 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 10:11:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 13:52:06 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Architecture
+  date: '2013-10-04 14:22:17 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Architecture
+  date: '2013-10-04 14:26:08 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 0
+  author: 'Confluence: Cloud'
+  author_email: ''
+  author_url: https://confluence.lab.nsslabs.com/display/CLOUD/2014/01/20/Hadoop+-+Big+Data+Analytics
+  date: '2014-01-20 15:15:23 -0500'
+  content: "[Trackback] With increased customer adoption, there are now hu"
+- id: 0
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Scribe+vs+Flume+Comparison
+  date: '2014-01-21 02:51:55 -0500'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 0
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Apache+Flume+-+Flume+NG
+  date: '2014-03-01 10:01:25 -0500'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 0
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Apache+Flume+-+Flume+NG
+  date: '2014-03-01 10:48:25 -0500'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 0
+  author: Mikhil Nagarale
+  author_email: mikhil.nagarale@gmail.com
+  author_url: ''
+  date: '2017-08-23 05:37:05 -0400'
+  content: "Hi Team,\r\n\r\nYour link is really Good! I'm first time reading this
+    link without any background & I like it really!\r\n\r\nAwesome content!\r\n\r\nIf
+    possible pls share some use cases.\r\n\r\n\r\nRegards,\r\nMikhil"
+- id: 0
+  author: instagramcaptions
+  author_email: awawffwaawffwa0@gmail.com
+  author_url: ''
+  date: '2019-03-21 11:58:52 -0400'
+  content: "My someone that I very like your calculation machine on-line and affirm
+    the mass your post's to be solely what i'm gazing. ar you able to very offer visitant
+    manufacturers to form content material for you? i might not neural structure subsidence
+    a post or explaining on assortment of the topic downside you compose with regard
+    to here. once more, awe-inspiring weblog! \r\nhttps://instagramcaptions.org/savage-captions/\r\nhttps://instagramcaptions.org/"
+- id: 0
+  author: sbobet
+  author_email: tunasbolaid@gmail.com
+  author_url: https://tunasbola.org/link-alternatif-sbobet/
+  date: '2019-12-27 02:37:27 -0500'
+  content: i like your website. it help me alot
+- id: 0
+  author: http://www.tunaspoker.online/
+  author_email: tunaspoker88@gmail.com
+  author_url: http://www.tunaspoker.online/
+  date: '2019-12-27 02:39:58 -0500'
+  content: nice architecture of website thanks
+- id: 0
+  author: ایرنیک
+  author_email: tabliqcom5@gmail.com
+  author_url: https://www.reddit.com/r/registerdomain/comments/c60vb2/%d8%ab%d8%a8%d8%aa_%d8%af%d8%a7%d9%85%d9%86%d9%87_%d8%af%d8%b1_%d8%a7%db%8c%d8%b1%d8%a7%d9%86_%d8%b3%d8%b1%d9%88%d8%b1/
+  date: '2019-06-27 04:28:30 -0400'
+  content: "ایرنیک\r\nhttps://www.reddit.com/r/RegisterDomain/comments/c60vb2/%D8%AB%D8%A8%D8%AA_%D8%AF%D8%A7%D9%85%D9%86%D9%87_%D8%AF%D8%B1_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86_%D8%B3%D8%B1%D9%88%D8%B1/"
+- id: 0
+  author: film izle
+  author_email: gurcistanaktif@gmail.com
+  author_url: https://altyazilifilm.live
+  date: '2019-06-29 20:04:13 -0400'
+  content: Notify me by email of new commentsNotify me by email of new commentsNotify
+    me by email of new commentsNotify me by email of new comments
+- id: 0
+  author: Ramesh
+  author_email: techindo52k@gmail.com
+  author_url: ''
+  date: '2019-07-16 03:23:42 -0400'
+  content: bssc result http://supremecourtjudgements.in
+- id: 0
+  author: DISFUNZIONE
+  author_email: z52asdasfas@gmail.com
+  author_url: http://farmacia-online-italia.com/category/erectile%20dysfunction?categoryid=erectile%20dysfunction&lang=it
+  date: '2019-07-17 11:39:12 -0400'
+  content: great Apache Flume
+- id: 0
+  author: Dysfunction Erectile
+  author_email: asdfsdogfgxa@gmail.com
+  author_url: http://safe-canadian-store.com/erectile-dysfunction.html
+  date: '2019-07-17 11:43:40 -0400'
+  content: Architecture of Flume NG
+- id: 0
+  author: DISFUNCI&Oacute;N ER&Eacute;CTIL
+  author_email: asdfsdoasaxa@gmail.com
+  author_url: http://houstonmedic.com/erectile-dysfunction_es.html
+  date: '2019-07-17 11:59:43 -0400'
+  content: The purpose of Flume is to provide a distributed
+- id: 0
+  author: La Dysfonction &eacute;rectile
+  author_email: ao34w6tyergta@gmail.com
+  author_url: http://atopy-pharmacy.com/erectile-dysfunction_fr.html
+  date: '2019-07-17 12:00:29 -0400'
+  content: Flume NG uses channel-based transactions to guarantee reliable message
+    delivery
+- id: 0
+  author: mengingmahis1973
+  author_email: snidatvalte1985@gmail.com
+  author_url: https://blogs.apache.org/usergrid/entry/usergrid_10k_part1
+  date: '2019-07-20 16:47:34 -0400'
+  content: Thank you for sharing! Stunningly inspiring. 6666666666
+- id: 0
+  author: unnymmistlu1985
+  author_email: enilciegoue1985@gmail.com
+  author_url: https://blogs.apache.org/aries/entry/enterprise_osgi_4_2_draft
+  date: '2019-07-20 18:21:45 -0400'
+  content: Beautiful ❤️❤️ trendy :)
+- id: 0
+  author: izsitaphe1977
+  author_email: raitemsofi1985@gmail.com
+  author_url: https://blogs.apache.org/lucenenet/entry/apache_lucene_net_2_9
+  date: '2019-07-20 17:49:19 -0400'
+  content: sixsixsix Awwwwwsssssooommmeee
+- id: 0
+  author: pyouderjasa1989
+  author_email: lyehasamfoi1977@gmail.com
+  author_url: https://blogs.apache.org/sentry/entry/getting_started
+  date: '2019-07-20 19:27:53 -0400'
+  content: I love the video and UI, but the music throw me off a bit. Style!!!!!
+- id: 0
+  author: logrisenka1975
+  author_email: detassikin1986@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/couchdb_weekly_news_may_16
+  date: '2019-07-21 00:14:02 -0400'
+  content: nice !!! Real great job
+- id: 0
+  author: meevesinpopp1988
+  author_email: infitensay1982@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/apache_log4j_2_0_rc1
+  date: '2019-07-21 04:45:49 -0400'
+  content: Very cool work! I did notice that there's a typo (I think) in one of the
+    animated sequences. no doubt it's a great design, smart and organic
+- id: 0
+  author: hardportvermalt1971
+  author_email: intamatma1988@gmail.com
+  author_url: https://blogs.apache.org/ofbiz/entry/apache_ofbiz_news_june_2015
+  date: '2019-07-21 06:31:24 -0400'
+  content: Muchas gracias @Mariano Diez ! Another great work!
+- id: 0
+  author: ghetatanach1970
+  author_email: getegeteexp1989@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/apache_log4j_2_0_beta9
+  date: '2019-07-21 09:45:46 -0400'
+  content: Wow. Amazing THIS IS INSANE! LOVE IT
+- id: 0
+  author: Susanne Eisenhauer
+  author_email: seo@stagebit.com
+  author_url: https://www.magespark.com/magento-2-migration-service.html
+  date: '2020-02-08 07:24:32 -0500'
+  content: Nice Information. always helpful content.
+- id: 0
+  author: هاست وردپرس
+  author_email: amirasap@gmail.com
+  author_url: https://behsazanhost.com/wordpress-hosting.html
+  date: '2019-07-22 13:01:02 -0400'
+  content: 'It''s a great article. '
+- id: 0
+  author: agahi rayegan
+  author_email: www.takro.net@gmail.com
+  author_url: http://bit.ly/2r6qaty
+  date: '2020-02-05 15:27:47 -0500'
+  content: "good post\r\nthank you"
+- id: 0
+  author: Andrew
+  author_email: seolinke@gmail.com
+  author_url: https://meetanshi.com/
+  date: '2020-01-20 10:12:49 -0500'
+  content: "Related Article By Meetanshi https://meetanshi.com/blog/install-magento-2-on-localhost-using-xampp/\r\nhttps://meetanshi.com/"
+- id: 0
+  author: Vancouver
+  author_email: van55@gmail.com
+  author_url: ''
+  date: '2020-02-02 00:34:03 -0500'
+  content: 'Moving within/from Vancouver, (North, West, East) BC? We&rsquo;re here
+    for all your moving, packing, and storage needs. https://www.1promovingandshipping.com/
+    At 1 Pro, our movers have extensive experience moving people and their belongings
+    within and out of the area. '
+- id: 0
+  author: Merlin
+  author_email: Info@merlin.cc
+  author_url: https://www.vip-taxi.at/mobile
+  date: '2020-01-28 01:39:36 -0500'
+  content: 'Programming is hard nowadays guys. '
+- id: 0
+  author: Merlin
+  author_email: Info@merlin.cc
+  author_url: https://www.brilliant-clean.at
+  date: '2020-01-28 01:40:42 -0500'
+  content: 'Still looking forward. '
+- id: 0
+  author: MarkKhudobyak
+  author_email: vladlenasuvorova10@gmail.com
+  author_url: http://pokerpromotionsgiant.com/
+  date: '2019-10-19 17:11:16 -0400'
+  content: "Here I will teach you how not be a complete loser in poker http://pokerpromotionsgiant.com/
+    game. You should know at least the basic rules and hints to play with your friends
+    or in the neighborhood poker room. It's not fun poems like \"My name's Jacqueline,
+    I'm seventeen\" but real stuff. So read and learn.\r\n\r\n"
+- id: 0
+  author: YefimKryukov
+  author_email: vladlenasuvorova10@gmail.com
+  author_url: http://pokerrulesguru.com/
+  date: '2019-10-19 18:28:04 -0400'
+  content: "Ruby Rains was born and grew up in typical Texas family that means competition
+    and cards were deep in her blood. Card play was a thing that made the whole family
+    keep together and forget about life problems. Free blackjack http://pokerrulesguru.com/
+    was a favorite game among Ruby's family members. She was smart enough to go to
+    Jefferson University and get degree in psychology and later PhD. She got married
+    to her classmate Jason Simmons and became Ruby Simmons. Her husband was fond of
+    poker and took his wife to local poker rooms with him. That started an era of
+    Ruby as a poker player. But there were so many things about gambling to know!
+    And one of them was comprehension of all game rules. Ruby succeeded in that. Want
+    to be like she is? Check out gambling.com for the top online roulette site reviews,
+    bonus offers, and more.\r\n\r\n"
+- id: 0
+  author: https://inspiringwishes.com
+  author_email: sdfas@gmail.com
+  author_url: https://inspiringwishes.com
+  date: '2019-11-28 11:11:46 -0500'
+  content: "Really nice way to express your experiment, if you free please have look
+    at our site, which is design nicely. But your opinion would be appreciable.\r\n\r\nhttps://indianfestwishesquotes.blogspot.com\r\n\r\nThanks
+    for your Time!"
+- id: 0
+  author: آجر نما لعابدار اصفهان
+  author_email: HAmidrahmati72@gmail.com
+  author_url: http://www.ajorara.ir/service/%d8%a2%d8%ac%d8%b1-%d9%84%d8%b9%d8%a7%d8%a8%db%8c
+  date: '2019-12-15 10:02:57 -0500'
+  content: hich is design nicely
+- id: 0
+  author: 'Vancouver '
+  author_email: towvancouver@gmail.com
+  author_url: ''
+  date: '2020-02-12 01:47:59 -0500'
+  content: These useful concepts help in simplifying the whole towing and removal
+    process. https://nobletowing.ca/
+- id: 0
+  author: Toronto
+  author_email: toronto@gmail.com
+  author_url: ''
+  date: '2020-02-12 01:50:11 -0500'
+  content: Thank you Flume. My goal with the website https://psychictoronto.ca/ is
+    to provide a distributed, reliable, and available system for efficiently predicting
+    the future!.
+- id: 0
+  author: Nanaimo
+  author_email: nanaimobc@gmail.com
+  author_url: ''
+  date: '2020-02-12 01:53:02 -0500'
+  content: "Amazing local SEO project, I approve of it!\r\nhttp://co60q.esa.int/Lists/ESTEC%20Co60%20Customer%20Satisfaction/DispForm.aspx?ID=1175"
+- id: 0
+  author: Gaurav Jain
+  author_email: magecompeditor@gmail.com
+  author_url: https://magecomp.com/
+  date: '2020-02-12 06:00:29 -0500'
+  content: Hey, It's Great to read about this. https://magecomp.com/magento-2-extensions.html
+- id: 0
+  author: add website
+  author_email: sdfs3445dfs45df2@gmail.com
+  author_url: https://www.getzq.com/p/submit-to-getzq.html
+  date: '2020-02-15 03:13:54 -0500'
+  content: 'Cool place! '
+- id: 0
+  author: Burnaby BC
+  author_email: bcburnaby@bc.com
+  author_url: ''
+  date: '2020-02-17 18:58:26 -0500'
+  content: Thank you for your consideration https://www.1promovingandshipping.com/office-moving/
+    and yes, there are way too many local office movers in bc.
+- id: 0
+  author: Download GHD SPORTS
+  author_email: lovelylover731@gmail.com
+  author_url: https://ghdsportsapk.com/
+  date: '2020-02-20 13:11:21 -0500'
+  content: The content of your article page is very good, I find the content quite
+    good and helpful to me, thank you for
+- id: 1
+  author: http://slotcasino88.com/
+  author_email: tunasbola88@gmail.com
+  author_url: http://slotcasino88.com/
+  date: '2019-12-27 02:39:25 -0500'
+  content: nice website very helpful
+- id: 1
+  author: Apache
+  author_email: tutorialsmate@gmail.com
+  author_url: https://www.tutorialsmate.com/p/frameworks.html
+  date: '2020-01-08 16:49:06 -0500'
+  content: thanks everyone
+- id: 1
+  author: Free Tutorials
+  author_email: tutorialsmate@gmail.com
+  author_url: https://www.tutorialsmate.com/
+  date: '2020-01-08 16:48:36 -0500'
+  content: nice info. 5/5
+- id: 2
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Apache+Flume+-+Flume+NG
+  date: '2012-05-24 18:11:10 -0400'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 2
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2014-03-01 10:47:18 -0500'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 2
+  author: napconline
+  author_email: ntb9674@gmail.com
+  author_url: http://napconline.org/www-biglotssurvey-com-big-lots-survey/
+  date: '2020-01-22 15:08:47 -0500'
+  content: hi new post
+- id: 3
+  author: Brandon Lee
+  author_email: b2.lee@samsung.com
+  author_url: ''
+  date: '2015-11-30 17:53:24 -0500'
+  content: In Flume NG architecture, what is a purpose of redistributing source data
+    into multiple channels? Is it becuase of the throughput performance and/or redundancy
+    & HA?
+- id: 3
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Cloudera+Flume
+  date: '2014-03-01 09:59:39 -0500'
+  content: "[Trackback] Overview https://github.com/cloudera/flume Clouder"
+- id: 3
+  author: POTENZMITTEL
+  author_email: asdfsdox54a@gmail.com
+  author_url: http://de-online-apotheke.com/category/erectile%20dysfunction?categoryid=erectile%20dysfunction&lang=de
+  date: '2019-07-17 11:48:19 -0400'
+  content: When a message moves from one agent to another,
+- id: 3
+  author: detitimi1983
+  author_email: ulexrato1987@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/how_much_time_have_you
+  date: '2019-07-21 08:08:11 -0400'
+  content: I love it! Nice job @Hea Lin Kwon 哪个在屠宰场的猪。。。是不是玩的太专注了
+- id: 4
+  author: Play Bazaar
+  author_email: gangacassette111@gmail.com
+  author_url: https://www.lucktest.in/resultchart.php
+  date: '2020-02-19 12:16:59 -0500'
+  content: "Even if you \"only\" have Gestational Diabetes, it is especially important
+    for you to monitor your blood glucose levels. Your baby will be impacted by the
+    slightest peak you might have as the insulin does cross the placenta, so make
+    sure to keep your levels even so your baby will grow normally.\r\n[https://www.lucktest.in/ResultChart.php](play
+    bazaar)"
+- id: 5
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Architecture
+  date: '2013-10-04 14:22:08 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 5
+  author: Dysfunction
+  author_email: asdfsdoxfgfha@gmail.com
+  author_url: https://trusted-canadian-online-pharmacy.com/erectile-dysfunction.html
+  date: '2019-07-17 11:44:39 -0400'
+  content: 'This mechanism also forms the basis '
+- id: 5
+  author: Zoya Scoot
+  author_email: zoyascoot@gmail.com
+  author_url: https://magecomp.com/
+  date: '2020-02-12 06:18:00 -0500'
+  content: "Hey, Thanks for posting about this. \r\nhttps://magecomp.com/"
+- id: 6
+  author: MarinaSamoylova
+  author_email: pakhommyasnikov@gmail.com
+  author_url: https://pokercasinosfan.com/
+  date: '2019-10-13 13:44:06 -0400'
+  content: Playing https://pokercasinosfan.com/ may be very beneficial as in this
+    game you may easily control situation at the table.
+- id: 6
+  author: dgcustomerfirst-com.com
+  author_email: daniilm@gmail.com
+  author_url: ''
+  date: '2019-10-27 11:04:16 -0400'
+  content: "Interesting post take a look https://devrant.com/users/dgcustomerfirst\r\n"
+- id: 7
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2014-03-01 10:00:06 -0500'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 7
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2014-03-01 10:01:03 -0500'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 7
+  author: concourenlooks1970
+  author_email: bleepchesslengui1973@gmail.com
+  author_url: https://blogs.apache.org/tomee/entry/apache_tomee_1_7_1
+  date: '2019-07-21 07:04:07 -0400'
+  content: this is a jewelry job!! So beautifull !
+- id: 7
+  author: MyCFAVisit
+  author_email: xesaco@onemail1.com
+  author_url: http://onlinesurvey.tech/mycfavisit/
+  date: '2019-08-21 16:15:44 -0400'
+  content: "If you want to participate in survey ant win exciting gifts for yourself
+    then you can visit our website onlinesurvey. http://onlinesurvey.tech/www-survey-walmart-com/\r\n"
+- id: 8
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Scribe+vs+Flume+Comparison
+  date: '2013-03-11 07:07:47 -0400'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 8
+  author: alex
+  author_email: alex@kommy.net
+  author_url: https://www.mag-manager.com/useful-articles/about-magento-shopping-cart/how-to-install-magento-on-localhost-like-xampp/
+  date: '2020-02-04 12:02:37 -0500'
+  content: Related Article By Magento Store Manager https://www.mag-manager.com/useful-articles/about-magento-shopping-cart/how-to-install-magento-on-localhost-like-xampp/
+- id: 8
+  author: tomarapupkina
+  author_email: alinafaden@gmail.com
+  author_url: https://rouletteonlineart.com/
+  date: '2019-10-04 16:23:45 -0400'
+  content: "There are no things more important for roulette players than understanding
+    of game rules and principles of betting. When https://rouletteonlineart.com/ you
+    know them you may be sure that sooner or later you will win, but if you have no
+    idea on how to bet at the roulette table, you can meet a lot of problems. Besides,
+    it is also important to have some strategy to bet in roulette game.\r\n\r\n"
+- id: 8
+  author: GetZQ protocol
+  author_email: sdfs34dfs45df2@gmail.com
+  author_url: https://www.getzq.com
+  date: '2020-02-15 03:12:40 -0500'
+  content: 'nice post, I learned alot! '
+- id: 8
+  author: Play Bazaar
+  author_email: gangacassette111@gmail.com
+  author_url: https://www.lucktest.in/resultchart.php
+  date: '2020-02-19 12:18:24 -0500'
+  content: "Smoking is dangerous for anybody, but it is even mroe problematic for
+    diabetics. Having this habit will expose you to a lot of unhealthy effects. When
+    you smoke it makes your insulin resistant and if you are not already diabetic,
+    it will increase your risk for developing type 2 diabetes.\r\n(play bazaar)[https://www.lucktest.in/ResultChart.php]"
+- id: 9
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 14:32:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 9
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Apache+Flume+-+Flume+NG
+  date: '2014-01-21 02:53:21 -0500'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 9
+  author: dawdticonmi1980
+  author_email: modethlari1988@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/apache_couchdb_1_0_4
+  date: '2019-07-21 10:19:22 -0400'
+  content: " @Eveling Salazar @V&eacute;b&eacute; &reg; @Ramon Li - thank you for
+    your kind comments and support!"
+- id: 11
+  author: billchidanur1979
+  author_email: socuspopis1984@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/apache_couchdb_is_supporting_the
+  date: '2019-07-21 01:06:56 -0400'
+  content: "@Carol uu 嗷嗷嗷嗷 好的好的 Legal demais, parab&eacute;ns."
+- id: 15
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Scribe+vs+Flume+Comparison
+  date: '2013-03-11 07:08:47 -0400'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 16
+  author: Different Type Of SEO
+  author_email: wolasr@gmail.com
+  author_url: http://wolarseo.booklikes.com/
+  date: '2020-01-19 14:01:22 -0500'
+  content: It great thought, you must be an expert in your coding. Thanks for Sharing
+- id: 18
+  author: 'Wallet Men '
+  author_email: walletbest02@gmail.com
+  author_url: https://bestwalletformen.com/
+  date: '2020-01-19 06:58:26 -0500'
+  content: Hey really nice article by apache fashion https://bestwalletformen.com/
+- id: 26
+  author: spinunelul1989
+  author_email: gareasbaraps1970@gmail.com
+  author_url: https://blogs.apache.org/netbeans/entry/announce-apache-netbeans-incubating-92
+  date: '2019-07-20 17:35:37 -0400'
+  content: epic! great concept
+- id: 27
+  author: doubtvedergui1972
+  author_email: protintgagvi1974@gmail.com
+  author_url: https://blogs.apache.org/click/entry/apache_click_v2_2_0
+  date: '2019-07-21 08:40:11 -0400'
+  content: S&uacute;per! I love your colours! Really original work
+- id: 34
+  author: kickkalliacong1978
+  author_email: caihimerve1983@gmail.com
+  author_url: https://blogs.apache.org/lucenenet/entry/apache_lucene_net_2_9
+  date: '2019-07-21 02:46:12 -0400'
+  content: Amazing project, I love it! 可爱
+- id: 35
+  author: talktofoodlion com survey
+  author_email: patronsurvey@gmail.com
+  author_url: https://patronsurvey.com/www-talktofoodlion-com-survey/
+  date: '2019-04-26 09:59:52 -0400'
+  content: All the Apache blog users are welcoming to take your favorite store or
+    restaurant surveys at https://patronsurvey.com/ . Because the patronsurvey website
+    providing all the instructions to complete the feedback survey without any mistake.
+    Win $500 by completing a food lion survey on the patronsurvey website.
+- id: 38
+  author: sporfulcuro1978
+  author_email: norbulllanthcu1981@gmail.com
+  author_url: https://blogs.apache.org/couchdb/entry/couchdb_will_go_multilingual_looking
+  date: '2019-07-21 07:36:17 -0400'
+  content: So much fun I love these :D Nice work! The use of the colors and textures
+    are great! :)
+- id: 39
+  author: https://389sports.org/
+  author_email: deamonica@gmail.com
+  author_url: https://389sports.org/
+  date: '2019-12-27 02:36:28 -0500'
+  content: 'nice web design thank you for share this '
+- id: 39
+  author: Maple Ridge
+  author_email: mapleridge@gmail.com
+  author_url: ''
+  date: '2020-02-12 01:45:35 -0500'
+  content: Amazing designs! Your custom cabinets are flawless. http://stpeterandbrotherrod.ca/
+- id: 44
+  author: Eric Wurfel
+  author_email: seo@stagebit.com
+  author_url: https://www.magespark.com/hire-magento-developer.html
+  date: '2020-02-08 07:21:07 -0500'
+  content: 'Interesting read, thank you for sharing with us. '
+- id: 47
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Architecture
+  date: '2013-03-28 15:29:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 53
+  author: Akoya
+  author_email: info@greatonlinestore.in
+  author_url: http://www.greatonlinestore.in/men-fashion/
+  date: '2020-01-02 05:46:06 -0500'
+  content: "nice blog for flume architecture.\r\nfor more details follow http://www.greatonlinestore.in/men-fashion/"
+- id: 54
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Cloudera+Flume
+  date: '2013-03-11 07:08:05 -0400'
+  content: "[Trackback] Overview https://github.com/cloudera/flume Clouder"
+- id: 63
+  author: Erectile Dysfunction
+  author_email: asdfsdoxasdsaa@gmail.com
+  author_url: http://pharmachemicalsonline.com/erectile-dysfunction.html
+  date: '2019-07-17 12:01:24 -0400'
+  content: A flow in Flume NG starts from the client.
+- id: 72
+  author: zain david
+  author_email: omarandemad@gmail.com
+  author_url: ''
+  date: '2019-07-15 16:46:56 -0400'
+  content: "nice post.\r\n http://www.zumagame100.blogspot.com"
+- id: 76
+  author: petrufc4
+  author_email: 214mikelymaik@gmail.com
+  author_url: http://safegamblingcasinos.com/
+  date: '2019-09-24 19:38:10 -0400'
+  content: In modern world you have no need to travel thousand miles to plunge into
+    the atmosphere of casino and play your favorite games on money. Today you have
+    no need to spend your money at expensive casino services such as food, drinks
+    and tips. Modern technologies allow you to play at web based casinos, which are
+    very similar to the common ones, but you can visit them any time when you have
+    internet access as they are available online.
+- id: 81
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2014-03-01 09:59:18 -0500'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 89
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 09:14:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 99
+  author: Eric Wurfel
+  author_email: seo@stagebit.com
+  author_url: https://www.magespark.com/hire-magento-developer.html
+  date: '2020-02-08 07:20:28 -0500'
+  content: 'Interesting read, thank you for sharing with us. '
+- id: 149
+  author: enakinkenobi
+  author_email: agileseos@gmail.com
+  author_url: ''
+  date: '2019-06-25 14:24:44 -0400'
+  content: "It is possible to configure Flume to get data from log files on Apache
+    web server?\r\n\r\nWhile doing the last-minute config change for https://betjedi.net/,
+    I ran into the issue that I had missed my Flume package and I thought I would
+    have to reinstall it manually."
+- id: 271
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Apache+Flume+-+Flume+NG
+  date: '2012-05-24 18:09:21 -0400'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 404
+  author: Erectile Dysfunction
+  author_email: asdfsdoxa@gmail.com
+  author_url: http://safe-canada-store.com/erectile-dysfunction.html
+  date: '2019-07-17 11:41:17 -0400'
+  content: Erectile Dysfunction
+- id: 503
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Apache+Flume+-+Flume+NG
+  date: '2012-05-24 18:09:11 -0400'
+  content: "[Trackback] Overview https://github.com/apache/flume Flume의 차세"
+- id: 613
+  author: Sbobethub
+  author_email: registrasi@sbobethub.com
+  author_url: https://www.sbobethub.com/
+  date: '2020-01-30 10:28:35 -0500'
+  content: Thank you, is work.
+- id: 695
+  author: ciaverscoorru1974
+  author_email: surferntijeff1971@gmail.com
+  author_url: https://blogs.apache.org/openejb/entry/openejb_eclipse_plugin_alpha_release
+  date: '2019-07-20 16:54:17 -0400'
+  content: Appealing Colors! so delicately illustrated. Love to see in large print
+- id: 756
+  author: mcdvoice
+  author_email: kesan@newairmail.com
+  author_url: http://mcdvoice.online/
+  date: '2019-02-09 09:20:45 -0500'
+  content: "The Service Management of MC Donald is conducting the MC Donald&rsquo;s
+    Customer Satisfaction Survey.\r\n\r\nhttp://mcdvoice.online/"
+- id: 815
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Cloudera+Flume
+  date: '2014-03-01 10:47:37 -0500'
+  content: "[Trackback] Overview https://github.com/cloudera/flume Clouder"
+- id: 872
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2012-05-24 17:36:24 -0400'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 1037
+  author: Merlin
+  author_email: Info@merlin.cc
+  author_url: https://www.vip-taxi.at
+  date: '2020-01-28 01:35:36 -0500'
+  content: 'Thank you. '
+- id: 3687
+  author: totirudis1972
+  author_email: progassase1975@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/gary_gregory_to_join_the
+  date: '2019-07-21 05:58:32 -0400'
+  content: So cool! ✨ Reminds me of Moebius, great stuff.
+- id: 3948
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Apache+Flume+-+Flume+NG
+  date: '2013-03-11 07:09:39 -0400'
+  content: "[Trackback] Table of Contents Overview https://github.com/apac"
+- id: 6777
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 09:15:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 6985
+  author: themvogaca1986
+  author_email: exmefpaho1973@gmail.com
+  author_url: https://blogs.apache.org/logging/entry/log4j_2_6_2_released
+  date: '2019-07-21 05:17:20 -0400'
+  content: Awsome. fant&aacute;stico! muito bom!!
+- id: 7290
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 08:49:04 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 8465
+  author: 'Confluence: 데이터지능팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/DITEAM/Scribe+vs+Flume+Comparison
+  date: '2012-05-24 18:43:26 -0400'
+  content: "[Trackback] Facebook Scribe vs Cloudera Flume&nbsp;Comparison Matri"
+- id: 10169
+  author: NEET official website
+  author_email: wfawafwaf@gmail.com
+  author_url: ''
+  date: '2019-03-21 12:01:04 -0400'
+  content: "We staggered here stand-out process machine and thought i might additional
+    investigate things out. I merely like what I see thus by and by i am tailing you.
+    foresee seeing your registering machine as a rule. \r\nhttps://www.neet2019.in/\r\nhttps://www.neet2019.in/neet-admit-card-2019/"
+- id: 21472
+  author: Florida
+  author_email: floridausa@gmail.com
+  author_url: ''
+  date: '2020-01-30 02:15:24 -0500'
+  content: "Very decent work! I did notice that there is a typo (I believe) in one
+    of the animated sequences. no doubt these are all great designs, smart and natural
+    http://clarenceusa.bravesites.com/\r\nhttps://cullencanada.tumblr.com/\r\nhttps://armanionlineusa.webnode.com/\r\nhttps://adysononline.shutterfly.com/\r\nThe
+    web design is fantastic."
+- id: 54000
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-28 10:04:07 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 143128
+  author: Tech 25
+  author_email: tech25@gmail.com
+  author_url: https://tech25s.com
+  date: '2019-12-15 09:05:20 -0500'
+  content: Interesting read, thank you for sharing with us. This is also a good read
+    https://tech25s.com
+- id: 183878
+  author: 'Confluence: Smart VOD사업팀'
+  author_email: ''
+  author_url: http://wiki.kthcorp.com/display/SmartVOD/Cloudera+Flume
+  date: '2014-01-21 02:52:24 -0500'
+  content: "[Trackback] Overview https://github.com/cloudera/flume Clouder"
+- id: 514004
+  author: zain david
+  author_email: omarandemad@gmail.com
+  author_url: ''
+  date: '2019-07-15 16:40:33 -0400'
+  content: "by email of new commentsNotify me by email of new comments\r\nhttp://www.gtagame100.com\r\nhttp://www.subway-game.blogspot.com"
+- id: 826989
+  author: 'Confluence: Data Science'
+  author_email: ''
+  author_url: https://confluence.xing.hh/confluence/display/ds/Hadoop+Cluster+Archuitecture
+  date: '2013-03-27 16:58:05 -0400'
+  content: "[Trackback] Introduction This document describes the proposed "
+- id: 20204518
+  author: wotounoga1977
+  author_email: anniltixe1976@gmail.com
+  author_url: https://blogs.apache.org/tomee/entry/apache_tomee_1_6_01
+  date: '2019-07-20 23:24:20 -0400'
+  content: Engaging and thought provoking photos - love the streaks of concealer on
+    faces and the unusual pottery! Awesome illustration style!
+permalink: flume/entry/flume_ng_architecture
+---
+<div style="background-color: transparent; ">
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Apache Flume is a distributed, reliable, and available system for efficiently collecting, aggregating and moving large amounts of log data from many different sources to a centralized data store. Flume is currently undergoing incubation at The Apache Software Foundation. More information on this project can be found at </span><a href="http://incubator.apache.org/flume"><span style="font-size: 15px; font-family: Arial; color: #000099; background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; ">http://incubator.apache.org/flume</span></a><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">. <i>Flume NG</i> is work related to new major revision of Flume and is the subject of this post.</span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Prior to entering the incubator, Flume saw incremental releases leading up to version 0.9.4. As Flume became adopted it became clear that certain design choices would need to be reworked in order to address problems reported in the field. The work necessary to make this change began a few months ago under the JIRA issue </span><a href="https://issues.apache.org/jira/browse/FLUME-728"><span style="font-size: 15px; font-family: Arial; color: #000099; background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; ">FLUME-728</span></a><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">. This work currently resides on a separate branch by the name </span><span style="font-size: 15px; font-family: Arial; background-color: transparent; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">flume-728</span><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">, and is informally referred to as Flume NG. At the time of writing this post Flume NG had gone through two internal milestones - <i>NG Alpha 1</i>, and <i>NG Alpha 2</i> and a formal incubator release of Flume NG is in the works.</span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">At a high-level, Flume NG uses a single-hop message delivery guarantee semantics to provide end-to-end reliability for the system. To accomplish this, certain new concepts have been incorporated into its design, while certain other existing concepts have been either redefined, reused or dropped completely.</span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">In this blog post, I will describe the fundamental concepts incorporated in Flume NG and talk about it&rsquo;s high-level architecture. This is a first in a series of blog posts by Flume team that will go into further details of it&rsquo;s design and implementation.</span></p>
+<div style="background-color: transparent; ">
+<h3><span id="internal-source-marker_0.03839341760613024" style="font-size: 15px; font-family: Arial; background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Core Concepts</span></h3>
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">The purpose of Flume is to provide a distributed, reliable, and available system for efficiently collecting, aggregating and moving large amounts of log data from many different sources to a centralized data store. The architecture of Flume NG is based on a few concepts that together help achieve this objective. Some of these concepts have existed in the past implementation, but have changed drastically. Here is a summary of concepts that Flume NG introduces, redefines, or reuses from earlier implementation:</span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span> </p>
+<ul>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Event: </span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">A byte payload with optional string headers that represent the unit of data that Flume can transport from it&rsquo;s point of origination to it&rsquo;s final destination.</span></li>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Flow:</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> Movement of events from the point of origin to their final destination is considered a data flow, or simply flow. This is not a rigorous definition and is used only at a high level for description purposes. </span></li>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Client: </span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">An interface implementation that operates at the point of origin of events and delivers them to a Flume agent. Clients typically operate in the process space of the application they are consuming data from. For example, </span><span style="background-color: transparent; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Flume Log4j Appender</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> is a client.</span></li>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Agent:</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> An independent process that hosts flume components such as sources, channels and sinks, and thus has the ability to receive, store and forward events to their next-hop destination. </span></li>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Source:</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> An interface implementation that can consume events delivered to it via a specific mechanism. For example, an Avro source is a source implementation that can be used to receive Avro events from clients or other agents in the flow. When a source receives an event, it hands it over to one or more channels.</span></li>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Channel:</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> A transient store for events, where events are delivered to the channel via sources operating within the agent. An event put in a channel stays in that channel until a sink removes it for further transport. An example of channel is the JDBC channel that uses a file-system backed embedded database to persist the events until they are removed by a sink. Channels play an important role in ensuring durability of the flows.</span></li>
+<li style="list-style-type: disc; font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; "><span style="background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Sink:</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> An interface implementation that can remove events from a channel and transmit them to the next agent in the flow, or to the event&rsquo;s final destination. Sinks that transmit the event to it&rsquo;s final destination are also known as terminal sinks. The </span><span style="background-color: transparent; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Flume HDFS sink</span><span style="background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> is an example of a terminal sink. Whereas the Flume Avro sink is an example of a regular sink that can transmit messages to other agents that are running an Avro source.</span></li>
+</ul></div>
+<p><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; ">These concepts help in simplifying the architecture, implementation, configuration and deployment of Flume. </span></p>
+<div style="background-color: transparent; ">
+<h3><span id="internal-source-marker_0.03839341760613024" style="font-size: 15px; font-family: Arial; background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Flow Pipeline</span></h3>
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">A flow in Flume NG starts from the client. The client transmits the event to it&rsquo;s next hop destination. This destination is an agent. More precisely, the destination is a source operating within the agent. The source receiving this event will then deliver it to one or more channels. The channels that receive the event are drained by one or more sinks operating within the same agent. If the sink is a regular sink, it will forward the event to it&rsquo;s next-hop destination which will be another agent. If instead it is a terminal sink, it will forward the event to it&rsquo;s final destination. Channels allow the decoupling of sources from sinks using the familiar producer-consumer model of data exchange. This allows sources and sinks to have different performance and runtime characteristics and yet be able to effectively use the physical resources available to the system. </span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /> 
+    </div>
+<p><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; ">Figure 1 below shows how the various components interact with each other within a flow pipeline.</span> </p>
+<p style="text-align: center; "><img src="https://blogs.apache.org/flume/mediaresource/ab0d50f6-a960-42cc-971e-3da38ba3adad" alt="Schematic showing logical components in a flow. The arrows represent the direction in which events travel across the system. This also illustrates how flows can fan-out by having one source write the event out to multiple channels." /> </p></p>
+<p style="text-align: center; "> <span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-weight: bold; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Figure 1: </span><span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Schematic showing logical components in a flow. The arrows represent the direction in which events travel across the system. This also illustrates how flows can fan-out by having one source write the event out to multiple channels.</span></p></p>
+<div style="background-color: transparent; "><span id="internal-source-marker_0.03839341760613024" style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">By configuring a source to deliver the event to more than one channel, flows can fan-out to more than one destination. This is illustrated in Figure 1 where the source within the operating Agent writes the event out to two channels - Channel 1 and Channel 2.</span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span></div>
+<p><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; ">Conversely, flows can be converged by having multiple sources operating within the same agent write to the same channel. A example of the physical layout of a converging flow is show in Figure 2 below.</span></p></p>
+<p style="text-align: center; "><img src="https://blogs.apache.org/flume/mediaresource/268bf8db-43c7-497b-a0ef-63c482371eef" alt=" A simple converging flow on Flume NG." /> </p>
+<p style="text-align: center; "> <span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-weight: bold; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Figure 2:</span><span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "> A simple converging flow on Flume NG.</span></p></p>
+<h3><span style="font-family: Arial; font-size: 15px; font-weight: bold; white-space: pre-wrap; ">Reliability and Failure Handling</span></h3>
+<div style="background-color: transparent; ">
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Flume NG uses channel-based transactions to guarantee reliable message delivery. When a message moves from one agent to another, two transactions are started, one on the agent that delivers the event and the other on the agent that receives the event. In order for the sending agent to commit it&rsquo;s transaction, it must receive success indication from the receiving agent. The receiving agent only returns a success indication if it&rsquo;s own transaction commits properly first. This ensures guaranteed delivery semantics between the hops that the flow makes. Figure 3 below shows a sequence diagram that illustrates the relative scope and duration of the transactions operating within the two interacting agents.</span></p>
+<p style="text-align: center; "><img src="https://blogs.apache.org/flume/mediaresource/a15d9347-da9e-4824-b45f-6c00f0720590" alt="Transactional exchange of events between agents." /> </p>
+<p style="text-align: center; "> <span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-weight: bold; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Figure 3: </span><span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Transactional exchange of events between agents.</span></p></p>
+<div style="background-color: transparent; "><span id="internal-source-marker_0.03839341760613024" style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">This mechanism also forms the basis for failure handling in Flume NG. When a flow that passes through many different agents encounters a communication failure on any leg of the flow, the affected events start getting buffered at the last unaffected agent in the flow. If the failure is not resolved on time, this may lead to the failure of the last unaffected agent, which then would force the agent before it to start buffering the events. Eventually if the failure occurs when the client transmits the event to its first-hop destination, the failure will be reported back to the client which can then allow the application generating the events to take appropriate action.</span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span></div>
+<p><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; ">On the other hand, if the failure is resolved before the first-hop agent fails, the buffered events in various agents downstream will start draining towards their destination. Eventually the flow will be restored to its original characteristic throughput levels. Figure 4 below illustrates a scenario where a flow comprising of two intermediary agents between the client and the central store go through a transient failure. The failure occurs between agent 2 and the central store, resulting in the events getting buffered at the agent 2 itself. Once the failing link has been restored to normal, the buffered events drain out to the central store and the flow is restored to its original throughput characteristics.</span></p>
+<p style="text-align: center; "><img src="https://blogs.apache.org/flume/mediaresource/ac9d1c83-1089-4730-9546-fe8de509b34c" alt="Failure handling in flows. In (a) the flow is normal and events can travel from the client to the central store. In (b) a communication failure occurs between Agent 2 and the event store resulting in events being buffered on Agent 2. In (c) the cause of failure was addressed and the flow was restored and any events buffered in Agent 2 were drained to the store." /> </p>
+<p style="text-align: center; "> <span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-weight: bold; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Figure 4: </span><span style="text-align: center; background-color: transparent; font-size: 15px; font-family: Arial; font-style: italic; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Failure handling in flows. In (a) the flow is normal and events can travel from the client to the central store. In (b) a communication failure occurs between Agent 2 and the event store resulting in events being buffered on Agent 2. In (c) the cause of failure was addressed and the flow was restored and any events buffered in Agent 2 were drained to the store.</span></p></p>
+<div style="background-color: transparent; ">
+<h3><span id="internal-source-marker_0.03839341760613024" style="font-size: 15px; font-family: Arial; background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Wrapping up</span></h3>
+</p></div>
+<p><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; ">In this post I described the various concepts that are a part of Flume NG and its high-level architecture. This is first of a series of posts from the Flume team that will highlight the design and implementation of this system. In the meantime, if you need anymore information, please feel free to drop an email on the project&rsquo;s user or developer lists, or alternatively file the appropriate JIRA issues. Your contribution in any form is welcome on the project.</span> </p></p>
+<div style="background-color: transparent; ">
+<h3><span id="internal-source-marker_0.03839341760613024" style="font-size: 15px; font-family: Arial; background-color: transparent; font-weight: bold; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Links:</span></h3>
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; "></span><br /><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Project Website: </span><a href="http://incubator.apache.org/flume/"><span style="font-size: 15px; font-family: Arial; color: #000099; background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; ">http://incubator.apache.org/flume/</span></a></p>
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Flume NG Getting Started Guide: </span><a href="https://cwiki.apache.org/confluence/display/FLUME/Getting+Started"><span style="font-size: 15px; font-family: Arial; color: #000099; background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; ">https://cwiki.apache.org/confluence/display/FLUME/Getting+Started</span></a></p>
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Mailing Lists: </span><a href="http://incubator.apache.org/flume/mail-lists.html"><span style="font-size: 15px; font-family: Arial; color: #000099; background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; ">http://incubator.apache.org/flume/mail-lists.html</span></a></p>
+<p><span style="font-size: 15px; font-family: Arial; background-color: transparent; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; ">Issue Tracking: </span><a href="https://issues.apache.org/jira/browse/FLUME"><span style="font-size: 15px; font-family: Arial; color: #000099; background-color: transparent; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; ">https://issues.apache.org/jira/browse/FLUME</span></a></p>
+</p></div>
+<p><span style="font-family: Arial; font-size: 15px; white-space: pre-wrap; ">IRC Channel: #flume on irc.freenode.net</span> </p></p>
+</p></div></p>
+</p></div>

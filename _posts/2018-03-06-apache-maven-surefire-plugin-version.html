@@ -1,0 +1,160 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Surefire Plugin Version 2.21.0 Released
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: 919d6a5d-cd76-4f46-9881-d36341843c6a
+date: '2018-03-06 19:06:26 -0500'
+categories:
+- Plugin Release
+tags:
+- releases
+- maven-plugin
+comments: []
+permalink: maven/entry/apache-maven-surefire-plugin-version
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+<a href="http://maven.apache.org/plugins/maven-surefire-plugin/">Apache Maven Surefire Plugin, version 2.21.0</a>.</p>
+<p>The release contains 33 bug fixes.<br />
+Again we received contributions from the community in form of bug reports<br />
+and bug fixes.<br />
+Thank you and keep them coming!</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-surefire-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.21.0<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>or for failsafe:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-failsafe-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.21.0<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>or for surefire-report:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-surefire-report-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>2.21.0<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p><!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317927&amp;version=12341630">Release Notes &ndash; Maven Surefire &ndash; Version 2.21.0</a></p>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1372">SUREFIRE-1372</a> &ndash; Rerunning failing tests fails in combination with Description#createSuiteDescription</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1422">SUREFIRE-1422</a> &ndash; Forking fails on Linux if /bin/ps isn&rsquo;t available</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1424">SUREFIRE-1424</a> &ndash; javax.transaction.TransactionManager not visible with Java9</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1439">SUREFIRE-1439</a> &ndash; NullPointerException on JDK10</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1443">SUREFIRE-1443</a> &ndash; surefire report: broken links with inner classes</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1445">SUREFIRE-1445</a> &ndash; Properties from configuration POM are not passed to Provider on JDK 9</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1450">SUREFIRE-1450</a> &ndash; TestNG Listener aren&rsquo;t working from Property Tag in POM.xml With JDK9</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1451">SUREFIRE-1451</a> &ndash; Surefire Booter compatibility with NetBSD ps(1) output</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1452">SUREFIRE-1452</a> &ndash; Support filtering of tests from Base Class (TestNG)</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1475">SUREFIRE-1475</a> &ndash; PpidChecker.windows() assumes wmic is on the path</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1183">SUREFIRE-1183</a> &ndash; Custom Test Report Titles and Descriptions</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1262">SUREFIRE-1262</a> &ndash; Add modulepath support</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1416">SUREFIRE-1416</a> &ndash; maven-surefire-parser: add new method isError in ReportTestCase</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1435">SUREFIRE-1435</a> &ndash; Improve Thread Dump. Use prefix &ldquo;surefire-forkedjvm&rdquo; in daemon Threads in forked JVM</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1448">SUREFIRE-1448</a> &ndash; Clarified specifying multiple categories for JUnit</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1453">SUREFIRE-1453</a> &ndash; Allow to specify non existant classes as &ldquo;groups&rdquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1454">SUREFIRE-1454</a> &ndash; Speedup Standard Output if Tests</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1491">SUREFIRE-1491</a> &ndash; LocationManager injected in MOJO unables plugin to run in JDK 1.6</li>
+</ul>
+<p>Test:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1437">SUREFIRE-1437</a> &ndash; Improve unit tests. Call PID parser on all platforms in SystemUtilsTest.</li>
+</ul>
+<p>Wish:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1436">SUREFIRE-1436</a> &ndash; Increase usability in quiet mode</li>
+</ul>
+<p>Tasks:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1455">SUREFIRE-1455</a> &ndash; JaCoCo on integration tests</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1461">SUREFIRE-1461</a> &ndash; UnicodeTestNamesIT should be able to run multiple times</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1463">SUREFIRE-1463</a> &ndash; integration tests should run on the top of JDK 9</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1471">SUREFIRE-1471</a> &ndash; Too long Windows path cause CI issues. Renamed surefire-intergation-tests to surefire-its.</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1472">SUREFIRE-1472</a> &ndash; Multibranch Pipeline supports JDK 7-10 Maven 3.2-3.5 Linux Windows</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1481">SUREFIRE-1481</a> &ndash; Surefire1295AttributeJvmCrashesToTestsIT should be Parameterized test instead of using Theories runner</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1482">SUREFIRE-1482</a> &ndash; Obsolete workaround with commons-lang3 in project unit tests</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1484">SUREFIRE-1484</a> &ndash; maven-clean-plugin should be used in integration test resource junit-pathWithUmlaut</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1485">SUREFIRE-1485</a> &ndash; surefire-shadefire project should not be deployed in Maven Central</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1486">SUREFIRE-1486</a> &ndash; maven-failsafe-plugin does not use JUnit adapter for JUnit4 annotations and TestNG providers do not have maven-surefire-plugin config in POM</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1488">SUREFIRE-1488</a> &ndash; Native library in Surefire1295AttributeJvmCrashesToTestsIT caused unstable test</li>
+<li><a href="https://issues.apache.org/jira/browse/SUREFIRE-1489">SUREFIRE-1489</a> &ndash; Implement different HTTP ports in ITs and zip() in jenkinsfile</li>
+</ul>
+<p>Dependency upgrade:</p>
+<p><a href="https://issues.apache.org/jira/browse/SUREFIRE-1434">SUREFIRE-1434</a> &ndash; Upgrade PowerMock@Java9 to Version 2.0.0-beta.5</p>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>

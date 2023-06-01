@@ -1,0 +1,55 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Announcing Apache Apex Malhar 3.6.0 Release
+author:
+  display_name: Thomas Weise
+  login: thw
+  email: thw@apache.org
+author_login: thw
+author_email: thw@apache.org
+id: 67113fe8-f84f-4daa-ac76-b6e83e8e97a7
+date: '2016-12-08 19:29:44 -0500'
+categories:
+- General
+tags:
+- apex
+- hadoop
+- stream
+- processing
+- distributed
+- bigdata
+comments:
+- id: 8
+  author: Charlotte
+  author_email: charlotte.austin29@gmail.com
+  author_url: http://https://www.jordan-clark.com/
+  date: '2016-12-11 11:08:15 -0500'
+  content: This sounds great! Any feedback yet?
+- id: 40
+  author: brands
+  author_email: theilacatdisf1983@gmail.com
+  author_url: https://pharmachemicalsonline.com/brands.html
+  date: '2019-07-19 19:30:46 -0400'
+  content: Love this style. Great typography. Congrats! @seiki hayashi Thank you,
+    Seiki!
+permalink: apex/entry/apache_apex_malhar_3_6
+---
+<p>The Apache Apex community is pleased to announce release 3.6.0 of the Malhar library. The release resolved 70 JIRAs.</p>
+<p>The release adds first iteration of SQL support via Apache Calcite. Supported features include SELECT, INSERT, INNER JOIN with non-empty equi join condition, WHERE clause,<br />
+SCALAR functions that are implemented in Calcite, custom scalar functions. Endpoint can be file, Kafka or internal streaming port for both input and output. CSV format is implemented for both input and output. See <a href="https://github.com/apache/apex-malhar/tree/release-3.6/demos/sql/src/main/java/org/apache/apex/malhar/sql/sample">examples</a> for usage of the new API.</p>
+<p>The windowed state management has been improved (WindowedOperator). There is now an option to use spillable data structures for the state storage. This enables the operator to store large states and perform efficient checkpointing.</p>
+<p>We also did benchmarking on WindowedOperator with the spillable data structures. From the result of our findings, we improved greatly how objects are serialized and reduced garbage collection considerably in the Managed State layer. Work is still in progress for purging state that is not needed any more and further improving the performance of Managed State that the spillable data structures depend on. More information about the windowing support can be found <a href="http://apex.apache.org/docs/malhar/operators/windowedOperator/">here</a>.</p>
+<p>This release also adds a new, alternative Apache Cassandra output operator (non-transactional, upsert based) and support for fixed length file format to the enrichment operator.</p>
+<p>The <a href="http://apex.apache.org/docs/malhar-3.6/">user documentation</a> has been expanded to cover more operators. See <a href="https://s.apache.org/9b0t">https://s.apache.org/9b0t</a> for other enhancements and fixes in this release.</p>
+<p>Apache Apex is an enterprise grade native YARN big data-in-motion platform that unifies stream and batch processing. Apex was built for scalability and low-latency processing, high availability and operability. </p>
+<p>Apex provides unique features that similar platforms currently don't offer, such as fine grained, incremental recovery to only reset the portion of a topology that is affected by a failure, support for elastic scaling based on the ability to acquire (and release) resources as needed as well as the ability to alter topology and operator properties on running applications.</p>
+<p>Apex has been developed since 2012 and <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_announces90">became ASF top level project</a> earlier this year, following 8 months of incubation. Apex early on brought the combination of high throughput, low latency and fault tolerance with strong processing guarantees to the stream data processing space and gained maturity through important production use cases at several organizations. See the <a href="http://apex.apache.org/powered-by-apex.html">powered by page</a> and <a href="http://apex.apache.org/docs.html">resources</a> on the project web site for more information.</p>
+<p>The Apex engine is supplemented by Malhar, the library of pre-built operators, including adapters that integrate with many existing technologies as sources and destinations, like message buses, databases, files or social media feeds. </p>
+<p>An easy way to get started with Apex is to pick one of the <a href="https://github.com/DataTorrent/examples/tree/master/tutorials">examples</a> as starting point. They cover many common and recurring tasks, such as data consumption from different sources, output to various sinks, partitioning and fault tolerance.</p>
+<p>Apex Malhar and Core (the engine) are separate repositories and releases. We expect more frequent releases of Malhar to roll out new connectors and other operators based on a stable engine API. This release 3.6.0 works on existing Apex Core 3.4 installations. Users only need to upgrade the Maven dependency in their project.</p>
+<p>The source release can be found at:</p>
+<p><a href="http://apex.apache.org/downloads.html">http://apex.apache.org/downloads.html</a></p>
+<p>We welcome your help and feedback. For more information on the project and how to get involved, visit our website at:</p>
+<p><a href="http://apex.apache.org/">http://apex.apache.org/</a></p>

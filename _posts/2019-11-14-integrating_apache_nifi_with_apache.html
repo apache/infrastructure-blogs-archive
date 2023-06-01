@@ -1,0 +1,236 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Integrating Apache NiFi with Kafka
+author:
+  display_name: markap14@apache.org
+  login: markap14
+  email: markap14@apache.org
+author_login: markap14
+author_email: markap14@apache.org
+id: e0919ef6-01ac-467b-9aa2-3a74728dd026
+date: '2019-11-14 13:30:48 -0500'
+categories:
+- Dataflow
+tags:
+- nifi
+- kafka
+- integration
+- bigdata
+comments:
+- id: 0
+  author: Satya Kondapalli
+  author_email: skondapalli@ambaricloud.com
+  author_url: ''
+  date: '2015-08-31 01:55:03 -0400'
+  content: "Hi\r\nThank you for this article. I am trying to connect HDFS from NiFi
+    which running in worker node. I got below error. \r\n\r\nFailed on local exception
+    java.io.IOException: Broken Pipe: Host Details : local host is :\"worker1/\" :destination
+    host is :\"mater:8020\"\r\n\r\nName node is running on master. Nifi is running
+    on worker1.  I am using correct confi files and directory in PutHDFS processor.
+    \r\nAny suggestion appreciated. \r\nSatya"
+- id: 0
+  author: Mark Payne
+  author_email: markap14@hotmail.com
+  author_url: http://http:/nifi.incubator.apache.org
+  date: '2015-03-05 13:02:56 -0500'
+  content: "Oscar,\r\n\r\nYes, this is a function of the GetHTTP processor. GetFTP
+    does not do this because with GetFTP, the file is copied over and then the original
+    is deleted from the FTP server. While there is a \"Delete Original\" property,
+    it is really intended for testing purposes so that you can pull the data without
+    destroying it. In an operational environment, though, NiFi is expected to handle
+    all distribution of the data from the point that it pulls from the FTP server,
+    so there's no reason to leave the file there."
+- id: 0
+  author: Travis Collins
+  author_email: junk@dreamingwell.com
+  author_url: http://www.dreamingwell.com
+  date: '2015-05-15 12:22:16 -0400'
+  content: 'Looking forward to Part two of this article! '
+- id: 0
+  author: cloudcar
+  author_email: varuntomar@live.com
+  author_url: ''
+  date: '2017-09-14 07:29:33 -0400'
+  content: "I am setting up Nifi cluster on kubernetes, its working as expected.I
+    am wondering what is the best practice. \r\n1. Separate nifi for each app. Bundle
+    it with microservice.\r\n2. Create a shared cluster like elasticsearch and add
+    resources as and when needed."
+- id: 0
+  author: hotwire
+  author_email: hot@yahoo.com
+  author_url: ''
+  date: '2019-07-18 07:22:04 -0400'
+  content: Thanks for the post. It is a great explanation about Integrating Apache.
+- id: 6
+  author: Satya Kondapalli
+  author_email: skondapalli@ambaricloud.com
+  author_url: http://www.ambariCloud.com
+  date: '2015-10-08 13:11:02 -0400'
+  content: 'Great tool. I have started using it to ingest data to Spark via Kafka,
+    and to HDFS. '
+- id: 9
+  author: propecia
+  author_email: leidarsohout1981@gmail.com
+  author_url: https://safe-canadian-store.com/hair-loss/propecia.html
+  date: '2019-07-19 18:09:57 -0400'
+  content: interesting animation Lovely colors. Such an original illustration style.
+- id: 23
+  author: Anshu
+  author_email: anshuman.ghosh@crealytics.com
+  author_url: ''
+  date: '2017-02-21 11:48:58 -0500'
+  content: "Hello,\r\nNice article. \r\nI have tried to build a similar DataFlow but
+    having following issues.\r\n1. It gets the data over getHTTP but immediately try
+    to unpack the same using UnpackContent processor and fails with \"Unable to unpack
+    because it does not appear to have any entries\"\r\n\r\n2. I tried to store the
+    original/ fail file and tried to unzip it from my Ubuntu local location and that
+    too fails with \" End-of-central-directory signature not found.  Either this file
+    is not\r\n  a zipfile, or it constitutes one disk of a multi-part archive.  In
+    the\r\n  latter case the central directory and zipfile comment will be found on\r\n
+    \ the last disk(s) of this archive.\"\r\n\r\nLooks like the entire .zip file is
+    not getting downloaded and before that only it is trying to unzip and failing.\r\n\r\nAny
+    help would be appreciated.\r\nThank you!\r\nAnshu"
+- id: 47
+  author: mahesh
+  author_email: dmahesh.mahe@gmail.com
+  author_url: ''
+  date: '2016-04-08 08:03:38 -0400'
+  content: hello i installed Apache Nifi i created process and the process configuration
+    setting are not changing /not reflecting so kindly help me
+- id: 72
+  author: Oscar
+  author_email: oscar.delapenajr@gmail.com
+  author_url: ''
+  date: '2015-03-05 07:37:17 -0500'
+  content: '"If the E-Tag changes or the Last Modified date changes, then we will
+    pull the data again. Otherwise, we won''t continue to pull the data." -- I''m
+    wondering how this is done exactly. Is this a built-in functionality of the GetHTTP
+    processor to pull only if the file.lastModifiedTime was changed? I''m following
+    your instructions but I''m using GetFTP instead of GetHTTP. The file is fetched
+    every time the schedule comes and creates duplicate messages in the Kafka topic.'
+- id: 81
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2015-04-14 05:53:55 -0400'
+  content: 爱对方受到
+- id: 96
+  author: Mark Payne
+  author_email: markap14@hotmail.com
+  author_url: http://nifi.incubator.apache.org
+  date: '2015-01-20 12:42:15 -0500'
+  content: "Running wget and pushing to an NFS mounted file share would accomplish
+    part of what the GetHTTP Processor does. However, this is a manual process and
+    will not monitor for any changes. However, doing this will simply download the
+    file, whereas this flow will then unpack the zipped data, and then route specific
+    files within the .zip file to Kafka and HDFS. The flow could then be expanded
+    to do many more tasks as needs arise.\r\n\r\nFor more information about what NiFi
+    is and does and how it's different from other ingestion technologies, I would
+    recommend you visit http://nifi.incubator.apache.org.\r\n\r\nThanks\r\n-Mark"
+- id: 4523
+  author: A curious reader
+  author_email: ''
+  author_url: ''
+  date: '2015-10-08 11:15:49 -0400'
+  content: "Great stuff! Easy to understand and see the power of NiFi.\r\n\r\nWould
+    love to see part 2. "
+- id: 51448
+  author: Mark
+  author_email: markap14@apache.org
+  author_url: ''
+  date: '2017-09-14 13:17:54 -0400'
+  content: "@cloudcar I would recommend using a single cluster. NiFi is pretty heavy
+    weight to be bundled up with a microservice. You also don't want to have to maintain
+    a separate NiFi for every service that you've got. Much easier to have a single
+    instance/cluster."
+- id: 906669
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2015-01-20 12:32:17 -0500'
+  content: "Isn't it easier to wget to a NFS mounted partition?\r\nWhat are the advantages
+    of Nifi to other ingestion technologies?"
+permalink: nifi/entry/integrating_apache_nifi_with_apache
+---
+<h1>
+    Integrating Apache NiFi with Apache Kafka<br />
+</h1>
+<p>
+   <span class="author">Mark Payne -&nbsp;</span><br />
+   <span class="author"><a href="mailto:markap14@hotmail.com">markap14@hotmail.com</a></span></p>
+<hr />
+<p class="adp">A couple of weeks ago, Joey Echeverria wrote a fantastic blog post about how to get started with <a href="http://nifi.incubator.apache.org">Apache NiFi (Incubating)</a>, available at&nbsp;<a href="http://ingest.tips/2014/12/22/getting-started-with-apache-nifi/" class="bare" style="box-sizing: border-box; color: #2156a5; text-decoration: underline; line-height: inherit; background: transparent;">http://ingest.tips/2014/12/22/getting-started-with-apache-nifi/</a> . In it, Joey outlines how to quickly build a simple dataflow that automatically picks up any data from the /dropbox directory on your computer and pushes the data to HDFS. He then goes on to use the ExecuteStream Processor to make use of the Kite SDK&rsquo;s ability to push CSV data into Hadoop.</p>
+<p class="adp">In this blog post, we will expand upon Joey&rsquo;s example to build a dataflow that&rsquo;s a bit more complicated and illustrate a few additional features of Apache NiFi. If you haven&rsquo;t already read Joey&rsquo;s blog, we would recommend you read it before following along here, as this post assumes that you have a very basic understanding of NiFi, such as what NiFi is and how to add a Processor to the graph.</p>
+<p class="adp">We will continue with the <a href="http://grouplens.org/datasets/movielens/" style="box-sizing: border-box; color: #2156a5; text-decoration: underline; line-height: inherit; background: transparent;">MovieLens</a> dataset, this time using the "MovieLens 10M" dataset, which contains "10 million ratings and 100,000 tag applications applied to 10,000 movies by 72,000 users." However, rather than downloading this dataset and placing the data that we care about in the /dropbox directory, we will use NiFi to pull the data directly from the MovieLens site.</p>
+<p class="adp">To do this, we first drag a Processor onto the graph. When we do this, we are given the option of choosing many different types of Processors. We know that we want to retrieve data from an HTTP address, so we will search for Processors of interest by choosing the "by tag" option for the filter and typing "http":</p>
+<p><img class="centered" src="https://blogs.apache.org/nifi/mediaresource/1c065572-1eda-4df4-b104-c4926b6a2a07" alt="httpprocessors.png" style="margin-bottom: 3em; margin-top: 1.5em;" /></p>
+<p class="adp">
+This narrows the list of Processors to just a few. We can quickly see the GetHTTP Processor. Clicking on<br />
+the Processor shows a description of the Processor just below: "Fetches a file via HTTP." This sounds like<br />
+a good fit, so we click the "Add" button to add it to the graph. Next, we need to configure the Processor to<br />
+pull the data that we are interested in. Right-clicking the Processor and clicking the "Configure" menu<br />
+option provides us a dialog with a "Properties" tab. Here, we can enter the URL to fetch the data from<br />
+(http://files.grouplens.org/datasets/movielens/ml-10m.zip) and enter the filename to use when downloading it:</p>
+<p><img class="centered" src="https://blogs.apache.org/nifi/mediaresource/f20864ca-4f44-41af-a837-cf66f44caf85" alt="configuregethttp.png" style="margin-bottom: 3em; margin-top: 1.5em;" /></p>
+<p class="adp">
+We can leave the other properties as they are for the sake of this blog post. In a real environment,<br />
+you may have an interest in changing timeout values, providing authentication, etc. We do, however, want to look at the<br />
+"Scheduling" tab. By default, Processors are scheduled to run as fast as they can. While this is great for most high-volume<br />
+dataflows, we wouldn't be very good clients if we continually hit the website nonstop as fast as we can - and I doubt that those<br />
+responsible for the site would appreciate it very much. In order to avoid this, we go to the "Scheduling" tab and change the<br />
+"Run Schedule" setting from "0 sec" to something more reasonable - say "10 mins". This way, we will check for new data<br />
+from the website every 10 minutes. If the E-Tag changes or the Last Modified date changes, then we will pull the data again.<br />
+Otherwise, we won't continue to pull the data.</p>
+<p class="adp">
+Next, we know that the data is in ZIP format, based on the URL. We will want to unzip the data to interact with<br />
+each file individually. Again, we can drag a Processor to the graph and filter by the tag "zip." We see that the<br />
+UnpackContent processor can handle ZIP files. We add it to the graph and configure its Properties as we did for<br />
+GetHTTP. This time, there is only one property: Packing Format. We change it to "zip" and click "Apply."</p>
+<p class="adp">
+Next, we need to send the data from GetHTTP to UnpackContent. We drag a Connection between the Processors and<br />
+include the "success" relationship, as that is the only relationship defined by GetHTTP. Now that we've unzipped<br />
+the data, the README tells us that the actual data included in the zip is in 3 files:<br />
+<span class="code">movies.dat</span>, <span class="code">ratings.dat</span>,<br />
+and <span class="code">tags.dat</span>. We don't really care about the rest of the data in the zip file, so we will use a RouteOnAttribute<br />
+to throw it out. We'll configure our RouteOnAttribute with the following properties:</p>
+<p><img class="centered" src="https://blogs.apache.org/nifi/mediaresource/150f71a1-c5c5-4721-add9-6d5b9f99cd57" alt="RouteOnAttributeProperties" style="margin-top: 1.5em; margin-bottom: 3em;" /></p>
+<p class="adp" style="margin-top: 1em;">
+We will connect the "success" relationsihp of UnpackContent to RouteOnAttribute. We don't care about the original<br />
+FlowFile - we only want the unpacked data. And if the Unpack fails, then there's not much we can do, so we will<br />
+configure UnpackContent and in the Settings tab choose to Auto-terminate the "original" and "failure" relationships.<br />
+Likewise, we don't care about anything routed to the "unmatched" relationship on the RouteOnAttribute, so we will<br />
+Auto-terminate that relationship as well.</p>
+<p class="adp">
+Now, we can just decide what to do with the "movies", "ratings", and "tags" relationships. For the sake of this<br />
+post, let's go ahead and push all of this data to HDFS with a PutHDFS Processor. We add a PutHDFS Processor and<br />
+configure it as Joey's blog instructs. We then drag a Connection from RouteOnAttribute to PutHDFS and choose<br />
+all three of these relationships.</p>
+<p class="adp">
+For PutHDFS, once we have successfully sent the data, there is nothing else to do, so we Auto-terminate the "success"<br />
+relationship. However, if there's a problem sending the data, we don't want to lose this data. We can then connect<br />
+the PutHDFS' "failure" relationship back to the PutHDFS Processor. Now, if we fail to send the data we will keep<br />
+retrying until we are successful.</p>
+<p class="adp">
+Now, we're ready to send some data to Kafka. Let's assume that we want only the data in the `movies.dat` file to<br />
+go to Kafka. We can drag a Processor onto the graph and filter by the tag "kafka." We see two Processors: GetKafka<br />
+and PutKafka. Since we want to send the data, we will use PutKafka. To send the movies data, we simply draw a Connection<br />
+from the RouteOnAttribute Processor to PutKafka and choose only the "movies" relationship. NiFi will take care of cloning<br />
+the FlowFile in a way that's very efficient so that no data is actually copied.</p>
+<p class="adp">
+We configure PutKafka by Auto-terminating "success" and looping "failure" back to itself as with PutHDFS. Now let's look<br />
+at the Properties tab. We have to choose a Kafka Topic to send the data to and a list of 1 or more Kafka servers to send to.<br />
+We'll set the Known Brokers to "localhost:9092" (assuming this is running on the same box as Kafka) and set the Kafka Topic<br />
+to "movies". Since the data is a CSV file, we know that it is new-line delimited. By default, NiFi will send the entire contents of<br />
+a FlowFile to Kafka as a single message. However, we want each line in our CSV file to be a new message on the Kafka Topic.<br />
+We accomplish this by setting the "Message Delimiter" property to "\n". At this point, our flow should look something like this:</p>
+<p><img class="centered" src="https://blogs.apache.org/nifi/mediaresource/54cf98ef-530d-4206-9da3-89deda141f0e" alt="NiFi Kafka integration" style="margin-bottom: 3em; margin-top: 1.5em;" /></p>
+<p class="adp">
+And now we're ready to start our flow!</p>
+<p>
+We can press Ctrl+A to select all and then click the Start button in the middle toolbar to start everything running. While the flow is running, we can right-click on the canvas and select "Refresh Status" to update all of the stats shown on the Processors. Then we will see in the top-right-hand corner of GetHTTP a "1" indicating that there is currently a single task running for this Processor. Once this task is finished, the data will be routed to the UnpackContent Processor, then the RouteOnAttribute Processor. At this point, some of the data will be destroyed because RouteOnAttribute will route it to "unmatched." The rest will go to the PutHDFS Processor, while only the "movies.dat" file will be sent to the PutKafka Processor. If we keep clicking "Refresh Status" as the data is processing, we will see each of these steps happening.</p>
+<p>
+We've now successfully setup a dataflow with Apache NiFi that pulls the largest of the available MovieLens datasets, unpacks the zipped contents, grooms the unwanted data, routes all of the pertinent data to HDFS, and finally sends a subset of this data to Apache Kafka.</p>
+<p>
+In Part Two of this series, we will look at how we can consume data from Kafka using NiFi, as well as how we can see what data we've pulled and what we've done with that data. Until then, please feel free to leave any questions, comments, or feedback in the Comments section.</p>

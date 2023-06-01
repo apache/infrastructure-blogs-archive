@@ -1,8 +1,0 @@
----
-layout: post
-title: Tiles 3 is now GA !
-date: '2013-11-13T00:00:00+00:00'
-categories: tiles
----
-<p><b>Tiles 3.0.3 GA</b> has been released. <br />Containing some small bug fixes to the <a href="http://tiles.apache.org">Tiles-3</a> series.</p>
-  <p>It is the first Tiles-3 release promoted for General Availability.<br /></p>

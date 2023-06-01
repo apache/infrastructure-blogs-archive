@@ -1,0 +1,46 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Notice: Java 6 and 7 users: SSL Protocol upgrades coming to Central'
+author:
+  display_name: Karl-Heinz Marbaise
+  login: khmarbaise
+  email: khmarbaise@apache.org
+author_login: khmarbaise
+author_email: khmarbaise@apache.org
+id: 0bb50b66-beb4-474c-84e1-3ea84398b24a
+date: '2018-06-13 07:57:53 -0400'
+categories:
+- community
+tags:
+- central
+- maven
+comments: []
+permalink: maven/entry/notice-java-6-and-7
+---
+<p>The march of standards continues unabated. Legacy TLS protocols 1.0<br />
+and 1.1 have varying weaknesses that could lead to a false sense of<br />
+security.</p>
+<p>
+In June, in an effort to raise security and comply with modern<br />
+standards, the insecure TLS 1.0 & 1.1 protocols will no longer be<br />
+supported for SSL connections to Central. This should only affect<br />
+users of Java 6 that are also using https to access central, which by<br />
+our metrics is less than .2% of users.</p>
+<p>
+At the same time, this conversion will allow Central to support HTTP/2<br />
+with potential performance gains for modern http clients.</p>
+<p>
+The details about why, when and what you need to do are documented at<br />
+the link below. As questions come up, we will continue to update this<br />
+faq.</p>
+<p>
+If there is specific information required for non-maven build systems,<br />
+please send it along and we will include that as well.</p>
+<p><a href="https://central.sonatype.org/articles/2018/May/04/discontinue-support-for-tlsv11-and-below/">https://central.sonatype.org/articles/2018/May/04/discontinue-support-for-tlsv11-and-below/<br />
+</a></p>
+<p>
+The same content has been posted as a blog to make it easier to<br />
+disseminate here:<br />
+<a href="https://blog.sonatype.com/enhancing-ssl-security-and-http/2-support-for-central">https://blog.sonatype.com/enhancing-ssl-security-and-http/2-support-for-central</a></p>

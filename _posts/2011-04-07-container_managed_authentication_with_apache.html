@@ -1,0 +1,421 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'Container-Managed Authentication with Apache ESME: Part 1'
+author:
+  display_name: Richard Hirsch
+  login: rhirsch
+  email: rhirsch@apache.org
+author_login: rhirsch
+author_email: rhirsch@apache.org
+id: 977e8ec3-5b4b-4a4c-9c05-13b179b96fe7
+date: '2011-04-07 06:12:11 -0400'
+categories:
+- Development
+tags:
+- esme
+- container
+- authentication
+comments: []
+permalink: esme/entry/container_managed_authentication_with_apache
+---
+<div class="Section1">
+<h2><b><span style="font-size: 14pt; ">Part 1: Performing<br />
+authentication with plaintext/xml user-role mapping</span></b></h2></p>
+<p>This blog was written by our new committer <i>Vladimir Ivanov</i>&nbsp;who implemented a feature that users have been wanting for a long time.&nbsp;</p>
+<p class="MsoNormal"><b><span style="font-size: 14pt; "> </span></b></p>
+<h2><b>Introduction</b></h2>
+<p class="MsoNormal"><b> </b></p>
+<p class="MsoNormal">Apache ESME currently supports two different authentication<br />
+schemes: when user credentials are stored in the database and via OpenID.&nbsp;<br />
+Corporate users, however, might be interested in container-managed<br />
+authentication (CMA) &mdash; because this scheme supports integration with enterprise<br />
+services such as LDAP and Single Sign-On. In the first part of this blog, &nbsp;I'll<br />
+explain how ESME-based applications can use CMA and how to configure two popular<br />
+web servers- Apache Tomcat and Jetty - with simple user-role mapping. In the<br />
+second part, I'll describe LDAP integration to perform CMA and how get<br />
+additional user attributes via the Lift LDAP API. </p>
+<p class="MsoNormal"><a name="id.2547e33e70c5"></a> </p>
+<h2><b>ContainerManagedAuthModule: The necessary code<br />
+changes</b></h2>
+<p class="MsoNormal"><b> </b></p>
+<p class="MsoNormal">A new authentication module ContainerManagedAuthModule was<br />
+introduced to hook into the container-managed authentication process. First of<br />
+all, it was registered along with the other authentication modules:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>Boot.scala</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+UserAuth.register(UserPwdAuthModule)</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+UserAuth.register(OpenIDAuthModule)&nbsp; </span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+UserAuth.register(ContainerManagedAuthModule)</span></p>
+<p class="MsoNormal"><b><i> </i></b></p>
+<p class="MsoNormal"><u>UserAuth.scala</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal">All authentication modules should extend the<br />
+<i>AuthModule</i> trait:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">object<br />
+ContainerManagedAuthModule extends AuthModule</span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">Currently, the list with security role (group) names is also<br />
+defined in the source code:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+val rolesToCheck = List(</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+"esme-users"</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+)</span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">It is also possible to get the list of roles from some<br />
+external source, for example, from a property file or a LDAP.</p>
+<p class="MsoNormal">
+<p class="MsoNormal">The method <i>moduleName</i> defines the name for the new<br />
+auth module. This value acts as a discriminator and will be stored in the<br />
+DB:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+def moduleName: String = "cm"</span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">After the container finishes the authentication and<br />
+authorization phases, it is &nbsp;neccessary to hook into the normal user processing<br />
+to save the user data. This task is performed in the <i>performInit</i> method:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">def<br />
+performInit(): Unit = {</span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">CMA must be applied to a specific URL, for example<br />
+<i>/cm/login</i>, so it is necessary to append a partial function to<br />
+<i>LiftRules.dispatch</i> to perform the neccessary operations:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+LiftRules.dispatch.append {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case Req("cm" ::<br />
+"login" :: Nil, _, _) =>&nbsp; {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val from =<br />
+"/"</span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal"><b><i>Note</i></b><i>: The majority of necessary steps to<br />
+further utilize this new auth method have already been desribed in the <a href="http://www.assembla.com/wiki/show/liftweb/How_to_use_Container_Managed_Security">Lift<br />
+Wiki</a>. </i></p>
+<p class="MsoNormal">
+<p class="MsoNormal">In short, it is neccessary to unwrap the<br />
+<i>javax.servlet.http.HttpServletRequest</i> object to get the username and role<br />
+names. If a user has one of the specified roles, the module should attempt to<br />
+find an existing user with the same nickname which previously has logged in via<br />
+this module. If such a user hasn't been found, a new User is created.&nbsp; The last<br />
+step is to save the userId in the HTTP session via <i>User.logUserIn</i> method<br />
+call.</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S.request match<br />
+{</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case Full(req)<br />
+=> {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val httpRequest:<br />
+HTTPRequest = req.request</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val hrs =<br />
+httpRequest.asInstanceOf[HTTPRequestServlet]</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val hsr:<br />
+HttpServletRequest = hrs.req</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val username :<br />
+String = hsr.getRemoteUser</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+if(username!=null){</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val<br />
+currentRoles = rolesToCheck.filter(hsr.isUserInRole(_))</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+if(currentRoles.size == 0) {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; info("No<br />
+roles have been found")</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+S.error(S.?("base_user_err_unknown_creds"))</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else<br />
+{</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+currentRoles.map(cr => {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (for<br />
+{</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user<br />
+<- UserAuth.find(By(UserAuth.authKey, username),</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+By(UserAuth.authType, moduleName)).flatMap(_.user.obj) or</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+User.find(By(User.nickname, username))</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } yield<br />
+user) match {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case<br />
+Full(user) => {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+logInUser(user)</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case _<br />
+=> {</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val usr<br />
+= User.createAndPopulate.nickname(username).saveMe</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //find<br />
+and save additional attributes in LDAP if it's enabled</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+UserAuth.create.authType(moduleName).user(usr).authKey(username).save</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+logInUser(usr)</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; })</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+}</span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal"><i> </i></p>
+<h2><b>Configuration</b></h2>
+<p class="MsoNormal"><b> </b></p>
+<p class="MsoNormal">Now it's time to set-up the configuration for the CMA. All<br />
+configuration settings for a Java EE web application (ESME is based on the Lift<br />
+web framework, so it's packaged as a WAR file), including security settings, are<br />
+defined in the web.xml file:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>web.xml</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal">For this example, we will use form-based authentication:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><i> </i><span style="font-family: 'Courier New'; font-size: 9pt; "><login-config></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<auth-method>FORM</auth-method></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<realm-name>ESMERealm</realm-name></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">Next, the login and error pages are specified. </p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<form-login-config></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<form-login-page>/cm_login.jsp</form-login-page></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<form-error-page>/cm_error.jsp</form-error-page></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</form-login-config></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+</login-config></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">Then, the security-role name, which any authenticated user<br />
+must have for successful authorization, is defined:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<!-- Security roles referenced by this web application --></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<security-role></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <description>An<br />
+authenticated ESME user</description></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<role-name>esme-users</role-name></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+</security-role></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">And finally it is necessary to configure the mapping between<br />
+the security role and the URL which is associated with the new authentication<br />
+module:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+<!-- Secured resources --></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<security-constraint></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<web-resource-collection></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<web-resource-name>ForceLogin</web-resource-name></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<description>Secured page for forcing the container to request<br />
+login</description></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<url-pattern>/cm/login</url-pattern></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</web-resource-collection></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<auth-constraint></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<role-name>esme-users</role-name></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;</auth-constraint></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+</security-constraint></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">The login page contains a form with specific action<br />
+attributes and two input fields: </p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>cm_login.jsp</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "><html></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<head></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<title>Login</title></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+</head></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<body id="cm_login"></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<form<br />
+method="POST" action="<a name="id.4d89123bcb3d"></a>j_security_check"></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Username: <input<br />
+type="text" name="j_username"/><br></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Password: <input<br />
+type="password" name="j_password"/><br></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input<br />
+type="submit"/></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</form>
+<p></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+</body></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "></html></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">Let's move on to the web server configuration for the next<br />
+steps. We must define the users for our web application as well as mapping<br />
+between these users and the security role that is specified in the web.xml file.<br />
+I'll show how to configure simple user-role mapping for two popular web servers<br />
+&mdash; Jetty and Tomcat.</p>
+<h3><span style="font-family: arial, verdana, 'Bitstream Vera Sans', helvetica, sans-serif; font-size: 16px; font-weight: bold; "><b>Jetty</b></span></h3>
+<p class="MsoNormal"><b> </b></p>
+<p class="MsoNormal"><i>The HashUserRealm </i>implementation is used to specify<br />
+the user-role mapping in the properties file for Jetty. The<br />
+<i>maven-jetty-plugin</i> has been already included in the<i> </i>Maven project<br />
+file <i>pom.xml</i> for the ESME application, so it is possible to configure<br />
+Jetty in the plugin configuration section:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>pom.xml</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<plugin></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<groupId>org.mortbay.jetty</groupId></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<artifactId>maven-jetty-plugin</artifactId></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<configuration></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<contextPath>/</contextPath></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<scanIntervalSeconds>0</scanIntervalSeconds></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<userRealms></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<userRealm<br />
+implementation="org.mortbay.jetty.security.HashUserRealm"></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<name>ESMERealm</name></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<config>jetty-login.properties</config></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</userRealm></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</userRealms></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</configuration></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</plugin></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">The format for this property file has the following form:<br />
+<i><span style="font-family: 'Times New Roman'; ">username: password [,rolename<br />
+...]</span></i><span style="font-family: 'Times New Roman'; ">. </span></p>
+<p class="MsoNormal">
+<p class="MsoNormal">An example is shown below:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>jetty-login.properties</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">cmuser: cmuser,<br />
+esme-users</span></p>
+<p class="MsoNormal"><b><i> </i></b></p>
+<p class="MsoNormal">That's it. Now Jetty is configured for CMA. Execute <i>mvn<br />
+clean jetty-run </i>command to start Jetty and type <i><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">localhost</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">:8080/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">cm</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">login</span></a></i><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">URL</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">in</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">your</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">browser</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">. </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">You</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">should</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">see</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a>the <a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">form</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">containing</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a>the <a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; ">username</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHAauB7Q-0DrjaX9voXiq2p3w3S7Q"><span style="color: black; text-decoration: none; "> </span></a>and password fields. Now<br />
+try to log in with the user with the id <i>cmuser</i>.</p>
+<p class="MsoNormal">
+<p class="MsoNormal">
+<h3><b>Tomcat</b></h3>
+<p class="MsoNormal"><b> </b></p>
+<p class="MsoNormal">The configuration of Tomcat web server is very similar to<br />
+that of Jetty, except that the user-role mapping is specified in a XML file.&nbsp;<br />
+The <i>MemoryUserDatabaseFactory </i>implementation is used to define the<br />
+mapping file.&nbsp; The corresponding realm <i>UserDatabaseRealm</i> is also<br />
+specified in the <i>server.xml </i>configuration file:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>server.xml</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+<GlobalNamingResources></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<!-- Editable user database that can also be used by</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserDatabaseRealm to<br />
+authenticate users</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+--></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "> </span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;<br />
+<Resource name="UserDatabase" auth="Container"</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+type="org.apache.catalina.UserDatabase"</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+description="User database that can be updated and saved"</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+factory="org.apache.catalina.users.MemoryUserDatabaseFactory"</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+pathname="conf/tomcat-users.xml" /></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "> </span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+</GlobalNamingResources></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">...</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "> </span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Realm<br />
+className="org.apache.catalina.realm.UserDatabaseRealm"</span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resourceName="UserDatabase"/></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">Below is an example of the user-role mapping definition in<br />
+the tomcat-users.xml file which is usually located in the&nbsp; tomcat/conf<br />
+directory.</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><u>tomcat-users.xml</u></p>
+<p class="MsoNormal"><u><span style="text-decoration: none; "> </span></u></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "><tomcat-users></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+<role rolename="esme-users"/></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; ">&nbsp;<br />
+<user name="cmuser" password="cmuser" roles="esme-users"/></span></p>
+<p class="MsoNormal"><span style="font-family: 'Courier New'; font-size: 9pt; "></tomcat-users></span></p>
+<p class="MsoNormal"><i> </i></p>
+<p class="MsoNormal">Now it's neccessary to package the WAR file with the <i>mvn<br />
+clean package</i> command and deploy it to Tomcat either via maven plugin or in<br />
+Tomcat's administrative console. Then proceed to the following URL:</p>
+<p class="MsoNormal">
+<p class="MsoNormal"><i><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">localhost</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">:8080/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">your</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">web</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">context</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">cm</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; ">login</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Flocalhost%3A8080%2Fesme-server-apache-esme-1.3%2Fcm%2Flogin&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFWc6RNvVc8rdwuhX4fvnt6T7PdFQ"><span style="color: black; text-decoration: none; "> </span></a></i></p>
+<p class="MsoNormal">
+<p class="MsoNormal">The login form should be displayed. </p>
+<h2>Conclusion</h2>
+<p class="MsoNormal"><b> </b></p>
+<p class="MsoNormal">In this part of the blog, I've covered the new authentication<br />
+module, application and server configuration and simple user-role mapping. In<br />
+the next part, I'll show how to configure Tomcat to use LDAP for CMA and get<br />
+additional attributes for the authenticated user.</p>
+<p class="MsoNormal">
+<p class="MsoNormal">
+<h2>Links</h2>
+<p style="text-indent: -25.5pt; margin-left: 48.75pt; " class="MsoNormal"><b><span style="font-family: 'Times New Roman'; font-size: 10pt; ">1.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></b>Lift Wiki -<br />
+How to use Container Managed Security : <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">www</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">assembla</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">com</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">wiki</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">show</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">liftweb</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">How</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">to</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">use</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">Container</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">Managed</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">_</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.assembla.com%2Fwiki%2Fshow%2Fliftweb%2FHow_to_use_Container_Managed_Security&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGv9veQ8piMvJ2NmdY7lthxI7KhWg"><span style="color: black; text-decoration: none; ">Security</span></a> </p>
+<p style="text-indent: -25.5pt; margin-left: 48.75pt; " class="MsoNormal"><b><span style="font-family: 'Times New Roman'; font-size: 10pt; ">2.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></b>Jetty<br />
+HashUserRealm: <a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">codehaus</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">-6/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">apidocs</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">mortbay</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">jetty</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">security</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">HashUserRealm</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fjetty.codehaus.org%2Fjetty%2Fjetty-6%2Fapidocs%2Forg%2Fmortbay%2Fjetty%2Fsecurity%2FHashUserRealm.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFbJylAdFFIyU1y4R7BVleFi4RO6Q"><span style="color: black; text-decoration: none; ">html</span></a> </p>
+<p style="text-indent: -25.5pt; margin-left: 48.75pt; " class="MsoNormal"><b><span style="font-family: 'Times New Roman'; font-size: 10pt; ">3.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></b>Tomcat Realms:<br />
+<a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">tomcat</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">apache</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">org</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">tomcat</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">-6.0-</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">doc</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">realm</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">-</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">howto</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Ftomcat.apache.org%2Ftomcat-6.0-doc%2Frealm-howto.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHe5dQXDOSf1LY8NP5RgTZ8DDTIZw"><span style="color: black; text-decoration: none; ">html</span></a></p>
+<p style="text-indent: -25.5pt; margin-left: 48.75pt; " class="MsoNormal"><b><span style="font-family: 'Times New Roman'; font-size: 10pt; ">4.<span style="font: normal normal normal 7pt/normal 'Times New Roman'; "> </span></span></b>Java EE 5<br />
+Tutorial &ndash; Securing Web Applications: <a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">http</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">://</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">download</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">oracle</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">com</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">javaee</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">/5/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">tutorial</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">doc</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">/</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">bncas</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">.</span></a><a href="http://www.google.com/url?q=http%3A%2F%2Fdownload.oracle.com%2Fjavaee%2F5%2Ftutorial%2Fdoc%2Fbncas.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF6lSrxld8cRifpULLdRiKCFfnhEw"><span style="color: black; text-decoration: none; ">html</span></a></p>
+</p></div>

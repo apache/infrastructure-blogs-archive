@@ -1,0 +1,100 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: CouchDB Weekly News, May 08
+author:
+  display_name: Noah Slater
+  login: nslater
+  email: nslater@apache.org
+author_login: nslater
+author_email: nslater@apache.org
+id: 41834583-281e-42f5-94b5-db466d26790d
+date: '2014-05-08 18:52:40 -0400'
+categories:
+- News
+tags: []
+comments:
+- id: 5
+  author: slitherio game
+  author_email: adamschule85@gmail.com
+  author_url: http://slitherio.guide
+  date: '2019-10-21 03:33:08 -0400'
+  content: 'This article proof that there are writers who really care about the quality
+    of content they share. '
+- id: 9
+  author: chenseitorchscur1983
+  author_email: chenseitorchscur1983@gmail.com
+  author_url: https://blogss.apache.org
+  date: '2019-07-18 15:21:02 -0400'
+  content: cute drawings
+- id: 821530
+  author: Accutane
+  author_email: cairisowhi1986@gmail.com
+  author_url: http://farmacia-online-italia.com/product/accutane.html?lang=it
+  date: '2019-07-19 18:08:33 -0400'
+  content: Nice, but I think its better to use different fonts for logo and headlines.
+    Amazing work! so love!
+permalink: couchdb/entry/couchdb_weekly_news_may_081
+---
+<h4>Weekly CouchDB meeting &ndash; <a href="http://wilderness.apache.org/archives/couchdb-meeting-07_05_2014-628.html" target="_blank">summary</a></h4>
+<ul>
+<li><strong>1.6.0 release</strong>: 1.6.0-rc.5 is out for testing, so for all systems go. 1.6.x CI is all green, a formal vote will be coming this week</li>
+<li><strong>rcouch merge status</strong>: testing up to now showed it&#39;s functional, it will be suggested for integration branch merge</li>
+<li><strong>BigCouch merge status</strong>: a massive progress has been made this week. Soon branches will be rewritten to clean up the history, afterwards the community will be asked for help with testing.</li>
+<li><strong>Fauxton</strong>: agreement that Fauxton replaces Futon in CouchDB 2.0 (post merge) and that resolution of <a href="https://issues.apache.org/jira/browse/COUCHDB-1954" target="_blank">COUCHDB-1954</a> prior to that is critical. There&#39;ll be a thread on dev@ mailing list about this and release preparation.</li>
+<li><strong>Bylaws, Code of Conduct, Diversity Statement</strong>: everyone in the community is still invited to read the <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=40511017" target="_blank">by-laws draft</a> and join the discussion on dev@ mailing list (<a href="http://markmail.org/search/?q=issues+with+terabytes+databases+list%3Aorg.apache.couchdb.user+order%3Adate-backward+date%3A201404#query:issues%20with%20terabytes%20databases%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward%20date%3A200802-200810%20date%3A200812-201005%20date%3A201007-201303%20date%3A201305-201306%20date%3A201308-201404%20+page:1+mid:pxnd6vdpjuwjioqw+state:results" target="_blank">see thread</a>); an initial Code of Conduct and Diversity draft will be posted next week</li>
+<li><strong>Project release artefacts</strong>: the current state of what the project release artefacts are will be documented and publicized</li>
+</ul>
+<h4>Major Discussions</h4>
+<h5>Discussion: Project by-laws (ongoing discussion; <a href="http://markmail.org/search/:org.apache.couchdb.dev+%22%5BDISCUSS%5D+Project+by-laws%22+order:date-forward#query:%3Aorg.apache.couchdb.dev%20%22%5BDISCUSS%5D%20Project%20by-laws%22%20order%3Adate-forward+page:1+mid:6xwbbgfbyeit5tdx+state:results" target="_blank">see thread</a>)</h5>
+<p>The first draft of the by-laws has been modified and is still being discussed. It can be found <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=40511017" target="_blank">here</a>, your comments are very welcome.</p>
+<h5>How to get results in descending order by date and without ID field (<a href="http://markmail.org/search/?q=How+get+results+in+reversed+order+by+date+and+without+id+field+%28stackoverflow%29#query:How%20get%20results%20in%20reversed%20order%20by%20date%20and%20without%20id%20field%20%28stackoverflow%29%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward+page:1+mid:q4cmd6mdepauvcsz+state:results" target="_blank">see thread</a>)</h5>
+<p>The docs for result orders can be found <a href="http://docs.couchdb.org/en/latest/api/ddoc/views.html%20" target="_blank">here</a>. To remove the ID field, users can use a list function.</p>
+<h5>Release Apache CouchDB 1.6.0 rc5 (ongoing testing and discussion; <a href="http://markmail.org/search/?q=[VOTE]+Release+Apache+CouchDB+1.6.0-rc.5#query:[VOTE]%20Release%20Apache%20CouchDB%201.6.0-rc.5%20list%3Aorg.apache.couchdb.dev%20order%3Adate-backward+page:1+mid:j7dja2zetabzslhy+state:results" target="_blank">see thread</a>)</h5>
+<p>The testing for all systems is still in progress. If you want to test, please follow this <a href="http://wiki.apache.org/couchdb/Test_procedure" target="_blank">test procedure</a>. The changes since last vote round can be found <a href="https://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=shortlog;h=refs/heads/1.6.x" target="_blank">here</a>.</p>
+<h4>Releases in the CouchDB Universe</h4>
+<ul>
+<li><a href="http://pouchdb.com/2014/05/01/pouchdb-2.2.0.html" target="_blank">PouchDB 2.2.0</a> &ndash; including persistent mapreduce, eventemitter api, replication works for huge datasets</li>
+<li><a href="https://www.npmjs.org/package/highland-couchr" target="_blank">highland-couchr 1.0.0</a> &ndash; streaming style API to <strong>CouchDB</strong>, using couchr under the hood</li>
+<li><a href="https://www.npmjs.org/package/massage-couch" target="_blank">massage-couch 0.1.0</a> &ndash; massage <strong>CouchDB</strong> documents with an OS daemon worker.</li>
+</ul>
+<h4>Opinions</h4>
+<ul>
+<li><a href="http://danielwertheim.se/2014/05/06/couchdb-partioned-dates-and-group-levels-to-control-aggregation-granularity/" target="_blank">CouchDB &ndash; partioned dates and group levels to control aggregation granularity</a></li>
+<li><a href="https://blog.engineyard.com/2014/long-tail-open-source" target="_blank">The Long Tail of Open Source (and You)</a></li>
+<li><a href="http://www.ime.usp.br/~cpg/teses/Tese-EmilioCFrancesquini.pdf" target="_blank">Dealing with actor runtime environments on hierarchical shared memory multi-core platforms</a> &ndash; Thesis for obtaining the Doctorate Degree in Sciences</li>
+</ul>
+<h4>Use Cases, Questions and Answers</h4>
+<ul>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23403056/how-to-structure-class-for-couchdb-http-api" target="_blank">How to structure class for CouchDB HTTP api?</a></li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23408351/get-selected-latest-10-docs-from-couchdb-order-by-timestamp" target="_blank">Get selected latest 10 docs from CouchDB order[ed] by timestamp</a></li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23455624/with-python-how-can-i-save-a-json-dumps-as-a-couchdb-document" target="_blank">with Python, how can I save a json dumps as a CouchDB document?</a></li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23455584/couchdb-reduce-function-only-return-sumvalue-that-meets-certain-conditions" target="_blank">CouchDB reduce function &mdash; only return sum(value) that meets certain conditions</a></li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23496001/couchdb-crashes-after-few-minutes-running" target="_blank">CouchDB crashes after few minutes running</a></li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23510068/how-can-i-replay-a-header-which-is-sent-in-request-to-couch-db" target="_blank">How can I replay a header which is sent in request to CouchDB?</a></li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23510171/angularjs-nodejs-couchdb" target="_blank">AngularJS + NodeJS + CouchDB</a> (no public answer yet)</li>
+<li>Stack Overflow: <a href="http://stackoverflow.com/questions/23509270/couchdb-map-function-to-get-the-data-in-between-two-dates" target="_blank">CouchDB Map function to get the data in between two dates</a></li>
+</ul>
+<h4>Get involved!</h4>
+<p>If you want to get into working on CouchDB:</p>
+<ul>
+<li>Help us testing <strong>Apache CouchDB 1.6.0 rc5</strong>! You&#39;ll find all important information on release artefacts and test procedure <a href="http://mail-archives.apache.org/mod_mbox/couchdb-dev/201405.mbox/%3CCAKmKYaAoNeCyPf__zsqAg-YozQMawdSA3Br_ki8TrGszY1SwrQ%40mail.gmail.com%3E" target="_blank">here</a>.</li>
+<li>Here&#39;s a <a href="https://issues.apache.org/jira/browse/COUCHDB-2178?jql=project%20%3D%20COUCHDB%20AND%20component%20%3D%20Fauxton%20AND%20status%20%3D%20Open%20AND%20cf[12310270]%20%3D%20%22New%20Contributors%20Level%20%28Easy%29%22" target="_blank">list of <strong>beginner tickets</strong></a> around our currently ongoing <a href="https://www.youtube.com/watch?v=R8b4kXBF01s" target="_blank">Fauxton</a>-implementation. If you have any questions or need help, don&#39;t hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) &ndash; Garren (garren) and Sue (deathbear) are happy to help.</li>
+</ul>
+<p>We&#39;d be happy to have you!</p>
+<h4>Events</h4>
+<ul>
+<li>May 13, Hamburg, Germany: the first <a href="https://plus.google.com/u/0/events/cvpbo7g50t77ii8nvdkitche8h8" target="_blank">CouchDB User Group meeting</a> in Hamburg</li>
+<li>May 13, New York, USA: <a href="http://www.meetup.com/mysqlnyc/events/178818342/" target="_blank">Database Superstars Panel, Future of NoSQL &amp; NewSQL</a>: CouchDB, NuoDB, OracleNoSQL</li>
+</ul>
+<h4>Job opportunities for people with CouchDB skills</h4>
+<ul>
+<li><a href="https://careers.stackoverflow.com/jobs/54863/devops-engineer-2u-inc" target="_blank">DevOps Engineer,</a> <em>New York, USA</em></li>
+<li>Work for any of JS, UI/UX, Node, CouchDB experience (see <a href="https://twitter.com/ryan_ramage_/status/464170397483536384" target="_blank">tweet</a>), <em>can work remote</em></li>
+</ul>
+<h4>&hellip; and also in the news</h4>
+<ul>
+<li><a href="http://sivers.org/ml" target="_blank">The Meaning of Life</a> - a talk (watch this!)</li>
+</ul>
+<p><em>Posted on behalf of Lena Reinhard.</em></p>

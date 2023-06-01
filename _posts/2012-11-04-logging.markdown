@@ -1,7 +1,0 @@
----
-layout: post
-title: Gary Gregory to join the Apache Logging PMC
-date: '2012-11-04T00:00:00+00:00'
-categories: logging
----
-Gary Gregory, who commits mainly to log4j 2, has been elected into the Apache Logging PMC. All the best for your new role.

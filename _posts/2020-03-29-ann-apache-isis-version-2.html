@@ -1,0 +1,56 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: "[ANN] Apache Isis version 2.0.0-M3 Released"
+author:
+  display_name: Dan Haywood
+  login: danhaywood
+  email: danhaywood@apache.org
+author_login: danhaywood
+author_email: danhaywood@apache.org
+id: 69e17327-e7ac-4bb4-abb5-daaae90846a6
+date: '2020-03-29 23:33:58 -0400'
+categories:
+- Announcements
+tags:
+- asciidoctor
+- springboot
+- isis
+- announcement
+- antora
+comments: []
+permalink: isis/entry/ann-apache-isis-version-2
+---
+<p>After a *lot* of development effort, the Apache Isis committers are delighted to announce the release of v2.0.0-M3 of the framework.<br><br>This is a major milestone release that "re-platforms" Apache Isis so that it now runs on top of Spring Boot 2.x. &nbsp;JDK8 is the minimum.&nbsp; Some highlights:</p>
+<ul>
+<li>A new convenience parent pom builds on top of Spring Boot&rsquo;s similar parent pom, to make it easy to develop new apps, along with simplified "mavendeps" pom&rsquo;s.</li>
+<li>The Maven archetypes have been replaced with Starter Apps in github repos.</li>
+<li>Configuration properties have been refactored, and can now be specified (with intellisense hints) using Spring&rsquo;s application.properties or application.yml</li>
+</ul>
+<p>New features:<br></p>
+<ul>
+<li>a new @Property#projecting allows view model summaries to be returned as "projections" of underlying entities.</li>
+<li>new layout() method (or UI event) allows a domain object to specify which layout file should be used to render it.</li>
+<li>there is no longer any need to specify @ParameterLayout#named()</li>
+<li>there is now a security integration with Keycloak</li>
+</ul>
+<p>There are also a number of new extensions:</p>
+<ul>
+<li>Flyway (integrating with Spring Boot&rsquo;s support)</li>
+<li>pdf.js (for Wicket viewer)</li>
+<li>fullcalendar (for Wicket viewer)</li>
+<li>excel download (for Wicket viewer)</li>
+</ul>
+<p>Other improvements include:</p>
+<ul>
+<li>Integration test support, and BDD (Cucumber) "spec" support have been refactored to run on Spring Boot with Junit 5.</li>
+<li>New demo app to demonstrate new features.</li>
+<li>New smoketest app to catch regressions</li>
+</ul>
+<p>Finally, the website has been updated to use Antora.</p>
+<p>Full release notes are available on the Apache Isis website at [1].<br>You can access this release directly from the Maven central repo [2].<br>Alternatively, download the release and build it from source [3].<br></p>
+<p>Enjoy!<br></p>
+<p>--The Apache Isis team<br></p>
+<p>[1] <a href="https://isis.apache.org/relnotes/2.0.0-M3/about.html" target="_blank">https://isis.apache.org/relnotes/2.0.0-M3/about.html</a><br>[2] <a href="http://search.maven.org" target="_blank">http://search.maven.org</a><br>[3] https://isis.apache.org/docs/2.0.0-M3/downloads/how-to.html<br><br></p>
+<p><br></p>

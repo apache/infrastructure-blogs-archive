@@ -1,9 +1,0 @@
----
-layout: post
-title: Connecting HBase to Elasticsearch through Phoenix in 10 min or less
-date: '2014-09-06T00:00:00+00:00'
-categories: phoenix
----
-<p>
-It's always exciting when folks reach out to me to demonstrate new ways of leveraging <a href="http://phoenix.apache.org/" target="_blank" title="Apache Phoenix">Apache Phoenix</a> in this fantastic open source ecosystem. In this case, Alex Kamil gives&nbsp;step-by-step instructions on usnig Phoenix with Elasticsearch to enable full-text search on HBase tables:&nbsp;<a href="http://lessc0de.github.io/connecting_hbase_to_elasticsearch.html">http://lessc0de.github.io/connecting_hbase_to_elasticsearch.html</a> </p> 
-  <p>Enjoy!</p>

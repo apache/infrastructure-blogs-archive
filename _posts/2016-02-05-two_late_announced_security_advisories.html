@@ -1,0 +1,56 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Two late-announced security advisories
+author:
+  display_name: John Kinsella
+  login: jlk
+  email: 'jlk@apache.org '
+author_login: jlk
+author_email: 'jlk@apache.org '
+id: 5472a71e-1df7-493d-8156-1e0446a06583
+date: '2016-02-05 03:06:51 -0500'
+categories:
+- News
+tags:
+- security
+comments:
+- id: 1
+  author: b&aacute;n bu&ocirc;n quần &aacute;o trẻ em gia c&ocirc;ng
+  author_email: tronggaran2@gmail.com
+  author_url: http://xuongmaylongthanh.vn/quan-ao-tre-em/tim-nguon-hang-ban-buon-quan-ao-tre-em-gia-cong-gia-si-tai-tphcm/
+  date: '2018-01-03 07:32:33 -0500'
+  content: thank you
+- id: 4
+  author: phong kham da khoa dai dong
+  author_email: lambaotrong2@gmail.com
+  author_url: http://dakhoadaidong.vn/gioi-thieu-phong-kham-da-khoa-dai-dong.html
+  date: '2017-10-11 08:04:46 -0400'
+  content: Thanks guy, its very useful
+- id: 6199
+  author: da khoa dai dong
+  author_email: lambaotrong1@gmail.com
+  author_url: http://www.webtretho.com/forum/f3156/phong-kham-phu-khoa-dai-dong-uy-tin-o-duong-cong-hoa-2450650/
+  date: '2017-10-11 07:48:50 -0400'
+  content: thank you!
+- id: 8531
+  author: địa chỉ b&aacute;n bu&ocirc;n quần &aacute;o trẻ em uy t&iacute;n
+  author_email: longthanh1@gmail.com
+  author_url: http://xuongmaylongthanh.vn/quan-ao-tre-em/xuong-may-long-thanh-dia-chi-ban-buon-quan-ao-tre-em-uy-tin/
+  date: '2018-01-10 08:31:49 -0500'
+  content: i like it
+permalink: cloudstack/entry/two_late_announced_security_advisories
+---
+<p>Today I sent out two CloudStack-related security advisories: CVE-2015-3251 (related to VM credential exposure) and CVE-2015-3252 (related to VNC authentication). Details about these issues can be found on the CloudStack user and dev mailing lists, as well as on the Full Disclosure and BUGTRAQ security mailing lists.</p>
+<p>While these vulnerabilities are of moderate and low severity (respectively), the reason for this post is because the advisories were announced approximately 5 months after the first release of the patches in 4.5.2. This is personally embarrassing, unacceptable, and in a more severe case could be downright dangerous.</p>
+<p><H2>What happened?</H2></p>
+<p>The CloudStack security team worked through the related vulnerabilities through the summer of 2015. We had advisory drafts, patches, and mitigations all ready well before the release. Far enough ahead, actually, that we forgot about the release and weren't paying attention to the release (at least I wasn't - I know others were), and didn't send out the advisories at the appropriate time. Part of this is due to me having become an unofficial lead/spokesperson for the security team; In the past there has been at least one occasion when others released advisories when I was not available, but usually I'm coordinating issues and publishing announcements.</p>
+<p>Luckily, the CloudStack Security Team works with and under the direction of the ASF security team. During one of their periodic reviews, they noticed CloudStack had loose ends on these two advisories, and asked for an update. Earlier today I realized the advisories had not been released, so here we are. </p>
+<p><H2>How will we improve?</H2></p>
+<p>Obviously, we don't want to be in this situation again. Here's some steps we're taking to minimize the chance of a repeat performance:</p>
+<ul>
+<li> I've modified the <a href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Release+Procedure">Release Procedure</a> to specifically request the release manager give the security team a heads up that a release is about to be announced. This can be a simple non-blocking email that shouldn't slow down the release process, but still ensure that we're aware of the upcoming release.</li>
+<li>I'll be ensuring that other members of the security team feel comfortable crafting and releasing advisories. Like the rest of CloudStack and other ASF projects, the CloudStack security team does not have a named leader and should be able to operate if I or others are unavailable.</li>
+</ul>
+<p>In the past I've referred to CloudStack as "critical infrastructure" - CloudStack powers infrastructure clouds for many large cloud providers. We take information security seriously, realizing that many depend upon our work. Vulnerabilities happen in most software at some point in time - the important part is how they are responded to. While in this case we did respond quickly to the issues and created and applied patches, we let the community down by not quickly releasing the advisories. This is an unfortunate chink in our armor, but we'll be taking steps to ensure it doesn't happen again.</p>
