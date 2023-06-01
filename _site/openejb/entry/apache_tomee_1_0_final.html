@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache TomEE 1.0 Final Released! | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache TomEE 1.0 Final Released!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache TomEE community is excited to announce the long awaited final release of Apache TomEE 1.0. A primary focus of the final release is performance tuning and production. Tuning was focused on large Applications such as Confluence, Ralio, and Lift. Large applications can expect major improvements over anywhere from a 100% to a 300% improvement in startup time over beta-2. Railo 3.3 Custom (44mb WAR): 21.3% of beta2 startup time (369% faster) Lift/Scala sample app (23mb WAR): 43.8% of beta2 startup time (128% faster) Confluence 3.5.5 (149mb unpacked): 37.6% of beta2 startup time (166% faster) Reduced classloading and a rewrite of the annotation scanning code account for the bulk of the increase. Improved TLD file scanning accounts for a large portion as well. New features also include, but not used in the above numbers, the ability to pinpoint which classes and jars should be scanned via scan.xml file placed in the application. Server startup times have greatly improved as well. On a modern MacBookPro, without an SSD, startup time should be about 1200ms from the command line with all the default applications present or about 700ms via the Tomcat adapter in Eclipse. Issues with deploying applications to TomEE in Eclipse via the Tomcat adapter have all been eliminated. The steps of setting up a server setup are now quite easy and with the improved startup to deploy times the results are quite impressive. New features include a Remote Adapter for Arquillian to round out the Arquillian support debuted in beta2. Shipped in a separate zip file that can be extracted into any server is an experimental new feature for provisioning applications using online Maven repositories. The functionality works great and we&#39;re excited to get feedback on it before considering it polished and stable. Write the dev list for details. Of course a major new feature of TomEE is Tomcat itself. TomEE 1.0 uses the days old Tomcat 7.0.27 which adds support for the WebSocket protocol (RFC6455). Both streaming and message based APIs are provided and the implementation currently fully passes the Autobahn test suite. We&#39;d like to thank everyone who gave feedback during the beta releases. Your feedback has been critical maturing TomEE quickly and with results that even shocked us. We are incredibly pleased with the results and excited to see TomEE reach its potential." />
+<meta property="og:description" content="The Apache TomEE community is excited to announce the long awaited final release of Apache TomEE 1.0. A primary focus of the final release is performance tuning and production. Tuning was focused on large Applications such as Confluence, Ralio, and Lift. Large applications can expect major improvements over anywhere from a 100% to a 300% improvement in startup time over beta-2. Railo 3.3 Custom (44mb WAR): 21.3% of beta2 startup time (369% faster) Lift/Scala sample app (23mb WAR): 43.8% of beta2 startup time (128% faster) Confluence 3.5.5 (149mb unpacked): 37.6% of beta2 startup time (166% faster) Reduced classloading and a rewrite of the annotation scanning code account for the bulk of the increase. Improved TLD file scanning accounts for a large portion as well. New features also include, but not used in the above numbers, the ability to pinpoint which classes and jars should be scanned via scan.xml file placed in the application. Server startup times have greatly improved as well. On a modern MacBookPro, without an SSD, startup time should be about 1200ms from the command line with all the default applications present or about 700ms via the Tomcat adapter in Eclipse. Issues with deploying applications to TomEE in Eclipse via the Tomcat adapter have all been eliminated. The steps of setting up a server setup are now quite easy and with the improved startup to deploy times the results are quite impressive. New features include a Remote Adapter for Arquillian to round out the Arquillian support debuted in beta2. Shipped in a separate zip file that can be extracted into any server is an experimental new feature for provisioning applications using online Maven repositories. The functionality works great and we&#39;re excited to get feedback on it before considering it polished and stable. Write the dev list for details. Of course a major new feature of TomEE is Tomcat itself. TomEE 1.0 uses the days old Tomcat 7.0.27 which adds support for the WebSocket protocol (RFC6455). Both streaming and message based APIs are provided and the implementation currently fully passes the Autobahn test suite. We&#39;d like to thank everyone who gave feedback during the beta releases. Your feedback has been critical maturing TomEE quickly and with results that even shocked us. We are incredibly pleased with the results and excited to see TomEE reach its potential." />
+<link rel="canonical" href="http://localhost:4000/openejb/entry/apache_tomee_1_0_final" />
+<meta property="og:url" content="http://localhost:4000/openejb/entry/apache_tomee_1_0_final" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-04-30T12:53:15-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache TomEE 1.0 Final Released!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-04-30T12:53:15-04:00","datePublished":"2012-04-30T12:53:15-04:00","description":"The Apache TomEE community is excited to announce the long awaited final release of Apache TomEE 1.0. A primary focus of the final release is performance tuning and production. Tuning was focused on large Applications such as Confluence, Ralio, and Lift. Large applications can expect major improvements over anywhere from a 100% to a 300% improvement in startup time over beta-2. Railo 3.3 Custom (44mb WAR): 21.3% of beta2 startup time (369% faster) Lift/Scala sample app (23mb WAR): 43.8% of beta2 startup time (128% faster) Confluence 3.5.5 (149mb unpacked): 37.6% of beta2 startup time (166% faster) Reduced classloading and a rewrite of the annotation scanning code account for the bulk of the increase. Improved TLD file scanning accounts for a large portion as well. New features also include, but not used in the above numbers, the ability to pinpoint which classes and jars should be scanned via scan.xml file placed in the application. Server startup times have greatly improved as well. On a modern MacBookPro, without an SSD, startup time should be about 1200ms from the command line with all the default applications present or about 700ms via the Tomcat adapter in Eclipse. Issues with deploying applications to TomEE in Eclipse via the Tomcat adapter have all been eliminated. The steps of setting up a server setup are now quite easy and with the improved startup to deploy times the results are quite impressive. New features include a Remote Adapter for Arquillian to round out the Arquillian support debuted in beta2. Shipped in a separate zip file that can be extracted into any server is an experimental new feature for provisioning applications using online Maven repositories. The functionality works great and we&#39;re excited to get feedback on it before considering it polished and stable. Write the dev list for details. Of course a major new feature of TomEE is Tomcat itself. TomEE 1.0 uses the days old Tomcat 7.0.27 which adds support for the WebSocket protocol (RFC6455). Both streaming and message based APIs are provided and the implementation currently fully passes the Autobahn test suite. We&#39;d like to thank everyone who gave feedback during the beta releases. Your feedback has been critical maturing TomEE quickly and with results that even shocked us. We are incredibly pleased with the results and excited to see TomEE reach its potential.","headline":"Apache TomEE 1.0 Final Released!","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/openejb/entry/apache_tomee_1_0_final"},"url":"http://localhost:4000/openejb/entry/apache_tomee_1_0_final"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache TomEE 1.0 Final Released!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-04-30T12:53:15-04:00" itemprop="datePublished">Apr 30, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"David Blevins", "login"=>"dblevins", "email"=>"dblevins@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The Apache TomEE community is excited to announce the long awaited final release of <a href="http://openejb.apache.org/downloads.html">Apache TomEE 1.0</a>.</p>
+<p>A primary focus of the final release is performance tuning and production.  Tuning was focused on large Applications such as Confluence, Ralio, and Lift.  Large applications can expect major improvements over anywhere from a 100% to a 300% improvement in startup time over beta-2.</p>
+<p>Railo 3.3 Custom (44mb WAR): 21.3% of beta2 startup time (369% faster)<br />
+Lift/Scala sample app (23mb WAR): 43.8% of beta2 startup time (128% faster)<br />
+Confluence 3.5.5 (149mb unpacked): 37.6% of beta2 startup time (166% faster)</p>
+<p>Reduced classloading and a rewrite of the annotation scanning code account for the bulk of the increase.  Improved TLD file scanning accounts for a large portion as well.  New features also include, but not used in the above numbers, the ability to pinpoint which classes and jars should be scanned via scan.xml file placed in the application.</p>
+<p>Server startup times have greatly improved as well.  On a modern MacBookPro, without an SSD, startup time should be about 1200ms from the command line with all the default applications present or about 700ms via the Tomcat adapter in Eclipse.  Issues with deploying applications to TomEE in Eclipse via the Tomcat adapter have all been eliminated.  The steps of setting up a server setup are now quite easy and with the improved startup to deploy times the results are quite impressive.</p>
+<p><iframe width="420" height="315" src="http://www.youtube.com/embed/Lr8pxEACVRI" frameborder="0" allowfullscreen></iframe></p>
+<p>New features include a Remote Adapter for Arquillian to round out the Arquillian support debuted in beta2.  Shipped in a separate zip file that can be extracted into any server is an experimental new feature for provisioning applications using online Maven repositories. The functionality works great and we're excited to get feedback on it before considering it polished and stable.  Write the dev list for details.</p>
+<p>Of course a major new feature of TomEE is Tomcat itself.  TomEE 1.0 uses the days old Tomcat 7.0.27 which adds support for the WebSocket protocol (RFC6455).  Both streaming and message based APIs are provided and the implementation currently fully passes the Autobahn test suite.</p>
+<p>We'd like to thank everyone who gave feedback during the beta releases.  Your feedback has been critical maturing TomEE quickly and with results that even shocked us.  We are incredibly pleased with the results and excited to see TomEE reach its potential.</p>
+
+  </div><a class="u-url" href="/openejb/entry/apache_tomee_1_0_final" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

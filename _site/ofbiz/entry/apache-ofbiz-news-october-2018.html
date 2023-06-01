@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache OFBiz News - October 2018 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache OFBiz News - October 2018" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Apache OFBiz News October 2018 &lt;/p&gt; Welcome to our regular monthly round-up of OFBiz news. This month we have more news about our new OFBiz release along with&nbsp;our usual list of features and improvements. &lt;/p&gt; Apache OFBiz&nbsp;16.11.05 Released! During this month the community announced the release of 16.11.05. The new release consolidates all work done since the previous release in January 2018. The release file can be downloaded following the instructions in the&nbsp;OFBiz Downloads&nbsp;page. Please refer to the&nbsp;Release Notes&nbsp;for more details of the changes introduced with this new version.&nbsp;&nbsp; Please note that a security vulnerability has been reported in OFBiz releases 16.11.01 to 16.11.04. It is highly recommended that you upgrade to the 16.11.05 release to mitigate this vulnerability. Details can be found on the&nbsp;Security&nbsp;page and following&nbsp;mail thread.&nbsp; Solr&nbsp;upgraded to version 7.5.0 OFBiz Solr plugins have been upgraded from Solr 7.3.1 to 7.5.0. Please refer to&nbsp;Upgrade Notes&nbsp;and Jira task&nbsp;OFBIZ-10589&nbsp;for more information about what has been implemented. Thanks very much to Jacques Le Roux and also everyone who contributed to getting this upgrade implemented.&nbsp; Missing Security and Cache Headers in CMS Events Currently, in OFBiz, while rendering the view through the controller request we set the important security headers like x-frame-options, strict-transport-security, x-content-type-options, X-XSS-Protection and Referrer-Policy etc. in the response object. In a similar line, we set the cache related headers like Expires, Last-Modified, Cache-Control, Pragma. But these security headers are missing in the pages rendered through CMS. These headers are very crucial for the security of the application as they help to prevent various security threats like cross-site scripting, cross-site request forgery, clickjacking etc. These security headers will now be available in the response object prepared through the CMS also. Please refer to&nbsp;Mail thread&nbsp;and&nbsp;Jira task OFBIZ-10597 for more information about what has been implemented. A big thank you to Deepak Nigam for initiating the discussion and to everyone who contributed. &lt;/p&gt; New features and improvements Functional enhancements and improvements as well as updates of third party libraries and source code refactoring: Fixes missing ASL2 headers. Sorts labels and removes a duplicated ones. Rewrites EntityConditionVisitor interface to respect visitor Pattern (OFBIZ-10593). Removes visit methods from current EntityConditionBase type hierarchy. Adds or rewrites accept method in EntityCondition type hierachy. Adds documentation in EntityConditionVisitor, introducing implementation examples. Adds junit test validating documented examples. Cleans up JavaDocs to be standards compliant (OFBIZ-7775). Adds links to external documentation to Javadoc (OFBIZ-10603). Refactors ICalendar support (OFBIZ-10602). Changes the Menu extends-resource management to allow structure changes by themes (OFBIZ-10600). Creates an &quot;url-redirect&quot; response type (OFBIZ-10599). Removes unused request-map &quot;edit&quot; attributes in controllers (OFBIZ-10608). Uses the JJWT library to implement a lightweight but complete solution to provide a web token authentication mechanism (OFBIZ-9833). Enables the navigation from a domain to another with automated signed in authentication (OFBIZ-10307). Updates google libphonenumber to v8.9.16 (OFBIZ-10618) Updates Apache FOP jar to 2.3 (OFBIZ-10619) Improves consistency and readability for condition tag (OFBIZ-8991). Improves consistency and readability for log tag (OFBIZ-8929). Improves consistency and readability for option (form widget) tag (OFBIZ-8930). Improves consistency and readability for event tag (controller.xml) (OFBIZ-8965). Improves consistency and readability for include-menu tag (OFBIZ-8972). Adds the prefix &quot;OfbizSetup-&quot; to the names of data files that are used by the ofbizsetup app (OFBIZ-10598). Removes unused RequestHandler::doRequest method (OFBIZ-10452). Plugins Updates Solr and Lucene from 7.3.1 to Solr 7.5.0 (OFBIZ-10589). Bugfixes Functional and technical bugfixes: Framework Execution of the query iCalendar/CALENDAR_PUB_DEMO/ fails(OFBIZ-10595). Creating Javadoc on Windows fails (OFBIZ-10605). Xsd file lacks the menu theme definition. Typo exists in r#1825350 (ignorease =&gt; ignoreCase) (OFBIZ-10195). Issue while creating new events (OFBIZ-10583). Plugins ECommerce landing page breaks if popular category does not exists (OFBIZ-10617). Multiple records are shown in search modal in webpos (OFBIZ-10314). Import is missing (OFBIZ-10314). Documentation Adds documentation content for Financial Accounts in Accounting (OFBIZ-10296). Corrects documentation for response type &quot;cross-redirect&quot; (OFBIZ-10569). Documents the automated authentification from a domain to another (OFBIZ-10562). Completes Birt Flexible Reports documentation (OFBIZ-9188). Converts Birt Flexible Reports documentation to Asciidoc (OFBIZ-10594)." />
+<meta property="og:description" content="Apache OFBiz News October 2018 &lt;/p&gt; Welcome to our regular monthly round-up of OFBiz news. This month we have more news about our new OFBiz release along with&nbsp;our usual list of features and improvements. &lt;/p&gt; Apache OFBiz&nbsp;16.11.05 Released! During this month the community announced the release of 16.11.05. The new release consolidates all work done since the previous release in January 2018. The release file can be downloaded following the instructions in the&nbsp;OFBiz Downloads&nbsp;page. Please refer to the&nbsp;Release Notes&nbsp;for more details of the changes introduced with this new version.&nbsp;&nbsp; Please note that a security vulnerability has been reported in OFBiz releases 16.11.01 to 16.11.04. It is highly recommended that you upgrade to the 16.11.05 release to mitigate this vulnerability. Details can be found on the&nbsp;Security&nbsp;page and following&nbsp;mail thread.&nbsp; Solr&nbsp;upgraded to version 7.5.0 OFBiz Solr plugins have been upgraded from Solr 7.3.1 to 7.5.0. Please refer to&nbsp;Upgrade Notes&nbsp;and Jira task&nbsp;OFBIZ-10589&nbsp;for more information about what has been implemented. Thanks very much to Jacques Le Roux and also everyone who contributed to getting this upgrade implemented.&nbsp; Missing Security and Cache Headers in CMS Events Currently, in OFBiz, while rendering the view through the controller request we set the important security headers like x-frame-options, strict-transport-security, x-content-type-options, X-XSS-Protection and Referrer-Policy etc. in the response object. In a similar line, we set the cache related headers like Expires, Last-Modified, Cache-Control, Pragma. But these security headers are missing in the pages rendered through CMS. These headers are very crucial for the security of the application as they help to prevent various security threats like cross-site scripting, cross-site request forgery, clickjacking etc. These security headers will now be available in the response object prepared through the CMS also. Please refer to&nbsp;Mail thread&nbsp;and&nbsp;Jira task OFBIZ-10597 for more information about what has been implemented. A big thank you to Deepak Nigam for initiating the discussion and to everyone who contributed. &lt;/p&gt; New features and improvements Functional enhancements and improvements as well as updates of third party libraries and source code refactoring: Fixes missing ASL2 headers. Sorts labels and removes a duplicated ones. Rewrites EntityConditionVisitor interface to respect visitor Pattern (OFBIZ-10593). Removes visit methods from current EntityConditionBase type hierarchy. Adds or rewrites accept method in EntityCondition type hierachy. Adds documentation in EntityConditionVisitor, introducing implementation examples. Adds junit test validating documented examples. Cleans up JavaDocs to be standards compliant (OFBIZ-7775). Adds links to external documentation to Javadoc (OFBIZ-10603). Refactors ICalendar support (OFBIZ-10602). Changes the Menu extends-resource management to allow structure changes by themes (OFBIZ-10600). Creates an &quot;url-redirect&quot; response type (OFBIZ-10599). Removes unused request-map &quot;edit&quot; attributes in controllers (OFBIZ-10608). Uses the JJWT library to implement a lightweight but complete solution to provide a web token authentication mechanism (OFBIZ-9833). Enables the navigation from a domain to another with automated signed in authentication (OFBIZ-10307). Updates google libphonenumber to v8.9.16 (OFBIZ-10618) Updates Apache FOP jar to 2.3 (OFBIZ-10619) Improves consistency and readability for condition tag (OFBIZ-8991). Improves consistency and readability for log tag (OFBIZ-8929). Improves consistency and readability for option (form widget) tag (OFBIZ-8930). Improves consistency and readability for event tag (controller.xml) (OFBIZ-8965). Improves consistency and readability for include-menu tag (OFBIZ-8972). Adds the prefix &quot;OfbizSetup-&quot; to the names of data files that are used by the ofbizsetup app (OFBIZ-10598). Removes unused RequestHandler::doRequest method (OFBIZ-10452). Plugins Updates Solr and Lucene from 7.3.1 to Solr 7.5.0 (OFBIZ-10589). Bugfixes Functional and technical bugfixes: Framework Execution of the query iCalendar/CALENDAR_PUB_DEMO/ fails(OFBIZ-10595). Creating Javadoc on Windows fails (OFBIZ-10605). Xsd file lacks the menu theme definition. Typo exists in r#1825350 (ignorease =&gt; ignoreCase) (OFBIZ-10195). Issue while creating new events (OFBIZ-10583). Plugins ECommerce landing page breaks if popular category does not exists (OFBIZ-10617). Multiple records are shown in search modal in webpos (OFBIZ-10314). Import is missing (OFBIZ-10314). Documentation Adds documentation content for Financial Accounts in Accounting (OFBIZ-10296). Corrects documentation for response type &quot;cross-redirect&quot; (OFBIZ-10569). Documents the automated authentification from a domain to another (OFBIZ-10562). Completes Birt Flexible Reports documentation (OFBIZ-9188). Converts Birt Flexible Reports documentation to Asciidoc (OFBIZ-10594)." />
+<link rel="canonical" href="http://localhost:4000/ofbiz/entry/apache-ofbiz-news-october-2018" />
+<meta property="og:url" content="http://localhost:4000/ofbiz/entry/apache-ofbiz-news-october-2018" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-21T10:10:37-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache OFBiz News - October 2018" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-01-21T10:10:37-05:00","datePublished":"2019-01-21T10:10:37-05:00","description":"Apache OFBiz News October 2018 &lt;/p&gt; Welcome to our regular monthly round-up of OFBiz news. This month we have more news about our new OFBiz release along with&nbsp;our usual list of features and improvements. &lt;/p&gt; Apache OFBiz&nbsp;16.11.05 Released! During this month the community announced the release of 16.11.05. The new release consolidates all work done since the previous release in January 2018. The release file can be downloaded following the instructions in the&nbsp;OFBiz Downloads&nbsp;page. Please refer to the&nbsp;Release Notes&nbsp;for more details of the changes introduced with this new version.&nbsp;&nbsp; Please note that a security vulnerability has been reported in OFBiz releases 16.11.01 to 16.11.04. It is highly recommended that you upgrade to the 16.11.05 release to mitigate this vulnerability. Details can be found on the&nbsp;Security&nbsp;page and following&nbsp;mail thread.&nbsp; Solr&nbsp;upgraded to version 7.5.0 OFBiz Solr plugins have been upgraded from Solr 7.3.1 to 7.5.0. Please refer to&nbsp;Upgrade Notes&nbsp;and Jira task&nbsp;OFBIZ-10589&nbsp;for more information about what has been implemented. Thanks very much to Jacques Le Roux and also everyone who contributed to getting this upgrade implemented.&nbsp; Missing Security and Cache Headers in CMS Events Currently, in OFBiz, while rendering the view through the controller request we set the important security headers like x-frame-options, strict-transport-security, x-content-type-options, X-XSS-Protection and Referrer-Policy etc. in the response object. In a similar line, we set the cache related headers like Expires, Last-Modified, Cache-Control, Pragma. But these security headers are missing in the pages rendered through CMS. These headers are very crucial for the security of the application as they help to prevent various security threats like cross-site scripting, cross-site request forgery, clickjacking etc. These security headers will now be available in the response object prepared through the CMS also. Please refer to&nbsp;Mail thread&nbsp;and&nbsp;Jira task OFBIZ-10597 for more information about what has been implemented. A big thank you to Deepak Nigam for initiating the discussion and to everyone who contributed. &lt;/p&gt; New features and improvements Functional enhancements and improvements as well as updates of third party libraries and source code refactoring: Fixes missing ASL2 headers. Sorts labels and removes a duplicated ones. Rewrites EntityConditionVisitor interface to respect visitor Pattern (OFBIZ-10593). Removes visit methods from current EntityConditionBase type hierarchy. Adds or rewrites accept method in EntityCondition type hierachy. Adds documentation in EntityConditionVisitor, introducing implementation examples. Adds junit test validating documented examples. Cleans up JavaDocs to be standards compliant (OFBIZ-7775). Adds links to external documentation to Javadoc (OFBIZ-10603). Refactors ICalendar support (OFBIZ-10602). Changes the Menu extends-resource management to allow structure changes by themes (OFBIZ-10600). Creates an &quot;url-redirect&quot; response type (OFBIZ-10599). Removes unused request-map &quot;edit&quot; attributes in controllers (OFBIZ-10608). Uses the JJWT library to implement a lightweight but complete solution to provide a web token authentication mechanism (OFBIZ-9833). Enables the navigation from a domain to another with automated signed in authentication (OFBIZ-10307). Updates google libphonenumber to v8.9.16 (OFBIZ-10618) Updates Apache FOP jar to 2.3 (OFBIZ-10619) Improves consistency and readability for condition tag (OFBIZ-8991). Improves consistency and readability for log tag (OFBIZ-8929). Improves consistency and readability for option (form widget) tag (OFBIZ-8930). Improves consistency and readability for event tag (controller.xml) (OFBIZ-8965). Improves consistency and readability for include-menu tag (OFBIZ-8972). Adds the prefix &quot;OfbizSetup-&quot; to the names of data files that are used by the ofbizsetup app (OFBIZ-10598). Removes unused RequestHandler::doRequest method (OFBIZ-10452). Plugins Updates Solr and Lucene from 7.3.1 to Solr 7.5.0 (OFBIZ-10589). Bugfixes Functional and technical bugfixes: Framework Execution of the query iCalendar/CALENDAR_PUB_DEMO/ fails(OFBIZ-10595). Creating Javadoc on Windows fails (OFBIZ-10605). Xsd file lacks the menu theme definition. Typo exists in r#1825350 (ignorease =&gt; ignoreCase) (OFBIZ-10195). Issue while creating new events (OFBIZ-10583). Plugins ECommerce landing page breaks if popular category does not exists (OFBIZ-10617). Multiple records are shown in search modal in webpos (OFBIZ-10314). Import is missing (OFBIZ-10314). Documentation Adds documentation content for Financial Accounts in Accounting (OFBIZ-10296). Corrects documentation for response type &quot;cross-redirect&quot; (OFBIZ-10569). Documents the automated authentification from a domain to another (OFBIZ-10562). Completes Birt Flexible Reports documentation (OFBIZ-9188). Converts Birt Flexible Reports documentation to Asciidoc (OFBIZ-10594).","headline":"Apache OFBiz News - October 2018","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ofbiz/entry/apache-ofbiz-news-october-2018"},"url":"http://localhost:4000/ofbiz/entry/apache-ofbiz-news-october-2018"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache OFBiz News - October 2018</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-21T10:10:37-05:00" itemprop="datePublished">Jan 21, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Pranay Pandey", "login"=>"pranayp", "email"=>"pranayp@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2>Apache OFBiz News October 2018</h2></p>
+<p>Welcome to our regular monthly round-up of OFBiz news. This month we have more news about our new OFBiz release along with&nbsp;our usual list of features and improvements.</p></p>
+<h3>Apache OFBiz&nbsp;16.11.05 Released!</h3>
+<p>During this month the community announced the release of 16.11.05. The new release consolidates all work done since the previous release in January 2018. The release file can be downloaded following the instructions in the&nbsp;<a href="https://ofbiz.apache.org/download.html" style="color: #1155cc;">OFBiz Downloads</a>&nbsp;page. Please refer to the&nbsp;<a href="https://ofbiz.apache.org/release-notes-16.11.05.html" style="color: #1155cc;">Release Notes</a>&nbsp;for more details of the changes introduced with this new version.&nbsp;&nbsp;</p>
+<p>Please note that a security vulnerability has been reported in OFBiz releases 16.11.01 to 16.11.04. It is highly recommended that you upgrade to the 16.11.05 release to mitigate this vulnerability. Details can be found on the&nbsp;<a href="https://ofbiz.apache.org/security.html" style="color: #1155cc;">Security</a>&nbsp;page and following&nbsp;<a href="https://markmail.org/message/y2f5c7b6rnrvhkaf" style="color: #1155cc;">mail thread</a>.&nbsp;</p>
+<h3><br class="Apple-interchange-newline" />Solr&nbsp;upgraded to version 7.5.0</h3>
+<p>OFBiz Solr plugins have been upgraded from Solr 7.3.1 to 7.5.0. Please refer to&nbsp;<a href="https://lucene.apache.org/solr/guide/7_5/solr-upgrade-notes.html" target="_blank" style="color: #1155cc;">Upgrade Notes</a>&nbsp;and Jira task&nbsp;<a href="https://issues.apache.org/jira/browse/OFBIZ-10589" target="_blank" style="color: #1155cc;">OFBIZ-10589</a>&nbsp;for more information about what has been implemented.</p>
+<p>Thanks very much to Jacques Le Roux and also everyone who contributed to getting this upgrade implemented.&nbsp;</p>
+<div>
+<h3>Missing Security and Cache Headers in CMS Events</h3>
+<p>Currently, in OFBiz, while rendering the view through the controller request we set the important security headers like x-frame-options, strict-transport-security, x-content-type-options, X-XSS-Protection and Referrer-Policy etc. in the response object. In a similar line, we set the cache related headers like Expires, Last-Modified, Cache-Control, Pragma. But these security headers are missing in the pages rendered through CMS. These headers are very crucial for the security of the application as they help to prevent various security threats like cross-site scripting, cross-site request forgery, clickjacking etc. These security headers will now be available in the response object prepared through the CMS also.</p>
+<p>Please refer to&nbsp;<a href="https://markmail.org/message/rubkdyhgr3feykul" style="color: #1155cc;">Mail thread</a>&nbsp;and&nbsp;Jira task <font color="#1155cc"><a href="https://issues.apache.org/jira/browse/OFBIZ-10597" target="_blank" style="color: #1155cc;">OFBIZ-10597</a> </font>for more information about what has been implemented.</p>
+<p>A big thank you to Deepak Nigam for initiating the discussion and to everyone who contributed.</p>
+</p></div>
+<h3>New features and improvements</h3>
+<p>Functional enhancements and improvements as well as updates of third party libraries and source code refactoring:</p>
+<ul>
+<li>Fixes missing ASL2 headers.</li>
+<li>Sorts labels and removes a duplicated ones.</li>
+<li>Rewrites EntityConditionVisitor interface to respect visitor Pattern (<a href="https://issues.apache.org/jira/browse/OFBIZ-10593">OFBIZ-10593</a>).
+<ul>
+<li>Removes visit methods from current EntityConditionBase type hierarchy.</li>
+<li>Adds or rewrites accept method in EntityCondition type hierachy.</li>
+<li>Adds documentation in EntityConditionVisitor, introducing implementation examples.</li>
+<li>Adds junit test validating documented examples.</li>
+</ul>
+</li>
+<li>Cleans up JavaDocs to be standards compliant (<a href="https://issues.apache.org/jira/browse/OFBIZ-7775">OFBIZ-7775</a>).</li>
+<li>Adds links to external documentation to Javadoc (<a href="https://issues.apache.org/jira/browse/OFBIZ-10603">OFBIZ-10603</a>).</li>
+<li>Refactors ICalendar support (<a href="https://issues.apache.org/jira/browse/OFBIZ-10602">OFBIZ-10602</a>).</li>
+<li>Changes the Menu extends-resource management to allow structure changes by themes (<a href="https://issues.apache.org/jira/browse/OFBIZ-10600">OFBIZ-10600</a>).</li>
+<li>Creates an "url-redirect" response type (<a href="https://issues.apache.org/jira/browse/OFBIZ-10599">OFBIZ-10599</a>).</li>
+<li>Removes unused request-map "edit" attributes in controllers (<a href="https://issues.apache.org/jira/browse/OFBIZ-10608">OFBIZ-10608</a>).</li>
+<li>Uses the JJWT library to implement a lightweight but complete solution to provide a web token authentication mechanism (<a href="https://issues.apache.org/jira/browse/OFBIZ-9833">OFBIZ-9833</a>).</li>
+<li>Enables the navigation from a domain to another with automated signed in authentication (<a href="https://issues.apache.org/jira/browse/OFBIZ-10307">OFBIZ-10307</a>).</li>
+<li>Updates google libphonenumber to v8.9.16 (<a href="https://issues.apache.org/jira/browse/OFBIZ-10618">OFBIZ-10618</a>)</li>
+<li>Updates Apache FOP jar to 2.3 (<a href="https://issues.apache.org/jira/browse/OFBIZ-10619">OFBIZ-10619</a>)</li>
+<li>Improves consistency and readability for condition tag (<a href="https://issues.apache.org/jira/browse/OFBIZ-8991">OFBIZ-8991</a>).</li>
+<li>Improves consistency and readability for log tag (<a href="https://issues.apache.org/jira/browse/OFBIZ-8929">OFBIZ-8929</a>).</li>
+<li>Improves consistency and readability for option (form widget) tag (<a href="https://issues.apache.org/jira/browse/OFBIZ-8930">OFBIZ-8930</a>).</li>
+<li>Improves consistency and readability for event tag (controller.xml) (<a href="https://issues.apache.org/jira/browse/OFBIZ-8965">OFBIZ-8965</a>).</li>
+<li>Improves consistency and readability for include-menu tag (<a href="https://issues.apache.org/jira/browse/OFBIZ-8972">OFBIZ-8972</a>).</li>
+<li>Adds the prefix "OfbizSetup-" to the names of data files that are used by the ofbizsetup app (<a href="https://issues.apache.org/jira/browse/OFBIZ-10598">OFBIZ-10598</a>).</li>
+<li>Removes unused RequestHandler::doRequest method (<a href="https://issues.apache.org/jira/browse/OFBIZ-10452">OFBIZ-10452</a>).</li>
+</ul>
+<h4>Plugins</h4>
+<ul>
+<li>Updates Solr and Lucene from 7.3.1 to Solr 7.5.0 (<a href="https://issues.apache.org/jira/browse/OFBIZ-10589">OFBIZ-10589</a>).</li>
+</ul>
+<h3>Bugfixes</h3>
+<p>Functional and technical bugfixes:</p>
+<h4>Framework</h4>
+<ul>
+<li>Execution of the query iCalendar/CALENDAR_PUB_DEMO/ fails(<a href="https://issues.apache.org/jira/browse/OFBIZ-10595">OFBIZ-10595</a>).</li>
+<li>Creating Javadoc on Windows fails (<a href="https://issues.apache.org/jira/browse/OFBIZ-10605">OFBIZ-10605</a>).</li>
+<li>Xsd file lacks the menu theme definition.</li>
+<li>Typo exists in r#1825350 (ignorease => ignoreCase) (<a href="https://issues.apache.org/jira/browse/OFBIZ-10195">OFBIZ-10195</a>).</li>
+<li>Issue while creating new events (<a href="https://issues.apache.org/jira/browse/OFBIZ-10583">OFBIZ-10583</a>).</li>
+</ul>
+<h4>Plugins</h4>
+<ul>
+<li>ECommerce landing page breaks if popular category does not exists (<a href="https://issues.apache.org/jira/browse/OFBIZ-10617">OFBIZ-10617</a>).</li>
+<li>Multiple records are shown in search modal in webpos (<a href="https://issues.apache.org/jira/browse/OFBIZ-10314">OFBIZ-10314</a>).</li>
+<li>Import is missing (<a href="https://issues.apache.org/jira/browse/OFBIZ-10314">OFBIZ-10314</a>).</li>
+</ul>
+<h3>Documentation</h3>
+<ul>
+<li>Adds documentation content for Financial Accounts in Accounting (<a href="https://issues.apache.org/jira/browse/OFBIZ-10296">OFBIZ-10296</a>).</li>
+<li>Corrects documentation for response type "cross-redirect" (<a href="https://issues.apache.org/jira/browse/OFBIZ-10569">OFBIZ-10569</a>).</li>
+<li>Documents the automated authentification from a domain to another (<a href="https://issues.apache.org/jira/browse/OFBIZ-10562">OFBIZ-10562</a>).</li>
+<li>Completes Birt Flexible Reports documentation (<a href="https://issues.apache.org/jira/browse/OFBIZ-9188">OFBIZ-9188</a>).</li>
+<li>Converts Birt Flexible Reports documentation to Asciidoc (<a href="https://issues.apache.org/jira/browse/OFBIZ-10594">OFBIZ-10594</a>).</li>
+</ul>
+
+  </div><a class="u-url" href="/ofbiz/entry/apache-ofbiz-news-october-2018" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

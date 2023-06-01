@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Sqoop: Highlights of Sqoop 2 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Sqoop: Highlights of Sqoop 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The popularity of Apache Sqoop (incubating) in enterprise systems confirms that Sqoop does bulk transfer admirably. That said, to enhance its functionality, Sqoop needs to fulfill data integration use-cases as well as become easier to manage and operate. Sqoop 2 addresses these issues and&nbsp;its high-level design overview is detailed in this post." />
+<meta property="og:description" content="The popularity of Apache Sqoop (incubating) in enterprise systems confirms that Sqoop does bulk transfer admirably. That said, to enhance its functionality, Sqoop needs to fulfill data integration use-cases as well as become easier to manage and operate. Sqoop 2 addresses these issues and&nbsp;its high-level design overview is detailed in this post." />
+<link rel="canonical" href="http://localhost:4000/sqoop/entry/apache_sqoop_highlights_of_sqoop" />
+<meta property="og:url" content="http://localhost:4000/sqoop/entry/apache_sqoop_highlights_of_sqoop" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-01-13T01:16:48-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Sqoop: Highlights of Sqoop 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-01-13T01:16:48-05:00","datePublished":"2012-01-13T01:16:48-05:00","description":"The popularity of Apache Sqoop (incubating) in enterprise systems confirms that Sqoop does bulk transfer admirably. That said, to enhance its functionality, Sqoop needs to fulfill data integration use-cases as well as become easier to manage and operate. Sqoop 2 addresses these issues and&nbsp;its high-level design overview is detailed in this post.","headline":"Apache Sqoop: Highlights of Sqoop 2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sqoop/entry/apache_sqoop_highlights_of_sqoop"},"url":"http://localhost:4000/sqoop/entry/apache_sqoop_highlights_of_sqoop"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Sqoop: Highlights of Sqoop 2</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-01-13T01:16:48-05:00" itemprop="datePublished">Jan 13, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Arvind Prabhakar", "login"=>"arvind", "email"=>"arvind@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><a href="http://incubator.apache.org/sqoop/" mce_href="http://incubator.apache.org/sqoop/" style="font-size: 13px; ">Apache Sqoop (incubating)</a><span style="font-size: 13px; "> </span><span style="font-size: 13px; ">was created to efficiently transfer bulk data between Hadoop and external structured datastores, such as RDBMS and data warehouses, because databases are not easily accessible by Hadoop. Sqoop is currently undergoing incubation at The Apache Software Foundation. More information on this project can be found at</span><span style="font-size: 13px; "> </span><a href="http://incubator.apache.org/sqoop" mce_href="http://incubator.apache.org/sqoop" style="font-size: 13px; ">http://incubator.apache.org/sqoop</a><span style="font-size: 13px; ">.</span></p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">The popularity of Sqoop in enterprise systems confirms that Sqoop does bulk transfer admirably. That said, to enhance its functionality, Sqoop needs to fulfill data integration use-cases as well as become easier to manage and operate.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><span mce_name="strong" mce_style="font-weight: bold;" style="font-weight: bold; ">What is Sqoop?</span><br />As <a href="https://blogs.apache.org/sqoop/entry/apache_sqoop_overview" mce_href="https://blogs.apache.org/sqoop/entry/apache_sqoop_overview">described in a previous blog post</a>, Sqoop is a bulk data transfer tool that allows easy import/export of data from structured datastores such as relational databases, enterprise data warehouses, and NoSQL systems. Using Sqoop, you can provision the data from an external system into HDFS, as well as populate tables in Hive and HBase. Similarly, Sqoop integrates with the workflow coordinator Apache Oozie (incubating), allowing you to schedule and automate import/export tasks. Sqoop uses a connector-based architecture which supports plugins that provide connectivity to additional external systems.</p>
+<p><img src="https://blogs.apache.org/sqoop/mediaresource/61d0850f-4feb-4a13-af58-0b90b01047ef" /></p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><span mce_name="strong" mce_style="font-weight: bold;" style="font-weight: bold; ">Sqoop's Challenges</span><br />Sqoop has enjoyed enterprise adoption, and our experiences have exposed some recurring ease-of-use challenges, extensibility limitations, and security concerns that are difficult to support in the original design:<br />- Cryptic and contextual command line arguments can lead to error-prone connector matching, resulting in user errors<br />- Due to tight coupling between data transfer and the serialization format, some connectors may support a certain data format that others don't (e.g. direct MySQL connector can't support sequence files)<br />- There are security concerns with openly shared credentials<br />- By requiring root privileges, local configuration and installation are not easy to manage<br />- Debugging the map job is limited to turning on the verbose flag<br />- Connectors are forced to follow the JDBC model and are required to use common JDBC vocabulary (URL, database, table, etc), regardless if it is applicable</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">These challenges have motivated the design of Sqoop 2, which is the subject of this post. That said, Sqoop 2 is a work in progress whose design is subject to change.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">Sqoop 2 will continue its strong support for command line interaction, while adding a web-based GUI that exposes a simple user interface. Using this interface, a user can walk through an import/export setup via UI cues that eliminate redundant options. Various connectors are added in the application in one place and the user is not tasked with installing or configuring connectors in their own sandbox. These connectors expose their necessary options to the Sqoop framework which then translates them to the UI. The UI is built on top of a REST API that can be used by a command line client exposing similar functionality. The introduction of Admin and Operator roles in Sqoop 2 will restrict 'create' access for Connections to Admins and 'execute' access to Operators. This model will allow integration with platform security and restrict the end user view to only operations applicable to end users.</p>
+<p><img src="https://blogs.apache.org/sqoop/mediaresource/a04e8f6f-4d1e-4ee9-b726-af4e078599cf" /></p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><span mce_name="strong" mce_style="font-weight: bold;" style="font-weight: bold; ">Ease of Use</span><br />Whereas Sqoop requires client-side installation and configuration, Sqoop 2 will be installed and configured server-side. This means that connectors will be configured in one place, managed by the Admin role and run by the Operator role. Likewise, JDBC drivers will be in one place and database connectivity will only be needed on the server. Sqoop 2 will be a web-based service: front-ended by a Command Line Interface (CLI) and browser and back-ended by a metadata repository. Moreover, Sqoop 2's service level integration with Hive and HBase will be on the server-side. Oozie will manage Sqoop tasks through the REST API. This decouples Sqoop internals from Oozie, i.e. if you install a new Sqoop connector then you won't need to install it in Oozie also.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><span mce_name="strong" mce_style="font-weight: bold;" style="font-weight: bold; ">Ease of Extension</span><br />In Sqoop 2, connectors will no longer be restricted to the JDBC model, but can rather define their own vocabulary, e.g. Couchbase no longer needs to specify a table name, only to overload it as a backfill or dump operation.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">Common functionality will be abstracted out of connectors, holding them responsible only for data transport. The reduce phase will implement common functionality, ensuring that connectors benefit from future development of functionality.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">Sqoop 2's interactive web-based UI will walk users through import/export setup, eliminating redundant steps and omitting incorrect options. Connectors will be added in one place, with the connectors exposing necessary options to the Sqoop framework. Thus, users will only need to provide information relevant to their use-case.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">With the user making an explicit connector choice in Sqoop 2, it will be less error-prone and more predictable. In the same way, the user will not need to be aware of the functionality of all connectors. As a result, connectors no longer need to provide downstream functionality, transformations, and integration with other systems. Hence, the connector developer no longer has the burden of understanding all the features that Sqoop supports.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><span mce_name="strong" mce_style="font-weight: bold;" style="font-weight: bold; ">Security</span><br />Currently, Sqoop operates as the user that runs the 'sqoop' command. The security principal used by a Sqoop job is determined by what credentials the users have when they launch Sqoop. Going forward, Sqoop 2 will operate as a server based application with support for securing access to external systems via role-based access to Connection objects. For additional security, Sqoop 2 will no longer allow code generation, require direct access to Hive and HBase, nor open up access to all clients to execute jobs.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">Sqoop 2 will introduce Connections as First-Class Objects. Connections, which will encompass credentials, will be created once and then used many times for various import/export jobs. Connections will be created by the Admin and used by the Operator, thus preventing credential abuse by the end user. Furthermore, Connections can be restricted based on operation (import/export). By limiting the total number of physical Connections open at one time and with an option to disable Connections, resources can be managed.</p>
+<p style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "><span mce_name="strong" mce_style="font-weight: bold;" style="font-weight: bold; ">Summary</span><br />As <a href="https://cwiki.apache.org/confluence/download/attachments/27361435/Sqoop2_wnotes.pdf?version=1&amp;modificationDate=1326152997641" mce_href="https://cwiki.apache.org/confluence/download/attachments/27361435/Sqoop2_wnotes.pdf?version=1&amp;modificationDate=1326152997641">detailed in this presentation</a>, Sqoop 2 will enable users to use Sqoop effectively with a minimal understanding of its details by having a web-application run Sqoop, which allows Sqoop to be installed once and used from anywhere. In addition, having a REST API for operation and management will help Sqoop integrate better with external systems such as Oozie. Also, introducing a reduce phase allows connectors to be focused only on connectivity and ensures that Sqoop functionality is uniformly available for all connectors. This facilitates ease of development of connectors.</p>
+<p><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">We encourage you to participate in and contribute to Sqoop 2's</span><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "> </span><a href="https://cwiki.apache.org/confluence/display/SQOOP/Sqoop+2" mce_href="https://cwiki.apache.org/confluence/display/SQOOP/Sqoop+2" style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">Design</a><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "> </span><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">and Development</span><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; "> </span><a href="https://issues.apache.org/jira/browse/SQOOP-365" mce_href="https://issues.apache.org/jira/browse/SQOOP-365" style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">(SQOOP-365)</a><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px; ">.</span> </p>
+<p><i><span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; line-height: 19px; ">Guest post by Kathleen Ting.</span> </i></p>
+
+  </div><a class="u-url" href="/sqoop/entry/apache_sqoop_highlights_of_sqoop" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

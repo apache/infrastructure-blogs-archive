@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Ignite 2.3 - More SQL and Persistence Capabilities | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Ignite 2.3 - More SQL and Persistence Capabilities" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Putting aside the regular bug fixes and performance optimizations, the Apache Ignite 2.3 release brings new SQL capabilities and Ignite persistence improvements that are worth mentioning. SQL Let&#39;s start with SQL first. Apache Ignite users have consistently told us that despite all of Ignite&rsquo;s SQL capabilities, it&rsquo;s been at times challenging trying to figure out how to start using Ignite as an SQL database. This was mostly caused by scattered documentation pages, lack of &ldquo;getting started&rdquo; guides and tutorials. We&rsquo;ve remedied this oversight! All related SQL knowledge has been curated in a single documentation domain. Are you curious about the SQL scope? Go to the new SQL Reference Overview section! Cannot wait to learn how the Ignite SQL engine runs internally? We&rsquo;ve prepared an Architectural Overview section for you. Simply need to know how to connect to an Ignite cluster from an SQL tool? Here is a tooling section for you. Let&rsquo;s take a look at some specific SQL features released in Ignite 2.3. First, we&rsquo;re proud to deliver support of ALTER TABLE command. Presently, the command allows adding new columns to an SQL schema in runtime -- avoiding any cluster restarts. Once a new column is added, it can be turned into an index. Again, in runtime. No restarts! Another significant addition seen in Ignite 2.3 is the integration with SQLLine tool that is bundled with every Apache Ignite release and can be used as a default command line tool for SQL based interactions. To prove that it&#39;s fairly simple to work with Ignite as with an SQL database using the tool, we recorded a short screencast for you: Ignite Persistence Ignite native persistence keeps getting more attention and installs -- which is why the community released a feature requested by at least a dozen users. The feature allows enabling the persistence for specific data sets. Before Ignite version 2.3, the persistence could be enabled globally only. Now, it&#39;s up to you to decide which data to persist and which to store in RAM only. The persistence can be configured via data regions as shown below: This data region will consume up to 500 MB of RAM and will store a superset of data on disk ensuring that no data loss happens in case of a crash or even if there is no more space left in RAM. Anything else?&lt;/h2&gt; Flip through our release notes to see all the changes and improvements available in Apache Ignite 2.3 -- and, for sure, download and use this version in production. Questions, comments? Let us know!" />
+<meta property="og:description" content="Putting aside the regular bug fixes and performance optimizations, the Apache Ignite 2.3 release brings new SQL capabilities and Ignite persistence improvements that are worth mentioning. SQL Let&#39;s start with SQL first. Apache Ignite users have consistently told us that despite all of Ignite&rsquo;s SQL capabilities, it&rsquo;s been at times challenging trying to figure out how to start using Ignite as an SQL database. This was mostly caused by scattered documentation pages, lack of &ldquo;getting started&rdquo; guides and tutorials. We&rsquo;ve remedied this oversight! All related SQL knowledge has been curated in a single documentation domain. Are you curious about the SQL scope? Go to the new SQL Reference Overview section! Cannot wait to learn how the Ignite SQL engine runs internally? We&rsquo;ve prepared an Architectural Overview section for you. Simply need to know how to connect to an Ignite cluster from an SQL tool? Here is a tooling section for you. Let&rsquo;s take a look at some specific SQL features released in Ignite 2.3. First, we&rsquo;re proud to deliver support of ALTER TABLE command. Presently, the command allows adding new columns to an SQL schema in runtime -- avoiding any cluster restarts. Once a new column is added, it can be turned into an index. Again, in runtime. No restarts! Another significant addition seen in Ignite 2.3 is the integration with SQLLine tool that is bundled with every Apache Ignite release and can be used as a default command line tool for SQL based interactions. To prove that it&#39;s fairly simple to work with Ignite as with an SQL database using the tool, we recorded a short screencast for you: Ignite Persistence Ignite native persistence keeps getting more attention and installs -- which is why the community released a feature requested by at least a dozen users. The feature allows enabling the persistence for specific data sets. Before Ignite version 2.3, the persistence could be enabled globally only. Now, it&#39;s up to you to decide which data to persist and which to store in RAM only. The persistence can be configured via data regions as shown below: This data region will consume up to 500 MB of RAM and will store a superset of data on disk ensuring that no data loss happens in case of a crash or even if there is no more space left in RAM. Anything else?&lt;/h2&gt; Flip through our release notes to see all the changes and improvements available in Apache Ignite 2.3 -- and, for sure, download and use this version in production. Questions, comments? Let us know!" />
+<link rel="canonical" href="http://localhost:4000/ignite/entry/apache-ignite-2-3-more" />
+<meta property="og:url" content="http://localhost:4000/ignite/entry/apache-ignite-2-3-more" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-01T21:12:11-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Ignite 2.3 - More SQL and Persistence Capabilities" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2017-11-01T21:12:11-04:00","datePublished":"2017-11-01T21:12:11-04:00","description":"Putting aside the regular bug fixes and performance optimizations, the Apache Ignite 2.3 release brings new SQL capabilities and Ignite persistence improvements that are worth mentioning. SQL Let&#39;s start with SQL first. Apache Ignite users have consistently told us that despite all of Ignite&rsquo;s SQL capabilities, it&rsquo;s been at times challenging trying to figure out how to start using Ignite as an SQL database. This was mostly caused by scattered documentation pages, lack of &ldquo;getting started&rdquo; guides and tutorials. We&rsquo;ve remedied this oversight! All related SQL knowledge has been curated in a single documentation domain. Are you curious about the SQL scope? Go to the new SQL Reference Overview section! Cannot wait to learn how the Ignite SQL engine runs internally? We&rsquo;ve prepared an Architectural Overview section for you. Simply need to know how to connect to an Ignite cluster from an SQL tool? Here is a tooling section for you. Let&rsquo;s take a look at some specific SQL features released in Ignite 2.3. First, we&rsquo;re proud to deliver support of ALTER TABLE command. Presently, the command allows adding new columns to an SQL schema in runtime -- avoiding any cluster restarts. Once a new column is added, it can be turned into an index. Again, in runtime. No restarts! Another significant addition seen in Ignite 2.3 is the integration with SQLLine tool that is bundled with every Apache Ignite release and can be used as a default command line tool for SQL based interactions. To prove that it&#39;s fairly simple to work with Ignite as with an SQL database using the tool, we recorded a short screencast for you: Ignite Persistence Ignite native persistence keeps getting more attention and installs -- which is why the community released a feature requested by at least a dozen users. The feature allows enabling the persistence for specific data sets. Before Ignite version 2.3, the persistence could be enabled globally only. Now, it&#39;s up to you to decide which data to persist and which to store in RAM only. The persistence can be configured via data regions as shown below: This data region will consume up to 500 MB of RAM and will store a superset of data on disk ensuring that no data loss happens in case of a crash or even if there is no more space left in RAM. Anything else?&lt;/h2&gt; Flip through our release notes to see all the changes and improvements available in Apache Ignite 2.3 -- and, for sure, download and use this version in production. Questions, comments? Let us know!","headline":"Apache Ignite 2.3 - More SQL and Persistence Capabilities","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ignite/entry/apache-ignite-2-3-more"},"url":"http://localhost:4000/ignite/entry/apache-ignite-2-3-more"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Ignite 2.3 - More SQL and Persistence Capabilities</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-11-01T21:12:11-04:00" itemprop="datePublished">Nov 1, 2017
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Denis Magda", "login"=>"dmagda", "email"=>"dmagda@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Putting aside the regular bug fixes and performance optimizations, the Apache Ignite 2.3 release brings new SQL capabilities and Ignite persistence improvements that are worth mentioning. </p>
+<h3>SQL</h3>
+<p>Let's start with SQL first.</p>
+<p>Apache Ignite users have consistently told us that despite all of Ignite&rsquo;s SQL capabilities, it&rsquo;s been at times challenging trying to figure out how to start using Ignite as an SQL database. </p>
+<p>This was mostly caused by scattered documentation pages, lack of &ldquo;getting started&rdquo; guides and tutorials. We&rsquo;ve remedied this oversight! All related SQL knowledge has been curated in a <a href="https://apacheignite-sql.readme.io/docs" target="_blank">single documentation domain</a>.</p>
+<p>Are you curious about the SQL scope? Go to the new <a href="https://apacheignite-sql.readme.io/docs/sql-reference-overview" target="_blank">SQL Reference Overview</a> section!</p>
+<p>Cannot wait to learn how the Ignite SQL engine runs internally? We&rsquo;ve prepared an <a href="https://apacheignite-sql.readme.io/docs/how-ignite-sql-works" target="_blank">Architectural Overview</a> section for you. </p>
+<p>Simply need to know how to connect to an Ignite cluster from an SQL tool? Here is a <a href="https://apacheignite-sql.readme.io/docs/how-ignite-sql-works" target="_blank">tooling</a> section for you.     </p>
+<p>Let&rsquo;s take a look at some specific SQL features released in Ignite 2.3. </p>
+<p>First, we&rsquo;re proud to deliver support of <a href="https://apacheignite-sql.readme.io/docs/alter-table" target="_blank">ALTER TABLE</a> command. Presently, the command allows adding new columns to an SQL schema in runtime -- avoiding any cluster restarts. Once a new column is added, it can be turned into an index. Again, in runtime. No restarts!</p>
+<p>Another significant addition seen in Ignite 2.3 is the integration with <a href="https://apacheignite-sql.readme.io/docs/sqlline" target="_blank">SQLLine tool</a> that is bundled with every Apache Ignite release and can be used as a default command line tool for SQL based interactions. </p>
+<p>To prove that it's fairly simple to work with Ignite as with an SQL database using the tool, we recorded a short screencast for you:</p>
+<p><a href="https://youtu.be/FKS8A86h-VY" target="_blank"><img src="https://blogs.apache.org/ignite/mediaresource/89364a0d-3c7e-427c-8237-868318dcd6f1" alt="screencast.png" style="display: block; margin: auto; width: 50%;"/></a>  </p>
+<h3>Ignite Persistence</h3>
+<p>Ignite native persistence keeps getting more attention and installs -- which is why the community released a feature requested by at least a dozen users. The feature allows enabling the persistence for specific data sets. Before Ignite version 2.3, the persistence could be enabled globally only.</p>
+<p>Now, it's up to you to decide which data to persist and which to store in RAM only. The persistence can be configured via <a href="https://apacheignite.readme.io/docs/memory-configuration#section-data-regions" target="_blank">data regions</a> as shown below:</p>
+<p><a href="https://apacheignite.readme.io/docs/memory-configuration#section-data-regions" target="_blank"><img src="https://blogs.apache.org/ignite/mediaresource/0c7ce964-1218-49eb-bc9b-54a4725cabed" alt="persistence_cfg.png" style="display: block; margin: auto; width: 60%;"/></a></p>
+<p>This data region will consume up to 500 MB of RAM and will store a superset of data on disk ensuring that no data loss happens in case of a crash or even if there is no more space left in RAM.</p>
+<h3>Anything else?</h2>
+<p>Flip through <a href="https://ignite.apache.org/releases/2.3.0/release_notes.html">our release notes</a> to see all the changes and improvements available in Apache Ignite 2.3 -- and, for sure, download and use this version in production. </p>
+<p>Questions, comments? Let us know!</p>
+
+  </div><a class="u-url" href="/ignite/entry/apache-ignite-2-3-more" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>New optimization for time series data in Apache Phoenix 4.6 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="New optimization for time series data in Apache Phoenix 4.6" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Today&#39;s blog is brought to you by&nbsp;Samarth Jain, PMC member of Apache Phoenix, and Lead Member of the Technical Staff at Salesforce.com. Apache Phoenix 4.6 now provides the capability of mapping a Phoenix primary key column to the native row timestamp of Apache HBase. The mapping is denoted by the keyword ROW_TIMESTAMP in the create table statement. Such a mapping provides the following two advantages:&nbsp; Allows Phoenix to set the min time range on scans&nbsp;since this column directly maps to the HBase cell timestamp. Presence of these time ranges lets HBase figure out which store files it should be scanning and which ones to skip. This comes in handy especially for temporal data when the queries are focused towards the tail end of the data. Enables Phoenix to leverage the existing optimizations in place when querying against primary key columns. Lets look at an example with some performance numbers to understand when a ROW_TIMESTAMP column could help. Sample schema: For performance analysis, we created two identical tables, one with the new&nbsp;ROW_TIMESTAMP qualifier and one without.&nbsp; CREATE TABLE&nbsp;EVENTS_RTS (&nbsp; &nbsp; EVENT_ID CHAR(15) NOT NULL,&nbsp; &nbsp; EVENT_TYPE CHAR(3) NOT NULL,&nbsp; &nbsp; EVENT_DATE DATE NOT NULL,&nbsp; &nbsp; APPLICATION_TYPE VARCHAR,&nbsp; &nbsp; SOURCE_IP VARCHAR&nbsp; &nbsp; CONSTRAINT PK PRIMARY KEY (&nbsp; &nbsp; &nbsp; &nbsp; EVENT_ID, &nbsp; &nbsp; &nbsp; &nbsp; EVENT_TYPE, &nbsp; &nbsp; &nbsp; &nbsp; EVENT_DATE ROW_TIMESTAMP)) The initial data load of 500 million records created data with the event_date set to dates over the last seven days. During the load, tables went through region splits and major compactions. After the initial load, we ran a mixed read/write workload with writes (new records) happening @500K records per hour. Each new row was created with EVENT_DATE as the current date/time. Three sets of queries were executed that filtered on the EVENT_DATE column: &lt;/p&gt; Newer than last hour&#39;s event data Newer than last two day&#39;s event data Outside of the time range of event data For example, the following query would return the number of rows for the last hours worth of data: SELECT COUNT(*) FROM EVENTS_RTSWHERE EVENT_DATE &gt; CURRENT_DATE() - 1/24 Below is the graph that shows variation of query times over the tail end of data (not major compacted) for the two tables Below is a tabular summary of the various time ranges that were tested over the non-major compacted event data Time # Duration(ms) Range Rows Returned With Optimization Without Optimization CREATED IN LAST 1 MINUTE 16K 200 4000 CREATED IN LAST 15 MINUTES 125K 700 130000 CREATED IN LAST 1 HOUR 500K 2100 500000 CREATED BEFORE LAST 8 DAYS 0 100 340000 As you can see from the results, using a ROW_TIMESTAMP gives a huge perf boost when querying over data that hasn&rsquo;t been major compacted. For already major compacted data, the two tables show the same performance (i.e. there is no degradation). The query returning 0 records is a special case in which the date range falls out of the data that was loaded to the tables. Such a query returns almost instantaneously for EVENTS_RTS (0.1 seconds). The same query on EVENTS_WITHOUT_RTS takes more than 300 seconds. This is because with the time range information available on scans, HBase was quickly able to figure out that no store files have data within the range yielding a near instant response. Effect of HBase major compaction The HBase store file (HFile) stores time range (min and max row timestamps) in its metadata. When a scan comes in, HBase is able to look at this metadata and figure out whether it should be scanning the store file for returning the records the query has requested. When writes are happening to an HBase table, after crossing a threshold size, contents of the memstore are flushed to an HFile. Now if the queries are against the newly created (tail-end of data) HFiles, one would see a huge perf boost when using the ROW_TIMESTAMP column. This is because, the scans issued by Phoenix would need to read only these newly created store files. On the other hand, queries not utilizing the row_timestamp column will have to potentially scan the entire table. The perf benefits are negated however, when HBase runs a major compaction on the table. In the default compaction policy, when number of HFiles exceeds a certain threshold or when a pre-determined time period crosses, HBase performs a major compaction to consolidate the number of store files in a region to one. This effectively ends up setting the time range of the lone store file to all the data contained within that region. As a result, scans are no longer able to filter out what store files to skip since the lone store file happens to contain all the data. Do note that in such a condition, the performance of the query with the row_timestamp column is the same as the one without. In conclusion, if your table has a date based primary key and your queries are geared towards the tail-end of the data, you should think about using a row_timestamp column as it could yield huge performance gains. Potential Future Work One question you may be asking yourself is Why does performance drop after a major compaction occurs? I thought performance was supposed to improve after compaction. Time series data is different than other data in that it&#39;s typically write-once, append only. There are ways that this property of the data can be exploited such that better performance is maintained. For some excellent ideas along these lines, see&nbsp;Vladimir Rodionov&#39;s presentation from a previous HBase Meetup here." />
+<meta property="og:description" content="Today&#39;s blog is brought to you by&nbsp;Samarth Jain, PMC member of Apache Phoenix, and Lead Member of the Technical Staff at Salesforce.com. Apache Phoenix 4.6 now provides the capability of mapping a Phoenix primary key column to the native row timestamp of Apache HBase. The mapping is denoted by the keyword ROW_TIMESTAMP in the create table statement. Such a mapping provides the following two advantages:&nbsp; Allows Phoenix to set the min time range on scans&nbsp;since this column directly maps to the HBase cell timestamp. Presence of these time ranges lets HBase figure out which store files it should be scanning and which ones to skip. This comes in handy especially for temporal data when the queries are focused towards the tail end of the data. Enables Phoenix to leverage the existing optimizations in place when querying against primary key columns. Lets look at an example with some performance numbers to understand when a ROW_TIMESTAMP column could help. Sample schema: For performance analysis, we created two identical tables, one with the new&nbsp;ROW_TIMESTAMP qualifier and one without.&nbsp; CREATE TABLE&nbsp;EVENTS_RTS (&nbsp; &nbsp; EVENT_ID CHAR(15) NOT NULL,&nbsp; &nbsp; EVENT_TYPE CHAR(3) NOT NULL,&nbsp; &nbsp; EVENT_DATE DATE NOT NULL,&nbsp; &nbsp; APPLICATION_TYPE VARCHAR,&nbsp; &nbsp; SOURCE_IP VARCHAR&nbsp; &nbsp; CONSTRAINT PK PRIMARY KEY (&nbsp; &nbsp; &nbsp; &nbsp; EVENT_ID, &nbsp; &nbsp; &nbsp; &nbsp; EVENT_TYPE, &nbsp; &nbsp; &nbsp; &nbsp; EVENT_DATE ROW_TIMESTAMP)) The initial data load of 500 million records created data with the event_date set to dates over the last seven days. During the load, tables went through region splits and major compactions. After the initial load, we ran a mixed read/write workload with writes (new records) happening @500K records per hour. Each new row was created with EVENT_DATE as the current date/time. Three sets of queries were executed that filtered on the EVENT_DATE column: &lt;/p&gt; Newer than last hour&#39;s event data Newer than last two day&#39;s event data Outside of the time range of event data For example, the following query would return the number of rows for the last hours worth of data: SELECT COUNT(*) FROM EVENTS_RTSWHERE EVENT_DATE &gt; CURRENT_DATE() - 1/24 Below is the graph that shows variation of query times over the tail end of data (not major compacted) for the two tables Below is a tabular summary of the various time ranges that were tested over the non-major compacted event data Time # Duration(ms) Range Rows Returned With Optimization Without Optimization CREATED IN LAST 1 MINUTE 16K 200 4000 CREATED IN LAST 15 MINUTES 125K 700 130000 CREATED IN LAST 1 HOUR 500K 2100 500000 CREATED BEFORE LAST 8 DAYS 0 100 340000 As you can see from the results, using a ROW_TIMESTAMP gives a huge perf boost when querying over data that hasn&rsquo;t been major compacted. For already major compacted data, the two tables show the same performance (i.e. there is no degradation). The query returning 0 records is a special case in which the date range falls out of the data that was loaded to the tables. Such a query returns almost instantaneously for EVENTS_RTS (0.1 seconds). The same query on EVENTS_WITHOUT_RTS takes more than 300 seconds. This is because with the time range information available on scans, HBase was quickly able to figure out that no store files have data within the range yielding a near instant response. Effect of HBase major compaction The HBase store file (HFile) stores time range (min and max row timestamps) in its metadata. When a scan comes in, HBase is able to look at this metadata and figure out whether it should be scanning the store file for returning the records the query has requested. When writes are happening to an HBase table, after crossing a threshold size, contents of the memstore are flushed to an HFile. Now if the queries are against the newly created (tail-end of data) HFiles, one would see a huge perf boost when using the ROW_TIMESTAMP column. This is because, the scans issued by Phoenix would need to read only these newly created store files. On the other hand, queries not utilizing the row_timestamp column will have to potentially scan the entire table. The perf benefits are negated however, when HBase runs a major compaction on the table. In the default compaction policy, when number of HFiles exceeds a certain threshold or when a pre-determined time period crosses, HBase performs a major compaction to consolidate the number of store files in a region to one. This effectively ends up setting the time range of the lone store file to all the data contained within that region. As a result, scans are no longer able to filter out what store files to skip since the lone store file happens to contain all the data. Do note that in such a condition, the performance of the query with the row_timestamp column is the same as the one without. In conclusion, if your table has a date based primary key and your queries are geared towards the tail-end of the data, you should think about using a row_timestamp column as it could yield huge performance gains. Potential Future Work One question you may be asking yourself is Why does performance drop after a major compaction occurs? I thought performance was supposed to improve after compaction. Time series data is different than other data in that it&#39;s typically write-once, append only. There are ways that this property of the data can be exploited such that better performance is maintained. For some excellent ideas along these lines, see&nbsp;Vladimir Rodionov&#39;s presentation from a previous HBase Meetup here." />
+<link rel="canonical" href="http://localhost:4000/phoenix/entry/new_optimization_for_time_series" />
+<meta property="og:url" content="http://localhost:4000/phoenix/entry/new_optimization_for_time_series" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-11-08T19:26:46-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="New optimization for time series data in Apache Phoenix 4.6" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2015-11-08T19:26:46-05:00","datePublished":"2015-11-08T19:26:46-05:00","description":"Today&#39;s blog is brought to you by&nbsp;Samarth Jain, PMC member of Apache Phoenix, and Lead Member of the Technical Staff at Salesforce.com. Apache Phoenix 4.6 now provides the capability of mapping a Phoenix primary key column to the native row timestamp of Apache HBase. The mapping is denoted by the keyword ROW_TIMESTAMP in the create table statement. Such a mapping provides the following two advantages:&nbsp; Allows Phoenix to set the min time range on scans&nbsp;since this column directly maps to the HBase cell timestamp. Presence of these time ranges lets HBase figure out which store files it should be scanning and which ones to skip. This comes in handy especially for temporal data when the queries are focused towards the tail end of the data. Enables Phoenix to leverage the existing optimizations in place when querying against primary key columns. Lets look at an example with some performance numbers to understand when a ROW_TIMESTAMP column could help. Sample schema: For performance analysis, we created two identical tables, one with the new&nbsp;ROW_TIMESTAMP qualifier and one without.&nbsp; CREATE TABLE&nbsp;EVENTS_RTS (&nbsp; &nbsp; EVENT_ID CHAR(15) NOT NULL,&nbsp; &nbsp; EVENT_TYPE CHAR(3) NOT NULL,&nbsp; &nbsp; EVENT_DATE DATE NOT NULL,&nbsp; &nbsp; APPLICATION_TYPE VARCHAR,&nbsp; &nbsp; SOURCE_IP VARCHAR&nbsp; &nbsp; CONSTRAINT PK PRIMARY KEY (&nbsp; &nbsp; &nbsp; &nbsp; EVENT_ID, &nbsp; &nbsp; &nbsp; &nbsp; EVENT_TYPE, &nbsp; &nbsp; &nbsp; &nbsp; EVENT_DATE ROW_TIMESTAMP)) The initial data load of 500 million records created data with the event_date set to dates over the last seven days. During the load, tables went through region splits and major compactions. After the initial load, we ran a mixed read/write workload with writes (new records) happening @500K records per hour. Each new row was created with EVENT_DATE as the current date/time. Three sets of queries were executed that filtered on the EVENT_DATE column: &lt;/p&gt; Newer than last hour&#39;s event data Newer than last two day&#39;s event data Outside of the time range of event data For example, the following query would return the number of rows for the last hours worth of data: SELECT COUNT(*) FROM EVENTS_RTSWHERE EVENT_DATE &gt; CURRENT_DATE() - 1/24 Below is the graph that shows variation of query times over the tail end of data (not major compacted) for the two tables Below is a tabular summary of the various time ranges that were tested over the non-major compacted event data Time # Duration(ms) Range Rows Returned With Optimization Without Optimization CREATED IN LAST 1 MINUTE 16K 200 4000 CREATED IN LAST 15 MINUTES 125K 700 130000 CREATED IN LAST 1 HOUR 500K 2100 500000 CREATED BEFORE LAST 8 DAYS 0 100 340000 As you can see from the results, using a ROW_TIMESTAMP gives a huge perf boost when querying over data that hasn&rsquo;t been major compacted. For already major compacted data, the two tables show the same performance (i.e. there is no degradation). The query returning 0 records is a special case in which the date range falls out of the data that was loaded to the tables. Such a query returns almost instantaneously for EVENTS_RTS (0.1 seconds). The same query on EVENTS_WITHOUT_RTS takes more than 300 seconds. This is because with the time range information available on scans, HBase was quickly able to figure out that no store files have data within the range yielding a near instant response. Effect of HBase major compaction The HBase store file (HFile) stores time range (min and max row timestamps) in its metadata. When a scan comes in, HBase is able to look at this metadata and figure out whether it should be scanning the store file for returning the records the query has requested. When writes are happening to an HBase table, after crossing a threshold size, contents of the memstore are flushed to an HFile. Now if the queries are against the newly created (tail-end of data) HFiles, one would see a huge perf boost when using the ROW_TIMESTAMP column. This is because, the scans issued by Phoenix would need to read only these newly created store files. On the other hand, queries not utilizing the row_timestamp column will have to potentially scan the entire table. The perf benefits are negated however, when HBase runs a major compaction on the table. In the default compaction policy, when number of HFiles exceeds a certain threshold or when a pre-determined time period crosses, HBase performs a major compaction to consolidate the number of store files in a region to one. This effectively ends up setting the time range of the lone store file to all the data contained within that region. As a result, scans are no longer able to filter out what store files to skip since the lone store file happens to contain all the data. Do note that in such a condition, the performance of the query with the row_timestamp column is the same as the one without. In conclusion, if your table has a date based primary key and your queries are geared towards the tail-end of the data, you should think about using a row_timestamp column as it could yield huge performance gains. Potential Future Work One question you may be asking yourself is Why does performance drop after a major compaction occurs? I thought performance was supposed to improve after compaction. Time series data is different than other data in that it&#39;s typically write-once, append only. There are ways that this property of the data can be exploited such that better performance is maintained. For some excellent ideas along these lines, see&nbsp;Vladimir Rodionov&#39;s presentation from a previous HBase Meetup here.","headline":"New optimization for time series data in Apache Phoenix 4.6","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/phoenix/entry/new_optimization_for_time_series"},"url":"http://localhost:4000/phoenix/entry/new_optimization_for_time_series"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">New optimization for time series data in Apache Phoenix 4.6</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-11-08T19:26:46-05:00" itemprop="datePublished">Nov 8, 2015
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"James Taylor", "login"=>"jamestaylor", "email"=>"jamestaylor@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><em>Today's blog is brought to you by&nbsp;<strong>Samarth Jain</strong>, PMC member of Apache Phoenix, and Lead Member of the Technical Staff at <a href="www.salesforce.com" target="_blank">Salesforce.com</a>.</em></p>
+<p><a href="https://phoenix.apache.org/" target="_blank" title="Apache Phoenix">Apache Phoenix</a> 4.6 now provides the capability of mapping a Phoenix primary key column to the native row timestamp of <a href="https://hbase.apache.org/" target="_blank" title="Apache HBase">Apache HBase</a>. The mapping is denoted by<br />
+the keyword <strong>ROW_TIMESTAMP</strong> in the create table statement. Such a mapping<br />
+provides the following two advantages:&nbsp;</p>
+<ul>
+<li>Allows Phoenix to set the min time range on scans&nbsp;since this column directly maps to the HBase cell timestamp.<br />
+Presence of these time ranges lets HBase figure out which store files it<br />
+ should be scanning and which ones to skip. This comes in handy<br />
+especially for temporal data when the queries are focused towards the<br />
+tail end of the data.</li>
+<li>Enables Phoenix to leverage the existing optimizations in place when querying against primary key columns.</li>
+</ul>
+<p>
+Lets look at an example with some performance numbers to understand when a ROW_TIMESTAMP column could help.</p>
+<h4 id="Sample_schema:" style="font-family: inherit; color: inherit; font-size: 24px; font-weight: 500; margin: 10.5px 0px; text-rendering: optimizeLegibility;">
+Sample schema:</h4>
+<p>For performance analysis, we created two identical tables, one with the new&nbsp;<strong>ROW_TIMESTAMP<span style="font-weight: normal;"> </span></strong>qualifier and one without.&nbsp;</p>
+<p><font face="courier new, courier, monospace">CREATE TABLE&nbsp;<strong>EVENTS_RTS</strong> (<br />&nbsp; &nbsp; EVENT_ID CHAR(15) NOT NULL,<br />&nbsp; &nbsp; EVENT_TYPE CHAR(3) NOT NULL,<br />&nbsp; &nbsp; EVENT_DATE DATE NOT NULL,<br />&nbsp; &nbsp; APPLICATION_TYPE VARCHAR,<br />&nbsp; &nbsp; SOURCE_IP VARCHAR<br />&nbsp; &nbsp; CONSTRAINT PK PRIMARY KEY (<br />&nbsp; &nbsp; &nbsp; &nbsp; EVENT_ID, <br />&nbsp; &nbsp; &nbsp; &nbsp; EVENT_TYPE, <br />&nbsp; &nbsp; &nbsp; &nbsp; EVENT_DATE <strong>ROW_TIMESTAMP</strong>))</font></p>
+<p>The initial data load of 500 million records created data with the<br />
+event_date set to dates over the last seven days. During the load,<br />
+tables went through region splits and major compactions. After the<br />
+initial load, we ran a mixed read/write workload with writes (new<br />
+records) happening @500K records per hour. Each new row was created<br />
+with EVENT_DATE as the current date/time.</p>
+<p>
+Three sets of queries were executed that filtered on the EVENT_DATE column:</p></p>
+<ul>
+<li>Newer than last hour's event data</li>
+<li> Newer than last two day's event data</li>
+<li> Outside of the time range of event data</li>
+</ul>
+<p>
+For example, the following query would return the number of rows for the last hours worth of data:</p>
+<p><font face="courier new, courier, monospace">SELECT COUNT(*) FROM EVENTS_RTS<br />WHERE EVENT_DATE > CURRENT_DATE() - 1/24<br />
+</font></p>
+<p>Below is the graph that shows variation of query times over the tail end of data (not major compacted) for the two tables</p>
+<p> <img src="http://3.bp.blogspot.com/-IcwLAFSSqSY/VjggNsFgHfI/AAAAAAAAAdU/v3Xd2uoEWS0/s1600/Rowtimestamp.png" height="400" width="700" /></p>
+<p>Below is a tabular summary of the various time ranges that were tested over the non-major compacted event data</p>
+<table class="bodyTable table table-striped table-hover" style="border-collapse: collapse;">
+<thead>
+<tr class="a">
+<th style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: bottom;">Time</th>
+<th style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: bottom;">#</th>
+<th colspan="2" style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: bottom;">Duration(ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="a">
+<th style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: top;">Range</th>
+<th style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: top;">Rows Returned</th>
+<th style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: top;">With Optimization</th>
+<th style="border-top-width: 0px; padding-right: 12px; text-align: center; vertical-align: top;">Without Optimization</th>
+</tr>
+<tr class="b">
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; vertical-align: top; width: 300px; background-color: #f9f9f9;">CREATED IN LAST 1 MINUTE</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top; background-color: #f9f9f9;">16K</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top; background-color: #f9f9f9;">200</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top; background-color: #f9f9f9;">4000</td>
+</tr>
+<tr class="a">
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; vertical-align: top;">CREATED IN LAST 15 MINUTES</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top;">125K</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top;">700</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top;">130000</td>
+</tr>
+<tr class="b">
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; vertical-align: top; background-color: #f9f9f9;">CREATED IN LAST 1 HOUR</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top; background-color: #f9f9f9;">500K</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top; background-color: #f9f9f9;">2100</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top; background-color: #f9f9f9;">500000</td>
+</tr>
+<tr class="a">
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; vertical-align: top;">CREATED BEFORE LAST 8 DAYS</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top;">0</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top;">100</td>
+<td style="border-top-color: #dddddd; border-top-style: solid; border-top-width: 1px; line-height: 21px; padding: 8px; text-align: center; vertical-align: top;">340000</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see from the results, using a <strong>ROW_TIMESTAMP</strong> gives a huge perf<br />
+ boost when querying over data that hasn&rsquo;t been major compacted. For<br />
+already major compacted data, the two tables show the same performance<br />
+(i.e. there is no degradation). The query returning 0 records is a<br />
+special case in which the date range falls out of the data that was<br />
+loaded to the tables. Such a query returns almost instantaneously for<br />
+EVENTS_RTS (0.1 seconds). The same query on EVENTS_WITHOUT_RTS takes<br />
+more than 300 seconds. This is because with the time range information<br />
+available on scans, HBase was quickly able to figure out that no store<br />
+files have data within the range yielding a near instant response.</p>
+<h4 id="Effect_of_HBase_major_compaction" style="color: inherit; font-family: inherit; font-size: 24px; font-weight: 500; margin: 10.5px 0px; text-rendering: optimizeLegibility;">
+Effect of HBase major compaction</h4>
+<p>
+The HBase store file (HFile) stores time range (min and max row<br />
+timestamps) in its metadata. When a scan comes in, HBase is able to look<br />
+ at this metadata and figure out whether it should be scanning the store<br />
+ file for returning the records the query has requested. When writes are<br />
+ happening to an HBase table, after crossing a threshold size, contents<br />
+of the memstore are flushed to an HFile. Now if the queries are against<br />
+the newly created (tail-end of data) HFiles, one would see a huge perf<br />
+boost when using the ROW_TIMESTAMP column. This is because, the scans<br />
+issued by Phoenix would need to read only these newly created store<br />
+files. On the other hand, queries not utilizing the row_timestamp column<br />
+ will have to potentially scan the entire table.</p>
+<p>
+The perf benefits are negated however, when HBase runs a major<br />
+compaction on the table. In the default compaction policy, when number<br />
+of HFiles exceeds a certain threshold or when a pre-determined time<br />
+period crosses, HBase performs a major compaction to consolidate the<br />
+number of store files in a region to one. This effectively ends up<br />
+setting the time range of the lone store file to all the data contained<br />
+within that region. As a result, scans are no longer able to filter out<br />
+what store files to skip since the lone store file happens to contain<br />
+all the data. Do note that in such a condition, the performance of the<br />
+query with the row_timestamp column is the same as the one without.</p>
+<p>In conclusion, if your table has a date based primary key and your<br />
+queries are geared towards the tail-end of the data, you should think<br />
+about using a row_timestamp column as it could yield huge performance<br />
+gains.</p>
+<h4 id="Potential_Future_Work" style="color: inherit; font-family: inherit; font-size: 24px; font-weight: 500; margin: 10.5px 0px; text-rendering: optimizeLegibility;">Potential Future Work</h4>
+<p>One question you may be asking yourself is <em>Why does performance drop after a major compaction occurs? I thought performance was supposed to improve after compaction</em>. Time series data is different than other data in that it's typically write-once, append only. There are ways that this property of the data can be exploited such that better performance is maintained. For some excellent ideas along these lines, see&nbsp;Vladimir Rodionov's presentation from a previous HBase Meetup <a href="http://files.meetup.com/1350427/TimeSeriesHBase.pptx" target="_blank" title="presentation">here</a>.</p>
+
+  </div><a class="u-url" href="/phoenix/entry/new_optimization_for_time_series" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

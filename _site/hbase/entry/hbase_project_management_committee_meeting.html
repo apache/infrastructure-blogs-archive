@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HBase Project Management Committee Meeting Minutes, March 27th, 2012 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="HBase Project Management Committee Meeting Minutes, March 27th, 2012" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The bulk of the HBase Project Management Committed (PMC) met at the StumbleUpon offices in San Francisco, March 27th, 2012, ahead of the HBase Meetup that happened later in the evening. Below we post the agenda and minutes to let you all know what was discussed but also to solicit input and comment. Agenda A suggested agenda had been put on the PMC mailing list the day before the meeting soliciting that folks add their own items ahead of the meeting. The hope was that we&#39;d put the agenda out on the dev mailing list before the meeting started to garner more suggestions but that didn&rsquo;t happen. The agenda items below sort of followed on from the contributor pow-wow we had at salesforce a while back -- pow-wow agenda, pow-wow minutes&nbsp;(or see summarized version)&nbsp;-- but it was thought that we could go into more depth on a few of the topics raised then, in particular, project existential matters. Here were the items put up for discussion: Where do we want HBase to be in two years? What will success look like? Discuss. Make a short list. How do we achieve the just made short list? What resources do we have to hand? What can we deploy in the short term to help achieve our just stated objectives? What do we need to prioritize in near future? Make a short list. How do we exchange best practices/design decisions when developing new features? Sometimes there may be more things that can be shared if everyone follows the same best practices, and less features need to be implemented. Minutes&nbsp; Attendees &lt;/p&gt; Todd Lipcon Ted Yu Jean-Daniel Cryans Jon Hsieh Karthik Ranganathan Kannan Muthukkaruppan Andrew Purtell Jon Gray Nicolas Spiegelberg Gary Helmling Mikhail Bautin Lars Hofhansl Michael Stack Todd, the secretary, took notes. St.Ack summarized his notes into the below minutes. The meeting started at about 4:20 (after the requisite 20 minutes dicking w/ A/V/ and dial-in setup). &lt;/p&gt; &ldquo;Where do we want HBase to be in two years? What will success look like? Discuss. Make a short (actionable) list.&rdquo; Secondary indexes and transactions were suggested as was operations on a parity w/ MySQL and rock solid stable so it could be used as primary copy of data. It was also suggested that we expend effort making HBase more usable out of the box (auto-tuning/defaults). Then followed discussion of who is HBase for? Big companies? Or new users, or startups? Is our goal stimulating demand and creating demand? Or is it to be reactive to what problems people are actually hitting? A dose of reality had it that while it would be nice to make all possible users happy, and even to talk about doing this, in actuality, we are mostly going to focus on what our employers need rather than prospective &lsquo;customers&rsquo;. After this detour, the list making became more blunt and basic. It was suggested that we build a rock solid db which other people might be able to build on top of for higher-level stuff. The core engine needs to work reliably -- lets do this first -- and then talk of new features and add-ons. Meantime, we can point users to coprocessers for building extensions and features w/o their needing to touch core hbase (It was noted that we are open to extending CPs if we have to to extend the &lsquo;control surface&rsquo; exposed but that coverage has been pretty much sufficient up to this). Usability is important but operability is more important. Don&rsquo;t need to target n00bs. First nail ops being able to understand whats going on. After further banter, we arrived at list: reliability, operability (insight into the running application, dynamic config. changes, usability improvements that make it easier on a clueful ops), and performance (in this order).&nbsp;It was offered that we are not too bad on performance -- especially in 0.94 -- and that use cases will drive the performance improvements so focus should be on the first two items in the list. &ldquo;How do we achieve the just made short list?&rdquo; To improve reliability, testing has to be better. This has been said repeatedly in the past. It was noted that progress has been made at least on our unit test story (Tests have been //ized, more of hbase is now testable because of refactorings). Progress on integration tests and or contributions to Apache Bigtop have not progressed. As is, BigTop is a little &quot;cryptic&quot;; its a different harness with shim layers to insulate against version changes. We should help make it easier. We should add being able to do fault injection. Should hbase integration tests be done out in the open continuously running on something like an EC2 cluster that all can observe? This is the BigTop goal but its not yet there. Of note, EC2 can&rsquo;t be used validating performance. Too erratic. Bottom line, improving testing requires bodies. Resources such as hardware, etc., are relatively easy to come by. Hard is getting an owner and bodies to write the tests and test infrastructure. Each of us has our own hack testing setup. Doing a general test infrastructure whether on BigTop or not is a bit of chicken and egg problem. Lets just make sure that who ever hits the need to do this general test infrastructure tooling first, that they do it out in the open and that we all pile on and help. Meantime we&#39;ll keep up w/ our custom test tools. Regards the current state of reliability, its thought that as is, we can&rsquo;t run a cluster continuously w/ a chaos monkey operating. There are probably still &ldquo;hundreds of issues&rdquo; to be fixed before we&rsquo;re at a state where we can run for days under &ldquo;chaos monkey&rdquo; conditions. For example, a recent experiment killing a rack in a large cluster and left it down for an hour. This turned up lots of bugs (On the other hand, we learned that an experiment done by another company recently where the downtime was less &lsquo;recovered&rsquo; without problems). Areas to explore improving reliability include testing network failure scenarios, better MTTR, and better toleration of network partitions. Also on reliability, what core fixes are outstanding? There are still races in the master and issues where bulk cluster operations -- enable/disable -- fail in the middle. We need zookeeper-intent log (or something like Accumulo FATE) and table read/write locks. Meantime, kudos to the recently checked in hbck work because this can do fixup until missing fixes are put in place. Regards operability, we need more metrics -- e.g. 95th/99th percentile metrics (some of these just got checked in) -- and better stories around backups, point in time recovery, and cross-column family snapshots. We need to encourage/facilitate/deploy move to HA NN. Talk was about more metrics client-side rather than on the server. On metrics, what else do we need to expose? Log messages should be &lsquo;actionable&rsquo;; include help on what you need to do to solve an issue. Dynamic config. is going to help operability (here soon); we need to make sure that the important configs are indeed changeable on the fly. &nbsp;Its thought that performance is taking care of itself (witness the suite of changes in 0.94.0). &ldquo;How do we exchange best practices, etc, when developing new features?&rdquo; Many are solving similar problems. We don&rsquo;t always need to build new features. Maybe ops tricks are enough in many cases (two clusters if need two applications isolated rather than build a bunch of multi-tenacy code). People often go deep into design/code, then post the design + code only after they already spent a long time. Suggested that first should be discussion with the community early before writing code and designs. Regards any features proposal, its thought that the &lsquo;why&rsquo; is the most important thing that needs justifying, not necessarily the technical design. Also, testability and disruption of core needs to be considered proposing new feature. Designs or any document needs to be short. Two pages at max. Hard for folks to spend the time if it goes on longer (Hadoop&rsquo; HEP process was mentioned at a proposal that failed). General Discussion&nbsp; A general discussion went around on what to do about features not wanted whether because of the justification, the design, or the code and of how the latter is hardest to deal with especially if a feature large (Code review takes time). Was noted that we don&rsquo;t have to commit everything, that we can revert stuff, and that its ok to throw something away even if a bunch of work has been done (A recent fb example around reuse of block cache blocks was cited where a bunch of code and review resulted in conclusion that the benefits were inconclusive so the project was abandoned). It was noted that the onus is on us to help contributors better understand what would be good things to work on moving the project forward. Was suggested that rather than a &lsquo;sea of jiras&rsquo;, instead we&rsquo;d surface a short-list of what we think an important list of things to work on. General assent that roadmaps don&rsquo;t work but should be easy to put up list of whats important in near and long term future for prospective contributors to pick up on. Was noted though that we also need to remain open to new features, etc., that don&rsquo;t fit near-or-far-term project themes. This is open source after all. Was mentioned that we should work on high-level guidelines for how best to contribute. These need to be made public. Make a start, any kinda of start, on defining the project focus / design rationale. It doesn&rsquo;t have to be perfect - just put a few words on the page, maybe even up on the home page. Meeting was adjourned around 5:45pm." />
+<meta property="og:description" content="The bulk of the HBase Project Management Committed (PMC) met at the StumbleUpon offices in San Francisco, March 27th, 2012, ahead of the HBase Meetup that happened later in the evening. Below we post the agenda and minutes to let you all know what was discussed but also to solicit input and comment. Agenda A suggested agenda had been put on the PMC mailing list the day before the meeting soliciting that folks add their own items ahead of the meeting. The hope was that we&#39;d put the agenda out on the dev mailing list before the meeting started to garner more suggestions but that didn&rsquo;t happen. The agenda items below sort of followed on from the contributor pow-wow we had at salesforce a while back -- pow-wow agenda, pow-wow minutes&nbsp;(or see summarized version)&nbsp;-- but it was thought that we could go into more depth on a few of the topics raised then, in particular, project existential matters. Here were the items put up for discussion: Where do we want HBase to be in two years? What will success look like? Discuss. Make a short list. How do we achieve the just made short list? What resources do we have to hand? What can we deploy in the short term to help achieve our just stated objectives? What do we need to prioritize in near future? Make a short list. How do we exchange best practices/design decisions when developing new features? Sometimes there may be more things that can be shared if everyone follows the same best practices, and less features need to be implemented. Minutes&nbsp; Attendees &lt;/p&gt; Todd Lipcon Ted Yu Jean-Daniel Cryans Jon Hsieh Karthik Ranganathan Kannan Muthukkaruppan Andrew Purtell Jon Gray Nicolas Spiegelberg Gary Helmling Mikhail Bautin Lars Hofhansl Michael Stack Todd, the secretary, took notes. St.Ack summarized his notes into the below minutes. The meeting started at about 4:20 (after the requisite 20 minutes dicking w/ A/V/ and dial-in setup). &lt;/p&gt; &ldquo;Where do we want HBase to be in two years? What will success look like? Discuss. Make a short (actionable) list.&rdquo; Secondary indexes and transactions were suggested as was operations on a parity w/ MySQL and rock solid stable so it could be used as primary copy of data. It was also suggested that we expend effort making HBase more usable out of the box (auto-tuning/defaults). Then followed discussion of who is HBase for? Big companies? Or new users, or startups? Is our goal stimulating demand and creating demand? Or is it to be reactive to what problems people are actually hitting? A dose of reality had it that while it would be nice to make all possible users happy, and even to talk about doing this, in actuality, we are mostly going to focus on what our employers need rather than prospective &lsquo;customers&rsquo;. After this detour, the list making became more blunt and basic. It was suggested that we build a rock solid db which other people might be able to build on top of for higher-level stuff. The core engine needs to work reliably -- lets do this first -- and then talk of new features and add-ons. Meantime, we can point users to coprocessers for building extensions and features w/o their needing to touch core hbase (It was noted that we are open to extending CPs if we have to to extend the &lsquo;control surface&rsquo; exposed but that coverage has been pretty much sufficient up to this). Usability is important but operability is more important. Don&rsquo;t need to target n00bs. First nail ops being able to understand whats going on. After further banter, we arrived at list: reliability, operability (insight into the running application, dynamic config. changes, usability improvements that make it easier on a clueful ops), and performance (in this order).&nbsp;It was offered that we are not too bad on performance -- especially in 0.94 -- and that use cases will drive the performance improvements so focus should be on the first two items in the list. &ldquo;How do we achieve the just made short list?&rdquo; To improve reliability, testing has to be better. This has been said repeatedly in the past. It was noted that progress has been made at least on our unit test story (Tests have been //ized, more of hbase is now testable because of refactorings). Progress on integration tests and or contributions to Apache Bigtop have not progressed. As is, BigTop is a little &quot;cryptic&quot;; its a different harness with shim layers to insulate against version changes. We should help make it easier. We should add being able to do fault injection. Should hbase integration tests be done out in the open continuously running on something like an EC2 cluster that all can observe? This is the BigTop goal but its not yet there. Of note, EC2 can&rsquo;t be used validating performance. Too erratic. Bottom line, improving testing requires bodies. Resources such as hardware, etc., are relatively easy to come by. Hard is getting an owner and bodies to write the tests and test infrastructure. Each of us has our own hack testing setup. Doing a general test infrastructure whether on BigTop or not is a bit of chicken and egg problem. Lets just make sure that who ever hits the need to do this general test infrastructure tooling first, that they do it out in the open and that we all pile on and help. Meantime we&#39;ll keep up w/ our custom test tools. Regards the current state of reliability, its thought that as is, we can&rsquo;t run a cluster continuously w/ a chaos monkey operating. There are probably still &ldquo;hundreds of issues&rdquo; to be fixed before we&rsquo;re at a state where we can run for days under &ldquo;chaos monkey&rdquo; conditions. For example, a recent experiment killing a rack in a large cluster and left it down for an hour. This turned up lots of bugs (On the other hand, we learned that an experiment done by another company recently where the downtime was less &lsquo;recovered&rsquo; without problems). Areas to explore improving reliability include testing network failure scenarios, better MTTR, and better toleration of network partitions. Also on reliability, what core fixes are outstanding? There are still races in the master and issues where bulk cluster operations -- enable/disable -- fail in the middle. We need zookeeper-intent log (or something like Accumulo FATE) and table read/write locks. Meantime, kudos to the recently checked in hbck work because this can do fixup until missing fixes are put in place. Regards operability, we need more metrics -- e.g. 95th/99th percentile metrics (some of these just got checked in) -- and better stories around backups, point in time recovery, and cross-column family snapshots. We need to encourage/facilitate/deploy move to HA NN. Talk was about more metrics client-side rather than on the server. On metrics, what else do we need to expose? Log messages should be &lsquo;actionable&rsquo;; include help on what you need to do to solve an issue. Dynamic config. is going to help operability (here soon); we need to make sure that the important configs are indeed changeable on the fly. &nbsp;Its thought that performance is taking care of itself (witness the suite of changes in 0.94.0). &ldquo;How do we exchange best practices, etc, when developing new features?&rdquo; Many are solving similar problems. We don&rsquo;t always need to build new features. Maybe ops tricks are enough in many cases (two clusters if need two applications isolated rather than build a bunch of multi-tenacy code). People often go deep into design/code, then post the design + code only after they already spent a long time. Suggested that first should be discussion with the community early before writing code and designs. Regards any features proposal, its thought that the &lsquo;why&rsquo; is the most important thing that needs justifying, not necessarily the technical design. Also, testability and disruption of core needs to be considered proposing new feature. Designs or any document needs to be short. Two pages at max. Hard for folks to spend the time if it goes on longer (Hadoop&rsquo; HEP process was mentioned at a proposal that failed). General Discussion&nbsp; A general discussion went around on what to do about features not wanted whether because of the justification, the design, or the code and of how the latter is hardest to deal with especially if a feature large (Code review takes time). Was noted that we don&rsquo;t have to commit everything, that we can revert stuff, and that its ok to throw something away even if a bunch of work has been done (A recent fb example around reuse of block cache blocks was cited where a bunch of code and review resulted in conclusion that the benefits were inconclusive so the project was abandoned). It was noted that the onus is on us to help contributors better understand what would be good things to work on moving the project forward. Was suggested that rather than a &lsquo;sea of jiras&rsquo;, instead we&rsquo;d surface a short-list of what we think an important list of things to work on. General assent that roadmaps don&rsquo;t work but should be easy to put up list of whats important in near and long term future for prospective contributors to pick up on. Was noted though that we also need to remain open to new features, etc., that don&rsquo;t fit near-or-far-term project themes. This is open source after all. Was mentioned that we should work on high-level guidelines for how best to contribute. These need to be made public. Make a start, any kinda of start, on defining the project focus / design rationale. It doesn&rsquo;t have to be perfect - just put a few words on the page, maybe even up on the home page. Meeting was adjourned around 5:45pm." />
+<link rel="canonical" href="http://localhost:4000/hbase/entry/hbase_project_management_committee_meeting" />
+<meta property="og:url" content="http://localhost:4000/hbase/entry/hbase_project_management_committee_meeting" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-03-29T18:01:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HBase Project Management Committee Meeting Minutes, March 27th, 2012" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-03-29T18:01:00-04:00","datePublished":"2012-03-29T18:01:00-04:00","description":"The bulk of the HBase Project Management Committed (PMC) met at the StumbleUpon offices in San Francisco, March 27th, 2012, ahead of the HBase Meetup that happened later in the evening. Below we post the agenda and minutes to let you all know what was discussed but also to solicit input and comment. Agenda A suggested agenda had been put on the PMC mailing list the day before the meeting soliciting that folks add their own items ahead of the meeting. The hope was that we&#39;d put the agenda out on the dev mailing list before the meeting started to garner more suggestions but that didn&rsquo;t happen. The agenda items below sort of followed on from the contributor pow-wow we had at salesforce a while back -- pow-wow agenda, pow-wow minutes&nbsp;(or see summarized version)&nbsp;-- but it was thought that we could go into more depth on a few of the topics raised then, in particular, project existential matters. Here were the items put up for discussion: Where do we want HBase to be in two years? What will success look like? Discuss. Make a short list. How do we achieve the just made short list? What resources do we have to hand? What can we deploy in the short term to help achieve our just stated objectives? What do we need to prioritize in near future? Make a short list. How do we exchange best practices/design decisions when developing new features? Sometimes there may be more things that can be shared if everyone follows the same best practices, and less features need to be implemented. Minutes&nbsp; Attendees &lt;/p&gt; Todd Lipcon Ted Yu Jean-Daniel Cryans Jon Hsieh Karthik Ranganathan Kannan Muthukkaruppan Andrew Purtell Jon Gray Nicolas Spiegelberg Gary Helmling Mikhail Bautin Lars Hofhansl Michael Stack Todd, the secretary, took notes. St.Ack summarized his notes into the below minutes. The meeting started at about 4:20 (after the requisite 20 minutes dicking w/ A/V/ and dial-in setup). &lt;/p&gt; &ldquo;Where do we want HBase to be in two years? What will success look like? Discuss. Make a short (actionable) list.&rdquo; Secondary indexes and transactions were suggested as was operations on a parity w/ MySQL and rock solid stable so it could be used as primary copy of data. It was also suggested that we expend effort making HBase more usable out of the box (auto-tuning/defaults). Then followed discussion of who is HBase for? Big companies? Or new users, or startups? Is our goal stimulating demand and creating demand? Or is it to be reactive to what problems people are actually hitting? A dose of reality had it that while it would be nice to make all possible users happy, and even to talk about doing this, in actuality, we are mostly going to focus on what our employers need rather than prospective &lsquo;customers&rsquo;. After this detour, the list making became more blunt and basic. It was suggested that we build a rock solid db which other people might be able to build on top of for higher-level stuff. The core engine needs to work reliably -- lets do this first -- and then talk of new features and add-ons. Meantime, we can point users to coprocessers for building extensions and features w/o their needing to touch core hbase (It was noted that we are open to extending CPs if we have to to extend the &lsquo;control surface&rsquo; exposed but that coverage has been pretty much sufficient up to this). Usability is important but operability is more important. Don&rsquo;t need to target n00bs. First nail ops being able to understand whats going on. After further banter, we arrived at list: reliability, operability (insight into the running application, dynamic config. changes, usability improvements that make it easier on a clueful ops), and performance (in this order).&nbsp;It was offered that we are not too bad on performance -- especially in 0.94 -- and that use cases will drive the performance improvements so focus should be on the first two items in the list. &ldquo;How do we achieve the just made short list?&rdquo; To improve reliability, testing has to be better. This has been said repeatedly in the past. It was noted that progress has been made at least on our unit test story (Tests have been //ized, more of hbase is now testable because of refactorings). Progress on integration tests and or contributions to Apache Bigtop have not progressed. As is, BigTop is a little &quot;cryptic&quot;; its a different harness with shim layers to insulate against version changes. We should help make it easier. We should add being able to do fault injection. Should hbase integration tests be done out in the open continuously running on something like an EC2 cluster that all can observe? This is the BigTop goal but its not yet there. Of note, EC2 can&rsquo;t be used validating performance. Too erratic. Bottom line, improving testing requires bodies. Resources such as hardware, etc., are relatively easy to come by. Hard is getting an owner and bodies to write the tests and test infrastructure. Each of us has our own hack testing setup. Doing a general test infrastructure whether on BigTop or not is a bit of chicken and egg problem. Lets just make sure that who ever hits the need to do this general test infrastructure tooling first, that they do it out in the open and that we all pile on and help. Meantime we&#39;ll keep up w/ our custom test tools. Regards the current state of reliability, its thought that as is, we can&rsquo;t run a cluster continuously w/ a chaos monkey operating. There are probably still &ldquo;hundreds of issues&rdquo; to be fixed before we&rsquo;re at a state where we can run for days under &ldquo;chaos monkey&rdquo; conditions. For example, a recent experiment killing a rack in a large cluster and left it down for an hour. This turned up lots of bugs (On the other hand, we learned that an experiment done by another company recently where the downtime was less &lsquo;recovered&rsquo; without problems). Areas to explore improving reliability include testing network failure scenarios, better MTTR, and better toleration of network partitions. Also on reliability, what core fixes are outstanding? There are still races in the master and issues where bulk cluster operations -- enable/disable -- fail in the middle. We need zookeeper-intent log (or something like Accumulo FATE) and table read/write locks. Meantime, kudos to the recently checked in hbck work because this can do fixup until missing fixes are put in place. Regards operability, we need more metrics -- e.g. 95th/99th percentile metrics (some of these just got checked in) -- and better stories around backups, point in time recovery, and cross-column family snapshots. We need to encourage/facilitate/deploy move to HA NN. Talk was about more metrics client-side rather than on the server. On metrics, what else do we need to expose? Log messages should be &lsquo;actionable&rsquo;; include help on what you need to do to solve an issue. Dynamic config. is going to help operability (here soon); we need to make sure that the important configs are indeed changeable on the fly. &nbsp;Its thought that performance is taking care of itself (witness the suite of changes in 0.94.0). &ldquo;How do we exchange best practices, etc, when developing new features?&rdquo; Many are solving similar problems. We don&rsquo;t always need to build new features. Maybe ops tricks are enough in many cases (two clusters if need two applications isolated rather than build a bunch of multi-tenacy code). People often go deep into design/code, then post the design + code only after they already spent a long time. Suggested that first should be discussion with the community early before writing code and designs. Regards any features proposal, its thought that the &lsquo;why&rsquo; is the most important thing that needs justifying, not necessarily the technical design. Also, testability and disruption of core needs to be considered proposing new feature. Designs or any document needs to be short. Two pages at max. Hard for folks to spend the time if it goes on longer (Hadoop&rsquo; HEP process was mentioned at a proposal that failed). General Discussion&nbsp; A general discussion went around on what to do about features not wanted whether because of the justification, the design, or the code and of how the latter is hardest to deal with especially if a feature large (Code review takes time). Was noted that we don&rsquo;t have to commit everything, that we can revert stuff, and that its ok to throw something away even if a bunch of work has been done (A recent fb example around reuse of block cache blocks was cited where a bunch of code and review resulted in conclusion that the benefits were inconclusive so the project was abandoned). It was noted that the onus is on us to help contributors better understand what would be good things to work on moving the project forward. Was suggested that rather than a &lsquo;sea of jiras&rsquo;, instead we&rsquo;d surface a short-list of what we think an important list of things to work on. General assent that roadmaps don&rsquo;t work but should be easy to put up list of whats important in near and long term future for prospective contributors to pick up on. Was noted though that we also need to remain open to new features, etc., that don&rsquo;t fit near-or-far-term project themes. This is open source after all. Was mentioned that we should work on high-level guidelines for how best to contribute. These need to be made public. Make a start, any kinda of start, on defining the project focus / design rationale. It doesn&rsquo;t have to be perfect - just put a few words on the page, maybe even up on the home page. Meeting was adjourned around 5:45pm.","headline":"HBase Project Management Committee Meeting Minutes, March 27th, 2012","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/hbase/entry/hbase_project_management_committee_meeting"},"url":"http://localhost:4000/hbase/entry/hbase_project_management_committee_meeting"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">HBase Project Management Committee Meeting Minutes, March 27th, 2012</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-03-29T18:01:00-04:00" itemprop="datePublished">Mar 29, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Michael Stack", "login"=>"stack", "email"=>"stack@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>
+The bulk of the <a href="http://hbase.apache.org/team-list.html">HBase Project Management Committed</a> (PMC) met at the StumbleUpon offices in San Francisco, March 27th, 2012, ahead of the <a href="http://www.meetup.com/hbaseusergroup/events/56021562/">HBase Meetup</a> that happened later in the evening.  Below we post the agenda and minutes to let you all know what was discussed but also to solicit input and comment.</p>
+<h2>Agenda</h2>
+<p>A suggested agenda had been put on the PMC mailing list the day before the meeting soliciting that folks add their own items ahead of the meeting. The hope was that we'd put the agenda out on the dev mailing list before the meeting started to garner more suggestions but that didn&rsquo;t happen. The agenda items below sort of followed on from the contributor pow-wow we had at salesforce a while back -- <a href="https://docs.google.com/present/view?id=dd22mnxs_221ff5qdcfw">pow-wow agenda</a>, <a href="https://docs.google.com/document/d/19NVY8eaC-0WWKxY6UgeqaYK-J3c2YMtfcrGgwCtwG4g/edit?hl=en_US">pow-wow minutes</a>&nbsp;(or see <a href="http://www.cloudera.com/blog/2011/12/apache-hbase-pow-wow-summary-11292011/">summarized version</a>)&nbsp;-- but it was thought that we could go into more depth on a few of the topics raised then, in particular, project existential matters.</p>
+<p>Here were the items put up for discussion:</p>
+<ul>
+<li>Where do we want HBase to be in two years?  What will success look<br />
+like?  Discuss.  Make a short list.</li>
+<li>How do we achieve the just made short list?   What resources do we have to hand? What can we deploy in the short term to help achieve our just stated objectives?  What do we need to prioritize in near future? Make a short list.</li>
+<li>How do we exchange best practices/design decisions when developing<br />
+new features? Sometimes there may be more things that can be shared if everyone follows the same best practices, and less features need to be implemented.</li>
+</ul>
+<h2> Minutes&nbsp;</h2>
+<h3>Attendees</h3></p>
+<ul>
+<li>Todd Lipcon</li>
+<li>Ted Yu</li>
+<li>Jean-Daniel Cryans</li>
+<li>Jon Hsieh</li>
+<li>Karthik Ranganathan</li>
+<li>Kannan Muthukkaruppan</li>
+<li>Andrew Purtell</li>
+<li>Jon Gray</li>
+<li>Nicolas Spiegelberg</li>
+<li>Gary Helmling</li>
+<li>Mikhail Bautin</li>
+<li>Lars Hofhansl</li>
+<li>Michael Stack</li>
+</ul>
+<p>Todd, the secretary, took notes.  St.Ack summarized his notes into the<br />
+below minutes.  The meeting started at about 4:20 (after the requisite<br />
+20 minutes dicking w/ A/V/ and dial-in setup). </p></p>
+<h3>&ldquo;Where do we want HBase to be in two years?  What<br />
+will success look like?  Discuss.  Make a short (actionable) list.&rdquo; </h3>
+<p>Secondary indexes and transactions were suggested as was operations on<br />
+a parity w/ MySQL and rock solid stable so it could be used as primary<br />
+copy of data.  It was also suggested that we expend effort making<br />
+HBase more usable out of the box (auto-tuning/defaults).</p>
+<p>Then followed discussion of who is HBase for?  Big companies?  Or new<br />
+users, or startups?  Is our goal stimulating demand and creating<br />
+demand? Or is it to be reactive to what problems people are actually<br />
+hitting?  A dose of reality had it that while it would be nice to make<br />
+all possible users happy, and even to talk about doing this, in<br />
+actuality, we are mostly going to focus on what our employers need<br />
+rather than prospective &lsquo;customers&rsquo;. </p>
+<p> After this detour, the list making became more blunt and basic.  It<br />
+was suggested that we build a rock solid db which other people might<br />
+be able to build on top of for higher-level stuff.  The core engine<br />
+needs to work reliably -- lets do this first -- and then talk of new<br />
+features and add-ons.  Meantime, we can point users to coprocessers<br />
+for building extensions and features w/o their needing to touch core<br />
+hbase (It was noted that we are open to extending CPs if we have to to<br />
+extend the &lsquo;control surface&rsquo; exposed but that coverage has been pretty<br />
+much sufficient up to this).  Usability is important but operability<br />
+is more important.  Don&rsquo;t need to target n00bs. First nail ops being<br />
+able to understand whats going on. </p>
+<p> After further banter, we arrived at list: <b><i>reliability</i></b>, <b><i>operability</i></b><br />
+(insight into the running application, dynamic config. changes,<br />
+usability improvements that make it easier on a clueful ops), and<br />
+<i style="font-weight: bold; ">performance</i> (in this order).&nbsp;It was offered that we are not too bad on performance --<br />
+especially in 0.94 -- and that use cases will drive the performance<br />
+improvements so focus should be on the first two items in the list.</p>
+<h3> &ldquo;How do we achieve the just made short list?&rdquo;</h3>
+<p>To improve reliability, testing has to be better.  This has been said<br />
+repeatedly in the past.  It was noted that progress has been made at<br />
+least on our unit test story (Tests have been //ized, more of hbase is<br />
+now testable because of refactorings).  Progress on integration tests<br />
+and or contributions to Apache Bigtop have not progressed.  As is,<br />
+BigTop is a little "cryptic"; its a different harness with shim layers<br />
+to insulate against version changes.  We should help make it easier.<br />
+We should add being able to do fault injection.  Should hbase<br />
+integration tests be done out in the open continuously running on<br />
+something like an EC2 cluster that all can observe?  This is the<br />
+BigTop goal but its not yet there.  Of note, EC2 can&rsquo;t be used<br />
+validating performance.  Too erratic.  Bottom line, improving testing<br />
+requires bodies.  Resources such as hardware, etc., are relatively<br />
+easy to come by.  Hard is getting an owner and bodies to write the<br />
+tests and test infrastructure.  Each of us has our own hack testing<br />
+setup.  Doing a general test infrastructure whether on BigTop or not<br />
+is a bit of chicken and egg problem.  Lets just make sure that who<br />
+ever hits the need to do this general test infrastructure tooling<br />
+first, that they do it out in the open and that we all pile on and<br />
+help.  Meantime we'll keep up w/ our custom test tools. </p>
+<p> Regards the current state of reliability, its thought that as is, we<br />
+can&rsquo;t run a cluster continuously w/ a chaos monkey operating.  There<br />
+are probably still &ldquo;hundreds of issues&rdquo; to be fixed before we&rsquo;re at a<br />
+state where we can run for days under &ldquo;chaos monkey&rdquo; conditions.<br />
+For example, a recent experiment killing a rack in a large cluster and<br />
+left it down for an hour.  This turned up lots of bugs (On the other<br />
+hand, we learned that an experiment done by another company<br />
+recently where the downtime was less &lsquo;recovered&rsquo; without problems).<br />
+Areas to explore improving reliability include testing network failure<br />
+scenarios, better MTTR, and better toleration of network partitions.</p>
+<p>Also on reliability, what core fixes are outstanding?  There are still<br />
+races in the master and issues where bulk cluster operations --<br />
+enable/disable -- fail in the middle.  We need zookeeper-intent log<br />
+(or something like Accumulo FATE) and table read/write locks.<br />
+Meantime, kudos to the recently checked in hbck work because this can<br />
+do fixup until missing fixes are put in place. </p>
+<p>Regards operability, we need more metrics -- e.g. 95th/99th percentile<br />
+metrics (some of these just got checked in) -- and better stories around backups, point in time recovery,<br />
+and cross-column family snapshots.  We need to<br />
+encourage/facilitate/deploy move to HA NN.  Talk was about more<br />
+metrics client-side rather than on the server.   On metrics, what else<br />
+do we need to expose?   Log messages should be &lsquo;actionable&rsquo;; include<br />
+help on what you need to do to solve an issue.  Dynamic config. is<br />
+going to help operability (here soon); we need to make sure that the<br />
+important configs are indeed changeable on the fly.</p>
+<p>&nbsp;Its thought that performance is taking care of itself (witness the suite of changes in 0.94.0).</p>
+<h3>&ldquo;How do we exchange best practices, etc, when<br />
+developing new features?&rdquo;</h3>
+<p>Many are solving similar problems.  We don&rsquo;t always need to build new<br />
+features.  Maybe ops tricks are enough in many cases (two clusters if<br />
+need two applications isolated rather than build a bunch of<br />
+multi-tenacy code).  People often go deep into design/code, then post<br />
+the design + code only after they already spent a long time.<br />
+Suggested that first should be discussion with the community early<br />
+before writing code and designs.</p>
+<p>Regards any features proposal, its thought that the &lsquo;why&rsquo; is the most<br />
+important thing that needs justifying, not necessarily the technical<br />
+design.  Also, testability and disruption of core needs to be<br />
+considered proposing new feature.</p>
+<p>Designs or any document needs to be short.  Two pages at max.  Hard<br />
+for folks to spend the time if it goes on longer (Hadoop&rsquo; HEP process<br />
+was mentioned at a proposal that failed). </p>
+<h3>General Discussion&nbsp;</h3>
+<p>A general discussion went around on what to do about features not<br />
+wanted whether because of the justification, the design, or the code<br />
+and of how the latter is hardest to deal with especially if a feature<br />
+large (Code review takes time).  Was noted that we don&rsquo;t have to<br />
+commit everything, that we can revert stuff, and that its ok to throw<br />
+something away even if a bunch of work has been done (A recent fb<br />
+example around reuse of block cache blocks was cited where a bunch of<br />
+code and review resulted in conclusion that the benefits were<br />
+inconclusive so the project was abandoned).  <i>It was noted that the<br />
+onus is on us to help contributors better understand what would be<br />
+good things to work on moving the project forward.</i>  Was suggested that<br />
+rather than a &lsquo;sea of jiras&rsquo;, instead we&rsquo;d surface a short-list of<br />
+what we think an important list of things to work on.  General assent<br />
+that roadmaps don&rsquo;t work but should be easy to put up list of whats<br />
+important in near and long term future for prospective contributors to<br />
+pick up on.  Was noted though that we also need to remain open to new<br />
+features, etc., that don&rsquo;t fit near-or-far-term project themes. This<br />
+is open source after all.  <i>Was mentioned that we should work on<br />
+high-level guidelines for how best to contribute.</i>  These need to be<br />
+made public.  Make a start, any kinda of start, on defining the<br />
+project focus / design rationale.  It doesn&rsquo;t have to be perfect -<br />
+just put a few words on the page, maybe even up on the home page.</p>
+<p>Meeting was adjourned around 5:45pm.</p>
+
+  </div><a class="u-url" href="/hbase/entry/hbase_project_management_committee_meeting" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

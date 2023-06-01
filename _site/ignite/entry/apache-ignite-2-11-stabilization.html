@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Ignite 2.11: Stabilization First | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Ignite 2.11: Stabilization First" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The new Apache Ignite 2.11 was released on September 17, 2021. It can be considered to be a greater extent as a stabilization release that closed a number of technical debts of the internal architecture and bugs. Out of more than 200 completed tasks, 120 are bug fixes. However, some valuable improvements still exist, so let&#39;s take a quick look at them together. Thin Clients Partition awareness is enabled by default in the 2.11 release and allows thin clients to send query requests directly to the node that owns the queried data. Without partition awareness, an application executes all queries and operations via a single server node that acts as a proxy for the incoming requests. The support of Continuous Queries added to the java thin client. For the other supported features, you can check - the List of Thin Client Features. Cellular-clusters Deployment The Apache Ignite internals has the so-called switch (a part of Partition Map Exchange) process that is used to perform atomic execution of cluster-wide operations and move a cluster from one consistent state to another, for example, a cache creation/destroy, a node JOIN/LEFT/FAIL operations, snapshot creation, etc. During the switching process, all user transactions are parked for a small period of time which in turn increases the average latency and decreases throughput of the overall cluster. Splitting the cluster into virtual cells containing 4-8 nodes may increase the total cluster performance and minimize the influence of one cell on another in case of node fail events. Such a technique also significantly increases the recovery speed of transactions on cells not affected by failing nodes. The time when transactions are parked also decreases on non-affected cells which in turn decreases the worst latency for the cluster operations overall. From now on, you can use the RendezvousAffinityFunction affinity function with ClusterNodeAttributeColocatedBackupFilter to group nodes into virtual cells. Since the node baseline attributes are used as cell markers the corresponding BASELINE_NODE_ATTRIBUTES system view was added. See benchmarks below that represent the worst (max) latency, which happens in case of node left/failure/timeout events on broken and alive cells. New Page Replacement Policies When Native Persistence is on and the amount of data, which Ignite stores on the disk, is bigger than the off-heap memory amount allocated for the data region, another page should be evicted from the off-heap to the disk to preload a page from the disk to the completely full off-heap memory. This process is called page replacement. Previously, Apache Ignite used the Random-LRU page replacement algorithm which has a low maintenance cost, but it has many disadvantages and greatly affects the performance when the page replacement is started. On some deployments, administrators even force a cluster restart periodically to avoid page replacement. There are a few new algorithms available from now on: Segmented-LRU Algorithm CLOCK Algorithm Page replacement algorithm can be configured by the PageReplacementMode property of DataRegionConfiguration. By default, the CLOCK algorithm is now used. You can check the Replacement Policies in the documentation for more details. Snapshot Restore And Check Commands Check All snapshots are fully consistent in terms of concurrent cluster-wide operations as well as ongoing changes with Ignite. However, in some cases and for your own peace of mind, it may be necessary to check the snapshot for completeness and for data consistency. The Apache Ignite is now delivered with a built-in snapshot consistency check commands that enable you to verify internal data consistency, calculate data partitions hashes and pages checksums, and print out the result if a problem is found. The check command also compares hashes calculated by containing keys of primary partitions with corresponding backup partitions and reports any differences. # This procedure does not require the cluster to be in the idle state. control.(sh|bat) --snapshot check snapshot_name Restore Previously, only the manual snapshot restore procedure was available by fully copying persistence data files from the snapshot directory to the Apache Ignite work directory. The automatic restore procedure allows you to restore cache groups from a snapshot on an active cluster by using the Java API or command line script (using CLI is recommended). Currently, the restore procedure has several limitations, so please check the documentation pages for details. Start restoring all user-created cache groups from the snapshot &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --start # Start restoring only &quot;cache-group1&quot; and &quot;cache-group2&quot; from the snapshot &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --start cache-group1,cache-group2 # Get the status of the restore operation for &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --status # Cancel the restore operation for &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --cancel" />
+<meta property="og:description" content="The new Apache Ignite 2.11 was released on September 17, 2021. It can be considered to be a greater extent as a stabilization release that closed a number of technical debts of the internal architecture and bugs. Out of more than 200 completed tasks, 120 are bug fixes. However, some valuable improvements still exist, so let&#39;s take a quick look at them together. Thin Clients Partition awareness is enabled by default in the 2.11 release and allows thin clients to send query requests directly to the node that owns the queried data. Without partition awareness, an application executes all queries and operations via a single server node that acts as a proxy for the incoming requests. The support of Continuous Queries added to the java thin client. For the other supported features, you can check - the List of Thin Client Features. Cellular-clusters Deployment The Apache Ignite internals has the so-called switch (a part of Partition Map Exchange) process that is used to perform atomic execution of cluster-wide operations and move a cluster from one consistent state to another, for example, a cache creation/destroy, a node JOIN/LEFT/FAIL operations, snapshot creation, etc. During the switching process, all user transactions are parked for a small period of time which in turn increases the average latency and decreases throughput of the overall cluster. Splitting the cluster into virtual cells containing 4-8 nodes may increase the total cluster performance and minimize the influence of one cell on another in case of node fail events. Such a technique also significantly increases the recovery speed of transactions on cells not affected by failing nodes. The time when transactions are parked also decreases on non-affected cells which in turn decreases the worst latency for the cluster operations overall. From now on, you can use the RendezvousAffinityFunction affinity function with ClusterNodeAttributeColocatedBackupFilter to group nodes into virtual cells. Since the node baseline attributes are used as cell markers the corresponding BASELINE_NODE_ATTRIBUTES system view was added. See benchmarks below that represent the worst (max) latency, which happens in case of node left/failure/timeout events on broken and alive cells. New Page Replacement Policies When Native Persistence is on and the amount of data, which Ignite stores on the disk, is bigger than the off-heap memory amount allocated for the data region, another page should be evicted from the off-heap to the disk to preload a page from the disk to the completely full off-heap memory. This process is called page replacement. Previously, Apache Ignite used the Random-LRU page replacement algorithm which has a low maintenance cost, but it has many disadvantages and greatly affects the performance when the page replacement is started. On some deployments, administrators even force a cluster restart periodically to avoid page replacement. There are a few new algorithms available from now on: Segmented-LRU Algorithm CLOCK Algorithm Page replacement algorithm can be configured by the PageReplacementMode property of DataRegionConfiguration. By default, the CLOCK algorithm is now used. You can check the Replacement Policies in the documentation for more details. Snapshot Restore And Check Commands Check All snapshots are fully consistent in terms of concurrent cluster-wide operations as well as ongoing changes with Ignite. However, in some cases and for your own peace of mind, it may be necessary to check the snapshot for completeness and for data consistency. The Apache Ignite is now delivered with a built-in snapshot consistency check commands that enable you to verify internal data consistency, calculate data partitions hashes and pages checksums, and print out the result if a problem is found. The check command also compares hashes calculated by containing keys of primary partitions with corresponding backup partitions and reports any differences. # This procedure does not require the cluster to be in the idle state. control.(sh|bat) --snapshot check snapshot_name Restore Previously, only the manual snapshot restore procedure was available by fully copying persistence data files from the snapshot directory to the Apache Ignite work directory. The automatic restore procedure allows you to restore cache groups from a snapshot on an active cluster by using the Java API or command line script (using CLI is recommended). Currently, the restore procedure has several limitations, so please check the documentation pages for details. Start restoring all user-created cache groups from the snapshot &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --start # Start restoring only &quot;cache-group1&quot; and &quot;cache-group2&quot; from the snapshot &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --start cache-group1,cache-group2 # Get the status of the restore operation for &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --status # Cancel the restore operation for &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --cancel" />
+<link rel="canonical" href="http://localhost:4000/ignite/entry/apache-ignite-2-11-stabilization" />
+<meta property="og:url" content="http://localhost:4000/ignite/entry/apache-ignite-2-11-stabilization" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-12T09:47:57-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Ignite 2.11: Stabilization First" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-10-12T09:47:57-04:00","datePublished":"2021-10-12T09:47:57-04:00","description":"The new Apache Ignite 2.11 was released on September 17, 2021. It can be considered to be a greater extent as a stabilization release that closed a number of technical debts of the internal architecture and bugs. Out of more than 200 completed tasks, 120 are bug fixes. However, some valuable improvements still exist, so let&#39;s take a quick look at them together. Thin Clients Partition awareness is enabled by default in the 2.11 release and allows thin clients to send query requests directly to the node that owns the queried data. Without partition awareness, an application executes all queries and operations via a single server node that acts as a proxy for the incoming requests. The support of Continuous Queries added to the java thin client. For the other supported features, you can check - the List of Thin Client Features. Cellular-clusters Deployment The Apache Ignite internals has the so-called switch (a part of Partition Map Exchange) process that is used to perform atomic execution of cluster-wide operations and move a cluster from one consistent state to another, for example, a cache creation/destroy, a node JOIN/LEFT/FAIL operations, snapshot creation, etc. During the switching process, all user transactions are parked for a small period of time which in turn increases the average latency and decreases throughput of the overall cluster. Splitting the cluster into virtual cells containing 4-8 nodes may increase the total cluster performance and minimize the influence of one cell on another in case of node fail events. Such a technique also significantly increases the recovery speed of transactions on cells not affected by failing nodes. The time when transactions are parked also decreases on non-affected cells which in turn decreases the worst latency for the cluster operations overall. From now on, you can use the RendezvousAffinityFunction affinity function with ClusterNodeAttributeColocatedBackupFilter to group nodes into virtual cells. Since the node baseline attributes are used as cell markers the corresponding BASELINE_NODE_ATTRIBUTES system view was added. See benchmarks below that represent the worst (max) latency, which happens in case of node left/failure/timeout events on broken and alive cells. New Page Replacement Policies When Native Persistence is on and the amount of data, which Ignite stores on the disk, is bigger than the off-heap memory amount allocated for the data region, another page should be evicted from the off-heap to the disk to preload a page from the disk to the completely full off-heap memory. This process is called page replacement. Previously, Apache Ignite used the Random-LRU page replacement algorithm which has a low maintenance cost, but it has many disadvantages and greatly affects the performance when the page replacement is started. On some deployments, administrators even force a cluster restart periodically to avoid page replacement. There are a few new algorithms available from now on: Segmented-LRU Algorithm CLOCK Algorithm Page replacement algorithm can be configured by the PageReplacementMode property of DataRegionConfiguration. By default, the CLOCK algorithm is now used. You can check the Replacement Policies in the documentation for more details. Snapshot Restore And Check Commands Check All snapshots are fully consistent in terms of concurrent cluster-wide operations as well as ongoing changes with Ignite. However, in some cases and for your own peace of mind, it may be necessary to check the snapshot for completeness and for data consistency. The Apache Ignite is now delivered with a built-in snapshot consistency check commands that enable you to verify internal data consistency, calculate data partitions hashes and pages checksums, and print out the result if a problem is found. The check command also compares hashes calculated by containing keys of primary partitions with corresponding backup partitions and reports any differences. # This procedure does not require the cluster to be in the idle state. control.(sh|bat) --snapshot check snapshot_name Restore Previously, only the manual snapshot restore procedure was available by fully copying persistence data files from the snapshot directory to the Apache Ignite work directory. The automatic restore procedure allows you to restore cache groups from a snapshot on an active cluster by using the Java API or command line script (using CLI is recommended). Currently, the restore procedure has several limitations, so please check the documentation pages for details. Start restoring all user-created cache groups from the snapshot &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --start # Start restoring only &quot;cache-group1&quot; and &quot;cache-group2&quot; from the snapshot &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --start cache-group1,cache-group2 # Get the status of the restore operation for &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --status # Cancel the restore operation for &quot;snapshot_09062021&quot;. control.(sh|bat) --snapshot restore snapshot_09062021 --cancel","headline":"Apache Ignite 2.11: Stabilization First","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ignite/entry/apache-ignite-2-11-stabilization"},"url":"http://localhost:4000/ignite/entry/apache-ignite-2-11-stabilization"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Ignite 2.11: Stabilization First</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-10-12T09:47:57-04:00" itemprop="datePublished">Oct 12, 2021
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Maxim Muzafarov", "login"=>"mmuzaf", "email"=>"maxmuzaf@gmail.com"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The new <a href="https://ignite.apache.org/">Apache Ignite</a> 2.11 was released on September 17, 2021. It can be considered to be a greater<br />
+extent as a stabilization release that closed a number of technical debts of the internal architecture and bugs. Out of more than<br />
+200 completed tasks, 120 are bug fixes. However, some valuable improvements still exist, so let&#39;s take a quick look at them together.</p>
+<h3 id="thin-clients">Thin Clients</h3>
+<p>Partition awareness is enabled by default in the 2.11 release and allows thin clients to send query requests directly to the<br />
+node that owns the queried data. Without partition awareness, an application executes all queries and operations via<br />
+a single server node that acts as a proxy for the incoming requests.</p>
+<p>The support of <a href="https://ignite.apache.org/docs/latest/thin-clients/java-thin-client#cache-entry-listening">Continuous Queries</a><br />
+added to the java thin client. For the other supported features, you can check -<br />
+the <a href="https://cwiki.apache.org/confluence/display/IGNITE/Thin+clients+features">List of Thin Client Features</a>.</p>
+<h3 id="cellular-clusters-deployment">Cellular-clusters Deployment</h3>
+<p>The Apache Ignite internals has the so-called <em>switch</em> (a part of Partition Map Exchange) process that is used to perform<br />
+atomic execution of cluster-wide operations and move a cluster from one consistent state to another, for example, a cache creation/destroy,<br />
+a node JOIN/LEFT/FAIL operations, snapshot creation, etc. During the switching process, all user transactions are parked for a small<br />
+period of time which in turn increases the average latency and decreases throughput of the overall cluster.</p>
+<p>Splitting the cluster into virtual cells containing 4-8 nodes may increase the total cluster performance and minimize the<br />
+influence of one cell on another in case of node fail events. Such a technique also significantly increases the recovery speed of<br />
+transactions on cells not affected by failing nodes. The time when transactions are parked also decreases on non-affected cells which<br />
+in turn decreases the worst latency for the cluster operations overall.</p>
+<p>From now on, you can use the <em>RendezvousAffinityFunction</em> affinity function with <em>ClusterNodeAttributeColocatedBackupFilter</em> to<br />
+group nodes into virtual cells. Since the node baseline attributes are used as cell markers the corresponding<br />
+<a href="https://ignite.apache.org/docs/latest/monitoring-metrics/system-views#baseline_node_attributes">BASELINE_NODE_ATTRIBUTES</a> system<br />
+view was added.</p>
+<p>See benchmarks below that represent the worst (max) latency, which happens in case of node left/failure/timeout events on broken<br />
+and alive cells.</p>
+<p><a href="https://blogs.apache.org/ignite/mediaresource/ec8a7800-01e9-4910-aaa9-0e27ea2d4303"><img src="https://blogs.apache.org/ignite/mediaresource/ec8a7800-01e9-4910-aaa9-0e27ea2d4303" alt="723rhosidfgu4787fh9sdhf.png" width="50%"/></a></p>
+<h3 id="new-page-replacement-policies">New Page Replacement Policies</h3>
+<p>When Native Persistence is on and the amount of data, which Ignite stores on the disk, is bigger than the off-heap memory amount<br />
+allocated for the data region, another page should be evicted from the off-heap to the disk to preload a page from the disk to<br />
+the completely full off-heap memory. This process is called page replacement. Previously, Apache Ignite used the Random-LRU page<br />
+replacement algorithm which has a low maintenance cost, but it has many disadvantages and greatly affects the performance when<br />
+the page replacement is started. On some deployments, administrators even force a cluster restart periodically to avoid page<br />
+replacement. There are a few new algorithms available from now on:</p>
+<ul>
+<li>Segmented-LRU Algorithm</li>
+<li>CLOCK Algorithm</li>
+</ul>
+<p>Page replacement algorithm can be configured by the <em>PageReplacementMode</em> property of <em>DataRegionConfiguration</em>. By default,<br />
+the CLOCK algorithm is now used. You can check the<br />
+<a href="https://ignite.apache.org/docs/latest/memory-configuration/replacement-policies">Replacement Policies</a> in the documentation<br />
+for more details.</p>
+<h3 id="snapshot-restore-and-check-commands">Snapshot Restore And Check Commands</h3>
+<h4 id="check">Check</h4>
+<p>All snapshots are fully consistent in terms of concurrent cluster-wide operations as well as ongoing changes with Ignite.<br />
+However, in some cases and for your own peace of mind, it may be necessary to check the snapshot for completeness and<br />
+for data consistency. The Apache Ignite is now delivered with a built-in snapshot consistency check commands that enable you to<br />
+verify internal data consistency, calculate data partitions hashes and pages checksums, and print out the result if a problem<br />
+is found. The check command also compares hashes calculated by containing keys of primary partitions with corresponding backup<br />
+partitions and reports any differences.</p>
+<pre><code class="lang-shell"><span class="hljs-comment"># This procedure does not require the cluster to be in the idle state.</span>
+control.(sh|bat) --snapshot<span class="hljs-built_in"> check </span>snapshot_name
+</code></pre>
+<h4 id="restore">Restore</h4>
+<p>Previously, only the manual snapshot restore procedure was available by fully copying persistence data files from the<br />
+snapshot directory to the Apache Ignite <em>work</em> directory. The automatic restore procedure allows you to restore cache groups from<br />
+a snapshot on an active cluster by using the Java API or command line script (using CLI is recommended).  Currently, the restore<br />
+procedure has several limitations, so please check the documentation pages for details.</p>
+<pre><code class="lang-shell"><span class="hljs-keyword">Start</span> restoring all <span class="hljs-keyword">user</span>-created <span class="hljs-keyword">cache</span> <span class="hljs-keyword">groups</span> <span class="hljs-keyword">from</span> the <span class="hljs-keyword">snapshot</span> <span class="hljs-string">"snapshot_09062021"</span>.
+control.(sh|bat) <span class="hljs-comment">--snapshot restore snapshot_09062021 --start</span>
+
+# <span class="hljs-keyword">Start</span> restoring <span class="hljs-keyword">only</span> <span class="hljs-string">"cache-group1"</span> <span class="hljs-keyword">and</span> <span class="hljs-string">"cache-group2"</span> <span class="hljs-keyword">from</span> the <span class="hljs-keyword">snapshot</span> <span class="hljs-string">"snapshot_09062021"</span>.
+control.(sh|bat) <span class="hljs-comment">--snapshot restore snapshot_09062021 --start cache-group1,cache-group2</span>
+
+# <span class="hljs-keyword">Get</span> the <span class="hljs-keyword">status</span> <span class="hljs-keyword">of</span> the <span class="hljs-keyword">restore</span> operation <span class="hljs-keyword">for</span> <span class="hljs-string">"snapshot_09062021"</span>.
+control.(sh|bat) <span class="hljs-comment">--snapshot restore snapshot_09062021 --status</span>
+
+# <span class="hljs-keyword">Cancel</span> the <span class="hljs-keyword">restore</span> operation <span class="hljs-keyword">for</span> <span class="hljs-string">"snapshot_09062021"</span>.
+control.(sh|bat) <span class="hljs-comment">--snapshot restore snapshot_09062021 --cancel</span>
+</code></pre>
+
+  </div><a class="u-url" href="/ignite/entry/apache-ignite-2-11-stabilization" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

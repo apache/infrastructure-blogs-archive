@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Click becomes a Top-Level Project and v2.1.0 now available | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Click becomes a Top-Level Project and v2.1.0 now available" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Apache Click has become a new Apache Top Level Project (TLP), signifying that Click is a well-governed project under the Apache Software Foundation principles. Furthermore Click 2.1.0 has been released sporting many new features, including support for Google App Engine, a free Java hosting environment from Google. Click Home Roadmap and Changes - full list of new features, improvements and bug fixes Upgrade Path - please see the upgrade path when upgrading from 2.0.1 or earlier. Download Click 2.1.0 Maven bundles Live examples New features and improvements: Added support for Google App Engine, a free Java hosting environment from Google. This provides an ideal environment for students and startups to easily host their Click applications online. See GoogleAppEngineListener for details [560]. Added support for an in-memory File Upload Service that can be used for uploading files in a Google App Engine environment. Added support for templates with custom extensions through the new ConfigService.isTemplate method. The default ConfigService implementation, XmlConfigService, provides support for the extensions .htm and .jsp, but new extensions can be provided in a subclass. See the JavaDoc for details [568]. Added support to the Page class for conditionally including Control head elements through the new method includeControlHeadElements [571]. Added support to deploy resources inside JARs from the Servlet 3.0 compliant location, META-INF/resources. Click&#39;s own pre-packaged resources are now also located in the JAR under META-INF/resources [570]. Added new Calendar popup to DateField. This Calendar popup uses Calendar Date Select which is based on the Prototype JavaScript library. &lt;/p&gt; Please note if you don&#39;t want a dependency on the Prototype library you can use the third-party Click Calendar instead. Added first class support for HEAD elements such as JavaScript and Css. The following classes were added: Element, ResourceElement, JsImport, JsScript, CssImport and CssStyle. A new method was added to Page and Control: Control.getHeadElements() and Page.getHeadElements() [501]. Added SubmitLink control that can submit a Form [519]. Added HiddenList control for rendering and submitting a list of hidden fields [491]. Added pluggable security access controller (AccessController) to Menu class. This pluggable interface enable use of security frameworks such as Spring Security (Acegi) or JSecurity to control user access to Menu items. This issue was raised by Demetrios Kyriakis [406]. Added an Ant task, called DeployTask, for deploying static resources at build time. This task is useful when deploying Click applications in restricted environments. For more details see the section: deploying resources in a restricted environment. Added a ResourceService, for serving static resources at runtime. This service is useful when deploying Click applications in restricted environments. For more details see the section: deploying resources in a restricted environment [564]. Added method, ClickUtils.createTemplateModel, which returns a template model containing objects such as the Context path, Page path, HTTP request, HTTP response, HTTP session etc. Added ability to specify a custom TreeNode icon through the new method TreeNode.setIcon(String). This issue was raised and fixed by Tim Hooper [494]. Added method Format.url for encoding URL&#39;s in templates [399]. Added method FieldColumn.setProperty that can be overriden to provide custom binding for complex domain objects. This issue was raised and fixed by WarnerJan Veldhuis [528]. Added TypeConverter configuration option to ClickServlet. See getTypeConverter() method for details. This issue was raised Joseph Schmidt and fixed by Adrian A. [539]. Added Slf4jLogService for supporting multiple application servers. This issue was raised Oliver Burn [555]. Added @Bindable annotation support for page field autobinding. @Bindable supports public, protected and private Page variables [556, 599 ]. Added property files with translation for the Russian language. This issue was raised and fixed by Andrey Rybin [607], [611]. Added new Tree methods setWidth / getWidth and setHeight / getHeight. Also fixed rendering issues in IE6/7 for long node labels that overflow the tree width [616]. The click.dtd has been published to http://click.apache.org/dtds/click-2.1.dtd. If you want your configuration to conform to the click.dtd, include the following declaration in your click.xml: &lt;!DOCTYPE click-app PUBLIC &quot;-//Apache Software Foundation//DTD Click Configuration 2.1//EN&quot; &quot;http://click.apache.org/dtds/click_2_1.dtd&quot;&gt; Improved Form validation to allow Form subclasses to override the validate method and implement cross-field validation. The following changes were made: the previous validate method was renamed to validateFileUpload and a new empty validate method was introduced, that can safely be overridden in subclasses [572]. Improved Page redirect to support parameters. See the new Page methods setRedirect(String, Map) and setRedirect(Class, Map) This issue was raised and fixed by Adrian [536]. Improved Link Controls to support multivalued parameters through the new AbstractLink methods getParameterValues() and setParameterValues() [554]. Improved Table to support very large datasets by promoting the methods getFirstRow() and getLastRow() as public. These methods provide the necessary information to only retrieve the displayed rows [504]. Improved LinkDecorator to support target identfier property parameter names. This issue was raised by Demetrios Kyriakis and fixed by fixed by Adrian A. [400]. Improved PickList methods getValueObject() and setValueObject(Object) to delegate to getSelectedValues() and addSelectedValue(String) respectively [490]. Improved Spring integration with SpringClickServlet and PageScopeResolver, supporting Spring instantiated Pages with @Component configuration [534]. Improved CompressionServletResponseWrapper and CompressionResponseStream classes to have public visibility to enable use in custom servlet Filters [547]. Improved Menu control to render attribute class=&quot;selected&quot; when the menu item is selected. This issue was raised and fixed by Frederic Daoud [551]. Improved PerformanceFilter to implement exclude-paths filtering [498]. Improved XmlConfigService to scan for deployable resources inside folders on the classpath [552]. Improved Cayenne DataContextFilter, including adding support for LifecycleListener registration [559]. Improved AbstractLink to allow rendering of both icon and label in Link controls (default behavior renders either a label or an icon) [535]. Improved Page and Control message handling with null args. This issue was raised by WarnerJan Veldhuis [600]. Fixed resource deployment on JBoss 5 and up. The solution is based on the work done by the Stripes Framework developers [589].&lt;/p&gt; Deprecated: Deprecated methods: Control.getHtmlImports() and Page.getHtmlImports(). These methods have been deprecated in favor of Control.getHeadElements() and Page.getHeadElements(). Deprecated methods: Page.getPageImports() and Page.setPageImports(). These methods have been deprecated in favor of Page.getHeadElements(). Updated third-party libraries: Update Velocity library to version 1.6.3. Update Cayenne library to version 3.0M6. Update Prototype.js library to version 1.6.1. New Documentation: Documentation has been converted to Docbook and are made available in three different flavors: PDF, HTML (single page) and HTML (multiple pages). Thanks to Gilberto C Andrade for doing the conversion [482]. Added a new section, Deploying resources in a restricted environment, describing how to deploy static resources in environments where WAR/EAR are not unpacked or where file system permissions are restricted, such as Google App Engine. Added documentation describing the new HEAD element support. Please see the new section on Page HEAD elements and the section on Control HEAD elements. New examples: Page HEAD elements demonstrates how to add JsImport, JsScript, CssImport and CssStyle HEAD elements to a Page. Control HEAD elements demonstrates how to add JsImport and CssImport HEAD elements to a custom Control. SubmitLink Demo shows how to use the new SubmitLink control. Large Dataset is an example of a Table with a large number of rows and how to lazily page through the rows using a custom data provider. Reusable Panel is an example of a reusable Panel which provides a Form for capturing Client details. Quartz Job Scheduler is an example demonstrating how to integrate the Quartz Job Scheduling framework into a Click application. Excel Table Exporter example demonstrates how to export a Click Table to an Excel spreadsheet using Apache POI. Enjoy. - The Click team" />
+<meta property="og:description" content="Apache Click has become a new Apache Top Level Project (TLP), signifying that Click is a well-governed project under the Apache Software Foundation principles. Furthermore Click 2.1.0 has been released sporting many new features, including support for Google App Engine, a free Java hosting environment from Google. Click Home Roadmap and Changes - full list of new features, improvements and bug fixes Upgrade Path - please see the upgrade path when upgrading from 2.0.1 or earlier. Download Click 2.1.0 Maven bundles Live examples New features and improvements: Added support for Google App Engine, a free Java hosting environment from Google. This provides an ideal environment for students and startups to easily host their Click applications online. See GoogleAppEngineListener for details [560]. Added support for an in-memory File Upload Service that can be used for uploading files in a Google App Engine environment. Added support for templates with custom extensions through the new ConfigService.isTemplate method. The default ConfigService implementation, XmlConfigService, provides support for the extensions .htm and .jsp, but new extensions can be provided in a subclass. See the JavaDoc for details [568]. Added support to the Page class for conditionally including Control head elements through the new method includeControlHeadElements [571]. Added support to deploy resources inside JARs from the Servlet 3.0 compliant location, META-INF/resources. Click&#39;s own pre-packaged resources are now also located in the JAR under META-INF/resources [570]. Added new Calendar popup to DateField. This Calendar popup uses Calendar Date Select which is based on the Prototype JavaScript library. &lt;/p&gt; Please note if you don&#39;t want a dependency on the Prototype library you can use the third-party Click Calendar instead. Added first class support for HEAD elements such as JavaScript and Css. The following classes were added: Element, ResourceElement, JsImport, JsScript, CssImport and CssStyle. A new method was added to Page and Control: Control.getHeadElements() and Page.getHeadElements() [501]. Added SubmitLink control that can submit a Form [519]. Added HiddenList control for rendering and submitting a list of hidden fields [491]. Added pluggable security access controller (AccessController) to Menu class. This pluggable interface enable use of security frameworks such as Spring Security (Acegi) or JSecurity to control user access to Menu items. This issue was raised by Demetrios Kyriakis [406]. Added an Ant task, called DeployTask, for deploying static resources at build time. This task is useful when deploying Click applications in restricted environments. For more details see the section: deploying resources in a restricted environment. Added a ResourceService, for serving static resources at runtime. This service is useful when deploying Click applications in restricted environments. For more details see the section: deploying resources in a restricted environment [564]. Added method, ClickUtils.createTemplateModel, which returns a template model containing objects such as the Context path, Page path, HTTP request, HTTP response, HTTP session etc. Added ability to specify a custom TreeNode icon through the new method TreeNode.setIcon(String). This issue was raised and fixed by Tim Hooper [494]. Added method Format.url for encoding URL&#39;s in templates [399]. Added method FieldColumn.setProperty that can be overriden to provide custom binding for complex domain objects. This issue was raised and fixed by WarnerJan Veldhuis [528]. Added TypeConverter configuration option to ClickServlet. See getTypeConverter() method for details. This issue was raised Joseph Schmidt and fixed by Adrian A. [539]. Added Slf4jLogService for supporting multiple application servers. This issue was raised Oliver Burn [555]. Added @Bindable annotation support for page field autobinding. @Bindable supports public, protected and private Page variables [556, 599 ]. Added property files with translation for the Russian language. This issue was raised and fixed by Andrey Rybin [607], [611]. Added new Tree methods setWidth / getWidth and setHeight / getHeight. Also fixed rendering issues in IE6/7 for long node labels that overflow the tree width [616]. The click.dtd has been published to http://click.apache.org/dtds/click-2.1.dtd. If you want your configuration to conform to the click.dtd, include the following declaration in your click.xml: &lt;!DOCTYPE click-app PUBLIC &quot;-//Apache Software Foundation//DTD Click Configuration 2.1//EN&quot; &quot;http://click.apache.org/dtds/click_2_1.dtd&quot;&gt; Improved Form validation to allow Form subclasses to override the validate method and implement cross-field validation. The following changes were made: the previous validate method was renamed to validateFileUpload and a new empty validate method was introduced, that can safely be overridden in subclasses [572]. Improved Page redirect to support parameters. See the new Page methods setRedirect(String, Map) and setRedirect(Class, Map) This issue was raised and fixed by Adrian [536]. Improved Link Controls to support multivalued parameters through the new AbstractLink methods getParameterValues() and setParameterValues() [554]. Improved Table to support very large datasets by promoting the methods getFirstRow() and getLastRow() as public. These methods provide the necessary information to only retrieve the displayed rows [504]. Improved LinkDecorator to support target identfier property parameter names. This issue was raised by Demetrios Kyriakis and fixed by fixed by Adrian A. [400]. Improved PickList methods getValueObject() and setValueObject(Object) to delegate to getSelectedValues() and addSelectedValue(String) respectively [490]. Improved Spring integration with SpringClickServlet and PageScopeResolver, supporting Spring instantiated Pages with @Component configuration [534]. Improved CompressionServletResponseWrapper and CompressionResponseStream classes to have public visibility to enable use in custom servlet Filters [547]. Improved Menu control to render attribute class=&quot;selected&quot; when the menu item is selected. This issue was raised and fixed by Frederic Daoud [551]. Improved PerformanceFilter to implement exclude-paths filtering [498]. Improved XmlConfigService to scan for deployable resources inside folders on the classpath [552]. Improved Cayenne DataContextFilter, including adding support for LifecycleListener registration [559]. Improved AbstractLink to allow rendering of both icon and label in Link controls (default behavior renders either a label or an icon) [535]. Improved Page and Control message handling with null args. This issue was raised by WarnerJan Veldhuis [600]. Fixed resource deployment on JBoss 5 and up. The solution is based on the work done by the Stripes Framework developers [589].&lt;/p&gt; Deprecated: Deprecated methods: Control.getHtmlImports() and Page.getHtmlImports(). These methods have been deprecated in favor of Control.getHeadElements() and Page.getHeadElements(). Deprecated methods: Page.getPageImports() and Page.setPageImports(). These methods have been deprecated in favor of Page.getHeadElements(). Updated third-party libraries: Update Velocity library to version 1.6.3. Update Cayenne library to version 3.0M6. Update Prototype.js library to version 1.6.1. New Documentation: Documentation has been converted to Docbook and are made available in three different flavors: PDF, HTML (single page) and HTML (multiple pages). Thanks to Gilberto C Andrade for doing the conversion [482]. Added a new section, Deploying resources in a restricted environment, describing how to deploy static resources in environments where WAR/EAR are not unpacked or where file system permissions are restricted, such as Google App Engine. Added documentation describing the new HEAD element support. Please see the new section on Page HEAD elements and the section on Control HEAD elements. New examples: Page HEAD elements demonstrates how to add JsImport, JsScript, CssImport and CssStyle HEAD elements to a Page. Control HEAD elements demonstrates how to add JsImport and CssImport HEAD elements to a custom Control. SubmitLink Demo shows how to use the new SubmitLink control. Large Dataset is an example of a Table with a large number of rows and how to lazily page through the rows using a custom data provider. Reusable Panel is an example of a reusable Panel which provides a Form for capturing Client details. Quartz Job Scheduler is an example demonstrating how to integrate the Quartz Job Scheduling framework into a Click application. Excel Table Exporter example demonstrates how to export a Click Table to an Excel spreadsheet using Apache POI. Enjoy. - The Click team" />
+<link rel="canonical" href="http://localhost:4000/click/entry/click_2_1_0_now" />
+<meta property="og:url" content="http://localhost:4000/click/entry/click_2_1_0_now" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-02-12T15:01:47-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Click becomes a Top-Level Project and v2.1.0 now available" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2010-02-12T15:01:47-05:00","datePublished":"2010-02-12T15:01:47-05:00","description":"Apache Click has become a new Apache Top Level Project (TLP), signifying that Click is a well-governed project under the Apache Software Foundation principles. Furthermore Click 2.1.0 has been released sporting many new features, including support for Google App Engine, a free Java hosting environment from Google. Click Home Roadmap and Changes - full list of new features, improvements and bug fixes Upgrade Path - please see the upgrade path when upgrading from 2.0.1 or earlier. Download Click 2.1.0 Maven bundles Live examples New features and improvements: Added support for Google App Engine, a free Java hosting environment from Google. This provides an ideal environment for students and startups to easily host their Click applications online. See GoogleAppEngineListener for details [560]. Added support for an in-memory File Upload Service that can be used for uploading files in a Google App Engine environment. Added support for templates with custom extensions through the new ConfigService.isTemplate method. The default ConfigService implementation, XmlConfigService, provides support for the extensions .htm and .jsp, but new extensions can be provided in a subclass. See the JavaDoc for details [568]. Added support to the Page class for conditionally including Control head elements through the new method includeControlHeadElements [571]. Added support to deploy resources inside JARs from the Servlet 3.0 compliant location, META-INF/resources. Click&#39;s own pre-packaged resources are now also located in the JAR under META-INF/resources [570]. Added new Calendar popup to DateField. This Calendar popup uses Calendar Date Select which is based on the Prototype JavaScript library. &lt;/p&gt; Please note if you don&#39;t want a dependency on the Prototype library you can use the third-party Click Calendar instead. Added first class support for HEAD elements such as JavaScript and Css. The following classes were added: Element, ResourceElement, JsImport, JsScript, CssImport and CssStyle. A new method was added to Page and Control: Control.getHeadElements() and Page.getHeadElements() [501]. Added SubmitLink control that can submit a Form [519]. Added HiddenList control for rendering and submitting a list of hidden fields [491]. Added pluggable security access controller (AccessController) to Menu class. This pluggable interface enable use of security frameworks such as Spring Security (Acegi) or JSecurity to control user access to Menu items. This issue was raised by Demetrios Kyriakis [406]. Added an Ant task, called DeployTask, for deploying static resources at build time. This task is useful when deploying Click applications in restricted environments. For more details see the section: deploying resources in a restricted environment. Added a ResourceService, for serving static resources at runtime. This service is useful when deploying Click applications in restricted environments. For more details see the section: deploying resources in a restricted environment [564]. Added method, ClickUtils.createTemplateModel, which returns a template model containing objects such as the Context path, Page path, HTTP request, HTTP response, HTTP session etc. Added ability to specify a custom TreeNode icon through the new method TreeNode.setIcon(String). This issue was raised and fixed by Tim Hooper [494]. Added method Format.url for encoding URL&#39;s in templates [399]. Added method FieldColumn.setProperty that can be overriden to provide custom binding for complex domain objects. This issue was raised and fixed by WarnerJan Veldhuis [528]. Added TypeConverter configuration option to ClickServlet. See getTypeConverter() method for details. This issue was raised Joseph Schmidt and fixed by Adrian A. [539]. Added Slf4jLogService for supporting multiple application servers. This issue was raised Oliver Burn [555]. Added @Bindable annotation support for page field autobinding. @Bindable supports public, protected and private Page variables [556, 599 ]. Added property files with translation for the Russian language. This issue was raised and fixed by Andrey Rybin [607], [611]. Added new Tree methods setWidth / getWidth and setHeight / getHeight. Also fixed rendering issues in IE6/7 for long node labels that overflow the tree width [616]. The click.dtd has been published to http://click.apache.org/dtds/click-2.1.dtd. If you want your configuration to conform to the click.dtd, include the following declaration in your click.xml: &lt;!DOCTYPE click-app PUBLIC &quot;-//Apache Software Foundation//DTD Click Configuration 2.1//EN&quot; &quot;http://click.apache.org/dtds/click_2_1.dtd&quot;&gt; Improved Form validation to allow Form subclasses to override the validate method and implement cross-field validation. The following changes were made: the previous validate method was renamed to validateFileUpload and a new empty validate method was introduced, that can safely be overridden in subclasses [572]. Improved Page redirect to support parameters. See the new Page methods setRedirect(String, Map) and setRedirect(Class, Map) This issue was raised and fixed by Adrian [536]. Improved Link Controls to support multivalued parameters through the new AbstractLink methods getParameterValues() and setParameterValues() [554]. Improved Table to support very large datasets by promoting the methods getFirstRow() and getLastRow() as public. These methods provide the necessary information to only retrieve the displayed rows [504]. Improved LinkDecorator to support target identfier property parameter names. This issue was raised by Demetrios Kyriakis and fixed by fixed by Adrian A. [400]. Improved PickList methods getValueObject() and setValueObject(Object) to delegate to getSelectedValues() and addSelectedValue(String) respectively [490]. Improved Spring integration with SpringClickServlet and PageScopeResolver, supporting Spring instantiated Pages with @Component configuration [534]. Improved CompressionServletResponseWrapper and CompressionResponseStream classes to have public visibility to enable use in custom servlet Filters [547]. Improved Menu control to render attribute class=&quot;selected&quot; when the menu item is selected. This issue was raised and fixed by Frederic Daoud [551]. Improved PerformanceFilter to implement exclude-paths filtering [498]. Improved XmlConfigService to scan for deployable resources inside folders on the classpath [552]. Improved Cayenne DataContextFilter, including adding support for LifecycleListener registration [559]. Improved AbstractLink to allow rendering of both icon and label in Link controls (default behavior renders either a label or an icon) [535]. Improved Page and Control message handling with null args. This issue was raised by WarnerJan Veldhuis [600]. Fixed resource deployment on JBoss 5 and up. The solution is based on the work done by the Stripes Framework developers [589].&lt;/p&gt; Deprecated: Deprecated methods: Control.getHtmlImports() and Page.getHtmlImports(). These methods have been deprecated in favor of Control.getHeadElements() and Page.getHeadElements(). Deprecated methods: Page.getPageImports() and Page.setPageImports(). These methods have been deprecated in favor of Page.getHeadElements(). Updated third-party libraries: Update Velocity library to version 1.6.3. Update Cayenne library to version 3.0M6. Update Prototype.js library to version 1.6.1. New Documentation: Documentation has been converted to Docbook and are made available in three different flavors: PDF, HTML (single page) and HTML (multiple pages). Thanks to Gilberto C Andrade for doing the conversion [482]. Added a new section, Deploying resources in a restricted environment, describing how to deploy static resources in environments where WAR/EAR are not unpacked or where file system permissions are restricted, such as Google App Engine. Added documentation describing the new HEAD element support. Please see the new section on Page HEAD elements and the section on Control HEAD elements. New examples: Page HEAD elements demonstrates how to add JsImport, JsScript, CssImport and CssStyle HEAD elements to a Page. Control HEAD elements demonstrates how to add JsImport and CssImport HEAD elements to a custom Control. SubmitLink Demo shows how to use the new SubmitLink control. Large Dataset is an example of a Table with a large number of rows and how to lazily page through the rows using a custom data provider. Reusable Panel is an example of a reusable Panel which provides a Form for capturing Client details. Quartz Job Scheduler is an example demonstrating how to integrate the Quartz Job Scheduling framework into a Click application. Excel Table Exporter example demonstrates how to export a Click Table to an Excel spreadsheet using Apache POI. Enjoy. - The Click team","headline":"Apache Click becomes a Top-Level Project and v2.1.0 now available","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/click/entry/click_2_1_0_now"},"url":"http://localhost:4000/click/entry/click_2_1_0_now"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Click becomes a Top-Level Project and v2.1.0 now available</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2010-02-12T15:01:47-05:00" itemprop="datePublished">Feb 12, 2010
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Bob Schellink", "login"=>"sabob", "email"=>"sabob@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Apache Click has become a new Apache  Top Level Project (TLP),<br />
+signifying that Click is a well-governed project under the Apache<br />
+Software Foundation <a href="http://www.apache.org/foundation/how-it-works.html">principles</a>.</p>
+<p>Furthermore<br />
+ Click 2.1.0 has been released sporting many new features,  including<br />
+support for <a href="http://code.google.com/appengine/docs/java/overview.html" target="_blank" class="external">Google<br />
+App Engine</a>,           a free Java hosting environment from Google.
+<ul>
+<li><a href="http://click.apache.org/">Click Home</a></li>
+<li><a href="http://click.apache.org/docs/roadmap-changes.html#2.1.0">Roadmap<br />
+and Changes</a> - full list of new features, improvements and bug fixes</li>
+<li><a href="http://click.apache.org/docs/upgrade-path.html#2.1.0">Upgrade<br />
+Path</a> - please see the upgrade path when upgrading from 2.0.1 or<br />
+earlier.</li>
+<li><a href="http://www.apache.org/dyn/closer.cgi/click/click/2.1.0/click-2.1.0.zip">Download<br />
+ Click 2.1.0</a></li>
+<li><a href="http://repo1.maven.org/maven2/org/apache/click/">Maven bundles</a></li>
+<li><a href="http://www.avoka.com/click-examples/">Live examples</a></li>
+</ul>
+<p><font style="font-weight: bold;">New features and improvements:</font>
+<ul>
+<li class="change">           Added support for <a href="http://code.google.com/appengine/docs/java/overview.html" target="_blank" class="external">Google<br />
+App Engine</a>,           a free Java hosting environment from Google.<br />
+This provides an  ideal           environment for students and startups<br />
+to easily host their  Click           applications online. See <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/gae/GoogleAppEngineListener.html">GoogleAppEngineListener</a><br />
+           for details           [<a href="https://issues.apache.org/jira/browse/CLK-560" target="_blank">560</a>].       </li>
+<li class="change">           Added support for an in-memory <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/gae/MemoryFileUploadService.html">File<br />
+  Upload Service</a>           that can be used for uploading files in a<br />
+ <a href="http://code.google.com/appengine/docs/java/overview.html" target="_blank" class="external">Google<br />
+App Engine</a>           environment.       </li>
+<li class="change">
+       Added support for templates with custom extensions through the<br />
+new           ConfigService.<a href="http://click.apache.org/docs/click-api/org/apache/click/service/ConfigService.html#isTemplate%28java.lang.String%29">isTemplate</a><br />
+           method. The default ConfigService implementation,<br />
+XmlConfigService, provides           support for the extensions <tt>.htm</tt><br />
+ and <tt>.jsp</tt>,  but new extensions           can be provided in a<br />
+subclass. See the <a href="http://click.apache.org/docs/click-api/org/apache/click/service/XmlConfigService.html#isTemplate%28java.lang.String%29">JavaDoc</a><br />
+           for details           [<a href="https://issues.apache.org/jira/browse/CLK-568" target="_blank">568</a>].       </li>
+<li class="change">           Added support to the Page class for<br />
+conditionally including  Control           <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#getHeadElements%28%29">head<br />
+  elements</a>           through the new method <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#setIncludeControlHeadElements%28boolean%29">includeControlHeadElements</a><br />
+           [<a href="https://issues.apache.org/jira/browse/CLK-571" target="_blank">571</a>].       </li>
+<li class="change">           Added support to deploy resources inside JARs<br />
+ from the Servlet  3.0 compliant           location, <tt>META-INF/resources</tt>.<br />
+ Click's own  pre-packaged resources           are now also located in<br />
+the JAR under <tt>META-INF/resources</tt>           [<a href="https://issues.apache.org/jira/browse/CLK-570" target="_blank">570</a>].       </li>
+<li class="change">           Added new Calendar popup to DateField. This<br />
+Calendar popup  uses           <a href="http://code.google.com/p/calendardateselect/" class="external" target="_blank">Calendar Date Select</a><br />
+           which is based on the Prototype JavaScript library.          </p>
+<p>           Please note if you don't want a dependency on the<br />
+Prototype  library           you can use the third-party           <a href="http://code.google.com/p/click-calendar/" target="_blank" class="external">Click Calendar</a><br />
+     instead.              </p>
+</li>
+<li class="change">           Added<br />
+first class support for HEAD elements such as JavaScript  and Css.<br />
+     The following classes were added:           <a href="http://click.apache.org/docs/click-api/org/apache/click/element/Element.html">Element</a>,<br />
+           <a href="http://click.apache.org/docs/click-api/org/apache/click/element/ResourceElement.html">ResourceElement</a>,<br />
+           <a href="http://click.apache.org/docs/click-api/org/apache/click/element/JsImport.html">JsImport</a>,<br />
+           <a href="http://click.apache.org/docs/click-api/org/apache/click/element/JsScript.html">JsScript</a>,<br />
+           <a href="http://click.apache.org/docs/click-api/org/apache/click/element/CssImport.html">CssImport</a><br />
+           and <a href="http://click.apache.org/docs/click-api/org/apache/click/element/CssStyle.html">CssStyle</a>.<br />
+           A new method was added to Page and Control: <a href="http://click.apache.org/docs/click-api/org/apache/click/Control.html#getHeadElements%28%29">Control.getHeadElements()</a><br />
+           and <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#getHeadElements%28%29">Page.getHeadElements()</a><br />
+           [<a href="https://issues.apache.org/jira/browse/CLK-501" target="_blank">501</a>].       </li>
+<li class="change">           Added <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/SubmitLink.html">SubmitLink</a><br />
+  control           that can submit a Form [<a href="https://issues.apache.org/jira/browse/CLK-519" target="_blank">519</a>].       </li>
+<li>
+           Added <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/HiddenList.html">HiddenList</a><br />
+  control           for rendering and submitting a list of hidden fields<br />
+ [<a href="https://issues.apache.org/jira/browse/CLK-491" target="_blank">491</a>].        </li>
+<li class="change">           Added pluggable security access controller (<a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/security/AccessController.html">AccessController</a>)<br />
+  to Menu class.           This pluggable interface enable use of<br />
+security frameworks such  as Spring Security (Acegi) or JSecurity to<br />
+control user access to Menu  items.           This issue was raised by<br />
+Demetrios Kyriakis           [<a href="https://issues.apache.org/click/browse/CLK-406" target="_blank">406</a>].       </li>
+<li class="change">           Added an Ant task, called DeployTask, for<br />
+deploying static  resources           at build time. This task is useful<br />
+ when deploying Click  applications           in restricted<br />
+environments. For more details see the section:           <a href="http://click.apache.org/docs/user-guide/html/ch04s03.html#deploying-restricted-env">deploying<br />
+  resources in a restricted environment</a>.       </li>
+<li class="change">           Added a <a href="http://click.apache.org/docs/click-api/org/apache/click/service/ResourceService.html">ResourceService</a>,<br />
+           for serving static resources at runtime. This service is<br />
+useful when           deploying Click applications in restricted<br />
+environments. For  more details           see the section:           <a href="http://click.apache.org/docs/user-guide/html/ch04s03.html#deploying-restricted-env">deploying<br />
+  resources in a restricted environment</a>           [<a href="https://issues.apache.org/click/browse/CLK-564" target="_blank">564</a>].
+       </li>
+<li class="change">           Added method,           <a href="http://click.apache.org/docs/click-api/org/apache/click/util/ClickUtils.html#createTemplateModel%28org.apache.click.Page,%20org.apache.click.Context%29">ClickUtils.createTemplateModel</a>,<br />
+           which returns a template model containing objects such as the<br />
+  Context           path, Page path, HTTP request, HTTP response, HTTP<br />
+session  etc.       </li>
+<li class="change">           Added ability to<br />
+specify a custom TreeNode icon through the  new method<br />
+TreeNode.<a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/tree/TreeNode.html#setIcon%28java.lang.String%29">setIcon(String)</a>.<br />
+           This issue was raised and fixed by Tim Hooper           [<a href="https://issues.apache.org/jira/browse/CLK-494" target="_blank">494</a>].
+       </li>
+<li class="change">           Added method <a href="http://click.apache.org/docs/click-api/org/apache/click/util/Format.html#url%28java.lang.Object%29">Format.url</a><br />
+           for encoding URL's in templates           [<a href="https://issues.apache.org/jira/browse/CLK-399" target="_blank">399</a>].       </li>
+<li class="change">           Added method           <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/FieldColumn.html#setProperty%28java.lang.Object,%20java.lang.String,%20java.lang.Object%29">FieldColumn.setProperty</a><br />
+           that can be overriden to provide custom binding for complex<br />
+         domain objects. This issue was raised and fixed by WarnerJan<br />
+Veldhuis           [<a href="https://issues.apache.org/jira/browse/CLK-528" target="_blank">528</a>].       </li>
+<li class="change">           Added TypeConverter configuration option to<br />
+ClickServlet.            See <a href="http://click.apache.org/docs/click-api/org/apache/click/ClickServlet.html#getTypeConverter%28%29">getTypeConverter()</a><br />
+           method for details. This issue was raised Joseph Schmidt and<br />
+ fixed by Adrian A.           [<a href="https://issues.apache.org/jira/browse/CLK-539" target="_blank">539</a>].       </li>
+<li class="change">           Added <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/service/Slf4jLogService.html">Slf4jLogService</a><br />
+           for supporting multiple application servers.            This<br />
+issue was raised Oliver Burn           [<a href="https://issues.apache.org/jira/browse/CLK-555" target="_blank">555</a>].       </li>
+<li class="change">           Added <a href="http://click.apache.org/docs/click-api/org/apache/click/util/Bindable.html">@Bindable</a><br />
+             annotation support for page field autobinding. @Bindable<br />
+supports public,           protected and private Page variables<br />
+  [<a href="https://issues.apache.org/jira/browse/CLK-556" target="_blank">556</a>,<br />
+  <a href="https://issues.apache.org/jira/browse/CLK-599" target="_blank">599</a><br />
+].       </li>
+<li class="change">         Added property files with<br />
+translation for the Russian language.         This issue was raised and<br />
+fixed by Andrey Rybin         [<a href="https://issues.apache.org/jira/browse/CLK-607" target="_blank">607</a>],         [<a href="https://issues.apache.org/jira/browse/CLK-611" target="_blank">611</a>].
+       </li>
+<li class="change">         Added new Tree methods         <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/tree/Tree.html#setWidth%28java.lang.String%29">setWidth</a><br />
+  /         <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/tree/Tree.html#getWidth%28%29">getWidth</a><br />
+         and <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/tree/Tree.html#setHeight%28java.lang.String%29">setHeight</a><br />
+  /         <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/tree/Tree.html#getHeight%28%29">getHeight</a>.<br />
+         Also fixed rendering issues in IE6/7 for long node labels that<br />
+ overflow         the tree width [<a href="https://issues.apache.org/jira/browse/CLK-616" target="_blank">616</a>].       </li>
+<li class="change">           The click.dtd has been published to<br />
+ <a href="http://click.apache.org/dtds/click-2.1.dtd">http://click.apache.org/dtds/click-2.1.dtd</a>.</li>
+<li class="change">          If you want your configuration to conform to<br />
+the click.dtd,  include           the following declaration in your<br />
+click.xml:
+<pre><!DOCTYPE click-app PUBLIC "-//Apache Software Foundation//DTD Click Configuration 2.1//EN"<br />          "http://click.apache.org/dtds/click_2_1.dtd"></pre>
+</li>
+<li class="change">           Improved Form validation to allow Form<br />
+subclasses to override  the           <a href="http://click.apache.org/docs/click-api/org/apache/click/control/Form.html#validate%28%29">validate</a><br />
+           method and implement cross-field validation. The following<br />
+        changes were made: the previous <tt>validate</tt> method was<br />
+renamed           to <a href="http://click.apache.org/docs/click-api/org/apache/click/control/Form.html#validateFileUpload%28%29">validateFileUpload</a><br />
+           and a new empty <a href="http://click.apache.org/docs/click-api/org/apache/click/control/Form.html#validate%28%29">validate</a><br />
+           method was introduced, that can safely be overridden in<br />
+subclasses           [<a href="https://issues.apache.org/jira/browse/CLK-572" target="_blank">572</a>].       </li>
+<li class="change">           Improved Page redirect to support parameters.<br />
+ See the new Page  methods           <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#setRedirect%28java.lang.String,%20java.util.Map%29">setRedirect(String,<br />
+  Map)</a>           and <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#setRedirect%28java.lang.Class,%20java.util.Map%29">setRedirect(Class,<br />
+  Map)</a>           This issue was raised and fixed by Adrian<br />
+ [<a href="https://issues.apache.org/jira/browse/CLK-536" target="_blank">536</a>].       </li>
+<li class="change">           Improved Link Controls to support multivalued<br />
+ parameters  through the           new AbstractLink methods <a href="http://click.apache.org/docs/click-api/org/apache/click/control/AbstractLink.html#getParameterValues%28java.lang.String%29">getParameterValues()</a><br />
+           and <a href="http://click.apache.org/docs/click-api/org/apache/click/control/AbstractLink.html#setParameterValues%28java.lang.String,%20java.lang.String[]%29">setParameterValues()</a><br />
+           [<a href="https://issues.apache.org/jira/browse/CLK-554" target="_blank">554</a>].       </li>
+<li class="change">           Improved Table to support very large datasets<br />
+ by promoting the  methods           <a href="http://click.apache.org/docs/click-api/org/apache/click/control/Table.html#getFirstRow%28%29">getFirstRow()</a><br />
+           and <a href="http://click.apache.org/docs/click-api/org/apache/click/control/Table.html#getLastRow%28%29">getLastRow()</a><br />
+           as public. These methods provide the necessary information to<br />
+  only           retrieve the displayed rows           [<a href="https://issues.apache.org/jira/browse/CLK-504" target="_blank">504</a>].
+       </li>
+<li class="change">           Improved LinkDecorator to<br />
+support target identfier property  parameter names.           This issue<br />
+ was raised by Demetrios Kyriakis and fixed by fixed  by Adrian A.<br />
+     [<a href="https://issues.apache.org/jira/browse/CLK-400" target="_blank">400</a>].       </li>
+<li class="change">           Improved PickList methods <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/PickList.html#getValueObject%28%29">getValueObject()</a><br />
+           and <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/PickList.html#setValueObject%28java.lang.Object%29">setValueObject(Object)</a><br />
+           to delegate to <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/PickList.html#getSelectedValues%28%29">getSelectedValues()</a><br />
+           and <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/PickList.html#addSelectedValue%28java.lang.String%29">addSelectedValue(String)</a><br />
+           respectively [<a href="https://issues.apache.org/jira/browse/CLK-490" target="_blank">490</a>].       </li>
+<li class="change">           Improved Spring integration with           <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/spring/SpringClickServlet.html">SpringClickServlet</a><br />
+  and           <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/spring/PageScopeResolver.html">PageScopeResolver</a>,<br />
+           supporting Spring instantiated Pages with @Component<br />
+configuration           [<a href="https://issues.apache.org/jira/browse/CLK-534" target="_blank">534</a>].       </li>
+<li class="change">           Improved CompressionServletResponseWrapper<br />
+and  CompressionResponseStream classes to have           public<br />
+visibility to enable use in custom servlet Filters           [<a href="https://issues.apache.org/click/browse/CLK-547" target="_blank">547</a>].
+       </li>
+<li class="change">           Improved Menu control to<br />
+render attribute class="selected"  when the menu item           is<br />
+selected. This issue was raised and fixed by Frederic Daoud           [<a href="https://issues.apache.org/click/browse/CLK-551" target="_blank">551</a>].
+       </li>
+<li class="change">           Improved PerformanceFilter to<br />
+implement exclude-paths  filtering           [<a href="https://issues.apache.org/click/browse/CLK-498" target="_blank">498</a>].       </li>
+<li class="change">           Improved XmlConfigService to scan for<br />
+deployable resources  inside folders           on the classpath<br />
+  [<a href="https://issues.apache.org/click/browse/CLK-552" target="_blank">552</a>].       </li>
+<li class="change">           Improved Cayenne DataContextFilter, including<br />
+ adding support  for LifecycleListener            registration<br />
+ [<a href="https://issues.apache.org/jira/browse/CLK-559" target="_blank">559</a>].       </li>
+<li class="change">           Improved <a href="http://click.apache.org/docs/click-api/org/apache/click/control/AbstractLink.html">AbstractLink</a><br />
+           to allow rendering of both icon and label in Link controls<br />
+(default           behavior renders either a label or an icon)<br />
+ [<a href="https://issues.apache.org/jira/browse/CLK-535" target="_blank">535</a>].       </li>
+<li class="change">           Improved Page and Control message handling<br />
+with null args.           This issue was raised by WarnerJan Veldhuis<br />
+        [<a href="https://issues.apache.org/jira/browse/CLK-600" target="_blank">600</a>].       </li>
+<li class="change">           Fixed resource deployment on JBoss 5 and up.<br />
+The solution is  based on           the work done by the <a href="http://www.stripesframework.org/" target="_blank" class="external">Stripes<br />
+ Framework</a>           developers           [<a href="https://issues.apache.org/jira/browse/CLK-589" target="_blank">589</a>].</p>
+</li>
+</ul>
+<p><font style="font-weight: bold;">Deprecated:</font>
+<ul>
+<li class="change">
+           Deprecated methods: <a href="http://click.apache.org/docs/click-api/org/apache/click/Control.html#getHtmlImports%28%29">Control.getHtmlImports()</a><br />
+ and           <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#getHtmlImports%28%29">Page.getHtmlImports()</a>.<br />
+           These methods have been deprecated in favor of           <a href="http://click.apache.org/docs/click-api/org/apache/click/Control.html#getHeadElements%28%29">Control.getHeadElements()</a><br />
+           and <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#getHeadElements%28%29">Page.getHeadElements()</a>.
+       </li>
+<li class="change">Deprecated methods: <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#getPageImports%28%29">Page.getPageImports()</a><br />
+           and <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#setPageImports%28org.apache.click.util.PageImports%29">Page.setPageImports()</a>.<br />
+           These methods have been deprecated in favor of           <a href="http://click.apache.org/docs/click-api/org/apache/click/Page.html#getHeadElements%28%29">Page.getHeadElements()</a>.
+       </li>
+</ul>
+<p><font style="font-weight: bold;">Updated<br />
+third-party libraries:</font>
+<ul>
+<li class="change">
+Update Velocity library to version <a href="http://velocity.apache.org/engine/releases/velocity-1.6.2/">1.6.3</a>.
+       </li>
+<li class="change">           Update Cayenne library to<br />
+version <a href="http://cayenne.apache.org/">3.0M6</a>.       </li>
+<li class="change" style="text-align: left;">           Update Prototype.js<br />
+library to version <a href="http://www.prototypejs.org/2009/9/1/prototype-1-6-1-released">1.6.1</a>.
+       </li>
+</ul>
+<p><font style="font-weight: bold;">New Documentation:</font>
+<ul>
+<li>Documentation<br />
+ has been converted to Docbook and are made available in         three<br />
+different flavors: <a href="file:///C:/dev/os/apache/click/click-svn/documentation/docs/user-guide.html">PDF,<br />
+ HTML (single page) and HTML (multiple pages)</a>.         Thanks to<br />
+Gilberto C Andrade for doing the conversion         [<a href="https://issues.apache.org/jira/browse/CLK-482" target="_blank">482</a>].       </li>
+<li>Added<br />
+ a new section, <a href="http://click.apache.org/docs/user-guide/html/ch04s03.html#deploying-restricted-env">Deploying<br />
+  resources in a restricted environment</a>,         describing how to<br />
+deploy static resources in environments where         WAR/EAR are not<br />
+unpacked or where file system permissions are         restricted, such<br />
+as         <a href="http://code.google.com/appengine/docs/java/overview.html" target="_blank" class="external">Google<br />
+App Engine</a>.       </li>
+<li>Added documentation describing the new<br />
+HEAD element support.         Please see the new section on <a href="http://click.apache.org/docs/user-guide/html/ch02s12.html">Page<br />
+HEAD elements</a> and         the section on <a href="http://click.apache.org/docs/user-guide/html/ch03s05.html">Control<br />
+ HEAD elements</a>.       </li>
+</ul>
+<p><font style="font-weight: bold;">New<br />
+ examples:     </font>
+<ul>
+<li>         <a href="http://www.avoka.com/click-examples/general/page-head-demo.htm" class="external" target="_blank"><br />
+       Page HEAD elements</a> demonstrates how to add         <a href="http://click.apache.org/docs/click-api/org/apache/click/element/JsImport.html">JsImport</a>,<br />
+         <a href="http://click.apache.org/docs/click-api/org/apache/click/element/JsScript.html">JsScript</a>,<br />
+         <a href="http://click.apache.org/docs/click-api/org/apache/click/element/CssImport.html">CssImport</a><br />
+         and <a href="http://click.apache.org/docs/click-api/org/apache/click/element/CssStyle.html">CssStyle</a><br />
+         HEAD elements to a Page.       </li>
+<li>         <a href="http://www.avoka.com/click-examples/general/control-head-demo.htm" class="external" target="_blank"><br />
+         Control HEAD elements</a> demonstrates how to add         <a href="http://click.apache.org/docs/click-api/org/apache/click/element/JsImport.html">JsImport</a><br />
+ and         <a href="http://click.apache.org/docs/click-api/org/apache/click/element/CssImport.html">CssImport</a><br />
+         HEAD elements to a custom Control.       </li>
+<li>         <a href="http://www.avoka.com/click-examples/control/submit-link-demo.htm" class="external" target="_blank"><br />
+           SubmitLink Demo</a> shows how to use the new <a href="http://click.apache.org/docs/extras-api/org/apache/click/extras/control/SubmitLink.html">SubmitLink</a><br />
+ control.       </li>
+<li>         <a href="http://www.avoka.com/click-examples/table/large-dataset-demo.htm" class="external" target="_blank"><br />
+         Large Dataset</a> is an example of a Table with a large number<br />
+of rows         and how to lazily page through the rows using a custom<br />
+data provider.       </li>
+<li>         <a href="http://www.avoka.com/click-examples/panel/reusable-panel-demo.htm" class="external" target="_blank"><br />
+           Reusable Panel</a> is an example of a reusable Panel<br />
+  which provides a Form for capturing Client details.       </li>
+<li>
+      <a href="http://www.avoka.com/click-examples/quartz/quartz-job-scheduler.htm" class="external" target="_blank"><br />
+           Quartz Job Scheduler</a> is an example demonstrating how to<br />
+integrate the Quartz Job Scheduling framework           into a Click<br />
+application.       </li>
+<li><a href="http://www.avoka.com/click-examples/general/excel-export.htm" class="external" target="_blank">Excel<br />
+  Table Exporter</a> example demonstrates how to export a Click Table<br />
+        to an Excel spreadsheet using           <a href="http://poi.apache.org/" target="_blank" class="external">Apache POI</a>.       </li>
+</ul>
+<p>Enjoy.</p>
+<p>-<br />
+ The Click team</p>
+
+  </div><a class="u-url" href="/click/entry/click_2_1_0_now" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

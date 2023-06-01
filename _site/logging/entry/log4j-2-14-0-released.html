@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Log4j 2.14.0 Released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Log4j 2.14.0 Released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Log4j 2 team is pleased to announce the Log4j 2.14.0 release! Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides many other modern features such as support for Markers, lambda expressions for lazy logging, property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous Loggers. Another notable Log4j 2 feature is the ability to be &quot;garbage-free&quot; (avoid allocating temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring. The artifacts may be downloaded from https://logging.apache.org/log4j/2.x/download.html. This release contains a new Layout, JsonTemplateLayout, that is intended to ultimately replace JsonLayout. As its name suggests it uses a template to define the elements to include in the JSON. This Layout was contributed by the author of the log4j2-logstash-layout at GitHub, and who is now a member of the Log4j community. Log4j 2.14.0 adds support for MongoDB 4 and removes support for MongoDB 2. This release also contains a number of bug fixes which are listed below. Due to a break in compatibility in the SLF4J binding, Log4j now ships with two versions of the SLF4J to Log4j adapters. log4j-slf4j-impl should be used with SLF4J 1.7.x and earlier and log4j-slf4j18-impl should be used with SLF4J 1.8.x and later. The Log4j 2.14.0 API, as well as many core components, maintains binary compatibility with previous releases. GA Release 2.14.0 Changes in this version include: New Features LOG4J2-2957: Add JsonTemplateLayout. LOG4J2-2848: Create module log4j-mongodb4 to use new major version 4 MongoDB driver. LOG4J2-2858: More flexible configuration of the Disruptor WaitStrategy. Thanks to Stepan Gorban. Fixed Bugs LOG4J2-2925: Fix broken link in FAQ. LOG4J2-2911: Log4j2EventListener in spring.cloud.config.client listens for wrong event. LOG4J2-2919: Call ReliabilityStrategy&#39;s beforeStopAppenders() method before stopping AsyncAppender. Thanks to Geng Yuanzhe. LOG4J2-2906: Fix UnsupportedOperationException when initializing the Log4j2CloudConfigLoggingSystem. Thanks to Stephen Joyner. LOG4J2-2908: Move Spring Lookup and Spring PropertySource to its own module. LOG4J2-2910: Log4j-web should now stores the servlet context as a map entry instead of in the single external context field. LOG4J2-2822: Javadoc link in ThreadContext description was incorrect. LOG4J2-2894: Fix spelling error in log message. LOG4J2-2901: Missing configuration files should be ignored when creating a composite configuration. LOG4J2-2883: When using DirectFileRolloverStrategy the file pattern was not being recalculated on size based rollover after a time based rollover had occurred. LOG4J2-2875: Rollover was failing to create directories when using a DirectFileeRolloverStrategy. LOG4J2-2859: Fixed typos where mergeFactory should be mergeStrategy. Thanks to Yanming Zhou. LOG4J2-2832: Correct class name printed in error message in RollingFileAppender. Thanks to Benjamin Asbach. LOG4J2-2882: Support java.util.logging filters when using that API. Thanks to Emmanuel Bourg. LOG4J2-2880: Create StackWalker benchmark. Revert back to StackWalker.walk based on benchmark results. LOG4J2-2867: Obtain ContextDataProviders asynchronously. LOG4J2-2877: Determine the container id to obtain container and image information. LOG4J2-2844: Null pointer exception when no network interfaces are available. LOG4J2-2895: Fix potential deadlock in asynchronous logging by avoiding blocking for queue space on Log4jThreads LOG4J2-2837: Disruptor and JUL no longer recursively start the AsyncLoggerDisruptor resulting in an extra disruptor background thread constantly waiting. LOG4J2-2867: RingBufferLogEventTranslator uses a static ContextDataInjector instead of initializing a new object on each thread. LOG4J2-2898: Avoid initializing volatile fields with default values. Thanks to Turbanov Andrey. LOG4J2-2899: Fix log4j-1.2-api LogEventWrapper threadId and priority accessors when called multiple times. LOG4J2-2939: Fix NPE in MDCContextMap on &#39;contains&#39; and &#39;isEmpty&#39; invocations. Thanks to Constantin Hirsch. LOG4J2-2954: Prevent premature garbage collection of shutdown hooks in DefaultShutdownCallbackRegistry. Thanks to Henry Tung. Changes LOG4J2-2889: Add date pattern support for HTML layout. Thanks to Geng Yuanzhe. LOG4J2-2892: Allow GelfLayout to produce newline delimited events. Thanks to Jakub Lukes. : Update MongoDB tests to require Java 8 unconditionally now that Log4j requires Java 8. : Update mongodb3.version from 3.12.1 to 3.12.6. : Update com.fasterxml.jackson.* 2.10.2 -&gt; 2.11.0. : Update org.apache.activemq:activemq-broker 5.15.11 -&gt; 5.16.0. : Update org.apache.commons:commons-compress 1.19 -&gt; 1.20. : Update org.apache.commons:commons-csv 1.7 -&gt; 1.8. : Update org.apache.commons:commons-lang3 3.9 -&gt; 3.10. : Update org.codehaus.groovy:* 2.5.6 -&gt; 3.0.5. : Update tests junit:junit 4.12 -&gt; 4.13. : Update tests commons-io:commons-io 2.6 -&gt; 2.7. : Update jackson 2.11.0 -&gt; 2.11.2. : Update tests hsqldb 2.5.0 -&gt; 2.5.1. Removed LOG4J2-2851: Drop log4j-mongodb2 module. Apache Log4j 2.14.0 requires a minimum of Java 8 to build and run. Log4j 2.12.1 is the last release to support Java 7. For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website: https://logging.apache.org/log4j/2.x/" />
+<meta property="og:description" content="The Apache Log4j 2 team is pleased to announce the Log4j 2.14.0 release! Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides many other modern features such as support for Markers, lambda expressions for lazy logging, property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous Loggers. Another notable Log4j 2 feature is the ability to be &quot;garbage-free&quot; (avoid allocating temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring. The artifacts may be downloaded from https://logging.apache.org/log4j/2.x/download.html. This release contains a new Layout, JsonTemplateLayout, that is intended to ultimately replace JsonLayout. As its name suggests it uses a template to define the elements to include in the JSON. This Layout was contributed by the author of the log4j2-logstash-layout at GitHub, and who is now a member of the Log4j community. Log4j 2.14.0 adds support for MongoDB 4 and removes support for MongoDB 2. This release also contains a number of bug fixes which are listed below. Due to a break in compatibility in the SLF4J binding, Log4j now ships with two versions of the SLF4J to Log4j adapters. log4j-slf4j-impl should be used with SLF4J 1.7.x and earlier and log4j-slf4j18-impl should be used with SLF4J 1.8.x and later. The Log4j 2.14.0 API, as well as many core components, maintains binary compatibility with previous releases. GA Release 2.14.0 Changes in this version include: New Features LOG4J2-2957: Add JsonTemplateLayout. LOG4J2-2848: Create module log4j-mongodb4 to use new major version 4 MongoDB driver. LOG4J2-2858: More flexible configuration of the Disruptor WaitStrategy. Thanks to Stepan Gorban. Fixed Bugs LOG4J2-2925: Fix broken link in FAQ. LOG4J2-2911: Log4j2EventListener in spring.cloud.config.client listens for wrong event. LOG4J2-2919: Call ReliabilityStrategy&#39;s beforeStopAppenders() method before stopping AsyncAppender. Thanks to Geng Yuanzhe. LOG4J2-2906: Fix UnsupportedOperationException when initializing the Log4j2CloudConfigLoggingSystem. Thanks to Stephen Joyner. LOG4J2-2908: Move Spring Lookup and Spring PropertySource to its own module. LOG4J2-2910: Log4j-web should now stores the servlet context as a map entry instead of in the single external context field. LOG4J2-2822: Javadoc link in ThreadContext description was incorrect. LOG4J2-2894: Fix spelling error in log message. LOG4J2-2901: Missing configuration files should be ignored when creating a composite configuration. LOG4J2-2883: When using DirectFileRolloverStrategy the file pattern was not being recalculated on size based rollover after a time based rollover had occurred. LOG4J2-2875: Rollover was failing to create directories when using a DirectFileeRolloverStrategy. LOG4J2-2859: Fixed typos where mergeFactory should be mergeStrategy. Thanks to Yanming Zhou. LOG4J2-2832: Correct class name printed in error message in RollingFileAppender. Thanks to Benjamin Asbach. LOG4J2-2882: Support java.util.logging filters when using that API. Thanks to Emmanuel Bourg. LOG4J2-2880: Create StackWalker benchmark. Revert back to StackWalker.walk based on benchmark results. LOG4J2-2867: Obtain ContextDataProviders asynchronously. LOG4J2-2877: Determine the container id to obtain container and image information. LOG4J2-2844: Null pointer exception when no network interfaces are available. LOG4J2-2895: Fix potential deadlock in asynchronous logging by avoiding blocking for queue space on Log4jThreads LOG4J2-2837: Disruptor and JUL no longer recursively start the AsyncLoggerDisruptor resulting in an extra disruptor background thread constantly waiting. LOG4J2-2867: RingBufferLogEventTranslator uses a static ContextDataInjector instead of initializing a new object on each thread. LOG4J2-2898: Avoid initializing volatile fields with default values. Thanks to Turbanov Andrey. LOG4J2-2899: Fix log4j-1.2-api LogEventWrapper threadId and priority accessors when called multiple times. LOG4J2-2939: Fix NPE in MDCContextMap on &#39;contains&#39; and &#39;isEmpty&#39; invocations. Thanks to Constantin Hirsch. LOG4J2-2954: Prevent premature garbage collection of shutdown hooks in DefaultShutdownCallbackRegistry. Thanks to Henry Tung. Changes LOG4J2-2889: Add date pattern support for HTML layout. Thanks to Geng Yuanzhe. LOG4J2-2892: Allow GelfLayout to produce newline delimited events. Thanks to Jakub Lukes. : Update MongoDB tests to require Java 8 unconditionally now that Log4j requires Java 8. : Update mongodb3.version from 3.12.1 to 3.12.6. : Update com.fasterxml.jackson.* 2.10.2 -&gt; 2.11.0. : Update org.apache.activemq:activemq-broker 5.15.11 -&gt; 5.16.0. : Update org.apache.commons:commons-compress 1.19 -&gt; 1.20. : Update org.apache.commons:commons-csv 1.7 -&gt; 1.8. : Update org.apache.commons:commons-lang3 3.9 -&gt; 3.10. : Update org.codehaus.groovy:* 2.5.6 -&gt; 3.0.5. : Update tests junit:junit 4.12 -&gt; 4.13. : Update tests commons-io:commons-io 2.6 -&gt; 2.7. : Update jackson 2.11.0 -&gt; 2.11.2. : Update tests hsqldb 2.5.0 -&gt; 2.5.1. Removed LOG4J2-2851: Drop log4j-mongodb2 module. Apache Log4j 2.14.0 requires a minimum of Java 8 to build and run. Log4j 2.12.1 is the last release to support Java 7. For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website: https://logging.apache.org/log4j/2.x/" />
+<link rel="canonical" href="http://localhost:4000/logging/entry/log4j-2-14-0-released" />
+<meta property="og:url" content="http://localhost:4000/logging/entry/log4j-2-14-0-released" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-11T05:48:42-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Log4j 2.14.0 Released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-11-11T05:48:42-05:00","datePublished":"2020-11-11T05:48:42-05:00","description":"The Apache Log4j 2 team is pleased to announce the Log4j 2.14.0 release! Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides many other modern features such as support for Markers, lambda expressions for lazy logging, property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous Loggers. Another notable Log4j 2 feature is the ability to be &quot;garbage-free&quot; (avoid allocating temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring. The artifacts may be downloaded from https://logging.apache.org/log4j/2.x/download.html. This release contains a new Layout, JsonTemplateLayout, that is intended to ultimately replace JsonLayout. As its name suggests it uses a template to define the elements to include in the JSON. This Layout was contributed by the author of the log4j2-logstash-layout at GitHub, and who is now a member of the Log4j community. Log4j 2.14.0 adds support for MongoDB 4 and removes support for MongoDB 2. This release also contains a number of bug fixes which are listed below. Due to a break in compatibility in the SLF4J binding, Log4j now ships with two versions of the SLF4J to Log4j adapters. log4j-slf4j-impl should be used with SLF4J 1.7.x and earlier and log4j-slf4j18-impl should be used with SLF4J 1.8.x and later. The Log4j 2.14.0 API, as well as many core components, maintains binary compatibility with previous releases. GA Release 2.14.0 Changes in this version include: New Features LOG4J2-2957: Add JsonTemplateLayout. LOG4J2-2848: Create module log4j-mongodb4 to use new major version 4 MongoDB driver. LOG4J2-2858: More flexible configuration of the Disruptor WaitStrategy. Thanks to Stepan Gorban. Fixed Bugs LOG4J2-2925: Fix broken link in FAQ. LOG4J2-2911: Log4j2EventListener in spring.cloud.config.client listens for wrong event. LOG4J2-2919: Call ReliabilityStrategy&#39;s beforeStopAppenders() method before stopping AsyncAppender. Thanks to Geng Yuanzhe. LOG4J2-2906: Fix UnsupportedOperationException when initializing the Log4j2CloudConfigLoggingSystem. Thanks to Stephen Joyner. LOG4J2-2908: Move Spring Lookup and Spring PropertySource to its own module. LOG4J2-2910: Log4j-web should now stores the servlet context as a map entry instead of in the single external context field. LOG4J2-2822: Javadoc link in ThreadContext description was incorrect. LOG4J2-2894: Fix spelling error in log message. LOG4J2-2901: Missing configuration files should be ignored when creating a composite configuration. LOG4J2-2883: When using DirectFileRolloverStrategy the file pattern was not being recalculated on size based rollover after a time based rollover had occurred. LOG4J2-2875: Rollover was failing to create directories when using a DirectFileeRolloverStrategy. LOG4J2-2859: Fixed typos where mergeFactory should be mergeStrategy. Thanks to Yanming Zhou. LOG4J2-2832: Correct class name printed in error message in RollingFileAppender. Thanks to Benjamin Asbach. LOG4J2-2882: Support java.util.logging filters when using that API. Thanks to Emmanuel Bourg. LOG4J2-2880: Create StackWalker benchmark. Revert back to StackWalker.walk based on benchmark results. LOG4J2-2867: Obtain ContextDataProviders asynchronously. LOG4J2-2877: Determine the container id to obtain container and image information. LOG4J2-2844: Null pointer exception when no network interfaces are available. LOG4J2-2895: Fix potential deadlock in asynchronous logging by avoiding blocking for queue space on Log4jThreads LOG4J2-2837: Disruptor and JUL no longer recursively start the AsyncLoggerDisruptor resulting in an extra disruptor background thread constantly waiting. LOG4J2-2867: RingBufferLogEventTranslator uses a static ContextDataInjector instead of initializing a new object on each thread. LOG4J2-2898: Avoid initializing volatile fields with default values. Thanks to Turbanov Andrey. LOG4J2-2899: Fix log4j-1.2-api LogEventWrapper threadId and priority accessors when called multiple times. LOG4J2-2939: Fix NPE in MDCContextMap on &#39;contains&#39; and &#39;isEmpty&#39; invocations. Thanks to Constantin Hirsch. LOG4J2-2954: Prevent premature garbage collection of shutdown hooks in DefaultShutdownCallbackRegistry. Thanks to Henry Tung. Changes LOG4J2-2889: Add date pattern support for HTML layout. Thanks to Geng Yuanzhe. LOG4J2-2892: Allow GelfLayout to produce newline delimited events. Thanks to Jakub Lukes. : Update MongoDB tests to require Java 8 unconditionally now that Log4j requires Java 8. : Update mongodb3.version from 3.12.1 to 3.12.6. : Update com.fasterxml.jackson.* 2.10.2 -&gt; 2.11.0. : Update org.apache.activemq:activemq-broker 5.15.11 -&gt; 5.16.0. : Update org.apache.commons:commons-compress 1.19 -&gt; 1.20. : Update org.apache.commons:commons-csv 1.7 -&gt; 1.8. : Update org.apache.commons:commons-lang3 3.9 -&gt; 3.10. : Update org.codehaus.groovy:* 2.5.6 -&gt; 3.0.5. : Update tests junit:junit 4.12 -&gt; 4.13. : Update tests commons-io:commons-io 2.6 -&gt; 2.7. : Update jackson 2.11.0 -&gt; 2.11.2. : Update tests hsqldb 2.5.0 -&gt; 2.5.1. Removed LOG4J2-2851: Drop log4j-mongodb2 module. Apache Log4j 2.14.0 requires a minimum of Java 8 to build and run. Log4j 2.12.1 is the last release to support Java 7. For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website: https://logging.apache.org/log4j/2.x/","headline":"Log4j 2.14.0 Released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/logging/entry/log4j-2-14-0-released"},"url":"http://localhost:4000/logging/entry/log4j-2-14-0-released"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Log4j 2.14.0 Released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-11-11T05:48:42-05:00" itemprop="datePublished">Nov 11, 2020
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"rgoers", "login"=>"rgoers", "email"=>"rogers@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The Apache Log4j 2 team is pleased to announce the Log4j 2.14.0 release!</p>
+<p>Apache Log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade<br />
+to Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides<br />
+many other modern features such as support for Markers, lambda expressions for lazy logging,<br />
+property substitution using Lookups, multiple patterns on a PatternLayout and asynchronous<br />
+Loggers. Another notable Log4j 2 feature is the ability to be "garbage-free" (avoid allocating<br />
+temporary objects) while logging. In addition, Log4j 2 will not lose events while reconfiguring.</p>
+<p>The artifacts may be downloaded from <a href="https://logging.apache.org/log4j/2.x/download.html" rel="nofollow">https://logging.apache.org/log4j/2.x/download.html</a>.</p>
+<p>This release contains a new Layout, JsonTemplateLayout, that is intended to ultimately replace JsonLayout. As its<br />
+name suggests it uses a template to define the elements to include in the JSON. This Layout was contributed by the<br />
+author of the log4j2-logstash-layout at GitHub, and who is now a member of the Log4j community.</p>
+<p>Log4j 2.14.0 adds support for MongoDB 4 and removes support for MongoDB 2.</p>
+<p>This release also contains a number of bug fixes which are listed below.</p>
+<p>Due to a break in compatibility in the SLF4J binding, Log4j now ships with two versions of the SLF4J to Log4j adapters.<br />
+log4j-slf4j-impl should be used with SLF4J 1.7.x and earlier and log4j-slf4j18-impl should be used with SLF4J 1.8.x and<br />
+later.</p>
+<p>The Log4j 2.14.0 API, as well as many core components, maintains binary compatibility with previous releases.</p>
+<h2><a id="user-content-ga-release-2140" class="anchor" aria-hidden="true" href="#ga-release-2140"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+<path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>GA Release 2.14.0</h2>
+<p>Changes in this version include:</p>
+<h3><a id="user-content-new-features" class="anchor" aria-hidden="true" href="#new-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+<path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>New Features</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2957" rel="nofollow">LOG4J2-2957</a>:<br />
+Add JsonTemplateLayout.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2848" rel="nofollow">LOG4J2-2848</a>:<br />
+Create module log4j-mongodb4 to use new major version 4 MongoDB driver.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2858" rel="nofollow">LOG4J2-2858</a>:<br />
+More flexible configuration of the Disruptor WaitStrategy. Thanks to Stepan Gorban.</li>
+</ul>
+<h3><a id="user-content-fixed-bugs" class="anchor" aria-hidden="true" href="#fixed-bugs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+<path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Fixed Bugs</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2925" rel="nofollow">LOG4J2-2925</a>:<br />
+Fix broken link in FAQ.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2911" rel="nofollow">LOG4J2-2911</a>:<br />
+Log4j2EventListener in spring.cloud.config.client listens for wrong event.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2919" rel="nofollow">LOG4J2-2919</a>:<br />
+Call ReliabilityStrategy's beforeStopAppenders() method before stopping AsyncAppender. Thanks to Geng Yuanzhe.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2906" rel="nofollow">LOG4J2-2906</a>:<br />
+Fix UnsupportedOperationException when initializing the Log4j2CloudConfigLoggingSystem. Thanks to Stephen Joyner.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2908" rel="nofollow">LOG4J2-2908</a>:<br />
+Move Spring Lookup and Spring PropertySource to its own module.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2910" rel="nofollow">LOG4J2-2910</a>:<br />
+Log4j-web should now stores the servlet context as a map entry instead of in the single external context field.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2822" rel="nofollow">LOG4J2-2822</a>:<br />
+Javadoc link in ThreadContext description was incorrect.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2894" rel="nofollow">LOG4J2-2894</a>:<br />
+Fix spelling error in log message.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2901" rel="nofollow">LOG4J2-2901</a>:<br />
+Missing configuration files should be ignored when creating a composite configuration.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2883" rel="nofollow">LOG4J2-2883</a>:<br />
+When using DirectFileRolloverStrategy the file pattern was not being recalculated on<br />
+size based rollover after a time based rollover had occurred.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2875" rel="nofollow">LOG4J2-2875</a>:<br />
+Rollover was failing to create directories when using a DirectFileeRolloverStrategy.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2859" rel="nofollow">LOG4J2-2859</a>:<br />
+Fixed typos where mergeFactory should be mergeStrategy. Thanks to Yanming Zhou.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2832" rel="nofollow">LOG4J2-2832</a>:<br />
+Correct class name printed in error message in RollingFileAppender. Thanks to Benjamin Asbach.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2882" rel="nofollow">LOG4J2-2882</a>:<br />
+Support java.util.logging filters when using that API. Thanks to Emmanuel Bourg.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2880" rel="nofollow">LOG4J2-2880</a>:<br />
+Create StackWalker benchmark. Revert back to StackWalker.walk based on benchmark results.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2867" rel="nofollow">LOG4J2-2867</a>:<br />
+Obtain ContextDataProviders asynchronously.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2877" rel="nofollow">LOG4J2-2877</a>:<br />
+Determine the container id to obtain container and image information.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2844" rel="nofollow">LOG4J2-2844</a>:<br />
+Null pointer exception when no network interfaces are available.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2895" rel="nofollow">LOG4J2-2895</a>:<br />
+Fix potential deadlock in asynchronous logging by avoiding blocking for queue space on Log4jThreads</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2837" rel="nofollow">LOG4J2-2837</a>:<br />
+Disruptor and JUL no longer recursively start the AsyncLoggerDisruptor<br />
+resulting in an extra disruptor background thread constantly waiting.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2867" rel="nofollow">LOG4J2-2867</a>:<br />
+RingBufferLogEventTranslator uses a static ContextDataInjector instead of initializing a new object<br />
+on each thread.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2898" rel="nofollow">LOG4J2-2898</a>:<br />
+Avoid initializing volatile fields with default values. Thanks to Turbanov Andrey.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2899" rel="nofollow">LOG4J2-2899</a>:<br />
+Fix log4j-1.2-api LogEventWrapper threadId and priority accessors when called multiple times.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2939" rel="nofollow">LOG4J2-2939</a>:<br />
+Fix NPE in MDCContextMap on 'contains' and 'isEmpty' invocations. Thanks to Constantin Hirsch.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2954" rel="nofollow">LOG4J2-2954</a>:<br />
+Prevent premature garbage collection of shutdown hooks in DefaultShutdownCallbackRegistry. Thanks to Henry Tung.</li>
+</ul>
+<h3><a id="user-content-changes" class="anchor" aria-hidden="true" href="#changes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+<path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Changes</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2889" rel="nofollow">LOG4J2-2889</a>:<br />
+Add date pattern support for HTML layout. Thanks to Geng Yuanzhe.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow">LOG4J2-2892</a>:<br />
+Allow GelfLayout to produce newline delimited events. Thanks to Jakub Lukes.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update MongoDB tests to require Java 8 unconditionally now that Log4j requires Java 8.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update mongodb3.version from 3.12.1 to 3.12.6.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update com.fasterxml.jackson.* 2.10.2 -> 2.11.0.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update org.apache.activemq:activemq-broker 5.15.11 -> 5.16.0.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update org.apache.commons:commons-compress 1.19 -> 1.20.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update org.apache.commons:commons-csv 1.7 -> 1.8.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update org.apache.commons:commons-lang3 3.9 -> 3.10.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update org.codehaus.groovy:* 2.5.6 -> 3.0.5.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update tests junit:junit 4.12 -> 4.13.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update tests commons-io:commons-io 2.6 -> 2.7.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update jackson 2.11.0 -> 2.11.2.</li>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2892" rel="nofollow"></a>:<br />
+Update tests hsqldb 2.5.0 -> 2.5.1.</li>
+</ul>
+<h3><a id="user-content-removed" class="anchor" aria-hidden="true" href="#removed"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+<path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Removed</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/LOG4J2-2851" rel="nofollow">LOG4J2-2851</a>:<br />
+Drop log4j-mongodb2 module.</li>
+</ul>
+<hr>
+<p>Apache Log4j 2.14.0 requires a minimum of Java 8 to build and run. Log4j 2.12.1 is the last release to support<br />
+Java 7.</p>
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug<br />
+reports, patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="https://logging.apache.org/log4j/2.x/" rel="nofollow">https://logging.apache.org/log4j/2.x/</a></p>
+
+  </div><a class="u-url" href="/logging/entry/log4j-2-14-0-released" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

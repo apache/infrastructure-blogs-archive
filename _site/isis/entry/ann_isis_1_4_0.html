@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[ANN] Isis 1.4.0 released - yet more cool stuff! | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[ANN] Isis 1.4.0 released - yet more cool stuff!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Isis team is pleased to announce the release of 1.4.0.  Load of new features, improved UI, auditing support, background commands." />
+<meta property="og:description" content="The Isis team is pleased to announce the release of 1.4.0.  Load of new features, improved UI, auditing support, background commands." />
+<link rel="canonical" href="http://localhost:4000/isis/entry/ann_isis_1_4_0" />
+<meta property="og:url" content="http://localhost:4000/isis/entry/ann_isis_1_4_0" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-03-14T19:02:23-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[ANN] Isis 1.4.0 released - yet more cool stuff!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-03-14T19:02:23-04:00","datePublished":"2014-03-14T19:02:23-04:00","description":"The Isis team is pleased to announce the release of 1.4.0.  Load of new features, improved UI, auditing support, background commands.","headline":"[ANN] Isis 1.4.0 released - yet more cool stuff!","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/isis/entry/ann_isis_1_4_0"},"url":"http://localhost:4000/isis/entry/ann_isis_1_4_0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[ANN] Isis 1.4.0 released - yet more cool stuff!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-03-14T19:02:23-04:00" itemprop="datePublished">Mar 14, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Dan Haywood", "login"=>"danhaywood", "email"=>"danhaywood@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div style="color: #222222; font-family: arial; font-size: small;">The Isis team is pleased to announce the release of:</div>
+<div style="color: #222222; font-family: arial; font-size: small;"></div>
+<div style="color: #222222; font-family: arial; font-size: small;">* Core 1.4.0</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* JDO Object Store 1.4.1</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* Wicket Viewer 1.4.1</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* Restful Objects Viewer 2.2.0</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* Shiro Security 1.4.0</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* File Security 1.4.0</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* Quickstart Archetype 1.4.1</div>
+<div style="color: #222222; font-family: arial; font-size: small;">* Simple Archetype 1.4.1</div>
+<div style="color: #222222; font-family: arial; font-size: small;"></div>
+<div style="color: #222222; font-family: arial; font-size: small;">There are many new features in this release!</div>
+<div style="color: #222222; font-family: arial; font-size: small;"></div>
+<div style="color: #222222; font-family: arial; font-size: small;"></div>
+<div style="color: #222222; font-family: arial; font-size: small;">
+<div>For Isis core and also the JDO objectstore, these include:</div>
+<div></div>
+<div>- extensions to .layout.json files for additional facets/UI hints</div>
+<div>- @javax.validation.constraints.<wbr />Digits for length/scale of BigDecimal action parameters</div>
+<div>- better reporting of metamodel validation errors (including a new page in Wicket viewer)</div>
+<div>- improved support for bulk update</div>
+<div>- @javax.enterprise.context.<wbr />RequestScoped for request-scoped services</div>
+<div>- QueryResultsCache request-scoped domain service (for performance tuning)</div>
+<div>- new MementoService to support view models</div>
+<div>- new request-scoped @Bulk.InteractionontextService for standardized co-ordination between bulk action invocations</div>
+<div>- Scratchpad request-scoped domain service (for adhoc coordination between actions, eg bulk action invocations)</div>
+<div>- Command, CommandContext, BackgroundCommandService, for profiling and background task support</div>
+<div>- improvements to JDO implementations of auditing and publishing services, to integrate closely with the new Command/backgroundCommand services</div>
+<div>- improved support for running arbitrary Isis jobs via a scheduler</div>
+<div>- UUID and URI value type support</div>
+<div>- supporting methods (disableXxx, validateXxx) for contributed actions/associations now supported</div>
+<div>- services autowired prior to @PostConstruct, and Isis session present for service initialization</div>
+<div>- JRebel support (JRebel plugni itself is third-party, see Isis website for details)</div>
+<div></div>
+<div></div>
+<div>New features in the Wicket viewer include:</div>
+<div></div>
+<div>- show action dialogs in a modal dialog, rather than new page</div>
+<div>- limit number of bookmarks, make less easier to accidentally trip, show/hide with keyboard shortcut</div>
+<div>- improved IE9 support, bundle CSS files</div>
+<div>- simplify URLs in Wicket viewer</div>
+<div>- actions returning URL open new browser window</div>
+<div>- UI sorting/ordering hints, pop-up to copy to clipboard</div>
+<div>- breadcrumb drop-down to easily revisit previous page</div>
+<div>- upper/lower case now switchable</div>
+<div>- standalone tables now rendered according to runtime type, not compile-time type</div>
+<div>- better tooltips over icon/titles</div>
+<div>- widget for java.sql.Timestamp</div>
+<div></div>
+<div></div>
+<div>Full release notes are available at [1,2,3,4,5,6,7,8,9,10,11] on the Isis website.</div>
+<div></div>
+<div>You can access this release directly from the Maven central repo [12],&nbsp;</div>
+<div>or download the release and build it from source [13].</div>
+<div></div>
+<div>Enjoy!</div>
+<div></div>
+<div>-The Isis team</div>
+<div></div>
+<div>[1] <a href="http://isis.apache.org/core/release-notes/isis-1.4.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/core/<wbr />release-notes/isis-1.4.0.html</a></div>
+<div>[2] <a href="http://isis.apache.org/components/viewers/wicket/release-notes/isis-viewer-wicket-1.4.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/viewers/wicket/<wbr />release-notes/isis-viewer-<wbr />wicket-1.4.0.html</a></div>
+<div>[3] <a href="http://isis.apache.org/components/viewers/wicket/release-notes/isis-viewer-wicket-1.4.1.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/viewers/wicket/<wbr />release-notes/isis-viewer-<wbr />wicket-1.4.1.html</a></div>
+<div>[4] <a href="http://isis.apache.org/components/viewers/restfulobjects/release-notes/isis-viewer-restfulobjects-2.2.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/viewers/<wbr />restfulobjects/release-notes/<wbr />isis-viewer-restfulobjects-2.<wbr />2.0.html</a></div>
+<div>[5] <a href="http://isis.apache.org/components/objectstores/jdo/release-notes/isis-objectstore-jdo-1.4.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/objectstores/jdo/<wbr />release-notes/isis-<wbr />objectstore-jdo-1.4.0.html</a></div>
+<div>[6] <a href="http://isis.apache.org/components/security/shiro/release-notes/isis-security-shiro-1.4.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/security/shiro/<wbr />release-notes/isis-security-<wbr />shiro-1.4.0.html</a></div>
+<div>[7] <a href="http://isis.apache.org/components/security/file/release-notes/isis-security-file-1.40.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />components/security/file/<wbr />release-notes/isis-security-<wbr />file-1.40.html</a></div>
+<div>[8] <a href="http://isis.apache.org/getting-started/release-notes/quickstart_wrj-archetype-1.4.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />getting-started/release-notes/<wbr />quickstart_wrj-archetype-1.4.<wbr />0.html</a></div>
+<div>[9] <a href="http://isis.apache.org/getting-started/release-notes/quickstart_wrj-archetype-1.4.1.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />getting-started/release-notes/<wbr />quickstart_wrj-archetype-1.4.<wbr />1.html</a></div>
+<div>[10] <a href="http://isis.apache.org/getting-started/release-notes/simple_wrj-archetype-1.4.0.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />getting-started/release-notes/<wbr />simple_wrj-archetype-1.4.0.<wbr />html</a></div>
+<div>[11] <a href="http://isis.apache.org/getting-started/release-notes/simple_wrj-archetype-1.4.1.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />getting-started/release-notes/<wbr />simple_wrj-archetype-1.4.1.<wbr />html</a></div>
+<div>[12] <a href="http://search.maven.org/" target="_blank" style="color: #1155cc;">http://search.maven.org</a></div>
+<div>[13] <a href="http://isis.apache.org/download.html" target="_blank" style="color: #1155cc;">http://isis.apache.org/<wbr />download.html</a></div>
+</p></div>
+
+  </div><a class="u-url" href="/isis/entry/ann_isis_1_4_0" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

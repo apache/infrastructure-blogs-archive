@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The Effect of ColumnFamily, RowKey and KeyValue Design on HFile Size | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="The Effect of ColumnFamily, RowKey and KeyValue Design on HFile Size" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="By Doug Meil, HBase Committer and Thomas Murphy &lt;/p&gt; Intro One of the most common questions in the HBase user community is estimating disk footprint of tables, which translates into HFile size &ndash; the internal file format in HBase. We designed an experiment at Explorys where we ran combinations of design time options (rowkey length, column name length, row storage approach) and runtime options (HBase ColumnFamily compression, HBase data block encoding options) to determine these factors&rsquo; effects on the resultant HFile size in HDFS. &lt;/p&gt; HBase Environment CDH4.3.0 (HBase 0.94.6.1) Design Time Choices Rowkey Thin 16-byte MD5 hash of an integer. Fat 64-byte SHA-256 hash of an integer. Note: neither of these are realistic rowkeys for real applications, but they chosen because they are easy to generate and one is a lot bigger than the other. Column Names Thin 2-3 character column names (c1, c2). Fat 10 characters, randomly chosen but consistent for all rows. Note: it is advisable to have small column names, but most people don&rsquo;t start that way so we have this as an option. Row Storage Approach Key Value Per Column This is the traditional way of storing data in HBase. One Key Value per row. Actually, two. One KV has an Avro serialized byte array containing all the data from the row. Another KV holds an MD5 hash of the version of the Avro schema. Run Time Column Family Compression None GZ LZ4 LZO Snappy Note: it is generally advisable to use compression, but what if you didn&rsquo;t? So we tested that too. HBase Block Encoding None Prefix Diff Fast Diff Note: most people aren&rsquo;t familiar with HBase Data Block Encoding. Primarily intended for squeezing more data into the block cache, it has effects on HFile size too. See HBASE-4218 for more detail. 1000 rows were generated for each combination of table parameters. Not a ton of data, but we don&rsquo;t necessarily need a ton of data to see the varying size of the table. There were 30 columns per row comprised of 10 strings (each filled with 20 bytes of random characters), 10 integers (random numbers) and 10 longs (also random numbers). HBase blocksize was 128k. Results The easiest way to navigate the results is to compare specific cases, progressing from an initial implementation of a table to options for production. Case #1: Fat Rowkey and Fat Column Names, Now What? This is where most people start with HBase. Rowkeys are not as optimal as they should be (i.e., the Fat rowkey case) and column names are also inflated (Fat column-names). Without CF Compression or Data Block Encoding, the baseline is: psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY-FATCOL 6,293,670 1000 NONE NONE What if we just changed CF compression? This drastically changes the HFile footprint. Snappy compression reduces the HFile size from 6.2 Mb to 1.8 Mb, for example. 1,362,033 1000 GZ NONE 1,803,240 1000 SNAPPY NONE 1,919,265 1000 LZ4 NONE 1,950,306 1000 LZO NONE However, we shouldn&rsquo;t be too quick to celebrate. Remember that this is just the disk footprint. Over the wire the data is uncompressed, so 6.2 Mb is still being transferred from RegionServer to Client when doing a Scan over the entire table. What if we just changed data block encoding? Compression isn&rsquo;t the only option though. Even without compression, we can change the data block encoding and also achieve HFile reduction. All options are an improvement over the 6.2 Mb baseline. 1,491,000 1000 NONE DIFF 1,492,155 1000 NONE FAST_DIFF 2,244,963 1000 NONE PREFIX Combination The following table shows the results of all remaining CF compression / data block encoding combinations. 1,146,675 1000 GZ DIFF 1,200,471 1000 GZ FAST_DIFF 1,274,265 1000 GZ PREFIX 1,350,483 1000 SNAPPY DIFF 1,358,190 1000 LZ4 DIFF 1,391,016 1000 SNAPPY FAST_DIFF 1,402,614 1000 LZ4 FAST_DIFF 1,406,334 1000 LZO FAST_DIFF 1,541,151 1000 SNAPPY PREFIX 1,597,440 1000 LZO PREFIX 1,622,313 1000 LZ4 PREFIX Case #2: What if we re-designed the column names (and left the rowkey alone)? Let&rsquo;s assume that we re-designed our column names but left the rowkey alone. After using the &ldquo;thin&rdquo; column-names without CF compression or data block encoding it results in an HFile 5.8 Mb in size. This is an improvement from the original 6.2 Mb baseline. It doesn&rsquo;t seem like much, but it&rsquo;s still a 6.5% reduction in the eventual wire-transfer footprint. psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY 5,778,888 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,349,451 1000 SNAPPY DIFF 1,390,422 1000 SNAPPY FAST_DIFF 1,536,540 1000 SNAPPY PREFIX 1,785,480 1000 SNAPPY NONE Case #3: What if we re-designed the rowkey (and left the column names alone)? In this example, what if we only redesigned the rowkey? After using the &ldquo;thin&rdquo; rowkey the result is an HFile size that is 4.9 Mb down from the 6.2 Mb baseline, a 21% reduction. Not a small savings! psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATCOL 4,920,984 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,295,895 1000 SNAPPY DIFF 1,337,112 1000 SNAPPY FAST_DIFF 1,489,446 1000 SNAPPY PREFIX 1,739,871 1000 SNAPPY NONE However, note that the resulting HFile size with Snappy and no data block encoding (1.7 Mb) is very similar in size to the baseline approach (i.e., fat rowkeys, fat column-names) with Snappy and no data block encoding (1.8 Mb). Why? The CF compression can compensate on disk for a lot of bloat in rowkeys and column names. Case #4: What if we re-designed both the rowkey and the column names? By this time we&rsquo;ve learned enough HBase to know that we need to have efficient rowkeys and column-names. This produces an HFile that is 4.4 Mb, a 29% savings over the baseline of 6.2 Mb. 4,406,418 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,296,402 1000 SNAPPY DIFF 1,338,135 1000 SNAPPY FAST_DIFF 1,485,192 1000 SNAPPY PREFIX 1,732,746 1000 SNAPPY NONE Again, the on-disk footprint with compression isn&rsquo;t radically different from the others, as Compression can compensate to large degree for rowkey and column name bloat. Case #5: KeyValue Storage Approach (e.g., 1 KV vs. KV-per-Column) What if we did something radical and changed how we stored the data in HBase? With this approach, we are using a single KeyValue per row holding all of the columns of data for the row instead of a KeyValue per column (the traditional way). The resulting HFile, even uncompressed and without Data Block Encoding, is radically smaller at 1.4 Mb compared to 6.2 Mb. psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-AVRO 1,374,465 1000 NONE NONE Adding Snappy compression and Data Block Encoding makes the resulting HFile size even smaller. 1,119,330 1000 SNAPPY DIFF 1,129,209 1000 SNAPPY FAST_DIFF 1,133,613 1000 SNAPPY PREFIX 1,150,779 1000 SNAPPY NONE Compare the 1.1 Mb Snappy without encoding to the 1.7 Snappy encoded Thin rowkey/Thin column-name. Summary Although Compression and Data Block Encoding can wallpaper over bad rowkey and column-name decisions in terms of HFile size, you will pay the price for this in terms of data transfer from RegionServer to Client. Also, concealing the size penalty brings with it a performance penalty each time the data is accessed or manipulated. So, the old advice about correctly designing rowkeys and column names still holds. In terms of KeyValue approach, having a single KeyValue per row presents significant savings both in terms of data transfer (RegionServer to Client) as well as HFile size. However, there is a consequence with this approach in having to update each row entirely, and that old versions of rows also be stored in their entirety (i.e., as opposed to column-by-column changes). Furthermore, it is impossible to scan on select columns; the whole row must be retrieved and deserialized to access any information stored in the row. The importance of understanding this tradeoff cannot be over-stated, and is something that must be evaluated on an application-by-application basis. Software engineering is an art of managing tradeoffs, so there isn&rsquo;t necessarily one &ldquo;best&rdquo; answer. Importantly, this experiment only measures the file size and not the time or processor load penalties imposed by the use of compression, encoding, or Avro. The results generated in this test are still based on certain assumptions and your mileage may vary. &lt;/p&gt; Here is the data if interested:&nbsp;http://people.apache.org/~dmeil/HBase_HFile_Size_2014_04.csv &lt;/p&gt;" />
+<meta property="og:description" content="By Doug Meil, HBase Committer and Thomas Murphy &lt;/p&gt; Intro One of the most common questions in the HBase user community is estimating disk footprint of tables, which translates into HFile size &ndash; the internal file format in HBase. We designed an experiment at Explorys where we ran combinations of design time options (rowkey length, column name length, row storage approach) and runtime options (HBase ColumnFamily compression, HBase data block encoding options) to determine these factors&rsquo; effects on the resultant HFile size in HDFS. &lt;/p&gt; HBase Environment CDH4.3.0 (HBase 0.94.6.1) Design Time Choices Rowkey Thin 16-byte MD5 hash of an integer. Fat 64-byte SHA-256 hash of an integer. Note: neither of these are realistic rowkeys for real applications, but they chosen because they are easy to generate and one is a lot bigger than the other. Column Names Thin 2-3 character column names (c1, c2). Fat 10 characters, randomly chosen but consistent for all rows. Note: it is advisable to have small column names, but most people don&rsquo;t start that way so we have this as an option. Row Storage Approach Key Value Per Column This is the traditional way of storing data in HBase. One Key Value per row. Actually, two. One KV has an Avro serialized byte array containing all the data from the row. Another KV holds an MD5 hash of the version of the Avro schema. Run Time Column Family Compression None GZ LZ4 LZO Snappy Note: it is generally advisable to use compression, but what if you didn&rsquo;t? So we tested that too. HBase Block Encoding None Prefix Diff Fast Diff Note: most people aren&rsquo;t familiar with HBase Data Block Encoding. Primarily intended for squeezing more data into the block cache, it has effects on HFile size too. See HBASE-4218 for more detail. 1000 rows were generated for each combination of table parameters. Not a ton of data, but we don&rsquo;t necessarily need a ton of data to see the varying size of the table. There were 30 columns per row comprised of 10 strings (each filled with 20 bytes of random characters), 10 integers (random numbers) and 10 longs (also random numbers). HBase blocksize was 128k. Results The easiest way to navigate the results is to compare specific cases, progressing from an initial implementation of a table to options for production. Case #1: Fat Rowkey and Fat Column Names, Now What? This is where most people start with HBase. Rowkeys are not as optimal as they should be (i.e., the Fat rowkey case) and column names are also inflated (Fat column-names). Without CF Compression or Data Block Encoding, the baseline is: psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY-FATCOL 6,293,670 1000 NONE NONE What if we just changed CF compression? This drastically changes the HFile footprint. Snappy compression reduces the HFile size from 6.2 Mb to 1.8 Mb, for example. 1,362,033 1000 GZ NONE 1,803,240 1000 SNAPPY NONE 1,919,265 1000 LZ4 NONE 1,950,306 1000 LZO NONE However, we shouldn&rsquo;t be too quick to celebrate. Remember that this is just the disk footprint. Over the wire the data is uncompressed, so 6.2 Mb is still being transferred from RegionServer to Client when doing a Scan over the entire table. What if we just changed data block encoding? Compression isn&rsquo;t the only option though. Even without compression, we can change the data block encoding and also achieve HFile reduction. All options are an improvement over the 6.2 Mb baseline. 1,491,000 1000 NONE DIFF 1,492,155 1000 NONE FAST_DIFF 2,244,963 1000 NONE PREFIX Combination The following table shows the results of all remaining CF compression / data block encoding combinations. 1,146,675 1000 GZ DIFF 1,200,471 1000 GZ FAST_DIFF 1,274,265 1000 GZ PREFIX 1,350,483 1000 SNAPPY DIFF 1,358,190 1000 LZ4 DIFF 1,391,016 1000 SNAPPY FAST_DIFF 1,402,614 1000 LZ4 FAST_DIFF 1,406,334 1000 LZO FAST_DIFF 1,541,151 1000 SNAPPY PREFIX 1,597,440 1000 LZO PREFIX 1,622,313 1000 LZ4 PREFIX Case #2: What if we re-designed the column names (and left the rowkey alone)? Let&rsquo;s assume that we re-designed our column names but left the rowkey alone. After using the &ldquo;thin&rdquo; column-names without CF compression or data block encoding it results in an HFile 5.8 Mb in size. This is an improvement from the original 6.2 Mb baseline. It doesn&rsquo;t seem like much, but it&rsquo;s still a 6.5% reduction in the eventual wire-transfer footprint. psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY 5,778,888 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,349,451 1000 SNAPPY DIFF 1,390,422 1000 SNAPPY FAST_DIFF 1,536,540 1000 SNAPPY PREFIX 1,785,480 1000 SNAPPY NONE Case #3: What if we re-designed the rowkey (and left the column names alone)? In this example, what if we only redesigned the rowkey? After using the &ldquo;thin&rdquo; rowkey the result is an HFile size that is 4.9 Mb down from the 6.2 Mb baseline, a 21% reduction. Not a small savings! psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATCOL 4,920,984 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,295,895 1000 SNAPPY DIFF 1,337,112 1000 SNAPPY FAST_DIFF 1,489,446 1000 SNAPPY PREFIX 1,739,871 1000 SNAPPY NONE However, note that the resulting HFile size with Snappy and no data block encoding (1.7 Mb) is very similar in size to the baseline approach (i.e., fat rowkeys, fat column-names) with Snappy and no data block encoding (1.8 Mb). Why? The CF compression can compensate on disk for a lot of bloat in rowkeys and column names. Case #4: What if we re-designed both the rowkey and the column names? By this time we&rsquo;ve learned enough HBase to know that we need to have efficient rowkeys and column-names. This produces an HFile that is 4.4 Mb, a 29% savings over the baseline of 6.2 Mb. 4,406,418 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,296,402 1000 SNAPPY DIFF 1,338,135 1000 SNAPPY FAST_DIFF 1,485,192 1000 SNAPPY PREFIX 1,732,746 1000 SNAPPY NONE Again, the on-disk footprint with compression isn&rsquo;t radically different from the others, as Compression can compensate to large degree for rowkey and column name bloat. Case #5: KeyValue Storage Approach (e.g., 1 KV vs. KV-per-Column) What if we did something radical and changed how we stored the data in HBase? With this approach, we are using a single KeyValue per row holding all of the columns of data for the row instead of a KeyValue per column (the traditional way). The resulting HFile, even uncompressed and without Data Block Encoding, is radically smaller at 1.4 Mb compared to 6.2 Mb. psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-AVRO 1,374,465 1000 NONE NONE Adding Snappy compression and Data Block Encoding makes the resulting HFile size even smaller. 1,119,330 1000 SNAPPY DIFF 1,129,209 1000 SNAPPY FAST_DIFF 1,133,613 1000 SNAPPY PREFIX 1,150,779 1000 SNAPPY NONE Compare the 1.1 Mb Snappy without encoding to the 1.7 Snappy encoded Thin rowkey/Thin column-name. Summary Although Compression and Data Block Encoding can wallpaper over bad rowkey and column-name decisions in terms of HFile size, you will pay the price for this in terms of data transfer from RegionServer to Client. Also, concealing the size penalty brings with it a performance penalty each time the data is accessed or manipulated. So, the old advice about correctly designing rowkeys and column names still holds. In terms of KeyValue approach, having a single KeyValue per row presents significant savings both in terms of data transfer (RegionServer to Client) as well as HFile size. However, there is a consequence with this approach in having to update each row entirely, and that old versions of rows also be stored in their entirety (i.e., as opposed to column-by-column changes). Furthermore, it is impossible to scan on select columns; the whole row must be retrieved and deserialized to access any information stored in the row. The importance of understanding this tradeoff cannot be over-stated, and is something that must be evaluated on an application-by-application basis. Software engineering is an art of managing tradeoffs, so there isn&rsquo;t necessarily one &ldquo;best&rdquo; answer. Importantly, this experiment only measures the file size and not the time or processor load penalties imposed by the use of compression, encoding, or Avro. The results generated in this test are still based on certain assumptions and your mileage may vary. &lt;/p&gt; Here is the data if interested:&nbsp;http://people.apache.org/~dmeil/HBase_HFile_Size_2014_04.csv &lt;/p&gt;" />
+<link rel="canonical" href="http://localhost:4000/hbase/entry/the_effect_of_columnfamily_rowkey" />
+<meta property="og:url" content="http://localhost:4000/hbase/entry/the_effect_of_columnfamily_rowkey" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-04-11T19:47:45-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Effect of ColumnFamily, RowKey and KeyValue Design on HFile Size" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-04-11T19:47:45-04:00","datePublished":"2014-04-11T19:47:45-04:00","description":"By Doug Meil, HBase Committer and Thomas Murphy &lt;/p&gt; Intro One of the most common questions in the HBase user community is estimating disk footprint of tables, which translates into HFile size &ndash; the internal file format in HBase. We designed an experiment at Explorys where we ran combinations of design time options (rowkey length, column name length, row storage approach) and runtime options (HBase ColumnFamily compression, HBase data block encoding options) to determine these factors&rsquo; effects on the resultant HFile size in HDFS. &lt;/p&gt; HBase Environment CDH4.3.0 (HBase 0.94.6.1) Design Time Choices Rowkey Thin 16-byte MD5 hash of an integer. Fat 64-byte SHA-256 hash of an integer. Note: neither of these are realistic rowkeys for real applications, but they chosen because they are easy to generate and one is a lot bigger than the other. Column Names Thin 2-3 character column names (c1, c2). Fat 10 characters, randomly chosen but consistent for all rows. Note: it is advisable to have small column names, but most people don&rsquo;t start that way so we have this as an option. Row Storage Approach Key Value Per Column This is the traditional way of storing data in HBase. One Key Value per row. Actually, two. One KV has an Avro serialized byte array containing all the data from the row. Another KV holds an MD5 hash of the version of the Avro schema. Run Time Column Family Compression None GZ LZ4 LZO Snappy Note: it is generally advisable to use compression, but what if you didn&rsquo;t? So we tested that too. HBase Block Encoding None Prefix Diff Fast Diff Note: most people aren&rsquo;t familiar with HBase Data Block Encoding. Primarily intended for squeezing more data into the block cache, it has effects on HFile size too. See HBASE-4218 for more detail. 1000 rows were generated for each combination of table parameters. Not a ton of data, but we don&rsquo;t necessarily need a ton of data to see the varying size of the table. There were 30 columns per row comprised of 10 strings (each filled with 20 bytes of random characters), 10 integers (random numbers) and 10 longs (also random numbers). HBase blocksize was 128k. Results The easiest way to navigate the results is to compare specific cases, progressing from an initial implementation of a table to options for production. Case #1: Fat Rowkey and Fat Column Names, Now What? This is where most people start with HBase. Rowkeys are not as optimal as they should be (i.e., the Fat rowkey case) and column names are also inflated (Fat column-names). Without CF Compression or Data Block Encoding, the baseline is: psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY-FATCOL 6,293,670 1000 NONE NONE What if we just changed CF compression? This drastically changes the HFile footprint. Snappy compression reduces the HFile size from 6.2 Mb to 1.8 Mb, for example. 1,362,033 1000 GZ NONE 1,803,240 1000 SNAPPY NONE 1,919,265 1000 LZ4 NONE 1,950,306 1000 LZO NONE However, we shouldn&rsquo;t be too quick to celebrate. Remember that this is just the disk footprint. Over the wire the data is uncompressed, so 6.2 Mb is still being transferred from RegionServer to Client when doing a Scan over the entire table. What if we just changed data block encoding? Compression isn&rsquo;t the only option though. Even without compression, we can change the data block encoding and also achieve HFile reduction. All options are an improvement over the 6.2 Mb baseline. 1,491,000 1000 NONE DIFF 1,492,155 1000 NONE FAST_DIFF 2,244,963 1000 NONE PREFIX Combination The following table shows the results of all remaining CF compression / data block encoding combinations. 1,146,675 1000 GZ DIFF 1,200,471 1000 GZ FAST_DIFF 1,274,265 1000 GZ PREFIX 1,350,483 1000 SNAPPY DIFF 1,358,190 1000 LZ4 DIFF 1,391,016 1000 SNAPPY FAST_DIFF 1,402,614 1000 LZ4 FAST_DIFF 1,406,334 1000 LZO FAST_DIFF 1,541,151 1000 SNAPPY PREFIX 1,597,440 1000 LZO PREFIX 1,622,313 1000 LZ4 PREFIX Case #2: What if we re-designed the column names (and left the rowkey alone)? Let&rsquo;s assume that we re-designed our column names but left the rowkey alone. After using the &ldquo;thin&rdquo; column-names without CF compression or data block encoding it results in an HFile 5.8 Mb in size. This is an improvement from the original 6.2 Mb baseline. It doesn&rsquo;t seem like much, but it&rsquo;s still a 6.5% reduction in the eventual wire-transfer footprint. psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY 5,778,888 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,349,451 1000 SNAPPY DIFF 1,390,422 1000 SNAPPY FAST_DIFF 1,536,540 1000 SNAPPY PREFIX 1,785,480 1000 SNAPPY NONE Case #3: What if we re-designed the rowkey (and left the column names alone)? In this example, what if we only redesigned the rowkey? After using the &ldquo;thin&rdquo; rowkey the result is an HFile size that is 4.9 Mb down from the 6.2 Mb baseline, a 21% reduction. Not a small savings! psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATCOL 4,920,984 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,295,895 1000 SNAPPY DIFF 1,337,112 1000 SNAPPY FAST_DIFF 1,489,446 1000 SNAPPY PREFIX 1,739,871 1000 SNAPPY NONE However, note that the resulting HFile size with Snappy and no data block encoding (1.7 Mb) is very similar in size to the baseline approach (i.e., fat rowkeys, fat column-names) with Snappy and no data block encoding (1.8 Mb). Why? The CF compression can compensate on disk for a lot of bloat in rowkeys and column names. Case #4: What if we re-designed both the rowkey and the column names? By this time we&rsquo;ve learned enough HBase to know that we need to have efficient rowkeys and column-names. This produces an HFile that is 4.4 Mb, a 29% savings over the baseline of 6.2 Mb. 4,406,418 1000 NONE NONE Applying Snappy compression can reduce the HFile size further: 1,296,402 1000 SNAPPY DIFF 1,338,135 1000 SNAPPY FAST_DIFF 1,485,192 1000 SNAPPY PREFIX 1,732,746 1000 SNAPPY NONE Again, the on-disk footprint with compression isn&rsquo;t radically different from the others, as Compression can compensate to large degree for rowkey and column name bloat. Case #5: KeyValue Storage Approach (e.g., 1 KV vs. KV-per-Column) What if we did something radical and changed how we stored the data in HBase? With this approach, we are using a single KeyValue per row holding all of the columns of data for the row instead of a KeyValue per column (the traditional way). The resulting HFile, even uncompressed and without Data Block Encoding, is radically smaller at 1.4 Mb compared to 6.2 Mb. psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-AVRO 1,374,465 1000 NONE NONE Adding Snappy compression and Data Block Encoding makes the resulting HFile size even smaller. 1,119,330 1000 SNAPPY DIFF 1,129,209 1000 SNAPPY FAST_DIFF 1,133,613 1000 SNAPPY PREFIX 1,150,779 1000 SNAPPY NONE Compare the 1.1 Mb Snappy without encoding to the 1.7 Snappy encoded Thin rowkey/Thin column-name. Summary Although Compression and Data Block Encoding can wallpaper over bad rowkey and column-name decisions in terms of HFile size, you will pay the price for this in terms of data transfer from RegionServer to Client. Also, concealing the size penalty brings with it a performance penalty each time the data is accessed or manipulated. So, the old advice about correctly designing rowkeys and column names still holds. In terms of KeyValue approach, having a single KeyValue per row presents significant savings both in terms of data transfer (RegionServer to Client) as well as HFile size. However, there is a consequence with this approach in having to update each row entirely, and that old versions of rows also be stored in their entirety (i.e., as opposed to column-by-column changes). Furthermore, it is impossible to scan on select columns; the whole row must be retrieved and deserialized to access any information stored in the row. The importance of understanding this tradeoff cannot be over-stated, and is something that must be evaluated on an application-by-application basis. Software engineering is an art of managing tradeoffs, so there isn&rsquo;t necessarily one &ldquo;best&rdquo; answer. Importantly, this experiment only measures the file size and not the time or processor load penalties imposed by the use of compression, encoding, or Avro. The results generated in this test are still based on certain assumptions and your mileage may vary. &lt;/p&gt; Here is the data if interested:&nbsp;http://people.apache.org/~dmeil/HBase_HFile_Size_2014_04.csv &lt;/p&gt;","headline":"The Effect of ColumnFamily, RowKey and KeyValue Design on HFile Size","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/hbase/entry/the_effect_of_columnfamily_rowkey"},"url":"http://localhost:4000/hbase/entry/the_effect_of_columnfamily_rowkey"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">The Effect of ColumnFamily, RowKey and KeyValue Design on HFile Size</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-04-11T19:47:45-04:00" itemprop="datePublished">Apr 11, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Michael Stack", "login"=>"stack", "email"=>"stack@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>By Doug Meil, HBase Committer and Thomas Murphy</p></p>
+<p style="margin-bottom: 0in; line-height: 100%;"><i><b>Intro</b></i></p>
+<p style="margin-bottom: 0in; line-height: 100%;"><span style="line-height: 100%;">One of the most<br />
+common questions in the HBase user community is estimating disk<br />
+footprint of tables, which translates into HFile size &ndash; the<br />
+internal file format in HBase.</span></p>
+<p style="margin-bottom: 0in; line-height: 100%;"><span style="line-height: 100%;">We designed an<br />
+experiment at Explorys where we ran combinations of design time<br />
+options (rowkey length, column name length, row storage approach) and<br />
+runtime options (HBase ColumnFamily compression, HBase data block<br />
+encoding options) to determine these factors&rsquo; effects on the<br />
+resultant HFile size in HDFS.</span></p></p>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>HBase Environment</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">CDH4.3.0 (HBase<br />
+0.94.6.1)</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Design Time<br />
+Choices</b></p>
+<ol>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;"><u>Rowkey</u></p>
+<ol type="a">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Thin</p>
+<ol type="i">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">16-byte MD5<br />
+			hash of an integer.
+			</p>
+</li>
+</ol>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Fat
+		</p>
+<ol type="i">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">64-byte<br />
+			SHA-256 hash of an integer.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<ol type="a" start="3">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Note:  neither<br />
+		of these are realistic rowkeys for real applications, but they<br />
+		chosen because they are easy to generate and one is a lot bigger<br />
+		than the other.</p>
+</li>
+</ol>
+</ol>
+<ol start="2">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;"><u>Column Names</u></p>
+<ol type="a">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Thin</p>
+<ol type="i">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">2-3 character<br />
+			column names (c1, c2).</p>
+</li>
+</ol>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Fat</p>
+<ol type="i">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">10<br />
+			characters, randomly chosen but consistent for all rows.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<ol type="a" start="3">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Note:  it is<br />
+		advisable to have small column names, but most people don&rsquo;t start<br />
+		that way so we have this as an option.</p>
+</li>
+</ol>
+</ol>
+<ol start="3">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;"><u>Row Storage<br />
+	Approach</u></p>
+<ol type="a">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Key Value Per<br />
+		Column</p>
+<ol type="i">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">This is the<br />
+			traditional way of storing data in HBase.</p>
+</li>
+</ol>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">One Key Value<br />
+		per row.</p>
+<ol type="i">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Actually,<br />
+			two.
+			</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">One KV has an<br />
+			Avro serialized byte array containing all the data from the row.</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Another KV<br />
+			holds an MD5 hash of the version of the Avro schema.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Run Time</b></p>
+<ol>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;"><u>Column<br />
+	Family Compression</u></p>
+<ol type="a">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">None</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">GZ</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">LZ4</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">LZO</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Snappy</p>
+</li>
+</ol>
+</li>
+</ol>
+<p style="margin-left: 1in; margin-bottom: 0in; line-height: 100%;"> </p>
+<ol>
+<ol type="a" start="6">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Note:  it is<br />
+		generally advisable to use compression, but what if you didn&rsquo;t?<br />
+		So we tested that too.</p>
+</li>
+</ol>
+</ol>
+<ol start="2">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;"><u>HBase Block<br />
+	Encoding</u></p>
+<ol type="a">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">None</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Prefix</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Diff</p>
+</li>
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Fast Diff</p>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<ol type="a" start="5">
+<li>
+<p style="margin-bottom: 0in; line-height: 100%;">Note:  most<br />
+		people aren&rsquo;t familiar with HBase Data Block Encoding.  Primarily<br />
+		intended for squeezing more data into the block cache, it has<br />
+		effects on HFile size too.  See HBASE-4218 for more detail.</p>
+</li>
+</ol>
+</ol>
+<p style="margin-bottom: 0in; line-height: 100%;">1000 rows were<br />
+generated for each combination of table parameters.  Not a ton of<br />
+data, but we don&rsquo;t necessarily need a ton of data to see the<br />
+varying size of the table.  There were 30 columns per row comprised<br />
+of 10 strings (each filled with 20 bytes of random characters), 10<br />
+integers (random numbers) and 10 longs (also random numbers).</p>
+<p style="margin-bottom: 0in; line-height: 100%;">HBase blocksize was<br />
+128k.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"></p>
+<p style="margin-bottom: 0in; line-height: 100%;"><i><b>Results</b></i></p>
+<p style="margin-bottom: 0in; line-height: 100%;">The easiest way to<br />
+navigate the results is to compare specific cases, progressing from<br />
+an initial implementation of a table to options for production.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Case #1:  Fat<br />
+Rowkey and Fat Column Names, Now What?</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">This is where most<br />
+people start with HBase.  Rowkeys are not as optimal as they should<br />
+be (i.e., the Fat rowkey case) and column names are also inflated<br />
+(Fat column-names).</p>
+<p style="margin-bottom: 0in; line-height: 100%;">Without CF<br />
+Compression or Data Block Encoding, the baseline is:</p>
+<table width="712" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="299" />
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="299" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY-FATCOL</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">6,293,670</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;"><i>What if we just<br />
+changed CF compression?</i></p>
+<p style="margin-bottom: 0in; line-height: 100%;">This drastically<br />
+changes the HFile footprint.  Snappy compression reduces the HFile<br />
+size from 6.2 Mb to 1.8 Mb, for example.</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,362,033</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">GZ</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,803,240</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,919,265</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZ4</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,950,306</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZO</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">However, we<br />
+shouldn&rsquo;t be <i>too</i> quick to celebrate.  Remember that this is<br />
+just the <i>disk</i> footprint.  Over the wire the data is<br />
+uncompressed, so 6.2 Mb is still being transferred from RegionServer<br />
+to Client when doing a Scan over the entire table.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><i>What if we just<br />
+changed data block encoding?</i></p>
+<p style="margin-bottom: 0in; line-height: 100%;">Compression isn&rsquo;t<br />
+the only option though.   Even without compression, we can change the<br />
+data block encoding and also achieve HFile reduction.  All options<br />
+are an improvement over the 6.2 Mb baseline.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"> </p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,491,000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,492,155</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">2,244,963</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;"><i>Combination</i></p>
+<p style="margin-bottom: 0in; line-height: 100%;">The following table<br />
+shows the results of all remaining CF compression / data block<br />
+encoding combinations.</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,146,675</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">GZ</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,200,471</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">GZ</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,274,265</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">GZ</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,350,483</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,358,190</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZ4</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,391,016</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,402,614</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZ4</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,406,334</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZO</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,541,151</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,597,440</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZO</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,622,313</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">LZ4</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Case #2:  What if<br />
+we re-designed the column names (and left the rowkey alone)?</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">Let&rsquo;s assume that<br />
+we re-designed our column names but left the rowkey alone.  After<br />
+using the &ldquo;thin&rdquo; column-names without CF compression or data<br />
+block encoding it results in an HFile 5.8 Mb in size.  This is an<br />
+improvement from the original 6.2 Mb baseline.  It doesn&rsquo;t seem<br />
+like much, but it&rsquo;s still a 6.5% reduction in the eventual<br />
+wire-transfer footprint.</p>
+<table width="712" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="299" />
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="299" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATKEY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">5,778,888</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">Applying Snappy<br />
+compression can reduce the HFile size further:</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,349,451</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,390,422</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,536,540</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,785,480</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Case #3:  What if<br />
+we re-designed the rowkey (and left the column names alone)?</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">In this example,<br />
+what if we only redesigned the rowkey?  After using the &ldquo;thin&rdquo;<br />
+rowkey the result is an HFile size that is 4.9 Mb down from the 6.2<br />
+Mb baseline, a 21% reduction.   Not a small savings!</p>
+<table width="712" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="299" />
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="299" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-FATCOL</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">4,920,984</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">Applying Snappy<br />
+compression can reduce the HFile size further:</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,295,895</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,337,112</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,489,446</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,739,871</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">However, note that<br />
+the resulting HFile size with Snappy and no data block encoding (1.7<br />
+Mb) is very similar in size to the baseline approach (i.e., fat<br />
+rowkeys, fat column-names) with Snappy and no data block encoding<br />
+(1.8 Mb).  Why?  The CF compression can compensate on disk for a lot<br />
+of bloat in rowkeys and column names.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Case #4:  What if<br />
+we re-designed both the rowkey and the column names?</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">By this time we&rsquo;ve<br />
+learned enough HBase to know that we need to have efficient rowkeys<br />
+and column-names.  This produces an HFile that is 4.4 Mb, a 29%<br />
+savings over the baseline of 6.2 Mb.</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">4,406,418</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">Applying Snappy<br />
+compression can reduce the HFile size further:</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,296,402</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,338,135</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,485,192</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><a name="_GoBack"></a><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,732,746</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">Again, the on-disk<br />
+footprint with compression isn&rsquo;t radically different from the<br />
+others, as Compression can compensate to large degree for rowkey and<br />
+column name bloat.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Case #5:<br />
+KeyValue Storage Approach (e.g., 1 KV vs. KV-per-Column)</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">What if we did<br />
+something radical and changed how we stored the data in HBase?  With<br />
+this approach, we are using a single KeyValue per row holding <i>all</i><br />
+of the columns of data for the row instead of a KeyValue per column<br />
+(the traditional way).</p>
+<p style="margin-bottom: 0in; line-height: 100%;">The resulting HFile,<br />
+even uncompressed and without Data Block Encoding, is radically<br />
+smaller at 1.4 Mb compared to 6.2 Mb.</p>
+<table width="712" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="299" />
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="299" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">psudorandom-table-R1000-i10-s10_20-l10-NONE-NONE-AVRO</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,374,465</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">Adding Snappy<br />
+compression and Data Block Encoding makes the resulting HFile size<br />
+even smaller.</p>
+<table width="397" cellpadding="8" cellspacing="0">
+<colgroup>
+<col width="83" />
+<col width="83" />
+<col width="83" />
+<col width="83" /> </colgroup>
+<tbody>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,119,330</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,129,209</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">FAST_DIFF</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,133,613</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">PREFIX</font></font></p>
+</td>
+</tr>
+<tr valign="bottom">
+<td width="83" height="7" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1,150,779</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p align="right"><font face="Calibri, serif"><font style="font-size: 12pt;">1000</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">SNAPPY</font></font></p>
+</td>
+<td width="83" bgcolor="#ffffff" style="border: none; padding: 0in;">
+<p><font face="Calibri, serif"><font style="font-size: 12pt;">NONE</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%;">Compare the 1.1 Mb<br />
+Snappy without encoding to the 1.7 Snappy encoded Thin rowkey/Thin<br />
+column-name.</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><b>Summary</b></p>
+<p style="margin-bottom: 0in; line-height: 100%;">Although Compression<br />
+and Data Block Encoding can wallpaper over bad rowkey and column-name<br />
+decisions in terms of HFile size, you will pay the price for this in<br />
+terms of data transfer from RegionServer to Client.  Also, concealing<br />
+the size penalty brings with it a performance penalty each time the<br />
+data is accessed or manipulated.  So, the old advice about correctly<br />
+designing rowkeys and column names still holds.</p>
+<p style="margin-bottom: 0in; line-height: 100%;">In terms of KeyValue<br />
+approach, having a single KeyValue per row presents significant<br />
+savings both in terms of data transfer (RegionServer to Client) as<br />
+well as HFile size.  <i>However</i>, there is a consequence with this<br />
+approach in having to update each row <i>entirely</i>, and that old<br />
+versions of rows <i>also</i> be stored in their entirety (i.e., as<br />
+opposed to column-by-column changes).  Furthermore, it is impossible<br />
+to scan on select columns; the whole row must be retrieved and<br />
+deserialized to access any information stored in the row.  The<br />
+importance of understanding this tradeoff cannot be over-stated, and<br />
+is something that must be evaluated on an application-by-application<br />
+basis.</p>
+<p style="margin-bottom: 0in; line-height: 100%;">Software engineering<br />
+is an art of managing tradeoffs, so there isn&rsquo;t necessarily one<br />
+&ldquo;best&rdquo; answer.  Importantly, this experiment only measures the<br />
+file size and not the time or processor load penalties imposed by the<br />
+use of compression, encoding, or Avro.  The results generated in this<br />
+test are still based on certain assumptions and your mileage may<br />
+vary.</p></p>
+<p>Here is the data if interested:&nbsp;<a href="http://people.apache.org/~dmeil/HBase_HFile_Size_2014_04.csv" target="_blank" style="color: #1155cc; font-family: Calibri, sans-serif; font-size: 14px;">http://people.apache.org/~<wbr />dmeil/HBase_HFile_Size_2014_<wbr />04.csv</a> </p></p>
+
+  </div><a class="u-url" href="/hbase/entry/the_effect_of_columnfamily_rowkey" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Maven Indexer Version 6.1.1 Released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Maven Indexer Version 6.1.1 Released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Maven team is pleased to announce the release of the Apache Maven Indexer, version 6.1.1. Apache Maven Indexer (former Sonatype Nexus Indexer) is the de facto standard for producing indexes of Maven repositories. The Indexes are produced and consumed by all major tools in the ecosystem. Most notable changes: * Java 8 required * Lucene upgraded to latest 8.x (8.11.1) * Guava and TrueZip dependencies removed You can download the appropriate sources etc. from the download page: https://maven.apache.org/maven-indexer/download.cgi Release Notes &ndash; Maven Indexer &ndash; Version 6.1.1 Bugs: MINDEXER-123 &ndash; Fix an InputStream leak in indexer-reader Utils MINDEXER-127 &ndash; Maven repository indexing error: java.nio.channels.OverlappingFileLockException MINDEXER-133 &ndash; Reset the correct stream in IndexDataReader MINDEXER-135 &ndash; Fix CLI shading MINDEXER-138 &ndash; Indexer Core Jetty test dependency is not in test scope Improvements: MINDEXER-104 &ndash; Migrate the indexer to Lucene 8.x MINDEXER-110 &ndash; Upgrade parent to 31 MINDEXER-114 &ndash; Extend JarFileContentsIndexCreator to support zip files MINDEXER-115 &ndash; Remove deprecated usages of BooleanQuery constructor &ndash; use Builder instead MINDEXER-116 &ndash; Move to Java 8 as minimum Java version MINDEXER-117 &ndash; Add ability to set the temporary index directory for index update MINDEXER-118 &ndash; Remove usages of pre-Lucene 4.0 deprecated code MINDEXER-120 &ndash; Remove TrueZip dependency MINDEXER-122 &ndash; Add getName() to Record.EntryKey MINDEXER-129 &ndash; Shared GitHub Actions MINDEXER-132 &ndash; use Files.createTempDirectory(&hellip;) instead of custom code around File.createTempFile(&hellip;) Tasks: MINDEXER-109 &ndash; switch from Git-WIP to Gitbox MINDEXER-113 &ndash; Excluding additional dependencies from shaded jar MINDEXER-134 &ndash; Update dependencies (except Lucene) MINDEXER-137 &ndash; Align example packages with indexer packages MINDEXER-139 &ndash; Decouple from Plexus APIs MINDEXER-140 &ndash; DefaultIndexingContext double invocation of setIndexDirectoryFile method Dependency upgrades: MINDEXER-111 &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0 MINDEXER-112 &ndash; Upgrade maven-parent to version 34 MINDEXER-126 &ndash; Remove guava dependency from indexer-core Enjoy, -The Apache Maven team" />
+<meta property="og:description" content="The Apache Maven team is pleased to announce the release of the Apache Maven Indexer, version 6.1.1. Apache Maven Indexer (former Sonatype Nexus Indexer) is the de facto standard for producing indexes of Maven repositories. The Indexes are produced and consumed by all major tools in the ecosystem. Most notable changes: * Java 8 required * Lucene upgraded to latest 8.x (8.11.1) * Guava and TrueZip dependencies removed You can download the appropriate sources etc. from the download page: https://maven.apache.org/maven-indexer/download.cgi Release Notes &ndash; Maven Indexer &ndash; Version 6.1.1 Bugs: MINDEXER-123 &ndash; Fix an InputStream leak in indexer-reader Utils MINDEXER-127 &ndash; Maven repository indexing error: java.nio.channels.OverlappingFileLockException MINDEXER-133 &ndash; Reset the correct stream in IndexDataReader MINDEXER-135 &ndash; Fix CLI shading MINDEXER-138 &ndash; Indexer Core Jetty test dependency is not in test scope Improvements: MINDEXER-104 &ndash; Migrate the indexer to Lucene 8.x MINDEXER-110 &ndash; Upgrade parent to 31 MINDEXER-114 &ndash; Extend JarFileContentsIndexCreator to support zip files MINDEXER-115 &ndash; Remove deprecated usages of BooleanQuery constructor &ndash; use Builder instead MINDEXER-116 &ndash; Move to Java 8 as minimum Java version MINDEXER-117 &ndash; Add ability to set the temporary index directory for index update MINDEXER-118 &ndash; Remove usages of pre-Lucene 4.0 deprecated code MINDEXER-120 &ndash; Remove TrueZip dependency MINDEXER-122 &ndash; Add getName() to Record.EntryKey MINDEXER-129 &ndash; Shared GitHub Actions MINDEXER-132 &ndash; use Files.createTempDirectory(&hellip;) instead of custom code around File.createTempFile(&hellip;) Tasks: MINDEXER-109 &ndash; switch from Git-WIP to Gitbox MINDEXER-113 &ndash; Excluding additional dependencies from shaded jar MINDEXER-134 &ndash; Update dependencies (except Lucene) MINDEXER-137 &ndash; Align example packages with indexer packages MINDEXER-139 &ndash; Decouple from Plexus APIs MINDEXER-140 &ndash; DefaultIndexingContext double invocation of setIndexDirectoryFile method Dependency upgrades: MINDEXER-111 &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0 MINDEXER-112 &ndash; Upgrade maven-parent to version 34 MINDEXER-126 &ndash; Remove guava dependency from indexer-core Enjoy, -The Apache Maven team" />
+<link rel="canonical" href="http://localhost:4000/maven/entry/apache-maven-indexer-version-6" />
+<meta property="og:url" content="http://localhost:4000/maven/entry/apache-maven-indexer-version-6" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-23T19:08:14-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Maven Indexer Version 6.1.1 Released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-23T19:08:14-04:00","datePublished":"2022-03-23T19:08:14-04:00","description":"The Apache Maven team is pleased to announce the release of the Apache Maven Indexer, version 6.1.1. Apache Maven Indexer (former Sonatype Nexus Indexer) is the de facto standard for producing indexes of Maven repositories. The Indexes are produced and consumed by all major tools in the ecosystem. Most notable changes: * Java 8 required * Lucene upgraded to latest 8.x (8.11.1) * Guava and TrueZip dependencies removed You can download the appropriate sources etc. from the download page: https://maven.apache.org/maven-indexer/download.cgi Release Notes &ndash; Maven Indexer &ndash; Version 6.1.1 Bugs: MINDEXER-123 &ndash; Fix an InputStream leak in indexer-reader Utils MINDEXER-127 &ndash; Maven repository indexing error: java.nio.channels.OverlappingFileLockException MINDEXER-133 &ndash; Reset the correct stream in IndexDataReader MINDEXER-135 &ndash; Fix CLI shading MINDEXER-138 &ndash; Indexer Core Jetty test dependency is not in test scope Improvements: MINDEXER-104 &ndash; Migrate the indexer to Lucene 8.x MINDEXER-110 &ndash; Upgrade parent to 31 MINDEXER-114 &ndash; Extend JarFileContentsIndexCreator to support zip files MINDEXER-115 &ndash; Remove deprecated usages of BooleanQuery constructor &ndash; use Builder instead MINDEXER-116 &ndash; Move to Java 8 as minimum Java version MINDEXER-117 &ndash; Add ability to set the temporary index directory for index update MINDEXER-118 &ndash; Remove usages of pre-Lucene 4.0 deprecated code MINDEXER-120 &ndash; Remove TrueZip dependency MINDEXER-122 &ndash; Add getName() to Record.EntryKey MINDEXER-129 &ndash; Shared GitHub Actions MINDEXER-132 &ndash; use Files.createTempDirectory(&hellip;) instead of custom code around File.createTempFile(&hellip;) Tasks: MINDEXER-109 &ndash; switch from Git-WIP to Gitbox MINDEXER-113 &ndash; Excluding additional dependencies from shaded jar MINDEXER-134 &ndash; Update dependencies (except Lucene) MINDEXER-137 &ndash; Align example packages with indexer packages MINDEXER-139 &ndash; Decouple from Plexus APIs MINDEXER-140 &ndash; DefaultIndexingContext double invocation of setIndexDirectoryFile method Dependency upgrades: MINDEXER-111 &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0 MINDEXER-112 &ndash; Upgrade maven-parent to version 34 MINDEXER-126 &ndash; Remove guava dependency from indexer-core Enjoy, -The Apache Maven team","headline":"Apache Maven Indexer Version 6.1.1 Released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/maven/entry/apache-maven-indexer-version-6"},"url":"http://localhost:4000/maven/entry/apache-maven-indexer-version-6"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Maven Indexer Version 6.1.1 Released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-03-23T19:08:14-04:00" itemprop="datePublished">Mar 23, 2022
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Karl-Heinz Marbaise", "login"=>"khmarbaise", "email"=>"khmarbaise@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+  <a href="https://maven.apache.org/maven-indexer/">Apache Maven Indexer, version 6.1.1</a>.</p>
+<p>Apache Maven Indexer (former Sonatype Nexus Indexer) is the de facto standard for producing indexes<br />
+    of Maven repositories. The Indexes are produced and consumed by all major tools in the ecosystem.</p>
+<p>Most notable changes:<br />
+    * Java 8 required<br />
+    * Lucene upgraded to latest 8.x (8.11.1)<br />
+    * Guava and TrueZip dependencies removed</p>
+<p>You can download the appropriate sources etc. from the download page:</p>
+<p><a href="https://maven.apache.org/maven-indexer/download.cgi">https://maven.apache.org/maven-indexer/download.cgi</a></p>
+<p>  <!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12351333&amp;styleName=Text&amp;projectId=12317523">Release Notes &ndash; Maven Indexer &ndash; Version 6.1.1</a></p>
+<ul>
+<li>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-123">MINDEXER-123</a> &ndash; Fix an InputStream leak in indexer-reader Utils</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-127">MINDEXER-127</a> &ndash; Maven repository indexing error: java.nio.channels.OverlappingFileLockException</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-133">MINDEXER-133</a> &ndash; Reset the correct stream in IndexDataReader</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-135">MINDEXER-135</a> &ndash; Fix CLI shading</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-138">MINDEXER-138</a> &ndash; Indexer Core Jetty test dependency is not in test scope</li>
+</ul>
+</li>
+<li>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-104">MINDEXER-104</a> &ndash; Migrate the indexer to Lucene 8.x</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-110">MINDEXER-110</a> &ndash; Upgrade parent to 31</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-114">MINDEXER-114</a> &ndash; Extend JarFileContentsIndexCreator to support zip files</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-115">MINDEXER-115</a> &ndash; Remove deprecated usages of BooleanQuery constructor &ndash; use Builder instead</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-116">MINDEXER-116</a> &ndash; Move to Java 8 as minimum Java version</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-117">MINDEXER-117</a> &ndash; Add ability to set the temporary index directory for index update</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-118">MINDEXER-118</a> &ndash; Remove usages of pre-Lucene 4.0 deprecated code</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-120">MINDEXER-120</a> &ndash; Remove TrueZip dependency</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-122">MINDEXER-122</a> &ndash; Add getName() to Record.EntryKey</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-129">MINDEXER-129</a> &ndash; Shared GitHub Actions</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-132">MINDEXER-132</a> &ndash; use Files.createTempDirectory(&hellip;) instead of custom code around File.createTempFile(&hellip;)</li>
+</ul>
+</li>
+<li>
+<p>Tasks:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-109">MINDEXER-109</a> &ndash; switch from Git-WIP to Gitbox</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-113">MINDEXER-113</a> &ndash; Excluding additional dependencies from shaded jar</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-134">MINDEXER-134</a> &ndash; Update dependencies (except Lucene)</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-137">MINDEXER-137</a> &ndash; Align example packages with indexer packages</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-139">MINDEXER-139</a> &ndash; Decouple from Plexus APIs</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-140">MINDEXER-140</a> &ndash; DefaultIndexingContext double invocation of setIndexDirectoryFile method</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-111">MINDEXER-111</a> &ndash; Upgrade mave-surefire/failsafe-plugin 2.21.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-112">MINDEXER-112</a> &ndash; Upgrade maven-parent to version 34</li>
+<li><a href="https://issues.apache.org/jira/browse/MINDEXER-126">MINDEXER-126</a> &ndash; Remove guava dependency from indexer-core</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>
+
+  </div><a class="u-url" href="/maven/entry/apache-maven-indexer-version-6" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

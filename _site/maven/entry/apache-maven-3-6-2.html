@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Maven 3.6.2 Released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Maven 3.6.2 Released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Maven team is pleased to announce the release of the Apache Maven 3.6.2. Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project&rsquo;s build, reporting and documentation from a central piece of information. You can find out more about Apache Maven at https://maven.apache.org You can download the appropriate sources etc. from the download page We really value the contributions of these non committers, so this section is focused on those individuals. Descriptions of the issues fixed can be found at the end of these release notes. Issue Reporters of this release: Benoit GUERIN Christian Schulte Elliotte Rusty Harold Falko Modler Francesco Chicchiricc&ograve; Guillaume Nodet, guofei Joseph Walton Louis Mills Mark Derricutt, Mark McKelvy Mickael Istria Nicolas Echegut Nicolas Radde Raphael R&ouml;sch Ray Tsang Robert Thornton Rohan Padhye Sergey Chernov Stefan Oehme Thibaud Lepretre zhb. Code Contributors of this release: Guillaume Nodet Mickael Istria Ray Tsang Stefan Oehme Joseph Walton Bo Zhang AElMehdi Christian Schulte Mao Shuai MartinKanters Sergey Chernov Jesse Glick. Many thanks to all reporters and contributors for their time and support. (Please send an email to the dev list if we missed one to mention). Known Issues None. Overview about the changes This release focuses mostly performance improvements, better memory footprint, and less CPU usage. We are continuing to convert Maven Core to use JSR 330 annotations instead of Plexus (still not finished, see MNG-5577). New support for &lsquo;release&rsquo; qualifier (see MNG-6655). The toolchain.xml file supports environment variables (see MNG-6665). User visible Changes toolchain.xml now supports usage of environment variables which looks like this: 1 2 3 4 5 6 7 8 9 10 &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;jdk&lt;/type&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;1.8&lt;/version&gt; &lt;/span&gt; &lt;/span&gt;sun&lt;/vendor&gt; &lt;/span&gt; &lt;/provides&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;${env.JDK_HOME_8}&lt;/jdkHome&gt; &lt;/span&gt; &lt;/configuration&gt; &lt;/toolchain&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/figure&gt; The detailed issue list Bugs: MNG-6375 &ndash; NullPointerException when pom.xml has incomplete XML tag MNG-6626 &ndash; NullPointerException in DefaultExceptionHandler MNG-6629 &ndash; DefaultModelValidator.validateId is inefficient MNG-6630 &ndash; ComparableVersion.parseVersion is inefficient MNG-6631 &ndash; DefaultArtifactVersion.parseVersion is inefficient MNG-6632 &ndash; ArtifactHandlerManager.getArtifactHandler is inefficient MNG-6633 &ndash; ExcludesArtifactFilter is a memory hog MNG-6636 &ndash; NPE on reporting convertion (DefaultReportingConverter) when inheritance of with no reports MNG-6639 &ndash; Child inherit.append.path attributes not defined in Maven POM XSD MNG-6642 &ndash; Tycho-based modules do not build with 3.6.1 (works with 3.6.0) MNG-6643 &ndash; Version comparison CLI does not work anymore MNG-6644 &ndash; NPE in DefaultReportingConverter when reports has no InputLocation (using polyglot Maven) MNG-6647 &ndash; NPE in DefaultReportingConverter (when reports injected by Repaint IO maven-tiles) MNG-6653 &ndash; DefaultProjectBuildingRequest copy constructor does not copy all fields MNG-6668 &ndash; Model location handling uses too much memory MNG-6669 &ndash; Tycho cannot resolve project dependencies MNG-6700 &ndash; Equal compile source roots are added multiple times MNG-6703 &ndash; DefaultUrlNormalizer doesn&rsquo;t normalize all relative URIs MNG-6704 &ndash; MavenRepositorySystemUtils.newSession() misses assignment MNG-6707 &ndash; Maven XML parser does not accept &lsquo;&gt;&rsquo; in XML processing instructions MNG-6712 &ndash; Downgrade maven-resolver:1.4.0 to 1.3.3 MNG-6713 &ndash; Fix ExclusionArtifactFilter to respect wildcard MNG-6716 &ndash; relative testSourceDirectory on macos throw duplicate class error MNG-6720 &ndash; MultiThreadedBuilder: wait for parallel running projects when using &mdash;fail-fast MNG-6723 &ndash; MavenProject.getParentFile() not set when using ProjectBuilder.build(List, &hellip;)&lt;/li&gt; &lt;/ul&gt; Improvements MNG-6069 &ndash; Migrate to non deprecated parts of Commons CLI MNG-6638 &ndash; Prevent reparsing POMs in MavenMetadataSource MNG-6655 &ndash; Add support for &ldquo;release&rdquo; qualifier MNG-6665 &ndash; toolchain.xml file should support environment variables MNG-6667 &ndash; Hint at Maven upgrade requirement when trying to build a pom.xml with a newer modelVersion MNG-6675 &ndash; Make Resolver debug log messages for projects and plugins consistent MNG-6695 &ndash; Improve speed in collection merging MNG-6696 &ndash; Speed improvements while parsing big reactor projects MNG-6697 &ndash; Add a fast interpolator not using reflection MNG-6698 &ndash; Lazily compute the ManagedVersionMap MNG-6701 &ndash; Document maven.repo.local system property MNG-6702 &ndash; Improve DefaultModelValidator performance MNG-6705 &ndash; Speep up Artifact version check and Parent interpolation MNG-6718 &ndash; Upgrade Plexus Utils to 3.2.1 MNG-6729 &ndash; StringSearchModelInterpolator introspects objects from Java API MNG-6747 &ndash; Generalize &lsquo;resume from&rsquo; message when build reactor fails Test MNG-6535 &ndash; Improve test coverage of org.apache.maven.model.path.DefaultUrlNormalizer Wish Task MNG-6681 &ndash; improve documentation: dependency type = file classifier(optional)+extension + additional hints on dependency features Dependency upgrade MNG-6549 &ndash; Remove unused transitive dependencies of Guava MNG-6627 &ndash; upgrade plexus-component-metadata to 2.0.0 to get reproducible META-INF/plexus/components.xml MNG-6646 &ndash; Upgrade maven-assembly-plugin to 3.1.1 MNG-6671 &ndash; Upgrade Modello to 1.11 MNG-6674 &ndash; Upgrade Wagon to 3.3.3 MNG-6738 &ndash; Upgrade maven-resolver to 1.4.1 Sub Tasks MNG-6680 &ndash; Convert Maven Settings Builder to JSR 330 MNG-6685 &ndash; Convert Maven Model Builder to JSR 330 MNG-6686 &ndash; Convert Maven Embedder to JSR 330 The full list of changes can be found in our issue management system. Complete Release Notes See complete release notes for all versions The Apache Maven Team." />
+<meta property="og:description" content="The Apache Maven team is pleased to announce the release of the Apache Maven 3.6.2. Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project&rsquo;s build, reporting and documentation from a central piece of information. You can find out more about Apache Maven at https://maven.apache.org You can download the appropriate sources etc. from the download page We really value the contributions of these non committers, so this section is focused on those individuals. Descriptions of the issues fixed can be found at the end of these release notes. Issue Reporters of this release: Benoit GUERIN Christian Schulte Elliotte Rusty Harold Falko Modler Francesco Chicchiricc&ograve; Guillaume Nodet, guofei Joseph Walton Louis Mills Mark Derricutt, Mark McKelvy Mickael Istria Nicolas Echegut Nicolas Radde Raphael R&ouml;sch Ray Tsang Robert Thornton Rohan Padhye Sergey Chernov Stefan Oehme Thibaud Lepretre zhb. Code Contributors of this release: Guillaume Nodet Mickael Istria Ray Tsang Stefan Oehme Joseph Walton Bo Zhang AElMehdi Christian Schulte Mao Shuai MartinKanters Sergey Chernov Jesse Glick. Many thanks to all reporters and contributors for their time and support. (Please send an email to the dev list if we missed one to mention). Known Issues None. Overview about the changes This release focuses mostly performance improvements, better memory footprint, and less CPU usage. We are continuing to convert Maven Core to use JSR 330 annotations instead of Plexus (still not finished, see MNG-5577). New support for &lsquo;release&rsquo; qualifier (see MNG-6655). The toolchain.xml file supports environment variables (see MNG-6665). User visible Changes toolchain.xml now supports usage of environment variables which looks like this: 1 2 3 4 5 6 7 8 9 10 &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;jdk&lt;/type&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;1.8&lt;/version&gt; &lt;/span&gt; &lt;/span&gt;sun&lt;/vendor&gt; &lt;/span&gt; &lt;/provides&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;${env.JDK_HOME_8}&lt;/jdkHome&gt; &lt;/span&gt; &lt;/configuration&gt; &lt;/toolchain&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/figure&gt; The detailed issue list Bugs: MNG-6375 &ndash; NullPointerException when pom.xml has incomplete XML tag MNG-6626 &ndash; NullPointerException in DefaultExceptionHandler MNG-6629 &ndash; DefaultModelValidator.validateId is inefficient MNG-6630 &ndash; ComparableVersion.parseVersion is inefficient MNG-6631 &ndash; DefaultArtifactVersion.parseVersion is inefficient MNG-6632 &ndash; ArtifactHandlerManager.getArtifactHandler is inefficient MNG-6633 &ndash; ExcludesArtifactFilter is a memory hog MNG-6636 &ndash; NPE on reporting convertion (DefaultReportingConverter) when inheritance of with no reports MNG-6639 &ndash; Child inherit.append.path attributes not defined in Maven POM XSD MNG-6642 &ndash; Tycho-based modules do not build with 3.6.1 (works with 3.6.0) MNG-6643 &ndash; Version comparison CLI does not work anymore MNG-6644 &ndash; NPE in DefaultReportingConverter when reports has no InputLocation (using polyglot Maven) MNG-6647 &ndash; NPE in DefaultReportingConverter (when reports injected by Repaint IO maven-tiles) MNG-6653 &ndash; DefaultProjectBuildingRequest copy constructor does not copy all fields MNG-6668 &ndash; Model location handling uses too much memory MNG-6669 &ndash; Tycho cannot resolve project dependencies MNG-6700 &ndash; Equal compile source roots are added multiple times MNG-6703 &ndash; DefaultUrlNormalizer doesn&rsquo;t normalize all relative URIs MNG-6704 &ndash; MavenRepositorySystemUtils.newSession() misses assignment MNG-6707 &ndash; Maven XML parser does not accept &lsquo;&gt;&rsquo; in XML processing instructions MNG-6712 &ndash; Downgrade maven-resolver:1.4.0 to 1.3.3 MNG-6713 &ndash; Fix ExclusionArtifactFilter to respect wildcard MNG-6716 &ndash; relative testSourceDirectory on macos throw duplicate class error MNG-6720 &ndash; MultiThreadedBuilder: wait for parallel running projects when using &mdash;fail-fast MNG-6723 &ndash; MavenProject.getParentFile() not set when using ProjectBuilder.build(List, &hellip;)&lt;/li&gt; &lt;/ul&gt; Improvements MNG-6069 &ndash; Migrate to non deprecated parts of Commons CLI MNG-6638 &ndash; Prevent reparsing POMs in MavenMetadataSource MNG-6655 &ndash; Add support for &ldquo;release&rdquo; qualifier MNG-6665 &ndash; toolchain.xml file should support environment variables MNG-6667 &ndash; Hint at Maven upgrade requirement when trying to build a pom.xml with a newer modelVersion MNG-6675 &ndash; Make Resolver debug log messages for projects and plugins consistent MNG-6695 &ndash; Improve speed in collection merging MNG-6696 &ndash; Speed improvements while parsing big reactor projects MNG-6697 &ndash; Add a fast interpolator not using reflection MNG-6698 &ndash; Lazily compute the ManagedVersionMap MNG-6701 &ndash; Document maven.repo.local system property MNG-6702 &ndash; Improve DefaultModelValidator performance MNG-6705 &ndash; Speep up Artifact version check and Parent interpolation MNG-6718 &ndash; Upgrade Plexus Utils to 3.2.1 MNG-6729 &ndash; StringSearchModelInterpolator introspects objects from Java API MNG-6747 &ndash; Generalize &lsquo;resume from&rsquo; message when build reactor fails Test MNG-6535 &ndash; Improve test coverage of org.apache.maven.model.path.DefaultUrlNormalizer Wish Task MNG-6681 &ndash; improve documentation: dependency type = file classifier(optional)+extension + additional hints on dependency features Dependency upgrade MNG-6549 &ndash; Remove unused transitive dependencies of Guava MNG-6627 &ndash; upgrade plexus-component-metadata to 2.0.0 to get reproducible META-INF/plexus/components.xml MNG-6646 &ndash; Upgrade maven-assembly-plugin to 3.1.1 MNG-6671 &ndash; Upgrade Modello to 1.11 MNG-6674 &ndash; Upgrade Wagon to 3.3.3 MNG-6738 &ndash; Upgrade maven-resolver to 1.4.1 Sub Tasks MNG-6680 &ndash; Convert Maven Settings Builder to JSR 330 MNG-6685 &ndash; Convert Maven Model Builder to JSR 330 MNG-6686 &ndash; Convert Maven Embedder to JSR 330 The full list of changes can be found in our issue management system. Complete Release Notes See complete release notes for all versions The Apache Maven Team." />
+<link rel="canonical" href="http://localhost:4000/maven/entry/apache-maven-3-6-2" />
+<meta property="og:url" content="http://localhost:4000/maven/entry/apache-maven-3-6-2" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-13T19:17:52-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Maven 3.6.2 Released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-09-13T19:17:52-04:00","datePublished":"2019-09-13T19:17:52-04:00","description":"The Apache Maven team is pleased to announce the release of the Apache Maven 3.6.2. Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project&rsquo;s build, reporting and documentation from a central piece of information. You can find out more about Apache Maven at https://maven.apache.org You can download the appropriate sources etc. from the download page We really value the contributions of these non committers, so this section is focused on those individuals. Descriptions of the issues fixed can be found at the end of these release notes. Issue Reporters of this release: Benoit GUERIN Christian Schulte Elliotte Rusty Harold Falko Modler Francesco Chicchiricc&ograve; Guillaume Nodet, guofei Joseph Walton Louis Mills Mark Derricutt, Mark McKelvy Mickael Istria Nicolas Echegut Nicolas Radde Raphael R&ouml;sch Ray Tsang Robert Thornton Rohan Padhye Sergey Chernov Stefan Oehme Thibaud Lepretre zhb. Code Contributors of this release: Guillaume Nodet Mickael Istria Ray Tsang Stefan Oehme Joseph Walton Bo Zhang AElMehdi Christian Schulte Mao Shuai MartinKanters Sergey Chernov Jesse Glick. Many thanks to all reporters and contributors for their time and support. (Please send an email to the dev list if we missed one to mention). Known Issues None. Overview about the changes This release focuses mostly performance improvements, better memory footprint, and less CPU usage. We are continuing to convert Maven Core to use JSR 330 annotations instead of Plexus (still not finished, see MNG-5577). New support for &lsquo;release&rsquo; qualifier (see MNG-6655). The toolchain.xml file supports environment variables (see MNG-6665). User visible Changes toolchain.xml now supports usage of environment variables which looks like this: 1 2 3 4 5 6 7 8 9 10 &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;jdk&lt;/type&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;1.8&lt;/version&gt; &lt;/span&gt; &lt;/span&gt;sun&lt;/vendor&gt; &lt;/span&gt; &lt;/provides&gt; &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;${env.JDK_HOME_8}&lt;/jdkHome&gt; &lt;/span&gt; &lt;/configuration&gt; &lt;/toolchain&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/figure&gt; The detailed issue list Bugs: MNG-6375 &ndash; NullPointerException when pom.xml has incomplete XML tag MNG-6626 &ndash; NullPointerException in DefaultExceptionHandler MNG-6629 &ndash; DefaultModelValidator.validateId is inefficient MNG-6630 &ndash; ComparableVersion.parseVersion is inefficient MNG-6631 &ndash; DefaultArtifactVersion.parseVersion is inefficient MNG-6632 &ndash; ArtifactHandlerManager.getArtifactHandler is inefficient MNG-6633 &ndash; ExcludesArtifactFilter is a memory hog MNG-6636 &ndash; NPE on reporting convertion (DefaultReportingConverter) when inheritance of with no reports MNG-6639 &ndash; Child inherit.append.path attributes not defined in Maven POM XSD MNG-6642 &ndash; Tycho-based modules do not build with 3.6.1 (works with 3.6.0) MNG-6643 &ndash; Version comparison CLI does not work anymore MNG-6644 &ndash; NPE in DefaultReportingConverter when reports has no InputLocation (using polyglot Maven) MNG-6647 &ndash; NPE in DefaultReportingConverter (when reports injected by Repaint IO maven-tiles) MNG-6653 &ndash; DefaultProjectBuildingRequest copy constructor does not copy all fields MNG-6668 &ndash; Model location handling uses too much memory MNG-6669 &ndash; Tycho cannot resolve project dependencies MNG-6700 &ndash; Equal compile source roots are added multiple times MNG-6703 &ndash; DefaultUrlNormalizer doesn&rsquo;t normalize all relative URIs MNG-6704 &ndash; MavenRepositorySystemUtils.newSession() misses assignment MNG-6707 &ndash; Maven XML parser does not accept &lsquo;&gt;&rsquo; in XML processing instructions MNG-6712 &ndash; Downgrade maven-resolver:1.4.0 to 1.3.3 MNG-6713 &ndash; Fix ExclusionArtifactFilter to respect wildcard MNG-6716 &ndash; relative testSourceDirectory on macos throw duplicate class error MNG-6720 &ndash; MultiThreadedBuilder: wait for parallel running projects when using &mdash;fail-fast MNG-6723 &ndash; MavenProject.getParentFile() not set when using ProjectBuilder.build(List, &hellip;)&lt;/li&gt; &lt;/ul&gt; Improvements MNG-6069 &ndash; Migrate to non deprecated parts of Commons CLI MNG-6638 &ndash; Prevent reparsing POMs in MavenMetadataSource MNG-6655 &ndash; Add support for &ldquo;release&rdquo; qualifier MNG-6665 &ndash; toolchain.xml file should support environment variables MNG-6667 &ndash; Hint at Maven upgrade requirement when trying to build a pom.xml with a newer modelVersion MNG-6675 &ndash; Make Resolver debug log messages for projects and plugins consistent MNG-6695 &ndash; Improve speed in collection merging MNG-6696 &ndash; Speed improvements while parsing big reactor projects MNG-6697 &ndash; Add a fast interpolator not using reflection MNG-6698 &ndash; Lazily compute the ManagedVersionMap MNG-6701 &ndash; Document maven.repo.local system property MNG-6702 &ndash; Improve DefaultModelValidator performance MNG-6705 &ndash; Speep up Artifact version check and Parent interpolation MNG-6718 &ndash; Upgrade Plexus Utils to 3.2.1 MNG-6729 &ndash; StringSearchModelInterpolator introspects objects from Java API MNG-6747 &ndash; Generalize &lsquo;resume from&rsquo; message when build reactor fails Test MNG-6535 &ndash; Improve test coverage of org.apache.maven.model.path.DefaultUrlNormalizer Wish Task MNG-6681 &ndash; improve documentation: dependency type = file classifier(optional)+extension + additional hints on dependency features Dependency upgrade MNG-6549 &ndash; Remove unused transitive dependencies of Guava MNG-6627 &ndash; upgrade plexus-component-metadata to 2.0.0 to get reproducible META-INF/plexus/components.xml MNG-6646 &ndash; Upgrade maven-assembly-plugin to 3.1.1 MNG-6671 &ndash; Upgrade Modello to 1.11 MNG-6674 &ndash; Upgrade Wagon to 3.3.3 MNG-6738 &ndash; Upgrade maven-resolver to 1.4.1 Sub Tasks MNG-6680 &ndash; Convert Maven Settings Builder to JSR 330 MNG-6685 &ndash; Convert Maven Model Builder to JSR 330 MNG-6686 &ndash; Convert Maven Embedder to JSR 330 The full list of changes can be found in our issue management system. Complete Release Notes See complete release notes for all versions The Apache Maven Team.","headline":"Apache Maven 3.6.2 Released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/maven/entry/apache-maven-3-6-2"},"url":"http://localhost:4000/maven/entry/apache-maven-3-6-2"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Maven 3.6.2 Released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-09-13T19:17:52-04:00" itemprop="datePublished">Sep 13, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Karl-Heinz Marbaise", "login"=>"khmarbaise", "email"=>"khmarbaise@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the Apache<br />
+  Maven 3.6.2.</p>
+<p>Apache Maven is a software project management and comprehension tool. Based<br />
+    on the concept of a project object model (POM), Maven can manage a<br />
+    project&rsquo;s build, reporting and documentation from a central piece of<br />
+    information.</p>
+<p>You can find out more about Apache Maven at <a href="https://maven.apache.org">https://maven.apache.org</a></p>
+<p>You can download the appropriate sources etc. from<br />
+    the <a href="https://maven.apache.org/download.cgi">download page</a></p>
+<p>  <!-- more --></p>
+<p>We really value the contributions of these non committers, so this section is<br />
+    focused on those individuals. Descriptions of the issues fixed can be found at<br />
+    the <a href="#Details">end of these release notes</a>.</p>
+<p>Issue Reporters of this release:</p>
+<ul>
+<li>Benoit GUERIN</li>
+<li>Christian Schulte</li>
+<li>Elliotte Rusty Harold</li>
+<li>Falko Modler</li>
+<li>Francesco Chicchiricc&ograve;</li>
+<li>Guillaume Nodet,</li>
+<li>guofei</li>
+<li>Joseph Walton</li>
+<li>Louis Mills</li>
+<li>Mark Derricutt,</li>
+<li>Mark McKelvy</li>
+<li>Mickael Istria</li>
+<li>Nicolas Echegut</li>
+<li>Nicolas Radde</li>
+<li>Raphael R&ouml;sch</li>
+<li>Ray Tsang</li>
+<li>Robert Thornton</li>
+<li>Rohan Padhye</li>
+<li>Sergey Chernov</li>
+<li>Stefan Oehme</li>
+<li>Thibaud Lepretre</li>
+<li>zhb.</li>
+</ul>
+<p>Code Contributors of this release:</p>
+<ul>
+<li>Guillaume Nodet</li>
+<li>Mickael Istria</li>
+<li>Ray Tsang</li>
+<li>Stefan Oehme</li>
+<li>Joseph Walton</li>
+<li>Bo Zhang</li>
+<li>AElMehdi</li>
+<li>Christian Schulte</li>
+<li>Mao Shuai</li>
+<li>MartinKanters</li>
+<li>Sergey Chernov</li>
+<li>Jesse Glick.</li>
+</ul>
+<p>Many thanks to all reporters and contributors for their time and support.</p>
+<p>(Please send an email to the dev list if we missed one to mention).</p>
+<h2>Known Issues</h2>
+<p>None.</p>
+<h2>Overview about the changes</h2>
+<ul>
+<li>
+<p>This release focuses mostly performance improvements, better memory footprint, and less CPU usage.</p>
+</li>
+<li>
+<p>We are continuing to convert Maven Core to use JSR 330 annotations instead of Plexus<br />
+      (still not finished, see MNG-5577).</p>
+</li>
+<li>
+<p>New support for &lsquo;release&rsquo; qualifier (see MNG-6655).</p>
+</li>
+<li>
+<p>The <code>toolchain.xml</code> file supports environment variables (see MNG-6665).</p>
+</li>
+</ul>
+<h2>User visible Changes</h2>
+<p><code>toolchain.xml</code> now supports usage of environment variables which looks like this:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><toolchain></span>
+</span><span class='line'>    <span class="nt"><type></span>jdk<span class="nt"></type></span>
+</span><span class='line'>    <span class="nt"><provides></span>
+</span><span class='line'>      <span class="nt"><version></span>1.8<span class="nt"></version></span>
+</span><span class='line'>      <span class="nt"><vendor></span>sun<span class="nt"></vendor></span>
+</span><span class='line'>    <span class="nt"></provides></span>
+</span><span class='line'>    <span class="nt"><configuration></span>
+</span><span class='line'>  <span class="nt"><jdkHome></span>${env.JDK_HOME_8}<span class="nt"></jdkHome></span>
+</span><span class='line'>    <span class="nt"></configuration></span>
+</span><span class='line'><span class="nt"></toolchain></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<h2>The detailed issue list<a href="#Details"></a></h2>
+<h3>Bugs:</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6375">MNG-6375</a> &ndash; NullPointerException when pom.xml has incomplete XML tag</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6626">MNG-6626</a> &ndash; NullPointerException in DefaultExceptionHandler</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6629">MNG-6629</a> &ndash; DefaultModelValidator.validateId is inefficient</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6630">MNG-6630</a> &ndash; ComparableVersion.parseVersion is inefficient</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6631">MNG-6631</a> &ndash; DefaultArtifactVersion.parseVersion is inefficient</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6632">MNG-6632</a> &ndash; ArtifactHandlerManager.getArtifactHandler is inefficient</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6633">MNG-6633</a> &ndash; ExcludesArtifactFilter is a memory hog</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6636">MNG-6636</a> &ndash; NPE on reporting convertion (DefaultReportingConverter) when inheritance of with no reports</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6639">MNG-6639</a> &ndash; Child inherit.append.path attributes not defined in Maven POM XSD</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6642">MNG-6642</a> &ndash; Tycho-based modules do not build with 3.6.1 (works with 3.6.0)</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6643">MNG-6643</a> &ndash; Version comparison CLI does not work anymore</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6644">MNG-6644</a> &ndash; NPE in DefaultReportingConverter when reports has no InputLocation (using polyglot Maven)</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6647">MNG-6647</a> &ndash; NPE in DefaultReportingConverter (when reports injected by Repaint IO maven-tiles)</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6653">MNG-6653</a> &ndash; DefaultProjectBuildingRequest copy constructor does not copy all fields</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6668">MNG-6668</a> &ndash; Model location handling uses too much memory</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6669">MNG-6669</a> &ndash; Tycho cannot resolve project dependencies</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6700">MNG-6700</a> &ndash; Equal compile source roots are added multiple times</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6703">MNG-6703</a> &ndash; DefaultUrlNormalizer doesn&rsquo;t normalize all relative URIs</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6704">MNG-6704</a> &ndash; MavenRepositorySystemUtils.newSession() misses assignment</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6707">MNG-6707</a> &ndash; Maven XML parser does not accept &lsquo;>&rsquo; in XML processing instructions</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6712">MNG-6712</a> &ndash; Downgrade maven-resolver:1.4.0 to 1.3.3</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6713">MNG-6713</a> &ndash; Fix ExclusionArtifactFilter to respect wildcard</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6716">MNG-6716</a> &ndash; relative testSourceDirectory on macos throw duplicate class error</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6720">MNG-6720</a> &ndash; MultiThreadedBuilder: wait for parallel running projects when using &mdash;fail-fast</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6723">MNG-6723</a> &ndash; MavenProject.getParentFile() not set when using ProjectBuilder.build(List<File>, &hellip;)</li>
+</ul>
+<h3>Improvements</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6069">MNG-6069</a> &ndash; Migrate to non deprecated parts of Commons CLI</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6638">MNG-6638</a> &ndash; Prevent reparsing POMs in MavenMetadataSource</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6655">MNG-6655</a> &ndash; Add support for &ldquo;release&rdquo; qualifier</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6665">MNG-6665</a> &ndash; toolchain.xml file should support environment variables</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6667">MNG-6667</a> &ndash; Hint at Maven upgrade requirement when trying to build a pom.xml with a newer modelVersion</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6675">MNG-6675</a> &ndash; Make Resolver debug log messages for projects and plugins consistent</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6695">MNG-6695</a> &ndash; Improve speed in collection merging</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6696">MNG-6696</a> &ndash; Speed improvements while parsing big reactor projects</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6697">MNG-6697</a> &ndash; Add a fast interpolator not using reflection</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6698">MNG-6698</a> &ndash; Lazily compute the ManagedVersionMap</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6701">MNG-6701</a> &ndash; Document maven.repo.local system property</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6702">MNG-6702</a> &ndash; Improve DefaultModelValidator performance</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6705">MNG-6705</a> &ndash; Speep up Artifact version check and Parent interpolation</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6718">MNG-6718</a> &ndash; Upgrade Plexus Utils to 3.2.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6729">MNG-6729</a> &ndash; StringSearchModelInterpolator introspects objects from Java API</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6747">MNG-6747</a> &ndash; Generalize &lsquo;resume from&rsquo; message when build reactor fails</li>
+</ul>
+<h3>Test</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6535">MNG-6535</a> &ndash; Improve test coverage of org.apache.maven.model.path.DefaultUrlNormalizer</li>
+</ul>
+<h3>Wish</h3>
+<h3>Task</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6681">MNG-6681</a> &ndash; improve documentation: dependency type = file classifier(optional)+extension + additional hints on dependency features</li>
+</ul>
+<h3>Dependency upgrade</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6549">MNG-6549</a> &ndash; Remove unused transitive dependencies of Guava</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6627">MNG-6627</a> &ndash; upgrade plexus-component-metadata to 2.0.0 to get reproducible <code>META-INF/plexus/components.xml</code></li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6646">MNG-6646</a> &ndash; Upgrade maven-assembly-plugin to 3.1.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6671">MNG-6671</a> &ndash; Upgrade Modello to 1.11</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6674">MNG-6674</a> &ndash; Upgrade Wagon to 3.3.3</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6738">MNG-6738</a> &ndash; Upgrade maven-resolver to 1.4.1</li>
+</ul>
+<h3>Sub Tasks</h3>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6680">MNG-6680</a> &ndash; Convert Maven Settings Builder to JSR 330</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6685">MNG-6685</a> &ndash; Convert Maven Model Builder to JSR 330</li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-6686">MNG-6686</a> &ndash; Convert Maven Embedder to JSR 330</li>
+</ul>
+<p>The full list of changes can be found in our <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12316922&amp;version=12345234">issue management system</a>.</p>
+<h2>Complete Release Notes</h2>
+<p>See <a href="../../docs/history.html">complete release notes for all versions</a></p>
+<ul>
+<li>The Apache Maven Team.</li>
+</ul>
+
+  </div><a class="u-url" href="/maven/entry/apache-maven-3-6-2" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

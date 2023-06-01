@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Openmeetings 2.1.1 released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Openmeetings 2.1.1 released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Openmeetings PMC is proud to announce Apache Openmeetings 2.1.1! This is a bug fix release for the 2.1.x tree and the second release as Top Level Apache Project! Please download and build the distribution yourself, or use our convenience binary package &lt;&lt;/p&gt; Sources: http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/src Binaries: http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/bin Or in general see: http://openmeetings.apache.org/downloads.html Release Notes 2.1.1 Summary: Bug fix release for 2.1.0. This release includes some improvements in user interface, fixes for the interview and video only rooms, and localization issues. Configurable hot key for Mute/Unmute have been added. Known Issues Note: Video/audio SIP integration is not a part of the Apache project, check the red5sip project for this integration. Issues with Recordigs that are longer then 1 hour under some circumstances https://issues.apache.org/jira/browse/OPENMEETINGS-669 Some issue reported with recent version of Adobe Flash Plugin https://bugzilla.mozilla.org/show_bug.cgi?id=885188 Multi-tabbing issues with Flash Player on Linux Bugs solved in that release [OPENMEETINGS-218] - Microphone doesn&#39;t work after clicking &laquo;unmute microphone&raquo; button [OPENMEETINGS-405] - microphoneRateNormal &amp; microphoneRateBest - not change rate [OPENMEETINGS-432] - video only room is coming with white board also [OPENMEETINGS-439] - An LDAP user can&#39;t change their own profile picture. [OPENMEETINGS-481] - When I reserve a room by sending an email, users who connected to this link from an email have the same email address as me [OPENMEETINGS-486] - Sometimes OM stops responding to clicks [OPENMEETINGS-503] - Openmeetings does not logout on the Recording panel [OPENMEETINGS-507] - Error message is shown when user save the Profile settings [OPENMEETINGS-537] - Pop menu in conference for files shows &quot;Delete folder&quot; [OPENMEETINGS-544] - some bug with SIP [OPENMEETINGS-579] - In any room not close the video and audio settings windows. Video is not broadcasting. [OPENMEETINGS-586] - FileItem owner_id is not replaced with new id while system import [OPENMEETINGS-587] - Exclusive audio by hotkey is broken [OPENMEETINGS-598] - dont build trunk on JDK 1.7 x64 [OPENMEETINGS-608] - Office file are uploaded but not displayed [OPENMEETINGS-609] - The end time shown under the Book Conference Room option in New Message is Incorrect [OPENMEETINGS-618] - Incorrect translation [OPENMEETINGS-625] - Profile Pictures not working on LDAP Accounts [OPENMEETINGS-634] - No menu accessable after file upload, in a special condition [OPENMEETINGS-635] - Administration / Configuration : default_lang_id documentation [OPENMEETINGS-654] - Interview room is broken [OPENMEETINGS-670] - The webinar is already closed, you wil be rediredcted to some interesting offerings in X sek [OPENMEETINGS-672] - in recordings page ,people cant logout [OPENMEETINGS-687] - Microphone is unmuted when user refresh video frame Improvement [OPENMEETINGS-589] - Configurable hot key for Mute/Unmute should be added" />
+<meta property="og:description" content="The Apache Openmeetings PMC is proud to announce Apache Openmeetings 2.1.1! This is a bug fix release for the 2.1.x tree and the second release as Top Level Apache Project! Please download and build the distribution yourself, or use our convenience binary package &lt;&lt;/p&gt; Sources: http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/src Binaries: http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/bin Or in general see: http://openmeetings.apache.org/downloads.html Release Notes 2.1.1 Summary: Bug fix release for 2.1.0. This release includes some improvements in user interface, fixes for the interview and video only rooms, and localization issues. Configurable hot key for Mute/Unmute have been added. Known Issues Note: Video/audio SIP integration is not a part of the Apache project, check the red5sip project for this integration. Issues with Recordigs that are longer then 1 hour under some circumstances https://issues.apache.org/jira/browse/OPENMEETINGS-669 Some issue reported with recent version of Adobe Flash Plugin https://bugzilla.mozilla.org/show_bug.cgi?id=885188 Multi-tabbing issues with Flash Player on Linux Bugs solved in that release [OPENMEETINGS-218] - Microphone doesn&#39;t work after clicking &laquo;unmute microphone&raquo; button [OPENMEETINGS-405] - microphoneRateNormal &amp; microphoneRateBest - not change rate [OPENMEETINGS-432] - video only room is coming with white board also [OPENMEETINGS-439] - An LDAP user can&#39;t change their own profile picture. [OPENMEETINGS-481] - When I reserve a room by sending an email, users who connected to this link from an email have the same email address as me [OPENMEETINGS-486] - Sometimes OM stops responding to clicks [OPENMEETINGS-503] - Openmeetings does not logout on the Recording panel [OPENMEETINGS-507] - Error message is shown when user save the Profile settings [OPENMEETINGS-537] - Pop menu in conference for files shows &quot;Delete folder&quot; [OPENMEETINGS-544] - some bug with SIP [OPENMEETINGS-579] - In any room not close the video and audio settings windows. Video is not broadcasting. [OPENMEETINGS-586] - FileItem owner_id is not replaced with new id while system import [OPENMEETINGS-587] - Exclusive audio by hotkey is broken [OPENMEETINGS-598] - dont build trunk on JDK 1.7 x64 [OPENMEETINGS-608] - Office file are uploaded but not displayed [OPENMEETINGS-609] - The end time shown under the Book Conference Room option in New Message is Incorrect [OPENMEETINGS-618] - Incorrect translation [OPENMEETINGS-625] - Profile Pictures not working on LDAP Accounts [OPENMEETINGS-634] - No menu accessable after file upload, in a special condition [OPENMEETINGS-635] - Administration / Configuration : default_lang_id documentation [OPENMEETINGS-654] - Interview room is broken [OPENMEETINGS-670] - The webinar is already closed, you wil be rediredcted to some interesting offerings in X sek [OPENMEETINGS-672] - in recordings page ,people cant logout [OPENMEETINGS-687] - Microphone is unmuted when user refresh video frame Improvement [OPENMEETINGS-589] - Configurable hot key for Mute/Unmute should be added" />
+<link rel="canonical" href="http://localhost:4000/openmeetings/entry/apache_openmeetings_2_1_11" />
+<meta property="og:url" content="http://localhost:4000/openmeetings/entry/apache_openmeetings_2_1_11" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-25T08:36:19-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Openmeetings 2.1.1 released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2013-07-25T08:36:19-04:00","datePublished":"2013-07-25T08:36:19-04:00","description":"The Apache Openmeetings PMC is proud to announce Apache Openmeetings 2.1.1! This is a bug fix release for the 2.1.x tree and the second release as Top Level Apache Project! Please download and build the distribution yourself, or use our convenience binary package &lt;&lt;/p&gt; Sources: http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/src Binaries: http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/bin Or in general see: http://openmeetings.apache.org/downloads.html Release Notes 2.1.1 Summary: Bug fix release for 2.1.0. This release includes some improvements in user interface, fixes for the interview and video only rooms, and localization issues. Configurable hot key for Mute/Unmute have been added. Known Issues Note: Video/audio SIP integration is not a part of the Apache project, check the red5sip project for this integration. Issues with Recordigs that are longer then 1 hour under some circumstances https://issues.apache.org/jira/browse/OPENMEETINGS-669 Some issue reported with recent version of Adobe Flash Plugin https://bugzilla.mozilla.org/show_bug.cgi?id=885188 Multi-tabbing issues with Flash Player on Linux Bugs solved in that release [OPENMEETINGS-218] - Microphone doesn&#39;t work after clicking &laquo;unmute microphone&raquo; button [OPENMEETINGS-405] - microphoneRateNormal &amp; microphoneRateBest - not change rate [OPENMEETINGS-432] - video only room is coming with white board also [OPENMEETINGS-439] - An LDAP user can&#39;t change their own profile picture. [OPENMEETINGS-481] - When I reserve a room by sending an email, users who connected to this link from an email have the same email address as me [OPENMEETINGS-486] - Sometimes OM stops responding to clicks [OPENMEETINGS-503] - Openmeetings does not logout on the Recording panel [OPENMEETINGS-507] - Error message is shown when user save the Profile settings [OPENMEETINGS-537] - Pop menu in conference for files shows &quot;Delete folder&quot; [OPENMEETINGS-544] - some bug with SIP [OPENMEETINGS-579] - In any room not close the video and audio settings windows. Video is not broadcasting. [OPENMEETINGS-586] - FileItem owner_id is not replaced with new id while system import [OPENMEETINGS-587] - Exclusive audio by hotkey is broken [OPENMEETINGS-598] - dont build trunk on JDK 1.7 x64 [OPENMEETINGS-608] - Office file are uploaded but not displayed [OPENMEETINGS-609] - The end time shown under the Book Conference Room option in New Message is Incorrect [OPENMEETINGS-618] - Incorrect translation [OPENMEETINGS-625] - Profile Pictures not working on LDAP Accounts [OPENMEETINGS-634] - No menu accessable after file upload, in a special condition [OPENMEETINGS-635] - Administration / Configuration : default_lang_id documentation [OPENMEETINGS-654] - Interview room is broken [OPENMEETINGS-670] - The webinar is already closed, you wil be rediredcted to some interesting offerings in X sek [OPENMEETINGS-672] - in recordings page ,people cant logout [OPENMEETINGS-687] - Microphone is unmuted when user refresh video frame Improvement [OPENMEETINGS-589] - Configurable hot key for Mute/Unmute should be added","headline":"Apache Openmeetings 2.1.1 released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/openmeetings/entry/apache_openmeetings_2_1_11"},"url":"http://localhost:4000/openmeetings/entry/apache_openmeetings_2_1_11"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Openmeetings 2.1.1 released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-07-25T08:36:19-04:00" itemprop="datePublished">Jul 25, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Sebastian Wagner", "login"=>"sebawagner", "email"=>"sebawagner@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The Apache Openmeetings PMC is proud to announce Apache Openmeetings 2.1.1!<br/><br />
+<br/><br />
+This is a bug fix release for the 2.1.x tree and the second release as Top Level Apache Project!<br/><br />
+<br/><br />
+Please download and build the distribution yourself, or use our convenience binary package<br/><br />
+<br/></p>
+<ul><</p>
+<li>Sources: <a href="http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/src" target="_blank">http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/src</a></li>
+<li>Binaries: <a href="http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/bin" target="_black">http://www.apache.org/dyn/closer.cgi/openmeetings/2.1.1/bin</a></li>
+</ul>
+<p><br/><br />
+Or in general see: <a href="http://openmeetings.apache.org/downloads.html">http://openmeetings.apache.org/downloads.html</a><br />
+<br/><br />
+<br/><br />
+<b>Release Notes 2.1.1</b><br/><br />
+<br/><br />
+Summary: Bug fix release for 2.1.0.<br/><br />
+This release includes some improvements in user interface, fixes for the<br />
+interview and video only rooms, and localization issues.<br />
+Configurable hot key for Mute/Unmute have been added.<br/><br />
+<br/><br />
+<br/></p>
+<h3>Known Issues</h3>
+<ul>
+<li>Note: Video/audio SIP integration is not a part of the Apache project, check the red5sip project for this integration.</li>
+<li>Issues with Recordigs that are longer then 1 hour under some circumstances https://issues.apache.org/jira/browse/OPENMEETINGS-669</li>
+<li>Some issue reported with recent version of Adobe Flash Plugin https://bugzilla.mozilla.org/show_bug.cgi?id=885188</li>
+<li>Multi-tabbing issues with Flash Player on Linux</li>
+</ul>
+<h3>        Bugs solved in that release<br />
+</h3>
+<ul>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-218'>OPENMEETINGS-218</a>] -         Microphone doesn&#39;t work after clicking &laquo;unmute microphone&raquo; button
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-405'>OPENMEETINGS-405</a>] -         microphoneRateNormal &amp; microphoneRateBest - not change rate
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-432'>OPENMEETINGS-432</a>] -         video only room is coming with white board also
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-439'>OPENMEETINGS-439</a>] -         An LDAP user can&#39;t change their own profile picture.
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-481'>OPENMEETINGS-481</a>] -         When I reserve a room by sending an email, users who connected to this link from an email have the same email address as me
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-486'>OPENMEETINGS-486</a>] -         Sometimes OM stops responding to clicks
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-503'>OPENMEETINGS-503</a>] -         Openmeetings does not logout on the Recording panel
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-507'>OPENMEETINGS-507</a>] -         Error message is shown when user save the Profile settings
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-537'>OPENMEETINGS-537</a>] -         Pop menu  in conference for files shows "Delete folder"
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-544'>OPENMEETINGS-544</a>] -         some bug with SIP
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-579'>OPENMEETINGS-579</a>] -         In any room not close the video and audio settings windows. Video is not broadcasting.
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-586'>OPENMEETINGS-586</a>] -         FileItem owner_id is not replaced with new id while system import
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-587'>OPENMEETINGS-587</a>] -         Exclusive audio by hotkey is broken
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-598'>OPENMEETINGS-598</a>] -         dont build trunk on JDK 1.7 x64
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-608'>OPENMEETINGS-608</a>] -         Office file are uploaded but not displayed
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-609'>OPENMEETINGS-609</a>] -         The end time shown under the Book Conference Room option in New Message is Incorrect
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-618'>OPENMEETINGS-618</a>] -         Incorrect translation
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-625'>OPENMEETINGS-625</a>] -         Profile Pictures not working on LDAP Accounts
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-634'>OPENMEETINGS-634</a>] -         No menu accessable after file upload, in a special condition
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-635'>OPENMEETINGS-635</a>] -         Administration / Configuration : default_lang_id documentation
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-654'>OPENMEETINGS-654</a>] -         Interview room is broken
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-670'>OPENMEETINGS-670</a>] -         The webinar is already closed, you wil be rediredcted to some interesting offerings in X sek
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-672'>OPENMEETINGS-672</a>] -         in recordings page ,people cant logout
+</li>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-687'>OPENMEETINGS-687</a>] -         Microphone is unmuted when user refresh video frame
+</li>
+</ul>
+<h3>        Improvement<br />
+</h3>
+<ul>
+<li>[<a href='https://issues.apache.org/jira/browse/OPENMEETINGS-589'>OPENMEETINGS-589</a>] -         Configurable hot key for Mute/Unmute should be added
+</li>
+</ul>
+
+  </div><a class="u-url" href="/openmeetings/entry/apache_openmeetings_2_1_11" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

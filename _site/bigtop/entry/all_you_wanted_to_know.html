@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>All you wanted to know about Hadoop, but were too afraid to ask: genealogy of elephants. | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="All you wanted to know about Hadoop, but were too afraid to ask: genealogy of elephants." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Lining up versions of Hadoop and making sense of all of them and their relations can be quit difficult.&nbsp; This article attempts to address the moot points and help you understand the &quot;bigger picture&quot; - literally." />
+<meta property="og:description" content="Lining up versions of Hadoop and making sense of all of them and their relations can be quit difficult.&nbsp; This article attempts to address the moot points and help you understand the &quot;bigger picture&quot; - literally." />
+<link rel="canonical" href="http://localhost:4000/bigtop/entry/all_you_wanted_to_know" />
+<meta property="og:url" content="http://localhost:4000/bigtop/entry/all_you_wanted_to_know" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-02-10T06:54:14-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="All you wanted to know about Hadoop, but were too afraid to ask: genealogy of elephants." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-02-10T06:54:14-05:00","datePublished":"2012-02-10T06:54:14-05:00","description":"Lining up versions of Hadoop and making sense of all of them and their relations can be quit difficult.&nbsp; This article attempts to address the moot points and help you understand the &quot;bigger picture&quot; - literally.","headline":"All you wanted to know about Hadoop, but were too afraid to ask: genealogy of elephants.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bigtop/entry/all_you_wanted_to_know"},"url":"http://localhost:4000/bigtop/entry/all_you_wanted_to_know"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">All you wanted to know about Hadoop, but were too afraid to ask: genealogy of elephants.</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-02-10T06:54:14-05:00" itemprop="datePublished">Feb 10, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Konstantin I Boudnik", "login"=>"cos", "email"=>"cos@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Hadoop is taking central stage in the discussions about processing of the large amount of unstructured data.</p>
+<p>With<br />
+ raising the popularity of the system I found that people are really<br />
+puzzled with all the multiplicity of Hadoop versions; the small, yet<br />
+annoying differences introduced by different vendors; the frustration<br />
+when vendors are trying to lock up their customers using readily<br />
+available open source data analytic components on top of Hadoop, and on<br />
+and on.</p>
+<p>So, after explaining who was born from whom for the 3rd time - and I<br />
+tell you, drawing neat pictures on a napkin in a coffee shop isn't my<br />
+favorite activity - I put together this little diagram below. Click on<br />
+it to inspect it in greater details. A warning: the diagram only<br />
+includes more or less significant releases of Hadoop and Hadoop-derived<br />
+systems available today. I don't want to waste any time on some obscure<br />
+releases or branches which never been accepted at any significant level.<br />
+ The only exception is 0.21 which was a natural continuation of 0.20 and<br />
+ predecessor of recently released 0.22. </p>
+<p style="clear: both; text-align: center;" class="separator"><img src="http://2.bp.blogspot.com/-pHJR7XSCTlM/TzS-3-oGS4I/AAAAAAAAAB4/9M7OUrDapro/s640/hadoop-vers.png" /></p>
+<p>Some explanations for the diagram:</p>
+<ul>
+<li>Green rectangles designate official Apache Hadoop releases openly available for anyone in the world for free</li>
+<li>Black ovals show Hadoop branches that are not yet officially<br />
+released by Apache Hadoop (or might not be released ever). However, they<br />
+ are usually available in the form of source code or tar-ball artifacts</li>
+<li>Red ovals are for commercial Hadoop derivatives which might be based<br />
+ on Hadoop or use Hadoop as a part of custom systems (like in case of<br />
+MapR). These derivatives can be or can be not compatible with Hadoop and<br />
+ Hadoop data processing stack.</li>
+</ul>
+<p>Once you're presented with the view like this it is getting<br />
+clear that there are two centers of the gravity in today's universe of<br />
+elephants: 0.20.2 based releases and derivatives; and 0.22 based<br />
+branches, future releases, and derivatives. Also, it becomes quite clear<br />
+ which are likely to be sucked into a black hole.</p>
+<p>The<br />
+transition from 0.20+ to 0.2[1,2] was real critical because of<br />
+introduced true HDFS append, fault injection, and code injection for<br />
+system testing. And the fact that 0.21 hasn't been released for a long<br />
+time, creating an empty space in the high demand environment. Even after<br />
+ it did come out, it didn't get any traction in the community.<br />
+Meanwhile, HDFS append was very critical for HBase to move forward, so<br />
+0.20.2-append has been created to support the effort. A quite similar<br />
+story had happened to 0.22: two different release managers was trying to<br />
+ get it out: first gave up, but the second has actually succeeded in<br />
+pulling an effort of a part of the community towards it.</p>
+<p>As<br />
+ you can see, HDFS append wasn't available in an official Apache Hadoop<br />
+release for some time (except for 0.21 with the earlier disclaimer).<br />
+Eventually it has been merged into 0.20.205 (recently dubbed as Hadoop<br />
+1.0) and that allows HBase to be nicely integrated with the official<br />
+Apache Hadoop without any custom patching process.</p>
+<p>The<br />
+release of 0.20.203 was quite significant because it provided a heavily<br />
+tested Hadoop security, developed by Yahoo! Hadoop development team<br />
+(known as HortonWorks nowadays). Bits and pieces of 0.20.203 - even<br />
+before the official release - were absorbed by at least one commercial<br />
+vendor to add corporate grade Kerberos security to their derivatives of<br />
+Hadoop (as in case of Cloudera CDH3).</p>
+<p>The diagram above clearly shows a few important gaps of the rest of commercial offerings:</p>
+<ol>
+<li>none of them supports Kerberos security (EMC, IBM, and MapR)</li>
+<li>unavailability of Hbase due to the lack of HDFS append in their<br />
+systems (EMC, IBM). In case of MapR you end up using a custom HBase<br />
+distributed by MapR. I don't want to make any speculation of the latter<br />
+in this article.</li>
+</ol>
+<p>Apparently, the vacuum of significant releases between 0.20 and<br />
+0.22 appeared to be a major urge for Hadoop PMC and now - just days<br />
+after release of 1.0 - 0.22 got out. With 0.23 already going through<br />
+release process, championed by HortonWorks team. That release brings in<br />
+some interesting innovations like Federations and MapReduce 2.0.</p>
+<p>Once<br />
+current alpha 0.23 (which might become Hadoop 2.0 or even Hadoop 3.0) is ready for<br />
+the final release I would expect new versions of commercial<br />
+distributions springing to live as it was the case before. At this point<br />
+ I will update the diagram :)</p>
+<p>If you can imagine the<br />
+variety of the other animals such as Pig, and Hive piling on top of<br />
+Hadoop, you would get astonished by the complexity of inter-component<br />
+relations and, more importantly, about intricacies of building a stable<br />
+data processing stack. This is why project BigTop has<br />
+been so important and popular ever since it sprung to life last year.<br />
+Here you can read about Bigtop's relation to Hadoop stack <a href="http://is.gd/5kJ6Iv" target="_blank">here</a>.</p>
+<p><a href="http://is.gd/H4Jfa7">Cross-posted from</a></p>
+<p><img id="smallDivTip" src="chrome://dictionarytip/skin/dtipIconHover.png" style="border: 0px solid blue; left: 617px; position: absolute; top: 815px; z-index: 90;" /></p>
+
+  </div><a class="u-url" href="/bigtop/entry/all_you_wanted_to_know" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

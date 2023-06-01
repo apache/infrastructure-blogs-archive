@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Stream Processing: NiFi and Spark | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Stream Processing: NiFi and Spark" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Stream Processing: NiFi and Spark Mark Payne -&nbsp; markap14@hotmail.com Without doubt, Apache Spark has become wildly popular for processing large quantities of data. One of the key features that Spark provides is the ability to process data in either a batch processing mode or a streaming mode with very little change to your code. Batch processing is typically performed by reading data from HDFS. There have been a few different articles posted about using Apache NiFi (incubating) to publish data HDFS. This article does a great job of explaining how to accomplish this. In many contexts, though, operating on the data as soon as it is available can provide great benefits. In order to provide the right data as quickly as possible, NiFi has created a Spark Receiver, available in the 0.0.2 release of Apache NiFi. This post will examine how we can write a simple Spark application to process data from NiFi and how we can configure NiFi to expose the data to Spark. Incorporating the Apache NiFi Receiver into your Spark application is pretty easy. First, you&#39;ll need to add the Receiver to your application&#39;s POM: &lt;/p&gt; org.apache.nifi nifi-spark-receiver 0.0.2-incubating &lt;/code&gt; &lt;/div&gt; That&#39;s all that is needed in order to be able to use the NiFi Receiver. So now we&#39;ll look at how to use the Receiver in your code. The NiFi Receiver is a Reliable Java Receiver. This means that if we lose a node after it pulls the data from NiFi, the data will not be lost. Instead, another node will simply pull and process the data. In order to create a NiFi Receiver, we need to first create a configuration that tells the Receiver where to pull the data from. The simplest form is to just tell the config where NiFi is running and which Port to pull the data from: &lt;/p&gt; SiteToSiteClientConfig config = new SiteToSiteClient.Builder() .url(&quot;http://localhost:8080/nifi&quot;) .portName(&quot;Data For Spark&quot;) .buildConfig(); &lt;/code&gt; &lt;/div&gt; To briefly explain the terminology here, NiFi refers to its mechanism for transferring data between clusters or instances as Site-to-Site. It exposes options for pushing data or pulling, so that the most appropriate approach can be used for each situation. Spark doesn&#39;t supply a mechanism to have data pushed to it - instead, it wants to pull data from other sources. In NiFi, this data can be exposed in such a way that a receiver can pull from it by adding an Output Port to the root process group. For Spark, we will use this same mechanism - we will use this Site-to-Site protocol to pull data from NiFi&#39;s Output Ports. In order for this to work, we need two pieces of information: the URL to connect to NiFi and the name of the Output Port to pull data from. If the NiFi instance to connect to is clustered, the URL should be that of the NiFi Cluster Manager. In this case, the Receiver will automatically contact the Cluster Manager to determine which nodes are in the cluster and will automatically start pulling data from all nodes. The Receiver automatically determines by communicating with the Cluster Manager which nodes have the most data backed up and will pull from those nodes more heavily than the others. This information is automatically updated periodically so that as new nodes are added to the cluster or nodes leave the cluster, or if the nodes become more or less bogged down, the Receiver will automatically adjust to handle this. Next, we need to instruct the Receiver which Port to pull data from. Since NiFi can have many different Output Ports, we need to provide either a Port Identifier or a Port Name. If desired, we can also configure communications timeouts; SSL information for secure data transfer, authentication, and authorization; compression; and preferred batch sizes. See the JavaDocs for the SiteToSiteClient.Builder for more information. Once we have constructed this configuration object, we can now create the Receiver: &lt;/p&gt; SparkConf sparkConf = new SparkConf().setAppName(&quot;NiFi-Spark Streaming example&quot;); JavaStreamingContext ssc = new JavaStreamingContext(sparkConf, new Duration(1000L)); // Create a JavaReceiverInputDStream using a NiFi receiver so that we can pull data from // specified Port JavaReceiverInputDStream packetStream = ssc.receiverStream(new NiFiReceiver(config, StorageLevel.MEMORY_ONLY())); &lt;/code&gt; &lt;/div&gt; This gives us a JavaReceiverInputDStream of type NiFiDataPacket. The NiFiDataPacket is a simple construct that packages an arbitrary byte array with a map of Key/Value pairs (referred to as attributes) that correspond to the data. As an example, we can process the data without paying attention to the attributes: &lt;/p&gt; // Map the data from NiFi to text, ignoring the attributes JavaDStream text = packetStream.map(new Function() { public String call(final NiFiDataPacket dataPacket) throws Exception { return new String(dataPacket.getContent(), StandardCharsets.UTF_8); } }); &lt;/code&gt; &lt;/div&gt; Or we can make use of the attributes: &lt;/p&gt; // Extract the &#39;uuid&#39; attribute JavaDStream text = packetStream.map(new Function() { public String call(final NiFiDataPacket dataPacket) throws Exception { return dataPacket.getAttributes().get(&quot;uuid&quot;); } }); &lt;/code&gt; &lt;/div&gt; So now we have our Receiver ready to pull data from NiFi. Let&#39;s look at how we can configure NiFi to expose this data. First, NiFi has to be configured to allow site-to-site communication. This is accomplished by setting the nifi.remote.input.socket.port property in the nifi.properties file to the desired port to use for site-to-site (if this value is changed, it will require a restart of NiFi for the changes to take effect). Now that NiFi is setup to allow site-to-site, we will build a simple flow to feed data to Spark. We will start by adding two GetFile processors to the flow. One will pick up from /data/in/notifications and the other will pick up from /data/in/analysis: Next, let&#39;s assume that we want to assign different priorities to the data that is picked up from each directory. Let&#39;s assign a priority of &quot;1&quot; (the highest priority) to data coming from the analysis directory and assign a lower priority to the data from the notifications directory. We can use the UpdateAttribute processor to do this. Drag the Processor onto the graph and configure it. In the Settings tab, we set the name to &quot;Set High Priority&quot;. In the Properties tab, we have no properties available. However, there&#39;s a button in the top-right of the dialog that says &quot;New Property.&quot; Clicking that button lets us add a property with the name priority and a value of 1. When we click OK, we see it added to the table: Let&#39;s click Apply and add another UpdateAttribute processor for the data coming from the notifications directory. Here, we will add a property with the name priority but give it a value of 2. After configuring these processor and connecting the GetFile processors to them, we end up with a graph that looks like this: Now, we want to combine all of the data into a single queue so that we can prioritize it before sending the data to Spark. We do this by adding a Funnel to the graph and connecting both of the UpdateAttribute processors to the Funnel: Now we can add an Output Port that our Spark Streaming application can pull from. We drag an Output Port onto our graph. When prompted for a name, we will name it Data For Spark, as this is the name that we gave to our Spark Streaming application. Once we connect the Funnel to the Output Port, we have a graph like this: We haven&#39;t actually told NiFi to prioritize the data yet, though. We&#39;ve simply added an attribute named priority. To prioritize the data based on that, we can right-click on the connection that feeds the Output Port and choose Configure. From the Settings tab, we can drag the PriorityAttributePrioritizer from the list of Available Prioritizers to the list of Selected Prioritizers: Once we click Apply, we&#39;re done. We can start all of the components and we should see the data start flowing to our Spark Streaming application: Now any data that appears in our /data/in/notifications or /data/in/analysis directory will make its way to our streaming application! By using NiFi&#39;s Output Port mechanism, we are able to create any number of different named Output Ports, as well. This allows you, as a NiFi user, to choose exactly which data gets exposed to Spark. Additionally, if NiFi is configured to be secure, each Output Port can be configured to provide the data to only the hosts and users that are authorized. Let&#39;s consider, though, that this data has significant value for processing in a streaming fashion as soon as we have the data, but it may also be of value to a batch processing analytic. This is easy to handle, as well. We can add a MergeContent processor to our graph and configure it to merge data into 64-128 MB TAR files. Then, when we have a full TAR file, we can push the data to HDFS. We can configure MergeContent to make these bundles like so: We can then send the merged files to PutHDFS and auto-terminate the originals. We can feed all the data from our Funnel to this MergeContent processor, and this will allow us to dual-route all data to both HDFS (bundled into 64-128 MB TAR files) and to Spark Streaming (making the data available as soon as possible with very low latency): We would love to hear any questions, comments, or feedback that you may have! Learn more about Apache NiFi and feel free to leave comments here or e-mail us at dev@nifi.incubator.apache.org." />
+<meta property="og:description" content="Stream Processing: NiFi and Spark Mark Payne -&nbsp; markap14@hotmail.com Without doubt, Apache Spark has become wildly popular for processing large quantities of data. One of the key features that Spark provides is the ability to process data in either a batch processing mode or a streaming mode with very little change to your code. Batch processing is typically performed by reading data from HDFS. There have been a few different articles posted about using Apache NiFi (incubating) to publish data HDFS. This article does a great job of explaining how to accomplish this. In many contexts, though, operating on the data as soon as it is available can provide great benefits. In order to provide the right data as quickly as possible, NiFi has created a Spark Receiver, available in the 0.0.2 release of Apache NiFi. This post will examine how we can write a simple Spark application to process data from NiFi and how we can configure NiFi to expose the data to Spark. Incorporating the Apache NiFi Receiver into your Spark application is pretty easy. First, you&#39;ll need to add the Receiver to your application&#39;s POM: &lt;/p&gt; org.apache.nifi nifi-spark-receiver 0.0.2-incubating &lt;/code&gt; &lt;/div&gt; That&#39;s all that is needed in order to be able to use the NiFi Receiver. So now we&#39;ll look at how to use the Receiver in your code. The NiFi Receiver is a Reliable Java Receiver. This means that if we lose a node after it pulls the data from NiFi, the data will not be lost. Instead, another node will simply pull and process the data. In order to create a NiFi Receiver, we need to first create a configuration that tells the Receiver where to pull the data from. The simplest form is to just tell the config where NiFi is running and which Port to pull the data from: &lt;/p&gt; SiteToSiteClientConfig config = new SiteToSiteClient.Builder() .url(&quot;http://localhost:8080/nifi&quot;) .portName(&quot;Data For Spark&quot;) .buildConfig(); &lt;/code&gt; &lt;/div&gt; To briefly explain the terminology here, NiFi refers to its mechanism for transferring data between clusters or instances as Site-to-Site. It exposes options for pushing data or pulling, so that the most appropriate approach can be used for each situation. Spark doesn&#39;t supply a mechanism to have data pushed to it - instead, it wants to pull data from other sources. In NiFi, this data can be exposed in such a way that a receiver can pull from it by adding an Output Port to the root process group. For Spark, we will use this same mechanism - we will use this Site-to-Site protocol to pull data from NiFi&#39;s Output Ports. In order for this to work, we need two pieces of information: the URL to connect to NiFi and the name of the Output Port to pull data from. If the NiFi instance to connect to is clustered, the URL should be that of the NiFi Cluster Manager. In this case, the Receiver will automatically contact the Cluster Manager to determine which nodes are in the cluster and will automatically start pulling data from all nodes. The Receiver automatically determines by communicating with the Cluster Manager which nodes have the most data backed up and will pull from those nodes more heavily than the others. This information is automatically updated periodically so that as new nodes are added to the cluster or nodes leave the cluster, or if the nodes become more or less bogged down, the Receiver will automatically adjust to handle this. Next, we need to instruct the Receiver which Port to pull data from. Since NiFi can have many different Output Ports, we need to provide either a Port Identifier or a Port Name. If desired, we can also configure communications timeouts; SSL information for secure data transfer, authentication, and authorization; compression; and preferred batch sizes. See the JavaDocs for the SiteToSiteClient.Builder for more information. Once we have constructed this configuration object, we can now create the Receiver: &lt;/p&gt; SparkConf sparkConf = new SparkConf().setAppName(&quot;NiFi-Spark Streaming example&quot;); JavaStreamingContext ssc = new JavaStreamingContext(sparkConf, new Duration(1000L)); // Create a JavaReceiverInputDStream using a NiFi receiver so that we can pull data from // specified Port JavaReceiverInputDStream packetStream = ssc.receiverStream(new NiFiReceiver(config, StorageLevel.MEMORY_ONLY())); &lt;/code&gt; &lt;/div&gt; This gives us a JavaReceiverInputDStream of type NiFiDataPacket. The NiFiDataPacket is a simple construct that packages an arbitrary byte array with a map of Key/Value pairs (referred to as attributes) that correspond to the data. As an example, we can process the data without paying attention to the attributes: &lt;/p&gt; // Map the data from NiFi to text, ignoring the attributes JavaDStream text = packetStream.map(new Function() { public String call(final NiFiDataPacket dataPacket) throws Exception { return new String(dataPacket.getContent(), StandardCharsets.UTF_8); } }); &lt;/code&gt; &lt;/div&gt; Or we can make use of the attributes: &lt;/p&gt; // Extract the &#39;uuid&#39; attribute JavaDStream text = packetStream.map(new Function() { public String call(final NiFiDataPacket dataPacket) throws Exception { return dataPacket.getAttributes().get(&quot;uuid&quot;); } }); &lt;/code&gt; &lt;/div&gt; So now we have our Receiver ready to pull data from NiFi. Let&#39;s look at how we can configure NiFi to expose this data. First, NiFi has to be configured to allow site-to-site communication. This is accomplished by setting the nifi.remote.input.socket.port property in the nifi.properties file to the desired port to use for site-to-site (if this value is changed, it will require a restart of NiFi for the changes to take effect). Now that NiFi is setup to allow site-to-site, we will build a simple flow to feed data to Spark. We will start by adding two GetFile processors to the flow. One will pick up from /data/in/notifications and the other will pick up from /data/in/analysis: Next, let&#39;s assume that we want to assign different priorities to the data that is picked up from each directory. Let&#39;s assign a priority of &quot;1&quot; (the highest priority) to data coming from the analysis directory and assign a lower priority to the data from the notifications directory. We can use the UpdateAttribute processor to do this. Drag the Processor onto the graph and configure it. In the Settings tab, we set the name to &quot;Set High Priority&quot;. In the Properties tab, we have no properties available. However, there&#39;s a button in the top-right of the dialog that says &quot;New Property.&quot; Clicking that button lets us add a property with the name priority and a value of 1. When we click OK, we see it added to the table: Let&#39;s click Apply and add another UpdateAttribute processor for the data coming from the notifications directory. Here, we will add a property with the name priority but give it a value of 2. After configuring these processor and connecting the GetFile processors to them, we end up with a graph that looks like this: Now, we want to combine all of the data into a single queue so that we can prioritize it before sending the data to Spark. We do this by adding a Funnel to the graph and connecting both of the UpdateAttribute processors to the Funnel: Now we can add an Output Port that our Spark Streaming application can pull from. We drag an Output Port onto our graph. When prompted for a name, we will name it Data For Spark, as this is the name that we gave to our Spark Streaming application. Once we connect the Funnel to the Output Port, we have a graph like this: We haven&#39;t actually told NiFi to prioritize the data yet, though. We&#39;ve simply added an attribute named priority. To prioritize the data based on that, we can right-click on the connection that feeds the Output Port and choose Configure. From the Settings tab, we can drag the PriorityAttributePrioritizer from the list of Available Prioritizers to the list of Selected Prioritizers: Once we click Apply, we&#39;re done. We can start all of the components and we should see the data start flowing to our Spark Streaming application: Now any data that appears in our /data/in/notifications or /data/in/analysis directory will make its way to our streaming application! By using NiFi&#39;s Output Port mechanism, we are able to create any number of different named Output Ports, as well. This allows you, as a NiFi user, to choose exactly which data gets exposed to Spark. Additionally, if NiFi is configured to be secure, each Output Port can be configured to provide the data to only the hosts and users that are authorized. Let&#39;s consider, though, that this data has significant value for processing in a streaming fashion as soon as we have the data, but it may also be of value to a batch processing analytic. This is easy to handle, as well. We can add a MergeContent processor to our graph and configure it to merge data into 64-128 MB TAR files. Then, when we have a full TAR file, we can push the data to HDFS. We can configure MergeContent to make these bundles like so: We can then send the merged files to PutHDFS and auto-terminate the originals. We can feed all the data from our Funnel to this MergeContent processor, and this will allow us to dual-route all data to both HDFS (bundled into 64-128 MB TAR files) and to Spark Streaming (making the data available as soon as possible with very low latency): We would love to hear any questions, comments, or feedback that you may have! Learn more about Apache NiFi and feel free to leave comments here or e-mail us at dev@nifi.incubator.apache.org." />
+<link rel="canonical" href="http://localhost:4000/nifi/entry/stream_processing_nifi_and_spark" />
+<meta property="og:url" content="http://localhost:4000/nifi/entry/stream_processing_nifi_and_spark" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-14T13:30:30-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Stream Processing: NiFi and Spark" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-11-14T13:30:30-05:00","datePublished":"2019-11-14T13:30:30-05:00","description":"Stream Processing: NiFi and Spark Mark Payne -&nbsp; markap14@hotmail.com Without doubt, Apache Spark has become wildly popular for processing large quantities of data. One of the key features that Spark provides is the ability to process data in either a batch processing mode or a streaming mode with very little change to your code. Batch processing is typically performed by reading data from HDFS. There have been a few different articles posted about using Apache NiFi (incubating) to publish data HDFS. This article does a great job of explaining how to accomplish this. In many contexts, though, operating on the data as soon as it is available can provide great benefits. In order to provide the right data as quickly as possible, NiFi has created a Spark Receiver, available in the 0.0.2 release of Apache NiFi. This post will examine how we can write a simple Spark application to process data from NiFi and how we can configure NiFi to expose the data to Spark. Incorporating the Apache NiFi Receiver into your Spark application is pretty easy. First, you&#39;ll need to add the Receiver to your application&#39;s POM: &lt;/p&gt; org.apache.nifi nifi-spark-receiver 0.0.2-incubating &lt;/code&gt; &lt;/div&gt; That&#39;s all that is needed in order to be able to use the NiFi Receiver. So now we&#39;ll look at how to use the Receiver in your code. The NiFi Receiver is a Reliable Java Receiver. This means that if we lose a node after it pulls the data from NiFi, the data will not be lost. Instead, another node will simply pull and process the data. In order to create a NiFi Receiver, we need to first create a configuration that tells the Receiver where to pull the data from. The simplest form is to just tell the config where NiFi is running and which Port to pull the data from: &lt;/p&gt; SiteToSiteClientConfig config = new SiteToSiteClient.Builder() .url(&quot;http://localhost:8080/nifi&quot;) .portName(&quot;Data For Spark&quot;) .buildConfig(); &lt;/code&gt; &lt;/div&gt; To briefly explain the terminology here, NiFi refers to its mechanism for transferring data between clusters or instances as Site-to-Site. It exposes options for pushing data or pulling, so that the most appropriate approach can be used for each situation. Spark doesn&#39;t supply a mechanism to have data pushed to it - instead, it wants to pull data from other sources. In NiFi, this data can be exposed in such a way that a receiver can pull from it by adding an Output Port to the root process group. For Spark, we will use this same mechanism - we will use this Site-to-Site protocol to pull data from NiFi&#39;s Output Ports. In order for this to work, we need two pieces of information: the URL to connect to NiFi and the name of the Output Port to pull data from. If the NiFi instance to connect to is clustered, the URL should be that of the NiFi Cluster Manager. In this case, the Receiver will automatically contact the Cluster Manager to determine which nodes are in the cluster and will automatically start pulling data from all nodes. The Receiver automatically determines by communicating with the Cluster Manager which nodes have the most data backed up and will pull from those nodes more heavily than the others. This information is automatically updated periodically so that as new nodes are added to the cluster or nodes leave the cluster, or if the nodes become more or less bogged down, the Receiver will automatically adjust to handle this. Next, we need to instruct the Receiver which Port to pull data from. Since NiFi can have many different Output Ports, we need to provide either a Port Identifier or a Port Name. If desired, we can also configure communications timeouts; SSL information for secure data transfer, authentication, and authorization; compression; and preferred batch sizes. See the JavaDocs for the SiteToSiteClient.Builder for more information. Once we have constructed this configuration object, we can now create the Receiver: &lt;/p&gt; SparkConf sparkConf = new SparkConf().setAppName(&quot;NiFi-Spark Streaming example&quot;); JavaStreamingContext ssc = new JavaStreamingContext(sparkConf, new Duration(1000L)); // Create a JavaReceiverInputDStream using a NiFi receiver so that we can pull data from // specified Port JavaReceiverInputDStream packetStream = ssc.receiverStream(new NiFiReceiver(config, StorageLevel.MEMORY_ONLY())); &lt;/code&gt; &lt;/div&gt; This gives us a JavaReceiverInputDStream of type NiFiDataPacket. The NiFiDataPacket is a simple construct that packages an arbitrary byte array with a map of Key/Value pairs (referred to as attributes) that correspond to the data. As an example, we can process the data without paying attention to the attributes: &lt;/p&gt; // Map the data from NiFi to text, ignoring the attributes JavaDStream text = packetStream.map(new Function() { public String call(final NiFiDataPacket dataPacket) throws Exception { return new String(dataPacket.getContent(), StandardCharsets.UTF_8); } }); &lt;/code&gt; &lt;/div&gt; Or we can make use of the attributes: &lt;/p&gt; // Extract the &#39;uuid&#39; attribute JavaDStream text = packetStream.map(new Function() { public String call(final NiFiDataPacket dataPacket) throws Exception { return dataPacket.getAttributes().get(&quot;uuid&quot;); } }); &lt;/code&gt; &lt;/div&gt; So now we have our Receiver ready to pull data from NiFi. Let&#39;s look at how we can configure NiFi to expose this data. First, NiFi has to be configured to allow site-to-site communication. This is accomplished by setting the nifi.remote.input.socket.port property in the nifi.properties file to the desired port to use for site-to-site (if this value is changed, it will require a restart of NiFi for the changes to take effect). Now that NiFi is setup to allow site-to-site, we will build a simple flow to feed data to Spark. We will start by adding two GetFile processors to the flow. One will pick up from /data/in/notifications and the other will pick up from /data/in/analysis: Next, let&#39;s assume that we want to assign different priorities to the data that is picked up from each directory. Let&#39;s assign a priority of &quot;1&quot; (the highest priority) to data coming from the analysis directory and assign a lower priority to the data from the notifications directory. We can use the UpdateAttribute processor to do this. Drag the Processor onto the graph and configure it. In the Settings tab, we set the name to &quot;Set High Priority&quot;. In the Properties tab, we have no properties available. However, there&#39;s a button in the top-right of the dialog that says &quot;New Property.&quot; Clicking that button lets us add a property with the name priority and a value of 1. When we click OK, we see it added to the table: Let&#39;s click Apply and add another UpdateAttribute processor for the data coming from the notifications directory. Here, we will add a property with the name priority but give it a value of 2. After configuring these processor and connecting the GetFile processors to them, we end up with a graph that looks like this: Now, we want to combine all of the data into a single queue so that we can prioritize it before sending the data to Spark. We do this by adding a Funnel to the graph and connecting both of the UpdateAttribute processors to the Funnel: Now we can add an Output Port that our Spark Streaming application can pull from. We drag an Output Port onto our graph. When prompted for a name, we will name it Data For Spark, as this is the name that we gave to our Spark Streaming application. Once we connect the Funnel to the Output Port, we have a graph like this: We haven&#39;t actually told NiFi to prioritize the data yet, though. We&#39;ve simply added an attribute named priority. To prioritize the data based on that, we can right-click on the connection that feeds the Output Port and choose Configure. From the Settings tab, we can drag the PriorityAttributePrioritizer from the list of Available Prioritizers to the list of Selected Prioritizers: Once we click Apply, we&#39;re done. We can start all of the components and we should see the data start flowing to our Spark Streaming application: Now any data that appears in our /data/in/notifications or /data/in/analysis directory will make its way to our streaming application! By using NiFi&#39;s Output Port mechanism, we are able to create any number of different named Output Ports, as well. This allows you, as a NiFi user, to choose exactly which data gets exposed to Spark. Additionally, if NiFi is configured to be secure, each Output Port can be configured to provide the data to only the hosts and users that are authorized. Let&#39;s consider, though, that this data has significant value for processing in a streaming fashion as soon as we have the data, but it may also be of value to a batch processing analytic. This is easy to handle, as well. We can add a MergeContent processor to our graph and configure it to merge data into 64-128 MB TAR files. Then, when we have a full TAR file, we can push the data to HDFS. We can configure MergeContent to make these bundles like so: We can then send the merged files to PutHDFS and auto-terminate the originals. We can feed all the data from our Funnel to this MergeContent processor, and this will allow us to dual-route all data to both HDFS (bundled into 64-128 MB TAR files) and to Spark Streaming (making the data available as soon as possible with very low latency): We would love to hear any questions, comments, or feedback that you may have! Learn more about Apache NiFi and feel free to leave comments here or e-mail us at dev@nifi.incubator.apache.org.","headline":"Stream Processing: NiFi and Spark","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/nifi/entry/stream_processing_nifi_and_spark"},"url":"http://localhost:4000/nifi/entry/stream_processing_nifi_and_spark"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Stream Processing: NiFi and Spark</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-11-14T13:30:30-05:00" itemprop="datePublished">Nov 14, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"markap14@apache.org", "login"=>"markap14", "email"=>"markap14@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1>
+  Stream Processing: NiFi and Spark<br />
+</h1>
+<p>
+   <span class="author">Mark Payne -&nbsp;</span><br />
+   <span class="author"><a href="mailto:markap14@hotmail.com">markap14@hotmail.com</a></span></p>
+<hr />
+<p>
+Without doubt, <a href="https://spark.apache.org/">Apache Spark</a> has become wildly popular for processing large quantities of data. One of the key features that Spark provides<br />
+is the ability to process data in either a batch processing mode or a streaming mode with very little change to your code. Batch processing is typically performed by reading data from HDFS.<br />
+There have been a few different articles posted about using <a href="http://nifi.incubator.apache.org/">Apache NiFi (incubating)</a> to publish data HDFS.<br />
+<a href="http://ingest.tips/2014/12/22/getting-started-with-apache-nifi/">This article</a> does a great job of explaining how to accomplish this.</p>
+<p>
+In many contexts, though, operating on the data as soon as it is available can provide great benefits. In order to provide the right data as quickly as possible,<br />
+NiFi has created a Spark Receiver, available in the <a href="http://nifi.incubator.apache.org/downloads/">0.0.2 release</a> of Apache NiFi.<br />
+This post will examine how we can write a simple Spark application to process data from NiFi and how we can configure NiFi to expose the data to Spark.</p>
+<p>
+Incorporating the Apache NiFi Receiver into your Spark application is pretty easy. First, you'll need to add the Receiver to your application's POM:</p>
+<div>
+<code></p>
+<pre style="background-color: #f1f1f1">
+  <dependency>
+    <groupId>org.apache.nifi</groupId>
+    <artifactId>nifi-spark-receiver</artifactId>
+    <version>0.0.2-incubating</version>
+  </dependency>
+</pre>
+<p></code>
+</div>
+<p>
+That's all that is needed in order to be able to use the NiFi Receiver. So now we'll look at how to use the Receiver in your code.</p>
+<p>
+The NiFi Receiver is a Reliable Java Receiver. This means that if we lose a node after it pulls the data from NiFi, the data will not be lost. Instead, another node will simply pull and process the data. In order to create a NiFi Receiver, we need to first create a configuration that tells the Receiver where to pull the data from. The simplest form is to just tell the config where NiFi is running and which Port to pull the data from:</p>
+<div>
+<code></p>
+<pre style="background-color: #f1f1f1">
+SiteToSiteClientConfig config = new SiteToSiteClient.Builder()
+  .url("http://localhost:8080/nifi")
+  .portName("Data For Spark")
+  .buildConfig();
+</pre>
+<p></code>
+</div>
+<p>
+To briefly explain the terminology here, NiFi refers to its mechanism for transferring data between clusters or instances as Site-to-Site. It exposes options for pushing data or pulling,<br />
+so that the most appropriate approach can be used for each situation. Spark doesn't supply a mechanism to have data pushed to it - instead, it wants to pull data from other sources.<br />
+In NiFi, this data can be exposed in such a way that a receiver can pull from it by adding an Output Port to the root process group. For Spark, we will use this same mechanism -<br />
+we will use this Site-to-Site protocol to pull data from NiFi's Output Ports. In order for this to work, we need two pieces of information: the URL to connect to NiFi and the name of<br />
+the Output Port to pull data from.</p>
+<p>
+If the NiFi instance to connect to is clustered, the URL should be that of the NiFi Cluster Manager. In this case, the Receiver will automatically contact the Cluster<br />
+Manager to determine which nodes are in the cluster and will automatically start pulling data from all nodes. The Receiver automatically determines by communicating with the<br />
+Cluster Manager which nodes have the most data backed up and will pull from those nodes more heavily than the others. This information is automatically updated periodically<br />
+so that as new nodes are added to the cluster or nodes leave the cluster, or if the nodes become more or less bogged down, the Receiver will automatically adjust to handle this.</p>
+<p>
+Next, we need to instruct the Receiver which Port<br />
+to pull data from. Since NiFi can have many different Output Ports, we need to provide either a Port Identifier or a Port Name. If desired, we can also configure communications<br />
+timeouts; SSL information for secure data transfer, authentication, and authorization; compression; and preferred batch sizes. See the JavaDocs for the <code>SiteToSiteClient.Builder</code><br />
+for more information.</p>
+<p>
+Once we have constructed this configuration object, we can now create the Receiver:</p>
+<div>
+<code></p>
+<pre style="background-color: #f1f1f1">
+ SparkConf sparkConf = new SparkConf().setAppName("NiFi-Spark Streaming example");
+ JavaStreamingContext ssc = new JavaStreamingContext(sparkConf, new Duration(1000L));
+ 
+ // Create a JavaReceiverInputDStream using a NiFi receiver so that we can pull data from 
+ // specified Port
+ JavaReceiverInputDStream packetStream = 
+     ssc.receiverStream(new NiFiReceiver(config, StorageLevel.MEMORY_ONLY()));
+</pre>
+<p></code>
+</div>
+<p>
+This gives us a <code>JavaReceiverInputDStream</code> of type <code>NiFiDataPacket</code>.<br />
+The <code>NiFiDataPacket</code> is a simple construct that packages an arbitrary byte array with a map of Key/Value pairs (referred to as attributes) that correspond to the data.<br />
+As an example, we can process the data without paying attention to the attributes:</p>
+<div>
+<code></p>
+<pre style="background-color: #f1f1f1">
+ // Map the data from NiFi to text, ignoring the attributes
+ JavaDStream text = packetStream.map(new Function() {
+   public String call(final NiFiDataPacket dataPacket) throws Exception {
+     return new String(dataPacket.getContent(), StandardCharsets.UTF_8);
+   }
+ });
+</pre>
+<p></code>
+</div>
+<p>
+Or we can make use of the attributes:</p>
+<div>
+<code></p>
+<pre style="background-color: #f1f1f1">
+ // Extract the 'uuid' attribute
+ JavaDStream text = packetStream.map(new Function() {
+   public String call(final NiFiDataPacket dataPacket) throws Exception {
+     return dataPacket.getAttributes().get("uuid");
+   }
+ });
+</pre>
+<p></code>
+</div>
+<p>
+So now we have our Receiver ready to pull data from NiFi. Let's look at how we can configure NiFi to expose this data.</p>
+<p>
+First, NiFi has to be configured to allow site-to-site communication. This is accomplished by setting the <code>nifi.remote.input.socket.port</code> property<br />
+in the nifi.properties file to the desired port to use for site-to-site (if this value is changed, it will require a restart of NiFi for the changes to take effect).</p>
+<p>
+Now that NiFi is setup to allow site-to-site, we will build a simple flow to feed data to Spark. We will start by adding two GetFile processors to the flow. One will<br />
+pick up from <code>/data/in/notifications</code> and the other will pick up from <code>/data/in/analysis</code>:</p>
+<p><img class="screenshot" style="width: 1366px;" src="https://blogs.apache.org/nifi/mediaresource/8d30561d-b6c9-4897-ba2c-ed77ae781b15" alt="GetFile" /></p>
+<p>
+Next, let's assume that we want to assign different priorities to the data that is picked up from each directory. Let's assign a priority of "1" (the highest priority)<br />
+to data coming from the <code>analysis</code> directory and assign a lower priority to the data from the <code>notifications</code> directory. We can use<br />
+the UpdateAttribute processor to do this. Drag the Processor onto the graph and configure it. In the Settings tab, we set the name to "Set High Priority". In the<br />
+Properties tab, we have no properties available. However, there's a button in the top-right of the dialog that says "New Property." Clicking that button lets us<br />
+add a property with the name <code>priority</code> and a value of <code>1</code>. When we click OK, we see it added to the table:</p>
+<p><img class="dialog" src="https://blogs.apache.org/nifi/mediaresource/d626b5be-2a4d-4f6b-8312-d4216848b480" alt="Set Priority" /></p>
+<p>
+Let's click Apply and add another UpdateAttribute processor for the data coming from the <code>notifications</code> directory. Here, we will add a property<br />
+with the name <code>priority</code> but give it a value of <code>2</code>. After configuring these processor and connecting the GetFile processors to them,<br />
+we end up with a graph that looks like this:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/0fdf59aa-1404-495c-8bce-6cd8dcafc7bc" alt="Connect GetFile and UpdateAttribute" /></p>
+<p>
+Now, we want to combine all of the data into a single queue so that we can prioritize it before sending the data to Spark. We do this by adding a Funnel to the graph<br />
+and connecting both of the UpdateAttribute processors to the Funnel:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/6e31f47a-178c-4eb4-bf47-b1395af43d0c" alt="With Funnel" /></p>
+<p>
+Now we can add an Output Port that our Spark Streaming application can pull from. We drag an Output Port onto our graph. When prompted for a name, we will name it<br />
+<code>Data For Spark</code>, as this is the name that we gave to our Spark Streaming application. Once we connect the Funnel to the Output Port, we have a graph<br />
+like this:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/ae7c0df5-f9d6-40f8-9d8c-7a0bdc27b743" alt="Before Running" /></p>
+<p>
+We haven't actually told NiFi to prioritize the data yet, though. We've simply added an attribute named <code>priority</code>. To prioritize the data based on that, we can<br />
+right-click on the connection that feeds the Output Port and choose Configure. From the Settings tab, we can drag the PriorityAttributePrioritizer from the list of Available Prioritizers<br />
+to the list of Selected Prioritizers:</p>
+<p><img class="dialog" src="https://blogs.apache.org/nifi/mediaresource/35ef6c0f-71cf-46b0-b184-59a50c1c2482" alt="Prioritize" /></p>
+<p>
+Once we click Apply, we're done. We can start all of the components and we should see the data start flowing to our Spark Streaming application:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/320ffb30-d5fe-4791-a4ce-e704cfc5e965" alt="Running" /></p>
+<p>
+Now any data that appears in our <code>/data/in/notifications</code> or <code>/data/in/analysis</code> directory will make its way to our streaming application!</p>
+<p>
+By using NiFi's Output Port mechanism, we are able to create any number of different named Output Ports, as well. This allows you, as a NiFi user, to choose<br />
+exactly which data gets exposed to Spark. Additionally, if NiFi is configured to be secure, each Output Port can be configured to provide the data to only the hosts and users that<br />
+are authorized.</p>
+<p>
+Let's consider, though, that this data has significant value for processing in a streaming fashion as soon as we have the data, but it may also be of value to a batch processing<br />
+analytic. This is easy to handle, as well. We can add a MergeContent processor to our graph and configure it to merge data into 64-128 MB TAR files. Then, when we have a<br />
+full TAR file, we can push the data to HDFS. We can configure MergeContent to make these bundles like so:</p>
+<p><img class="dialog" src="https://blogs.apache.org/nifi/mediaresource/447a0d0a-0723-4102-8d96-bcc23a71f65d" alt="Merge configuration" /></p>
+<p>
+We can then send the merged files to PutHDFS and auto-terminate the originals. We can feed all the data from our Funnel to this MergeContent processor, and this will<br />
+allow us to dual-route all data to both HDFS (bundled into 64-128 MB TAR files) and to Spark Streaming (making the data available as soon as possible with very low latency):</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/52d068ce-a8cf-4441-83ed-0bb2ad9c6e80" alt="hdfs and spark streaming" /></p>
+<p>
+We would love to hear any questions, comments, or feedback that you may have!</p>
+<p>
+<a href="http://nifi.incubator.apache.org">Learn more about Apache NiFi</a> and feel free to leave comments here or e-mail us at dev@nifi.incubator.apache.org.</p>
+
+  </div><a class="u-url" href="/nifi/entry/stream_processing_nifi_and_spark" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

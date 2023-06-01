@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Behind Apache’s New Status Service | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Behind Apache’s New Status Service" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Earlier this week, the Apache Software Foundation&#39;s Infrastructure Team launched a new status service that displays a ton of information about the health of the Apache infrastructure and activity within its projects. Daniel Gruno, infrastructure architect at the ASF, explains how the service came to be and where it&#39;s headed." />
+<meta property="og:description" content="Earlier this week, the Apache Software Foundation&#39;s Infrastructure Team launched a new status service that displays a ton of information about the health of the Apache infrastructure and activity within its projects. Daniel Gruno, infrastructure architect at the ASF, explains how the service came to be and where it&#39;s headed." />
+<link rel="canonical" href="http://localhost:4000/foundation/entry/behind_apache_s_new_status" />
+<meta property="og:url" content="http://localhost:4000/foundation/entry/behind_apache_s_new_status" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-08-15T16:29:59-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Behind Apache’s New Status Service" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-08-15T16:29:59-04:00","datePublished":"2014-08-15T16:29:59-04:00","description":"Earlier this week, the Apache Software Foundation&#39;s Infrastructure Team launched a new status service that displays a ton of information about the health of the Apache infrastructure and activity within its projects. Daniel Gruno, infrastructure architect at the ASF, explains how the service came to be and where it&#39;s headed.","headline":"Behind Apache’s New Status Service","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/foundation/entry/behind_apache_s_new_status"},"url":"http://localhost:4000/foundation/entry/behind_apache_s_new_status"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Behind Apache&#39;s New Status Service</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-08-15T16:29:59-04:00" itemprop="datePublished">Aug 15, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Joe Brockmeier", "login"=>"jzb", "email"=>"jzb@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Earlier this week, the Apache Software Foundation's Infrastructure Team launched a new <a href="http://status.apache.org/">status service</a> that displays a ton of information about the health of the Apache infrastructure and activity within its projects. Daniel Gruno, infrastructure architect at the ASF, explains how the service came to be and where it's headed.</p>
+<p><strong>Joe Brockmeier: Can you tell us about the development of the project, and where the idea came from, and how long it's taken to develop?</strong></p>
+<p><strong>Daniel Gruno:</strong> The idea came when I was waiting for a bus home from my parents' house on Tuesday. I choose to call it an epiphany, because at the time, it seemed sort of mind-blowing to me; The status of the ASF's infrastructure isn't just what's up/down, it's <em>what is going on right now</em>. It's what's being written, what's being committed, what emails are being sent, who's doing what on our github mirrors and so on. With that in mind, I had a good think (and a couple of imaginary maniacal laughs) on the way home, and set to work straight away, asking my boss (David Nalley) for two days to focus on this project. As it often happens, the actual site was done over-night, but it took another full day to verify that the data mining was indeed working as intended, and then fixing all the things, that the few folks who had previewed it, thought needed a bit of a fix.</p>
+<p><strong>Joe: Who has worked on the project? Has it been several people in Apache Infrastructure, or others?</strong></p>
+<p><strong>Daniel:</strong> In ASF, it's always team-work even when you work alone. You get an idea, you present it to the crowd, and collectively you figure out whether this idea is as good as it sounds, what priority to give it, and so on. I did the actual coding myself (I was so full of ideas, it was best to just get them out of my head as quick as possible), but the important factor is that the infrastructure team had my back &ndash; they were keeping our infrastructure running while I focused on this, and they provided much needed response to the things I produced.</p>
+<p><strong>Joe: What tools did you use to build the service? Any specific frameworks or Apache projects?</strong></p>
+<p><strong>Daniel:</strong> I'm a httpd fan boy, so there is always an httpd instance in the mix when I do something. The actual activity data is already provided pro bono by my company for the ASF, so it was really only a matter of grabbing that data (this is provided to us as JSON objects in this case) and turning it into useful information for our users and contributors. Part of the data that is mined is fetched from Apache Subversion's wonderful publisher/subscriber service called svnpubsub (I really wish more people knew about this awesome piece of software!), and from our git counterpart aptly named gitpubsub. There is also some jQuery and some Google Charts magic involved in the process.</p>
+<p><strong>Joe: Since this is Apache, should we assume the source for the service is available somewhere?</strong></p>
+<p><strong>Daniel:</strong> Yes, the source for the page is in infra's public subversion directory: <a href="https://svn.apache.org/repos/infra/infrastructure/trunk/projects/status">https://svn.apache.org/repos/infra/infrastructure/trunk/projects/status</a>.</p>
+<p><strong>Joe: I notice that there are modules that track commits and show the top projects, etc. Is there a way for individual projects to get a status page that just tracks their community?</strong></p>
+<p><strong>Daniel:</strong> That's a great idea! I have begun work on this, and anyone checking out the repository linked to above will be able to implement our preliminary widget into their site.</p>
+<p><strong>Joe: Any plans for new modules, improvements, etc. in the short/long term?</strong></p>
+<p><strong>Daniel:</strong> Yes, we plan to extend this endeavour with a new sub-site where committers can subscribe to alerts. For instance, the OFBiz people could subscribe to notifications about the ofbiz VMs, people could sign up for watching out for feathercast or anything else they want to help out with, and so on.</p>
+<p><strong>Joe: Right now, it's all green. Is there a list of services that are down, or how do you visualize that?</strong></p>
+<p><strong>Daniel:</strong> Yes; Some people have asked me where the list of services that are currently down is. To that I can only say; IF any of our public infrastructure services are down, you will notice it on the site very quickly &ndash; but for the most part (99.9% of the time) our services are really just all up and running, and we take great pride in that.</p>
+<p><strong>Joe: If other Apache folks want to get involved to help with this, how should they go about it?</strong></p>
+<p><strong>Daniel:</strong> They should, as the site says, contact us at infrastructure@apache.org - we definitely welcome any help we can get in making this as awesome as possible, and I have already had a few offers to help improve the javascript that powers the site. As with any real Apache project, once you've written down the initial codebase (whether it be alone or as a group), you generally seek to include as many as you can in the project, so as to make it as resilient and diverse as possible.</p>
+
+  </div><a class="u-url" href="/foundation/entry/behind_apache_s_new_status" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

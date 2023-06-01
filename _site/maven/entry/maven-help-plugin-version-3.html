@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Maven Help Plugin Version 3.0.0 Released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Maven Help Plugin Version 3.0.0 Released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Maven team is pleased to announce the release of the Apache Maven Help Plugin, version 3.0.0 The Maven Help Plugin is used to get relative information about a project or the system. It can be used to get a description of a particular plugin, including the plugin&rsquo;s goals with their parameters and component requirements, the effective POM and effective settings of the current build, and the profiles applied to the current project being built. You should specify the version in your project&rsquo;s plugin configuration: 1 2 3 4 5 &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;/span&gt; &lt;/span&gt;maven-help-plugin&lt;/artifactId&gt; &lt;/span&gt; &lt;/span&gt;3.0.0&lt;/version&gt; &lt;/span&gt;&lt;/plugin&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/figure&gt; You can download the appropriate sources etc. from the download page. Release Notes &ndash; Maven Help Plugin &ndash; Version 3.0.0 Bugs: MPH-53 &ndash; mvn help:describe returns the version that is specified in metadata instead of the one in the parent pom MPH-87 &ndash; help:effective-pom/effective-settings uses platform encoding and garbles non-ASCII characters, emits invalid XML MPH-97 &ndash; [Patch] maven-help-plugin does not build with latest version of maven-plugin-testing-harness MPH-99 &ndash; Evaluate has no output in quiet mode MPH-105 &ndash; Effective pom aggregation is not triggered MPH-107 &ndash; Mojos use inconsistent line endings throughout MPH-108 &ndash; Patch for MPH-72 not fully applied MPH-110 &ndash; Cannot run ITs successfully MPH-111 &ndash; IT &lsquo;effective-pom_properties&rsquo; fails if run with -Dinvoker.mergeUserSettings MPH-114 &ndash; Goal fails with &ldquo;Unable to get the POM for the artifact&rdquo; MPH-119 &ndash; The &ldquo;artifact&rdquo; parameter is not taken into account with Maven 3 MPH-121 &ndash; incorrect text in help:describe for cmd MPH-123 &ndash; all-profiles does not show right active status Improvements: MPH-106 &ndash; add gav parameter to calculate effective pom for any gav, not only reactor MPH-109 &ndash; Use ISO 8601 date format for the remaining goals MPH-116 &ndash; Printout the information if a goal is a report goal or not MPH-120 &ndash; Migrate plugin to Maven 3.0 MPH-124 &ndash; Show parameter aliases in describe goal Tasks: MPH-103 &ndash; Remove unused dependency maven-monitor MPH-112 &ndash; Upgrade to Commons Lang3 MPH-126 &ndash; Require Java 7 MPH-132 &ndash; Drop parameter &lsquo;medium&rsquo; MPH-133 &ndash; Drop deprecated alias &lsquo;full&rsquo; MPH-134 &ndash; Drop deprecated alias &lsquo;mojo&rsquo; Dependency upgrades: MPH-102 &ndash; Upgrade to maven-plugins parent version 27 MPH-104 &ndash; Upgrade maven-plugin-testing-harness to 1.3 MPH-117 &ndash; Upgrade plexus-utils to 3.0.22 MPH-118 &ndash; Upgrade maven-plugins to version 30 MPH-125 &ndash; Upgrade parent to 31 MPH-127 &ndash; Upgrade Maven Artifact Transfer to 0.9.1 MPH-128 &ndash; Upgrade Maven Reporting Exec to 1.4 MPH-129 &ndash; Upgrade Plexus Utils to 3.1.0 MPH-130 &ndash; Upgrade XStream to 1.4.7 MPH-131 &ndash; Ugprade Commons Lang to 3.7 Enjoy, -The Apache Maven team &lt;/div&gt;" />
+<meta property="og:description" content="The Apache Maven team is pleased to announce the release of the Apache Maven Help Plugin, version 3.0.0 The Maven Help Plugin is used to get relative information about a project or the system. It can be used to get a description of a particular plugin, including the plugin&rsquo;s goals with their parameters and component requirements, the effective POM and effective settings of the current build, and the profiles applied to the current project being built. You should specify the version in your project&rsquo;s plugin configuration: 1 2 3 4 5 &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;/span&gt; &lt;/span&gt;maven-help-plugin&lt;/artifactId&gt; &lt;/span&gt; &lt;/span&gt;3.0.0&lt;/version&gt; &lt;/span&gt;&lt;/plugin&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/figure&gt; You can download the appropriate sources etc. from the download page. Release Notes &ndash; Maven Help Plugin &ndash; Version 3.0.0 Bugs: MPH-53 &ndash; mvn help:describe returns the version that is specified in metadata instead of the one in the parent pom MPH-87 &ndash; help:effective-pom/effective-settings uses platform encoding and garbles non-ASCII characters, emits invalid XML MPH-97 &ndash; [Patch] maven-help-plugin does not build with latest version of maven-plugin-testing-harness MPH-99 &ndash; Evaluate has no output in quiet mode MPH-105 &ndash; Effective pom aggregation is not triggered MPH-107 &ndash; Mojos use inconsistent line endings throughout MPH-108 &ndash; Patch for MPH-72 not fully applied MPH-110 &ndash; Cannot run ITs successfully MPH-111 &ndash; IT &lsquo;effective-pom_properties&rsquo; fails if run with -Dinvoker.mergeUserSettings MPH-114 &ndash; Goal fails with &ldquo;Unable to get the POM for the artifact&rdquo; MPH-119 &ndash; The &ldquo;artifact&rdquo; parameter is not taken into account with Maven 3 MPH-121 &ndash; incorrect text in help:describe for cmd MPH-123 &ndash; all-profiles does not show right active status Improvements: MPH-106 &ndash; add gav parameter to calculate effective pom for any gav, not only reactor MPH-109 &ndash; Use ISO 8601 date format for the remaining goals MPH-116 &ndash; Printout the information if a goal is a report goal or not MPH-120 &ndash; Migrate plugin to Maven 3.0 MPH-124 &ndash; Show parameter aliases in describe goal Tasks: MPH-103 &ndash; Remove unused dependency maven-monitor MPH-112 &ndash; Upgrade to Commons Lang3 MPH-126 &ndash; Require Java 7 MPH-132 &ndash; Drop parameter &lsquo;medium&rsquo; MPH-133 &ndash; Drop deprecated alias &lsquo;full&rsquo; MPH-134 &ndash; Drop deprecated alias &lsquo;mojo&rsquo; Dependency upgrades: MPH-102 &ndash; Upgrade to maven-plugins parent version 27 MPH-104 &ndash; Upgrade maven-plugin-testing-harness to 1.3 MPH-117 &ndash; Upgrade plexus-utils to 3.0.22 MPH-118 &ndash; Upgrade maven-plugins to version 30 MPH-125 &ndash; Upgrade parent to 31 MPH-127 &ndash; Upgrade Maven Artifact Transfer to 0.9.1 MPH-128 &ndash; Upgrade Maven Reporting Exec to 1.4 MPH-129 &ndash; Upgrade Plexus Utils to 3.1.0 MPH-130 &ndash; Upgrade XStream to 1.4.7 MPH-131 &ndash; Ugprade Commons Lang to 3.7 Enjoy, -The Apache Maven team &lt;/div&gt;" />
+<link rel="canonical" href="http://localhost:4000/maven/entry/maven-help-plugin-version-3" />
+<meta property="og:url" content="http://localhost:4000/maven/entry/maven-help-plugin-version-3" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-28T17:29:24-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Maven Help Plugin Version 3.0.0 Released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-03-28T17:29:24-04:00","datePublished":"2018-03-28T17:29:24-04:00","description":"The Apache Maven team is pleased to announce the release of the Apache Maven Help Plugin, version 3.0.0 The Maven Help Plugin is used to get relative information about a project or the system. It can be used to get a description of a particular plugin, including the plugin&rsquo;s goals with their parameters and component requirements, the effective POM and effective settings of the current build, and the profiles applied to the current project being built. You should specify the version in your project&rsquo;s plugin configuration: 1 2 3 4 5 &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;/span&gt; &lt;/span&gt;maven-help-plugin&lt;/artifactId&gt; &lt;/span&gt; &lt;/span&gt;3.0.0&lt;/version&gt; &lt;/span&gt;&lt;/plugin&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/figure&gt; You can download the appropriate sources etc. from the download page. Release Notes &ndash; Maven Help Plugin &ndash; Version 3.0.0 Bugs: MPH-53 &ndash; mvn help:describe returns the version that is specified in metadata instead of the one in the parent pom MPH-87 &ndash; help:effective-pom/effective-settings uses platform encoding and garbles non-ASCII characters, emits invalid XML MPH-97 &ndash; [Patch] maven-help-plugin does not build with latest version of maven-plugin-testing-harness MPH-99 &ndash; Evaluate has no output in quiet mode MPH-105 &ndash; Effective pom aggregation is not triggered MPH-107 &ndash; Mojos use inconsistent line endings throughout MPH-108 &ndash; Patch for MPH-72 not fully applied MPH-110 &ndash; Cannot run ITs successfully MPH-111 &ndash; IT &lsquo;effective-pom_properties&rsquo; fails if run with -Dinvoker.mergeUserSettings MPH-114 &ndash; Goal fails with &ldquo;Unable to get the POM for the artifact&rdquo; MPH-119 &ndash; The &ldquo;artifact&rdquo; parameter is not taken into account with Maven 3 MPH-121 &ndash; incorrect text in help:describe for cmd MPH-123 &ndash; all-profiles does not show right active status Improvements: MPH-106 &ndash; add gav parameter to calculate effective pom for any gav, not only reactor MPH-109 &ndash; Use ISO 8601 date format for the remaining goals MPH-116 &ndash; Printout the information if a goal is a report goal or not MPH-120 &ndash; Migrate plugin to Maven 3.0 MPH-124 &ndash; Show parameter aliases in describe goal Tasks: MPH-103 &ndash; Remove unused dependency maven-monitor MPH-112 &ndash; Upgrade to Commons Lang3 MPH-126 &ndash; Require Java 7 MPH-132 &ndash; Drop parameter &lsquo;medium&rsquo; MPH-133 &ndash; Drop deprecated alias &lsquo;full&rsquo; MPH-134 &ndash; Drop deprecated alias &lsquo;mojo&rsquo; Dependency upgrades: MPH-102 &ndash; Upgrade to maven-plugins parent version 27 MPH-104 &ndash; Upgrade maven-plugin-testing-harness to 1.3 MPH-117 &ndash; Upgrade plexus-utils to 3.0.22 MPH-118 &ndash; Upgrade maven-plugins to version 30 MPH-125 &ndash; Upgrade parent to 31 MPH-127 &ndash; Upgrade Maven Artifact Transfer to 0.9.1 MPH-128 &ndash; Upgrade Maven Reporting Exec to 1.4 MPH-129 &ndash; Upgrade Plexus Utils to 3.1.0 MPH-130 &ndash; Upgrade XStream to 1.4.7 MPH-131 &ndash; Ugprade Commons Lang to 3.7 Enjoy, -The Apache Maven team &lt;/div&gt;","headline":"Maven Help Plugin Version 3.0.0 Released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/maven/entry/maven-help-plugin-version-3"},"url":"http://localhost:4000/maven/entry/maven-help-plugin-version-3"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Maven Help Plugin Version 3.0.0 Released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-03-28T17:29:24-04:00" itemprop="datePublished">Mar 28, 2018
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Karl-Heinz Marbaise", "login"=>"khmarbaise", "email"=>"khmarbaise@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+<a href="http://maven.apache.org/plugins/maven-help-plugin/">Apache Maven Help Plugin, version 3.0.0</a></p>
+<p>The Maven Help Plugin is used to get relative information about a project or<br />
+the system. It can be used to get a description of a particular plugin,<br />
+including the plugin&rsquo;s goals with their parameters and component requirements,<br />
+the effective POM and effective settings of the current build, and the profiles<br />
+applied to the current project being built.</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-help-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>3.0.0<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>You can download the appropriate <a href="https://maven.apache.org/plugins/maven-help-plugin/download.cgi">sources etc. from the download page</a>.</p>
+<p><!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317522&amp;version=12330788">Release Notes &ndash; Maven Help Plugin &ndash; Version 3.0.0</a></p>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MPH-53">MPH-53</a> &ndash; mvn help:describe returns the version that is specified in metadata instead of  the one in the parent pom</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-87">MPH-87</a> &ndash; help:effective-pom/effective-settings uses platform encoding and garbles non-ASCII characters, emits invalid XML</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-97">MPH-97</a> &ndash; [Patch] maven-help-plugin does not build with latest version of maven-plugin-testing-harness</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-99">MPH-99</a> &ndash; Evaluate has no output in quiet mode</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-105">MPH-105</a> &ndash; Effective pom aggregation is not triggered</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-107">MPH-107</a> &ndash; Mojos use inconsistent line endings throughout</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-108">MPH-108</a> &ndash; Patch for MPH-72 not fully applied</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-110">MPH-110</a> &ndash; Cannot run ITs successfully</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-111">MPH-111</a> &ndash; IT &lsquo;effective-pom_properties&rsquo; fails if run with -Dinvoker.mergeUserSettings</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-114">MPH-114</a> &ndash; Goal fails with &ldquo;Unable to get the POM for the artifact&rdquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-119">MPH-119</a> &ndash; The &ldquo;artifact&rdquo; parameter is not taken into account with Maven 3</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-121">MPH-121</a> &ndash; incorrect text in help:describe for cmd</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-123">MPH-123</a> &ndash; all-profiles does not show right active status</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MPH-106">MPH-106</a> &ndash; add gav parameter to calculate effective pom for any gav, not only reactor</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-109">MPH-109</a> &ndash; Use ISO 8601 date format for the remaining goals</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-116">MPH-116</a> &ndash; Printout the information if a goal is a report goal or not</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-120">MPH-120</a> &ndash; Migrate plugin to Maven 3.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-124">MPH-124</a> &ndash; Show parameter aliases in describe goal</li>
+</ul>
+<p>Tasks:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MPH-103">MPH-103</a> &ndash; Remove unused dependency maven-monitor</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-112">MPH-112</a> &ndash; Upgrade to Commons Lang3</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-126">MPH-126</a> &ndash; Require Java 7</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-132">MPH-132</a> &ndash; Drop parameter &lsquo;medium&rsquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-133">MPH-133</a> &ndash; Drop deprecated alias &lsquo;full&rsquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-134">MPH-134</a> &ndash; Drop deprecated alias &lsquo;mojo&rsquo;</li>
+</ul>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MPH-102">MPH-102</a> &ndash; Upgrade to maven-plugins parent version 27</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-104">MPH-104</a> &ndash; Upgrade maven-plugin-testing-harness to 1.3</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-117">MPH-117</a> &ndash; Upgrade plexus-utils to 3.0.22</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-118">MPH-118</a> &ndash; Upgrade maven-plugins to version 30</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-125">MPH-125</a> &ndash; Upgrade parent to 31</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-127">MPH-127</a> &ndash; Upgrade Maven  Artifact Transfer to 0.9.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-128">MPH-128</a> &ndash; Upgrade Maven Reporting Exec to 1.4</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-129">MPH-129</a> &ndash; Upgrade Plexus Utils to 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-130">MPH-130</a> &ndash; Upgrade XStream to 1.4.7</li>
+<li><a href="https://issues.apache.org/jira/browse/MPH-131">MPH-131</a> &ndash; Ugprade Commons Lang to 3.7</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>
+
+  </div><a class="u-url" href="/maven/entry/maven-help-plugin-version-3" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
