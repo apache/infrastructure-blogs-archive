@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Logging log4j 2.0-beta3 released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Logging log4j 2.0-beta3 released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Logging team is pleased to announce the Apache log4j 2.0-beta3 release!" />
+<meta property="og:description" content="The Apache Logging team is pleased to announce the Apache log4j 2.0-beta3 release!" />
+<link rel="canonical" href="http://localhost:4000/logging/entry/apache_logging_log4j_2_02" />
+<meta property="og:url" content="http://localhost:4000/logging/entry/apache_logging_log4j_2_02" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-11-15T19:35:50-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Logging log4j 2.0-beta3 released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-11-15T19:35:50-05:00","datePublished":"2012-11-15T19:35:50-05:00","description":"The Apache Logging team is pleased to announce the Apache log4j 2.0-beta3 release!","headline":"Apache Logging log4j 2.0-beta3 released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/logging/entry/apache_logging_log4j_2_02"},"url":"http://localhost:4000/logging/entry/apache_logging_log4j_2_02"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Logging log4j 2.0-beta3 released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-11-15T19:35:50-05:00" itemprop="datePublished">Nov 15, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Christian Grobmeier", "login"=>"grobmeier", "email"=>"grobmeier@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2>The Apache Logging team is pleased to announce the Apache log4j 2.0-beta3 release!</h2>
+<p>Apache log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to<br />
+Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides<br />
+many of the improvements available in Logback while fixing some inherent problems in Logback's<br />
+architecture.</p>
+<p>This is the fifth release of Log4j 2 and is being made available to encourage use and feedback from the community.</p>
+<p>Changes in this version include:</p>
+<h3>New features:</h3>
+<ul>
+<li>LOG4J2-28:  Added PropertiesRewritePolicy and ability to define properties on a Logger.</li>
+<li>LOG4J2-55:  Added ability to configure from an InputSource.</li>
+</ul>
+<h3>Fixed Bugs:</h3>
+<ul>
+<li>LOG4J2-108:  Fix NullPointerException in ClassLoaderContextSelector when no class is returned from<br />
+        the SecurityManager. </li>
+<li>LOG4J2-107:  PatternParser was not properly handling adjacent nested options </li>
+<li>LOG4J2-95:  Add support for loading plugins inside the OSGi bundle. </li>
+<li>LOG4J2-103:  The LogEvent was wrapping a ThrowableProxy with another ThrowableProxy when deserializing. Thanks to Das Archive. </li>
+<li>LOG4J2-104:  Convert LogManager binding to use "regular" java properties instead of XML properties to workaround a<br />
+        bug in Oracle's xmlparserv2 jar. </li>
+<li>LOG4J2-102:  The Facility value was being improperly calculated. Thanks to Emanuele Colombo. </li>
+<li>LOG4J2-101:  A NullPointerException would occur if no format value was passed to the SyslogAppender. Thanks to Emanuele Colombo. </li>
+<li>LOG4J2-99:  MapRewritePolicy had an extra call to putAll that caused updates to behave like adds. Thanks to Das Archive. </li>
+<li>Avoid NPE when duplicate LoggerContextFactorys are present. Allow factories to specify a weight to allow<br />
+        real implementations to outrank test implementations. Provide a simple default LoggerContextFactory. </li>
+<li>LOG4J2-97:  Added several missing classes and methods for Log4j 1.x compatibility. </li>
+<li>LOG4J2-94:  Interpolator was not stripping Lookup key separator when trying to locate the default value for a variable. Thanks to Denis Treskunov. </li>
+<li>Log4j 1.2 Category.forcedLog was wrapping the message with an ObjectMessage even if the parameter was an<br />
+        ObjectMessage. </li>
+</ul>
+<h3>Changes:</h3>
+<ul>
+<li>LOG4J2-105:  Add ability to customize the names of the Levels in the LevelPatternConverter. </li>
+<li>LOG4J2-85:  Add ThreadContext.push(String format, Object... args) </li>
+<li>Created combined jar to combine API and Core contents for users who only want the Log4j implementation. </li>
+<li>LOG4J2-87:  Build pdf of user's guide. </li>
+<li>LOG4J2-29:  Added font and fontSize parameters to HTMLLayout. Replace newlines in message with br tag. </li>
+</ul>
+<p>
+Apache Log4j 2.0-beta2 requires a minimum of Java 5 to build and run. Basic compatibility with<br />
+Log4j 1.x is provided through the log4j12-api component, however it does not implement some of the<br />
+very implementation specific classes and methods. The package names and Maven groupId have been changed to<br />
+org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+<p>
+For complete information on Apache Log4j 2, including instructions on how to submit bug reports,<br />
+patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>
+
+  </div><a class="u-url" href="/logging/entry/apache_logging_log4j_2_02" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

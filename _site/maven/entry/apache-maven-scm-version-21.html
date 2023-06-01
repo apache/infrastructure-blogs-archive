@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Maven SCM Version 2.0.0-M2 Released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Maven SCM Version 2.0.0-M2 Released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Maven team is pleased to announce the release of the Apache Maven SCM, version 2.0.0-M2. Maven SCM supports Maven plugins (for example maven-release-plugin) and other tools by providing them with a common API for source code management operations. You can look at the list of SCMs for more information on using Maven SCM with your favorite SCM tool. Release Notes - Maven SCM Version 2.0.0-M2 Bugs: SCM-807 - JGit impl check-in fails unless the Maven project is in the working copy root SCM-913 - NPE on ChangeSet.toString() when no mergedRevisions are set SCM-945 - Support OpenSSH private keys with maven-scm-provider-jgit SCM-976 - GitExe changelog does not work in if the user has defined a custom format SCM-981 - Several integration tests are never run and fail if you do SCM-986 - SvnExe&#39;s SvnRemoteInfoCommand incorrectly implemented SCM-991 - GitDiffConsumer cannot parse moved files New Feature: SCM-977 - Support for retrieving tags from the changelog Improvements: SCM-925 - Implement RemoveCommand in maven-scm-provider-jgit with TCK test for all providers SCM-942 - No run-its, tck-local and tck-hg profiles SCM-943 - scm:check-local-modification does not support excludes SCM-992 - Support explicitly configured SSH private key for gitexe provider SCM-993 - Add tests for SSH private key-based authentication during checkout (clone) SCM-994 - Add JGit CredentialsProvider based on Plexus Interactivity API SCM-999 - Document provider IDs Test: SCM-989 - Tests fail if svn and/or git are not installed Tasks: SCM-979 - Replace Plexus Container Default with Sisu Plexus Shim SCM-980 - Remove code duplication in ListMojo SCM-983 - Drop SCM Logger in favor of SLF4J SCM-984 - Replace use of JUnit 3 PlexusTestCase with Junit 4 SCM-985 - Drop/replace usage of Commons Lang 2 SCM-995 - Upgrade JGit to 5.13.1 and leverage Apache Mina SSHD instead of JSch Dependency upgrades: SCM-978 - Upgrade Maven prerequisite to 3.2.5 SCM-982 - Upgrade to Java 8 Enjoy, -The Apache Maven team &lt;/p&gt;" />
+<meta property="og:description" content="The Apache Maven team is pleased to announce the release of the Apache Maven SCM, version 2.0.0-M2. Maven SCM supports Maven plugins (for example maven-release-plugin) and other tools by providing them with a common API for source code management operations. You can look at the list of SCMs for more information on using Maven SCM with your favorite SCM tool. Release Notes - Maven SCM Version 2.0.0-M2 Bugs: SCM-807 - JGit impl check-in fails unless the Maven project is in the working copy root SCM-913 - NPE on ChangeSet.toString() when no mergedRevisions are set SCM-945 - Support OpenSSH private keys with maven-scm-provider-jgit SCM-976 - GitExe changelog does not work in if the user has defined a custom format SCM-981 - Several integration tests are never run and fail if you do SCM-986 - SvnExe&#39;s SvnRemoteInfoCommand incorrectly implemented SCM-991 - GitDiffConsumer cannot parse moved files New Feature: SCM-977 - Support for retrieving tags from the changelog Improvements: SCM-925 - Implement RemoveCommand in maven-scm-provider-jgit with TCK test for all providers SCM-942 - No run-its, tck-local and tck-hg profiles SCM-943 - scm:check-local-modification does not support excludes SCM-992 - Support explicitly configured SSH private key for gitexe provider SCM-993 - Add tests for SSH private key-based authentication during checkout (clone) SCM-994 - Add JGit CredentialsProvider based on Plexus Interactivity API SCM-999 - Document provider IDs Test: SCM-989 - Tests fail if svn and/or git are not installed Tasks: SCM-979 - Replace Plexus Container Default with Sisu Plexus Shim SCM-980 - Remove code duplication in ListMojo SCM-983 - Drop SCM Logger in favor of SLF4J SCM-984 - Replace use of JUnit 3 PlexusTestCase with Junit 4 SCM-985 - Drop/replace usage of Commons Lang 2 SCM-995 - Upgrade JGit to 5.13.1 and leverage Apache Mina SSHD instead of JSch Dependency upgrades: SCM-978 - Upgrade Maven prerequisite to 3.2.5 SCM-982 - Upgrade to Java 8 Enjoy, -The Apache Maven team &lt;/p&gt;" />
+<link rel="canonical" href="http://localhost:4000/maven/entry/apache-maven-scm-version-21" />
+<meta property="og:url" content="http://localhost:4000/maven/entry/apache-maven-scm-version-21" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-31T16:56:40-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Maven SCM Version 2.0.0-M2 Released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-31T16:56:40-04:00","datePublished":"2022-07-31T16:56:40-04:00","description":"The Apache Maven team is pleased to announce the release of the Apache Maven SCM, version 2.0.0-M2. Maven SCM supports Maven plugins (for example maven-release-plugin) and other tools by providing them with a common API for source code management operations. You can look at the list of SCMs for more information on using Maven SCM with your favorite SCM tool. Release Notes - Maven SCM Version 2.0.0-M2 Bugs: SCM-807 - JGit impl check-in fails unless the Maven project is in the working copy root SCM-913 - NPE on ChangeSet.toString() when no mergedRevisions are set SCM-945 - Support OpenSSH private keys with maven-scm-provider-jgit SCM-976 - GitExe changelog does not work in if the user has defined a custom format SCM-981 - Several integration tests are never run and fail if you do SCM-986 - SvnExe&#39;s SvnRemoteInfoCommand incorrectly implemented SCM-991 - GitDiffConsumer cannot parse moved files New Feature: SCM-977 - Support for retrieving tags from the changelog Improvements: SCM-925 - Implement RemoveCommand in maven-scm-provider-jgit with TCK test for all providers SCM-942 - No run-its, tck-local and tck-hg profiles SCM-943 - scm:check-local-modification does not support excludes SCM-992 - Support explicitly configured SSH private key for gitexe provider SCM-993 - Add tests for SSH private key-based authentication during checkout (clone) SCM-994 - Add JGit CredentialsProvider based on Plexus Interactivity API SCM-999 - Document provider IDs Test: SCM-989 - Tests fail if svn and/or git are not installed Tasks: SCM-979 - Replace Plexus Container Default with Sisu Plexus Shim SCM-980 - Remove code duplication in ListMojo SCM-983 - Drop SCM Logger in favor of SLF4J SCM-984 - Replace use of JUnit 3 PlexusTestCase with Junit 4 SCM-985 - Drop/replace usage of Commons Lang 2 SCM-995 - Upgrade JGit to 5.13.1 and leverage Apache Mina SSHD instead of JSch Dependency upgrades: SCM-978 - Upgrade Maven prerequisite to 3.2.5 SCM-982 - Upgrade to Java 8 Enjoy, -The Apache Maven team &lt;/p&gt;","headline":"Apache Maven SCM Version 2.0.0-M2 Released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/maven/entry/apache-maven-scm-version-21"},"url":"http://localhost:4000/maven/entry/apache-maven-scm-version-21"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Maven SCM Version 2.0.0-M2 Released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-07-31T16:56:40-04:00" itemprop="datePublished">Jul 31, 2022
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Karl-Heinz Marbaise", "login"=>"khmarbaise", "email"=>"khmarbaise@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="post_body">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+<a href="https://maven.apache.org/scm/">Apache Maven SCM, version 2.0.0-M2</a>.</p>
+<p>Maven SCM supports Maven plugins (for example maven-release-plugin) and other tools by providing<br />
+them with a common API for source code management operations. You can look at the list of SCMs for<br />
+more information on using Maven SCM with your favorite SCM tool.</p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317828&amp;version=12351598">Release Notes - Maven SCM Version 2.0.0-M2</a></p>
+<ul>
+<li>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SCM-807">SCM-807</a> - JGit impl check-in fails unless the Maven project is in the working copy root</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-913">SCM-913</a> - NPE on ChangeSet.toString() when no mergedRevisions are set</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-945">SCM-945</a> - Support OpenSSH private keys with maven-scm-provider-jgit</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-976">SCM-976</a> - GitExe changelog does not work in if the user has defined a custom format</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-981">SCM-981</a> - Several integration tests are never run and fail if you do</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-986">SCM-986</a> - SvnExe's SvnRemoteInfoCommand incorrectly implemented</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-991">SCM-991</a> - GitDiffConsumer cannot parse moved files</li>
+</ul>
+</li>
+<li>
+<p>New Feature:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SCM-977">SCM-977</a> - Support for retrieving tags from the changelog</li>
+</ul>
+</li>
+<li>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SCM-925">SCM-925</a> - Implement RemoveCommand in maven-scm-provider-jgit with TCK test for all providers</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-942">SCM-942</a> - No run-its, tck-local and tck-hg profiles</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-943">SCM-943</a> - scm:check-local-modification does not support excludes</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-992">SCM-992</a> - Support explicitly configured SSH private key for gitexe provider</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-993">SCM-993</a> - Add tests for SSH private key-based authentication during checkout (clone)</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-994">SCM-994</a> - Add JGit CredentialsProvider based on Plexus Interactivity API</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-999">SCM-999</a> - Document provider IDs</li>
+</ul>
+</li>
+<li>
+<p>Test:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SCM-989">SCM-989</a> - Tests fail if svn and/or git are not installed</li>
+</ul>
+</li>
+<li>
+<p>Tasks:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SCM-979">SCM-979</a> - Replace Plexus Container Default with Sisu Plexus Shim</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-980">SCM-980</a> - Remove code duplication in ListMojo</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-983">SCM-983</a> - Drop SCM Logger in favor of SLF4J</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-984">SCM-984</a> - Replace use of JUnit 3 PlexusTestCase with Junit 4</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-985">SCM-985</a> - Drop/replace usage of Commons Lang 2</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-995">SCM-995</a> - Upgrade JGit to 5.13.1 and leverage Apache Mina SSHD instead of JSch</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SCM-978">SCM-978</a> - Upgrade Maven prerequisite to 3.2.5</li>
+<li><a href="https://issues.apache.org/jira/browse/SCM-982">SCM-982</a> - Upgrade to Java 8</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</p></div>
+
+  </div><a class="u-url" href="/maven/entry/apache-maven-scm-version-21" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache CouchDB 1.2.0 Released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache CouchDB 1.2.0 Released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Apache CouchDB 1.2.0 has been released and is available for download. Grab your copy here: http://couchdb.apache.org/ Windows packages are now available. Grab them at the same download link. This release also coincides with a revamped project homepage! This is a big release with lots of updates. Please also note that this release contains breaking changes. These release notes are based on the NEWS file. Performance Added a native JSON parser Performance critical portions of the JSON parser are now implemented in C. This improves latency and throughput for all database and view operations. We are using the fabulous yajl library. Optional file compression (database and view index files) This feature is enabled by default. All storage operations for databases and views are now passed through Google&#39;s snappy compressor. The result is simple: since less data has to be transferred from and to disk and through the CPU &amp; RAM, all database and view accesses are now faster and on-disk files are smaller. Compression can be changed to gzip compression with options that specify the compression ratio or it can be fully disabled as well. Several performance improvements, especially regarding database writes and view indexing Combined with the two preceding improvements, we made some less obvious algorithmic improvements that take the Erlang runtime system into account when writing data to databases and view index files. The net result is much improved performance for most common operations including building views. The JIRA ticket (COUCHDB-976) has more information. Performance improvements for the built-in changes feed filters _doc_ids and _design Security The security system got a major overhaul making it way more secure to run CouchDB as a public database server for CouchApps. Unfortunately we had to break a bit of backwards compatibility with this, but we think it is well worth the trouble. Documents in the _users database can no longer be read by everyone Documents in the _users databases can now only be read by the respective authenticated user and administrators. Before, all docs were world-readable including their password hashes and salts. Confidential information in the _replication database can no longer be read by everyone Similar to documents in the _users database, documents in the _replicator database now get passwords and OAuth tokens stripped when read by a user that is not the creator of the replication or an administrator. Password hashes are now calculated by CouchDB instead of the client Previously, CouchDB relied on the client to hash and salt the user&#39;s password. Now, it accepts plain text passwords and hashes them before they are committed to disk, following traditional best practices. Allow persistent authentication cookies Cookie based authentication can now keep a user logged in over a browser restart. OAuth secrets can now be stored in the users system database This is better for managing large numbers of users and tokens than the old, clumsy way of storing OAuth tokens in the configuration system and configuration system. Updated bundled erlang_oauth library to the latest version The Erlang library that handles OAuth authentication has been updated to the latest version. Build System cURL is no longer required to build CouchDB as it is only required by the command line JavaScript test runner This makes building CouchDB on certain platforms easier. HTTP API Added a data_size property to database and view group information URIs With this you can now calculate how much actual data is stored in a database file or view index file and compare it with the file size that is already being reported. The difference is CouchDB-specific overhead most of which can be reclaimed during compaction. This is used to power the automatic compaction feature (see below). Added optional field since_seq to replication objects/documents This allows you to start a replication from a certain database update sequence instead from the start. The _active_tasks API now exposes more granular fields for each task type The replication and compaction tasks, e.g. report their progress in the task info. Added built-in changes feed filter _view With this you can use a view&#39;s map function as a changes filter instead of duplicating. Core Storage Added support for automatic compaction This feature is disabled by default, but it can be enabled in the configuration page in Futon or the .ini files. Compaction is a regular maintenance task for CouchDB. This can now be automated based on multiple variables: A threshold for the file_size to disk_size ratio (say 70%) A time window specified in hours and minutes (e.g 01:00-05:00) Compaction can be cancelled if it exceeds the closing time. Compaction for views and databases can be set to run in parallel, but that is only useful for setups where the database directory and view directory are on different disks. In addition, if there&#39;s not enough space (2 &times; data_size) on the disk to complete a compaction, an error is logged and the compaction is not started. Replicator A new replicator implementation that offers more performance and configuration options The replicator has been rewritten from scratch. The new implementation is more reliable, faster and has more configuration than the previous implementation. If you have had any issues with replication in previous releases, we strongly recommend giving 1.2.0 a spin. Configuration options include: Number of worker processes Batch size per worker Maximum number of HTTP connections Number of connection retries See default.ini for the full list of options and their default values. This allows you to fine-tune replication behaviour tailored to your environment. A spotty mobile network connection can benefit from a single worker process and small batch sizes to reliably, albeit slowly, synchronise data. A full-duplex 10GigE server-to-server connection on a LAN can benefit from more workers and higher batch sizes. The exact values depend on your particular setup and we recommend some experimentation before settling on a set of values. Futon Futon&#39;s Status screen (active tasks) now displays two new task status fields: Started on and Updated on Simpler replication cancellation Running replications can now be cancelled with a single click. Log System Log correct stack trace in all cases In certain error cases, CouchDB would return a stack trace from the log system itself and hide the real error. Now CouchDB always returns the correct error. Improvements to log messages for file-related errors CouchDB requires correct permissions for a number of files. Error messages related to file permission errors were not always obvious and are now improved. Various Bugfixes Fixed old index file descriptor leaks after a view cleanup Fixes to the _changes feed heartbeat option when combined with a filter. It affected continuous pull replications with a filter Fix use of OAuth with VHosts and URL rewriting The requested_path property of query server request objects now has the path requested by clients before VHosts and rewriting Fixed incorrect reduce query results when using pagination parameters Made icu_driver work with Erlang R15B and later Improvements to the build system and etap test suite Avoid invalidating view indexes when running out of file descriptors Breaking Changes This release contains breaking changes:&lt;/p&gt; http://wiki.apache.org/couchdb/Breaking_changes It is very important that you understand these changes before you upgrade. More Information See the CHANGES file and the Git commit log for more information." />
+<meta property="og:description" content="Apache CouchDB 1.2.0 has been released and is available for download. Grab your copy here: http://couchdb.apache.org/ Windows packages are now available. Grab them at the same download link. This release also coincides with a revamped project homepage! This is a big release with lots of updates. Please also note that this release contains breaking changes. These release notes are based on the NEWS file. Performance Added a native JSON parser Performance critical portions of the JSON parser are now implemented in C. This improves latency and throughput for all database and view operations. We are using the fabulous yajl library. Optional file compression (database and view index files) This feature is enabled by default. All storage operations for databases and views are now passed through Google&#39;s snappy compressor. The result is simple: since less data has to be transferred from and to disk and through the CPU &amp; RAM, all database and view accesses are now faster and on-disk files are smaller. Compression can be changed to gzip compression with options that specify the compression ratio or it can be fully disabled as well. Several performance improvements, especially regarding database writes and view indexing Combined with the two preceding improvements, we made some less obvious algorithmic improvements that take the Erlang runtime system into account when writing data to databases and view index files. The net result is much improved performance for most common operations including building views. The JIRA ticket (COUCHDB-976) has more information. Performance improvements for the built-in changes feed filters _doc_ids and _design Security The security system got a major overhaul making it way more secure to run CouchDB as a public database server for CouchApps. Unfortunately we had to break a bit of backwards compatibility with this, but we think it is well worth the trouble. Documents in the _users database can no longer be read by everyone Documents in the _users databases can now only be read by the respective authenticated user and administrators. Before, all docs were world-readable including their password hashes and salts. Confidential information in the _replication database can no longer be read by everyone Similar to documents in the _users database, documents in the _replicator database now get passwords and OAuth tokens stripped when read by a user that is not the creator of the replication or an administrator. Password hashes are now calculated by CouchDB instead of the client Previously, CouchDB relied on the client to hash and salt the user&#39;s password. Now, it accepts plain text passwords and hashes them before they are committed to disk, following traditional best practices. Allow persistent authentication cookies Cookie based authentication can now keep a user logged in over a browser restart. OAuth secrets can now be stored in the users system database This is better for managing large numbers of users and tokens than the old, clumsy way of storing OAuth tokens in the configuration system and configuration system. Updated bundled erlang_oauth library to the latest version The Erlang library that handles OAuth authentication has been updated to the latest version. Build System cURL is no longer required to build CouchDB as it is only required by the command line JavaScript test runner This makes building CouchDB on certain platforms easier. HTTP API Added a data_size property to database and view group information URIs With this you can now calculate how much actual data is stored in a database file or view index file and compare it with the file size that is already being reported. The difference is CouchDB-specific overhead most of which can be reclaimed during compaction. This is used to power the automatic compaction feature (see below). Added optional field since_seq to replication objects/documents This allows you to start a replication from a certain database update sequence instead from the start. The _active_tasks API now exposes more granular fields for each task type The replication and compaction tasks, e.g. report their progress in the task info. Added built-in changes feed filter _view With this you can use a view&#39;s map function as a changes filter instead of duplicating. Core Storage Added support for automatic compaction This feature is disabled by default, but it can be enabled in the configuration page in Futon or the .ini files. Compaction is a regular maintenance task for CouchDB. This can now be automated based on multiple variables: A threshold for the file_size to disk_size ratio (say 70%) A time window specified in hours and minutes (e.g 01:00-05:00) Compaction can be cancelled if it exceeds the closing time. Compaction for views and databases can be set to run in parallel, but that is only useful for setups where the database directory and view directory are on different disks. In addition, if there&#39;s not enough space (2 &times; data_size) on the disk to complete a compaction, an error is logged and the compaction is not started. Replicator A new replicator implementation that offers more performance and configuration options The replicator has been rewritten from scratch. The new implementation is more reliable, faster and has more configuration than the previous implementation. If you have had any issues with replication in previous releases, we strongly recommend giving 1.2.0 a spin. Configuration options include: Number of worker processes Batch size per worker Maximum number of HTTP connections Number of connection retries See default.ini for the full list of options and their default values. This allows you to fine-tune replication behaviour tailored to your environment. A spotty mobile network connection can benefit from a single worker process and small batch sizes to reliably, albeit slowly, synchronise data. A full-duplex 10GigE server-to-server connection on a LAN can benefit from more workers and higher batch sizes. The exact values depend on your particular setup and we recommend some experimentation before settling on a set of values. Futon Futon&#39;s Status screen (active tasks) now displays two new task status fields: Started on and Updated on Simpler replication cancellation Running replications can now be cancelled with a single click. Log System Log correct stack trace in all cases In certain error cases, CouchDB would return a stack trace from the log system itself and hide the real error. Now CouchDB always returns the correct error. Improvements to log messages for file-related errors CouchDB requires correct permissions for a number of files. Error messages related to file permission errors were not always obvious and are now improved. Various Bugfixes Fixed old index file descriptor leaks after a view cleanup Fixes to the _changes feed heartbeat option when combined with a filter. It affected continuous pull replications with a filter Fix use of OAuth with VHosts and URL rewriting The requested_path property of query server request objects now has the path requested by clients before VHosts and rewriting Fixed incorrect reduce query results when using pagination parameters Made icu_driver work with Erlang R15B and later Improvements to the build system and etap test suite Avoid invalidating view indexes when running out of file descriptors Breaking Changes This release contains breaking changes:&lt;/p&gt; http://wiki.apache.org/couchdb/Breaking_changes It is very important that you understand these changes before you upgrade. More Information See the CHANGES file and the Git commit log for more information." />
+<link rel="canonical" href="http://localhost:4000/couchdb/entry/apache_couchdb_1_2_0" />
+<meta property="og:url" content="http://localhost:4000/couchdb/entry/apache_couchdb_1_2_0" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-04-09T19:40:46-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache CouchDB 1.2.0 Released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2013-04-09T19:40:46-04:00","datePublished":"2013-04-09T19:40:46-04:00","description":"Apache CouchDB 1.2.0 has been released and is available for download. Grab your copy here: http://couchdb.apache.org/ Windows packages are now available. Grab them at the same download link. This release also coincides with a revamped project homepage! This is a big release with lots of updates. Please also note that this release contains breaking changes. These release notes are based on the NEWS file. Performance Added a native JSON parser Performance critical portions of the JSON parser are now implemented in C. This improves latency and throughput for all database and view operations. We are using the fabulous yajl library. Optional file compression (database and view index files) This feature is enabled by default. All storage operations for databases and views are now passed through Google&#39;s snappy compressor. The result is simple: since less data has to be transferred from and to disk and through the CPU &amp; RAM, all database and view accesses are now faster and on-disk files are smaller. Compression can be changed to gzip compression with options that specify the compression ratio or it can be fully disabled as well. Several performance improvements, especially regarding database writes and view indexing Combined with the two preceding improvements, we made some less obvious algorithmic improvements that take the Erlang runtime system into account when writing data to databases and view index files. The net result is much improved performance for most common operations including building views. The JIRA ticket (COUCHDB-976) has more information. Performance improvements for the built-in changes feed filters _doc_ids and _design Security The security system got a major overhaul making it way more secure to run CouchDB as a public database server for CouchApps. Unfortunately we had to break a bit of backwards compatibility with this, but we think it is well worth the trouble. Documents in the _users database can no longer be read by everyone Documents in the _users databases can now only be read by the respective authenticated user and administrators. Before, all docs were world-readable including their password hashes and salts. Confidential information in the _replication database can no longer be read by everyone Similar to documents in the _users database, documents in the _replicator database now get passwords and OAuth tokens stripped when read by a user that is not the creator of the replication or an administrator. Password hashes are now calculated by CouchDB instead of the client Previously, CouchDB relied on the client to hash and salt the user&#39;s password. Now, it accepts plain text passwords and hashes them before they are committed to disk, following traditional best practices. Allow persistent authentication cookies Cookie based authentication can now keep a user logged in over a browser restart. OAuth secrets can now be stored in the users system database This is better for managing large numbers of users and tokens than the old, clumsy way of storing OAuth tokens in the configuration system and configuration system. Updated bundled erlang_oauth library to the latest version The Erlang library that handles OAuth authentication has been updated to the latest version. Build System cURL is no longer required to build CouchDB as it is only required by the command line JavaScript test runner This makes building CouchDB on certain platforms easier. HTTP API Added a data_size property to database and view group information URIs With this you can now calculate how much actual data is stored in a database file or view index file and compare it with the file size that is already being reported. The difference is CouchDB-specific overhead most of which can be reclaimed during compaction. This is used to power the automatic compaction feature (see below). Added optional field since_seq to replication objects/documents This allows you to start a replication from a certain database update sequence instead from the start. The _active_tasks API now exposes more granular fields for each task type The replication and compaction tasks, e.g. report their progress in the task info. Added built-in changes feed filter _view With this you can use a view&#39;s map function as a changes filter instead of duplicating. Core Storage Added support for automatic compaction This feature is disabled by default, but it can be enabled in the configuration page in Futon or the .ini files. Compaction is a regular maintenance task for CouchDB. This can now be automated based on multiple variables: A threshold for the file_size to disk_size ratio (say 70%) A time window specified in hours and minutes (e.g 01:00-05:00) Compaction can be cancelled if it exceeds the closing time. Compaction for views and databases can be set to run in parallel, but that is only useful for setups where the database directory and view directory are on different disks. In addition, if there&#39;s not enough space (2 &times; data_size) on the disk to complete a compaction, an error is logged and the compaction is not started. Replicator A new replicator implementation that offers more performance and configuration options The replicator has been rewritten from scratch. The new implementation is more reliable, faster and has more configuration than the previous implementation. If you have had any issues with replication in previous releases, we strongly recommend giving 1.2.0 a spin. Configuration options include: Number of worker processes Batch size per worker Maximum number of HTTP connections Number of connection retries See default.ini for the full list of options and their default values. This allows you to fine-tune replication behaviour tailored to your environment. A spotty mobile network connection can benefit from a single worker process and small batch sizes to reliably, albeit slowly, synchronise data. A full-duplex 10GigE server-to-server connection on a LAN can benefit from more workers and higher batch sizes. The exact values depend on your particular setup and we recommend some experimentation before settling on a set of values. Futon Futon&#39;s Status screen (active tasks) now displays two new task status fields: Started on and Updated on Simpler replication cancellation Running replications can now be cancelled with a single click. Log System Log correct stack trace in all cases In certain error cases, CouchDB would return a stack trace from the log system itself and hide the real error. Now CouchDB always returns the correct error. Improvements to log messages for file-related errors CouchDB requires correct permissions for a number of files. Error messages related to file permission errors were not always obvious and are now improved. Various Bugfixes Fixed old index file descriptor leaks after a view cleanup Fixes to the _changes feed heartbeat option when combined with a filter. It affected continuous pull replications with a filter Fix use of OAuth with VHosts and URL rewriting The requested_path property of query server request objects now has the path requested by clients before VHosts and rewriting Fixed incorrect reduce query results when using pagination parameters Made icu_driver work with Erlang R15B and later Improvements to the build system and etap test suite Avoid invalidating view indexes when running out of file descriptors Breaking Changes This release contains breaking changes:&lt;/p&gt; http://wiki.apache.org/couchdb/Breaking_changes It is very important that you understand these changes before you upgrade. More Information See the CHANGES file and the Git commit log for more information.","headline":"Apache CouchDB 1.2.0 Released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/couchdb/entry/apache_couchdb_1_2_0"},"url":"http://localhost:4000/couchdb/entry/apache_couchdb_1_2_0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache CouchDB 1.2.0 Released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-04-09T19:40:46-04:00" itemprop="datePublished">Apr 9, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Noah Slater", "login"=>"nslater", "email"=>"nslater@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Apache CouchDB 1.2.0 has been released and is available for download.</p>
+<p>Grab your copy here:</p>
+<blockquote><p>
+<a href="http://couchdb.apache.org/">http://couchdb.apache.org/</a>
+</p></blockquote>
+<p><strong>Windows packages are now available. Grab them at the same download link.</strong></p>
+<p>This release also coincides with a revamped project homepage!</p>
+<p><em>This is a big release with lots of updates. Please also note that this release contains <a href="http://wiki.apache.org/couchdb/Breaking_changes">breaking changes</a>.</em></p>
+<p>These release notes are based on the <a href="http://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=blob_plain;f=NEWS;hb=1.2.x">NEWS</a> file.</p>
+<h4>Performance</h4>
+<ul>
+<li>
+<p><strong>Added a native JSON parser</strong></p>
+<p>Performance critical portions of the JSON parser are now implemented in C. This improves latency and throughput for all database and view operations. We are using the fabulous <a href="http://lloyd.github.com/yajl/">yajl library</a>.</p>
+</li>
+<li>
+<p><strong>Optional file compression (database and view index files)</strong></p>
+<p><em>This feature is enabled by default.</em></p>
+<p>All storage operations for databases and views are now passed through Google's <a href="https://code.google.com/p/snappy/">snappy compressor</a>. The result is simple: since less data has to be transferred from and to disk and through the CPU & RAM, all database and view accesses are now faster and on-disk files are smaller. Compression can be changed to gzip compression with options that specify the compression ratio or it can be fully disabled as well.</p>
+</li>
+<li>
+<p><strong>Several performance improvements, especially regarding database writes and view indexing</strong></p>
+<p>Combined with the two preceding improvements, we made some less obvious algorithmic improvements that take the Erlang runtime system into account when writing data to databases and view index files. The net result is much improved performance for most common operations including building views.</p>
+<p>The JIRA ticket (<a href="https://issues.apache.org/jira/browse/COUCHDB-976">COUCHDB-976</a>) has more information.</p>
+</li>
+<li>
+<p><strong>Performance improvements for the built-in changes feed filters <code>_doc_ids</code> and <code>_design</code></strong></p>
+</li>
+</ul>
+<h4>Security</h4>
+<p>The security system got a major overhaul making it way more secure to run CouchDB as a public database server for CouchApps. Unfortunately we had to break a bit of backwards compatibility with this, but we think it is well worth the trouble.</p>
+<ul>
+<li>
+<p><strong>Documents in the <code>_users</code> database can no longer be read by everyone</strong></p>
+<p>Documents in the <code>_users</code> databases can now only be read by the respective authenticated user and administrators. Before, all docs were world-readable including their password hashes and salts.</p>
+</li>
+<li>
+<p><strong>Confidential information in the <code>_replication</code> database can no longer be read by everyone</strong></p>
+<p>Similar to documents in the <code>_users</code> database, documents in the <code>_replicator</code> database now get passwords and OAuth tokens stripped when read by a user that is not the creator of the replication or an administrator.</p>
+</li>
+<li>
+<p><strong>Password hashes are now calculated by CouchDB instead of the client</strong></p>
+<p>Previously, CouchDB relied on the client to hash and salt the user's password. Now, it accepts plain text passwords and hashes them before they are committed to disk, following traditional best practices.</p>
+</li>
+<li>
+<p><strong>Allow persistent authentication cookies</strong></p>
+<p>Cookie based authentication can now keep a user logged in over a browser restart.</p>
+</li>
+<li>
+<p><strong>OAuth secrets can now be stored in the users system database</strong></p>
+<p>This is better for managing large numbers of users and tokens than the old, clumsy way of storing OAuth tokens in the configuration system and configuration system.</p>
+</li>
+<li>
+<p><strong>Updated bundled <code>erlang_oauth</code> library to the latest version</strong></p>
+<p>The Erlang library that handles OAuth authentication has been updated to the latest version.</p>
+</li>
+</ul>
+<h4>Build System</h4>
+<ul>
+<li>
+<p><strong>cURL is no longer required to build CouchDB as it is only required by the command line JavaScript test runner</strong></p>
+<p>This makes building CouchDB on certain platforms easier.</p>
+</li>
+</ul>
+<h4>HTTP API</h4>
+<ul>
+<li>
+<p><strong>Added a <code>data_size</code> property to database and view group information URIs</strong></p>
+<p>With this you can now calculate how much actual data is stored in a database file or view index file and compare it with the file size that is already being reported. The difference is CouchDB-specific overhead most of which can be reclaimed during compaction. This is used to power the automatic compaction feature (see below).</p>
+</li>
+<li>
+<p><strong>Added optional field <code>since_seq</code> to replication objects/documents</strong></p>
+<p>This allows you to start a replication from a certain database update sequence instead from the start.</p>
+</li>
+<li>
+<p><strong>The <code>_active_tasks</code> API now exposes more granular fields for each task type</strong></p>
+<p>The replication and compaction tasks, e.g. report their progress in the task info.</p>
+</li>
+<li>
+<p><strong>Added built-in changes feed filter <code>_view</code></strong></p>
+<p>With this you can use a view's map function as a changes filter instead of duplicating.</p>
+</li>
+</ul>
+<h4>Core Storage</h4>
+<ul>
+<li>
+<p><strong>Added support for automatic compaction</strong></p>
+<p><em>This feature is disabled by default, but it can be enabled in the configuration page in Futon or the <code>.ini</code> files.</em></p>
+<p>Compaction is a regular maintenance task for CouchDB. This can now be automated based on multiple variables:</p>
+<ul>
+<li>A threshold for the <code>file_size</code> to <code>disk_size</code> ratio (say 70%)</li>
+<li>A time window specified in hours and minutes (e.g 01:00-05:00)</li>
+</ul>
+<p>Compaction can be cancelled if it exceeds the closing time. Compaction for views and databases can be set to run in parallel, but that is only useful for setups where the database directory and view directory are on different disks.</p>
+<p>In addition, if there's not enough space (2 &times; <code>data_size</code>) on the disk to complete a compaction, an error is logged and the compaction is not started.</p>
+</li>
+</ul>
+<h4>Replicator</h4>
+<ul>
+<li>
+<p><strong>A new replicator implementation that offers more performance and configuration options</strong></p>
+<p>The replicator has been rewritten from scratch. The new implementation is more reliable, faster and has more configuration than the previous implementation. If you have had any issues with replication in previous releases, we strongly recommend giving 1.2.0 a spin.</p>
+<p>Configuration options include:</p>
+<ul>
+<li>Number of worker processes</li>
+<li>Batch size per worker</li>
+<li>Maximum number of HTTP connections</li>
+<li>Number of connection retries</li>
+</ul>
+<p>See <code>default.ini</code> for the full list of options and their default values.</p>
+<p>This allows you to fine-tune replication behaviour tailored to your environment. A spotty mobile network connection can benefit from a single worker process and small batch sizes to reliably, albeit slowly, synchronise data. A full-duplex 10GigE server-to-server connection on a LAN can benefit from more workers and higher batch sizes. The exact values depend on your particular setup and we recommend some experimentation before settling on a set of values.</p>
+</li>
+</ul>
+<h4>Futon</h4>
+<ul>
+<li>
+<p><strong>Futon's <code>Status</code> screen (active tasks) now displays two new task status fields: <code>Started on</code> and <code>Updated on</code></strong></p>
+</li>
+<li>
+<p><strong>Simpler replication cancellation</strong></p>
+<p>Running replications can now be cancelled with a single click.</p>
+</li>
+</ul>
+<h4>Log System</h4>
+<ul>
+<li>
+<p><strong>Log correct stack trace in all cases</strong></p>
+<p>In certain error cases, CouchDB would return a stack trace from the log system itself and hide the real error. Now CouchDB always returns the correct error.</p>
+</li>
+<li>
+<p><strong>Improvements to log messages for file-related errors</strong></p>
+<p>CouchDB requires correct permissions for a number of files. Error messages related to file permission errors were not always obvious and are now improved.</p>
+</li>
+</ul>
+<h4>Various Bugfixes</h4>
+<ul>
+<li>Fixed old index file descriptor leaks after a view cleanup</li>
+<li>Fixes to the <code>_changes</code> feed heartbeat option when combined with a filter. It affected continuous pull replications with a filter</li>
+<li>Fix use of OAuth with VHosts and URL rewriting</li>
+<li>The <code>requested_path</code> property of query server request objects now has the path requested by clients before VHosts and rewriting</li>
+<li>Fixed incorrect reduce query results when using pagination parameters</li>
+<li>Made <code>icu_driver</code> work with Erlang R15B and later</li>
+<li>Improvements to the build system and etap test suite</li>
+<li>Avoid invalidating view indexes when running out of file descriptors</li>
+</ul>
+<h4>Breaking Changes</h4>
+<p><em>This release contains <em>breaking changes:</em></p>
+<blockquote><p>
+<a href="http://wiki.apache.org/couchdb/Breaking_changes">http://wiki.apache.org/couchdb/Breaking_changes</a>
+</p></blockquote>
+<p><strong>It is very important that you understand these changes before you upgrade.</strong></p>
+<h4>More Information</h4>
+<p>See the <a href="http://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=blob_plain;f=CHANGES;hb=1.2.x">CHANGES</a> file and the Git <a href="http://git-wip-us.apache.org/repos/asf?p=couchdb.git;a=log;h=1.2.x">commit log</a> for more information.</p>
+
+  </div><a class="u-url" href="/couchdb/entry/apache_couchdb_1_2_0" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

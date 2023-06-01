@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HDFS HSM and HBase: Experiment (Part 4 of 7) | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="HDFS HSM and HBase: Experiment (Part 4 of 7)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is part 4 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)&nbsp; Introduction Cluster Setup Tuning Experiment Experiment (continued) Issues Conclusions Experimentation Performance for Single Storage Type First, we will study the HBase write performance on each single storage type (i.e. no storage type mix). This test is to show the maximum performance each storage type can achieve and provide a guide to following hierarchy storage analysis. &lt;/p&gt; We study the single-storage-type performance with two data sets: 50GB and 1TB data insertion. We believe 1TB is a reasonable data size in practice. And 50GB is used to evaluate the performance uplimit as HBase performance is typically higher when the data size is small. The 50GB size was chosen because we need to avoid data out of space in test. Further, due to RAMDISK limited capacity, we have to use a small data size when storing all data in RAMDISK. 50GB Dataset in a Single Storage The throughput and latency by YCSB for 50GB dataset are listed in Figure 2 and Figure 3. As expected, storing 50GB data in RAMDISK has the best performance whereas storing data in HDD has the worst. Figure 2. YCSB throughput of a single storage with 50GB dataset Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory. Figure 3. YCSB latency of a single storage with 50GB dataset Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory. For throughput, RAMDISK and SSD are higher than HDD (163% and 128% of HDD throughput, respectively). But the average latencies are dramatically lower than HDD (only 11% and 32% of HDD latency). This is expected as HDD has long latency on seek operation. The latency improvements of using RAMDISK, SSD over HDD are bigger than throughput improvement. This is caused by the huge access latency gap of different storage. The latency we measured of accessing 4KB raw data from RAM, SSD and HDD are respectively 89ns, 80&micro;s and 6.7ms (RAM and SSD are about 75000x and 84x faster than HDD). &lt;/p&gt; Now consider the data of hardware (disk, network and CPU in each DataNode) collected during the tests. Disk Throughput Throughput theoretically (MB/s) Throughput measured (MB/s) Utilization 50G_HDD 127 x 8 = 1016 870 86% 50G_SSD 447 x 8 = 3576 1300 36% 50G_RAM &gt;11194 1800 &lt;16% Table 10. Disk utilization of test cases Note: The data listed in the table for 50G_HDD and 50G_SSD are the total throughput of 8 disks. The disk throughput is decided by factors such as access model, block size and I/O depth. The theoretical disk throughput is measured by using performance-friendly factors; in real cases they won&rsquo;t be that friendly and would limit the data to lower values. In fact we observe that the disk utilization usually goes up to 100% for HDD. &lt;/p&gt; Network Throughput Each DataNode is connected by a 20Gbps (2560MB/s) full duplex network, which means both receive and transmit speed can reach 2560MB/s simultaneously. In our tests, the receive and transmit throughput are almost identical, so only the receive throughput data is listed in Table 9. Throughput theoretically (MB/s) Throughput measured (MB/s) Utilization 50G_HDD 2560 760 30% 50G_SSD 2560 1100 43% 50G_RAM 2560 1400 55% Table 11. Network utilization of test cases CPU Utilization Utilization 50G_HDD 36% 50G_SSD 55% 50G_RAM 60% Table 12. CPU utilization of test cases Clearly, the performance on HDD (50G_HDD) is bottlenecked on disk throughput. However, we can see that, for SSD and RAMDISK, neither disk, network nor CPU are the bottleneck. &nbsp;So, the bottlenecks must be somewhere else. They can be somewhere in software (e.g. HBase compaction, memstore in regions, etc) or hardware (except disk, network and CPU). &lt;/p&gt; To further understand why the utilization of SSD is so low and throughput is not as high as expected &mdash;only 132% of HDD, considering SSD has much higher theoretical throughput (447 MB/s vs. 127MB/s per disk) &mdash; we make an additional test to write 50GB data on four SSDs per node instead of eight SSDs per node. Figure 4. YCSB throughput of a single storage type with 50 GB dataset stored in different number of SSDs Figure 5. YCSB latency of a single storage type with 50 GB dataset stored in different number of SSDs We can see that while the number of SSDs doubled, the throughput and latency of eight SSDs per node case (50G_8SSD) are improved to a much lesser extent (104% throughput and 79% latency) compared to four SSDs per node case (50G_4SSD). This means that the ability of SSDs are far from full use. &lt;/p&gt; We made further dive and found that it is caused by current mainstream server hardware design. Currently, mainstream server has two SATA controllers which can support up to 12 Gbps bandwidth. This means that the total disk bandwidth is limited to around 1.5GB/s. That is the bandwidth of approximately 3.4 SSDs. You can find the details in the section Disk Bandwidth Limitation. So SATA controllers have become the bottleneck for eight SSDs per node. This explains why there is almost no improvement on YCSB throughput for eight SSDs per node. In the 50G_8SSD test, the disk is the bottleneck. Go to part 5,&nbsp;Experiment (continued) &lt;/p&gt;" />
+<meta property="og:description" content="This is part 4 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)&nbsp; Introduction Cluster Setup Tuning Experiment Experiment (continued) Issues Conclusions Experimentation Performance for Single Storage Type First, we will study the HBase write performance on each single storage type (i.e. no storage type mix). This test is to show the maximum performance each storage type can achieve and provide a guide to following hierarchy storage analysis. &lt;/p&gt; We study the single-storage-type performance with two data sets: 50GB and 1TB data insertion. We believe 1TB is a reasonable data size in practice. And 50GB is used to evaluate the performance uplimit as HBase performance is typically higher when the data size is small. The 50GB size was chosen because we need to avoid data out of space in test. Further, due to RAMDISK limited capacity, we have to use a small data size when storing all data in RAMDISK. 50GB Dataset in a Single Storage The throughput and latency by YCSB for 50GB dataset are listed in Figure 2 and Figure 3. As expected, storing 50GB data in RAMDISK has the best performance whereas storing data in HDD has the worst. Figure 2. YCSB throughput of a single storage with 50GB dataset Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory. Figure 3. YCSB latency of a single storage with 50GB dataset Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory. For throughput, RAMDISK and SSD are higher than HDD (163% and 128% of HDD throughput, respectively). But the average latencies are dramatically lower than HDD (only 11% and 32% of HDD latency). This is expected as HDD has long latency on seek operation. The latency improvements of using RAMDISK, SSD over HDD are bigger than throughput improvement. This is caused by the huge access latency gap of different storage. The latency we measured of accessing 4KB raw data from RAM, SSD and HDD are respectively 89ns, 80&micro;s and 6.7ms (RAM and SSD are about 75000x and 84x faster than HDD). &lt;/p&gt; Now consider the data of hardware (disk, network and CPU in each DataNode) collected during the tests. Disk Throughput Throughput theoretically (MB/s) Throughput measured (MB/s) Utilization 50G_HDD 127 x 8 = 1016 870 86% 50G_SSD 447 x 8 = 3576 1300 36% 50G_RAM &gt;11194 1800 &lt;16% Table 10. Disk utilization of test cases Note: The data listed in the table for 50G_HDD and 50G_SSD are the total throughput of 8 disks. The disk throughput is decided by factors such as access model, block size and I/O depth. The theoretical disk throughput is measured by using performance-friendly factors; in real cases they won&rsquo;t be that friendly and would limit the data to lower values. In fact we observe that the disk utilization usually goes up to 100% for HDD. &lt;/p&gt; Network Throughput Each DataNode is connected by a 20Gbps (2560MB/s) full duplex network, which means both receive and transmit speed can reach 2560MB/s simultaneously. In our tests, the receive and transmit throughput are almost identical, so only the receive throughput data is listed in Table 9. Throughput theoretically (MB/s) Throughput measured (MB/s) Utilization 50G_HDD 2560 760 30% 50G_SSD 2560 1100 43% 50G_RAM 2560 1400 55% Table 11. Network utilization of test cases CPU Utilization Utilization 50G_HDD 36% 50G_SSD 55% 50G_RAM 60% Table 12. CPU utilization of test cases Clearly, the performance on HDD (50G_HDD) is bottlenecked on disk throughput. However, we can see that, for SSD and RAMDISK, neither disk, network nor CPU are the bottleneck. &nbsp;So, the bottlenecks must be somewhere else. They can be somewhere in software (e.g. HBase compaction, memstore in regions, etc) or hardware (except disk, network and CPU). &lt;/p&gt; To further understand why the utilization of SSD is so low and throughput is not as high as expected &mdash;only 132% of HDD, considering SSD has much higher theoretical throughput (447 MB/s vs. 127MB/s per disk) &mdash; we make an additional test to write 50GB data on four SSDs per node instead of eight SSDs per node. Figure 4. YCSB throughput of a single storage type with 50 GB dataset stored in different number of SSDs Figure 5. YCSB latency of a single storage type with 50 GB dataset stored in different number of SSDs We can see that while the number of SSDs doubled, the throughput and latency of eight SSDs per node case (50G_8SSD) are improved to a much lesser extent (104% throughput and 79% latency) compared to four SSDs per node case (50G_4SSD). This means that the ability of SSDs are far from full use. &lt;/p&gt; We made further dive and found that it is caused by current mainstream server hardware design. Currently, mainstream server has two SATA controllers which can support up to 12 Gbps bandwidth. This means that the total disk bandwidth is limited to around 1.5GB/s. That is the bandwidth of approximately 3.4 SSDs. You can find the details in the section Disk Bandwidth Limitation. So SATA controllers have become the bottleneck for eight SSDs per node. This explains why there is almost no improvement on YCSB throughput for eight SSDs per node. In the 50G_8SSD test, the disk is the bottleneck. Go to part 5,&nbsp;Experiment (continued) &lt;/p&gt;" />
+<link rel="canonical" href="http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_cluster1" />
+<meta property="og:url" content="http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_cluster1" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-04-23T00:15:42-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HDFS HSM and HBase: Experiment (Part 4 of 7)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2016-04-23T00:15:42-04:00","datePublished":"2016-04-23T00:15:42-04:00","description":"This is part 4 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)&nbsp; Introduction Cluster Setup Tuning Experiment Experiment (continued) Issues Conclusions Experimentation Performance for Single Storage Type First, we will study the HBase write performance on each single storage type (i.e. no storage type mix). This test is to show the maximum performance each storage type can achieve and provide a guide to following hierarchy storage analysis. &lt;/p&gt; We study the single-storage-type performance with two data sets: 50GB and 1TB data insertion. We believe 1TB is a reasonable data size in practice. And 50GB is used to evaluate the performance uplimit as HBase performance is typically higher when the data size is small. The 50GB size was chosen because we need to avoid data out of space in test. Further, due to RAMDISK limited capacity, we have to use a small data size when storing all data in RAMDISK. 50GB Dataset in a Single Storage The throughput and latency by YCSB for 50GB dataset are listed in Figure 2 and Figure 3. As expected, storing 50GB data in RAMDISK has the best performance whereas storing data in HDD has the worst. Figure 2. YCSB throughput of a single storage with 50GB dataset Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory. Figure 3. YCSB latency of a single storage with 50GB dataset Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory. For throughput, RAMDISK and SSD are higher than HDD (163% and 128% of HDD throughput, respectively). But the average latencies are dramatically lower than HDD (only 11% and 32% of HDD latency). This is expected as HDD has long latency on seek operation. The latency improvements of using RAMDISK, SSD over HDD are bigger than throughput improvement. This is caused by the huge access latency gap of different storage. The latency we measured of accessing 4KB raw data from RAM, SSD and HDD are respectively 89ns, 80&micro;s and 6.7ms (RAM and SSD are about 75000x and 84x faster than HDD). &lt;/p&gt; Now consider the data of hardware (disk, network and CPU in each DataNode) collected during the tests. Disk Throughput Throughput theoretically (MB/s) Throughput measured (MB/s) Utilization 50G_HDD 127 x 8 = 1016 870 86% 50G_SSD 447 x 8 = 3576 1300 36% 50G_RAM &gt;11194 1800 &lt;16% Table 10. Disk utilization of test cases Note: The data listed in the table for 50G_HDD and 50G_SSD are the total throughput of 8 disks. The disk throughput is decided by factors such as access model, block size and I/O depth. The theoretical disk throughput is measured by using performance-friendly factors; in real cases they won&rsquo;t be that friendly and would limit the data to lower values. In fact we observe that the disk utilization usually goes up to 100% for HDD. &lt;/p&gt; Network Throughput Each DataNode is connected by a 20Gbps (2560MB/s) full duplex network, which means both receive and transmit speed can reach 2560MB/s simultaneously. In our tests, the receive and transmit throughput are almost identical, so only the receive throughput data is listed in Table 9. Throughput theoretically (MB/s) Throughput measured (MB/s) Utilization 50G_HDD 2560 760 30% 50G_SSD 2560 1100 43% 50G_RAM 2560 1400 55% Table 11. Network utilization of test cases CPU Utilization Utilization 50G_HDD 36% 50G_SSD 55% 50G_RAM 60% Table 12. CPU utilization of test cases Clearly, the performance on HDD (50G_HDD) is bottlenecked on disk throughput. However, we can see that, for SSD and RAMDISK, neither disk, network nor CPU are the bottleneck. &nbsp;So, the bottlenecks must be somewhere else. They can be somewhere in software (e.g. HBase compaction, memstore in regions, etc) or hardware (except disk, network and CPU). &lt;/p&gt; To further understand why the utilization of SSD is so low and throughput is not as high as expected &mdash;only 132% of HDD, considering SSD has much higher theoretical throughput (447 MB/s vs. 127MB/s per disk) &mdash; we make an additional test to write 50GB data on four SSDs per node instead of eight SSDs per node. Figure 4. YCSB throughput of a single storage type with 50 GB dataset stored in different number of SSDs Figure 5. YCSB latency of a single storage type with 50 GB dataset stored in different number of SSDs We can see that while the number of SSDs doubled, the throughput and latency of eight SSDs per node case (50G_8SSD) are improved to a much lesser extent (104% throughput and 79% latency) compared to four SSDs per node case (50G_4SSD). This means that the ability of SSDs are far from full use. &lt;/p&gt; We made further dive and found that it is caused by current mainstream server hardware design. Currently, mainstream server has two SATA controllers which can support up to 12 Gbps bandwidth. This means that the total disk bandwidth is limited to around 1.5GB/s. That is the bandwidth of approximately 3.4 SSDs. You can find the details in the section Disk Bandwidth Limitation. So SATA controllers have become the bottleneck for eight SSDs per node. This explains why there is almost no improvement on YCSB throughput for eight SSDs per node. In the 50G_8SSD test, the disk is the bottleneck. Go to part 5,&nbsp;Experiment (continued) &lt;/p&gt;","headline":"HDFS HSM and HBase: Experiment (Part 4 of 7)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_cluster1"},"url":"http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_cluster1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">HDFS HSM and HBase: Experiment (Part 4 of 7)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-04-23T00:15:42-04:00" itemprop="datePublished">Apr 23, 2016
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Michael Stack", "login"=>"stack", "email"=>"stack@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is part 4 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)&nbsp;</p>
+<ol>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_part"><font size="1">Introduction</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster"><font size="1">Cluster Setup</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_tuning"><font size="1">Tuning</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster1"><font size="1">Experiment</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster2"><font size="1">Experiment (continued)</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster3"><font size="1">Issues</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster4"><font size="1">Conclusions</font></a></li>
+</ol>
+<h1 dir="ltr" style="line-height: 1.38; margin-top: 24pt; margin-bottom: 6pt;" id="docs-internal-guid-894f636c-4052-00b2-95f6-6ddead0a9978"><span style="font-size: 21.3333px; font-family: Calibri; color: #2e74b5; font-weight: 400; vertical-align: baseline; background-color: transparent;">Experimentation</span></h1>
+<h2 dir="ltr" style="line-height: 1.38; margin-top: 18pt; margin-bottom: 4pt;"><span style="font-size: 17.3333px; font-family: Calibri; color: #1e4d78; font-weight: 400; vertical-align: baseline; background-color: transparent;">Performance for Single Storage Type</span></h2>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">First, we will study the HBase write performance on each single storage type (i.e. no storage type mix). This test is to show the maximum performance each storage type can achieve and provide a guide to following hierarchy storage analysis.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">We study the single-storage-type performance with two data sets: 50GB and 1TB data insertion. We believe 1TB is a reasonable data size in practice. And 50GB is used to evaluate the performance uplimit as HBase performance is typically higher when the data size is small. The 50GB size was chosen because we need to avoid data out of space in test. Further, due to RAMDISK limited capacity, we have to use a small data size when storing all data in RAMDISK.</span></p>
+<h3 dir="ltr" style="line-height: 1.38; margin-top: 14pt; margin-bottom: 4pt;"><span style="font-size: 16px; font-family: Calibri; color: #0563c1; font-weight: 400; vertical-align: baseline; background-color: transparent;">50GB Dataset in a Single Storage</span></h3>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">The throughput and latency by YCSB for 50GB dataset are listed in Figure 2 and Figure 3. As expected, storing 50GB data in RAMDISK has the best performance whereas storing data in HDD has the worst.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"><img src="https://lh6.googleusercontent.com/sKyugE8A6wsWPrNCIlPYU1sTAk4V1GxiYHhKHzjo9iHLIjI1GfyH3UIdo5eglCbivE4mgazYpNSmoZI4pjluSZn354lK5zgXyQzBZfsFim8KqA4iHikDUuEhoJnQkHUa6E_LCkSu" width="624" height="276" style="transform: rotate(0rad);" /></span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Figure 2. YCSB throughput of a single storage with 50GB dataset</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;"><img src="https://lh6.googleusercontent.com/ev1WX-ITe1Co2jYa0RQOUzB7GnD0ty8eI08XbwZJNUZ5HY-AKsuF-srS3F9tNxSZJ9Ibw18WlW03qghgu2sxp1MshDZompYrHmzrQ3XDgSDJn944ZeectwRldalRJ0AUfWORSSbf" width="624" height="276" style="transform: rotate(0rad);" /></span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Figure 3. YCSB latency of a single storage with 50GB dataset</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Note: Performance data for SSD and HDD may be better than its real capability as OS can buffer/cache data in memory.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">For throughput, RAMDISK and SSD are higher than HDD (163% and 128% of HDD throughput, respectively). But the average latencies are dramatically lower than HDD (only 11% and 32% of HDD latency). This is expected as HDD has long latency on seek operation. The latency improvements of using RAMDISK, SSD over HDD are bigger than throughput improvement. This is caused by the huge access latency gap of different storage. The latency we measured of accessing 4KB raw data from RAM, SSD and HDD are respectively 89ns, 80&micro;s and 6.7ms (RAM and SSD are about 75000x and 84x faster than HDD).</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Now consider the data of hardware (disk, network and CPU in each DataNode) collected during the tests.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; font-style: italic; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; font-style: italic; vertical-align: baseline; background-color: transparent;">Disk Throughput</span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse; width: 624px;">
+<colgroup>
+<col width="102" />
+<col width="229" />
+<col width="208" />
+<col width="101" />
+<col width="92" />
+<col width="*" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"></td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Throughput theoretically (MB/s)</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Throughput measured (MB/s)</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Utilization</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_HDD</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">127 x 8 = 1016</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">870</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">86%</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">447 x 8 = 3576</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1300</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">36%</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_RAM</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">>11194</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1800</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"><16%</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 10. Disk utilization of test cases</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Note: The data listed in the table for 50G_HDD and 50G_SSD are the total throughput of 8 disks.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">The disk throughput is decided by factors such as access model, block size and I/O depth. The theoretical disk throughput is measured by using performance-friendly factors; in real cases they won&rsquo;t be that friendly and would limit the data to lower values. In fact we observe that the disk utilization usually goes up to 100% for HDD.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; font-style: italic; vertical-align: baseline; background-color: transparent;">Network Throughput</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Each DataNode is connected by a 20Gbps (2560MB/s) full duplex network, which means both receive and transmit speed can reach 2560MB/s simultaneously. In our tests, the receive and transmit throughput are almost identical, so only the receive throughput data is listed in Table 9.</span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse; width: 624px;">
+<colgroup>
+<col width="95" />
+<col width="231" />
+<col width="206" />
+<col width="107" />
+<col width="75" />
+<col width="*" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"></td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Throughput theoretically (MB/s)</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Throughput measured (MB/s)</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Utilization</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_HDD</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">2560</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">760</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">30%</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">2560</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1100</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">43%</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_RAM</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">2560</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1400</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">55%</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 11. Network utilization of test cases</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; font-style: italic; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; font-style: italic; vertical-align: baseline; background-color: transparent;">CPU Utilization</span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: none; border-collapse: collapse; width: 624px;">
+<colgroup>
+<col width="97" />
+<col width="542" />
+<col width="172" />
+<col width="89" />
+<col width="63" />
+<col width="*" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;"></td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Utilization</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_HDD</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">36%</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">55%</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_RAM</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: right;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">60%</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 12. CPU utilization of test cases</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Clearly, the performance on HDD (50G_HDD) is bottlenecked on disk throughput. However, we can see that, for SSD and RAMDISK, neither disk, network nor CPU are the bottleneck. &nbsp;So, the bottlenecks must be somewhere else. They can be somewhere in software (e.g. HBase compaction, memstore in regions, etc) or hardware (except disk, network and CPU).</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">To further understand why the utilization of SSD is so low and throughput is not as high as expected &mdash;only 132% of HDD, considering SSD has much higher theoretical throughput (447 MB/s vs. 127MB/s per disk) &mdash; we make an additional test to write 50GB data on four SSDs per node instead of eight SSDs per node.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"><img src="https://lh3.googleusercontent.com/gyOlNnsfefJMYH5d1d5Bvmd2MLxHBaJnDrzpMegn6XwDjS_op3iKfzPErvQZU-uQ8xbYL02WhyQOk9Y_n6HM7-O-H_ioaK58L9vdxze2U2AfdnNtwss40E_29ZeEwd73ymUH3KBW" width="624" height="267" style="transform: rotate(0rad);" /></span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Figure 4. YCSB throughput of a single storage type with 50 GB dataset stored in different number of SSDs</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;"><img src="https://lh4.googleusercontent.com/vFcMWJeGwprkue3AkNtA3sf3rn0RTVE1ZSPRomjUwpgnE-Mu7gZeawnR_zvDc-X4iBH3NQODDzTdEneSYkWNm6aJs468kzh-ebKby4pgZn6ClT67TM1U3OS85i5kkPln9DtqxgND" width="624" height="276" style="transform: rotate(0rad);" /></span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Figure 5. YCSB latency of a single storage type with 50 GB dataset stored in different number of SSDs</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">We can see that while the number of SSDs doubled, the throughput and latency of eight SSDs per node case (50G_8SSD) are improved to a much lesser extent (104% throughput and 79% latency) compared to four SSDs per node case (50G_4SSD). This means that the ability of SSDs are far from full use.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">We made further dive and found that it is caused by current mainstream server hardware design. Currently, mainstream server has two SATA controllers which can support up to 12 Gbps bandwidth. This means that the total disk bandwidth is limited to around 1.5GB/s. That is the bandwidth of approximately 3.4 SSDs. You can find the details in the section </span><a href="https://docs.google.com/document/d/1CEpvMfrh5HxbUl7DfkrRXZHI4wCzOIehFlvDlfYr4LA/edit#heading=h.7gvw79pxziy7"><span style="font-size: 14.6667px; font-family: Calibri; color: #1155cc; text-decoration: underline; vertical-align: baseline; background-color: transparent;">Disk Bandwidth Limitation</span></a><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">. So SATA controllers have become the bottleneck for eight SSDs per node. This explains why there is almost no improvement on YCSB throughput for eight SSDs per node. In the 50G_8SSD test, the disk is the bottleneck.</span></p>
+<p>Go to part 5,&nbsp;<a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster2">Experiment (continued)</a></p></p>
+<h3 dir="ltr" style="line-height: 1.38; margin-top: 14pt; margin-bottom: 4pt;"></h3>
+
+  </div><a class="u-url" href="/hbase/entry/hdfs_hsm_and_hbase_cluster1" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

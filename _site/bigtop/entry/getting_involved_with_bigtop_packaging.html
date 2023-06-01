@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Getting involved with BigTop packaging | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Getting involved with BigTop packaging" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="To get a feel for the need that bigtop packaging of hadoop components is all about, I suggest checking out Roman&#39;s puppetcon bigtop talk a few years back.&nbsp; The thrust of this talk is that that we need to bring the uniformity to the hadoop ecosystem, and ease of use for end users of hadoop. To me an important first step down this path, is bringing the Java community in-line with what packaging is really all about and why it makes it easier to maintain complex systems.&nbsp; &lt;/p&gt; As a Java/Maven guy, wrapping my head around &quot;packaging&quot; has been a little tricky... And according to stephen r. covey, change begins on the inside :).&nbsp; &nbsp; How would YOU package hadoop as an RPM ? The thought of this is pretty daunting, and its really interesting to see how this is solved in bigtop.&nbsp; I&#39;ve begin documenting my current adventures into the world of RPMs, packaging, and BigTop.&nbsp; I&#39;ve just begin to scratch the surface of all of the services, users, binaries, and security features associated with a basic RPM hadoop installation, and it will probably be a while before I fully understand how it all really works.&nbsp; So in the meanwhile, lets learn about hadoop packaging with a simpler project... Apache Mahout. Here are the packaging resources for mahout inside of bigtop: common/mahout/├── do-component-build└── install_mahout.sh ...bigtop-packages/rpm/mahout/SPECS/mahout.spec Above you can see that there are three main components to packaging of mahout. 1) The &quot;do-component-build&quot; file. 2) The &quot;install_mahout.sh&quot; file. 3) The rpm file &quot;mahout.spec&quot;, which actually uses these two components to do its work. The do-component-build builds the raw mahout artifact directly from source.&nbsp; You can see the java specific details of mahout compilation in there.&nbsp; set -ex&lt;/p&gt; . `dirname $0`/bigtop.bom mvn clean install -Dmahout.skip.distribution=false -DskipTests -Dhadoop2.version=$HADOOP_VERSION &quot;$@&quot;mkdir buildfor i in distribution/target/mahout*.tar.gz ; do&nbsp; tar -C build --strip-components=1 -xzf $idone&lt;/font&gt;&lt;/span&gt; Meanwhile, install_mahout.sh contains the actual logic of how and where mahout jars will go, and a snippet that writes out the mahout startup shell script /usr/bin/mahout. &lt;/p&gt; # Copy in the /usr/bin/mahout wrapperinstall -d -m 0755 $PREFIX/$BIN_DIRcat &gt; $PREFIX/$BIN_DIR/mahout &lt;&lt;EOF#!/bin/bash&lt;/p&gt; # Autodetect JAVA_HOME if not defined. /usr/lib/bigtop-utils/bigtop-detect-javahome # FIXME: MAHOUT-994export HADOOP_HOME=\${HADOOP_HOME:-/usr/lib/hadoop}export HADOOP_CONF_DIR=\${HADOOP_CONF_DIR:-/etc/hadoop/conf} export MAHOUT_HOME=\${MAHOUT_HOME:-$INSTALLED_LIB_DIR}export MAHOUT_CONF_DIR=\${MAHOUT_CONF_DIR:-$CONF_DIR}# FIXME: the following line is a workaround for BIGTOP-259 &lt;/span&gt;export HADOOP_CLASSPATH=&quot;`echo /usr/lib/mahout/mahout-examples-*-job.jar`&quot;:\$HADOOP_CLASSPATHexec $INSTALLED_LIB_DIR/bin/mahout &quot;\$@&quot;EOFchmod 755 $PREFIX/$BIN_DIR/mahout&lt;/span&gt; Anyways, hope this quick tour helps those who are trying to get involved with the bigtop packaging process.&nbsp; It took me a few days to understand how it all works, because after all, packaging software is an intrinsically complex task.&nbsp; But thankfully, there are TONS of examples of how to package all the different players of the hadoop ecosystem underneath bigtop-packages/src which can easily help you get started. &lt;/p&gt;" />
+<meta property="og:description" content="To get a feel for the need that bigtop packaging of hadoop components is all about, I suggest checking out Roman&#39;s puppetcon bigtop talk a few years back.&nbsp; The thrust of this talk is that that we need to bring the uniformity to the hadoop ecosystem, and ease of use for end users of hadoop. To me an important first step down this path, is bringing the Java community in-line with what packaging is really all about and why it makes it easier to maintain complex systems.&nbsp; &lt;/p&gt; As a Java/Maven guy, wrapping my head around &quot;packaging&quot; has been a little tricky... And according to stephen r. covey, change begins on the inside :).&nbsp; &nbsp; How would YOU package hadoop as an RPM ? The thought of this is pretty daunting, and its really interesting to see how this is solved in bigtop.&nbsp; I&#39;ve begin documenting my current adventures into the world of RPMs, packaging, and BigTop.&nbsp; I&#39;ve just begin to scratch the surface of all of the services, users, binaries, and security features associated with a basic RPM hadoop installation, and it will probably be a while before I fully understand how it all really works.&nbsp; So in the meanwhile, lets learn about hadoop packaging with a simpler project... Apache Mahout. Here are the packaging resources for mahout inside of bigtop: common/mahout/├── do-component-build└── install_mahout.sh ...bigtop-packages/rpm/mahout/SPECS/mahout.spec Above you can see that there are three main components to packaging of mahout. 1) The &quot;do-component-build&quot; file. 2) The &quot;install_mahout.sh&quot; file. 3) The rpm file &quot;mahout.spec&quot;, which actually uses these two components to do its work. The do-component-build builds the raw mahout artifact directly from source.&nbsp; You can see the java specific details of mahout compilation in there.&nbsp; set -ex&lt;/p&gt; . `dirname $0`/bigtop.bom mvn clean install -Dmahout.skip.distribution=false -DskipTests -Dhadoop2.version=$HADOOP_VERSION &quot;$@&quot;mkdir buildfor i in distribution/target/mahout*.tar.gz ; do&nbsp; tar -C build --strip-components=1 -xzf $idone&lt;/font&gt;&lt;/span&gt; Meanwhile, install_mahout.sh contains the actual logic of how and where mahout jars will go, and a snippet that writes out the mahout startup shell script /usr/bin/mahout. &lt;/p&gt; # Copy in the /usr/bin/mahout wrapperinstall -d -m 0755 $PREFIX/$BIN_DIRcat &gt; $PREFIX/$BIN_DIR/mahout &lt;&lt;EOF#!/bin/bash&lt;/p&gt; # Autodetect JAVA_HOME if not defined. /usr/lib/bigtop-utils/bigtop-detect-javahome # FIXME: MAHOUT-994export HADOOP_HOME=\${HADOOP_HOME:-/usr/lib/hadoop}export HADOOP_CONF_DIR=\${HADOOP_CONF_DIR:-/etc/hadoop/conf} export MAHOUT_HOME=\${MAHOUT_HOME:-$INSTALLED_LIB_DIR}export MAHOUT_CONF_DIR=\${MAHOUT_CONF_DIR:-$CONF_DIR}# FIXME: the following line is a workaround for BIGTOP-259 &lt;/span&gt;export HADOOP_CLASSPATH=&quot;`echo /usr/lib/mahout/mahout-examples-*-job.jar`&quot;:\$HADOOP_CLASSPATHexec $INSTALLED_LIB_DIR/bin/mahout &quot;\$@&quot;EOFchmod 755 $PREFIX/$BIN_DIR/mahout&lt;/span&gt; Anyways, hope this quick tour helps those who are trying to get involved with the bigtop packaging process.&nbsp; It took me a few days to understand how it all works, because after all, packaging software is an intrinsically complex task.&nbsp; But thankfully, there are TONS of examples of how to package all the different players of the hadoop ecosystem underneath bigtop-packages/src which can easily help you get started. &lt;/p&gt;" />
+<link rel="canonical" href="http://localhost:4000/bigtop/entry/getting_involved_with_bigtop_packaging" />
+<meta property="og:url" content="http://localhost:4000/bigtop/entry/getting_involved_with_bigtop_packaging" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-05-01T20:14:32-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Getting involved with BigTop packaging" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-05-01T20:14:32-04:00","datePublished":"2014-05-01T20:14:32-04:00","description":"To get a feel for the need that bigtop packaging of hadoop components is all about, I suggest checking out Roman&#39;s puppetcon bigtop talk a few years back.&nbsp; The thrust of this talk is that that we need to bring the uniformity to the hadoop ecosystem, and ease of use for end users of hadoop. To me an important first step down this path, is bringing the Java community in-line with what packaging is really all about and why it makes it easier to maintain complex systems.&nbsp; &lt;/p&gt; As a Java/Maven guy, wrapping my head around &quot;packaging&quot; has been a little tricky... And according to stephen r. covey, change begins on the inside :).&nbsp; &nbsp; How would YOU package hadoop as an RPM ? The thought of this is pretty daunting, and its really interesting to see how this is solved in bigtop.&nbsp; I&#39;ve begin documenting my current adventures into the world of RPMs, packaging, and BigTop.&nbsp; I&#39;ve just begin to scratch the surface of all of the services, users, binaries, and security features associated with a basic RPM hadoop installation, and it will probably be a while before I fully understand how it all really works.&nbsp; So in the meanwhile, lets learn about hadoop packaging with a simpler project... Apache Mahout. Here are the packaging resources for mahout inside of bigtop: common/mahout/├── do-component-build└── install_mahout.sh ...bigtop-packages/rpm/mahout/SPECS/mahout.spec Above you can see that there are three main components to packaging of mahout. 1) The &quot;do-component-build&quot; file. 2) The &quot;install_mahout.sh&quot; file. 3) The rpm file &quot;mahout.spec&quot;, which actually uses these two components to do its work. The do-component-build builds the raw mahout artifact directly from source.&nbsp; You can see the java specific details of mahout compilation in there.&nbsp; set -ex&lt;/p&gt; . `dirname $0`/bigtop.bom mvn clean install -Dmahout.skip.distribution=false -DskipTests -Dhadoop2.version=$HADOOP_VERSION &quot;$@&quot;mkdir buildfor i in distribution/target/mahout*.tar.gz ; do&nbsp; tar -C build --strip-components=1 -xzf $idone&lt;/font&gt;&lt;/span&gt; Meanwhile, install_mahout.sh contains the actual logic of how and where mahout jars will go, and a snippet that writes out the mahout startup shell script /usr/bin/mahout. &lt;/p&gt; # Copy in the /usr/bin/mahout wrapperinstall -d -m 0755 $PREFIX/$BIN_DIRcat &gt; $PREFIX/$BIN_DIR/mahout &lt;&lt;EOF#!/bin/bash&lt;/p&gt; # Autodetect JAVA_HOME if not defined. /usr/lib/bigtop-utils/bigtop-detect-javahome # FIXME: MAHOUT-994export HADOOP_HOME=\\${HADOOP_HOME:-/usr/lib/hadoop}export HADOOP_CONF_DIR=\\${HADOOP_CONF_DIR:-/etc/hadoop/conf} export MAHOUT_HOME=\\${MAHOUT_HOME:-$INSTALLED_LIB_DIR}export MAHOUT_CONF_DIR=\\${MAHOUT_CONF_DIR:-$CONF_DIR}# FIXME: the following line is a workaround for BIGTOP-259 &lt;/span&gt;export HADOOP_CLASSPATH=&quot;`echo /usr/lib/mahout/mahout-examples-*-job.jar`&quot;:\\$HADOOP_CLASSPATHexec $INSTALLED_LIB_DIR/bin/mahout &quot;\\$@&quot;EOFchmod 755 $PREFIX/$BIN_DIR/mahout&lt;/span&gt; Anyways, hope this quick tour helps those who are trying to get involved with the bigtop packaging process.&nbsp; It took me a few days to understand how it all works, because after all, packaging software is an intrinsically complex task.&nbsp; But thankfully, there are TONS of examples of how to package all the different players of the hadoop ecosystem underneath bigtop-packages/src which can easily help you get started. &lt;/p&gt;","headline":"Getting involved with BigTop packaging","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bigtop/entry/getting_involved_with_bigtop_packaging"},"url":"http://localhost:4000/bigtop/entry/getting_involved_with_bigtop_packaging"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Getting involved with BigTop packaging </h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-05-01T20:14:32-04:00" itemprop="datePublished">May 1, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Jay Vyas", "login"=>"jay", "email"=>"jay@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>To get a feel for the need that bigtop packaging of hadoop components is all about, I suggest checking out Roman's <a target="_blank" href="https://www.youtube.com/watch?v=CefoqK8Qlno">puppetcon bigtop talk</a> a few years back.&nbsp; </p>
+<p>The thrust of this talk is that that <i>we need to bring the uniformity to the hadoop ecosystem, and ease of use for end users of hadoop. </i>To me an important first step down this path, is <b>bringing the Java community in-line with what packaging is really all about</b> and why it makes it easier to maintain complex systems.&nbsp; </p></p>
+<p>As a Java/Maven guy, wrapping my head around "packaging" has been a little tricky... And according to stephen r. covey, change begins on the inside :).&nbsp; &nbsp;<b> </b></p>
+<p><b>How would YOU package hadoop as an RPM ?</b> </p>
+<p>The thought of this is pretty daunting, and its really interesting to see how this is solved in bigtop.&nbsp; I've begin documenting <a href="http://jayunit100.blogspot.com/2014/04/how-bigtop-packages-hadoop.html">my current adventures into the world of RPMs, packaging, and BigTop</a>.&nbsp; I've just begin to scratch the surface of all of the services, users, binaries, and security features associated with a basic RPM hadoop installation, and it will probably be a while before I fully understand how it all really works.&nbsp; </p>
+<p><b>So in the meanwhile, lets learn about hadoop packaging with a simpler project... <a href="https://mahout.apache.org/%u200E">Apache Mahout</a>.</b></p>
+<p>Here are the packaging resources for mahout inside of bigtop:</p>
+<p><font face="courier new,courier,monospace"><span style="background-color: #ffff2e;">common/mahout/<br />├── do-component-build<br />└── install_mahout.sh</span></font></p>
+<p><font face="courier new,courier,monospace"><span style="background-color: #ffff2e;">...<br />bigtop-packages/rpm/mahout/SPECS/mahout.spec</span><br /></font></p>
+<p>Above you can see that there are <b>three</b> main components to packaging of mahout.</p>
+<p><b>1) The "<a href="https://raw.githubusercontent.com/apache/bigtop/master/bigtop-packages/src/common/mahout/do-component-build">do-component-build</a>" file.</b></p>
+<p><b>2) The "<a href="https://github.com/apache/bigtop/blob/master/bigtop-packages/src/common/mahout/install_mahout.sh">install_mahout.sh</a>" file</b>.</p>
+<p><b>3) The rpm file "<a href="https://github.com/apache/bigtop/blob/master/bigtop-packages/src/rpm/mahout/SPECS/mahout.spec">mahout.spec"</a>, which actually uses these two components to do its work.<br /></b></p>
+<p><b> </b> </p>
+<p>The <b>do-component-build</b> builds the raw mahout artifact directly from source.&nbsp; You can see the java specific details of mahout compilation in there.&nbsp; <span style="color: #1012ff;"></span></p>
+<p><span style="color: #1012ff;"> </span></p>
+<hr />
+<p><span style="color: #1012ff;"><font face="courier new,courier,monospace">set -ex</p>
+<p>. `dirname $0`/bigtop.bom</p>
+<p>mvn clean install -Dmahout.skip.distribution=false -DskipTests -Dhadoop2.version=$HADOOP_VERSION "$@"<br />mkdir build<br />for i in distribution/target/mahout*.tar.gz ; do<br />&nbsp; tar -C build --strip-components=1 -xzf $i<br />done</font></span></p>
+<hr />
+<p>Meanwhile, <b>install_mahout.sh</b> contains the actual logic of how and where mahout jars will go, and a snippet that writes out the mahout startup shell script <i>/usr/bin/mahout.</i></p>
+<hr /><span style="color: #1e1e1e;"> </span> </p>
+<p><span style="color: #1012ff;"><span style="color: #1e1e1e;"><font face="courier new,courier,monospace"># Copy in the /usr/bin/mahout wrapper</font><br /><font face="courier new,courier,monospace">install -d -m 0755 $PREFIX/$BIN_DIR</font><br /><font face="courier new,courier,monospace">cat > $PREFIX/$BIN_DIR/mahout <<EOF</font></span><br /><span style="color: #ff2ebd;"><font face="courier new,courier,monospace">#!/bin/bash</font></p>
+<p><font face="courier new,courier,monospace"># Autodetect JAVA_HOME if not defined</font><br /><font face="courier new,courier,monospace">. /usr/lib/bigtop-utils/bigtop-detect-javahome</font></p>
+<p><font face="courier new,courier,monospace"># FIXME: MAHOUT-994</font><br /><font face="courier new,courier,monospace">export HADOOP_HOME=\${HADOOP_HOME:-/usr/lib/hadoop}</font><br /><font face="courier new,courier,monospace">export HADOOP_CONF_DIR=\${HADOOP_CONF_DIR:-/etc/hadoop/conf}</font></p>
+<p><font face="courier new,courier,monospace">export MAHOUT_HOME=\${MAHOUT_HOME:-$INSTALLED_LIB_DIR}</font><br /><font face="courier new,courier,monospace">export MAHOUT_CONF_DIR=\${MAHOUT_CONF_DIR:-$CONF_DIR}</font><br /><font face="courier new,courier,monospace"># FIXME: the following line is a workaround for BIGTOP-259 </font><br /></span><font face="courier new,courier,monospace"><span style="color: #ff2ebd;">export HADOOP_CLASSPATH="`echo /usr/lib/mahout/mahout-examples-*-job.jar`</span><span style="color: #000000;">":\$HADOOP_CLASSPATH</span></font><span style="color: #000000;"><br /><font face="courier new,courier,monospace">exec $INSTALLED_LIB_DIR/bin/mahout "\$@"</font><br /><font face="courier new,courier,monospace">EOF</font><br /><font face="courier new,courier,monospace">chmod 755 $PREFIX/$BIN_DIR/mahout</font></span></span></p>
+<p><span style="color: #1012ff;"><span style="color: #000000;"><font face="courier new,courier,monospace"></font></span></span></p>
+<hr />
+<p>Anyways, hope this quick tour helps those who are trying to get involved with the bigtop packaging process.&nbsp; <i>It took me a few days to understand how it all works, because after all, packaging software is an intrinsically complex task.</i>&nbsp; But thankfully, there are TONS of examples of how to package all the different players of the hadoop ecosystem underneath <font face="courier new,courier,monospace">bigtop-packages/src</font> which can easily help you get started. </p></p>
+<p></p>
+
+  </div><a class="u-url" href="/bigtop/entry/getting_involved_with_bigtop_packaging" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

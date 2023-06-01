@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fast Messaging With Apache ActiveMQ Artemis | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Fast Messaging With Apache ActiveMQ Artemis" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ActiveMQ Artemis can be extremely fast in both transactional and non transactional cases. This article will give you some hints on how to produce messages extremely fast with thousands messages per second in transactional mode." />
+<meta property="og:description" content="ActiveMQ Artemis can be extremely fast in both transactional and non transactional cases. This article will give you some hints on how to produce messages extremely fast with thousands messages per second in transactional mode." />
+<link rel="canonical" href="http://localhost:4000/activemq/entry/fast_messaging_with_artemis" />
+<meta property="og:url" content="http://localhost:4000/activemq/entry/fast_messaging_with_artemis" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-13T20:05:40-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fast Messaging With Apache ActiveMQ Artemis" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2016-12-13T20:05:40-05:00","datePublished":"2016-12-13T20:05:40-05:00","description":"ActiveMQ Artemis can be extremely fast in both transactional and non transactional cases. This article will give you some hints on how to produce messages extremely fast with thousands messages per second in transactional mode.","headline":"Fast Messaging With Apache ActiveMQ Artemis","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/activemq/entry/fast_messaging_with_artemis"},"url":"http://localhost:4000/activemq/entry/fast_messaging_with_artemis"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fast Messaging With Apache ActiveMQ Artemis</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-12-13T20:05:40-05:00" itemprop="datePublished">Dec 13, 2016
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Cleber suconic", "login"=>"clebertsuconic", "email"=>"clebertsuconic@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3>First, what is Apache ActiveMQ Artemis</h3>
+<p>Apache Artemis is a sub project of ActiveMQ, where we are developing a new broker using 100% asynchronous back end. Messages are through a fast Journal Storage or through its Paging System when messages are beyond the capacity of the memory.</p>
+<p>It was based on the donation from HornetQ, but it has evolved a lot since it joined the Apache ActiveMQ community, both evolving as a software and as an open source community</p>
+<p>You can do either very fast messaging without using transactions, or you can use its mature transaction API (XA or regular transactions)</p>
+<p>On this blog entry here I will cover how you can send thousands of messages per second by sending them asynchronously. Since there are many users interested in not using a transaction at all these days.</p>
+<h3>
+This is a guide to how to make your producers and consumers fly with Artemis</h3>
+<p>Many users have been using message systems that will favor performance instead of full guarantees of writes.</p>
+<p>This is something we have been doing for years with the Artemis codebase, including Artemis and previous versions of HornetQ.</p>
+<p>This is a small tutorial to do such thing with Artemis, pretty simple and quite powerful.</p>
+<p>This will make sender to be 100% asynchronous, So you never block the producer and you can easily make thousands messages / second.</p>
+<p>Even still the guarantees are quite high as the message will be persisted at the journal within milliseconds.</p>
+<p>So, here is how you do it:</p>
+<h2>
+<ul>
+<li>Disable Block on Persistent Messages:</li>
+</ul>
+</h2>
+<p>There are two ways you can do that:</p>
+<h4>
+I - Disable blockOnDurableSend through a property:</h4>
+<p></p>
+<pre>ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
+factory.setBlockOnDurableSend(false);
+</pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<h4>
+II - Disable blockOnDurableSend through the URI for the connection Factory:</h4>
+<pre>ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616?blockOnDurableSend=false);
+</pre>
+<pre></pre>
+<pre></pre>
+<h2>
+<ul>
+<li>Send non Transactionally:</li>
+</ul>
+</h2>
+<div>
+A transaction means a hard sync on the world. Make a round trip to the server and sync on disk.</div>
+<div>
+If you send a regular Persistent Message, asynchronously, then you get a large throughput on your producers.</div>
+<div>
+</div>
+<div>
+</div>
+<div>
+Here is a full example:</div>
+<pre>package org.apache.activemq.artemis.cli.commands.messages;
+
+import javax.jms.Connection;
+import javax.jms.Destination;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+
+import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+import org.apache.activemq.artemis.jms.client.ActiveMQDestination;
+
+public class FastProducer {
+
+   public static void main(String arg[]) {
+      try {
+         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616?blockOnDurableSend=false");
+         Connection connection = factory.createConnection();
+         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+         Destination queue = ActiveMQDestination.createDestination("queue://TEST", ActiveMQDestination.QUEUE_TYPE);
+         MessageProducer producer = session.createProducer(queue);
+
+         long time = System.currentTimeMillis();
+
+         for (int i = 0; i < 100000; i++) {
+            producer.send(session.createTextMessage("hello guys"));
+         }
+
+         System.out.println("Send message in " + (System.currentTimeMillis() - time) + " milliseconds");
+
+         connection.close();
+      }
+      catch (Exception e) {
+
+      }
+   }
+}
+</pre>
+<pre></pre>
+<p>With this little example here<b> I am able to send 100K messages in less than 2 seconds</b> using my laptop.</p>
+<pre>Send message in 1772 milliseconds</pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre>And we are still improving things. Watch out for more improvements over the next month :)
+
+</pre>
+
+  </div><a class="u-url" href="/activemq/entry/fast_messaging_with_artemis" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

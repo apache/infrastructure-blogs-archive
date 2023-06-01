@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>What’s “nb-javac” in Apache NetBeans? | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="What’s “nb-javac” in Apache NetBeans?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Not long after you start up Apache NetBeans (incubating) 9.0 on top of JDK 8, after accepting the license agreement and handling import settings, you&#39;re confronted with this dialog: What does that mean? And why, when you start up Apache NetBeans (incubating) 9.0 on top of JDK 9 or above, do you see the following, instead: Note: The above appears in a balloon popup in the bottom right the first time you start up Apache NetBeans (incubating) 9.0 on JDK 9 or above. If you miss out on seeing or responding to the message, go to Window | IDE Tools | Notifications anytime afterwards and you&#39;ll have another opportunity to install it: Let&#39;s start by looking at the question, what is &quot;nb-javac&quot;? Well, &quot;nb-javac&quot;, which is a patched version of &quot;javac&quot;, i.e., the Java compiler, has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor in NetBeans, and wasn&#39;t part of the donation of NetBeans to Apache since, of course, the Java compiler (or a fork thereof) cannot be part of the donation. That&#39;s because Oracle is not donating Java to Apache, instead, it is donating NetBeans. The Java compiler belongs to the JDK which is licensed to Oracle. Separate from Oracle&#39;s obvious understandable unwillingness to donate a Java compiler fork to Apache, or anyone else, Apache would have a problem with a fork of the Java compiler being distributed from Apache since the Java compiler is LGPL licensed. In short, neither Oracle nor Apache want the Java compiler to be part of NetBeans in Apache. Yet, NetBeans gains a lot from the patched Java compiler, as explained below: http://wiki.netbeans.org/JavacDiff Also see this reference for details on the situation:&lt;/pL&gt; https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac However, using model APIs added in JDK 9, Apache NetBeans can make use of the Java compiler directly from the JDK, as explained here: https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac So, as can be seen, from Apache NetBeans running on JDK 9 and onwards, you have a choice: either use the Java compiler from the JDK, which means you&#39;re not benefiting from a number of enhancements especially added for NetBeans over many years in the patched Java compiler, or you need to explicitly add the patched Java compiler, since it is provided by Oracle and its licensing is such that you need to take responsibility for installing it yourself. On the other hand, if you&#39;re using Apache NetBeans with JDK 8, the choice is simpler, i.e., you need to install nb-javac, otherwise you will not be able to use Java in Apache NetBeans. It&#39;s not an ideal situation. On the other hand, if someone has a better solution, please feel free to propose that solution and also consider providing a pull request too!" />
+<meta property="og:description" content="Not long after you start up Apache NetBeans (incubating) 9.0 on top of JDK 8, after accepting the license agreement and handling import settings, you&#39;re confronted with this dialog: What does that mean? And why, when you start up Apache NetBeans (incubating) 9.0 on top of JDK 9 or above, do you see the following, instead: Note: The above appears in a balloon popup in the bottom right the first time you start up Apache NetBeans (incubating) 9.0 on JDK 9 or above. If you miss out on seeing or responding to the message, go to Window | IDE Tools | Notifications anytime afterwards and you&#39;ll have another opportunity to install it: Let&#39;s start by looking at the question, what is &quot;nb-javac&quot;? Well, &quot;nb-javac&quot;, which is a patched version of &quot;javac&quot;, i.e., the Java compiler, has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor in NetBeans, and wasn&#39;t part of the donation of NetBeans to Apache since, of course, the Java compiler (or a fork thereof) cannot be part of the donation. That&#39;s because Oracle is not donating Java to Apache, instead, it is donating NetBeans. The Java compiler belongs to the JDK which is licensed to Oracle. Separate from Oracle&#39;s obvious understandable unwillingness to donate a Java compiler fork to Apache, or anyone else, Apache would have a problem with a fork of the Java compiler being distributed from Apache since the Java compiler is LGPL licensed. In short, neither Oracle nor Apache want the Java compiler to be part of NetBeans in Apache. Yet, NetBeans gains a lot from the patched Java compiler, as explained below: http://wiki.netbeans.org/JavacDiff Also see this reference for details on the situation:&lt;/pL&gt; https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac However, using model APIs added in JDK 9, Apache NetBeans can make use of the Java compiler directly from the JDK, as explained here: https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac So, as can be seen, from Apache NetBeans running on JDK 9 and onwards, you have a choice: either use the Java compiler from the JDK, which means you&#39;re not benefiting from a number of enhancements especially added for NetBeans over many years in the patched Java compiler, or you need to explicitly add the patched Java compiler, since it is provided by Oracle and its licensing is such that you need to take responsibility for installing it yourself. On the other hand, if you&#39;re using Apache NetBeans with JDK 8, the choice is simpler, i.e., you need to install nb-javac, otherwise you will not be able to use Java in Apache NetBeans. It&#39;s not an ideal situation. On the other hand, if someone has a better solution, please feel free to propose that solution and also consider providing a pull request too!" />
+<link rel="canonical" href="http://localhost:4000/netbeans/entry/what-s-nb-javac-in" />
+<meta property="og:url" content="http://localhost:4000/netbeans/entry/what-s-nb-javac-in" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-22T19:50:57-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What’s “nb-javac” in Apache NetBeans?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-07-22T19:50:57-04:00","datePublished":"2018-07-22T19:50:57-04:00","description":"Not long after you start up Apache NetBeans (incubating) 9.0 on top of JDK 8, after accepting the license agreement and handling import settings, you&#39;re confronted with this dialog: What does that mean? And why, when you start up Apache NetBeans (incubating) 9.0 on top of JDK 9 or above, do you see the following, instead: Note: The above appears in a balloon popup in the bottom right the first time you start up Apache NetBeans (incubating) 9.0 on JDK 9 or above. If you miss out on seeing or responding to the message, go to Window | IDE Tools | Notifications anytime afterwards and you&#39;ll have another opportunity to install it: Let&#39;s start by looking at the question, what is &quot;nb-javac&quot;? Well, &quot;nb-javac&quot;, which is a patched version of &quot;javac&quot;, i.e., the Java compiler, has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor in NetBeans, and wasn&#39;t part of the donation of NetBeans to Apache since, of course, the Java compiler (or a fork thereof) cannot be part of the donation. That&#39;s because Oracle is not donating Java to Apache, instead, it is donating NetBeans. The Java compiler belongs to the JDK which is licensed to Oracle. Separate from Oracle&#39;s obvious understandable unwillingness to donate a Java compiler fork to Apache, or anyone else, Apache would have a problem with a fork of the Java compiler being distributed from Apache since the Java compiler is LGPL licensed. In short, neither Oracle nor Apache want the Java compiler to be part of NetBeans in Apache. Yet, NetBeans gains a lot from the patched Java compiler, as explained below: http://wiki.netbeans.org/JavacDiff Also see this reference for details on the situation:&lt;/pL&gt; https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac However, using model APIs added in JDK 9, Apache NetBeans can make use of the Java compiler directly from the JDK, as explained here: https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac So, as can be seen, from Apache NetBeans running on JDK 9 and onwards, you have a choice: either use the Java compiler from the JDK, which means you&#39;re not benefiting from a number of enhancements especially added for NetBeans over many years in the patched Java compiler, or you need to explicitly add the patched Java compiler, since it is provided by Oracle and its licensing is such that you need to take responsibility for installing it yourself. On the other hand, if you&#39;re using Apache NetBeans with JDK 8, the choice is simpler, i.e., you need to install nb-javac, otherwise you will not be able to use Java in Apache NetBeans. It&#39;s not an ideal situation. On the other hand, if someone has a better solution, please feel free to propose that solution and also consider providing a pull request too!","headline":"What’s “nb-javac” in Apache NetBeans?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/netbeans/entry/what-s-nb-javac-in"},"url":"http://localhost:4000/netbeans/entry/what-s-nb-javac-in"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">What&#39;s &quot;nb-javac&quot; in Apache NetBeans?</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-07-22T19:50:57-04:00" itemprop="datePublished">Jul 22, 2018
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"GeertjanWielenga", "login"=>"geertjan", "email"=>"geertjan@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Not long after you start up <a href="https://blogs.apache.org/netbeans/entry/tentative-schedule-for-apache-netbeans">Apache NetBeans (incubating) 9.0</a> <b>on top of JDK 8</b>, after accepting the license agreement and handling import settings, you're confronted with this dialog:</p>
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/120bcc60-3b3f-4323-aabe-f0445a1f7754"/></p>
+<p>What does that mean? And why, when you start up Apache NetBeans (incubating) 9.0 <b>on top of JDK 9 or above</b>, do you see the following, instead:</p>
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/48eb86e5-a9db-4d4b-8a85-87df42adce31"/></p>
+<p><b>Note:</b> The above appears in a balloon popup in the bottom right the first time you start up Apache NetBeans (incubating) 9.0 on JDK 9 or above. If you miss out on seeing or responding to the message, go to Window | IDE Tools | Notifications anytime afterwards and you'll have another opportunity to install it:</p>
+<p><img src="https://blogs.apache.org/netbeans/mediaresource/6475dd46-b153-41c1-a123-5977654cd88e"/></p>
+<p>Let's start by looking at the question, what is "nb-javac"? Well, "nb-javac", which is a patched version of "javac", i.e., the Java compiler, has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor in NetBeans, and wasn't part of the donation of NetBeans to Apache since, of course, the Java compiler (or a fork thereof) cannot be part of the donation. That's because Oracle is not donating Java to Apache, instead, it is donating NetBeans. The Java compiler belongs to the JDK which is licensed to Oracle.</p>
+<p>Separate from Oracle's obvious understandable unwillingness to donate a Java compiler fork to Apache, or anyone else, Apache would have a problem with a fork of the Java compiler being distributed from Apache since the Java compiler is LGPL licensed.</p>
+<p>In short, neither Oracle nor Apache want the Java compiler to be part of NetBeans in Apache. Yet, NetBeans gains a lot from the patched Java compiler, as explained below:</p>
+<p><a href="http://wiki.netbeans.org/JavacDiff">http://wiki.netbeans.org/JavacDiff</a></p>
+<p>Also see this reference for details on the situation:</pL>
+<p><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac">https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac</a></p>
+<p>However, using model APIs added in JDK 9, Apache NetBeans can make use of the Java compiler directly from the JDK, as explained here:</p>
+<p><a href="https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac">https://cwiki.apache.org/confluence/display/NETBEANS/Java+Editor+Using+JDK+javac</a></p>
+<p>So, as can be seen, from Apache NetBeans running on JDK 9 and onwards, you have a choice: either use the Java compiler from the JDK, which means you're not benefiting from a number of enhancements especially added for NetBeans over many years in the patched Java compiler, or you need to explicitly add the patched Java compiler, since it is provided by Oracle and its licensing is such that you need to take responsibility for installing it yourself. On the other hand, if you're using Apache NetBeans with JDK 8, the choice is simpler, i.e., you need to install nb-javac, otherwise you will not be able to use Java in Apache NetBeans.</p>
+<p>It's not an ideal situation. On the other hand, if someone has a better solution, please feel free to propose that solution and also consider providing a pull request too!</p>
+
+  </div><a class="u-url" href="/netbeans/entry/what-s-nb-javac-in" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

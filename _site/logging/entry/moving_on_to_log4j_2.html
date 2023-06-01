@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Moving on to Log4j 2: Log4j 1.2 is broken on Java 9 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Moving on to Log4j 2: Log4j 1.2 is broken on Java 9" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Log4j 1 has had a good run. First released in 1999, it is still widely used in a variety of Java-based projects. With Java 9, that is likely to come to an end: Log4j 1.2 is broken on Java 9. Essentially the MDC depends on the Java version string, which does not play well with Java 9’s new version-string format. To any project that is interested in running on Java 9, I&#39;d strongly recommend migrating to Log4j 2 now." />
+<meta property="og:description" content="Log4j 1 has had a good run. First released in 1999, it is still widely used in a variety of Java-based projects. With Java 9, that is likely to come to an end: Log4j 1.2 is broken on Java 9. Essentially the MDC depends on the Java version string, which does not play well with Java 9’s new version-string format. To any project that is interested in running on Java 9, I&#39;d strongly recommend migrating to Log4j 2 now." />
+<link rel="canonical" href="http://localhost:4000/logging/entry/moving_on_to_log4j_2" />
+<meta property="og:url" content="http://localhost:4000/logging/entry/moving_on_to_log4j_2" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-18T21:23:38-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Moving on to Log4j 2: Log4j 1.2 is broken on Java 9" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-12-18T21:23:38-05:00","datePublished":"2019-12-18T21:23:38-05:00","description":"Log4j 1 has had a good run. First released in 1999, it is still widely used in a variety of Java-based projects. With Java 9, that is likely to come to an end: Log4j 1.2 is broken on Java 9. Essentially the MDC depends on the Java version string, which does not play well with Java 9’s new version-string format. To any project that is interested in running on Java 9, I&#39;d strongly recommend migrating to Log4j 2 now.","headline":"Moving on to Log4j 2: Log4j 1.2 is broken on Java 9","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/logging/entry/moving_on_to_log4j_2"},"url":"http://localhost:4000/logging/entry/moving_on_to_log4j_2"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Moving on to Log4j 2: Log4j 1.2 is broken on Java 9</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-12-18T21:23:38-05:00" itemprop="datePublished">Dec 18, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Remko Popma", "login"=>"rpopma", "email"=>"rpopma@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Log4j 1 has had a good run. First released in 1999, it is still widely used in a variety of Java-based projects. With Java 9, that is likely to come to an end: <a href="http://mail.openjdk.java.net/pipermail/jigsaw-dev/2016-July/008654.html">Log4j 1.2 is broken on Java 9</a>. Essentially the MDC depends on the Java version string, which does not play well with Java 9's <a href="http://openjdk.java.net/jeps/223">new version-string format</a>.</p>
+<p>
+The Apache Logging PMC announced in August 2015 that <a href="https://blogs.apache.org/foundation/entry/apache_logging_services_project_announces">Log4j 1 reached End Of Life</a> and there would be no further releases. The announcement encouraged users to upgrade to its successor, Log4j 2. </p>
+<p>
+What does this mean, concretely? Most of Log4j 1.2 will still work on Java 9. The issue described above is with the MDC (what is now called the ThreadContext map). If you don't use the MDC you may not be impacted, and even if you are impacted <a href="https://github.com/elastic/elasticsearch/blob/f01f15d3b8592db4210f725f0c37baff4a554a35/core/src/main/java/org/apache/log4j/Java9Hack.java">this workaround</a> may help.</p>
+<p>
+What has changed is that doing nothing is no longer the safest option. You could endeavor to continue using Log4j 1.2 even on Java 9, but why would you?</p>
+<p>
+<a href="https://blogs.apache.org/logging/mediaresource/d63866c6-8ac3-44bb-bfe1-53eb21265991"><img src="https://blogs.apache.org/logging/mediaresource/d63866c6-8ac3-44bb-bfe1-53eb21265991?t=true" alt="logo-2.6.2.png"></img></a></p>
+<p>
+If you're not using Log4j 2, this is what you're missing out on:</p>
+<ul>
+<li>Improved reliability. Messages are not lost while reconfiguring the framework like in Log4j 1 or Logback</li>
+<li><a href="https://logging.apache.org/log4j/2.x/manual/extending.html">Extensibility</a>: Log4j 2 supports a <a href="https://logging.apache.org/log4j/2.x/manual/plugins.html">plugin system</a> to let users define and configure custom components</li>
+<li>Simplified <a href="https://logging.apache.org/log4j/2.x/manual/configuration.html">configuration syntax</a>, with support for xml, json, yaml and properties configurations</li>
+<li>Improved <a href="https://logging.apache.org/log4j/2.x/manual/filters.html">Filters</a> which can be defined globally or on any configuration element to give you fine-grained control over which log messages should be processed by which Loggers and Appenders.</li>
+<li><a href="https://logging.apache.org/log4j/2.x/manual/lookups.html">Property lookup</a> support for values defined in arbitrary places including, but not limited to, the configuration file, system properties, environment variables, the application container, the ThreadContext Map, and other attributes of the log event</li>
+<li>Support for multiple APIs: Log4j 2 can be used with applications using the Log4j 2, Log4j 1.2, SLF4J, Commons Logging and java.util.logging (JUL) APIs</li>
+<li><a href="https://logging.apache.org/log4j/2.x/manual/customloglevels.html">Custom Log Levels</a></li>
+<li>Java 8-style <a href="https://logging.apache.org/log4j/2.x/manual/api.html#LambdaSupport">lambda support</a> for "lazy logging"</li>
+<li><a href="https://logging.apache.org/log4j/2.x/manual/markers.html">Markers</a></li>
+<li>Support for user-defined <a href="https://logging.apache.org/log4j/2.x/manual/messages.html">Message</a> objects</li>
+<li>"<a href="https://logging.apache.org/log4j/2.x/manual/garbagefree.html">Garbage-free or low garbage</a>" in common configurations</li>
+<li><a href="https://logging.apache.org/log4j/2.x/performance.html">Improved speed overall</a>. Worth mentioning especially is the performance of the <a href="https://logging.apache.org/log4j/2.x/manual/async.html">Asynchronous Loggers</a>. Log4j 2 makes use of the <a href="http://lmax-exchange.github.io/disruptor/">LMAX Disruptor</a>. The library reduces the need for kernel locking and increases the logging performance by a factor 12. For example, in the same environment Log4j 2 can write more than 18,000,000 messages per second, whereas other frameworks like Logback and Log4j 1 just write up to 2,000,000 messages per second.</li>
+</ul>
+<p>
+Log4j 2 has an active and enthusiastic community who would be happy to help out with any migration issues that may come up.</p>
+<p>
+To any project that is interested in running on Java 9, I'd strongly recommend migrating to Log4j 2 now. </p>
+
+  </div><a class="u-url" href="/logging/entry/moving_on_to_log4j_2" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache log4j 2.0-beta1 released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache log4j 2.0-beta1 released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Logging team is pleased to announce the Apache log4j 2.0-beta1 release! This is the third release of Log4j 2 and is being made available to encourage use and feedback from the community." />
+<meta property="og:description" content="The Apache Logging team is pleased to announce the Apache log4j 2.0-beta1 release! This is the third release of Log4j 2 and is being made available to encourage use and feedback from the community." />
+<link rel="canonical" href="http://localhost:4000/logging/entry/apache_log4j_2_0_beta1" />
+<meta property="og:url" content="http://localhost:4000/logging/entry/apache_log4j_2_0_beta1" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-09-24T17:40:11-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache log4j 2.0-beta1 released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-09-24T17:40:11-04:00","datePublished":"2012-09-24T17:40:11-04:00","description":"The Apache Logging team is pleased to announce the Apache log4j 2.0-beta1 release! This is the third release of Log4j 2 and is being made available to encourage use and feedback from the community.","headline":"Apache log4j 2.0-beta1 released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/logging/entry/apache_log4j_2_0_beta1"},"url":"http://localhost:4000/logging/entry/apache_log4j_2_0_beta1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache log4j 2.0-beta1 released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-09-24T17:40:11-04:00" itemprop="datePublished">Sep 24, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Christian Grobmeier", "login"=>"grobmeier", "email"=>"grobmeier@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The Apache Logging team is pleased to announce the Apache log4j 2.0-beta1 release!</p>
+<p>Apache log4j is a well known framework for logging application behavior. Log4j 2 is an upgrade to<br />
+Log4j that provides significant improvements over its predecessor, Log4j 1.x, and provides<br />
+many of the improvements available in Logback while fixing some inherent problems in Logback's<br />
+architecture.</p>
+<p>This is the third release of Log4j 2 and is being made available to encourage use and feedback from the community.</p>
+<h2>Bug fixes and enhancements</h2>
+<p>Changes in this version include:</p>
+<p>New features:</p>
+<ul>
+<li>Added AsynchAppender</li>
+</ul>
+<p>Fixed Bugs:</p>
+<ul>
+<li>LOG4J-81:  PatternLayout was not honoring format modifiers.</li>
+<li>Created web module to allow web applications to include the Log4j context listener in WEB-INF/lib even if<br />
+        Log4j is in the container's class path. Allow locating the LoggerContext to include the ClassLoader. Updated<br />
+        the Loader utility to always choose the child ClassLoader. Verified in Jboss 5 and Tomcat. </li>
+<li>LOG4J2-82:  MarkerFilter called MarkerManager.getMarker causing the Marker to be created during the processing of the<br />
+        configuration. This prevents the application from creating the Marker with any parents. MarkerWrapper in<br />
+        SLF4J-impl was getting a ClassCastException in instanceOf because the Marker isn't a MarkerWrapper. </li>
+<li>LOG4J2-80:  Allow Log4j 2 to be used as the implementation with SLF4J and SLF4J's jcl-over-slf4j by adding filtering<br />
+        to the log method in SLF4JLogger. Thanks to Oliver Lamy. </li>
+<li>LOG4J2-78:  LogFactoryImpl.setAttribute in the Commons Logging bridge got a NullPointerException when passed a null value.<br />
+        It will now remove the attribute. </li>
+<li>LOG4J2-77:  RoutingAppender was calling the stop method for each of its referenced Appenders and was calling<br />
+        the stop method of the default Appender a second time. It will now only call the stop method of<br />
+        Appenders it creates. </li>
+<li>LOG4J2-76:  RewriteAppender was calling the stop method of the referenced appender causing the referenced appender's<br />
+        manager to have its use count decremented too many times. </li>
+<li>LOG4J2-74:  Logger.error(Marker, Message, Throwable) was internally using Level.TRACE. </li>
+<li>LOG4J2-75:  Enhanced Log4jContextListener to accept a configuration file location. Modified FileConfigurationMonitor<br />
+        to monitor files configured that way. Fixed other reconfiguration related bugs. Tested in JBoss and<br />
+        Tomcat. </li>
+<li>LOG4J2-72:  NullPointerException in RollingFileManager when filePattern does not cause the file to be compressed. </li>
+<li>LOG4J2-71:  FileRenameAction did not create the parent directories of the archive files causing the rollover to fail. </li>
+</ul>
+<p>Changes:</p>
+<ul>
+<li>Update the versions of SLF4J and Logback. </li>
+</ul>
+<p>Apache Log4j 2.0-beta1 requires a minimum of Java 5 to build and run. Basic compatibility with<br />
+Log4j 1.x is provided through the log4j12-api component, however it does not implement some of the<br />
+very implementation specific classes and methods. The package names and Maven groupId have been changed to<br />
+org.apache.logging.log4j to avoid any conflicts with log4j 1.x.</p>
+<p>For complete information on Apache Log4j 2, including instructions on how to submit bug reports,<br />
+patches, or suggestions for improvement, see the Apache Apache Log4j 2 website:</p>
+<p><a href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>
+
+  </div><a class="u-url" href="/logging/entry/apache_log4j_2_0_beta1" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

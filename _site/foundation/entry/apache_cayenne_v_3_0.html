@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Cayenne v.3.0 Technical Fact Sheet | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Cayenne v.3.0 Technical Fact Sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In development for nearly 10 years, and an ASF Top-Level Project since 2006, Apache Cayenne is the backbone for high-demand applications and Websites accessed by millions of users each day, such as Unilever, the National Hockey League, and the Law Library of Congress, the world&#39;s largest publicly-available legal index.&nbsp;This Technical Fact Sheet details the state of Cayenne, including dozens of technical features, release highlights, and the Project&#39;s future direction." />
+<meta property="og:description" content="In development for nearly 10 years, and an ASF Top-Level Project since 2006, Apache Cayenne is the backbone for high-demand applications and Websites accessed by millions of users each day, such as Unilever, the National Hockey League, and the Law Library of Congress, the world&#39;s largest publicly-available legal index.&nbsp;This Technical Fact Sheet details the state of Cayenne, including dozens of technical features, release highlights, and the Project&#39;s future direction." />
+<link rel="canonical" href="http://localhost:4000/foundation/entry/apache_cayenne_v_3_0" />
+<meta property="og:url" content="http://localhost:4000/foundation/entry/apache_cayenne_v_3_0" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-07-07T13:54:55-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Cayenne v.3.0 Technical Fact Sheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2010-07-07T13:54:55-04:00","datePublished":"2010-07-07T13:54:55-04:00","description":"In development for nearly 10 years, and an ASF Top-Level Project since 2006, Apache Cayenne is the backbone for high-demand applications and Websites accessed by millions of users each day, such as Unilever, the National Hockey League, and the Law Library of Congress, the world&#39;s largest publicly-available legal index.&nbsp;This Technical Fact Sheet details the state of Cayenne, including dozens of technical features, release highlights, and the Project&#39;s future direction.","headline":"Apache Cayenne v.3.0 Technical Fact Sheet","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/foundation/entry/apache_cayenne_v_3_0"},"url":"http://localhost:4000/foundation/entry/apache_cayenne_v_3_0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Cayenne v.3.0 Technical Fact Sheet</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2010-07-07T13:54:55-04:00" itemprop="datePublished">Jul 7, 2010
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Sally Khudairi", "login"=>"sk", "email"=>"sk@haloworldwide.com"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><i>by Apache Cayenne Vice President Andrus Adamchik</i> </p>
+<p>As some of you may have noticed already, a major new release 3.0 of Apache Cayenne has been posted <a href="http://cayenne.apache.org/2010/05/06/cayenne-30-released-7-may.html">not so long ago</a>. I am using this occasion to reflect on the state of Cayenne, mention the release highlights and outline our future direction.</p>
+<p><b>State of Apache Cayenne</b></p>
+<p>With a solid design, 9 years of active development, a dedicated community and a place among the family of the Apache Software Foundation projects, Cayenne is without a doubt a serious player in the Java ORM space. Moreover with the convergence of many existing frameworks around JPA specification, Cayenne stands out as a project that follows its own path. The foundations of Cayenne design are "rich" persistent objects and a clean separation of the mapping model from the Java code. These are the choices that were made consciously back in the day, and they survived POJO/annotation hype rather well, enabling smooth database access experience and a number of rather unique features not found (maybe even not possible) in other ORMs. Let me go through some of those distinctions here, even though most were available prior to 3.0 release:</p>
+<p><i>Transparent and lightweight transactions.</i> Cayenne ObjectContext does not require a transaction wrapper around it to talk to DB. Transactions are created transparently to the user and only for the duration of a DB operation. E.g. if you decide to read a relationship that hasn't been resolved yet, a transaction will be created with a scope of a DB select. In some other case you may change objects properties in memory, and since this does not require a DB operation, a transaction is not created. In other words ObjectContexts, their objects, and changes to those objects are not attached to any open JDBC resources and are also serializable. At the same time it is easy to hook up Cayenne stack to JTA or some other transaction mechanism if desired.</p>
+<p><i>Context nesting.</i> ObjectContexts can be nested, so commit/rollback at the object level can be hierarchically structured. E.g. you may change some object properties in a dialog window, commit back to the parent context attached to the parent window, without committing to DB. Or you may decide to roll back you changes made in a dialog. This can be done without rolling back the parent window context.</p>
+<p><i>Remote Object Persistence.</i> Nesting contexts is great, but there's more to it. A "child" ObjectContext can be located in a remote application, talking to a "parent" over a web service. Now that's a cool use of nesting! We are calling <a href="http://cayenne.apache.org/doc30/remote-object-persistence-introduction.html">this feature</a> ROP for "Remote Object Persistence". ROP provides a full set of ORM functionality in remote tiers of multi-tier Java applications. Our users have written some cool things using ROP.</p>
+<p><i>Generic objects and dynamic mapping.</i> Since Cayenne fully separates the mapping model from the Java code, and does not require class enhancement or annotation preprocessing, this gives a whole lot of flexibility as to what persistent Java objects can be. One way to take advantage of that is via <a href="http://cayenne.apache.org/doc30/generic-persistent-class.html">generic objects</a>. With generic objects, you may treat all or some of your entities as maps of values, only with support for relationships, queries and all other ORM goodies. Why would you want to do that? One real life use is to create an entire mapping in runtime. An application would load metadata of a database schema using Cayenne DB reverse-engineering API and generate a dynamic Cayenne mapping with entities mapped as generic objects. Later an application would query and modify these objects using a standard Cayenne API. A possibility of a fully dynamic mapping is quite different from other ORMs that require precompilation.</p>
+<p><i>Modeling tools.</i> A big help in day-to-day work is CayenneModeler - a cross-platform, IDE-independent GUI mapping tool. It frees you from the need to deal with raw model, provides support for various ORM-related DB operations, and ensures seamless upgrades between the versions of Cayenne. Modeler goes a long way in simplifying learning curve for the new users.</p>
+<p><b>3.0 Highlights</b></p>
+<p>3.0 has 225 new Jiras. This number excludes bug fixes, so it is all new stuff. There is a <a href="http://cayenne.apache.org/doc30/guide-to-30-features.html">very long list</a> of things that were added in 3.0 and it is definitely a must-have upgrade for our existing users.</p>
+<p>Interestingly, some of the 3.0 additions that we'll mention below, came from toying with the idea of building a JPA provider on top of Cayenne runtime. This goal has been ultimately abandoned (yet again we came to a conclusion that Cayenne's existing design better serves our users). However looking at what others are doing in the ORM space was instrumental in improving Cayenne in a few areas. This is how we got lifecycle events, EJBQL query, Embeddables, etc. So what are the essential new things in 3.0?</p>
+<p><i>The use of generics</i>. As 1.5 is a minimal JDK requirement for Cayenne 3.0, we were able to switch many public APIs to use generics. This process will continue in the following releases.</p>
+<p><i>Flattened attributes and Vertical Inheritance</i>. In the past we supported "flattened" relationships, i.e. relationships mapped across more than 2 tables. Now we added a similar ability for attributes, Object properties can be mapped to columns from a joined table over one or multiple joins. This feature can be used for standalone entity mapping, but when combined with single-table inheritance, it gives us a classical vertical inheritance mapping.</p>
+<p><i>Lifecycle Events.</i> Now you can either declare a callback method on an entity object or declare a listener class to receive entity events, JPA-style. To add a bit more flexibility to this mechanism and decouple business logic often present in the event handlers from the mapping, Cayenne also allows to register listeners via API.</p>
+<p><i>Pluggable Query Cache.</i> To me personally this is easily the most important feature of Cayenne 3.0. This is what makes Cayenne scale to serve gazillions of requests. Application developers can optionally categorize their queries, assigning them one or more "cache groups". Each cache group can then be configured with certain expiration policy, using specific cache provider approach (e.g. OSCache config file). Forced cache invalidation is done by group, and has a very low overhead, even across an application cluster. A user may add calls in the post-commit listeners to flush one or another group when an object is saved. This feature has been available since the early 3.0 alphas around 2006-2007 and is a real life saver.</p>
+<p><i>Object queries as Strings.</i> The above mentioned EJBQLQuery is created from String, as opposed to traditional Cayenne SelectQuery that is created via API. That by itself is not such a big deal (my guess is that most users would actually prefer SelectQuery's object API to string concatenation), but EJBQL has many more capabilities, such as scalar and Object[] result sets, GROUP BY and HAVING. So right now this is the most advanced object query in Cayenne, if not the most friendly.</p>
+<p><i>SelectQuery improvements.</i> SelectQuery traditionally avoids a concept of a "join", which is foreign to the OO design (unlike say EJBQL which has explicit "JOIN" clause). In SelectQuery expressions everything is a path, that is later resolved to appropriate SQL joins by Cayenne. In 3.0 we added extra notation to support paths that resolve to OUTER JOINs (add a "+" sign after the path component, e.g. <code>"addresses+.city"</code> to match people that live in a given city or have no city information), and also a concept of split expressions to control join reuse in situations like "match all objects" (use pipe symbol "|" to separate a common path part from specific parts, e.g. <code>"addresses|country.name"</code> to create an expression matching people who have addresses in multiple countries)... Also SelectQuery now supports all kinds of joint and disjoint prefetching. Prefetching algorithms are optimized for speed.</p>
+<p><i>CayenneModeler.</i> In 3.0 Modeler got a serious facelift. We added undo/redo, copy/paste, contextual menus, model search, autocomplete, merging model changes back to DB, and of course support for mapping of all the new 3.0 concepts like callbacks/listeners, flattened attributes, embeddables, etc.</p>
+<p><i>Performance improvements.</i> Cayenne 3.0 has a significantly improved memory model. ObjectContext is using weak references to all cached but unmodified objects, so users no longer need to worry about creation of too many ObjectContexts, that are often stored in a session and may have leaked memory in the past. Query caches are LRU maps so they have a fixed memory footprint and won't grow indefinitely... Paginated query designed to efficiently fetch huge data sets are now made more lightweight, taking much less memory and much less time to initialize. Paginated results can scale to hundreds of thousands of objects in a single list (or maybe more, we haven't tried). Finally, commit concurrency and throughput of the framework is significantly improved.</p>
+<p><b>Beyond 3.0</b></p>
+<p>Cayenne is a mature and powerful framework, but by no means we think of Cayenne as a "finished product". There are lots of ways to make it even better. Planning and development of another major release 3.1 is well underway. The most exciting new piece that is already available on the SVN trunk is a small and easy to use dependency injection (DI) container. Yes, we know about Spring and Guice, but introducing a new complex runtime dependency looked like a bad idea. A presence of an embedded Cayenne DI container will NOT force a choice of an application-wide DI container or create a version conflict with third-part frameworks (if you are using Spring, just keep using it). Besides our DI container is only 35K in size, i.e. an order of magnitude smaller than any third party alternatives. A DI container made Cayenne configuration infinitely more flexible for us as Cayenne developers and for our users integrating Cayenne into their applications.</p>
+<p>Another important thing is to take a hard look at the existing features that appeared in 3.0 as a result of our diversion into the JPA land and see how to improve them and make more "native" to Cayenne design philosophy. E.g. EJBQLQuery and SelectQuery need to be merged into a single query that provides both String and object APIs and supports the features of both current queries. As a part of that process we will also finalize the use of generics in queries.</p>
+<p>Then there's a lot of other things being discussed on our mailing lists that we are not quite ready to announce yet. If you are interested, come join the <a href="http://cayenne.apache.org/mailing-lists.html">Cayenne dev list</a> and start asking questions :-)</p>
+
+  </div><a class="u-url" href="/foundation/entry/apache_cayenne_v_3_0" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

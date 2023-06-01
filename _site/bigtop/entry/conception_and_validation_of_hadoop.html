@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Conception and validation of Hadoop BigData stack. | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Conception and validation of Hadoop BigData stack." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What is BigTop project? What are the goals and how it is getting to achieve it? What are the roots and founding ideas of the project? I think you&#39;ll find the answers for these questions in what hopefully became a series of helpful posts helping IT professionals with Hadoop stack deployment and adoption." />
+<meta property="og:description" content="What is BigTop project? What are the goals and how it is getting to achieve it? What are the roots and founding ideas of the project? I think you&#39;ll find the answers for these questions in what hopefully became a series of helpful posts helping IT professionals with Hadoop stack deployment and adoption." />
+<link rel="canonical" href="http://localhost:4000/bigtop/entry/conception_and_validation_of_hadoop" />
+<meta property="og:url" content="http://localhost:4000/bigtop/entry/conception_and_validation_of_hadoop" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-01-16T21:58:15-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Conception and validation of Hadoop BigData stack." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2012-01-16T21:58:15-05:00","datePublished":"2012-01-16T21:58:15-05:00","description":"What is BigTop project? What are the goals and how it is getting to achieve it? What are the roots and founding ideas of the project? I think you&#39;ll find the answers for these questions in what hopefully became a series of helpful posts helping IT professionals with Hadoop stack deployment and adoption.","headline":"Conception and validation of Hadoop BigData stack.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bigtop/entry/conception_and_validation_of_hadoop"},"url":"http://localhost:4000/bigtop/entry/conception_and_validation_of_hadoop"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Conception and validation of Hadoop BigData stack.</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-01-16T21:58:15-05:00" itemprop="datePublished">Jan 16, 2012
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Konstantin I Boudnik", "login"=>"cos", "email"=>"cos@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>
+With more and more people jumping on the bandwagon of big data it is very gratifying to see that Hadoop is gaining momentum every day.</p>
+<p>Even more fascinating is too see how the idea of putting together a<br />
+bunch of service components on top of Hadoop proper is getting more and<br />
+more steam. IT and software development professionals are getting<br />
+better understanding of benefits that a flexible set of loosely<br />
+coupled yet compatible components provides when one needs to customize<br />
+a data processing solution at scale.</p>
+<p>The biggest problem for most businesses trying to add Hadoop<br />
+infrastructure into their existing IT is a lack of the knowledge,<br />
+professional support, and/or clear understanding of what's out there on<br />
+the market to help you. Essentially, Hadoop exists in one incarnation -<br />
+this is the open-source project under the umbrella of Apache Software<br />
+Foundation (ASF). This is where all the innovations in Hadoop are coming<br />
+ from. And essentially this is a source of profit for a few commercial<br />
+offerings. </p>
+<p>What's wrong with the picture, you might ask? Well, the main issue with<br />
+most of those offerings are mostly two folds. They are<br />
+either immature and based on sometimes unfinished nor unreleased<br />
+Hadoop code, or provide no significant value add compare to Hadoop<br />
+proper available in source form from <a href="http://hadoop.apache.org/">hadoop.apache.org</a>.<br />
+ And no matter if any of above (or both of them together) apply to a<br />
+commercial solution based on Hadoop, you can be sure of one thing: these<br />
+ solutions will cost you literally tons of money - as much as&nbsp;<br />
+$1k/node/year in some cases - for what is essentially available for<br />
+free.</p>
+<p>"What about neat packages I can get from a commercial provider and<br />
+perhaps some training too?" one might ask. Well, yeah if you are willing<br />
+ to pay top bucks per node for packaging bugs<a href="http://is.gd/WKBkuI"> </a> to get fixed or learn how to install packages on a virtual machine - go ahead by all means.</p>
+<p>However, keep in mind that you always can get a set of packages for Hadoop produced by another open source project called <a href="https://incubator.apache.org/bigtop/">Bigtop</a>,<br />
+ hosted by Apache. What essentially you get from it are packages for your Linux<br />
+ distro, which can be easily installed on your cluster's nodes. A great<br />
+benefit is that you can easily trim your Hadoop stack to only include<br />
+what you need: Hadoop + Hive, or perhaps Hadoop + HBase (which will<br />
+automatically pick up Zookeper for you).</p>
+<p>At any rate, the best part of the story isn't a set of packages that can<br />
+ be installed: after all this is what packages are usually being created<br />
+ for, right? The problem with the packages or other forms of component<br />
+distribution is compatibility: you don't know in advance if A-package will nicely<br />
+work with B-package v.1.2 unless somebody has tested this assumption.<br />
+ Even then, testing environment might be significantly different from<br />
+your production environment and then all bets are off. Unless - again -<br />
+you're willing to pay through your nose to someone who's willing to get<br />
+it for you. And that's where true miracle of something like BigTop is<br />
+coming for a rescue.</p>
+<p>Before I'll explain more, I wanna step back a bit and look upon<br />
+some recent history. A couple of years ago Yahoo's Hadoop development<br />
+team had to address an issue of putting together working and<br />
+well-validated Hadoop stack including a number of components developed<br />
+by different engineering organizations with their own development<br />
+schedule and integration criteria. The main integration point of all of<br />
+the pieces was the operations team which was in charge of a big number of<br />
+cluster deployments, provisioning and support. Without their own QA<br />
+staff they were oftentimes at mercy of an assumed code or configuration<br />
+quality coming from all the corners of the company. Even with<br />
+ a chance of the high quality of all these components there were no<br />
+guarantees that they will work together as expected once put together on a cluster. And indeed, integration problems were many.</p>
+<p>That's were a small team of engineers including yours truly who put together<br />
+ a prototype of a system called FIT (Final Integration Testing). The<br />
+system essentially allowed you to pick up a packaged component you wanted<br />
+to validate against your cluster environment and perform the deployment,<br />
+ configuration, and testing with the integration scenarios provided by<br />
+either the component's owner or your own team.</p>
+<p>The approach was so effective that the project was continued and funded<br />
+further in the form of HIT (Hadoop Integration Testing). At which point<br />
+two of us have left for what seemed like a greener pasture back then.</p>
+<p>We thought the idea was the real deal so we have continued on the path<br />
+of developing a less custom and more adoptable technology based on open<br />
+standards such as Maven and Groovy. Here you can find the <a href="http://www.scribd.com/doc/63012489/Big-Data-Stacks-Validation" target="_blank">slides from the talk</a><br />
+ we gave at eBay about a year ago. The presentation is putting the<br />
+concept of Hadoop data stack in open writing for the first time, as well as<br />
+defines stacks customization and validation technology. When this presentation<br />
+were given we already had <a href="http://is.gd/XvhqFW" target="_blank">well working mechanism</a> of creating, deploying, and validating both packaged and non-packaged Hadoop components.</p>
+<p>BigTop - <i>open-sourced for the second time</i> just a few months ago and<br />
+based on our project above - has added up a packaging creation layer on<br />
+top of the stack validation product. This, of course, makes your life<br />
+even easier. And even more so with a number of Puppet recipes allowing<br />
+you to deploy and configure your cluster in highly efficient and<br />
+automatic manner. I encourage you to check it out.</p>
+<p>BigTop has been successfully used for validating release of Apache<br />
+Hadoop 0.20.205 which has become a foundation of Hadoop 1.0.0<br />
+Another release of Hadoop - 0.22 - was using BigTop for release<br />
+candidates validation and so on. </p>
+<p>On top of "just packages" BigTop now produces ready to go VMs pre-installed with Hadoop stack for different Linux distributions: just download one and instantiate your very own cluster in minutes! We'll tell about it next time.</p>
+<p>I encourage to check BigTop project, contribute to it your ideas, time, and knowledge!</p></p>
+<p><a href="http://is.gd/06yvPM">Cross-posted</a> </p>
+
+  </div><a class="u-url" href="/bigtop/entry/conception_and_validation_of_hadoop" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

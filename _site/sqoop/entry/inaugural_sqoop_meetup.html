@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Inaugural Sqoop Meetup | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Inaugural Sqoop Meetup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Earlier this month over 30 people&nbsp;attended the inaugural Sqoop Meetup on the eve of Hadoop World in NYC. Faces were put to names, troubleshooting tips were swapped, and stories were topped. This post summarizes the Meetup, posts pictures from it, and links to the three presentations." />
+<meta property="og:description" content="Earlier this month over 30 people&nbsp;attended the inaugural Sqoop Meetup on the eve of Hadoop World in NYC. Faces were put to names, troubleshooting tips were swapped, and stories were topped. This post summarizes the Meetup, posts pictures from it, and links to the three presentations." />
+<link rel="canonical" href="http://localhost:4000/sqoop/entry/inaugural_sqoop_meetup" />
+<meta property="og:url" content="http://localhost:4000/sqoop/entry/inaugural_sqoop_meetup" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-11-22T01:35:20-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Inaugural Sqoop Meetup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2011-11-22T01:35:20-05:00","datePublished":"2011-11-22T01:35:20-05:00","description":"Earlier this month over 30 people&nbsp;attended the inaugural Sqoop Meetup on the eve of Hadoop World in NYC. Faces were put to names, troubleshooting tips were swapped, and stories were topped. This post summarizes the Meetup, posts pictures from it, and links to the three presentations.","headline":"Inaugural Sqoop Meetup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sqoop/entry/inaugural_sqoop_meetup"},"url":"http://localhost:4000/sqoop/entry/inaugural_sqoop_meetup"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Inaugural Sqoop Meetup</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2011-11-22T01:35:20-05:00" itemprop="datePublished">Nov 22, 2011
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Arvind Prabhakar", "login"=>"arvind", "email"=>"arvind@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div>
+<p>Over 30 people&nbsp;attended the inaugural Sqoop Meetup on the eve of Hadoop World in NYC. Faces were put to names, troubleshooting tips were swapped, and stories were topped - with the table-to-end-all-tables weighing in at 28 billion rows.</p>
+</p></div>
+<div>
+<p>I&nbsp;started off the scheduled talks by discussing "<a href="http://slidesha.re/sMiWeJ" title="Habits of Effective Sqoop Users">Habits of Effective Sqoop Users</a>." One tip to make your next debugging session more effective was to provide more information up front on the mailing list such as versions used and running with the --verbose flag enabled. Also, I pointed out workarounds to common MySQL and Oracle errors.</p>
+<p>Next up was Eric Hernandez's "<a href="http://slidesha.re/uFRlGk" title="Sqooping 50 Million Rows a Day from MySQL">Sqooping 50 Million Rows a Day from MySQL</a>," where he displayed battle scars from creating a single data source for analysts to mine. Key lessons learned were:&nbsp;(1.) Develop an incremental import when sqooping in large active tables.&nbsp;(2.) Limit the amount of parts that data will be stored in HDFS.&nbsp;(3.) Compress data in HDFS.</p>
+</p></div>
+<div>
+<p>The final talk of the night was given by Joey Echeverria on "<a href="http://slidesha.re/taTWOY" title="How to Patch Sqoop">Scratching Your Own Itch</a>." Joey methodically stepped future Sqoop committers through the science from finding a Sqoop bug, filing a jira, coding a patch, submitting it for review, revising accordingly, and finally to ship it '+1' approval.</p>
+</p></div>
+<div>With the conclusion of the scheduled talks, the hallway talks commenced and went well into the night. Sqoop Committer&nbsp;Aaron Kimball was even rumored to have shed a tear over the healthy turnout and impending momentum barreling towards the next Sqoop Meetup on the Left Coast.&nbsp;See you there!</div>
+<div>
+<p><img src="https://blogs.apache.org/sqoop/mediaresource/52a12d6e-9310-4242-a408-1d822c492a6b" alt="Aaron Kimball" /></p>
+<p><img src="https://blogs.apache.org/sqoop/mediaresource/2de16db7-e878-4f9a-aead-e57d38ed6870" alt="Kate Ting" style="border-width: initial; border-color: initial; " /> </p>
+<p><img src="https://blogs.apache.org/sqoop/mediaresource/1a3f2a95-9798-471e-be8e-ffeb0df19cc5" alt="Eric Hernandez" style="border-width: initial; border-color: initial; " /> </p>
+<p> <img src="https://blogs.apache.org/sqoop/mediaresource/eb825460-831a-44db-9ae0-91783b373d20" alt="Joey Echeverria" style="border-width: initial; border-color: initial; " /> </p>
+<p><i>Guest post by Kate Ting.<br />Photos from Masatake Iwasaki and Kate Ting.</i></p>
+</p></div>
+
+  </div><a class="u-url" href="/sqoop/entry/inaugural_sqoop_meetup" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

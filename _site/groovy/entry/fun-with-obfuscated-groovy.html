@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fun with obfuscated Groovy | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Fun with obfuscated Groovy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An interesting tweet appeared in my feed this morning: And of course it prints the same thing in Groovy: char p(int i) { (char) (72.5 + i * (17488.589319014318 + i * (-54923.96120078333 + i * (72666.96791801952 + i * (-54398.97479321991 + i * (25980.955221285272 + i * (-8426.37914599868 + i * (1921.5090334614745 + i * (-313.59919165032926 + i * (36.799215753141524 + i * (-3.0787816564704586 + i * (0.17913536718875267 + i * (-0.0068850803421115925 + i * (1.5709912194287188E-4 + i * (-1.6109400409995646E-6 )))))))))))))))}var i = 0while (p(i)) print p(i++) STOP reading now and try it out for yourself ... or browse the possible origin. SPOILER ALERT&nbsp;okay, if you didn&#39;t stop, I guess it&#39;s still okay to scroll down to see what it prints out and how to create an obfuscated script yourself... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; Let&#39;s Groovify the reply from Alexey Nikitin&nbsp;which uses&nbsp;Apache Commons Math&nbsp;to replicate the problem: @Grab(&#39;org.apache.commons:commons-math3:3.6.1&#39;)import org.apache.commons.math3.analysis.interpolation.NevilleInterpolatorvar text = &#39;Hello, world!\n&#39;var size = text.size()var x = new double[size + 1]var y = new double[size + 1]for(i in 0..&lt;size) { x[i] = i y[i] = (int) text[i]}x[size] = sizey[size] = 0var lines = []var interpolator = new NevilleInterpolator()var function = interpolator.interpolate(x, y)var coeff = function.coefficientslines &lt;&lt; &#39;char p(int i) {&#39;lines &lt;&lt; &quot; (char) (${coeff[0]} + 0.5&quot;for(i in 1..&lt;coeff.length) { lines &lt;&lt; &#39; + i * (&#39; + coeff[i]}lines &lt;&lt; &#39; &#39; + &#39;)&#39; * coeff.lengthlines &lt;&lt; &#39;&#39;&#39;}var i = 0var out = &#39;&#39;while(p(i)) out += p(i++)out&#39;&#39;&#39;var script = lines.join(&#39;\n&#39;)println scriptassert text == Eval.me(script) This generates the script, prints it out, and then runs it to make sure it produces what we intended. It only differs from above in that instead of printing out each character, it builds up and returns a String so that we can assert our expectations. It was simpler than capturing stdout by other means. Enjoy!" />
+<meta property="og:description" content="An interesting tweet appeared in my feed this morning: And of course it prints the same thing in Groovy: char p(int i) { (char) (72.5 + i * (17488.589319014318 + i * (-54923.96120078333 + i * (72666.96791801952 + i * (-54398.97479321991 + i * (25980.955221285272 + i * (-8426.37914599868 + i * (1921.5090334614745 + i * (-313.59919165032926 + i * (36.799215753141524 + i * (-3.0787816564704586 + i * (0.17913536718875267 + i * (-0.0068850803421115925 + i * (1.5709912194287188E-4 + i * (-1.6109400409995646E-6 )))))))))))))))}var i = 0while (p(i)) print p(i++) STOP reading now and try it out for yourself ... or browse the possible origin. SPOILER ALERT&nbsp;okay, if you didn&#39;t stop, I guess it&#39;s still okay to scroll down to see what it prints out and how to create an obfuscated script yourself... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; Let&#39;s Groovify the reply from Alexey Nikitin&nbsp;which uses&nbsp;Apache Commons Math&nbsp;to replicate the problem: @Grab(&#39;org.apache.commons:commons-math3:3.6.1&#39;)import org.apache.commons.math3.analysis.interpolation.NevilleInterpolatorvar text = &#39;Hello, world!\n&#39;var size = text.size()var x = new double[size + 1]var y = new double[size + 1]for(i in 0..&lt;size) { x[i] = i y[i] = (int) text[i]}x[size] = sizey[size] = 0var lines = []var interpolator = new NevilleInterpolator()var function = interpolator.interpolate(x, y)var coeff = function.coefficientslines &lt;&lt; &#39;char p(int i) {&#39;lines &lt;&lt; &quot; (char) (${coeff[0]} + 0.5&quot;for(i in 1..&lt;coeff.length) { lines &lt;&lt; &#39; + i * (&#39; + coeff[i]}lines &lt;&lt; &#39; &#39; + &#39;)&#39; * coeff.lengthlines &lt;&lt; &#39;&#39;&#39;}var i = 0var out = &#39;&#39;while(p(i)) out += p(i++)out&#39;&#39;&#39;var script = lines.join(&#39;\n&#39;)println scriptassert text == Eval.me(script) This generates the script, prints it out, and then runs it to make sure it produces what we intended. It only differs from above in that instead of printing out each character, it builds up and returns a String so that we can assert our expectations. It was simpler than capturing stdout by other means. Enjoy!" />
+<link rel="canonical" href="http://localhost:4000/groovy/entry/fun-with-obfuscated-groovy" />
+<meta property="og:url" content="http://localhost:4000/groovy/entry/fun-with-obfuscated-groovy" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-08T00:40:23-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fun with obfuscated Groovy" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-08T00:40:23-05:00","datePublished":"2022-12-08T00:40:23-05:00","description":"An interesting tweet appeared in my feed this morning: And of course it prints the same thing in Groovy: char p(int i) { (char) (72.5 + i * (17488.589319014318 + i * (-54923.96120078333 + i * (72666.96791801952 + i * (-54398.97479321991 + i * (25980.955221285272 + i * (-8426.37914599868 + i * (1921.5090334614745 + i * (-313.59919165032926 + i * (36.799215753141524 + i * (-3.0787816564704586 + i * (0.17913536718875267 + i * (-0.0068850803421115925 + i * (1.5709912194287188E-4 + i * (-1.6109400409995646E-6 )))))))))))))))}var i = 0while (p(i)) print p(i++) STOP reading now and try it out for yourself ... or browse the possible origin. SPOILER ALERT&nbsp;okay, if you didn&#39;t stop, I guess it&#39;s still okay to scroll down to see what it prints out and how to create an obfuscated script yourself... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr; Let&#39;s Groovify the reply from Alexey Nikitin&nbsp;which uses&nbsp;Apache Commons Math&nbsp;to replicate the problem: @Grab(&#39;org.apache.commons:commons-math3:3.6.1&#39;)import org.apache.commons.math3.analysis.interpolation.NevilleInterpolatorvar text = &#39;Hello, world!\\n&#39;var size = text.size()var x = new double[size + 1]var y = new double[size + 1]for(i in 0..&lt;size) { x[i] = i y[i] = (int) text[i]}x[size] = sizey[size] = 0var lines = []var interpolator = new NevilleInterpolator()var function = interpolator.interpolate(x, y)var coeff = function.coefficientslines &lt;&lt; &#39;char p(int i) {&#39;lines &lt;&lt; &quot; (char) (${coeff[0]} + 0.5&quot;for(i in 1..&lt;coeff.length) { lines &lt;&lt; &#39; + i * (&#39; + coeff[i]}lines &lt;&lt; &#39; &#39; + &#39;)&#39; * coeff.lengthlines &lt;&lt; &#39;&#39;&#39;}var i = 0var out = &#39;&#39;while(p(i)) out += p(i++)out&#39;&#39;&#39;var script = lines.join(&#39;\\n&#39;)println scriptassert text == Eval.me(script) This generates the script, prints it out, and then runs it to make sure it produces what we intended. It only differs from above in that instead of printing out each character, it builds up and returns a String so that we can assert our expectations. It was simpler than capturing stdout by other means. Enjoy!","headline":"Fun with obfuscated Groovy","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/groovy/entry/fun-with-obfuscated-groovy"},"url":"http://localhost:4000/groovy/entry/fun-with-obfuscated-groovy"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fun with obfuscated Groovy</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-12-08T00:40:23-05:00" itemprop="datePublished">Dec 8, 2022
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Paul King", "login"=>"paulk", "email"=>"paulk@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>An interesting tweet appeared in my feed this morning:</p>
+<p><img style="width:80%" src="https://blogs.apache.org/groovy/mediaresource/e3a9547d-2715-4f93-96eb-f5a7ad75fb85" alt="ObfuscatedJava@joshbloch.png"></p>
+<p><br></p>
+<p>And of course it prints the same thing in Groovy:</p>
+<pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:9.6pt;"><span style="color:#cc7832;">char </span>p(<span style="color:#cc7832;">int </span>i) {<br>    (<span style="color:#cc7832;">char</span>) (<span style="color:#6897bb;">72.5<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">17488.589319014318<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">54923.96120078333<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">72666.96791801952<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">54398.97479321991<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">25980.955221285272<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">8426.37914599868<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">1921.5090334614745<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">313.59919165032926<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">36.799215753141524<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">3.0787816564704586<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">0.17913536718875267<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">0.0068850803421115925<br></span><span style="color:#6897bb;">    </span>+ i * (<span style="color:#6897bb;">1.5709912194287188E-4<br></span><span style="color:#6897bb;">    </span>+ i * (-<span style="color:#6897bb;">1.6109400409995646E-6<br></span><span style="color:#6897bb;">    </span>)))))))))))))))<br>}<br><br><span style="color:#cc7832;">var </span>i = <span style="color:#6897bb;">0<br></span><span style="color:#cc7832;">while </span>(p(i)) print p(i++)<br></pre>
+<p><b style="color: rgb(255, 0, 0);"><br></b></p>
+<p><b style="color: rgb(255, 0, 0);">STOP</b> reading now and try it out for yourself ... or browse the <a href="https://community.oracle.com/tech/developers/discussion/1239419/java-code-obfuscation-contest" target="_blank">possible origin</a>.</p>
+<p><br></p>
+<p><span style="color: rgb(255, 0, 0); font-weight: bold;">SPOILER ALERT</span>&nbsp;okay, if you didn't stop, I guess it's still okay to scroll down to see what it prints out and how to create an obfuscated script yourself...</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>Let's Groovify the <a href="https://twitter.com/nikialeksey/status/1600598026678149120" target="_blank">reply</a> from <a href="https://twitter.com/nikialeksey" target="_blank">Alexey Nikitin</a>&nbsp;which uses&nbsp;<a href="https://commons.apache.org/proper/commons-math/" target="_blank" style="background-color: rgb(255, 255, 255);">Apache Commons Math</a>&nbsp;to replicate the problem:</p>
+<pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:9.6pt;"><span style="color:#bbb529;">@Grab</span>(<span style="color:#6a8759;">'org.apache.commons:commons-math3:3.6.1'</span>)<br><span style="color:#cc7832;">import </span>org.apache.commons.math3.analysis.interpolation.NevilleInterpolator<br><br><span style="color:#cc7832;">var </span>text = <span style="color:#6a8759;">'Hello, world!</span><span style="color:#cc7832;">\n</span><span style="color:#6a8759;">'<br></span><span style="color:#cc7832;">var </span>size = text.size()<br><span style="color:#cc7832;">var </span>x = <span style="color:#cc7832;">new double</span>[size + <span style="color:#6897bb;">1</span>]<br><span style="color:#cc7832;">var </span>y = <span style="color:#cc7832;">new double</span>[size + <span style="color:#6897bb;">1</span>]<br><span style="color:#cc7832;">for</span>(i <span style="color:#cc7832;">in </span><span style="color:#6897bb;">0</span>..<size) {<br>    x[i] = i<br>    y[i] = (<span style="color:#cc7832;">int</span>) text[i]<br>}<br>x[size] = size<br>y[size] = <span style="color:#6897bb;">0<br></span><span style="color:#6897bb;"><br></span><span style="color:#cc7832;">var </span>lines = []<br><span style="color:#cc7832;">var </span>interpolator = <span style="color:#cc7832;">new </span>NevilleInterpolator()<br><span style="color:#cc7832;">var </span>function = interpolator.interpolate(x, y)<br><span style="color:#cc7832;">var </span>coeff = function.<span style="color:#9876aa;">coefficients<br></span>lines << <span style="color:#6a8759;">'char p(int i) {'<br></span>lines << <span style="color:#6a8759;">"  (char) (</span>$<span style="font-weight:bold;">{</span>coeff[<span style="color:#6897bb;">0</span>]<span style="font-weight:bold;">}</span><span style="color:#6a8759;"> + 0.5"<br></span><span style="color:#cc7832;">for</span>(i <span style="color:#cc7832;">in </span><span style="color:#6897bb;">1</span>..<coeff.<span style="color:#9876aa;">length</span>) {<br>    lines << <span style="color:#6a8759;">'    + i * (' </span>+ coeff[i]<br>}<br>lines << <span style="color:#6a8759;">'  ' </span>+ <span style="color:#6a8759;">')' </span>* coeff.<span style="color:#9876aa;">length<br></span>lines << <span style="color:#6a8759;">'''}<br></span><span style="color:#6a8759;">var i = 0<br></span><span style="color:#6a8759;">var out = ''<br></span><span style="color:#6a8759;">while(p(i)) out += p(i++)<br></span><span style="color:#6a8759;">out<br></span><span style="color:#6a8759;">'''<br></span><span style="color:#cc7832;">var </span>script = lines.join(<span style="color:#6a8759;">'</span><span style="color:#cc7832;">\n</span><span style="color:#6a8759;">'</span>)<br>println script<br><span style="color:#cc7832;">assert </span>text == Eval.<span style="color:#9876aa;font-style:italic;">me</span>(script)<br></pre>
+<p>This generates the script, prints it out, and then runs it to make sure it produces what we intended. It only differs from above in that instead of printing out each character, it builds up and returns a String so that we can assert our expectations. It was simpler than capturing stdout by other means.</p>
+<p>Enjoy!</p>
+
+  </div><a class="u-url" href="/groovy/entry/fun-with-obfuscated-groovy" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

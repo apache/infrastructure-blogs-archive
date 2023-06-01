@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tomcat 7 trunk and JMX | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Tomcat 7 trunk and JMX" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="You may have seen that the Tomcat project participated in the Google Summer of Code (GSOC) this year. This year, Chamith Buddhika has been working on improving the JMX support. In particular the aims were: Aligning the attributes and methods exposed via JMX with reality. The JMX descriptions and the actual code had diverged over time and there were many missing entries as well as entries that no longer worked. Making it possible to fully configure a Tomcat instance over JMX. It is this second objective that I am writing about today. With the most recent changes to Tomcat 7 trunk (you&#39;ll need to build from svn or wait until 7.0.3 to use these features) it is now possible to start an absolute bare minimum Tomcat instance and perform all the configuration via JMX. To try this out for yourself, you&#39;ll need to start with a standard Tomcat install (if building from trunk the contents of output/build will be fine) and reduce server.xml to the bare minimum. Something like this: Then start Tomcat along with JConsole and connect JConsole to your newly started Tomcat instance. In the MBean tab in JConsole, you should see a number of Tomcat MBeans including one named &quot;Catalina:type=MBeanFactory&quot;. Navigate to this MBean and use the &quot;createStandardServiceEngine&quot; method to create a Service and an Engine. There is a one-to-one mapping between Service and Engine so they are created together. For domain and defaultHost I use the standard values &quot;Catalina&quot; and &quot;localhost&quot; respectively. You can change these if you wish. baseDir must be the full path to CATALINA_BASE. The next step is to add a Host to the Engine, configure the Host and start it. To add the Host, navigate to the Engine you just created and use the addChild operation. The type should be &quot;org.apache.catalina.core.StandardHost&quot; and the name must match the name you used for the defaultHost attribute when creating the Engine. The default configuration for the Host should allow you to start it, so navigate to the new Host element and use the start operation. You should see all the Contexts found in webapps being automatically deployed. Finally, you need to add a Connector so you can test your configuration. Navigate to the Service element you created earlier and select the addConnector operation. If you don&#39;t specify an address, the Connector will listen on all IP addresses assigned to the machine where Tomcat is running. You must specify a port (I used the standard value of 8080) and you&#39;ll want to set isAjp and isSSL to false. With this complete, you should be able to point your browser at localhost:8080 and see the standard Tomcat ROOT application. The main purpose of improving the JMX features was to allow management tools better visibility and control over Tomcat instances. For example, a management tool could keep track of the current required configuration and dynamically configure the Tomcat instance via JMX both while the instance is running and when the instance is restarted. This would allow a management tool to have full control over a Tomcat instance&#39;s configuration without having to keep the management tool&#39;s view of the Tomcat configuration and the instance&#39;s server.xml file in sync. The JMX improvements are still a work in progress. There are still a number of operations and attributes that don&#39;t work correctly. As always patches to improve the situation are very welcome. If you&#39;d like to get involved in this effort - or any other aspect of Tomcat development - please subscribe to the Tomcat dev list and drop the developer community a note." />
+<meta property="og:description" content="You may have seen that the Tomcat project participated in the Google Summer of Code (GSOC) this year. This year, Chamith Buddhika has been working on improving the JMX support. In particular the aims were: Aligning the attributes and methods exposed via JMX with reality. The JMX descriptions and the actual code had diverged over time and there were many missing entries as well as entries that no longer worked. Making it possible to fully configure a Tomcat instance over JMX. It is this second objective that I am writing about today. With the most recent changes to Tomcat 7 trunk (you&#39;ll need to build from svn or wait until 7.0.3 to use these features) it is now possible to start an absolute bare minimum Tomcat instance and perform all the configuration via JMX. To try this out for yourself, you&#39;ll need to start with a standard Tomcat install (if building from trunk the contents of output/build will be fine) and reduce server.xml to the bare minimum. Something like this: Then start Tomcat along with JConsole and connect JConsole to your newly started Tomcat instance. In the MBean tab in JConsole, you should see a number of Tomcat MBeans including one named &quot;Catalina:type=MBeanFactory&quot;. Navigate to this MBean and use the &quot;createStandardServiceEngine&quot; method to create a Service and an Engine. There is a one-to-one mapping between Service and Engine so they are created together. For domain and defaultHost I use the standard values &quot;Catalina&quot; and &quot;localhost&quot; respectively. You can change these if you wish. baseDir must be the full path to CATALINA_BASE. The next step is to add a Host to the Engine, configure the Host and start it. To add the Host, navigate to the Engine you just created and use the addChild operation. The type should be &quot;org.apache.catalina.core.StandardHost&quot; and the name must match the name you used for the defaultHost attribute when creating the Engine. The default configuration for the Host should allow you to start it, so navigate to the new Host element and use the start operation. You should see all the Contexts found in webapps being automatically deployed. Finally, you need to add a Connector so you can test your configuration. Navigate to the Service element you created earlier and select the addConnector operation. If you don&#39;t specify an address, the Connector will listen on all IP addresses assigned to the machine where Tomcat is running. You must specify a port (I used the standard value of 8080) and you&#39;ll want to set isAjp and isSSL to false. With this complete, you should be able to point your browser at localhost:8080 and see the standard Tomcat ROOT application. The main purpose of improving the JMX features was to allow management tools better visibility and control over Tomcat instances. For example, a management tool could keep track of the current required configuration and dynamically configure the Tomcat instance via JMX both while the instance is running and when the instance is restarted. This would allow a management tool to have full control over a Tomcat instance&#39;s configuration without having to keep the management tool&#39;s view of the Tomcat configuration and the instance&#39;s server.xml file in sync. The JMX improvements are still a work in progress. There are still a number of operations and attributes that don&#39;t work correctly. As always patches to improve the situation are very welcome. If you&#39;d like to get involved in this effort - or any other aspect of Tomcat development - please subscribe to the Tomcat dev list and drop the developer community a note." />
+<link rel="canonical" href="http://localhost:4000/tomcat/entry/tomcat_7_trunk_and_jmx" />
+<meta property="og:url" content="http://localhost:4000/tomcat/entry/tomcat_7_trunk_and_jmx" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-09-16T17:34:24-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tomcat 7 trunk and JMX" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2010-09-16T17:34:24-04:00","datePublished":"2010-09-16T17:34:24-04:00","description":"You may have seen that the Tomcat project participated in the Google Summer of Code (GSOC) this year. This year, Chamith Buddhika has been working on improving the JMX support. In particular the aims were: Aligning the attributes and methods exposed via JMX with reality. The JMX descriptions and the actual code had diverged over time and there were many missing entries as well as entries that no longer worked. Making it possible to fully configure a Tomcat instance over JMX. It is this second objective that I am writing about today. With the most recent changes to Tomcat 7 trunk (you&#39;ll need to build from svn or wait until 7.0.3 to use these features) it is now possible to start an absolute bare minimum Tomcat instance and perform all the configuration via JMX. To try this out for yourself, you&#39;ll need to start with a standard Tomcat install (if building from trunk the contents of output/build will be fine) and reduce server.xml to the bare minimum. Something like this: Then start Tomcat along with JConsole and connect JConsole to your newly started Tomcat instance. In the MBean tab in JConsole, you should see a number of Tomcat MBeans including one named &quot;Catalina:type=MBeanFactory&quot;. Navigate to this MBean and use the &quot;createStandardServiceEngine&quot; method to create a Service and an Engine. There is a one-to-one mapping between Service and Engine so they are created together. For domain and defaultHost I use the standard values &quot;Catalina&quot; and &quot;localhost&quot; respectively. You can change these if you wish. baseDir must be the full path to CATALINA_BASE. The next step is to add a Host to the Engine, configure the Host and start it. To add the Host, navigate to the Engine you just created and use the addChild operation. The type should be &quot;org.apache.catalina.core.StandardHost&quot; and the name must match the name you used for the defaultHost attribute when creating the Engine. The default configuration for the Host should allow you to start it, so navigate to the new Host element and use the start operation. You should see all the Contexts found in webapps being automatically deployed. Finally, you need to add a Connector so you can test your configuration. Navigate to the Service element you created earlier and select the addConnector operation. If you don&#39;t specify an address, the Connector will listen on all IP addresses assigned to the machine where Tomcat is running. You must specify a port (I used the standard value of 8080) and you&#39;ll want to set isAjp and isSSL to false. With this complete, you should be able to point your browser at localhost:8080 and see the standard Tomcat ROOT application. The main purpose of improving the JMX features was to allow management tools better visibility and control over Tomcat instances. For example, a management tool could keep track of the current required configuration and dynamically configure the Tomcat instance via JMX both while the instance is running and when the instance is restarted. This would allow a management tool to have full control over a Tomcat instance&#39;s configuration without having to keep the management tool&#39;s view of the Tomcat configuration and the instance&#39;s server.xml file in sync. The JMX improvements are still a work in progress. There are still a number of operations and attributes that don&#39;t work correctly. As always patches to improve the situation are very welcome. If you&#39;d like to get involved in this effort - or any other aspect of Tomcat development - please subscribe to the Tomcat dev list and drop the developer community a note.","headline":"Tomcat 7 trunk and JMX","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/tomcat/entry/tomcat_7_trunk_and_jmx"},"url":"http://localhost:4000/tomcat/entry/tomcat_7_trunk_and_jmx"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Tomcat 7 trunk and JMX</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2010-09-16T17:34:24-04:00" itemprop="datePublished">Sep 16, 2010
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Mark Thomas", "login"=>"markt", "email"=>"markt@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>You may have seen that the Tomcat project participated in the Google Summer of Code (GSOC) this year.  This year, Chamith Buddhika has been working on improving the JMX support. In particular the aims were:</p>
+<ul>
+<li>Aligning the attributes and methods exposed via JMX with reality. The JMX descriptions and the actual code had diverged over time and there were many missing entries as well as entries that no longer worked.</li>
+<li>Making it possible to fully configure a Tomcat instance over JMX.</li>
+</ul>
+<p>It is this second objective that I am writing about today. With the most recent changes to Tomcat 7 trunk (you'll need to build from svn or wait until 7.0.3 to use these features) it is now possible to start an absolute bare minimum Tomcat instance and perform all the configuration via JMX.</p>
+<p>To try this out for yourself, you'll need to start with a standard Tomcat install (if building from trunk the contents of output/build will be fine) and reduce server.xml to the bare minimum. Something like this:</p>
+<pre>
+<?xml version='1.0' encoding='utf-8'?>
+<Server port="8005" shutdown="SHUTDOWN">
+</Server>
+</pre>
+<p>Then start Tomcat along with JConsole and connect JConsole to your newly started Tomcat instance. In the MBean tab in JConsole, you should see a number of Tomcat MBeans including one named "Catalina:type=MBeanFactory". Navigate to this MBean and use the "createStandardServiceEngine" method to create a Service and an Engine. There is a one-to-one mapping between Service and Engine so they are created together. For domain and defaultHost I use the standard values "Catalina" and "localhost" respectively. You can change these if you wish. baseDir must be the full path to CATALINA_BASE.</p>
+<p>The next step is to add a Host to the Engine, configure the Host and start it. To add the Host, navigate to the Engine you just created and use the addChild operation. The type should be "org.apache.catalina.core.StandardHost" and the name must match the name you used for the defaultHost attribute when creating the Engine. The default configuration for the Host should allow you to start it, so navigate to the new Host element and use the start operation. You should see all the Contexts found in webapps being automatically deployed.</p>
+<p>Finally, you need to add a Connector so you can test your configuration. Navigate to the Service element you created earlier and select the addConnector operation. If you don't specify an address, the Connector will listen on all IP addresses assigned to the machine where Tomcat is running. You must specify a port (I used the standard value of 8080) and you'll want to set isAjp and isSSL to false.</p>
+<p>With this complete, you should be able to point your browser at localhost:8080 and see the standard Tomcat ROOT application.</p>
+<p>The main purpose of improving the JMX features was to allow management tools better visibility and control over Tomcat instances. For example, a management tool could keep track of the current required configuration and dynamically configure the Tomcat instance via JMX both while the instance is running and when the instance is restarted. This would allow a management tool to have full control over a Tomcat instance's configuration without having to keep the management tool's view of the Tomcat configuration and the instance's server.xml file in sync.</p>
+<p>The JMX improvements are still a work in progress. There are still a number of operations and attributes that don't work correctly. As always patches to improve the situation are very welcome. If you'd like to get involved in this effort - or any other aspect of Tomcat development - please subscribe to the Tomcat dev list and drop the developer community a note.</p>
+
+  </div><a class="u-url" href="/tomcat/entry/tomcat_7_trunk_and_jmx" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

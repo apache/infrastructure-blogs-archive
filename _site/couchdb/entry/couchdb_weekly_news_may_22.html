@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CouchDB Weekly News, May 22 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="CouchDB Weekly News, May 22" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Weekly CouchDB meeting &ndash; summary 1.6.0 release: no new issues were found during voting on CouchDB 1.6.0 rc5 BigCouch merge: significant progress has been made. Everyone is still encouraged to continue helping with building and testing COUCHDB-1843 branch. Further items for discussions will be sent to the mailing list. CouchDB Meetup Hamburg: the CouchDB user group in Hamburg has its own Google Plus Community and will have their next meetup will be on June 10, 2014. Major Discussions Running views return nothing with CouchDB 1.5.1 (ongoing discussion; see thread) Setup: code that creates database, documents and design documents with views and lists. When views are run, nothing is returned under CouchDB 1.5.1. When the same code is run against another CouchDB server (CouchDB 1.5.0), all views return the right responses and results. Approach: the problem described here could be an error from a library not found while running an external process (CouchJS in this case). It turned out libmozjs.so was either not installed or not in a path searched by the dynamic linker. Once it is added, it should be ensured that CouchJS can be run, afterwards, CouchDB should be able to build the views without restarting CouchDB. Discussion: Project by-laws (ongoing discussion; see thread) The discussion about the by-laws is still ongoing, more updates have been made. They can be found here, your feedback is still very welcome. Release Apache CouchDB 1.6.0 rc5 (see thread) The testing and voting for all systems is still in progress. Releases in the CouchDB Universe Serve your documents from CouchDB as an OData feed by copying this design doc to your DB connect-couchbase &ndash; Node.js Session Store for Couchbase backed applications changemachine 0.4.11 &ndash; handle CouchDB change notifications using neuron changemate 0.6.0 &ndash; change notification for CouchDB attachmate 0.1.7 &ndash; CouchDB Attachment Helpers docuri 1.1.0 &ndash; rich document IDs for CouchDB follow 0.11.1 &ndash; robust, fault-tolerant CouchDB changes follower changes-stream 1.0.5 &ndash; simple module that handles getting changes from CouchDB couchmagick 2.0.0 &ndash; run ImageMagicks `convert` on CouchDB documents couch-db 1.1.0 &ndash; extendable CouchDB client for Node.js, with convenient APIs Opinions Integrate your Java application with CouchDB (tutorial) Get up and running with CouchDb and C# using MyCouch on Windows Managing CouchDB with CloverETL Who stole my JOINs? &ndash; CouchDB doesn&rsquo;t provide the option of doing joins, however it&rsquo;s often possible to achieve a similar result using appropriate sorting &amp; ordering within your view, using complex or compound keys and view collation. Here are some explanations and examples to refer to: CouchDB-Guide on Views CouchDB Joins CouchDB views collation docs View collation in CouchDB What&rsquo;s new in Apache CouchDB 0.11 &mdash; Part Two: Views; JOINs Redux, Raw Collation for Speed Use Cases, Questions and Answers Stack Overflow: bad_utf8_character_code Error When Pushing with Erica to CouchDB (no public answer yet) Stack Overflow: Difficulty authenticating to CouchDB Stack Overflow: CouchDB installed from source binary 1.5.1 doesn&#39;t stop from /etc/init.d/couch stop call Stack Overflow: CouchDB authentication fails from ajax call (no public answer yet) Stack Overflow: how can we check username exist or not in CouchDB Stack Overflow: IrisCouch CouchDB not responding http request on specified port Stack Overflow: Pouch DB: database size Stack Overflow: CouchDB, how to get document changes only Stack Overflow: How To Get Parent Details In CouchDB? (no public answer yet) Stack Overflow: CouchDB - _replicator issue when basic auth with url-encoded values (no public answer yet) Google Groups: Help: AngularJS delete(id) REST(CouchDB) Couchbase: Can CouchDB server replicate with CouchBase Server via Sync Gateway? Get involved! If you want to get into working on CouchDB: Here&#39;s a list of beginner tickets around our currently ongoing Fauxton-implementation. If you have any questions or need help, don&#39;t hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) &ndash; Garren (garren) and Sue (deathbear) are happy to help. We&#39;d be happy to have you! Events June 10, Hamburg, Germany: CouchDB Meetup #2 June 16-17, San Francisco, USA: CloudantCON | tickets (discounted rate) Job opportunities for people with CouchDB skills Bidding platform: building a CouchDB Webservice, no location specified Mobile and Web Software Application Developer, Durham, NC, USA &hellip; and also in the news Aiming for open source technology that is gorgeous and provides great UX The tyranny of structurelessness On Decentralisation Posted on behalf of Lena Reinhard." />
+<meta property="og:description" content="Weekly CouchDB meeting &ndash; summary 1.6.0 release: no new issues were found during voting on CouchDB 1.6.0 rc5 BigCouch merge: significant progress has been made. Everyone is still encouraged to continue helping with building and testing COUCHDB-1843 branch. Further items for discussions will be sent to the mailing list. CouchDB Meetup Hamburg: the CouchDB user group in Hamburg has its own Google Plus Community and will have their next meetup will be on June 10, 2014. Major Discussions Running views return nothing with CouchDB 1.5.1 (ongoing discussion; see thread) Setup: code that creates database, documents and design documents with views and lists. When views are run, nothing is returned under CouchDB 1.5.1. When the same code is run against another CouchDB server (CouchDB 1.5.0), all views return the right responses and results. Approach: the problem described here could be an error from a library not found while running an external process (CouchJS in this case). It turned out libmozjs.so was either not installed or not in a path searched by the dynamic linker. Once it is added, it should be ensured that CouchJS can be run, afterwards, CouchDB should be able to build the views without restarting CouchDB. Discussion: Project by-laws (ongoing discussion; see thread) The discussion about the by-laws is still ongoing, more updates have been made. They can be found here, your feedback is still very welcome. Release Apache CouchDB 1.6.0 rc5 (see thread) The testing and voting for all systems is still in progress. Releases in the CouchDB Universe Serve your documents from CouchDB as an OData feed by copying this design doc to your DB connect-couchbase &ndash; Node.js Session Store for Couchbase backed applications changemachine 0.4.11 &ndash; handle CouchDB change notifications using neuron changemate 0.6.0 &ndash; change notification for CouchDB attachmate 0.1.7 &ndash; CouchDB Attachment Helpers docuri 1.1.0 &ndash; rich document IDs for CouchDB follow 0.11.1 &ndash; robust, fault-tolerant CouchDB changes follower changes-stream 1.0.5 &ndash; simple module that handles getting changes from CouchDB couchmagick 2.0.0 &ndash; run ImageMagicks `convert` on CouchDB documents couch-db 1.1.0 &ndash; extendable CouchDB client for Node.js, with convenient APIs Opinions Integrate your Java application with CouchDB (tutorial) Get up and running with CouchDb and C# using MyCouch on Windows Managing CouchDB with CloverETL Who stole my JOINs? &ndash; CouchDB doesn&rsquo;t provide the option of doing joins, however it&rsquo;s often possible to achieve a similar result using appropriate sorting &amp; ordering within your view, using complex or compound keys and view collation. Here are some explanations and examples to refer to: CouchDB-Guide on Views CouchDB Joins CouchDB views collation docs View collation in CouchDB What&rsquo;s new in Apache CouchDB 0.11 &mdash; Part Two: Views; JOINs Redux, Raw Collation for Speed Use Cases, Questions and Answers Stack Overflow: bad_utf8_character_code Error When Pushing with Erica to CouchDB (no public answer yet) Stack Overflow: Difficulty authenticating to CouchDB Stack Overflow: CouchDB installed from source binary 1.5.1 doesn&#39;t stop from /etc/init.d/couch stop call Stack Overflow: CouchDB authentication fails from ajax call (no public answer yet) Stack Overflow: how can we check username exist or not in CouchDB Stack Overflow: IrisCouch CouchDB not responding http request on specified port Stack Overflow: Pouch DB: database size Stack Overflow: CouchDB, how to get document changes only Stack Overflow: How To Get Parent Details In CouchDB? (no public answer yet) Stack Overflow: CouchDB - _replicator issue when basic auth with url-encoded values (no public answer yet) Google Groups: Help: AngularJS delete(id) REST(CouchDB) Couchbase: Can CouchDB server replicate with CouchBase Server via Sync Gateway? Get involved! If you want to get into working on CouchDB: Here&#39;s a list of beginner tickets around our currently ongoing Fauxton-implementation. If you have any questions or need help, don&#39;t hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) &ndash; Garren (garren) and Sue (deathbear) are happy to help. We&#39;d be happy to have you! Events June 10, Hamburg, Germany: CouchDB Meetup #2 June 16-17, San Francisco, USA: CloudantCON | tickets (discounted rate) Job opportunities for people with CouchDB skills Bidding platform: building a CouchDB Webservice, no location specified Mobile and Web Software Application Developer, Durham, NC, USA &hellip; and also in the news Aiming for open source technology that is gorgeous and provides great UX The tyranny of structurelessness On Decentralisation Posted on behalf of Lena Reinhard." />
+<link rel="canonical" href="http://localhost:4000/couchdb/entry/couchdb_weekly_news_may_22" />
+<meta property="og:url" content="http://localhost:4000/couchdb/entry/couchdb_weekly_news_may_22" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-05-22T16:06:43-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CouchDB Weekly News, May 22" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-05-22T16:06:43-04:00","datePublished":"2014-05-22T16:06:43-04:00","description":"Weekly CouchDB meeting &ndash; summary 1.6.0 release: no new issues were found during voting on CouchDB 1.6.0 rc5 BigCouch merge: significant progress has been made. Everyone is still encouraged to continue helping with building and testing COUCHDB-1843 branch. Further items for discussions will be sent to the mailing list. CouchDB Meetup Hamburg: the CouchDB user group in Hamburg has its own Google Plus Community and will have their next meetup will be on June 10, 2014. Major Discussions Running views return nothing with CouchDB 1.5.1 (ongoing discussion; see thread) Setup: code that creates database, documents and design documents with views and lists. When views are run, nothing is returned under CouchDB 1.5.1. When the same code is run against another CouchDB server (CouchDB 1.5.0), all views return the right responses and results. Approach: the problem described here could be an error from a library not found while running an external process (CouchJS in this case). It turned out libmozjs.so was either not installed or not in a path searched by the dynamic linker. Once it is added, it should be ensured that CouchJS can be run, afterwards, CouchDB should be able to build the views without restarting CouchDB. Discussion: Project by-laws (ongoing discussion; see thread) The discussion about the by-laws is still ongoing, more updates have been made. They can be found here, your feedback is still very welcome. Release Apache CouchDB 1.6.0 rc5 (see thread) The testing and voting for all systems is still in progress. Releases in the CouchDB Universe Serve your documents from CouchDB as an OData feed by copying this design doc to your DB connect-couchbase &ndash; Node.js Session Store for Couchbase backed applications changemachine 0.4.11 &ndash; handle CouchDB change notifications using neuron changemate 0.6.0 &ndash; change notification for CouchDB attachmate 0.1.7 &ndash; CouchDB Attachment Helpers docuri 1.1.0 &ndash; rich document IDs for CouchDB follow 0.11.1 &ndash; robust, fault-tolerant CouchDB changes follower changes-stream 1.0.5 &ndash; simple module that handles getting changes from CouchDB couchmagick 2.0.0 &ndash; run ImageMagicks `convert` on CouchDB documents couch-db 1.1.0 &ndash; extendable CouchDB client for Node.js, with convenient APIs Opinions Integrate your Java application with CouchDB (tutorial) Get up and running with CouchDb and C# using MyCouch on Windows Managing CouchDB with CloverETL Who stole my JOINs? &ndash; CouchDB doesn&rsquo;t provide the option of doing joins, however it&rsquo;s often possible to achieve a similar result using appropriate sorting &amp; ordering within your view, using complex or compound keys and view collation. Here are some explanations and examples to refer to: CouchDB-Guide on Views CouchDB Joins CouchDB views collation docs View collation in CouchDB What&rsquo;s new in Apache CouchDB 0.11 &mdash; Part Two: Views; JOINs Redux, Raw Collation for Speed Use Cases, Questions and Answers Stack Overflow: bad_utf8_character_code Error When Pushing with Erica to CouchDB (no public answer yet) Stack Overflow: Difficulty authenticating to CouchDB Stack Overflow: CouchDB installed from source binary 1.5.1 doesn&#39;t stop from /etc/init.d/couch stop call Stack Overflow: CouchDB authentication fails from ajax call (no public answer yet) Stack Overflow: how can we check username exist or not in CouchDB Stack Overflow: IrisCouch CouchDB not responding http request on specified port Stack Overflow: Pouch DB: database size Stack Overflow: CouchDB, how to get document changes only Stack Overflow: How To Get Parent Details In CouchDB? (no public answer yet) Stack Overflow: CouchDB - _replicator issue when basic auth with url-encoded values (no public answer yet) Google Groups: Help: AngularJS delete(id) REST(CouchDB) Couchbase: Can CouchDB server replicate with CouchBase Server via Sync Gateway? Get involved! If you want to get into working on CouchDB: Here&#39;s a list of beginner tickets around our currently ongoing Fauxton-implementation. If you have any questions or need help, don&#39;t hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) &ndash; Garren (garren) and Sue (deathbear) are happy to help. We&#39;d be happy to have you! Events June 10, Hamburg, Germany: CouchDB Meetup #2 June 16-17, San Francisco, USA: CloudantCON | tickets (discounted rate) Job opportunities for people with CouchDB skills Bidding platform: building a CouchDB Webservice, no location specified Mobile and Web Software Application Developer, Durham, NC, USA &hellip; and also in the news Aiming for open source technology that is gorgeous and provides great UX The tyranny of structurelessness On Decentralisation Posted on behalf of Lena Reinhard.","headline":"CouchDB Weekly News, May 22","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/couchdb/entry/couchdb_weekly_news_may_22"},"url":"http://localhost:4000/couchdb/entry/couchdb_weekly_news_may_22"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">CouchDB Weekly News, May 22</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-05-22T16:06:43-04:00" itemprop="datePublished">May 22, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Noah Slater", "login"=>"nslater", "email"=>"nslater@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h4>Weekly CouchDB meeting &ndash; <a href="http://wilderness.apache.org/archives/couchdb-meeting-21_05_2014-1949.html">summary</a></h4>
+<ul>
+<li><strong>1.6.0 release</strong>: no new issues were found during voting on CouchDB 1.6.0 rc5</li>
+<li><strong>BigCouch merge</strong>: significant progress has been made. Everyone is still encouraged to continue helping with building and testing <a href="https://issues.apache.org/jira/browse/COUCHDB-1843">COUCHDB-1843</a> branch. Further items for discussions will be sent to the mailing list.</li>
+<li><strong>CouchDB Meetup Hamburg</strong>: the CouchDB user group in Hamburg has its own <a href="https://plus.google.com/u/0/communities/103656875572948787245">Google Plus Community</a> and will have their next meetup will be <a href="https://plus.google.com/u/0/events/c8vu4a1n8b6aj27e0q1349kog74">on June 10, 2014</a>.</li>
+</ul>
+<h4>Major Discussions</h4>
+<h5>Running views return nothing with CouchDB 1.5.1 (ongoing discussion; <a href="http://markmail.org/search/?q=running%20views%20return%20nothing%20with%20couchdb1.5.1#query:running%20views%20return%20nothing%20with%20couchdb1.5.1%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward+page:2+mid:opihl3gnar7ahhek+state:results">see thread</a>)</h5>
+<p>Setup: code that creates database, documents and design documents with views and lists. When views are run, nothing is returned under CouchDB 1.5.1. When the same code is run against another CouchDB server (CouchDB 1.5.0), all views return the right responses and results.</p>
+<p>Approach: the problem described here could be an error from a library not found while running an external process (CouchJS in this case). It turned out libmozjs.so was either not installed or not in a path searched by the dynamic linker. Once it is added, it should be ensured that CouchJS can be run, afterwards, CouchDB should be able to build the views without restarting CouchDB.</p>
+<h5>Discussion: Project by-laws (ongoing discussion; <a href="http://markmail.org/search/?q=issues+with+terabytes+databases+list%3Aorg.apache.couchdb.user+order%3Adate-backward+date%3A201404#query:issues%20with%20terabytes%20databases%20list%3Aorg.apache.couchdb.user%20order%3Adate-backward%20date%3A200802-200810%20date%3A200812-201005%20date%3A201007-201303%20date%3A201305-201306%20date%3A201308-201404%20+page:1+mid:pxnd6vdpjuwjioqw+state:results">see thread</a>)</h5>
+<p>The discussion about the by-laws is still ongoing, more updates have been made. They can be found <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=40511017">here</a>, your feedback is still very welcome.</p>
+<h5>Release Apache CouchDB 1.6.0 rc5 (<a href="http://markmail.org/search/?q=[VOTE]+Release+Apache+CouchDB+1.6.0-rc.5#query:[VOTE]%20Release%20Apache%20CouchDB%201.6.0-rc.5%20list%3Aorg.apache.couchdb.dev%20order%3Adate-backward+page:1+mid:j7dja2zetabzslhy+state:results">see thread</a>)</h5>
+<p>The testing and voting for all systems is still in progress.</p>
+<h4>Releases in the CouchDB Universe</h4>
+<ul>
+<li>Serve your documents from CouchDB as an OData feed by copying <a href="http://nisbus.cloudant.com/odata/_design/odata/">this design doc</a> to your DB</li>
+<li><a href="https://github.com/christophermina/connect-couchbase">connect-couchbase</a> &ndash; Node.js Session Store for Couchbase backed applications</li>
+<li><a href="https://t.co/yeJzJdGC6S">changemachine 0.4.11</a> &ndash; handle CouchDB change notifications using neuron</li>
+<li><a href="https://www.npmjs.org/package/changemate">changemate 0.6.0</a> &ndash; change notification for CouchDB</li>
+<li><a href="https://www.npmjs.org/package/attachmate">attachmate 0.1.7</a><strong> &ndash; </strong>CouchDB Attachment Helpers</li>
+<li><a href="https://www.npmjs.org/package/docuri">docuri 1.1.0</a> &ndash; rich document IDs for CouchDB</li>
+<li><a href="https://www.npmjs.org/package/follow">follow 0.11.1</a> &ndash; robust, fault-tolerant CouchDB changes follower</li>
+<li><a href="https://www.npmjs.org/package/changes-stream">changes-stream 1.0.5</a> &ndash; simple module that handles getting changes from CouchDB</li>
+<li><a href="https://www.npmjs.org/package/couchmagick">couchmagick 2.0.0</a> &ndash; run ImageMagicks `convert` on CouchDB documents</li>
+<li><a href="https://www.npmjs.org/package/couch-db">couch-db 1.1.0</a> &ndash; extendable CouchDB client for Node.js, with convenient APIs</li>
+</ul>
+<h4>Opinions</h4>
+<ul>
+<li><a href="http://app42paas.shephertz.com/dev-center/couchdb-database-as-a-service/couchdb-java-integration/?utm_campaign=Social%20Media%20Soumya&amp;utm_content=5442963&amp;utm_medium=social&amp;utm_source=twitter">Integrate your Java application with CouchDB</a> (tutorial)</li>
+<li><a href="http://danielwertheim.se/2013/05/26/get-up-and-running-with-couchdb-and-c-using-mycouch-on-windows/">Get up and running with CouchDb and C# using MyCouch on Windows</a></li>
+<li><a href="http://www.cloveretl.com/blog/couchdb-cloveretl/">Managing CouchDB with CloverETL</a></li>
+<li><strong>Who stole my JOINs?</strong> &ndash; CouchDB doesn&rsquo;t provide the option of doing joins, however it&rsquo;s often possible to achieve a similar result using appropriate sorting &amp; ordering within your view, using complex or compound keys and view collation. Here are some explanations and examples to refer to:
+<ul>
+<li><a href="http://guide.couchdb.org/draft/views.html">CouchDB-Guide on Views</a></li>
+<li><a href="http://www.cmlenz.net/archives/2007/10/couchdb-joins">CouchDB Joins</a></li>
+<li><a href="https://couchdb.readthedocs.org/en/latest/couchapp/views/collation.html">CouchDB views collation docs</a></li>
+<li><a href="http://elegantcode.com/2012/02/14/view-collation-in-couchdb/">View collation in CouchDB</a></li>
+<li><a href="https://web.archive.org/web/20110413170857/http://blog.couchbase.com/whats-new-in-apache-couchdb-0-11-part-two-views">What&rsquo;s new in Apache CouchDB 0.11 &mdash; Part Two: Views; JOINs Redux, Raw Collation for Speed</a></li>
+</ul>
+</li>
+</ul>
+<h4>Use Cases, Questions and Answers</h4>
+<ul>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23769103/bad-utf8-character-code-error-when-pushing-with-erica-to-couchdb">bad_utf8_character_code Error When Pushing with Erica to CouchDB</a> (no public answer yet)</li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23682143/difficulty-authenticating-to-couchdb">Difficulty authenticating to CouchDB</a></li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23677227/couch-db-installed-from-source-binary-1-5-1-doesnt-stop-from-etc-init-d-couch">CouchDB installed from source binary 1.5.1 doesn't stop from /etc/init.d/couch stop call</a></li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23693765/couchdb-authentication-fails-from-ajax-call">CouchDB authentication fails from ajax call</a> (no public answer yet)</li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23708165/how-can-we-check-username-exist-or-not-in-couchdb">how can we check username exist or not in CouchDB</a></li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23710286/iriscouch-couchdb-not-responding-http-request-on-specified-port">IrisCouch CouchDB not responding http request on specified port</a></li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23724331/pouch-db-database-size">Pouch DB: database size</a></li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23721041/couchdb-how-to-get-document-changes-only">CouchDB, how to get document changes only</a></li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23730537/how-to-get-parent-details-in-couch-db">How To Get Parent Details In CouchDB?</a> (no public answer yet)</li>
+<li>Stack Overflow: <a class="question-hyperlink" href="http://stackoverflow.com/questions/23726326/couchdb-replicator-issue-when-basic-auth-with-url-encoded-values">CouchDB - _replicator issue when basic auth with url-encoded values</a> (no public answer yet)</li>
+<li><span id="t-t" class="GKA2MROCFCC">Google Groups: <a href="https://groups.google.com/forum/#!topic/angular/nfY7Sj0Zjbg">Help: AngularJS delete(id) REST(CouchDB)</a></span></li>
+<li>Couchbase: <a href="http://www.couchbase.com/communities/q-and-a/can-couchdb-server-replicate-couchbase-server-sync-gateway">Can CouchDB server replicate with CouchBase Server via Sync Gateway?</a></li>
+</ul>
+<h4>Get involved!</h4>
+<p>If you want to get into working on CouchDB:</p>
+<ul>
+<li>Here's a <a href="https://issues.apache.org/jira/browse/COUCHDB-2178?jql=project%20%3D%20COUCHDB%20AND%20component%20%3D%20Fauxton%20AND%20status%20%3D%20Open%20AND%20cf[12310270]%20%3D%20%22New%20Contributors%20Level%20%28Easy%29%22">list of <strong>beginner tickets</strong></a> around our currently ongoing <a href="https://www.youtube.com/watch?v=R8b4kXBF01s">Fauxton</a>-implementation. If you have any questions or need help, don't hesitate to contact us in the couchdb-dev IRC room (#couchdb-dev) &ndash; Garren (garren) and Sue (deathbear) are happy to help.</li>
+</ul>
+<p>We'd be happy to have you!</p>
+<h4>Events</h4>
+<ul>
+<li>June 10, Hamburg, Germany: <a href="https://plus.google.com/u/0/events/c8vu4a1n8b6aj27e0q1349kog74">CouchDB Meetup #2</a></li>
+<li>June 16-17, San Francisco, USA: <a href="http://www.cloudantcon.com/">CloudantCON</a> | <a href="https://cloudantcon.eventbrite.com/?discount=CCPARTNER_CDB">tickets (discounted rate)</a></li>
+</ul>
+<h4>Job opportunities for people with CouchDB skills</h4>
+<ul>
+<li>Bidding platform: <a href="http://www.peopleperhour.com/job/i-need-a-couchdb-webservice-built-488486">building a CouchDB Webservice</a>, <em>no location specified</em></li>
+<li><a href="https://careers.stackoverflow.com/jobs/57198/mobile-and-web-software-application-developer-rti-international?a=17L2KzRyE&searchTerm=couchdb">Mobile and Web Software Application Developer</a>, <em>Durham, NC, USA</em></li>
+</ul>
+<h4>&hellip; and also in the news</h4>
+<ul>
+<li><a title="Permanent Link to Aiming for open source technology that is gorgeous and provides great UX" href="http://www.experientia.com/blog/aiming-for-open-source-technology-that-is-gorgeous-and-provides-great-ux/" rel="bookmark">Aiming for open source technology that is gorgeous and provides great UX</a></li>
+<li><a href="http://www.jofreeman.com/joreen/tyranny.htm">The tyranny of structurelessness</a></li>
+<li><a href="https://speakerdeck.com/espylaub/on-decentralisation">On Decentralisation</a></li>
+</ul>
+<p><em>Posted on behalf of Lena Reinhard.</em></p>
+
+  </div><a class="u-url" href="/couchdb/entry/couchdb_weekly_news_may_22" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

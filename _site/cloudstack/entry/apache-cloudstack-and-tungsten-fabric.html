@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache CloudStack and Tungsten Fabric SDN - Solution Brief | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache CloudStack and Tungsten Fabric SDN - Solution Brief" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CloudStack is a multi-hypervisor, multi-tenant, high-availability cloud management platform that delivers the flexibility and freedom of open-source technology and the power of an enterprise-grade virtualization management platform. In the&nbsp;new blog series named CloudStack Integrations, we present a range of technologies with which CloudStack is integrated and can become part of your technology stack. You will be able to&nbsp;learn more about different software solutions, which can be combined with CloudStack&nbsp;and dive deep into specialized&nbsp;Technical Solution Briefs&nbsp;presenting the integrations. Today we will introduce you to Tungsten." />
+<meta property="og:description" content="CloudStack is a multi-hypervisor, multi-tenant, high-availability cloud management platform that delivers the flexibility and freedom of open-source technology and the power of an enterprise-grade virtualization management platform. In the&nbsp;new blog series named CloudStack Integrations, we present a range of technologies with which CloudStack is integrated and can become part of your technology stack. You will be able to&nbsp;learn more about different software solutions, which can be combined with CloudStack&nbsp;and dive deep into specialized&nbsp;Technical Solution Briefs&nbsp;presenting the integrations. Today we will introduce you to Tungsten." />
+<link rel="canonical" href="http://localhost:4000/cloudstack/entry/apache-cloudstack-and-tungsten-fabric" />
+<meta property="og:url" content="http://localhost:4000/cloudstack/entry/apache-cloudstack-and-tungsten-fabric" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-23T07:17:12-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache CloudStack and Tungsten Fabric SDN - Solution Brief" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-23T07:17:12-05:00","datePublished":"2023-01-23T07:17:12-05:00","description":"CloudStack is a multi-hypervisor, multi-tenant, high-availability cloud management platform that delivers the flexibility and freedom of open-source technology and the power of an enterprise-grade virtualization management platform. In the&nbsp;new blog series named CloudStack Integrations, we present a range of technologies with which CloudStack is integrated and can become part of your technology stack. You will be able to&nbsp;learn more about different software solutions, which can be combined with CloudStack&nbsp;and dive deep into specialized&nbsp;Technical Solution Briefs&nbsp;presenting the integrations. Today we will introduce you to Tungsten.","headline":"Apache CloudStack and Tungsten Fabric SDN - Solution Brief","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/cloudstack/entry/apache-cloudstack-and-tungsten-fabric"},"url":"http://localhost:4000/cloudstack/entry/apache-cloudstack-and-tungsten-fabric"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache CloudStack and Tungsten Fabric SDN - Solution Brief</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-01-23T07:17:12-05:00" itemprop="datePublished">Jan 23, 2023
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Ivet Petrova", "login"=>"ivet", "email"=>"ivet@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="https://blogs.apache.org/cloudstack/mediaresource/b2495a18-898c-44c0-bbe4-5b227bad1565"><img src="https://blogs.apache.org/cloudstack/mediaresource/b2495a18-898c-44c0-bbe4-5b227bad1565" alt="Tungsten-Fabric-Banner.png" width="750" height="393" /></a></p>
+<p>CloudStack is a multi-hypervisor, multi-tenant, high-availability cloud management platform that delivers the flexibility and freedom of open-source technology and the power of an enterprise-grade virtualization management platform.</p>
+<p>In the&nbsp;<strong>new blog series named CloudStack Integrations</strong>, we present a range of technologies with which CloudStack is integrated and can become part of your technology stack. You will be able to<strong>&nbsp;learn more about different software solutions, which can be combined with CloudStack</strong>&nbsp;and dive deep into specialized&nbsp;<strong>Technical Solution Briefs</strong>&nbsp;presenting the integrations.</p>
+<p>Today we will introduce you to <a href="https://tungsten.io/">Tungsten.</a></p>
+<h1>Tungsten Fabric&rsquo;s Integration with Apache CloudStack</h1>
+<p>Tungsten Fabric (TF) comprises components like controller and vRouter; plus additional components for analytics and third-party integration. In this Solution Brief, TF integrates with CloudStack as an SDN plugin to enable rich networking capabilities and lifecycle management of VMs and containers where TF components or control functions are deployed.</p>
+<p>The deployment and life-cycle management of Tungsten Fabric can be done with tools like Ansible. After Tungsten Fabric and CloudStack are installed, we need to create a zone with the TF isolation method, and then, when we create a network or a vm in CloudStack, TF plugin will call the TF Controller API to create the resources.</p>
+<p><br><br />
+<a href="https://blogs.apache.org/cloudstack/mediaresource/d1ccefda-ebb0-4208-9835-57d1aed4922b" style="background-color: #70A7C5; color: white; padding: 1em 1.5em; text-decoration: none; text-transform: uppercase;"><b>DOWNLOAD THE SOLUTION BRIEF</b></a><br />
+<br></p>
+<p><span style="font-size: x-large;"><strong>Key Outcomes for Users</strong></span></p>
+<p>Apache Cloudstack has long provided flexibility regarding network configuration to serve the needed use case. Along with built-in functionality, ACS has supported a number of different Software Defined Networking (SDN) controllers, including VMware NSX multi-hypervisor (formally Nicara), Nuage and others.</p>
+<p>However, Apache CloudStack lacked a fully-featured open-source SDN controller to deliver advanced networking features.&nbsp;&nbsp;</p>
+<p>Apache Cloudstack's integration with Tungsten Fabric will finally close this feature gap providing many long sought-after features, including BGP, MPLS, service stitching and deep security policy capabilities to meet even the most stringent industry requirements.</p>
+<p>CloudStack will be able to manage these advanced functions via tight integration with the underlying best-of-breed network controller, while Tungsten Fabric handles the network fabric.&nbsp;</p>
+<p><span style="font-size: x-large;"><strong>The Community Adopting the Integration of Apache CloudStack and Tungsten Fabric</strong></span></p>
+<p>A number of community members have already adopted Tungsten Fabric as part of their cloud infrastructure. We reached out to the community to hear their thoughts on the integration and how it benefits their organisation.</p>
+<p><em>&lsquo;&rsquo;The EWERK Group mainly serves organizations in system-relevant industries with regulated IT. In these industries, highly complex IT infrastructure projects place special demands on the network. In order to meet these requirements, a future-oriented further development with the highest demand on technological know-how and flexibility of the software is needed. The support of Tungsten Fabric helps us to meet these requirements.&rsquo;&rsquo;</em></p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Sven Vogel, Senior Manager R&amp;D for Cloud and Infrastructure - </strong><a href="https://www.ewerk.com/startseite"><strong>EWERK</strong></a></p>
+<p><em>"ENA is committed to the continued success of Apache CloudStack and we felt integrating Tungsten Fabric, a class leading open source Software Defined Networking (SDN) product addresses a key feature gap"</em>, remarked Simon Weller. <em>"ENA has been part of Apache CloudStack since its inception and we're proud that we're able to continue our work within the ACS community".</em></p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Simon Weller, VP of Technology &ndash; </strong><a href="https://www.ena.com/"><strong>Education Networks of America</strong></a><strong>&nbsp;</strong></p>
+<p><span style="font-size: x-large;"><strong>About Tungsten Fabric</strong></span></p>
+<p>Tungsten Fabric is an open-source network and security orchestrator which provides secure connectivity for cloud-native environments. Tungsten Fabric enables developers, network and security operations staff to deploy zero-trust micro-segmentation within a DevOps workflow to reduce the friction in application deployment. It ensures performance and security for deployments of tens of thousands of nodes at Tier 1 service providers, major research centers and enterprises with global operations.</p>
+<p>With Tungsten Fabric, security and network engineers can build secure microservices that can be deployed on various container orchestration platforms, allowing them to work directly within the DevOps workflow. This ensures applications and infrastructure alike are secure against sophisticated attacks, while increasing development velocity and site reliability. Tungsten Fabric analytics provide flow-level visibility, while port mirroring provides application-level visibility.&nbsp;</p>
+<p>Together these features enable network and security operations staff, streamlining troubleshooting and mean time to resolution (MTTR). Tungsten Fabric manages and implements physical and virtual networking and security for cloud environments. Since the same controller and forwarding components are used in every implementation, Tungsten Fabric provides a consistent interface for managing connectivity and policy in all the environments it supports, and can provide seamless and secure connectivity between workloads managed by different orchestrators, whether virtual machines or containers.</p>
+
+  </div><a class="u-url" href="/cloudstack/entry/apache-cloudstack-and-tungsten-fabric" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

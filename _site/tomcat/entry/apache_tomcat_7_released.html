@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Tomcat 7 released | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Tomcat 7 released" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Tomcat project is pleased to announce the first release of Apache Tomcat 7. Tomcat 7 implements the Servlet 3.0, JSP 2.2 and EL 2.2 specifications. The updated specifications add a number of new features including: asynchronous processing web-fragment support annotation based configuration programmatic configuration increased control of session tracking httpOnly support for cookies file upload support programmatic login additional options for JSP property groups support for method invocation in expression language In addition to the updated specifications, the new and improved Tomcat 7 features include: memory leak prevention and detection protection against session fixation attacks a simple filter to add cross-site request forgery protection to an application simplified embedding of Tomcat in other applications support for mapping external folders into web application context (aliases) better security for the Manager and Host Manager applications all connector implementations now use Executors to provide the thread pool the internal component life-cycle management and MBean registration have been refactored making the features of a number of the valves from Tomcat 6 available as Filters lots of internal code clean-up Tomcat 7 is available from the Tomcat 7 downloads. The Tomcat 7 documentation is also available. Tomcat 7.0.0 is a beta release. Information on the known issues in this release can be found in the changelog for 7.0.1 and in the open bugs and enhancements for Tomcat 7. Some configuration changes may be required to move from Tomcat 6 to Tomcat 7. The full details can be found in the migration guide." />
+<meta property="og:description" content="The Apache Tomcat project is pleased to announce the first release of Apache Tomcat 7. Tomcat 7 implements the Servlet 3.0, JSP 2.2 and EL 2.2 specifications. The updated specifications add a number of new features including: asynchronous processing web-fragment support annotation based configuration programmatic configuration increased control of session tracking httpOnly support for cookies file upload support programmatic login additional options for JSP property groups support for method invocation in expression language In addition to the updated specifications, the new and improved Tomcat 7 features include: memory leak prevention and detection protection against session fixation attacks a simple filter to add cross-site request forgery protection to an application simplified embedding of Tomcat in other applications support for mapping external folders into web application context (aliases) better security for the Manager and Host Manager applications all connector implementations now use Executors to provide the thread pool the internal component life-cycle management and MBean registration have been refactored making the features of a number of the valves from Tomcat 6 available as Filters lots of internal code clean-up Tomcat 7 is available from the Tomcat 7 downloads. The Tomcat 7 documentation is also available. Tomcat 7.0.0 is a beta release. Information on the known issues in this release can be found in the changelog for 7.0.1 and in the open bugs and enhancements for Tomcat 7. Some configuration changes may be required to move from Tomcat 6 to Tomcat 7. The full details can be found in the migration guide." />
+<link rel="canonical" href="http://localhost:4000/tomcat/entry/apache_tomcat_7_released" />
+<meta property="og:url" content="http://localhost:4000/tomcat/entry/apache_tomcat_7_released" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-06-29T10:57:22-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Tomcat 7 released" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2010-06-29T10:57:22-04:00","datePublished":"2010-06-29T10:57:22-04:00","description":"The Apache Tomcat project is pleased to announce the first release of Apache Tomcat 7. Tomcat 7 implements the Servlet 3.0, JSP 2.2 and EL 2.2 specifications. The updated specifications add a number of new features including: asynchronous processing web-fragment support annotation based configuration programmatic configuration increased control of session tracking httpOnly support for cookies file upload support programmatic login additional options for JSP property groups support for method invocation in expression language In addition to the updated specifications, the new and improved Tomcat 7 features include: memory leak prevention and detection protection against session fixation attacks a simple filter to add cross-site request forgery protection to an application simplified embedding of Tomcat in other applications support for mapping external folders into web application context (aliases) better security for the Manager and Host Manager applications all connector implementations now use Executors to provide the thread pool the internal component life-cycle management and MBean registration have been refactored making the features of a number of the valves from Tomcat 6 available as Filters lots of internal code clean-up Tomcat 7 is available from the Tomcat 7 downloads. The Tomcat 7 documentation is also available. Tomcat 7.0.0 is a beta release. Information on the known issues in this release can be found in the changelog for 7.0.1 and in the open bugs and enhancements for Tomcat 7. Some configuration changes may be required to move from Tomcat 6 to Tomcat 7. The full details can be found in the migration guide.","headline":"Apache Tomcat 7 released","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/tomcat/entry/apache_tomcat_7_released"},"url":"http://localhost:4000/tomcat/entry/apache_tomcat_7_released"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Tomcat 7 released</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2010-06-29T10:57:22-04:00" itemprop="datePublished">Jun 29, 2010
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Mark Thomas", "login"=>"markt", "email"=>"markt@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The Apache Tomcat project is pleased to announce the first release of Apache Tomcat 7. Tomcat 7 implements the <a href="http://jcp.org/en/jsr/detail?id=315">Servlet 3.0</a>, <a href="http://jcp.org/aboutJava/communityprocess/mrel/jsr245/index.html">JSP 2.2 and EL 2.2</a> specifications. The updated specifications add a number of new features including:</p>
+<ul>
+<li>asynchronous processing</li>
+<li>web-fragment support</li>
+<li>annotation based configuration</li>
+<li>programmatic configuration</li>
+<li>increased control of session tracking</li>
+<li>httpOnly support for cookies</li>
+<li>file upload support</li>
+<li>programmatic login</li>
+<li>additional options for JSP property groups</li>
+<li>support for method invocation in expression language</li>
+</ul>
+<p>In addition to the updated specifications, the new and improved Tomcat 7 features include:</p>
+<ul>
+<li>memory leak prevention and detection</li>
+<li>protection against session fixation attacks</li>
+<li>a simple filter to add cross-site request forgery protection to an application</li>
+<li>simplified embedding of Tomcat in other applications</li>
+<li>support for mapping external folders into web application context (aliases)</li>
+<li>better security for the Manager and Host Manager applications</li>
+<li>all connector implementations now use Executors to provide the thread pool</li>
+<li>the internal component life-cycle management and MBean registration have been refactored</li>
+<li>making the features of a number of the valves from Tomcat 6 available as Filters</li>
+<li>lots of internal code clean-up</li>
+</ul>
+<p>Tomcat 7 is available from the <a href="http://tomcat.apache.org/download-70.cgi">Tomcat 7 downloads</a>. The <a href="http://tomcat.apache.org/tomcat-7.0-doc/index.html">Tomcat 7 documentation</a> is also available.</p>
+<p>Tomcat 7.0.0 is a beta release. Information on the known issues in this release can be found in the <a href="http://svn.apache.org/repos/asf/tomcat/trunk/webapps/docs/changelog.xml">changelog for 7.0.1</a> and in the <a href="http://s.apache.org/tomcat-7-open-issues ">open bugs and enhancements for Tomcat 7</a>.</p>
+<p>Some configuration changes may be required to move from Tomcat 6 to Tomcat 7. The full details can be found in the <a href="http://tomcat.apache.org/migration.html#6.0.x_to_7.0.x">migration guide</a>.</p>
+
+  </div><a class="u-url" href="/tomcat/entry/apache_tomcat_7_released" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

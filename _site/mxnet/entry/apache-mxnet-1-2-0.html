@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache MXNet 1.2.0 Release is out! | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache MXNet 1.2.0 Release is out!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Today Apache MXNet community announced the 1.2 release of the Apache MXNet deep learning framework. The new capabilities in MXNet provide the following benefits to users: MXNet is easier to use New scala inference APIs: This release includes new Scala inference APIs which offer an easy-to-use, Scala idiomatic and thread-safe high level APIs for performing predictions with deep learning models trained with MXNet. Exception Handling Support for Operators: MXNet now transports backend C++ exceptions to the different language front-ends and prevents crashes when exceptions are thrown during operator execution MXNet is faster MKL-DNN integration: MXNet now integrates with Intel MKL-DNN to accelerate neural network operators: Convolution, Deconvolution, FullyConnected, Pooling, Batch Normalization, Activation, LRN, Softmax, as well as some common operators: sum and concat. This integration allows NDArray to contain data with MKL-DNN layouts and reduces data layout conversion to get the maximal performance from MKL-DNN. Currently, the MKL-DNN integration is still experimental. Enhanced FP16 support: MXNet now adds support for distributed mixed precision training with FP16. It supports storing of master copy of weights in float32 with the multi_precision mode of optimizers. Improved speed of float16 operations on x86 CPU by 8 times through F16C instruction set. MXNet provides easy interoperability Import ONNX models into MXNet: Implemented a new ONNX module in MXNet which offers an easy to use API to import ONNX models into MXNet&#39;s symbolic interface. Checkout the example on how you could use this API to import ONNX models and perform inference on MXNet. Currently, the ONNX-MXNet Import module is still experimental. Getting started with MXNet Getting started with MXNet is simple. To learn more about the Gluon interface and deep learning, you can reference this comprehensive set of tutorials, which covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. If you&rsquo;re a contributor to a machine learning framework, check out the interface specs on GitHub." />
+<meta property="og:description" content="Today Apache MXNet community announced the 1.2 release of the Apache MXNet deep learning framework. The new capabilities in MXNet provide the following benefits to users: MXNet is easier to use New scala inference APIs: This release includes new Scala inference APIs which offer an easy-to-use, Scala idiomatic and thread-safe high level APIs for performing predictions with deep learning models trained with MXNet. Exception Handling Support for Operators: MXNet now transports backend C++ exceptions to the different language front-ends and prevents crashes when exceptions are thrown during operator execution MXNet is faster MKL-DNN integration: MXNet now integrates with Intel MKL-DNN to accelerate neural network operators: Convolution, Deconvolution, FullyConnected, Pooling, Batch Normalization, Activation, LRN, Softmax, as well as some common operators: sum and concat. This integration allows NDArray to contain data with MKL-DNN layouts and reduces data layout conversion to get the maximal performance from MKL-DNN. Currently, the MKL-DNN integration is still experimental. Enhanced FP16 support: MXNet now adds support for distributed mixed precision training with FP16. It supports storing of master copy of weights in float32 with the multi_precision mode of optimizers. Improved speed of float16 operations on x86 CPU by 8 times through F16C instruction set. MXNet provides easy interoperability Import ONNX models into MXNet: Implemented a new ONNX module in MXNet which offers an easy to use API to import ONNX models into MXNet&#39;s symbolic interface. Checkout the example on how you could use this API to import ONNX models and perform inference on MXNet. Currently, the ONNX-MXNet Import module is still experimental. Getting started with MXNet Getting started with MXNet is simple. To learn more about the Gluon interface and deep learning, you can reference this comprehensive set of tutorials, which covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. If you&rsquo;re a contributor to a machine learning framework, check out the interface specs on GitHub." />
+<link rel="canonical" href="http://localhost:4000/mxnet/entry/apache-mxnet-1-2-0" />
+<meta property="og:url" content="http://localhost:4000/mxnet/entry/apache-mxnet-1-2-0" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-24T23:03:26-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache MXNet 1.2.0 Release is out!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-05-24T23:03:26-04:00","datePublished":"2018-05-24T23:03:26-04:00","description":"Today Apache MXNet community announced the 1.2 release of the Apache MXNet deep learning framework. The new capabilities in MXNet provide the following benefits to users: MXNet is easier to use New scala inference APIs: This release includes new Scala inference APIs which offer an easy-to-use, Scala idiomatic and thread-safe high level APIs for performing predictions with deep learning models trained with MXNet. Exception Handling Support for Operators: MXNet now transports backend C++ exceptions to the different language front-ends and prevents crashes when exceptions are thrown during operator execution MXNet is faster MKL-DNN integration: MXNet now integrates with Intel MKL-DNN to accelerate neural network operators: Convolution, Deconvolution, FullyConnected, Pooling, Batch Normalization, Activation, LRN, Softmax, as well as some common operators: sum and concat. This integration allows NDArray to contain data with MKL-DNN layouts and reduces data layout conversion to get the maximal performance from MKL-DNN. Currently, the MKL-DNN integration is still experimental. Enhanced FP16 support: MXNet now adds support for distributed mixed precision training with FP16. It supports storing of master copy of weights in float32 with the multi_precision mode of optimizers. Improved speed of float16 operations on x86 CPU by 8 times through F16C instruction set. MXNet provides easy interoperability Import ONNX models into MXNet: Implemented a new ONNX module in MXNet which offers an easy to use API to import ONNX models into MXNet&#39;s symbolic interface. Checkout the example on how you could use this API to import ONNX models and perform inference on MXNet. Currently, the ONNX-MXNet Import module is still experimental. Getting started with MXNet Getting started with MXNet is simple. To learn more about the Gluon interface and deep learning, you can reference this comprehensive set of tutorials, which covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. If you&rsquo;re a contributor to a machine learning framework, check out the interface specs on GitHub.","headline":"Apache MXNet 1.2.0 Release is out!","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/mxnet/entry/apache-mxnet-1-2-0"},"url":"http://localhost:4000/mxnet/entry/apache-mxnet-1-2-0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache MXNet 1.2.0 Release is out!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-05-24T23:03:26-04:00" itemprop="datePublished">May 24, 2018
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Sandeep Krishnamurthy", "login"=>"skm", "email"=>"sandeep.krishna98@gmail.com"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>
+Today Apache MXNet community announced the 1.2 release of the Apache MXNet deep learning framework. The new capabilities in MXNet provide the following benefits to users: </p>
+<ol>
+<li><i>MXNet is easier to use</i></li>
+<ul>
+<li><b>New scala inference APIs</b>: This release includes new Scala inference APIs which offer an easy-to-use, Scala idiomatic and thread-safe high level APIs for performing predictions with deep learning models trained with MXNet.</li>
+<li><b>Exception Handling Support for Operators</b>: MXNet now transports backend C++ exceptions to the different language front-ends and prevents crashes when exceptions are thrown during operator execution</li>
+</ul>
+<li><i>MXNet is faster</i></li>
+<ul>
+<li><b>MKL-DNN integration</b>: MXNet now integrates with Intel MKL-DNN to accelerate neural network operators: Convolution, Deconvolution, FullyConnected, Pooling, Batch Normalization, Activation, LRN, Softmax, as well as some common operators: sum and concat. This integration allows NDArray to contain data with MKL-DNN layouts and reduces data layout conversion to get the maximal performance from MKL-DNN. Currently, the MKL-DNN integration is still experimental. </li>
+<li><b>Enhanced FP16 support</b>: MXNet now adds support for distributed mixed precision training with FP16. It supports storing of master copy of weights in float32 with the multi_precision mode of optimizers. Improved speed of float16 operations on x86 CPU by 8 times through F16C instruction set. </li>
+</ul>
+<li><i>MXNet provides easy interoperability</i></li>
+<ul>
+<li><b>Import ONNX models into MXNet</b>: Implemented a new ONNX module in MXNet which offers an easy to use API to import ONNX models into MXNet's symbolic interface. Checkout the <a href="https://github.com/apache/incubator-mxnet/blob/master/example/onnx/super_resolution.py">example</a> on how you could use this <a href="https://cwiki.apache.org/confluence/display/MXNET/ONNX-MXNet+API+Design">API</a> to import ONNX models and perform inference on MXNet. Currently, the ONNX-MXNet Import module is still experimental.</li>
+</ul>
+</ol>
+<h3>Getting started with MXNet</h3>
+<p>Getting started with <a href="http://mxnet.incubator.apache.org/install/index.html">MXNet</a> is simple. To learn more about the Gluon interface and deep learning, you can reference this <a href="http://gluon.mxnet.io/">comprehensive set of tutorials</a>, which covers everything from an introduction to deep learning to how to implement cutting-edge neural network models. If you&rsquo;re a contributor to a machine learning framework, check out the interface specs on <a href="https://github.com/gluon-api/gluon-api/">GitHub</a>. </p>
+
+  </div><a class="u-url" href="/mxnet/entry/apache-mxnet-1-2-0" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

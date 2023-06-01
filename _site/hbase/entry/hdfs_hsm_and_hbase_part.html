@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HDFS HSM and HBase: Introduction (Part 1 of 7) | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="HDFS HSM and HBase: Introduction (Part 1 of 7)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is part 1 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel) &lt;/p&gt; Introduction Cluster Setup Tuning Experiment Experiment (continued) Issues Conclusions Introduction As more and more fast storage types (SSD, NVMe SSD, etc.) emerge, a methodology is necessary for better throughput and latency when using big data. However, these fast storage types are still expensive and are capacity limited. This study provides a guide for cluster setup with different storage media. &lt;/p&gt; In general, this guide considers the following questions: What is the maximum performance user can achieve by using fast storage? Where are the bottlenecks? How to achieve the best balance between performance and cost? How to predict what kind of performance a cluster can have with different storage combinations? In this study, we study the HBase write performance on different storage media. We leverage the hierarchy storage management support in HDFS to store different categories of HBase data on different media. &lt;/p&gt; Three different types of storage (HDD, SSD and RAMDISK) are evaluated. HDD is the most popular storage in current usages, SATA SSD is a faster storage which is more and more popular now. RAMDISK is used to emulate the extremely high performance PCI-e NVMe based SSDs and coming faster storage (e.g. Intel 3D XPoint&reg; based SSD). Due to hardware unavailability, we have to use RAMDISK to perform this emulation. And we believe our results hold for PCI-e SSD and other fast storage types. &lt;/p&gt; Note: RAMDISK is logical device emulated with memory. Files stored into RAMDISK will only be cached in memory. Methodology We test the write performance in HBase with a tiered storage in HDFS and compare the performance when storing different HBase data into different storages. YCSB (Yahoo! Cloud Serving Benchmark, a widely used open source framework for evaluating the performance of data-serving systems) is used as the test workload. Eleven test cases are evaluated in this study. &nbsp;We split the table into 210 regions in 1 TB dataset cases to avoid region split at runtime, and we pre-split the table into 18 regions in 50 GB dataset cases. The format of case names is _.&lt;/span&gt;&lt;/p&gt; Case Name Storage Dataset Comment 50G_RAM RAMDISK 50GB Store all the files in RAMDISK. We have to limit data size to 50GB in this case due to the capacity limitation of RAMDISK. 50G_SSD 8 SSDs 50GB Store all the files in SATA SSD. Compare the performance by 50GB data with the 1st case. 50G_HDD 8 HDDs 50GB Store all the files in HDD. 1T_SSD 8 SSDs 1TB Store all files in SATA SSD. Compare the performance by 1TB data with cases in tiered storage. 1T_HDD 8 HDDs 1TB Store all files in HDD. Use 1TB in this case. 1T_RAM_SSD RAMDISK 8 SSDs 1TB Store files in a tiered storage (i.e. different storage mixed together in one test), WAL is stored in RAMDISK, and all the other files are stored in SSD. 1T_RAM_HDD RAMDISK 8 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, and all the other files are stored in HDD. 1T_SSD_HDD 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in SSD, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files. 1T_SSD_All_HDD 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL and flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files. 1T_RAM_SSD_HDD RAMDISK 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files. 1T_RAM_SSD_All_HDD RAMDISK 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files. Table 1. Test Cases NOTE: In all 1TB test cases, we pre-split the HBase table into 210 regions to avoid the region split at runtime.&lt;/p&gt; The metrics in Table 2 are collected during the test for performance evaluation. Metrics Comment Storage media level IOPS, throughput (sequential/random R/W) OS level CPU usage, network IO, disk IO, memory usage YCSB Benchmark level Throughput, latency Table 2. Metrics collected during the tests&lt;/p&gt; Go to Part 2,&nbsp;Cluster Setup&lt;/p&gt;" />
+<meta property="og:description" content="This is part 1 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel) &lt;/p&gt; Introduction Cluster Setup Tuning Experiment Experiment (continued) Issues Conclusions Introduction As more and more fast storage types (SSD, NVMe SSD, etc.) emerge, a methodology is necessary for better throughput and latency when using big data. However, these fast storage types are still expensive and are capacity limited. This study provides a guide for cluster setup with different storage media. &lt;/p&gt; In general, this guide considers the following questions: What is the maximum performance user can achieve by using fast storage? Where are the bottlenecks? How to achieve the best balance between performance and cost? How to predict what kind of performance a cluster can have with different storage combinations? In this study, we study the HBase write performance on different storage media. We leverage the hierarchy storage management support in HDFS to store different categories of HBase data on different media. &lt;/p&gt; Three different types of storage (HDD, SSD and RAMDISK) are evaluated. HDD is the most popular storage in current usages, SATA SSD is a faster storage which is more and more popular now. RAMDISK is used to emulate the extremely high performance PCI-e NVMe based SSDs and coming faster storage (e.g. Intel 3D XPoint&reg; based SSD). Due to hardware unavailability, we have to use RAMDISK to perform this emulation. And we believe our results hold for PCI-e SSD and other fast storage types. &lt;/p&gt; Note: RAMDISK is logical device emulated with memory. Files stored into RAMDISK will only be cached in memory. Methodology We test the write performance in HBase with a tiered storage in HDFS and compare the performance when storing different HBase data into different storages. YCSB (Yahoo! Cloud Serving Benchmark, a widely used open source framework for evaluating the performance of data-serving systems) is used as the test workload. Eleven test cases are evaluated in this study. &nbsp;We split the table into 210 regions in 1 TB dataset cases to avoid region split at runtime, and we pre-split the table into 18 regions in 50 GB dataset cases. The format of case names is _.&lt;/span&gt;&lt;/p&gt; Case Name Storage Dataset Comment 50G_RAM RAMDISK 50GB Store all the files in RAMDISK. We have to limit data size to 50GB in this case due to the capacity limitation of RAMDISK. 50G_SSD 8 SSDs 50GB Store all the files in SATA SSD. Compare the performance by 50GB data with the 1st case. 50G_HDD 8 HDDs 50GB Store all the files in HDD. 1T_SSD 8 SSDs 1TB Store all files in SATA SSD. Compare the performance by 1TB data with cases in tiered storage. 1T_HDD 8 HDDs 1TB Store all files in HDD. Use 1TB in this case. 1T_RAM_SSD RAMDISK 8 SSDs 1TB Store files in a tiered storage (i.e. different storage mixed together in one test), WAL is stored in RAMDISK, and all the other files are stored in SSD. 1T_RAM_HDD RAMDISK 8 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, and all the other files are stored in HDD. 1T_SSD_HDD 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in SSD, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files. 1T_SSD_All_HDD 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL and flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files. 1T_RAM_SSD_HDD RAMDISK 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files. 1T_RAM_SSD_All_HDD RAMDISK 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files. Table 1. Test Cases NOTE: In all 1TB test cases, we pre-split the HBase table into 210 regions to avoid the region split at runtime.&lt;/p&gt; The metrics in Table 2 are collected during the test for performance evaluation. Metrics Comment Storage media level IOPS, throughput (sequential/random R/W) OS level CPU usage, network IO, disk IO, memory usage YCSB Benchmark level Throughput, latency Table 2. Metrics collected during the tests&lt;/p&gt; Go to Part 2,&nbsp;Cluster Setup&lt;/p&gt;" />
+<link rel="canonical" href="http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_part" />
+<meta property="og:url" content="http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_part" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-02T21:42:21-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HDFS HSM and HBase: Introduction (Part 1 of 7)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-03-02T21:42:21-05:00","datePublished":"2019-03-02T21:42:21-05:00","description":"This is part 1 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel) &lt;/p&gt; Introduction Cluster Setup Tuning Experiment Experiment (continued) Issues Conclusions Introduction As more and more fast storage types (SSD, NVMe SSD, etc.) emerge, a methodology is necessary for better throughput and latency when using big data. However, these fast storage types are still expensive and are capacity limited. This study provides a guide for cluster setup with different storage media. &lt;/p&gt; In general, this guide considers the following questions: What is the maximum performance user can achieve by using fast storage? Where are the bottlenecks? How to achieve the best balance between performance and cost? How to predict what kind of performance a cluster can have with different storage combinations? In this study, we study the HBase write performance on different storage media. We leverage the hierarchy storage management support in HDFS to store different categories of HBase data on different media. &lt;/p&gt; Three different types of storage (HDD, SSD and RAMDISK) are evaluated. HDD is the most popular storage in current usages, SATA SSD is a faster storage which is more and more popular now. RAMDISK is used to emulate the extremely high performance PCI-e NVMe based SSDs and coming faster storage (e.g. Intel 3D XPoint&reg; based SSD). Due to hardware unavailability, we have to use RAMDISK to perform this emulation. And we believe our results hold for PCI-e SSD and other fast storage types. &lt;/p&gt; Note: RAMDISK is logical device emulated with memory. Files stored into RAMDISK will only be cached in memory. Methodology We test the write performance in HBase with a tiered storage in HDFS and compare the performance when storing different HBase data into different storages. YCSB (Yahoo! Cloud Serving Benchmark, a widely used open source framework for evaluating the performance of data-serving systems) is used as the test workload. Eleven test cases are evaluated in this study. &nbsp;We split the table into 210 regions in 1 TB dataset cases to avoid region split at runtime, and we pre-split the table into 18 regions in 50 GB dataset cases. The format of case names is _.&lt;/span&gt;&lt;/p&gt; Case Name Storage Dataset Comment 50G_RAM RAMDISK 50GB Store all the files in RAMDISK. We have to limit data size to 50GB in this case due to the capacity limitation of RAMDISK. 50G_SSD 8 SSDs 50GB Store all the files in SATA SSD. Compare the performance by 50GB data with the 1st case. 50G_HDD 8 HDDs 50GB Store all the files in HDD. 1T_SSD 8 SSDs 1TB Store all files in SATA SSD. Compare the performance by 1TB data with cases in tiered storage. 1T_HDD 8 HDDs 1TB Store all files in HDD. Use 1TB in this case. 1T_RAM_SSD RAMDISK 8 SSDs 1TB Store files in a tiered storage (i.e. different storage mixed together in one test), WAL is stored in RAMDISK, and all the other files are stored in SSD. 1T_RAM_HDD RAMDISK 8 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, and all the other files are stored in HDD. 1T_SSD_HDD 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in SSD, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files. 1T_SSD_All_HDD 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL and flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files. 1T_RAM_SSD_HDD RAMDISK 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files. 1T_RAM_SSD_All_HDD RAMDISK 4 SSDs 4 HDDs 1TB Store files in a tiered storage, WAL is stored in RAMDISK, flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files. Table 1. Test Cases NOTE: In all 1TB test cases, we pre-split the HBase table into 210 regions to avoid the region split at runtime.&lt;/p&gt; The metrics in Table 2 are collected during the test for performance evaluation. Metrics Comment Storage media level IOPS, throughput (sequential/random R/W) OS level CPU usage, network IO, disk IO, memory usage YCSB Benchmark level Throughput, latency Table 2. Metrics collected during the tests&lt;/p&gt; Go to Part 2,&nbsp;Cluster Setup&lt;/p&gt;","headline":"HDFS HSM and HBase: Introduction (Part 1 of 7)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_part"},"url":"http://localhost:4000/hbase/entry/hdfs_hsm_and_hbase_part"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">HDFS HSM and HBase: Introduction (Part 1 of 7)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-03-02T21:42:21-05:00" itemprop="datePublished">Mar 2, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Michael Stack", "login"=>"stack", "email"=>"stack@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><span class="gI"><span email="jingcheng.du@intel.com">This is part 1 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel)</span></span></p></p>
+<ol>
+<li><font size="1">Introduction</font></li>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster"><font size="1">Cluster Setup</font></a></li>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_tuning"><font size="1">Tuning</font></a></li>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster1"><font size="1">Experiment</font></a></li>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster2"><font size="1">Experiment (continued)</font></a></li>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster3"><font size="1">Issues</font></a></li>
+<li><a href="%09https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster4"><font size="1">Conclusions</font></a></li>
+</ol>
+<h1 dir="ltr" style="line-height: 1.38; margin-top: 24pt; margin-bottom: 6pt;" id="docs-internal-guid-0672470f-4041-bd69-767a-ec9f8e381975"><span style="font-size: 21.3333px; font-family: Calibri; color: #2e74b5; font-weight: 400; vertical-align: baseline; background-color: transparent;">Introduction</span></h1>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">As more and more fast storage types (SSD, NVMe SSD, etc.) emerge, a methodology is necessary for better throughput and latency when using big data. However, these fast storage types are still expensive and are capacity limited. This study provides a guide for cluster setup with different storage media.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In general, this guide considers the following questions:</span></p>
+<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">What is the maximum performance user can achieve by using fast storage?</span></p>
+</li>
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">Where are the bottlenecks?</span></p>
+</li>
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">How to achieve the best balance between performance and cost?</span></p>
+</li>
+<li dir="ltr" style="list-style-type: decimal; font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; vertical-align: baseline; background-color: transparent;">How to predict what kind of performance a cluster can have with different storage combinations?</span></p>
+</li>
+</ol>
+<p> </p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In this study, we study the HBase write performance on different storage media. We leverage the hierarchy storage management support in HDFS to store different categories of HBase data on different media.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Three different types of storage (HDD, SSD and RAMDISK) are evaluated. HDD is the most popular storage in current usages, SATA SSD is a faster storage which is more and more popular now. RAMDISK is used to emulate the extremely high performance PCI-e NVMe based SSDs and coming faster storage (e.g. Intel 3D XPoint&reg; based SSD). Due to hardware unavailability, we have to use RAMDISK to perform this emulation. And we believe our results hold for PCI-e SSD and other fast storage types.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Note: RAMDISK is logical device emulated with memory. Files stored into RAMDISK will only be cached in memory</span><span style="font-size: 12px; font-family: Arial; font-style: italic; vertical-align: baseline; background-color: transparent;">.</span></p>
+<h1 dir="ltr" style="line-height: 1.38; margin-top: 24pt; margin-bottom: 6pt;"><span style="font-size: 21.3333px; font-family: Calibri; color: #2e74b5; font-weight: 400; vertical-align: baseline; background-color: transparent;">Methodology</span></h1>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">We test the write performance in HBase with a tiered storage in HDFS and compare the performance when storing different HBase data into different storages.</span><a href="https://github.com/brianfrankcooper/YCSB"><span style="font-size: 14.6667px; font-family: Calibri; color: #000000; vertical-align: baseline; background-color: transparent;"> </span><span style="font-size: 14.6667px; font-family: Calibri; color: #1155cc; text-decoration: underline; vertical-align: baseline; background-color: transparent;">YCSB</span></a><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> (Yahoo! Cloud Serving Benchmark, a widely used open source framework for evaluating the performance of data-serving systems) is used as the test workload.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Eleven test cases are evaluated in this study. &nbsp;We split the table into 210 regions in 1 TB dataset cases to avoid region split at runtime, and we pre-split the table into 18 regions in 50 GB dataset cases</span><span style="font-size: 14.6667px; font-family: Arial; vertical-align: baseline; background-color: transparent;">.</span></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">The format of case names is <dataset size>_<storage type>.</span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: medium none; border-collapse: collapse;">
+<colgroup>
+<col width="112" />
+<col width="76" />
+<col width="68" />
+<col width="369" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Case Name</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Storage</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #000000; border-width: 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Dataset</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Comment</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_RAM</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RAMDISK</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">50GB</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store all the files in RAMDISK. We have to limit data size to 50GB in this case due to the capacity limitation of RAMDISK.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 SSDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">50GB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store all the files in SATA SSD. Compare the performance by 50GB data with the 1st case.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">50G_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">50GB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store all the files in HDD.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 SSDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store all files in SATA SSD. Compare the performance by 1TB data with cases in tiered storage.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store all files in HDD. Use 1TB in this case.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_RAM_SSD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RAMDISK</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 SSDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store files in a tiered storage (i.e. different storage mixed together in one test), WAL is stored in RAMDISK, and all the other files are stored in SSD.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_RAM_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RAMDISK</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">8 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store files in a tiered storage, WAL is stored in RAMDISK, and all the other files are stored in HDD.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_SSD_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 SSDs</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store files in a tiered storage, WAL is stored in SSD, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_SSD_All_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 SSDs</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store files in a tiered storage, WAL and flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_RAM_SSD_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RAMDISK</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 SSDs</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store files in a tiered storage, WAL is stored in RAMDISK, some smaller files (not larger than 1.5GB) are stored in SSD, and all the other files are stored in HDD including all archived files.</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">1T_RAM_SSD_All_HDD</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RAMDISK</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 SSDs</span></p>
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">4 HDDs</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">1TB</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Store files in a tiered storage, WAL is stored in RAMDISK, flushed HFiles are stored in SSD, and all the other files are stored in HDD including all archived files and compacted files.</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">Table 1. Test Cases</span></p>
+<p dir="ltr" style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12px; font-family: Calibri; font-style: italic; vertical-align: baseline; background-color: transparent;">NOTE: In all 1TB test cases, we pre-split the HBase table into 210 regions to avoid the region split at runtime.</span></p></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">The metrics in Table 2 are collected during the test for performance evaluation.</span></p>
+<div dir="ltr" style="margin-left: -11.5pt;">
+<table style="border: medium none; border-collapse: collapse;">
+<colgroup>
+<col width="189" />
+<col width="435" />
+<col width="68" />
+<col width="368" /></colgroup>
+<tbody>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #000000 #5b9bd5 #5b9bd5; border-width: 1px 0px 1px 1px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Metrics</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #5b9bd5 #5b9bd5 #000000; border-width: 1px 1px 1px 0px; vertical-align: top; padding: 0px 8px; background-color: #5b9bd5;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Comment</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">Storage media level</span></p>
+</td>
+<td style="border-style: solid; border-color: #5b9bd5 #9cc3e5 #9cc3e5; border-width: 1px; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">IOPS, throughput (sequential/random R/W)</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">OS level</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">CPU usage, network IO, disk IO, memory usage</span></p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; font-weight: 700; vertical-align: baseline; background-color: transparent;">YCSB Benchmark level</span></p>
+</td>
+<td style="border: 1px solid #9cc3e5; vertical-align: top; padding: 0px 8px; background-color: #deebf6;">
+<p dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">Throughput, latency</span></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><span style="font-family: Calibri; font-size: 12px; font-style: italic; line-height: 1.38; background-color: transparent;">Table 2. Metrics collected during the tests</span></p></p>
+<p>Go to Part 2,&nbsp;<a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster">Cluster Setup</a></p></p>
+
+  </div><a class="u-url" href="/hbase/entry/hdfs_hsm_and_hbase_part" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

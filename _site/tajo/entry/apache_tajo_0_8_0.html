@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache Tajo™ 0.8.0 Released! | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache Tajo™ 0.8.0 Released!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Tajo&trade; team is pleased to announce the major release of Apache Tajo&trade; 0.8.0, an open source big data warehouse system on Hadoop. Apache Tajo&trade; provides low-latency and scalable batch SQL queries on large-data sets stored on HDFS and other data sources. The source and binary release tarballs are available for free download: http://tajo.apache.org/downloads This is the first top-level release. In this release, Apache Tajo team closes 363 issues, including 25 new features, 81 improvement, and 164 bug fixes. Some of the highlights: SQL support Database support (TAJO-353) Full/Left/Outer join (TAJO-34, TAJO-312) Complex joins including derived subqueries and unions. Datetime types and operator support Date type support (TAJO-60, TAJO-438) Time type support (TAJO-61, TAJO-439) Timestamp type support (TAJO-62, TAJO-437) Add datetime operation and functions extract(), totimestamp(), utcusec_to() SQL standard and PostgreSQL-compatible string function support ascii(), length(), chr(), bitlength(string), hex(), octetlength(), reverse(), right(), left(), md5, repeat, substr(), strpos, locate(), initcap(), lpad(), rpad(), concat(), concat_ws(), ltrim(), rtrim(), btrim(), trim(), and so on. SQL standard math function support mod(), div(), degrees(), radians(), cbrt(), abs(), exp(), sqrt(), sin(), sign(), pow(), ceiling(), round(), floor(), ceil(), and so on. Other functions sha1(), digest(), findinset(), to_bin(), and so on. CREATE TABLE AS (CTAS) on partition table (TAJO-460) ALTER TABLE RENAME (TAJO-615) ALTER TABLE ADD/RENAME COLUMN (TAJO-696, TAJO-697) Quoted identifier support (TAJO-644) Complex expression support in group-by, order-by, and having clauses Distinct aggregation support (TAJO-601) Explain statement support (TAJO-122) Performance and Scalability More I/O efficient M-way unbalanced external sort executor (TAJO-36, TAJO-584) Reduced intermediate data volume (TAJO-435) Star-schema broadcast support (TAJO-725) Duplicated expression removal and more efficient projection push down (TAJO-501) Reduced memory consumption in expression evaluation (TAJO-539) Reduced GC overhead and memory usage (TAJO-522, TAJO-537, TAJO-544, TAJO-548) I/O efficient sort-based dynamic partition store method (TAJO-574) Storage support Configurable serializer/deserializer of Text file (TAJO-424) Parquet file support (TAJO-30, TAJO-714) Avro storage support (TAJO-711) Amazon S3 support (TAJO-577) Integration with Hadoop ecosystems Hadoop 2.2.0, 2.3.0 or 2.4.0 support More improved Hive meta integration (TAJO-289, TAJO-300, TAJO-301) Hive-compatible table partition (TAJO-285, TAJO-284, TAJO-338) Client and user interfaces More improved WEB UI Tajo sql shell (tsql) recap Linux Shell command and HDFS command support in tsql (TAJO-732) Tajo JDBC Driver support and its improvements (TAJO-176, TAJO-745) Fine-grained query progress indicator (TAJO-589) Add killQuery feature (TAJO-305) Release Notes: For a complete list of new features and fixed problems, please see the release notes: http://tajo.apache.org/releases/0.8.0/relnotes.html Many Thanks to contributors on the 0.8.0 releases Alvin Henrick, DaeMyung Kang, David Chen, Hyoung Jun Kim, Hyunsik Choi, Ilhyun Suh, JaeHwa Jung, Jae Young Lee, Jinho Kim, Jihoon Son, Min Zhou, Keuntae Park, Seungun Choe, SeongHwa Ahn, Youngjun Park, Wan Heo." />
+<meta property="og:description" content="The Apache Tajo&trade; team is pleased to announce the major release of Apache Tajo&trade; 0.8.0, an open source big data warehouse system on Hadoop. Apache Tajo&trade; provides low-latency and scalable batch SQL queries on large-data sets stored on HDFS and other data sources. The source and binary release tarballs are available for free download: http://tajo.apache.org/downloads This is the first top-level release. In this release, Apache Tajo team closes 363 issues, including 25 new features, 81 improvement, and 164 bug fixes. Some of the highlights: SQL support Database support (TAJO-353) Full/Left/Outer join (TAJO-34, TAJO-312) Complex joins including derived subqueries and unions. Datetime types and operator support Date type support (TAJO-60, TAJO-438) Time type support (TAJO-61, TAJO-439) Timestamp type support (TAJO-62, TAJO-437) Add datetime operation and functions extract(), totimestamp(), utcusec_to() SQL standard and PostgreSQL-compatible string function support ascii(), length(), chr(), bitlength(string), hex(), octetlength(), reverse(), right(), left(), md5, repeat, substr(), strpos, locate(), initcap(), lpad(), rpad(), concat(), concat_ws(), ltrim(), rtrim(), btrim(), trim(), and so on. SQL standard math function support mod(), div(), degrees(), radians(), cbrt(), abs(), exp(), sqrt(), sin(), sign(), pow(), ceiling(), round(), floor(), ceil(), and so on. Other functions sha1(), digest(), findinset(), to_bin(), and so on. CREATE TABLE AS (CTAS) on partition table (TAJO-460) ALTER TABLE RENAME (TAJO-615) ALTER TABLE ADD/RENAME COLUMN (TAJO-696, TAJO-697) Quoted identifier support (TAJO-644) Complex expression support in group-by, order-by, and having clauses Distinct aggregation support (TAJO-601) Explain statement support (TAJO-122) Performance and Scalability More I/O efficient M-way unbalanced external sort executor (TAJO-36, TAJO-584) Reduced intermediate data volume (TAJO-435) Star-schema broadcast support (TAJO-725) Duplicated expression removal and more efficient projection push down (TAJO-501) Reduced memory consumption in expression evaluation (TAJO-539) Reduced GC overhead and memory usage (TAJO-522, TAJO-537, TAJO-544, TAJO-548) I/O efficient sort-based dynamic partition store method (TAJO-574) Storage support Configurable serializer/deserializer of Text file (TAJO-424) Parquet file support (TAJO-30, TAJO-714) Avro storage support (TAJO-711) Amazon S3 support (TAJO-577) Integration with Hadoop ecosystems Hadoop 2.2.0, 2.3.0 or 2.4.0 support More improved Hive meta integration (TAJO-289, TAJO-300, TAJO-301) Hive-compatible table partition (TAJO-285, TAJO-284, TAJO-338) Client and user interfaces More improved WEB UI Tajo sql shell (tsql) recap Linux Shell command and HDFS command support in tsql (TAJO-732) Tajo JDBC Driver support and its improvements (TAJO-176, TAJO-745) Fine-grained query progress indicator (TAJO-589) Add killQuery feature (TAJO-305) Release Notes: For a complete list of new features and fixed problems, please see the release notes: http://tajo.apache.org/releases/0.8.0/relnotes.html Many Thanks to contributors on the 0.8.0 releases Alvin Henrick, DaeMyung Kang, David Chen, Hyoung Jun Kim, Hyunsik Choi, Ilhyun Suh, JaeHwa Jung, Jae Young Lee, Jinho Kim, Jihoon Son, Min Zhou, Keuntae Park, Seungun Choe, SeongHwa Ahn, Youngjun Park, Wan Heo." />
+<link rel="canonical" href="http://localhost:4000/tajo/entry/apache_tajo_0_8_0" />
+<meta property="og:url" content="http://localhost:4000/tajo/entry/apache_tajo_0_8_0" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-05-07T15:34:25-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache Tajo™ 0.8.0 Released!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-05-07T15:34:25-04:00","datePublished":"2014-05-07T15:34:25-04:00","description":"The Apache Tajo&trade; team is pleased to announce the major release of Apache Tajo&trade; 0.8.0, an open source big data warehouse system on Hadoop. Apache Tajo&trade; provides low-latency and scalable batch SQL queries on large-data sets stored on HDFS and other data sources. The source and binary release tarballs are available for free download: http://tajo.apache.org/downloads This is the first top-level release. In this release, Apache Tajo team closes 363 issues, including 25 new features, 81 improvement, and 164 bug fixes. Some of the highlights: SQL support Database support (TAJO-353) Full/Left/Outer join (TAJO-34, TAJO-312) Complex joins including derived subqueries and unions. Datetime types and operator support Date type support (TAJO-60, TAJO-438) Time type support (TAJO-61, TAJO-439) Timestamp type support (TAJO-62, TAJO-437) Add datetime operation and functions extract(), totimestamp(), utcusec_to() SQL standard and PostgreSQL-compatible string function support ascii(), length(), chr(), bitlength(string), hex(), octetlength(), reverse(), right(), left(), md5, repeat, substr(), strpos, locate(), initcap(), lpad(), rpad(), concat(), concat_ws(), ltrim(), rtrim(), btrim(), trim(), and so on. SQL standard math function support mod(), div(), degrees(), radians(), cbrt(), abs(), exp(), sqrt(), sin(), sign(), pow(), ceiling(), round(), floor(), ceil(), and so on. Other functions sha1(), digest(), findinset(), to_bin(), and so on. CREATE TABLE AS (CTAS) on partition table (TAJO-460) ALTER TABLE RENAME (TAJO-615) ALTER TABLE ADD/RENAME COLUMN (TAJO-696, TAJO-697) Quoted identifier support (TAJO-644) Complex expression support in group-by, order-by, and having clauses Distinct aggregation support (TAJO-601) Explain statement support (TAJO-122) Performance and Scalability More I/O efficient M-way unbalanced external sort executor (TAJO-36, TAJO-584) Reduced intermediate data volume (TAJO-435) Star-schema broadcast support (TAJO-725) Duplicated expression removal and more efficient projection push down (TAJO-501) Reduced memory consumption in expression evaluation (TAJO-539) Reduced GC overhead and memory usage (TAJO-522, TAJO-537, TAJO-544, TAJO-548) I/O efficient sort-based dynamic partition store method (TAJO-574) Storage support Configurable serializer/deserializer of Text file (TAJO-424) Parquet file support (TAJO-30, TAJO-714) Avro storage support (TAJO-711) Amazon S3 support (TAJO-577) Integration with Hadoop ecosystems Hadoop 2.2.0, 2.3.0 or 2.4.0 support More improved Hive meta integration (TAJO-289, TAJO-300, TAJO-301) Hive-compatible table partition (TAJO-285, TAJO-284, TAJO-338) Client and user interfaces More improved WEB UI Tajo sql shell (tsql) recap Linux Shell command and HDFS command support in tsql (TAJO-732) Tajo JDBC Driver support and its improvements (TAJO-176, TAJO-745) Fine-grained query progress indicator (TAJO-589) Add killQuery feature (TAJO-305) Release Notes: For a complete list of new features and fixed problems, please see the release notes: http://tajo.apache.org/releases/0.8.0/relnotes.html Many Thanks to contributors on the 0.8.0 releases Alvin Henrick, DaeMyung Kang, David Chen, Hyoung Jun Kim, Hyunsik Choi, Ilhyun Suh, JaeHwa Jung, Jae Young Lee, Jinho Kim, Jihoon Son, Min Zhou, Keuntae Park, Seungun Choe, SeongHwa Ahn, Youngjun Park, Wan Heo.","headline":"Apache Tajo™ 0.8.0 Released!","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/tajo/entry/apache_tajo_0_8_0"},"url":"http://localhost:4000/tajo/entry/apache_tajo_0_8_0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache Tajo&amp;trade; 0.8.0 Released!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-05-07T15:34:25-04:00" itemprop="datePublished">May 7, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Hyunsik Choi", "login"=>"hyunsik", "email"=>"hyunsik@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p class="p1">The Apache Tajo&trade; team is pleased to announce the major release of Apache Tajo&trade; 0.8.0, an open source big data warehouse system on Hadoop. Apache Tajo&trade; provides low-latency and scalable batch SQL queries on large-data sets stored on HDFS and other data sources.</p>
+<p class="p1">The source and binary release tarballs are available for free download:</p>
+<ul class="ul1">
+<li class="li3"><a href="http://tajo.apache.org/downloads">http://tajo.apache.org/downloads</a></li>
+</ul>
+<p class="p2">This is the first top-level release. In this release, Apache Tajo team closes 363 issues, including 25 new features, 81 improvement, and 164 bug fixes.</p>
+<p class="p4">Some of the highlights:</p>
+<p class="p5">SQL support</p>
+<ul class="ul1">
+<li class="li6">Database support (TAJO-353)</li>
+<li class="li6">Full/Left/Outer join (TAJO-34, TAJO-312)</li>
+<li class="li6">Complex joins including derived subqueries and unions.</li>
+<li class="li6">Datetime types and operator support</li>
+<ul class="ul1">
+<li class="li6">Date type support (TAJO-60, TAJO-438)</li>
+<li class="li6">Time type support (TAJO-61, TAJO-439)</li>
+<li class="li6">Timestamp type support (TAJO-62, TAJO-437)</li>
+<li class="li6">Add datetime operation and functions</li>
+<ul class="ul1">
+<li class="li6">extract(), totimestamp(), utcusec_to()</li>
+</ul>
+</ul>
+<li class="li6">SQL standard and PostgreSQL-compatible string function support</li>
+<ul class="ul1">
+<li class="li6">ascii(), length(), chr(), bitlength(string), hex(), octetlength(), reverse(), right(), left(), md5, repeat, substr(), strpos, locate(), initcap(), lpad(), rpad(), concat(), concat_ws(), ltrim(), rtrim(), btrim(), trim(), and so on.</li>
+</ul>
+<li class="li6">SQL standard math function support</li>
+<ul class="ul1">
+<li class="li6">mod(), div(), degrees(), radians(), cbrt(), abs(), exp(), sqrt(), sin(), sign(), pow(), ceiling(), round(), floor(), ceil(), and so on.</li>
+</ul>
+<li class="li6">Other functions</li>
+<ul class="ul1">
+<li class="li6">sha1(), digest(), findinset(), to_bin(), and so on.</li>
+</ul>
+<li class="li6">CREATE TABLE AS (CTAS) on partition table (TAJO-460)</li>
+<li class="li6">ALTER TABLE RENAME (TAJO-615)</li>
+<li class="li6">ALTER TABLE ADD/RENAME COLUMN (TAJO-696, TAJO-697)</li>
+<li class="li6">Quoted identifier support (TAJO-644)</li>
+<li class="li6">Complex expression support in group-by, order-by, and having clauses</li>
+<li class="li6">Distinct aggregation support (TAJO-601)</li>
+<li class="li6">Explain statement support (TAJO-122)</li>
+</ul>
+<p class="p5">Performance and Scalability</p>
+<ul class="ul1">
+<li class="li6">More I/O efficient M-way unbalanced external sort executor (TAJO-36, TAJO-584)</li>
+<li class="li6">Reduced intermediate data volume (TAJO-435)</li>
+<li class="li6">Star-schema broadcast support (TAJO-725)</li>
+<li class="li6">Duplicated expression removal and more efficient projection push down (TAJO-501)</li>
+<li class="li6">Reduced memory consumption in expression evaluation (TAJO-539)</li>
+<li class="li6">Reduced GC overhead and memory usage (TAJO-522, TAJO-537, TAJO-544, TAJO-548)</li>
+<li class="li6">I/O efficient sort-based dynamic partition store method (TAJO-574)</li>
+</ul>
+<p class="p5">Storage support</p>
+<ul class="ul1">
+<li class="li6">Configurable serializer/deserializer of Text file (TAJO-424)</li>
+<li class="li6">Parquet file support (TAJO-30, TAJO-714)</li>
+<li class="li6">Avro storage support (TAJO-711)</li>
+<li class="li6">Amazon S3 support (TAJO-577)</li>
+</ul>
+<p class="p5">Integration with Hadoop ecosystems</p>
+<ul class="ul1">
+<li class="li6">Hadoop 2.2.0, 2.3.0 or 2.4.0 support</li>
+<li class="li6">More improved Hive meta integration (TAJO-289, TAJO-300, TAJO-301)</li>
+<li class="li6">Hive-compatible table partition (TAJO-285, TAJO-284, TAJO-338)</li>
+</ul>
+<p class="p5">Client and user interfaces</p>
+<ul class="ul1">
+<li class="li6">More improved WEB UI</li>
+<li class="li6">Tajo sql shell (tsql) recap</li>
+<li class="li6">Linux Shell command and HDFS command support in tsql (TAJO-732)</li>
+<li class="li6">Tajo JDBC Driver support and its improvements (TAJO-176, TAJO-745)</li>
+<li class="li6">Fine-grained query progress indicator (TAJO-589)</li>
+<li class="li6">Add killQuery feature (TAJO-305)</li>
+</ul>
+<p class="p4">Release Notes:</p>
+<p class="p2">For a complete list of new features and fixed problems, please see the release notes:</p>
+<ul class="ul1">
+<li class="li3"><a href="http://tajo.apache.org/releases/0.8.0/relnotes.html">http://tajo.apache.org/releases/0.8.0/relnotes.html</a></li>
+</ul>
+<p class="p4">Many Thanks to contributors on the 0.8.0 releases</p>
+<ul class="ul1">
+<li class="li6">Alvin Henrick, DaeMyung Kang, David Chen, Hyoung Jun Kim, Hyunsik Choi, Ilhyun Suh, JaeHwa Jung, Jae Young Lee, Jinho Kim, Jihoon Son, Min Zhou, Keuntae Park, Seungun Choe, SeongHwa Ahn, Youngjun Park, Wan Heo.</li>
+</ul>
+
+  </div><a class="u-url" href="/tajo/entry/apache_tajo_0_8_0" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

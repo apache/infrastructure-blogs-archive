@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache OFBiz News - July 2019 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache OFBiz News - July 2019" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Apache OFBiz News July 2019 Welcome to our regular monthly round-up of OFBiz news. This month we have news about Apache OFBiz and Apache Camel integration along with our usual list of features, improvements and Statistics. Apache OFBiz and Camel integration The community has decided to include OFBiz and Camel integration in the official OFBiz plugins.Thank you Bilgin Ibryam for your contribution and Girish Vasmatkar for further working on it and to everyone who participated in the discussion.The email communication can be found here and the progress of this effort can be tracked at OFBIZ-11147. OFBiz Statistics Apache Kibble tracks some Apache OFBiz community statistics on its demo instance, so we have highlighted a few of our stats for the last month: JIRA Issue Tracker: 14 issues were opened and 23 issues were closed (6 different people helped to close these issues) Code Change and Commit Activity: Framework: 69 commits to the code base that changed 29,306 lines of code (5 committers were active) Plugins: 12 commits to the code base that changed 76,978 lines of code (3 committers were active) Mailing Lists: Dev: 50 emails sent and 13 topics discussed (15 different people) User: 105 emails sent and 37 topics discussed (41 different people) New features and improvements Functional enhancements and improvements as well as updates of third party libraries and source code refactoring: Framework Makes &quot;FormRenderer#getUsedFields&quot; more generic (OFBIZ-11135) Rewrites &quot;Start#determineCommandType&quot; (OFBIZ-11137) Avoids confusing indirections in &quot;StartupControlPanel#start&quot; (OFBIZ-11137) Removes support for &ldquo;ofbiz-containers.xml&rdquo; (OFBIZ-11100) Deprecates &quot;ContainerConfig#getConfiguration(String, String)&quot; (OFBIZ-11100) Inlines &quot;filterContainersHavingMatchingLoaders&quot; (OFBIZ-11100) Access configurations inside &quot;loadContainersFromConfigurations&quot; (OFBIZ-11100) Passes directly the loaders to &quot;loadContainersFromConfigurations&quot; (OFBIZ-11100) Moves &quot;AdminServer&quot; inside a container (OFBIZ-11136) Removes unnecessary dependency on &quot;junit-dep&quot; artifact (OFBIZ-11139) Upgrades Hamcrest library to version 2.1 (OFBIZ-11139) Inlines an &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; overload (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Removes unused &quot;UtilHttp#getParameterMap&quot; overload (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Uses a predicate in &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Uses a predicate in &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Removes unused &quot;UtilHttp#checkURLforSpiders&quot; (OFBIZ-11138) Removes useless &quot;UtilHttp#parametersToAttributes&quot; (OFBIZ-11138) Uses &quot;HttpServletRequest#getParameterMap&quot; when possible (r1863404) Adds unit tests for &quot;UtilHttp#makeParamValueFromComposite&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#makeParamValueFromComposite&quot; (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#makeParamListWithSuffix&quot; (OFBIZ-11138) Refactors &quot;Makeparamlistwithsuffix&quot; (OFBIZ-11138) Removes &quot;UtilMisc#toList&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#equalsHelper&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#getBytes&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#compareToHelper&quot; (OFBIZ-11140) Inlines &quot;UtilGenerics#checkCollectionCast&quot; (OFBIZ-11141) Adds unit tests for &quot;UtilGenerics#checkCollectionCast&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkStack(Object)&quot; (OFBIZ-11141) Makes &quot;UtilGenerics#checkCollection(Object, Class)&quot; more generic (OFBIZ-11141) Inlines &quot;UtilGenerics#checkCollectionContainment&quot; (OFBIZ-11141) Rewrites &quot;UtilGenerics#checkMap&quot; to do a simple cast (OFBIZ-11141) Removes useless &quot;UtilGenerics#toMap&quot; overloads (OFBIZ-11141) Rewrites &quot;UtilGenerics#toList&quot; and &quot;UtilGenerics#toMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#toMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#toList&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkSet&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkList&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkCollection(Object)&quot; (OFBIZ-11141) Uses &quot;java.util.Base64&quot; instead of org.apache.ofbiz.base.util.Base64 (OFBIZ-11142) Uses &quot;StandardCharsets.UTF_8&quot; (OFBIZ-11142) Removes useless imports (OFBIZ-11142) Limits selectable glAccounts in findGlAccountReconciliation(s) to associated glAccounts (OFBIZ-10841) Adds licence information for EntityJsonReader (r1863956) Improves alignment of Status, OrderDate and PartyId column header on Find Orders page (OFBIZ-11116) Checks embedded Javascript libs vulnerabilities using retire.js (OFBIZ-10678) Improves ShoppingCartEvents (OFBIZ-11127) Plugins Navigates from a domain to another with automated signed in authentication (OFBIZ-10307) Undoes use of &quot;UtilMisc#toList&quot; (OFBIZ-11140) Uses &quot;UtilGenerics#checkCollection&quot; when possible (OFBIZ-11141) Inlines &quot;UtilGenerics#checkSet&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkList&quot; (OFBIZ-11141) Checks embedded Javascript libs vulnerabilities using retire.js (OFBIZ-10678) Bugfixes Functional and technical bugfixes: Framework Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (OFBIZ-10671) Fixes: Unknown request [images]; this request does not exist or cannot be called directly. (OFBIZ-10895) Fixes: EntityCondition(EntityOperator, fields...) raise exception with a null value (OFBIZ-11143) Reverts: Resolves build.gradle warnings (OFBIZ-11133) Plugins Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (OFBIZ-10671) Documentation Adds a missing new line in main README.adoc in order to get the 2 bullets of &quot;Manual setting&quot; section correctly (r1862461)" />
+<meta property="og:description" content="Apache OFBiz News July 2019 Welcome to our regular monthly round-up of OFBiz news. This month we have news about Apache OFBiz and Apache Camel integration along with our usual list of features, improvements and Statistics. Apache OFBiz and Camel integration The community has decided to include OFBiz and Camel integration in the official OFBiz plugins.Thank you Bilgin Ibryam for your contribution and Girish Vasmatkar for further working on it and to everyone who participated in the discussion.The email communication can be found here and the progress of this effort can be tracked at OFBIZ-11147. OFBiz Statistics Apache Kibble tracks some Apache OFBiz community statistics on its demo instance, so we have highlighted a few of our stats for the last month: JIRA Issue Tracker: 14 issues were opened and 23 issues were closed (6 different people helped to close these issues) Code Change and Commit Activity: Framework: 69 commits to the code base that changed 29,306 lines of code (5 committers were active) Plugins: 12 commits to the code base that changed 76,978 lines of code (3 committers were active) Mailing Lists: Dev: 50 emails sent and 13 topics discussed (15 different people) User: 105 emails sent and 37 topics discussed (41 different people) New features and improvements Functional enhancements and improvements as well as updates of third party libraries and source code refactoring: Framework Makes &quot;FormRenderer#getUsedFields&quot; more generic (OFBIZ-11135) Rewrites &quot;Start#determineCommandType&quot; (OFBIZ-11137) Avoids confusing indirections in &quot;StartupControlPanel#start&quot; (OFBIZ-11137) Removes support for &ldquo;ofbiz-containers.xml&rdquo; (OFBIZ-11100) Deprecates &quot;ContainerConfig#getConfiguration(String, String)&quot; (OFBIZ-11100) Inlines &quot;filterContainersHavingMatchingLoaders&quot; (OFBIZ-11100) Access configurations inside &quot;loadContainersFromConfigurations&quot; (OFBIZ-11100) Passes directly the loaders to &quot;loadContainersFromConfigurations&quot; (OFBIZ-11100) Moves &quot;AdminServer&quot; inside a container (OFBIZ-11136) Removes unnecessary dependency on &quot;junit-dep&quot; artifact (OFBIZ-11139) Upgrades Hamcrest library to version 2.1 (OFBIZ-11139) Inlines an &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; overload (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Removes unused &quot;UtilHttp#getParameterMap&quot; overload (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Uses a predicate in &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Uses a predicate in &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Removes unused &quot;UtilHttp#checkURLforSpiders&quot; (OFBIZ-11138) Removes useless &quot;UtilHttp#parametersToAttributes&quot; (OFBIZ-11138) Uses &quot;HttpServletRequest#getParameterMap&quot; when possible (r1863404) Adds unit tests for &quot;UtilHttp#makeParamValueFromComposite&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#makeParamValueFromComposite&quot; (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#makeParamListWithSuffix&quot; (OFBIZ-11138) Refactors &quot;Makeparamlistwithsuffix&quot; (OFBIZ-11138) Removes &quot;UtilMisc#toList&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#equalsHelper&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#getBytes&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#compareToHelper&quot; (OFBIZ-11140) Inlines &quot;UtilGenerics#checkCollectionCast&quot; (OFBIZ-11141) Adds unit tests for &quot;UtilGenerics#checkCollectionCast&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkStack(Object)&quot; (OFBIZ-11141) Makes &quot;UtilGenerics#checkCollection(Object, Class)&quot; more generic (OFBIZ-11141) Inlines &quot;UtilGenerics#checkCollectionContainment&quot; (OFBIZ-11141) Rewrites &quot;UtilGenerics#checkMap&quot; to do a simple cast (OFBIZ-11141) Removes useless &quot;UtilGenerics#toMap&quot; overloads (OFBIZ-11141) Rewrites &quot;UtilGenerics#toList&quot; and &quot;UtilGenerics#toMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#toMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#toList&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkSet&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkList&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkCollection(Object)&quot; (OFBIZ-11141) Uses &quot;java.util.Base64&quot; instead of org.apache.ofbiz.base.util.Base64 (OFBIZ-11142) Uses &quot;StandardCharsets.UTF_8&quot; (OFBIZ-11142) Removes useless imports (OFBIZ-11142) Limits selectable glAccounts in findGlAccountReconciliation(s) to associated glAccounts (OFBIZ-10841) Adds licence information for EntityJsonReader (r1863956) Improves alignment of Status, OrderDate and PartyId column header on Find Orders page (OFBIZ-11116) Checks embedded Javascript libs vulnerabilities using retire.js (OFBIZ-10678) Improves ShoppingCartEvents (OFBIZ-11127) Plugins Navigates from a domain to another with automated signed in authentication (OFBIZ-10307) Undoes use of &quot;UtilMisc#toList&quot; (OFBIZ-11140) Uses &quot;UtilGenerics#checkCollection&quot; when possible (OFBIZ-11141) Inlines &quot;UtilGenerics#checkSet&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkList&quot; (OFBIZ-11141) Checks embedded Javascript libs vulnerabilities using retire.js (OFBIZ-10678) Bugfixes Functional and technical bugfixes: Framework Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (OFBIZ-10671) Fixes: Unknown request [images]; this request does not exist or cannot be called directly. (OFBIZ-10895) Fixes: EntityCondition(EntityOperator, fields...) raise exception with a null value (OFBIZ-11143) Reverts: Resolves build.gradle warnings (OFBIZ-11133) Plugins Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (OFBIZ-10671) Documentation Adds a missing new line in main README.adoc in order to get the 2 bullets of &quot;Manual setting&quot; section correctly (r1862461)" />
+<link rel="canonical" href="http://localhost:4000/ofbiz/entry/apache-ofbiz-news-july-2019" />
+<meta property="og:url" content="http://localhost:4000/ofbiz/entry/apache-ofbiz-news-july-2019" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-27T06:54:15-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache OFBiz News - July 2019" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-12-27T06:54:15-05:00","datePublished":"2019-12-27T06:54:15-05:00","description":"Apache OFBiz News July 2019 Welcome to our regular monthly round-up of OFBiz news. This month we have news about Apache OFBiz and Apache Camel integration along with our usual list of features, improvements and Statistics. Apache OFBiz and Camel integration The community has decided to include OFBiz and Camel integration in the official OFBiz plugins.Thank you Bilgin Ibryam for your contribution and Girish Vasmatkar for further working on it and to everyone who participated in the discussion.The email communication can be found here and the progress of this effort can be tracked at OFBIZ-11147. OFBiz Statistics Apache Kibble tracks some Apache OFBiz community statistics on its demo instance, so we have highlighted a few of our stats for the last month: JIRA Issue Tracker: 14 issues were opened and 23 issues were closed (6 different people helped to close these issues) Code Change and Commit Activity: Framework: 69 commits to the code base that changed 29,306 lines of code (5 committers were active) Plugins: 12 commits to the code base that changed 76,978 lines of code (3 committers were active) Mailing Lists: Dev: 50 emails sent and 13 topics discussed (15 different people) User: 105 emails sent and 37 topics discussed (41 different people) New features and improvements Functional enhancements and improvements as well as updates of third party libraries and source code refactoring: Framework Makes &quot;FormRenderer#getUsedFields&quot; more generic (OFBIZ-11135) Rewrites &quot;Start#determineCommandType&quot; (OFBIZ-11137) Avoids confusing indirections in &quot;StartupControlPanel#start&quot; (OFBIZ-11137) Removes support for &ldquo;ofbiz-containers.xml&rdquo; (OFBIZ-11100) Deprecates &quot;ContainerConfig#getConfiguration(String, String)&quot; (OFBIZ-11100) Inlines &quot;filterContainersHavingMatchingLoaders&quot; (OFBIZ-11100) Access configurations inside &quot;loadContainersFromConfigurations&quot; (OFBIZ-11100) Passes directly the loaders to &quot;loadContainersFromConfigurations&quot; (OFBIZ-11100) Moves &quot;AdminServer&quot; inside a container (OFBIZ-11136) Removes unnecessary dependency on &quot;junit-dep&quot; artifact (OFBIZ-11139) Upgrades Hamcrest library to version 2.1 (OFBIZ-11139) Inlines an &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; overload (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Removes unused &quot;UtilHttp#getParameterMap&quot; overload (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Uses a predicate in &quot;UtilHttp#getPathInfoOnlyParameterMap&quot; (OFBIZ-11138) Uses a predicate in &quot;UtilHttp#getParameterMap&quot; (OFBIZ-11138) Removes unused &quot;UtilHttp#checkURLforSpiders&quot; (OFBIZ-11138) Removes useless &quot;UtilHttp#parametersToAttributes&quot; (OFBIZ-11138) Uses &quot;HttpServletRequest#getParameterMap&quot; when possible (r1863404) Adds unit tests for &quot;UtilHttp#makeParamValueFromComposite&quot; (OFBIZ-11138) Refactors &quot;UtilHttp#makeParamValueFromComposite&quot; (OFBIZ-11138) Adds unit tests for &quot;UtilHttp#makeParamListWithSuffix&quot; (OFBIZ-11138) Refactors &quot;Makeparamlistwithsuffix&quot; (OFBIZ-11138) Removes &quot;UtilMisc#toList&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#equalsHelper&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#getBytes&quot; (OFBIZ-11140) Removes useless &quot;UtilObject#compareToHelper&quot; (OFBIZ-11140) Inlines &quot;UtilGenerics#checkCollectionCast&quot; (OFBIZ-11141) Adds unit tests for &quot;UtilGenerics#checkCollectionCast&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkStack(Object)&quot; (OFBIZ-11141) Makes &quot;UtilGenerics#checkCollection(Object, Class)&quot; more generic (OFBIZ-11141) Inlines &quot;UtilGenerics#checkCollectionContainment&quot; (OFBIZ-11141) Rewrites &quot;UtilGenerics#checkMap&quot; to do a simple cast (OFBIZ-11141) Removes useless &quot;UtilGenerics#toMap&quot; overloads (OFBIZ-11141) Rewrites &quot;UtilGenerics#toList&quot; and &quot;UtilGenerics#toMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#toMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#toList&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkSet&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkList&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkCollection(Object)&quot; (OFBIZ-11141) Uses &quot;java.util.Base64&quot; instead of org.apache.ofbiz.base.util.Base64 (OFBIZ-11142) Uses &quot;StandardCharsets.UTF_8&quot; (OFBIZ-11142) Removes useless imports (OFBIZ-11142) Limits selectable glAccounts in findGlAccountReconciliation(s) to associated glAccounts (OFBIZ-10841) Adds licence information for EntityJsonReader (r1863956) Improves alignment of Status, OrderDate and PartyId column header on Find Orders page (OFBIZ-11116) Checks embedded Javascript libs vulnerabilities using retire.js (OFBIZ-10678) Improves ShoppingCartEvents (OFBIZ-11127) Plugins Navigates from a domain to another with automated signed in authentication (OFBIZ-10307) Undoes use of &quot;UtilMisc#toList&quot; (OFBIZ-11140) Uses &quot;UtilGenerics#checkCollection&quot; when possible (OFBIZ-11141) Inlines &quot;UtilGenerics#checkSet&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkMap&quot; (OFBIZ-11141) Inlines &quot;UtilGenerics#checkList&quot; (OFBIZ-11141) Checks embedded Javascript libs vulnerabilities using retire.js (OFBIZ-10678) Bugfixes Functional and technical bugfixes: Framework Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (OFBIZ-10671) Fixes: Unknown request [images]; this request does not exist or cannot be called directly. (OFBIZ-10895) Fixes: EntityCondition(EntityOperator, fields...) raise exception with a null value (OFBIZ-11143) Reverts: Resolves build.gradle warnings (OFBIZ-11133) Plugins Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (OFBIZ-10671) Documentation Adds a missing new line in main README.adoc in order to get the 2 bullets of &quot;Manual setting&quot; section correctly (r1862461)","headline":"Apache OFBiz News - July 2019","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ofbiz/entry/apache-ofbiz-news-july-2019"},"url":"http://localhost:4000/ofbiz/entry/apache-ofbiz-news-july-2019"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache OFBiz News - July 2019</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-12-27T06:54:15-05:00" itemprop="datePublished">Dec 27, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Aditya Sharma", "login"=>"adityasharma", "email"=>"adityasharma@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2>Apache OFBiz News July 2019</h2>
+<p>Welcome to our regular monthly round-up of OFBiz news. This month we have news about Apache OFBiz and Apache Camel integration along with our usual list of features, improvements and Statistics.</p>
+<h2>Apache OFBiz and Camel integration<br /></h2>
+<p>The community has decided to include OFBiz and Camel integration in the official OFBiz plugins.<br />Thank you Bilgin Ibryam for your contribution and Girish Vasmatkar for further working on it and to everyone who participated in the discussion.<br />The email communication can be found <a href="https://s.apache.org/5y2l7">here</a> and the progress of this effort can be tracked at <a href="https://issues.apache.org/jira/browse/OFBIZ-11147">OFBIZ-11147</a>. </p>
+<h2><span style="letter-spacing: -0.018em;">OFBiz Statistics</span></h2>
+<p>Apache Kibble tracks some Apache OFBiz community statistics on its demo instance, so we have highlighted a few of our stats for the last month:</p>
+<ul>
+<li><strong>JIRA Issue Tracker:</strong> 14 issues were opened and 23 issues were closed (6 different people helped to close these issues)</li>
+<li><strong>Code Change and Commit Activity:</strong>
+<ul>
+<li><strong>Framework: </strong>69 commits to the code base that changed 29,306 lines of code (5 committers were active)</li>
+<li><strong>Plugins: </strong>12 commits to the code base that changed 76,978 lines of code (3 committers were active)</li>
+</ul>
+</li>
+<li><strong>Mailing Lists:</strong>
+<ul>
+<li><strong>Dev: </strong>50 emails sent and 13 topics discussed (15 different people)</li>
+<li><strong>User: </strong>105 emails sent and 37 topics discussed (41 different people)</li>
+</ul>
+</li>
+</ul>
+<h2>New features and improvements</h2>
+<p>Functional enhancements and improvements as well as updates of third party libraries and source code refactoring:</p>
+<h3>Framework</h3>
+<ul>
+<li>Makes "FormRenderer#getUsedFields" more generic (<a href="https://issues.apache.org/jira/browse/OFBIZ-11135">OFBIZ-11135</a>)</li>
+<li>Rewrites "Start#determineCommandType" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11137">OFBIZ-11137</a>)</li>
+<li>Avoids confusing indirections in "StartupControlPanel#start" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11137">OFBIZ-11137</a>)</li>
+<li>Removes support for &ldquo;ofbiz-containers.xml&rdquo; (<a href="https://issues.apache.org/jira/browse/OFBIZ-11100">OFBIZ-11100</a>)</li>
+<li>Deprecates "ContainerConfig#getConfiguration(String, String)" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11100">OFBIZ-11100</a>)</li>
+<li>Inlines "filterContainersHavingMatchingLoaders" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11100">OFBIZ-11100</a>)</li>
+<li>Access configurations inside "loadContainersFromConfigurations" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11100">OFBIZ-11100</a>)</li>
+<li>Passes directly the loaders to "loadContainersFromConfigurations" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11100">OFBIZ-11100</a>)</li>
+<li>Moves "AdminServer" inside a container (<a href="https://issues.apache.org/jira/browse/OFBIZ-11136">OFBIZ-11136</a>)</li>
+<li>Removes unnecessary dependency on "junit-dep" artifact (<a href="https://issues.apache.org/jira/browse/OFBIZ-11139">OFBIZ-11139</a>)</li>
+<li>Upgrades Hamcrest library to version 2.1 (<a href="https://issues.apache.org/jira/browse/OFBIZ-11139">OFBIZ-11139</a>)</li>
+<li>Inlines an "UtilHttp#getPathInfoOnlyParameterMap" overload (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Adds unit tests for "UtilHttp#getPathInfoOnlyParameterMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Refactors "UtilHttp#getPathInfoOnlyParameterMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Removes unused "UtilHttp#getParameterMap" overload (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Adds unit tests for "UtilHttp#getParameterMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Refactors "UtilHttp#getParameterMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Uses a predicate in "UtilHttp#getPathInfoOnlyParameterMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Uses a predicate in "UtilHttp#getParameterMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Removes unused "UtilHttp#checkURLforSpiders" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Removes useless "UtilHttp#parametersToAttributes" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Uses "HttpServletRequest#getParameterMap" when possible (<a href="https://svn.apache.org/viewvc?view=revision&amp;revision=1863404">r1863404</a>)</li>
+<li>Adds unit tests for "UtilHttp#makeParamValueFromComposite" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Refactors "UtilHttp#makeParamValueFromComposite" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Adds unit tests for "UtilHttp#makeParamListWithSuffix" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Refactors "Makeparamlistwithsuffix" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11138">OFBIZ-11138</a>)</li>
+<li>Removes "UtilMisc#toList" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11140">OFBIZ-11140</a>) </li>
+<li>Removes useless "UtilObject#equalsHelper" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11140">OFBIZ-11140</a>)</li>
+<li>Removes useless "UtilObject#getBytes" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11140">OFBIZ-11140</a>) </li>
+<li>Removes useless "UtilObject#compareToHelper" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11140">OFBIZ-11140</a>) </li>
+<li>Inlines "UtilGenerics#checkCollectionCast" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Adds unit tests for "UtilGenerics#checkCollectionCast" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkStack(Object)" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Makes "UtilGenerics#checkCollection(Object, Class)" more generic (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>)</li>
+<li>Inlines "UtilGenerics#checkCollectionContainment" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Rewrites "UtilGenerics#checkMap" to do a simple cast (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Removes useless "UtilGenerics#toMap" overloads (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Rewrites "UtilGenerics#toList" and "UtilGenerics#toMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#toMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#toList" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkSet" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkList" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkCollection(Object)" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Uses "java.util.Base64" instead of org.apache.ofbiz.base.util.Base64 (<a href="https://issues.apache.org/jira/browse/OFBIZ-11142">OFBIZ-11142</a>)</li>
+<li>Uses "StandardCharsets.UTF_8" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11142">OFBIZ-11142</a>) </li>
+<li>Removes useless imports (<a href="https://issues.apache.org/jira/browse/OFBIZ-11142">OFBIZ-11142</a>) </li>
+<li>Limits selectable glAccounts in findGlAccountReconciliation(s) to associated glAccounts (<a href="https://issues.apache.org/jira/browse/OFBIZ-10841">OFBIZ-10841</a>)</li>
+<li>Adds licence information for EntityJsonReader (<a href="https://svn.apache.org/viewvc?view=revision&amp;revision=1863956">r1863956</a>)</li>
+<li>Improves alignment of Status, OrderDate and PartyId column header on Find Orders page (<a href="https://issues.apache.org/jira/browse/OFBIZ-11116">OFBIZ-11116</a>)</li>
+<li>Checks embedded Javascript libs vulnerabilities using retire.js (<a href="https://issues.apache.org/jira/browse/OFBIZ-10678">OFBIZ-10678</a>)</li>
+<li>Improves ShoppingCartEvents (<a href="https://issues.apache.org/jira/browse/OFBIZ-11127">OFBIZ-11127</a>)</li>
+</ul>
+<h3>Plugins</h3>
+<ul>
+<li>Navigates from a domain to another with automated signed in authentication (<a href="https://issues.apache.org/jira/browse/OFBIZ-10307">OFBIZ-10307</a>)</li>
+<li>Undoes use of "UtilMisc#toList" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11140">OFBIZ-11140</a>) </li>
+<li>Uses "UtilGenerics#checkCollection" when possible (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkSet" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkMap" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Inlines "UtilGenerics#checkList" (<a href="https://issues.apache.org/jira/browse/OFBIZ-11141">OFBIZ-11141</a>) </li>
+<li>Checks embedded Javascript libs vulnerabilities using retire.js (<a href="https://issues.apache.org/jira/browse/OFBIZ-10678">OFBIZ-10678</a>)</li>
+</ul>
+<h2>Bugfixes</h2>
+<p>Functional and technical bugfixes:</p>
+<h3>Framework</h3>
+<ul>
+<li>Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (<a href="https://issues.apache.org/jira/browse/OFBIZ-10671">OFBIZ-10671</a>)</li>
+<li>Fixes: Unknown request [images]; this request does not exist or cannot be called directly. (<a href="https://issues.apache.org/jira/browse/OFBIZ-10895">OFBIZ-10895</a>)</li>
+<li>Fixes: EntityCondition(EntityOperator, fields...) raise exception with a null value (<a href="https://issues.apache.org/jira/browse/OFBIZ-11143">OFBIZ-11143</a>)</li>
+<li>Reverts: Resolves build.gradle warnings (<a href="https://issues.apache.org/jira/browse/OFBIZ-11133">OFBIZ-11133</a>)</li>
+</ul>
+<h3>Plugins</h3>
+<ul>
+<li>Fixes: Error message is displayed after log in ecommerce if userlogin includes spaces (<a href="https://issues.apache.org/jira/browse/OFBIZ-10671">OFBIZ-10671</a>)</li>
+</ul>
+<h2>Documentation</h2>
+<ul>
+<li>Adds a missing new line in main README.adoc in order to get the 2 bullets of "Manual setting" section correctly (<a href="https://svn.apache.org/viewvc?view=revision&amp;revision=1862461">r1862461</a>)</li>
+</ul>
+
+  </div><a class="u-url" href="/ofbiz/entry/apache-ofbiz-news-july-2019" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

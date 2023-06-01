@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache CloudStack Weekly News - 29 April 2013 | Blogs Archive</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Apache CloudStack Weekly News - 29 April 2013" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This week, we had discussions about the release cycle and whether a six-month cycle may be more appropriate. Work continued on the 4.1.0 release, and Apache CloudStack 4.0.2 was released." />
+<meta property="og:description" content="This week, we had discussions about the release cycle and whether a six-month cycle may be more appropriate. Work continued on the 4.1.0 release, and Apache CloudStack 4.0.2 was released." />
+<link rel="canonical" href="http://localhost:4000/cloudstack/entry/apache_cloudstack_weekly_news_29" />
+<meta property="og:url" content="http://localhost:4000/cloudstack/entry/apache_cloudstack_weekly_news_29" />
+<meta property="og:site_name" content="Blogs Archive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-05-02T16:45:23-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache CloudStack Weekly News - 29 April 2013" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2013-05-02T16:45:23-04:00","datePublished":"2013-05-02T16:45:23-04:00","description":"This week, we had discussions about the release cycle and whether a six-month cycle may be more appropriate. Work continued on the 4.1.0 release, and Apache CloudStack 4.0.2 was released.","headline":"Apache CloudStack Weekly News - 29 April 2013","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/cloudstack/entry/apache_cloudstack_weekly_news_29"},"url":"http://localhost:4000/cloudstack/entry/apache_cloudstack_weekly_news_29"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blogs Archive" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blogs Archive</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Apache CloudStack Weekly News - 29 April 2013</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-05-02T16:45:23-04:00" itemprop="datePublished">May 2, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{"display_name"=>"Joe Brockmeier", "login"=>"jzb", "email"=>"jzb@apache.org"}</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This week, we had discussions about the release cycle and whether a six-month cycle may be more appropriate. Work continued on the 4.1.0 release, and Apache CloudStack 4.0.2 was released. </p>
+<h3><a name="ApacheCloudStackWeeklyNews-29April2013-MajorDiscussions"></a>Major Discussions</h3>
+<p>Several major discussions this week, summarized below. Note that this is only a fraction of the activity in the project. For a full overview of project activity, you may want to subscribe to dev@cloudstack.apache.org. </p>
+<h5><a name="ApacheCloudStackWeeklyNews-29April2013-ReleaseCycle%3AFourMonths%2CorSix%3F"></a>Release Cycle: Four Months, or Six?</h5>
+<p>Animesh Chaturvedi <a href="http://markmail.org/message/3ctdwor5hfbpa3vx" class="external-link" rel="nofollow">started new thread for a discussion that cropped up in the timeline thread</a> about the four-month vs. six-month release cycle ideas. After much discussion, <a href="http://markmail.org/message/rqqbtbumx6xnzrcr" class="external-link" rel="nofollow">Animesh summed up the discussion</a> saying:</p>
+<blockquote>
+<p>I still see there is difference of opinion and not a clear consensus with 12 out<br/><br />
+of 21 ( approx. 60%) preferring 6 months.  But going by the argument of not<br/><br />
+having given proper shot to 4 month cycle I will say we can keep 4.2 as a 4<br/><br />
+month cycle and pull in all effort to make it successful.  If it turns out that<br/><br />
+we can work with 4 month schedule that's well and good otherwise we can bring<br/><br />
+this topic again based on the results of running 4 month cycle.</p>
+</blockquote>
+<h5><a name="ApacheCloudStackWeeklyNews-29April2013-4.1.0Approaches"></a>4.1.0 Approaches</h5>
+<p>After clearing out a number of last-minute blockers, it looks like 4.1.0 may be just about ready to roll. Chip Childers <a href="http://markmail.org/message/fe44ea4vy4yughwm" class="external-link" rel="nofollow">posted on Friday</a> that he was waiting on confirmation on CLOUDSTACK-528 and CLOUDSTACK-2194 being fixed. If those are fixed, Chip says he will "proceed with starting the VOTE thread" Monday morning, Eastern time. </p>
+<h5><a name="ApacheCloudStackWeeklyNews-29April2013-ApacheCloudStack4.0.2Released"></a>Apache CloudStack 4.0.2 Released </h5>
+<p>Joe Brockmeier <a href="http://markmail.org/message/vyukwk2nof5gaqko" class="external-link" rel="nofollow">announced the 4.0.2 release</a> on 24 April, along with security fixes for two security vulnerabilities. </p>
+<h5><a name="ApacheCloudStackWeeklyNews-29April2013-SecurityVulnerabilitiesinCloudStack4.0.x"></a>Security Vulnerabilities in CloudStack 4.0.x</h5>
+<p>John Kinsella <a href="http://markmail.org/message/36mipmcuj7ryo7py" class="external-link" rel="nofollow">sent out an announcement detailing two security vulnerabilities</a> on 24 April:</p>
+<blockquote>
+<p>Description:<br/><br />
+The CloudStack PMC was notified of two issues found in Apache CloudStack:</p>
+<p>1) An attacker with knowledge of CloudStack source code could gain<br/><br />
+unauthorized access to the console of another tenant's VM.</p>
+<p>2) Insecure hash values may lead to information disclosure. URLs<br/><br />
+generated by Apache CloudStack to provide console access to virtual<br/><br />
+machines contained a hash of a predictable sequence, the hash of<br/><br />
+which was generated with a weak algorithm. While not easy to leverage,<br/><br />
+this may allow a malicious user to gain unauthorized console access.</p>
+<p>Mitigation:<br/><br />
+Updating to Apache CloudStack versions 4.0.2 or higher will mitigate<br/><br />
+these vulnerabilities.</p>
+<p>Credit:<br/><br />
+These issues were identified by Wolfram Schlich and Mathijs Schmittmann<br/><br />
+to the Citrix security team, who in turn notified the Apache<br/><br />
+CloudStack PMC.</p>
+</blockquote>
+<h5><a name="ApacheCloudStackWeeklyNews-29April2013-ExposingAPIsthatcarryPOSTdata"></a>Exposing APIs that carry POST data</h5>
+<p>Prasanna Santhanam <a href="http://markmail.org/message/ji4d23xozub3nehi" class="external-link" rel="nofollow">raised a discussion</a> about adding the ability to send user data as POST to commands. </p>
+<blockquote>
+<p>I'm guessing we'll have to put in additional annotations on our APIs<br/><br />
+that support POST so that API discovery can print the methods<br/><br />
+supported (GET/POST). Right now it's only the deployVMCmd (AFAIK). But<br/><br />
+I expect this will need to be done for others soon.</p>
+<p>I've included POST support for <em>every</em> command in marvin but that's<br/><br />
+just brute-force. To make it more intelligent I think we should apply<br/><br />
+it to only apis that make sense as POST (causing side-effects). But<br/><br />
+that needs to be exposed by the api endpoint.</p>
+</blockquote>
+<h5><a name="ApacheCloudStackWeeklyNews-29April2013-EnablingGitHubPullRequestNotification"></a>Enabling GitHub Pull Request Notification</h5>
+<p>A discussion was brought up on dev@ this weekend about enabling notifications for pull requests made via GitHub. David Nalley <a href="http://markmail.org/message/f6cmckyakfa6sof4" class="external-link" rel="nofollow">remarked</a> that in his opinion, "there really isn't an option - if we are going to have a GitHub mirror, we also need to be able to deal with the pull requests there. Ignoring folks that submit pull requests is inappropriate."</p>
+<p>Chip <a href="http://markmail.org/message/vwyio3i5merrwrv5" class="external-link" rel="nofollow">questioned the need for a GitHub mirror at all</a>. "Not sure the value, when you consider the confusion it causes WRT the canonical source repo."</p>
+<h3><a name="ApacheCloudStackWeeklyNews-29April2013-CloudStackPlanetPostsfromtheCloudStackCommunity"></a>CloudStack Planet - Posts from the CloudStack Community</h3>
+<ul>
+<li><b><a href="http://kirkjantzer.blogspot.com/2013/04/more-fun-with-cloudstack-api.html" class="external-link" rel="nofollow">More Fun with the CloudStack API</a></b> - Kirk Jantzer writes about playing with the CloudStack API and writing a tool "in an effort to make deployment of a mass amount of servers with as little effort as possible."</li>
+</ul>
+<ul>
+<li><b><a href="http://buildacloud.org/blog/257-doing-it-twice-write-it-down.html" class="external-link" rel="nofollow">Doing it Twice? Write it Down!</a></b> - A post by Joe Brockmeier talking about the need for documenting crucial operations for maintaining projects.</li>
+</ul>
+<ul>
+<li><b><a href="http://communityovercode.com/2013/04/thanks-apache-cloudstack/" class="external-link" rel="nofollow">Thanks to the Apache CloudStack community!</a></b> - Shane Curcuru writes about the Apache CloudStack graduation and its incubation. "<em>The desire to get things 'right' at Apache was clear in everything the CloudStack community did, and the end result looks to be an incredibly strong project that&rsquo;s quickly gathering developers from a wide variety of vendors and users. Part of this growth is about the great technology; but a lot is due to the helpful and welcoming face that the CloudStack committers put on their project.</em>"</li>
+</ul>
+<ul>
+<li><b><a href="http://www.chipchilders.com/blog/2013/4/22/release-verification-tool-for-cloudstack.html" class="external-link" rel="nofollow">Release Verification Tool for CloudStack</a></b> - Chip Childers writes about a "simple tool to use for CloudStack release voting verification." The tool is on <a href="https://github.com/chipchilders/cloudstack-release-verification-tool" class="external-link" rel="nofollow">GitHub</a>, as a Python script that will help verifying releases.</li>
+</ul>
+<h3><a name="ApacheCloudStackWeeklyNews-29April2013-UpcomingEvents"></a>Upcoming Events</h3>
+<ul>
+<li><b>Storage in Apache CloudStack</b> being held by the <a href="http://www.meetup.com/CloudStack-SF-Bay-Area-Users-Group/events/108916562/" class="external-link" rel="nofollow">CloudStack SF Bay Area Users Group</a> on April 30, 2013 @ Citrix Conference Center, sign up on the Meetup.com Website.</li>
+<li><b><a href="http://buildacloud.org/about-diy-cloud-computing/cloud-events/viewevent/148-build-a-cloud-day-cloudcon-san-francisco-ca.html" class="external-link" rel="nofollow">Build a Cloud Day CloudCon San Francisco</a></b> being held at the South San Francisco Conference Center on 15 May.</li>
+<li><b><a href="http://cloudstackcollab.net/" class="external-link" rel="nofollow">CloudStack Collaboration Conference 2013</a></b> is being held from 23 June to 25 June in Santa Clara, CA at the Santa Clara Convention Center. See the <a href="http://cloudstackcollab.net/CfP/" class="external-link" rel="nofollow">Call for Proposals</a> if you're interested in speaking!</li>
+<li><b><a href="https://www.ch-open.ch/events/aktuelle-events/open-cloud-day-2013/" class="external-link" rel="nofollow">Open Cloud Day </a></b> in Zurich, June 11th. Sebastien Goasguen will talk about the Apache Cloud ecosystem</li>
+<li><b><a href="http://www.bjug.ro" class="external-link" rel="nofollow">Bucarest JUG</a></b> May 30th, Sebastien Goasguen will talk about CloudStack and Big Data. Announcement yet to be posted</li>
+<li><b><a href="http://www.linuxtag.org/2013/de/program/mittwoch-22-mai-2013.html" class="external-link" rel="nofollow">Linux Tag</a></b> Berlin, May 22-25, Sebastien Goasguen will talk about CloudStack and Big Data. There will also be a CloudStack booth at the expo.</li>
+</ul>
+<h3><a name="ApacheCloudStackWeeklyNews-29April2013-Jira"></a>Jira</h3>
+<p>Checking in on the upcoming 4.2.0 release, we have added a few bugs over the past week:</p>
+<ul>
+<li>Last week we had 5 blocker bugs for 4.2.0. This week, we have 11 <a href="http://is.gd/blocker_acs420" class="external-link" rel="nofollow">blocker bugs for 4.2.0</a>.</li>
+<li>Last week we had 34 critical bugs for 4.2.0. This week, we have 40 <a href="http://is.gd/critical_acs420" class="external-link" rel="nofollow">critical bugs for 4.2.0</a>.</li>
+<li>Last week we had 263 major bugs for 4.2.0. This week, we have 273 <a href="http://is.gd/major_acs420" class="external-link" rel="nofollow">major bugs for 4.2.0</a>.</li>
+<li>Last week we had 35 minor bugs for 4.2.0. This week we have 37 <a href="http://is.gd/minor_acs420" class="external-link" rel="nofollow">minor bugs for 4.2.0</a>.</li>
+</ul>
+<h3><a name="ApacheCloudStackWeeklyNews-29April2013-NewCommittersandPMCMembers"></a>New Committers and PMC Members</h3>
+<p>No new committers or PMC members announced this week.</p>
+<h3><a name="ApacheCloudStackWeeklyNews-29April2013-ContributingtotheWeeklyNews"></a>Contributing to the Weekly News</h3>
+<p>Want to keep reading the CloudStack Weekly News? Many hands make light work, but having only one editor means getting the weekly news out every week is a "best effort" activity. A healthy community publication needs several contributors to ensure weekly issues go out on time.</p>
+<p>If you have an event, discussion, or other item to contribute to the <em>Weekly News</em>, you can add it directly to the <a href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/CloudStack+Weekly+News" class="external-link" rel="nofollow">wiki</a> by editing the issue you want your item to appear in. (The next week's issue is created before the current issue is published - so at any time there should be at least one issue ready to edit.) </p>
+<p>Alternatively, you can send a note to the marketing@cloudstack.apache.org mailing list with a subject including <a href="/confluence/display/CLOUDSTACK/News" title="News">News</a>: <em>description of topic</em> or email the newsletter editor directly (jzb at apache.org), again with the subject <a href="/confluence/display/CLOUDSTACK/News" title="News">News</a>: <em>description of topic</em>. <b>Please include a link to the discussion in the mailing list archive or Web page with details of the event, etc.</b> </p>
+
+  </div><a class="u-url" href="/cloudstack/entry/apache_cloudstack_weekly_news_29" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blogs Archive</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blogs Archive</li><li><a class="u-email" href="mailto:issues@infra.apache.org">issues@infra.apache.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an archive of the Roller blogs that were previously hosted on blogs.apache.org</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
