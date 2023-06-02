@@ -3,20 +3,12 @@ layout: post
 status: PUBLISHED
 published: true
 title: Relaying mail from apache.org.
-author:
-  display_name: Joe
-  login: joes
-  email: joes@apache.org
-author_login: joes
-author_email: joes@apache.org
 id: c3599841-1f7c-454b-b223-c8e27a4c8d1b
 date: '2009-08-01 12:24:57 -0400'
-categories:
-- General
+categories: infra
 tags:
 - smtp-auth
 - gmail
-comments: []
 permalink: infra/entry/relaying_mail_from_apache_org
 ---
 <p>One of the more common issues committers face at Apache is in trying to send mail from their apache.org account.&nbsp; We've just made that process a whole lot easier by setting up an SSL-enabled, smtp-auth based mail submission service on people.apache.org port 465; which is compatible with gmail's <a href="http://gmailblog.blogspot.com/2009/07/send-mail-from-another-address-without.html">recently announced feature</a> to allow outbound mail from your apache.org address to be directed to people.apache.org, instead of to a gmail server, for delivery.&nbsp; Say goodbye to all the ezmlm moderation battles: your SMTP envelope sender will now match your From header!</p>

@@ -3,21 +3,13 @@ layout: post
 status: PUBLISHED
 published: true
 title: DMARC filtering on lists that munge messages
-author:
-  display_name: Joe
-  login: joes
-  email: joes@apache.org
-author_login: joes
-author_email: joes@apache.org
 id: ace245c6-984a-4c75-82b6-ed28d3a05e67
 date: '2014-07-09 17:28:06 -0400'
-categories:
-- General
+categories: infra
 tags:
 - dmarc
 - spam
 - ezmlm
-comments: []
 permalink: infra/entry/dmarc_filtering_on_lists_that
 ---
 <p>Since Yahoo! switched their DMARC policy in mid-April, we've seen an increase in undeliverable messages sent from our mail server for Yahoo! accounts subscribed to our lists. &nbsp; Roughly half of Apache's mailing lists do some form of message munging, whether it be Subject header prefixes, appended message trailers, or removed mime components. &nbsp;Such actions are incompatible with Y!'s policy for its users, which has meant more bounces and more frustration trying to maintain inclusive discussions with Y! users.</p>

@@ -3,96 +3,13 @@ layout: post
 status: PUBLISHED
 published: true
 title: 'Stream Processing: NiFi and Spark'
-author:
-  display_name: markap14@apache.org
-  login: markap14
-  email: markap14@apache.org
-author_login: markap14
-author_email: markap14@apache.org
 id: fe48b7f6-57c5-47ab-a30e-a5ba7b99be88
 date: '2019-11-14 13:30:30 -0500'
-categories:
-- Dataflow
+categories: nifi
 tags:
 - nifi
 - spark
 - streaming
-comments:
-- id: 0
-  author: Aur&eacute;lien
-  author_email: aurelien@dehay.info
-  author_url: ''
-  date: '2015-11-18 16:09:21 -0500'
-  content: "Hello.\r\n\r\nI've managed to use the receiver in Spark scala, but I wonder
-    about reliability.\r\n\r\nIf I enable the WAL in Spark, and with the nifi receiver
-    data acknowledgment, does the process will be Exactly-one?\r\n\r\nThanks. "
-- id: 0
-  author: Mark
-  author_email: markap14@hotmail.com
-  author_url: http://nifi.incubator.apache.org
-  date: '2015-05-15 01:30:59 -0400'
-  content: 'J.H.: Thanks, you''re right. I fixed the typo. I did some refactoring
-    of the API a few times before it was released. Hopefully I caught any other change
-    that I may have made :) Sorry it took so long to reply - email got lost in the
-    shuffle. Good catch, though! I appreciate the heads-up.'
-- id: 0
-  author: Atanu
-  author_email: atanu.chat@gmail.com
-  author_url: ''
-  date: '2018-03-22 07:50:06 -0400'
-  content: I want to develop similar kind of code in Pyspark, for that which python
-    module is need to import ? can you please help me out ?
-- id: 1
-  author: tech blog online
-  author_email: subodhsahu392@gmail.com
-  author_url: http://techbloggeronline.blog.fc2.com/
-  date: '2018-10-30 06:34:39 -0400'
-  content: Hey Mark a great work man, I appreciate your work, Thank you for sharing
-    this post.
-- id: 3
-  author: JHowix
-  author_email: jhowix@gmail.com
-  author_url: ''
-  date: '2015-04-28 22:27:37 -0400'
-  content: "Hi Mark,\r\n\r\nThanks for the post.  I think there is a minor syntax
-    error in the SiteToSiteClientBuilder piece.  In the 0.0.2 code, the calls are
-    url() and portName().  No sets.  Thanks again.\r\n\r\nJ.H."
-- id: 7
-  author: Mark
-  author_email: markap14@hotmail.com
-  author_url: http://nifi.apache.org
-  date: '2015-11-23 18:54:17 -0500'
-  content: "Aur&eacute;lien,\r\n\r\nThis is a fairly common question. However, it
-    is important to note that truly having exactly-one delivery is not possible (there
-    is a good discussion of why that is true at http://bravenewgeek.com/you-cannot-have-exactly-once-delivery/).\r\n\r\nThe
-    \"best\" one can really do from the producer side is to provide at-least-once
-    processing. This is what NiFi provides. You are guaranteed to get the data, but
-    it's possible that you can receive the data into Spark, commit the transaction
-    in Spark, and then lose the connection to NiFi before the acknowledgement is sent
-    back. So there is a slim chance that you could get duplicates. If you really need
-    to receive the data exactly once, you would have to perform de-duplication on
-    the Spark/receiver side. This approach has been discussed in several articles
-    online that typically term it as \"exactly-once\" processing. It is not true exactly-once
-    delivery but provides the same semantics.\r\n\r\nThanks\r\n-Mark"
-- id: 9
-  author: Mark
-  author_email: markap14@hotmail.com
-  author_url: http://nifi.apache.org
-  date: '2015-11-23 18:34:41 -0500'
-  content: "Aur&eacute;lien,\r\n\r\nThis is a fairly common question. However, it
-    is important to note that truly having exactly-one delivery is not possible (there
-    is a good discussion of why that is true at http://bravenewgeek.com/you-cannot-have-exactly-once-delivery/).\r\n\r\nThe
-    \"best\" one can really do is to provide at-least-once processing. This is what
-    NiFi provides. You are guaranteed to get the data exactly once. It is possible,
-    however, that you can receive the data into Spark, commit the transaction in Spark,
-    and then lose the connection to NiFi or have NiFi shut down before the acknowledgement
-    is sent back. So there is a small chance that you could get duplicates. If you
-    really need to receive the data exactly once, you would have to perform de-duplication
-    on the Spark/receiver side. This approach has been discussed in several articles
-    online that typically term it as \"exactly-once\" processing. It is not true exactly-once
-    delivery but provides the same semantics. Unfortunately, though, those semantics
-    cannot be provided by NiFi alone - the receive must perform the deduplication
-    because only the receiver knows for sure what has been received.\r\n\r\nThanks\r\n-Mark"
 permalink: nifi/entry/stream_processing_nifi_and_spark
 ---
 <h1>

@@ -3,43 +3,11 @@ layout: post
 status: PUBLISHED
 published: true
 title: CloudStack and the "Ghost" glibc vulnerability
-author:
-  display_name: John Kinsella
-  login: jlk
-  email: 'jlk@apache.org '
-author_login: jlk
-author_email: 'jlk@apache.org '
 id: b0d62790-8ce4-45cd-9359-a07cfcb67e8d
 date: '2015-01-28 20:26:50 -0500'
-categories:
-- News
+categories: cloudstack
 tags:
 - security
-comments:
-- id: 0
-  author: Rohit Yadav
-  author_email: rohit.yadav@shapeblue.com
-  author_url: http://bhaisaab.org
-  date: '2015-01-28 20:03:41 -0500'
-  content: "NOTE: There is correction in the above:\r\n\r\n1. Mark openswan to not
-    upgrade, or else VPN related functionality may break:\r\n\r\napt-mark hold openswan\r\n\r\n2.
-    Clean old cache (not clean can cause disk space issues):\r\n\r\napt-get clean\r\n\r\n3.
-    Now upgrade:\r\n\r\napt-get update && apt-get upgrade\r\n\r\n4. Restart the VM
-    (if that is not the options, restart remote services such as SSH, DNS, DHCP, VPN
-    etc).\r\n\r\nUpdated systemvm templates are available for download from here:\r\nhttp://packages.shapeblue.com/systemvmtemplate/\r\n\r\nMore
-    information on packages here: http://shapeblue.com/packages\r\n"
-- id: 0
-  author: 192.168.0.1
-  author_email: giangbebe.1703@gmail.com
-  author_url: https://19216801help.com/
-  date: '2017-07-03 04:03:26 -0400'
-  content: See how far we go now
-- id: 62
-  author: Dotbuffer.com
-  author_email: dotbuffer@gmail.com
-  author_url: http://dotbuffer.com/
-  date: '2015-02-03 00:22:09 -0500'
-  content: Thank you for this important vulnerability notification.
 permalink: cloudstack/entry/cloudstack_and_the_ghost_glibc
 ---
 <p><b>UPDATE: mitigation instructions have been improved (don't update openswan) and we forgot to mention rebooting.</b><br><br />

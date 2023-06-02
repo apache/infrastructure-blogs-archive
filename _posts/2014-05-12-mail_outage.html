@@ -3,80 +3,10 @@ layout: post
 status: PUBLISHED
 published: true
 title: Mail outage
-author:
-  display_name: David Nalley
-  login: ke4qqq
-  email: ke4qqq@apache.org
-author_login: ke4qqq
-author_email: ke4qqq@apache.org
 id: a26e3b56-dac8-4604-b9b6-3cd2ff160cc7
 date: '2014-05-12 16:07:17 -0400'
-categories:
-- Status
+categories: infra
 tags: []
-comments:
-- id: 0
-  author: Jeff Janner
-  author_email: ''
-  author_url: ''
-  date: '2014-05-09 17:47:54 -0400'
-  content: "@Tilman: Most disk arrays can't recover from multiple disk failures at
-    the same time, or at least more than 2. I don't have the details, but it sounds
-    like there were probably more than 2. One wonders if alerts were not addressed
-    in a timely manner."
-- id: 0
-  author: Hagar Delest
-  author_email: hagar.delest@laposte.net
-  author_url: ''
-  date: '2014-05-09 21:10:55 -0400'
-  content: 'For the record, it seems that is also affects the forums! see: See: https://forum.openoffice.org/en/forum/viewtopic.php?f=5&t=69640'
-- id: 0
-  author: Shawn Heisey
-  author_email: apache@elyograg.org
-  author_url: ''
-  date: '2014-05-10 02:02:55 -0400'
-  content: "Will it be possible to recover the queued messages, or is the array a
-    total loss?\r\n\r\nStated another way: Are we going to get a major flood of email
-    when the service resumes?"
-- id: 0
-  author: Tilman
-  author_email: tilman@snafu.de
-  author_url: ''
-  date: '2014-05-10 16:44:56 -0400'
-  content: "@ASF infra team: Thanks for all your work.\r\n\r\n@Jeff: Indeed, several
-    disks getting belly up at the very same time sounds unlikely. I hope that after
-    the smoke has cleared, they will found out whether either the disk array was of
-    the type \"rushed to production, tests later\" or whether alarm signs were disregarded
-    by some external contractors. Disk arrays are bought to prevent just the thing
-    that has happened now.\r\n\r\n\r\nLuckily, JIRA and SVN still work :-)"
-- id: 5
-  author: Sean Busbey
-  author_email: busbey@apache.org
-  author_url: ''
-  date: '2014-05-08 20:12:29 -0400'
-  content: Thanks for all your work on this. Hang in there ASF Infra!
-- id: 826
-  author: Tilman
-  author_email: tilman@snafu.de
-  author_url: ''
-  date: '2014-05-08 20:02:12 -0400'
-  content: What is the point of buying / renting a disk array if it can't handle what
-    it is really built for, i.e. "repair itself" after a failure?
-- id: 6258
-  author: Gary D. Gregory
-  author_email: ggregory@apache.org
-  author_url: ''
-  date: '2014-05-09 01:13:12 -0400'
-  content: Thank you all for working hard to resolve this critical issue. Any more
-    updates?
-- id: 2854121
-  author: Shawn Heisey
-  author_email: apache@elyograg.org
-  author_url: ''
-  date: '2014-05-10 04:09:27 -0400'
-  content: Apparently I'm completely blind, because the mail loss thing was actually
-    mentioned.  Thanks for covering all bases.  People might get the impression that
-    you've been doing this a while!
 permalink: infra/entry/mail_outage
 ---
 <p>During the afternoon of May 6th we began experiencing delays in mail delivery of 1-2 hours. Initial efforts at remediation seemed to clear this up but on the morning of May 7th the problem worsened and we proactively disabled mail service to deal with the failure. The underlying hardware suffered failures on multiple disks. This outage effects all ASF mailing lists and mail forwarding. </p>

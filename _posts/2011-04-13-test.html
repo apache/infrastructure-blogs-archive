@@ -3,46 +3,13 @@ layout: post
 status: PUBLISHED
 published: true
 title: 'LDAP-based Authentication with Apache ESME and Apache Directory Server '
-author:
-  display_name: Richard Hirsch
-  login: rhirsch
-  email: rhirsch@apache.org
-author_login: rhirsch
-author_email: rhirsch@apache.org
 id: 26b59d18-74a0-4ce0-a081-a696bfcccc1d
 date: '2011-04-13 07:12:33 -0400'
-categories:
-- Development
+categories: esme
 tags:
 - esme
 - ldap
 - ads
-comments:
-- id: 85
-  author: Stefan Seelmann
-  author_email: seelmann@apache.org
-  author_url: http://directory.apache.org/studio
-  date: '2011-04-13 17:01:15 -0400'
-  content: 'Instead of JXplorer you can of course also use another Apache product:
-    Apache Directory Studio (http://directory.apache.org/studio)'
-- id: 37667
-  author: Vladimir Ivanov
-  author_email: lester.mail@gmail.com
-  author_url: ''
-  date: '2011-04-15 08:02:53 -0400'
-  content: "Resorce bundle was misused in this article. Lift's net.liftweb.util.Props
-    class should have been used instead.\r\n\r\nI moved LDAP settings to default.props.\r\n\r\nFollwoing
-    changes have been applied to UserAuth class:\r\n\r\n-To check if LDAP is enabled\r\n\r\nval
-    ldapEnabled = Props.getBool(\"ldap.enabled\") openOr false\r\n\r\n-To get other
-    string properties:\r\n\r\nval ldapSrvHost = Props.get(\"ldap.server.host\") openOr
-    \"\"\r\n\r\nThanks Derek Chen-Becker who pointed to this issue in Lift Google
-    Group."
-- id: 66575363
-  author: Inquisitor
-  author_email: graser@gmail.com
-  author_url: ''
-  date: '2011-04-28 08:51:54 -0400'
-  content: "??? ?? ?????? ?????????, ????? ? ???? ??? ??????"
 permalink: esme/entry/test
 ---
 <p class=" "><span>This blog was written by our new committer&nbsp;<i>Vladimir Ivanov</i>&nbsp;who implemented a feature that users have been wanting for a long time.&nbsp;</span> </p>

@@ -3,12 +3,6 @@ layout: post
 status: PUBLISHED
 published: true
 title: 'Moving on to Log4j 2: Log4j 1.2 is broken on Java 9'
-author:
-  display_name: Remko Popma
-  login: rpopma
-  email: rpopma@apache.org
-author_login: rpopma
-author_email: rpopma@apache.org
 excerpt: "Log4j 1 has had a good run. First released in 1999, it is still widely used
   in a variety of Java-based projects. With Java 9, that is likely to come to an end:
   <a href=\"http://mail.openjdk.java.net/pipermail/jigsaw-dev/2016-July/008654.html\">Log4j
@@ -18,20 +12,11 @@ excerpt: "Log4j 1 has had a good run. First released in 1999, it is still widely
   on Java 9, I'd strongly recommend migrating to Log4j 2 now. "
 id: f12be004-a5f2-457b-8297-daa92e418ff4
 date: '2019-12-18 21:23:38 -0500'
-categories:
-- Java
+categories: logging
 tags:
 - log4j
 - java9
 - log4j2
-comments:
-- id: 0
-  author: Javin
-  author_email: savingfunda@gmail.com
-  author_url: http://java67.com
-  date: '2016-07-20 11:36:45 -0400'
-  content: 'Indeed, we switched to log4j 2 two years back just because of Asynchronous
-    logging it provides. '
 permalink: logging/entry/moving_on_to_log4j_2
 ---
 <p>Log4j 1 has had a good run. First released in 1999, it is still widely used in a variety of Java-based projects. With Java 9, that is likely to come to an end: <a href="http://mail.openjdk.java.net/pipermail/jigsaw-dev/2016-July/008654.html">Log4j 1.2 is broken on Java 9</a>. Essentially the MDC depends on the Java version string, which does not play well with Java 9's <a href="http://openjdk.java.net/jeps/223">new version-string format</a>.</p>

@@ -3,16 +3,9 @@ layout: post
 status: PUBLISHED
 published: true
 title: Load Balancing Across the Cluster
-author:
-  display_name: markap14@apache.org
-  login: markap14
-  email: markap14@apache.org
-author_login: markap14
-author_email: markap14@apache.org
 id: 2e5db779-3167-4014-a804-334cc2c0c508
 date: '2019-11-14 13:29:18 -0500'
-categories:
-- Dataflow
+categories: nifi
 tags:
 - loadbalance
 - load-balance
@@ -20,91 +13,6 @@ tags:
 - load
 - balance
 - cluster
-comments:
-- id: 0
-  author: Brian
-  author_email: bestinsurancetipsus@gmail.com
-  author_url: http://www.bestinsurancetips.us
-  date: '2018-10-31 15:19:14 -0400'
-  content: Really amazing new features, looking forward to it.
-- id: 0
-  author: Boris Tyukin
-  author_email: boris@boristyukin.com
-  author_url: http://boristyukin.com
-  date: '2019-01-25 14:46:46 -0500'
-  content: 'Great post and an awesome feature but please be aware that a few people
-    reported issues with this new feature and there is a JIRA to address it in 1.9.
-    The issue is that flowfiles might stuck in the load balanced queue forever. '
-- id: 0
-  author: Mark
-  author_email: markap14@apache.org
-  author_url: ''
-  date: '2019-01-25 15:01:17 -0500'
-  content: Boris - you're right, there have been a couple of issues in the initial
-    release of the feature that have since been fixed for 1.9. It is worth noting,
-    though, that the JIRA that I believe you're referring to was not about FlowFiles
-    getting stuck but rather the UI reporting the incorrect number of FlowFiles. So
-    it appears that data is stuck, but in reality the count is simply wrong and there
-    is no data sitting in the queue, which means that there's no actual effect on
-    the data movement.
-- id: 0
-  author: sri
-  author_email: srijitachaturvedi14@gmail.com
-  author_url: ''
-  date: '2019-07-04 08:56:12 -0400'
-  content: "Hi Mark,thanks for a great explaination.I am trying load balance feature
-    in nifi 1.8 3 node cluster to distirbute data among the nodes, but getting this
-    error -  ERROR Load-Balanced Client Thread-3 o.a.n.c.q.c.c.a.n.NioAsyncLoadBalanceClient
-    Unable to connect to hostname:9443 for load balancing\r\njava.net.ConnectException:
-    Connection timed out.I have configured the connection settings as you mentioned
-    and kept load balance seetings in nifi.properties to default.could you please
-    suggest what am i missing?\r\n"
-- id: 1
-  author: Gewichtsverlust
-  author_email: boldpetohe1972@gmail.com
-  author_url: http://de-online-apotheke.com/category/weight%20loss?lang=de
-  date: '2019-07-19 20:04:09 -0400'
-  content: it looks great! This is a really professional work done.
-- id: 3
-  author: Mark
-  author_email: markap14@hotmail.com
-  author_url: ''
-  date: '2019-07-06 18:49:39 -0400'
-  content: '@sri - it''s difficult to say that the problem is from just the ConnectException
-    message. However, the majority of the time when I see "Connection timed out" it
-    indicates that a firewall is blocking the connection.'
-- id: 4
-  author: Maycon Ricardo Monteiro
-  author_email: maycon.siqueira@gsw.com.br
-  author_url: ''
-  date: '2019-04-30 14:49:59 -0400'
-  content: "Hi, I'm using nifi and learning from the blog, website, github and manual
-    available. Would you like to know if you have more ways to learn about this tool?
-    When I execute a jar it does not return the error to the process, or it has to
-    realize this return to go to the error queue.\r\nThank you\r\n\r\n\r\nOriginal:Ola,estou
-    usando o nifi e aprendendo com o blog,site ,github e manual disponibilizado.Gostaria
-    de saber se tem mais formas de aprender sobre essa ferramenta? A proprosito quando
-    executo um jar ele nao retorna o erro para o processo,ou tem como realizar esse
-    retorno para ir a fila de erro.\r\nObrigado"
-- id: 9
-  author: Jesse Stoltz
-  author_email: jstoltz@graquantum.com
-  author_url: ''
-  date: '2019-09-12 16:46:07 -0400'
-  content: 'I have my connection setup in round robin. It appears my data is being
-    tripled. I have 3 nifi nodes. I have a root process group with ListenHTTP waiting
-    for an API call. Then it pushes to two remote processing groups. When I see the
-    final results it appears I have 3 setups of data with the same content but different
-    GUIDs. '
-- id: 64
-  author: Mark
-  author_email: markap14@apache.org
-  author_url: ''
-  date: '2019-04-30 19:44:49 -0400'
-  content: "@Maycon - There are many resources for learning about NiFi - lots of videos
-    on YouTube, the User Guide, blogs by a lot of different contributors. But if you
-    have specific questions, it is best to ask them by sending an email to users at
-    nifi.apache.org, or by going to the Apache NiFi channel in Slack."
 permalink: nifi/entry/load-balancing-across-the-cluster
 ---
 <h1>Load Balancing Data Across a NiFi Cluster</h1>

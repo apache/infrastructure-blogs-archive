@@ -3,16 +3,9 @@ layout: post
 status: PUBLISHED
 published: true
 title: Apache Commons statement to widespread Java object de-serialisation vulnerability
-author:
-  display_name: Sally Khudairi
-  login: sk
-  email: sk@haloworldwide.com
-author_login: sk
-author_email: sk@haloworldwide.com
 id: c512c643-732c-4f27-8680-977578b45fc3
 date: '2015-11-10 10:32:48 -0500'
-categories:
-- General
+categories: foundation
 tags:
 - java
 - commons
@@ -20,68 +13,6 @@ tags:
 - security
 - apache
 - de-serialization
-comments:
-- id: 0
-  author: Ben
-  author_email: benmmurphy@gmail.com
-  author_url: ''
-  date: '2015-11-12 11:11:07 -0500'
-  content: "The JDK change is not precendence for this.\r\n\r\nDisabling of the XSLT
-    Template object deserialization was not done to stop these particular exploits
-    but rather to fix a vulnerability that when coupled with other vulnerabilities
-    could be used to bypass the Java sandbox. The Template would let you load bytecode
-    that could load classes from protected packages. It is not possible to use XSLT
-    Template to do something bad purely from deserialization. You need to be able
-    to execute methods on the template and if you can execute methods on the template
-    during deserialization then you probably don't need the XSLT Template object in
-    order to execute code.\r\n\r\nGowdiak has a write up of the exploit here:\r\nhttp://www.security-explorations.com/materials/SE-2012-01-ORACLE-8.pdf\r\n\r\nYou
-    can download the PoCs here:\r\nhttp://www.security-explorations.com/materials/se-2012-01-50-60.zip"
-- id: 0
-  author: Gsunde
-  author_email: gsunde.orangen@gmail.com
-  author_url: ''
-  date: '2015-11-13 22:06:54 -0500'
-  content: "Great post!\r\nWill - despite that not being a vulnerability - a unique
-    CVE-ID be assigned (as a unique reference to the \"hardened version of Apache
-    Commons Collections\")?"
-- id: 0
-  author: Tim Maletic
-  author_email: tmaletic@gmail.com
-  author_url: ''
-  date: '2015-11-15 15:48:28 -0500'
-  content: '"The best protection against this, is to avoid using a complex serialization
-    protocol with untrusted peers."  In the context of the paragraph preceding this
-    statement, doesn''t this imply that trusted peers should be allowed to execute
-    local OS commands? '
-- id: 49
-  author: Bernd
-  author_email: ecki@apache.org
-  author_url: http://itblog.eckenfels.net
-  date: '2015-11-11 09:29:31 -0500'
-  content: "Oracle has issued a security alert for Weblogic:\r\n\r\nhttp://www.oracle.com/technetwork/topics/security/alert-cve-2015-4852-2763333.html?evite=WWSU12091612MPP001\r\n\r\nThe
-    mitigtion they offer is disabling access to T3 protocol (and filtering T3 methods
-    in the reverse proxies)."
-- id: 49
-  author: Marco
-  author_email: ''
-  author_url: ''
-  date: '2015-11-12 23:19:01 -0500'
-  content: As far as I'm concerned the readObject implementation in question is very
-    far away from what I'd consider in line with its API documentation and intention
-    - populating an object's state from a stream. Having substantial side effects
-    goes beyond this assumed purpose and makes serialization exploitable beyond denial
-    of service.
-- id: 6025
-  author: Rob Gansevles
-  author_email: rgansevles@gmail.com
-  author_url: ''
-  date: '2015-11-14 21:22:16 -0500'
-  content: "The advice for a defence on this vulnerability is to whitelist classloading
-    in object deserialisation.\r\nIt seems not to be possible to override resolveClass
-    in the ObjectInputStream used by an RMI server, but by implementing a RMIClassLoaderSpi
-    that applies a whitelist to all classes you can apply a filter.\r\nI have implemented
-    this idea, see my project on github: https://github.com/Servoy/rmi-whitelist .\r\nI
-    wonder if this implementation is a safe defence."
 permalink: foundation/entry/apache_commons_statement_to_widespread
 ---
 <div><strong><em>Authors: Bernd Eckenfels, Committer, and Gary Gregory, Vice President of Apache Commons</em></strong></div>

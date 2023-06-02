@@ -3,59 +3,14 @@ layout: post
 status: PUBLISHED
 published: true
 title: Real-Time SQL on Event Streams
-author:
-  display_name: markap14@apache.org
-  login: markap14
-  email: markap14@apache.org
-author_login: markap14
-author_email: markap14@apache.org
 id: dfac7edd-8713-4ebe-bdf8-d7bf25683a30
 date: '2019-11-14 13:30:25 -0500'
-categories:
-- Dataflow
+categories: nifi
 tags:
 - record
 - nifi
 - sql
 - event
-comments:
-- id: 0
-  author: uwe geercken
-  author_email: uwe.geercken@web.de
-  author_url: ''
-  date: '2017-06-12 11:57:04 -0400'
-  content: "Mark,\r\n\r\nvery interesting. Of course the aggregation is done on a
-    flow file level.\r\n\r\nI wonder if you have a suggestion of how a workflow could
-    look like if one wanted to aggregate across multiple flow files. Let's say one
-    wants to aggregate data for a certain day. \r\n\r\nBut then maybe that is not
-    possible or too complicated and one would do it outside of nifi. But I wanted
-    to ask anyway.\r\n\r\nThanks,\r\n\r\nUwe"
-- id: 52
-  author: DP
-  author_email: drag7ter@gmail.com
-  author_url: ''
-  date: '2017-08-29 08:00:50 -0400'
-  content: As I got NIFI uses apache calcite engibe for sql. Pls could you give example
-    how we can format data or timestamp directly in sql. Is there any approach add
-    a column as CURRENT_TIMESTAMP with appropriate format?
-- id: 787
-  author: anti depressants
-  author_email: noyprozlutla1971@gmail.com
-  author_url: https://safe-canada-store.com/anti-depressants.html
-  date: '2019-07-20 15:00:33 -0400'
-  content: this project has everything! Congrats!!! waw great work
-- id: 20258473
-  author: Mark Payne
-  author_email: markap14@apache.org
-  author_url: http://nifi.apache.org
-  date: '2017-06-12 12:16:02 -0400'
-  content: "Uwe,\r\n\r\nThat is correct - aggregations are done on a FlowFile level,
-    because each FlowFile is treated as an individual table. If you want to do aggregates
-    across a time boundary such as a one-day boundary, you could either use the MergeContent
-    processor (Will start working on a MergeRecord soon) to merge all of the records
-    together for the same day. If you have logs that roll every day or every hour,
-    for example, this may work well. Or, you could push to something like Spark, Storm,
-    etc. to do windowed computations."
 permalink: nifi/entry/real-time-sql-on-event
 ---
 <h1>Real-Time SQL On Event Streams</h1>

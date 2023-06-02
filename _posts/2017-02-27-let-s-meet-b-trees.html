@@ -3,58 +3,10 @@ layout: post
 status: PUBLISHED
 published: true
 title: Let's meet B-trees
-author:
-  display_name: Emmanuel Lécharny
-  login: elecharny
-  email: elecharny@apache.org
-author_login: elecharny
-author_email: elecharny@apache.org
 id: 7dd18932-9098-4000-a8ca-a0fb4ef34cf5
 date: '2017-02-27 17:19:55 -0500'
-categories:
-- Technology
+categories: directory
 tags: []
-comments:
-- id: 0
-  author: Heinz
-  author_email: hgs@hgsweb.de
-  author_url: http://hgsweb.de
-  date: '2017-03-01 07:00:17 -0500'
-  content: "Good old B-Trees :-)\r\n\r\nWhen splitting a leaf node, and only then,
-    \ you can also perform some sort of key compression on the key that goes up a
-    level. This might increase the number of keys you can store in none leaf pages,
-    speeding up searches for a key.\r\n\r\n"
-- id: 0
-  author: Emmanuel Lecharny
-  author_email: elecharny@apache.org
-  author_url: ''
-  date: '2017-03-01 12:20:04 -0500'
-  content: "Hi !\r\n\r\nWhat do you mean by 'key compression' ? Is it something like
-    computing a 8 byte hash of the key, to store it in a denser way ?\r\n\r\nIf so,
-    this is something HDB is doing (HDB is the hashed form of B-tree from Berkeley-DB).
-    Howard Chu - OpenLDAP main developer - has selected this approach because it's
-    proven to be faster than a pure B-tree where keys are stored as is in nodes.\r\n\r\nNow,
-    the problem with this approach is that you lose the data ordering doing so Typically,
-    browsing a B-tree that stores value indexed by a date does not work anymore.\r\n\r\nJust
-    let me know if this is what you have in mind !"
-- id: 0
-  author: Heinz
-  author_email: hgs@hgsweb.de
-  author_url: http://hgsweb.de
-  date: '2017-03-02 16:11:36 -0500'
-  content: "When splitting a leaf node/page  you usually do this near the middle of
-    page.\r\nDoing so you end up between two key values like in this example:\r\n\r\n..........
-    \ Karl, Otto ............\r\n\r\nIf you decide to transport the key value  'Otto'
-    one level up it is enough to just transport the prefix  'O' as this is enough\r\nto
-    route any read access from above. But do this only when splitting a leaf page.\r\n\r\nYou
-    can read google information under prefix b-tree.\r\n"
-- id: 6
-  author: elecharny@apache.org
-  author_email: elecharny@apache.org
-  author_url: ''
-  date: '2017-04-17 12:10:34 -0400'
-  content: "Interesting ! That will definitively improve the space taken to store
-    keys. I put that in y book.\r\n\r\nThanks !"
 permalink: directory/entry/let-s-meet-b-trees
 ---
 <h1>Render unto Caesar</h1>

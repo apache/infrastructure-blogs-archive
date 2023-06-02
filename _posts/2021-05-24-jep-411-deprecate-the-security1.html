@@ -3,18 +3,10 @@ layout: post
 status: PUBLISHED
 published: true
 title: 'JEP 411: Deprecate the Security Manager for Removal (Part 2)'
-author:
-  display_name: GeertjanWielenga
-  login: geertjan
-  email: geertjan@apache.org
-author_login: geertjan
-author_email: geertjan@apache.org
 id: 6f8a23cd-7731-428f-8320-3c529e073ddd
 date: '2021-05-24 13:06:48 -0400'
-categories:
-- General
+categories: netbeans
 tags: []
-comments: []
 permalink: netbeans/entry/jep-411-deprecate-the-security1
 ---
 <p>Following on from <a href="https://blogs.apache.org/netbeans/entry/jep-411-deprecate-the-security">part 1 on this topic</a>, <a href="https://openjdk.java.net/jeps/411">JEP 411</a> has recently been updated with a "Future Work" section, amongst other changes. From the Apache NetBeans perspective, this is a welcome shift in the wording of this JEP. It is great that the owner and reviewers of JEP 411 recognize the special needs of complex, multi protection domain applications, such as IDEs. Such applications inherently run "less trusted" code, such as 3rd party JavaBean libraries in design time, and the ability to prevent such libraries to "System::exit" (at least) voluntarily is essential for preventing an IDE from unexpectedly closing.</p>

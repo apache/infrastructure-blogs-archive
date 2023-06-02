@@ -3,16 +3,9 @@ layout: post
 status: PUBLISHED
 published: true
 title: OLAP with Apache Phoenix and HBase
-author:
-  display_name: James Taylor
-  login: jamestaylor
-  email: jamestaylor@apache.org
-author_login: jamestaylor
-author_email: jamestaylor@apache.org
 id: 2fe081ae-0512-4b2d-aa01-a3c6fc70221e
 date: '2014-05-28 07:28:43 -0400'
-categories:
-- General
+categories: phoenix
 tags:
 - apache
 - data
@@ -21,30 +14,6 @@ tags:
 - olap
 - hbase
 - sql
-comments:
-- id: 0
-  author: Luis G&oacute;mez
-  author_email: ''
-  author_url: ''
-  date: '2015-04-23 12:31:52 -0400'
-  content: Very goog post
-- id: 2
-  author: Boris
-  author_email: boris@treukhov.com
-  author_url: ''
-  date: '2016-02-16 19:10:56 -0500'
-  content: "I have created a 60 millions items fact table \"account_transaction\",
-    \ and a time dimension \"DAYS\" with 365 items.\r\n\r\n\r\nSo I want to display
-    total \"AMOUNT\" per day,\r\nMondrian generates following query\r\n\r\nselect
-    \"DAYS\".\"DATE\" as \"c0\", sum(\"account_transactions\".\"AMOUNT\") as \"m0\"
-    from \"DAYS\" as \"DAYS\", \"account_transactions\" as \"account_transactions\"
-    where \"account_transactions\".\"DATE\" = \"DAYS\".\"DATE\" group by \"DAYS\".\"DATE\";\r\n\r\nAs
-    result phoenix tries to suck up entire 60 M table into memory and throws Size
-    of hash cache (104857627 bytes) exceeds the maximum allowed size (104857600 bytes)
-    exception .\r\n\r\nIf only Mondrian used  another table order i.e. \"account_transactions\"
-    as \"account_transactions, \"m0\" from \"DAYS\" as \"DAYS\" then it would work.\r\n\r\n
-    So query planning is just atrocious, it just takes whatever table is first hence
-    this product is definitely not ready to production.\r\n\r\n"
 permalink: phoenix/entry/olap_with_apache_phoenix_and
 ---
 <p><em><br />
