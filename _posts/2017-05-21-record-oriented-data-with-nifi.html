@@ -1,0 +1,167 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Record-Oriented Data with NiFi
+id: 2dd9c091-66e0-4778-8a16-dd484f035353
+date: '2017-05-21 14:18:59 -0400'
+categories: nifi
+tags: []
+permalink: nifi/entry/record-oriented-data-with-nifi
+---
+<h1>Record-Oriented Data with NiFi</h1>
+<p>
+   <span class="author">Mark Payne -&nbsp;</span><br />
+   <span class="author"><a href="https://twitter.com/dataflowmark">@dataflowmark</a></span></p>
+<hr />
+<p style="margin-bottom: 3em;" />
+<h2>Intro - The What</h2>
+<p>
+Apache NiFi is being used by many companies and organizations to power their data distribution<br />
+needs. One of NiFi's strengths is that the framework is data agnostic. It doesn't care what type<br />
+of data you are processing. There are processors for handling JSON, XML, CSV, Avro, images and<br />
+video, and several other formats. There are also several general-purposes processors, such as<br />
+RouteText and CompressContent. Data can be hundreds of bytes or many gigabytes. This makes NiFi<br />
+a powerful tool for pulling data from external sources; routing, transforming, and aggregating it;<br />
+and finally delivering it to its final destinations.</p>
+<p>
+While this ability to handle any arbitrary data is incredibly powerful, we often see users working<br />
+with record-oriented data. That is, large volumes of small "records," or "messages," or "events."<br />
+Everyone has their own way to talk about this data, but we all mean the same thing. Lots of really<br />
+small, often structured, pieces of information. This data comes in many formats. Most commonly,<br />
+we see CSV, JSON, Avro, and log data.</p>
+<p>
+While there are many tasks that NiFi makes easy, there are some common tasks that we can do<br />
+better with. So in version 1.2.0 of NiFi, we released a new set of Processors and Controller Services,<br />
+for working with record-oriented data. The new Processors are configured with a Record Reader<br />
+and a Record Writer Controller Service. There are readers for JSON, CSV, Avro, and log data. There<br />
+are writers for JSON, CSV, and Avro, as well as a writer that allows users to enter free-form text.<br />
+This can be used to write data out in a log format, like it was read in, or any other custom textual format.</p>
+<h2>The Why</h2>
+<p>
+These new processors make building flows to handle this data<br />
+simpler. It also means that we can build processors that accept any data format without having to<br />
+worry about the parsing and serialization logic. Another big advantage of this approach is that we<br />
+are able to keep FlowFiles larger, each consisting of multiple records, which results in far better<br />
+performance.</p>
+<h2>The How - Explanation</h2>
+<p>
+In order to make sense of the data, Record Readers and Writers need to know the schema that is associated<br />
+with the data. Some Readers (for example, the Avro Reader) allow the schema to be read from the data itself.<br />
+The schema can also be included as a FlowFile attribute. Most of the time, though, it will be looked up by<br />
+name from a Schema Registry. In this version of NiFi, two Schema Registry implementations exist: an Avro-based<br />
+Schema Registry service and a client for an external Hortonworks Schema Registry.</p>
+<p>
+Configuring all of this can feel a bit daunting at first. But once you've done it once or twice,<br />
+it becomes rather quick and easy to configure. Here, we will walk through how to set up a local Schema Registry<br />
+service, configure a Record Reader and a Record Writer, and then start putting to use some very powerful<br />
+processors. For this post, we will keep the flow simple. We'll ingest some CSV data from a file and then<br />
+use the Record Readers and Writers to transform the data into JSON, which we will then write to a new directory.</p>
+<h2>The How - Tutorial</h2>
+<p>
+In order to start reading and writing the data, as mentioned above, we are going to need a Record Reader<br />
+service. We want to parse CSV data and turn that into JSON data. So to do this, we will need a CSV Reader<br />
+and a JSON Writer. So we will start by clicking the "Settings" icon on our <code>Operate</code> palette.<br />
+This will allow us to start configuring our Controller Services. When we click the 'Add' button in the<br />
+top-right corner, we see a lot of options for Controller Services:</p>
+<p><img class="dialog" style="width: 50%; height: 50%" src="https://blogs.apache.org/nifi/mediaresource/42fdf286-a786-423d-9743-817e78fda799" /></p>
+<p>
+Since we know that we want to read CSV data, we can type "CSV" into our Filter box in the top-right corner<br />
+of the dialog, and this will narrow down our choices pretty well:</p>
+<p><img class="dialog" style="width: 50%; height: 50%" src="https://blogs.apache.org/nifi/mediaresource/9cf1e52f-ebf6-4849-bdd9-daf4728e8581" /></p>
+<p>
+We will choose to add the CSVReader service and then configure the Controller Service. In the Properties tab,<br />
+we have a lot of different properties that we can set:</p>
+<p><img class="dialog" style="width: 50%; height: 50%" src="https://blogs.apache.org/nifi/mediaresource/68237cf5-fed6-4ab0-8085-4eea5f56ab81" /></p>
+<p>
+Fortunately, most of these properties have default values that are good for most cases, but you can choose which<br />
+delimiter character you want to use, if it's not a comma. You can choose whether or not to skip the first line,<br />
+treating it as a header, etc. For my case, I will set the "Skip Header Line" property to "true" because my data contains a header line<br />
+that I don't want to process as a record. The first properties are very important though. The "Schema Access Strategy" is used<br />
+to instruct the reader on how to obtain the schema. By default, it is set to "Use String Fields From Header." Since<br />
+we are also going to be writing the data, though, we will have to configure a schema anyway. So for this demo, we will<br />
+change this strategy to "Use 'Schema Name' Property." This means that we are going to lookup the schema from a Schema<br />
+Registry. As a result, we are now going to have to create our Schema Registry. If we click on the "Schema Registry"<br />
+property, we can choose to "Create new service...":</p>
+<p><img class="dialog" style="width: 50%; height: 50%" src="https://blogs.apache.org/nifi/mediaresource/89ecd1ce-b520-4ae1-983b-42b874f24bdd" /></p>
+<p>
+We will choose to create an AvroSchemaRegistry. It is important to note here that we are reading CSV data and writing<br />
+JSON data - so why are we using an Avro Schema Registry? Because this Schema Registry allows us to convey the schema<br />
+using the <a href="https://avro.apache.org/docs/1.8.1/spec.html">Apache Avro Schema</a> format, but it does not imply anything<br />
+about the format of the data being read. The Avro format is used because it is already a well-known way of storing<br />
+data schemas.</p>
+<p>
+Once we've added our Avro Schema Registry, we can configure it and see in the Properties tab that it has no properties<br />
+at all. We can add a schema by adding a new user-defined property (by clicking the 'Add' / 'Plus' button in the top-right<br />
+corner). We will give our schema the name "demo-schema" by using this as the name of the property. We can then type or paste<br />
+in our schema. For those unfamiliar with Avro schemas, it is a JSON formatted representation that has a syntax like the<br />
+following:</p>
+<p><code></p>
+<pre>
+{
+  "name": "recordFormatName",
+  "namespace": "nifi.examples",
+  "type": "record",
+  "fields": [
+    { "name": "id", "type": "int" },
+    { "name": "firstName", "type": "string" },
+    { "name": "lastName", "type": "string" },
+    { "name": "email", "type": "string" },
+    { "name": "gender", "type": "string" }
+  ]
+}
+</pre>
+<p></code></p>
+<p>
+Here, we have a simple schema that is of type "record." This is typically the case, as we want multiple fields. We then<br />
+specify all of the fields that we have. There is a field named "id" of type "int" and all other fields are of type "string."<br />
+See the <a href="https://avro.apache.org/docs/1.8.1/spec.html">Avro Schema documentation</a> for more information.<br />
+We've now configured our schema! We can enable our Controller Services now.</p>
+<p>
+We can now add our JsonRecordSetWriter controller service as well. When we configure this service, we see some familiar<br />
+options for indicating how to determine the schema. For the "Schema Access Strategy," we will again use the "Use 'Schema Name' Property,"<br />
+which is the default. Also note that the default value for the "Schema Name" property uses the Expression Language to reference<br />
+an attribute named "schema.name". This provides a very nice flexibility, because now we can re-use our Record Readers and Writers<br />
+and simply convey the schema by using an UpdateAttribute processor to specify the schema name. No need to keep creating Record<br />
+Readers and Writers. We will set the "Schema Registry" property to the AvroSchemaRegistry that we just created and configured.</p>
+<p>
+Because this is a Record Writer instead of a Record Reader, we also have another interesting property: "Schema Write Strategy."<br />
+Now that we have configured how to determine the data's schema, we need to tell the writer how to convey that schema to the next<br />
+consumer of the data. The default option is to add the name of the schema as an attribute. We will accept the default. But we<br />
+could also write the entire schema as a FlowFile attribute or use some strategies that are useful for interacting with the Hortonworks<br />
+Schema Registry.</p>
+<p>
+Now that we've configured everything, we can apply the settings and start our JsonRecordSetWriter as well. We've now got all of our<br />
+Controller Services setup and enabled:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/4feb17b1-2824-428e-b083-104fd1db1dc0" /></p>
+<p>
+Now for the fun part of building our flow! The above will probably take about 5 minutes, but it makes laying out the flow super<br />
+easy! For our demo, we will have a GetFile processor bring data into our flow. We will use UpdateAttribute to add a "schema.name"<br />
+attribute of "demo-schema" because that is the name of the schema that we configured in our Schema Registry:</p>
+<p><img class="dialog" style="width: 50%; height: 50%" src="https://blogs.apache.org/nifi/mediaresource/f2320ccb-1448-4dbf-8253-e884a49d9061" /></p>
+<p>
+We will then use the ConvertRecord processor to convert the data into JSON. Finally, we want to write the data out using PutFile:</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/39f2dfbc-504e-40b5-9d3b-a7b9b29de2f2" /></p>
+<p>
+We still need to configure our ConvertRecord processor, though. To do so, all that we need to configure in the Properties<br />
+tab is the Record Reader and Writer that we have already configured:</p>
+<p><img class="dialog" style="width: 50%; height: 50%" src="https://blogs.apache.org/nifi/mediaresource/2070f6f2-1549-40d8-92f8-0996c765e724" /></p>
+<p>
+Now, starting the processors, we can see the data flowing through our system!</p>
+<p><img class="screenshot" src="https://blogs.apache.org/nifi/mediaresource/030b2fe1-ffa7-454d-8519-b13650740f82" /></p>
+<p>
+Also, now that we have defined these readers and writers and the schema, we can easily create a JSON Reader, and an<br />
+Avro Writer, for example. And adding additional processors to split the data up, query and route the data becomes very<br />
+simple because we've already done the "hard" part.</p>
+<h2>Conclusion</h2>
+<p>
+In version 1.2.0 of Apache NiFi, we introduced a handful of new Controller Services and Processors that will make managing<br />
+dataflows that process record-oriented data much easier. I fully expect that the next release of Apache NiFi will have several<br />
+additional processors that build on this. Here, we have only scratched the surface of the power that this provides to us.<br />
+We can delve more into how we are able to transform and route the data, split the data up, and migrate schemas. In the meantime,<br />
+each of the Controller Services for reading and writing records and most of the new processors that take advantage of these<br />
+services have fairly extensive documentation and examples. To see that information, you can right-click on a processor and<br />
+click "Usage" or click the "Usage" icon on the left-hand side of your controller service in the configuration dialog.<br />
+From there, clicking the "Additional Details..." link in the component usage will provide pretty significant documentation.<br />
+For example, the JsonTreeReader provides a wealth of knowledge in its<br />
+<a href="http://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-record-serialization-services-nar/1.3.0/org.apache.nifi.json.JsonTreeReader/additionalDetails.html">Additional Details</a>.</p>

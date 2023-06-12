@@ -1,0 +1,57 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: The State of CouchDB
+id: 1bc8ed97-bea7-4880-800c-babb8a0f093f
+date: '2013-12-20 16:27:54 -0500'
+categories: couchdb
+tags:
+- couchdb
+- conf
+permalink: couchdb/entry/the_state_of_couchdb
+---
+<p>This is a rough transcript of the CouchDB Conf, Vancouver Keynote.</p>
+<h4 id="welcome">Welcome</h4>
+<p>Good morning everyone. I thank you all for coming on this fine day in Vancouver. I&rsquo;m very happy to be here. My name is Jan Lehnardt and I am the Vice President of Apache CouchDB at the Apache Software Foundation, but that&rsquo;s just a fancy title that means I have to do a bunch of extra work behind the scenes. I&rsquo;m also a core contributor to Apache CouchDB and I am the longest active committer to the project at this point.</p>
+<p>I started helping out with CouchDB in 2006 and that feels like a lifetime ago. We&rsquo;ve come a long way, we&rsquo;ve shaped the database industry in a big way, we went though a phoenix from the ashes time and came out still inspiring future generations of developers to do great things.</p>
+<p>So it is with great honour that I get to be here on stage before you to take a look at the state of CouchDB.</p>
+<h4 id="numbers">Numbers</h4>
+<p>I&rsquo;d like to start with some numbers:</p>
+<ul>
+<li>In 2013 we <strong>added 15 committers</strong> to the project, up to a total of 30. Thats <strong>2x</strong> the number of people regularly contributing to CouchDB!</li>
+<li>The year isn&rsquo;t yet over, but these committers already created 3x the commits of 2012. And they have committed more than in any other year in CouchDB&rsquo;s history.
+</li>
+<li>We have <strong>shipped eight releases</strong >: 1.0.4 1.1.2, 1.2.1, 1.2.2, 1.3.0, 1.3.1, 1,4.0 and 1.5.0 just this year, that is up from one(!) last year.
+<ul>
+<li>thanks to our new release schedule we are getting more features to more people faster by focusing on small iterative changes forward.</li>
+</ul>
+</li>
+<li>20% more JIRA tickets and 50% more GitHub issues</li>
+</ul>
+<p>We have made a lot of changes in 2012 to make 2013 a great year for CouchDB and it sure looks like we succeeded and that 2014 is only going to trump that.</p>
+<p>I&rsquo;d like to thank everyone on the team for their hard work.</p>
+<h4 id="currently">Currently</h4>
+<p>We&rsquo;ve just shipped CouchDB 1.5.0 last week and it comes with a few exciting new things as previews, for you to try out and play with and report any issues with back to us. And that is on top of all the regular bug fixing and other improvements.</p>
+<ol>
+<li>
+<p>A completely new developed admin UI, nicknamed Fauxton, that is poised to replace the much-loved, but increasingly dated Futon. I&rsquo;d like to personally thank the Fauxton team: Sue &ldquo;Deathbear&rdquo; Lockwood, Russell &ldquo;Chewbranca&rdquo; Branca, Garren Smith and many more volunteers for their work as well as the company Cloudant for sponsoring a good chunk of that work. Great job everyone! Fauxton is going to be replacing Futon in one of the next few releases and will give us the foundation for the next stage of CouchDB&rsquo;s life.</p>
+</li>
+<li>
+<p>Plugins. While it was always possible to write plugins for CouchDB, you kind of had to be an expert in CouchDB to get started. We believe that writing plugins is a great gateway drug to getting more people to hack on CouchDB proper, so we made it simpler to build plugins and to install plugins into a running instance of CouchDB. It is still very early days, we don&rsquo;t even have a plugin registry yet, but we are surely excited about the prospects of installing GeoCouch with a single click of a button in Futon or Fauxton. We also included a template plugin that you can easily extend and make your own, along with a guide to get you started.<br />
+&nbsp;</p>
+<p>The plugins effort also supports a larger trend we are starting to follow with the CouchDB core codebase: decide on a well-defined core set of functionality and delegate more esoteric things to a rich plugin system That means we no longer have to decline the inclusion of useful code like we&rsquo;ve done in the past, because it wasn&rsquo;t applicable to the majority of CouchDB users. Now we can support fringe features and plugins that are only useful to a few of our users, but who really need them.</p>
+<li>A Node.JS query server. CouchDB relies on JavaScript for a number of core features and we want to continue to do so. In order to keep up with the rapid improvements made to the JavaScript ecosystem we have tentative plans to switch from a Spidermonkey-driven query server to a V8-driven one. In addition, the Node.js project has a really good installation story, something that we had trouble with in the past, and includes a few utilities that make it very easy for us to switch the query server over.
+<p>All this however is not to blindly follow the latest trends, but to encourage the community to take on the query server and introduce much needed improvements. The current view server is a tricky mix of JS, Erlang and C and we are not seeing many people daring to jump into that. In a second step we expect these improvements to trickle down to the other query server implementations like Python or PHP and make things better for everyone. For now this is also a developer preview and we are inviting all Node.js developers to join us and build a a better query server.</p>
+</li>
+<li>Docs landed in 1.4.0, but 1.5.0 is seeing a major update to the now built-in documentation system. With major thanks to Alexander Shorin, Dirkjan Ochtmann and Dave Cottlehuber who were instrumental in that effort, CouchDB now has &ldquo;really good docs&rdquo; instead of a &ldquo;really crappy wiki&rdquo;, that are shipped with every release and are integrated with Futon and Fauxton.</li>
+</ol>
+<h4 id="beyond">Beyond</h4>
+<p>The immediate next area of focus for the CouchDB project is the merging of two forks: BigCouch and rcouch.</p>
+<p>BigCouch is a <a href="http://www.allthingsdistributed.com/2007/10/amazons_dynamo.html">Dynamo</a> implementation on top of CouchDB that manages a cluster of machines and makes them look as a single one, adding performance improvements and fault tolerance to a CouchDB installation. This is a major step in CouchDB&rsquo;s evolution as it was designed for such a system from the start, but the core project never included a way to use and manage a cluster. Cloudant have donated their BigCouch codebase to the Apache project already and we are working on an integration.</p>
+<p>rcouch is a what I would call a &ldquo;future port&rdquo; of CouchDB by longtime committer and contributor Benoit Chesneau. rcouch looks like CouchDB would, if we started fresh today with a modern architecture. Together with BigCouch&rsquo;s improvements, this will thoroughly modernise CouchDB&rsquo;s codebase to the latest state of the art of Erlang projects. rcouch also includes a good number of nifty features that make a great addition to CouchDB&rsquo;s core feature set and some great plugins.</p>
+<p>Finally, we&rsquo;ve just started an effort to set up infrastructure and called for volunteers to translate the CouchDB documentation and admin interface into all major languages. Driven by Andy Wenk from Hamburg, we already have a handful of people signed up to help with translations for a number of different languages.</p>
+<p>This is going to keep us busy for a bit and we are looking forward to ship some great releases with these features.</p>
+<h4>tl;dr</h4>
+<p>2013 was a <strong>phenomenal</strong> year for Apache CouchDB. 2014 is poised to be even greater, there are more people than ever pushing CouchDB forward and there is plenty of stuff to do and hopefully, we get to shape some more of the future of computing.</p>
+<p>Thank you!</p>

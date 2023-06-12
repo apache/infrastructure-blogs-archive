@@ -1,0 +1,89 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: What's New in Apache Kafka 2.4
+id: ffb554e8-a066-4caa-ac70-5e08d8462670
+date: '2019-12-16 17:21:51 -0500'
+categories: kafka
+tags: []
+permalink: kafka/entry/what-s-new-in-apache1
+---
+<p>On behalf of the Apache Kafka&reg; community, it is my pleasure to announce the release of Apache Kafka 2.4.0. This release includes a number of key new features and improvements that we will highlight in this blog post. For the full list, please see the <a href="https://www.apache.org/dist/kafka/2.4.0/RELEASE_NOTES.html">release notes</a>.</p>
+<p><strong>What&rsquo;s new with the Kafka broker, producer, and consumer</strong></p>
+<p><strong>KIP-392: Allow consumers to fetch from closest replica</strong></p>
+<p>Historically, consumers were only allowed to fetch from leaders. In multi-datacenter deployments, this often means that consumers are forced to incur expensive cross-datacenter network costs in order to fetch from the leader. With KIP-392, Kafka now supports reading from follower replicas. This gives the broker the ability to redirect consumers to nearby replicas in order to save costs.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-392%3A+Allow+consumers+to+fetch+from+closest+replica"><em>KIP-392</em></a><em> and this <a href="https://www.confluent.io/blog/multi-region-data-replication/">blog post</a> for more details.</em></p>
+<p><strong>KIP-429: Kafka Consumer Incremental Rebalance Protocol</strong></p>
+<p>KIP-429 adds Incremental Cooperative Rebalancing to the consumer rebalance protocol in addition to the original eager rebalance protocol. Unlike the eager protocol, which always revokes all assigned partitions prior to a rebalance and then tries to reassign them altogether, the incremental protocol tries to minimize the partition migration between members of a consumer group by letting consumers retain their partitions during a rebalance event. As a result, end-to-end rebalance times triggered by scaling out/down operations as well as rolling bounces are shorter, benefitting heavy, stateful consumers, such as Kafka Streams applications.&nbsp;</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-429%3A+Kafka+Consumer+Incremental+Rebalance+Protocol"><em>KIP-429</em></a><em> and this <a href="https://www.confluent.io/blog/incremental-cooperative-rebalancing-in-kafka/">blog post</a> for more details.</em></p>
+<p><strong>KIP-455: Create an Administrative API for Replica Reassignment</strong></p>
+<p>As a replacement for the existing ZooKeeper-based API, the new API supports incremental replica reassignments and cancellation of ongoing reassignments. This also addresses the current limitations in the ZooKeeper-based API like security enforcement and auditability. The new API is exposed via the AdminClient.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-455%3A+Create+an+Administrative+API+for+Replica+Reassignment"><em>KIP-455</em></a><em> for more details.</em></p>
+<p><strong>KIP-480: Sticky Partitioner</strong></p>
+<p>Currently, in the case where no partition and key are specified, a producer's default partitioner partitions records in a round-robin fashion. This results in more batches that are smaller in size and leads to more requests and queuing as well as higher latency.&nbsp;</p>
+<p>KIP-480 implements a new partitioner, which chooses the sticky partition that changes when the batch is full if no partition or key is present. Using the sticky partitioner helps improve message batching, decrease latency, and reduce the load for the broker. Some of the benchmarks which Justine Olshan discusses on the KIP show up to a 50% reduction in latency and 5&ndash;15% reduction in CPU utilization.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-480%3A+Sticky+Partitioner"><em>KIP-480</em></a><em> <span style="font-weight: 400;">and this </span><a href="https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner"><span style="font-weight: 400;">blog post</span></a><span style="font-weight: 400;"> for more details.</span></em></p>
+<p><strong>KIP-482: The Kafka Protocol should Support Optional Tagged Fields</strong></p>
+<p>The Kafka remote procedure call (RPC) protocol has its own serialization format for binary data. The Kafka protocol currently does not support optional fields, nor does it support attaching an extra field to a message in a manner that is orthogonal to the versioning scheme.&nbsp;</p>
+<p>In order to support these scenarios, KIP-482 adds optional tagged fields to the Kafka serialization format. Tagged fields are always optional. KIP-482 also implements more efficient serialization for variable-length objects.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-482%3A+The+Kafka+Protocol+should+Support+Optional+Tagged+Fields"><em>KIP-482</em></a><em> for more details.</em></p>
+<p><strong>KIP-504: Add new Java Authorizer Interface</strong></p>
+<p>This KIP defines a Java authorizer API that is consistent with other pluggable interfaces in the broker. Several limitations in the current Scala authorizer API that could not be fixed without breaking compatibility have been addressed in the new API. Additional request context is now provided to authorizers to support authorization based on the security protocol or listener.&nbsp;</p>
+<p>The API also supports asynchronous ACL updates with batching. The new pluggable authorizer API only requires a dependency on the client&rsquo;s JAR. A new out-of-the-box authorizer has been added, leveraging features supported by the new API. The additional context provided to the authorizer has been used to improve audit logging. Batched updates enhance the efficiency of ACL updates using the new authorizer when multiple ACLs are added for a resource. An asynchronous startup and updated APIs will enable Kafka to be used as the storage backend for ACLs once ZooKeeper is removed under KIP-500. In addition, authorizer implementations can now enable dynamic reconfiguration without broker restarts.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-504+-+Add+new+Java+Authorizer+Interface"><em>KIP-504</em></a><em> for more details.</em></p>
+<p><strong>KIP-525: Return topic metadata and configs in CreateTopics response</strong></p>
+<p>Before, the CreateTopics API response only returned a success or failure status along with any errors. With KIP-525, the API response returns additional metadata, including the actual configuration of the topic that was created. This removes the need for additional requests to obtain topic configuration after creating the topic.&nbsp;</p>
+<p>Furthermore, this KIP enables users to obtain default broker configs for topic creation using CreateTopics with validateOnly=true. This is useful for displaying default configs in management tools used to create topics.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-525+-+Return+topic+metadata+and+configs+in+CreateTopics+response"><em>KIP-525</em></a><em> for more details.</em></p>
+<p><strong>KAFKA-7548: KafkaConsumer should not throw away already fetched data for paused partitions.</strong></p>
+<p>When a partition is paused by the user in the consumer, the partition is considered "unfetchable." When the consumer has already fetched data for a partition and the partition is paused, then in the next consumer poll all data from "unfetchable" partitions will be discarded. In use cases where pausing and resuming partitions are common during regular operation of the consumer, this can result in discarding pre-fetched data when it's not necessary.&nbsp;</p>
+<p>Once the partition is resumed, new fetch requests will be generated and sent to the broker to get the same partition data again. Depending on the frequency of pausing and resuming of partitions, this can impact different aspects of consumer polling, including broker/consumer throughput, number of consumer fetch requests, and NIO-related garbage collection (GC) concerns for regularly dereferenced byte buffers of partition data. This issue is now resolved by retaining completed fetch data for partitions that are paused so that it may be returned in a future consumer poll once the partition is resumed by the user.</p>
+<p><em>See </em><a href="https://issues.apache.org/jira/browse/KAFKA-7548"><em>KAFKA-7548</em></a><em> for more details.</em></p>
+<p><strong>What&rsquo;s new in Kafka Connect</strong></p>
+<p><strong>KIP-382: MirrorMaker 2.0</strong></p>
+<p>KIP-382 implements MirrorMaker 2.0 (MM2), a new multi-cluster, cross-datacenter replication engine based on the Connect framework. This tool includes several features designed for disaster recovery, including cross-cluster consumer checkpoints and offset syncs. Automatic topic renaming and cycle detection enable bidirectional active-active replication and other complex topologies.&nbsp;</p>
+<p>A new RemoteClusterUtils class enables clients to interpret checkpoints, heartbeats, and "remote topics" from other clusters.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0"><em>KIP-382</em></a><em> for more details.</em></p>
+<p><strong>KIP-440: Extend Connect Converter to support headers</strong></p>
+<p>KIP-440 adds header support to Kafka Connect. This enables the use of Kafka Connect together with Kafka producers and consumers that rely on headers for serialization/deserialization.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-440%3A+Extend+Connect+Converter+to+support+headers"><em>KIP-440</em></a><em> for more details.</em></p>
+<p><strong>KIP-507: Securing Internal Connect REST Endpoints</strong></p>
+<p>KIP-507 brings out-of-the-box authentication and authorization to an internal REST endpoint used by Connect workers to relay task configurations to the leader. If left unsecured, this endpoint could be used to write arbitrary task configurations to a Connect cluster.&nbsp;</p>
+<p>However, after KIP-507, the endpoint automatically secures as long as the other attack surfaces of a Connect cluster (such as its public REST API and the underlying Kafka cluster used to host internal topics and perform group coordination) are also secure.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-507%3A+Securing+Internal+Connect+REST+Endpoints"><em>KIP-507</em></a><em> for more details.</em></p>
+<p><strong>KIP-481: SerDe Improvements for Connect Decimal type in JSON</strong></p>
+<p>KIP-481 adds to the JSON converter decimal.format for serializing Connect&rsquo;s DECIMAL logical type values as number literals rather than base64 string literals. This new option defaults to base64 to maintain the previous behavior, but it can be changed to number to serialize decimal values as normal JSON numbers. The JSON converter automatically deserializes using either format, so make sure to upgrade consumer applications and sink connectors before changing source connector converters to use the number format.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-481%3A+SerDe+Improvements+for+Connect+Decimal+type+in+JSON"><em>KIP-481</em></a><em> for more details.</em></p>
+<p><strong>What&rsquo;s New in Kafka Streams</strong></p>
+<p><strong>KIP-213: Support non-key joining in KTable</strong></p>
+<p>Previously, the Streams domain-specific language (DSL) only allowed table-table joins based on the primary key of the joining KTables. Now, for a KTable (left input) to join with another KTable (right input) based on a specified foreign key as part of its value fields, the join result is a new KTable keyed on the left KTable&rsquo;s original key. This supports updates from both sides of the join.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-213+Support+non-key+joining+in+KTable"><em>KIP-213</em></a><em> for more details.</em></p>
+<p><strong>KIP-307: Allow to define custom processor names with KStreams DSL</strong></p>
+<p>Prior to this release, while building a new topology through the Kafka Streams DSL, the processors were automatically named. A complex topology with dozens of operations can be hard to understand if the processor names are not relevant. This KIP allows users to set more meaningful processor names.</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-307%3A+Allow+to+define+custom+processor+names+with+KStreams+DSL"><em>KIP-307</em></a><em> for more details.</em></p>
+<p><strong>KIP-470: </strong><strong>TopologyTestDriver</strong><strong> test input and output usability improvements</strong></p>
+<p>The TopologyTestDriver allows you to test Kafka Streams logic. This is a lot faster than utilizing actual producers and consumers and makes it possible to simulate different timing scenarios. Kafka 2.4.0 introduces TestInputTopic and TestOutputTopic classes to simplify the test interface.&nbsp;</p>
+<p><em>See </em><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-470%3A+TopologyTestDriver+test+input+and+output+usability+improvements"><em>KIP-470</em></a>&nbsp;<em>and this </em><a href="https://confluent.io/blog/test-kafka-streams-with-topologytestdriver"><em>blog post</em></a><em> for more details.</em></p>
+<p><strong>Metrics, monitoring, and operational improvements</strong></p>
+<ul>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-412%3A+Extend+Admin+API+to+support+dynamic+application+log+levels">KIP-412</a> adds support to dynamically alter a broker's log levels using the Admin API.&nbsp;</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-495%3A+Dynamically+Adjust+Log+Levels+in+Connect">KIP-495</a> allows users to dynamically alter log levels in the Connect framework.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-521%3A+Enable+redirection+of+Connect%27s+log4j+messages+to+a+file+by+default">KIP-521</a> changes Connect to also send log messages to a file and rolls that file every day.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-460%3A+Admin+Leader+Election+RPC">KIP-460</a> modifies the PreferredLeaderElection RPC to support unclean leader election in addition to preferred leader election.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-464%3A+Defaults+for+AdminClient%23createTopic">KIP-464</a> allows you to leverage num.partitions and default.replication.factor from the AdminClient#createTopics API.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-492%3A+Add+java+security+providers+in+Kafka+Security+config">KIP-492</a> supports the security provider config, which can be used to configure custom security algorithms.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-496%3A+Administrative+API+to+delete+consumer+offsets">KIP-496</a> adds an API to delete consumer offsets and expose it via the AdminClient.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-503%3A+Add+metric+for+number+of+topics+marked+for+deletion">KIP-503</a> adds metrics to monitor the number of topics/replicas marked for deletion.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-475%3A+New+Metrics+to+Measure+Number+of+Tasks+on+a+Connector">KIP-475</a> adds metrics to measure the number of tasks on a connector.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-471%3A+Expose+RocksDB+Metrics+in+Kafka+Streams">KIP-471</a> exposes a subset of RocksDB's statistics in Kafka Streams metrics, which enables users to find bottlenecks and tune RocksDB accordingly.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-484%3A+Expose+metrics+for+group+and+transaction+metadata+loading+duration">KIP-484</a> adds new metrics for the group and transaction metadata loading duration.</li>
+<li><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-444%3A+Augment+metrics+for+Kafka+Streams">KIP-444</a> adds a few new metrics at the Streams instance level such as static version/commit-id as well as dynamic state.</li>
+</ul>
+<p><strong>ZooKeeper upgrade to 3.5.x</strong></p>
+<p>ZooKeeper has been upgraded to 3.5.x. support for TLS encryption added in ZooKeeper 3.5.x. This enables us to configure TLS encryption between Kafka brokers and ZooKeeper.</p>
+<p><strong>Scala 2.13 support</strong></p>
+<p>Apache Kafka 2.4.0 now supports Scala 2.13 while also remaining compatible with Scala 2.12 and 2.11.</p>
+<p><strong>Conclusion</strong></p>
+<p>We want to take this opportunity to thank everyone who has contributed to this release!</p>
+<p>To learn more about what&rsquo;s new in Apache Kafka 2.4, be sure to check out the <a href="https://www.apache.org/dist/kafka/2.4.0/RELEASE_NOTES.html">release notes</a> and <a href="https://www.youtube.com/watch?v=Ipzc--mbvzg">highlights video</a>.</p>

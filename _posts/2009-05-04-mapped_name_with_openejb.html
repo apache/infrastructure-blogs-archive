@@ -1,0 +1,93 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Mapped name with OpenEJB
+id: 3c43909d-104d-4eb6-b7e6-ebe1d83cda2c
+date: '2009-05-04 19:35:35 -0400'
+categories: openejb
+tags:
+- openejb
+- jndi
+- 3.1.1
+- newfeatures
+permalink: openejb/entry/mapped_name_with_openejb
+---
+<p>Recently we added the facility to use the mappedName attribute from a @Stateful, @Stateless or @Singleton annotation to add a global JNDI name for your bean.</p>
+<p>This is pretty simple to use, simply add the mapped name to your bean like so:</p>
+<pre>
+@Stateless(mappedName="MyCalculatorBean")
+public class CalculatorImpl implements CalculatorRemote, CalculatorLocal {
+
+	public int sum(int add1, int add2) {
+		return add1+add2;
+	}
+
+	public int multiply(int mul1, int mul2) {
+		return mul1*mul2;
+	}
+}
+</pre>
+<p>When this is deployed you will see:</p>
+<pre>
+Apache OpenEJB 3.1.1-SNAPSHOT    build: 20090425-09:05
+http://openejb.apache.org/
+INFO - openejb.home = /home/jgallimore/Sync/OpenEJB/src/openejb3/examples/simple-stateless
+INFO - openejb.base = /home/jgallimore/Sync/OpenEJB/src/openejb3/examples/simple-stateless
+INFO - Configuring Service(id=Default Security Service, type=SecurityService, provider-id=Default Security Service)
+INFO - Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+INFO - Found EjbModule in classpath: /home/jgallimore/Sync/OpenEJB/src/openejb3/examples/simple-stateless/target/classes
+INFO - Beginning load: /home/jgallimore/Sync/OpenEJB/src/openejb3/examples/simple-stateless/target/classes
+INFO - Configuring enterprise application: classpath.ear
+INFO - Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+INFO - Auto-creating a container for bean CalculatorImpl: Container(type=STATELESS, id=Default Stateless Container)
+INFO - Enterprise application "classpath.ear" loaded.
+INFO - Assembling app: classpath.ear
+INFO - Jndi(name=CalculatorImplLocal) --> Ejb(deployment-id=CalculatorImpl)
+INFO - Jndi(name=MyCalculatorBean) --> Ejb(deployment-id=CalculatorImpl)
+INFO - Jndi(name=MyCalculatorBean) --> Ejb(deployment-id=CalculatorImpl)
+INFO - Created Ejb(deployment-id=CalculatorImpl, ejb-name=CalculatorImpl, container=Default Stateless Container)
+INFO - Deployed Application(path=classpath.ear)
+</pre>
+<p>You will now be able to lookup your bean by doing: </p>
+<pre>
+Properties properties = new Properties();
+properties.setProperty (Context.INITIAL_CONTEXT_FACTORY,"org.apache.openejb.client.LocalInitialContextFactory");
+
+InitialContext initialContext = new InitialContext(properties);
+Calculator calc = initialContext.lookup("MyCalculatorBean");
+</pre>
+<p>You might also be aware that with OpenEJB you can also specify how global JNDI names are assigned by the container (when you haven't specified a mappedName). You do this by setting a property with a template:</p>
+<p>For example, setting the following system property (for an embedded OpenEJB instance in a unit test)</p>
+<pre>
+System.setProperty("openejb.jndiname.format", "{deploymentId}/{interfaceClass}");
+</pre>
+<p>Would result in these JNDI names:</p>
+<pre>
+INFO - Jndi(name=CalculatorImpl/org.superbiz.calculator.CalculatorLocal) --> Ejb(deployment-id=CalculatorImpl)
+INFO - Jndi(name=CalculatorImpl/org.superbiz.calculator.CalculatorRemote) --> Ejb(deployment-id=CalculatorImpl)
+</pre>
+<p>You can see more details on these templates and the variables available at: <a href="http://openejb.apache.org/3.0/jndi-names.html">http://openejb.apache.org/3.0/jndi-names.html</a></p>
+<p>We can also use this template mechanism with the @Stateful/@Stateless/@Singleton mappedName attribute. So this code:</p>
+<pre>
+@Stateless(mappedName="{deploymentId}/{interfaceClass}")
+public class CalculatorImpl implements CalculatorRemote, CalculatorLocal {
+
+	public int sum(int add1, int add2) {
+		return add1+add2;
+	}
+
+	public int multiply(int mul1, int mul2) {
+		return mul1*mul2;
+	}
+
+}
+</pre>
+<p>would yield the following JNDI names being set up:</p>
+<pre>
+INFO - Enterprise application "classpath.ear" loaded.
+INFO - Assembling app: classpath.ear
+INFO - Jndi(name=CalculatorImplLocal) --> Ejb(deployment-id=CalculatorImpl)
+INFO - Jndi(name=CalculatorImpl/org.superbiz.calculator.CalculatorRemote) --> Ejb(deployment-id=CalculatorImpl)
+INFO - Jndi(name=CalculatorImpl/org.superbiz.calculator.CalculatorRemote) --> Ejb(deployment-id=CalculatorImpl)
+</pre>

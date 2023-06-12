@@ -1,0 +1,63 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Checkstyle Plugin, version 3.2.0 released
+id: f667a640-5dc4-4a6a-8239-6ebb1f7e20ce
+date: '2022-08-23 19:31:31 -0400'
+categories: maven
+tags:
+- maven
+- plugin
+permalink: maven/entry/apache-maven-checkstyle-plugin-version2
+---
+<p>div class="post_body">
+<p>The Maven team is pleased to announce the release of the<br />
+<a href="https://maven.apache.org/plugins/maven-checkstyle-plugin/">Apache Maven Checkstyle Plugin, version 3.2.0</a>.</p>
+<p>The Checkstyle Plugin generates a report regarding the code style used by the<br />
+developers. For more information about Checkstyle, see<br />
+<a href="https://checkstyle.sourceforge.net/">https://checkstyle.sourceforge.net/</a>.</p>
+<p>You should specify the version in your project's plugin configuration:</p>
+<div class="highlight">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt"><plugin></span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="nt"><artifactId></span>maven-checkstyle-plugin<span class="nt"></artifactId></span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  <span class="nt"><version></span>3.2.0<span class="nt"></version></span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nt"></plugin></span>
+</span></span></code></pre>
+</div>
+<p>You can download the appropriate <a href="https://maven.apache.org/plugins/maven-checkstyle-plugin/download.cgi">sources etc. from the download page</a>.</p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317223&amp;version=12345559">Release Notes - Apache Maven Checkstyle Plugin - Version 3.2.0</a></p>
+<ul>
+<li>
+<p>Task:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-418">MCHECKSTYLE-418</a> - Deprecate RSS feature and disable by default</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-393">MCHECKSTYLE-393</a> - upgrade Doxia Sitetools to 1.9.2 to remove dependency on Struts</li>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-399">MCHECKSTYLE-399</a> - Upgrade Checkstyle to 8.41.1</li>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-402">MCHECKSTYLE-402</a> - Require Maven 3.1.1 (drop dependency to Maven 3.0)</li>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-406">MCHECKSTYLE-406</a> - Make plugin compatible with Checkstyle 8.44 (Upgraded to 9.1)</li>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-410">MCHECKSTYLE-410</a> - Require Maven 3.2.5+</li>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-417">MCHECKSTYLE-417</a> - Upgrade Maven Reporting API to 3.1.1/Maven Reporting Impl to 3.2.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-419">MCHECKSTYLE-419</a> - Upgrade Parent to 37 and cleanup</li>
+</ul>
+</li>
+</ul>
+<p>Compatibility Notice:</p>
+<ul>
+<li>For technical reasons the parameter <code>encoding</code> has been replaced with<br />
+<code>inputEncoding</code>. For details please see</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCHECKSTYLE-417">MCHECKSTYLE-417</a>.</li>
+<li><a href="https://github.com/apache/maven-checkstyle-plugin/commit/627fa4f684866a579f2c105fcc1dbf3ed776daa8">Git Commit</a>.</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</p></div>

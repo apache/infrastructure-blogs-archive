@@ -1,0 +1,64 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Getting Started with Sentry in Hive
+id: c0ec44d5-dd04-4662-8df6-19d667901e60
+date: '2013-12-05 09:00:00 -0500'
+categories: sentry
+tags: []
+permalink: sentry/entry/getting_started
+---
+<p><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> </p>
+<p><a href="http://incubator.apache.org/projects/sentry.html">Apache Sentry</a> (incubating) is a highly modular system for providing fine-grained role based authorization to both data and metadata stored on an Apache Hadoop cluster. It currently works out of the box with Apache Hive and Cloudera Impala. In this blog post, you will learn how to use Sentry with Hive.</p>
+<p>Sentry uses a policy provider to define the access control to Hive. Sentry currently ships with a file-based policy provider, see below for an example. A single global policy file can be used to control access to an entire HiveServer2 instance, and multiple dependent per database policy files can be linked to the global one. Lets look at the structure of policy file with an example.
+  </p>
+<p>Global policy file:</p>
+<pre>[groups]
+admin_group = admin_role
+dep1_admin = uri_role
+
+[roles]
+admin_role = server=server1
+uri_role = hdfs:///ha-nn-uri/data
+
+[databases]
+db1 = hdfs://ha-nn-uri/user/hive/sentry/db1.ini
+</pre>
+<p>Per db policy file: (at hdfs://ha-nn-uri/user/hive/sentry/db1.ini)</p>
+<pre>[groups]
+dep1_admin = db1_admin_role
+dep1_analyst = db1_read_role
+
+[roles]
+db1_admin_role = server=server1->db=db1
+db1_read_role = server=server1->db=db1->table=*->action=select
+</pre>
+<p>As you can see above, there are usually three sections in the global policy file:</p>
+<ul>
+<li>A [groups] section that provides group-to-role mapping</li>
+<li>A [roles] section that provides role-to-privileges mapping</li>
+<li>A [databases] (optional) section that provides database-to-per-database policy file mapping. This allows for maintaining per-database privileges separately. </li>
+</ul>
+<p>Sentry provides authorization through a hook in HiveServer2. When a user makes a connection to HiveServer2, it authenticates the connecting user and persists the user information for the session. For the subsequent operations that user performs, Sentry authorizes the operation by mapping the user to the groups he/she belongs to and determining whether the group(s) have necessary privileges on the relevant objects.</p>
+<h4> Hive security landscape with Sentry </h4>
+<p>Next, lets look at how Sentry fits into the security landscape of Hive. The below infographic shows how different authentication and authorization pieces fit together.</p>
+<p> <a href="https://blogs.apache.org/sentry/mediaresource/1554e24d-1365-4feb-9d0d-5832ecb90628"><img src="https://blogs.apache.org/sentry/mediaresource/1554e24d-1365-4feb-9d0d-5832ecb90628" alt="sentry-blog.png" width="339" height="241" align="middle" /></a> <br />
+Here are the main points to take away:</p>
+<ul>
+<li>Sentry requires that HiveServer2 be configured to use strong authentication. HiveServer2 supports Kerberos as well as LDAP (and AD) authentication mechanisms. </li>
+<li>At the Sentry authorization level, there are two supported forms of user-group mappings:</li>
+<ul>
+<li>HadoopGroup mapping, which uses the underlying <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#Group_Mapping">Hadoop groups</a></li>
+<ul>
+<li>Hadoop groups in turn support Shell-based mapping as well as LDAP group mapping. Please note that in case of Sentry with Hive, the mapping of users to groups is performed on the HiveServer2 host</li>
+</ul>
+<li>LocalGroups, where the users and groups can be defined locally in the policy file using [users] section (for testing purposes only)</li>
+</ul>
+</ul>
+<h4>Demo</h4>
+<p>
+In this demo, we will be using Kerberos authentication for HiveServer2 with HadoopGroups as the Sentry group provider, which by default uses Shell mapping. We briefly go over Sentry and see how to configure and use it in this configuration. (Note: Cloudera Manager 4.7 and CDH 4.4 are shown here; for future versions, the steps will be similar.)</p>
+<p><a href="http://vimeo.com/79936560" target="_blank"><img src="https://blogs.apache.org/sentry/mediaresource/3f01af71-91f4-48a8-9b37-997ecaed2c1b" alt="video_snapshot.png" height="330" width="660" /></a> </p>
+<h4>Conclusion</h4>
+<p>Sentry brings in fine-grained authorization support for both data and metadata in a Hadoop cluster. It is already being used in production systems to secure the data and provide fine-grained access to its users. It is also integrated with the version of Hive shipping in CDH (upstream contribution is pending), Cloudera Impala, and Cloudera Search. Also, here is a <a href="http://gethue.tumblr.com/post/64916325309/hadoop-tutorial-hive-query-editor-with-hiveserver2-and">short demo</a> if you are interested in using it with Hue.&nbsp;<a href="http://gethue.tumblr.com/post/64916325309/hadoop-tutorial-hive-query-editor-with-hiveserver2-and"></a></p>

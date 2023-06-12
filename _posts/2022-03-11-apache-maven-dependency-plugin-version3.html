@@ -1,0 +1,103 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Dependency Plugin Version 3.3.0 Released
+id: c7a3c38f-3d00-43fc-b547-71237d683ab0
+date: '2022-03-11 17:38:44 -0500'
+categories: maven
+tags:
+- maven-plugin
+permalink: maven/entry/apache-maven-dependency-plugin-version3
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+  <a href="https://maven.apache.org/plugins/maven-dependency-plugin/">Apache Maven Dependecy Plugin, version 3.3.0</a>.</p>
+<p>The dependency plugin provides the capability to manipulate artifacts. It<br />
+    can copy and/or unpack artifacts from local or remote repositories to a<br />
+    specified location.</p>
+<p><a href="https://maven.apache.org/plugins/maven-dependency-plugin/">https://maven.apache.org/plugins/maven-dependency-plugin/</a></p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>    <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>    <span class="nt"><artifactId></span>maven-dependency-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>    <span class="nt"><version></span>3.3.0<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>You can download the appropriate sources etc. from the download page:</p>
+<p><a href="https://maven.apache.org/plugins/maven-dependency-plugin/download.cgi">https://maven.apache.org/plugins/maven-dependency-plugin/download.cgi</a></p>
+<p>  <!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12340588&amp;styleName=Text&amp;projectId=12317227">Release Notes &ndash; Maven Dependency Plugin &ndash; Version 3.3.0</a></p>
+<ul>
+<li>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-679">MDEP-679</a> &ndash; mvn dependency:analyze detected wrong transitive dependency</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-742">MDEP-742</a> &ndash; dependency plugin does not work with JDK 16</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-752">MDEP-752</a> &ndash; skip dependency analyze in ear packaging</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-753">MDEP-753</a> &ndash; Non-test dependency reported as Non-test scoped test only dependency</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-759">MDEP-759</a> &ndash; &lsquo;Dependency not found&rsquo; with 3.2.0 and Java-17 while analyzing</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-761">MDEP-761</a> &ndash; Tree plugin does not terminate with 3.2.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-769">MDEP-769</a> &ndash; Minor improvement &ndash; continue</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-774">MDEP-774</a> &ndash; analyze-only failed: PermittedSubclasses requires ASM9</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-781">MDEP-781</a> &ndash; Broken Link to &ldquo;Introduction to Dependency Mechanism Page&rdquo;</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-783">MDEP-783</a> &ndash; TreeMojo docs say scope doesn&rsquo;t work due to MSHARED-4</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-786">MDEP-786</a> &ndash; Sealed classes not supported</li>
+</ul>
+</li>
+<li>
+<p>New Feature:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-787">MDEP-787</a> &ndash; Allow ignoring non-test-scoped dependencies</li>
+</ul>
+</li>
+<li>
+<p>Improvements:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-763">MDEP-763</a> &ndash; Minor improvements</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-768">MDEP-768</a> &ndash; GitHub Action build improvement</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-779">MDEP-779</a> &ndash; dependency:analyze should list the classes that cause a used undeclared dependency</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-789">MDEP-789</a> &ndash; Improve documentation of analyze &ndash; Non-test scoped</li>
+</ul>
+</li>
+<li>
+<p>Task:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-760">MDEP-760</a> &ndash; Java 1.8 as minimum</li>
+</ul>
+</li>
+<li>
+<p>Dependency upgrades:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-766">MDEP-766</a> &ndash; Upgrade maven-invoker-plugin to version 3.2.2</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-784">MDEP-784</a> &ndash; Upgrade maven-dependency-analyzer to 1.12.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-788">MDEP-788</a> &ndash; Upgrade maven-reporting-impl to version 3.1.0</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-795">MDEP-795</a> &ndash; Update Jetty to 9.4.45.v20220203</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-796">MDEP-796</a> &ndash; Upgrade Maven Parent to 35</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-797">MDEP-797</a> &ndash; Update transitive dependency commons-beanutils to 1.9.4</li>
+<li><a href="https://issues.apache.org/jira/browse/MDEP-798">MDEP-798</a> &ndash; Upgrade maven-dependency-tree from 3.0.1 to 3.1.0</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<p>-The Apache Maven team</p>
+</div>

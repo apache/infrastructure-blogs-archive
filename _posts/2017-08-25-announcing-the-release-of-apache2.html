@@ -1,0 +1,61 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Announcing the release of Apache Samza 0.13.1
+id: 586d0458-66f1-49e6-98e4-b6f2e48c69ef
+date: '2017-08-25 22:54:20 -0400'
+categories: samza
+tags:
+- samza
+permalink: samza/entry/announcing-the-release-of-apache2
+---
+<p>We are very excited to announce the release of <strong>Apache Samza 0.13.1</strong><br />
+Samza has been powering real-time applications in production across several large companies (including LinkedIn, Netflix, Uber) for years now. Samza provides leading support for large-scale stateful stream processing with:</p>
+<ul>
+<li>First class support for local state (with RocksDB store). This allows a stateful application to scale up to 1.1 Million events/sec on a single machine with SSD.</li>
+<li>Support for incremental checkpointing of state instead of full snapshots. This enables Samza to scale to applications with very large state.</li>
+<li>A fully pluggable model for input sources (e.g. Kafka, Kinesis, DynamoDB streams etc.) and output systems (HDFS, Kafka, ElastiCache etc.).</li>
+<li>A fully asynchronous programming model that makes parallelizing remote calls efficient and effortless.</li>
+<li>High level API for expressing complex stream processing pipelines in few lines of code.</li>
+<li>Flexible deployment model for running the the applications in any hosting environment and with cluster managers other than YARN.</li>
+<li>Features like canaries, upgrades and rollbacks that support extremely large deployments with minimal downtime.</li>
+</ul>
+<h3>Enhancements, Upgrades and Bug Fixes</h3>
+<p>This is a stability release to make Samza as an embedded library production ready. Samza as a library is part of Samza&rsquo;s Flexible Deployment model; release fixes a number of outstanding bugs includes the following enhancements to existing features:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1165">SAMZA-1165</a> Cleanup data created by ZkStandalone in ZK</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1324">SAMZA-1324</a> Add a metrics reporter lifecycle for JobCoordinator component of StreamProcessor</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1336">SAMZA-1336</a> Standalone session expiration propagation</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1337">SAMZA-1337</a> LocalApplicationRunner supports StreamTask</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1339">SAMZA-1339</a> Add standalone integration tests</li>
+</ul>
+<p>This release also includes several bug-fixes and improvements for operational stability. Some notable ones are:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1282">SAMZA-1282</a> Fix killed leader process issue when spinning up more containers than the number of tasks kills leader</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1340">SAMZA-1340</a> StreamProcessor does not propagate container failures from StreamTask</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1346">SAMZA-1346</a> GroupByContainerCount.balance() should guard against null LocalityManager</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1347">SAMZA-1347</a> GroupByContainerIds NPE if containerIds list is null</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1358">SAMZA-1358</a> task.class empty string should be ignored when app.class is configured</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1361">SAMZA-1361</a> OperatorImplGraph used wrong keys to store/retrieve OperatorImpl in the map</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1366">SAMZA-1366</a> ScriptRunner should allow callers to control the child process environment</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1384">SAMZA-1384</a> Race condition with async commit affects checkpoint correctness</li>
+<li><a href="https://issues.apache.org/jira/browse/SAMZA-1385">SAMZA-1385</a> Fix coordination issues during stream creation in LocalApplicationRunner</li>
+</ul>
+<p>Overall, <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%2012314526%20AND%20fixVersion%20%3D%2012340845%20ORDER%20BY%20priority%20DESC%2C%20key%20ASC">29 JIRAs</a> were resolved in this release.<br /></p>
+<p>A source download of the 0.13.1 release is available <a href="http://www.apache.org/dyn/closer.cgi/samza/0.13.1">here</a>. The release JARs are also available in Apache&rsquo;s Maven repository. See Samza&rsquo;s <a href="http://samza.apache.org/startup/download/">download</a> page for details and Samza&rsquo;s <a href="https://samza.apache.org/startup/preview/">feature preview</a> for new features. We requires JDK version newer than 1.8.0_111 when running 0.13.1 release for users who are using Scala 2.12.</p>
+<h3>Community Developments</h3>
+<p>We&rsquo;ve made great community progress since the last release (0.13.0). We presented Samza high level API features at the Cloud+Data NEXT Conference 2017 held in Silicon Valley, USA, and also gave a talk regarding the key features (Secret Kung Fu) of Samza at ArchSummit 2017 in Shenzhen, China, and a detailed study of stateful stream processing in VLDB 2017. Here are the details to these conferences.</p>
+<ul>
+<li>July 15, 2017 - <a href="http://www.cdnextcon.com/recap.html">Unified Processing with the Samza High-level API (Cloud+Data NEXT Conference, Silicon Valley)</a> (<a href="https://www.slideshare.net/YiPan7/nextcon-samza-preso-july-final">slides</a>)</li>
+<li>July 7, 2017 - <a href="http://sz2017.archsummit.com/presentation/900">Secret Kung Fu of Massive Scale Stream Processing with Apache Samza - Xinyu Liu (ArchSummit, Shenzhen, 2017)</a></li>
+<li>Aug 28, 2017 - <a href="http://www.vldb.org/pvldb/vol10/p1634-noghabi.pdf">Samza: Stateful Scalable Stream Processing at LinkedIn - Kartik Paramasivam (ACM VLDB, Munich, 2017)</a></li>
+</ul>
+<p>In industry, Samza got <strong>new <a href="https://cwiki.apache.org/confluence/display/SAMZA/Powered+By">adopters</a></strong>, including <a href="https://www.redfin.com/">Redfin</a> and <a href="http://www.vmware.com">VMWare</a>.<br />
+<br />
+As future development, we are continuing working on <em>improving the new High Level API</em> and <em>flexible deployment</em> features. Here is the <a href="https://issues.apache.org/jira/issues/?jql=project%20=%2012314526%20AND%20fixVersion%20=%2012340368%20ORDER%20BY%20priority%20DESC,%20key%20ASC">list of the tasks</a> for upcoming features and improvements.</p>
+<h3>Upcoming Samza Meetup</h3>
+<p>Don&rsquo;t miss out the upcoming meetup on September 12, 2017. <a href="https://www.meetup.com/Stream-Processing-Meetup-LinkedIn/events/242656767/">Sign up now!</a></p>
+<h3>Contribute</h3>
+<p>It&rsquo;s a great time to get involved. You can start by reviewing the <a href="http://samza.apache.org/startup/preview/#try-it-out">tutorials</a>, signing up for the <a href="http://samza.apache.org/community/mailing-lists.html">mailing list</a>, and grabbing some <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20SAMZA%20AND%20labels%20%3D%20newbie%20AND%20status%20%3D%20Open">newbie JIRAs</a>. <br />
+I&rsquo;d like to close by thanking everyone who&rsquo;s been involved in the project. It&rsquo;s been a great experience to be involved in this community, and I look forward to its continued growth.</p>

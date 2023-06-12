@@ -1,0 +1,63 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Apache Maven Compiler Plugin Version 3.10.1 Released
+id: 502557b7-acf7-4dab-bd01-464fae4e4615
+date: '2022-03-11 12:21:30 -0500'
+categories: maven
+tags:
+- maven-plugin
+permalink: maven/entry/apache-maven-compiler-plugin-version2
+---
+<div class="entry-content">
+<p>The Apache Maven team is pleased to announce the release of the<br />
+  <a href="https://maven.apache.org/plugins/maven-compiler-plugin/">Apache Maven Compiler Plugin, version 3.10.1</a>.</p>
+<p>The Compiler Plugin is used to compile the sources of your project.</p>
+<p>You should specify the version in your project&rsquo;s plugin configuration:</p>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre>
+</td>
+<td class='code'>
+<pre><code class='xml'><span class='line'><span class="nt"><plugin></span>
+</span><span class='line'>  <span class="nt"><groupId></span>org.apache.maven.plugins<span class="nt"></groupId></span>
+</span><span class='line'>  <span class="nt"><artifactId></span>maven-compiler-plugin<span class="nt"></artifactId></span>
+</span><span class='line'>  <span class="nt"><version></span>3.10.1<span class="nt"></version></span>
+</span><span class='line'><span class="nt"></plugin></span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+<p>  <!-- more --></p>
+<p><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12317225&amp;version=12343484">Release Notes &ndash; Maven Compiler Plugin &ndash; Version 3.10.1</a></p>
+<ul>
+<li>
+<p>Bugs:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCOMPILER-346">MCOMPILER-346</a> &ndash; workaround to jdk bug: assertionError inside javac when using javax.tools API</li>
+<li><a href="https://issues.apache.org/jira/browse/MCOMPILER-485">MCOMPILER-485</a> &ndash; Incorrect internal string format in generated package-info.class files on Windows</li>
+</ul>
+</li>
+<li>
+<p>New Feature:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MCOMPILER-426">MCOMPILER-426</a> &ndash; dedicated option for enabling preview feature</li>
+</ul>
+</li>
+</ul>
+<p>Enjoy,</p>
+<ul>
+<li>The Apache Maven team</li>
+</ul>

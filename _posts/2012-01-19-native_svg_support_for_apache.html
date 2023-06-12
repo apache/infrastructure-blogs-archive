@@ -1,0 +1,95 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: Native SVG support for Apache OpenOffice 3.4 (Incubating)
+id: 943650ce-4fb8-481a-9745-9d3d703f1b89
+date: '2012-01-19 11:02:42 -0500'
+categories: ooo
+tags:
+- graphic
+- openoffice
+- draw
+- impress
+permalink: OOo/entry/native_svg_support_for_apache
+---
+<p>Apache OpenOffice 3.4 supports embedding SVG graphics using a newly created native SVG interpreter implementation. I want to talk about the advantages and some internals of this solution and the necessary changes done.</p>
+<p>One reason to do this was IP clearance. It allowed removal of six GPL/LGPL libraries, namely<br />
+librsvg, libcroco, libgsf, gdk-pixbuf, glib, and pango gettext. These<br />
+were used as an external pixel-based renderer. The new SVG uses an own internal<br />
+interpreter in a new library and some new UNO API services. IP clearance was no interesting task to do, but it leaded to effects like here with SVG; the install sets get smaller (less libraries to deliver), the app needs less libraries (startup, memory, runtime) and the internal handling of SVG vector data is completely vector-graphic oriented.</p>
+<p>There were also ODF-compatible File Format adaptions needed, more concrete the in ODF already contained and described multi-image support. In ODF, the original SVG is now embedded to the 'Pictures' folder inside the ODF file as one<br />
+would expect from such a feature and can be easily extracted (unzip the ODF file and there you are). There is also a Png file<br />
+written as replacement image. The draw:frame is now multi-image<br />
+capable (as the spec allows). In the case of a SVG it writes a good<br />
+quality Png and the original SVG as draw:image elements. Since older<br />
+(and other) office versions are only capable of loading a single (and<br />
+thus the first) image, the Png is written first. This allows file<br />
+exchange with other and older offices without breaking backward compatibility and/or ODF file exchange. At load time, multi-image support<br />
+will choose the best quality graphic available for further work, e.g.<br />
+preferring vector format over pixel format, pixel format with<br />
+alpha over non-alpha and lossless formats over those with<br />
+losing info (you get the idea). Other ODF implementations (e.g. a<br />
+viewer) may just use the pixel graphic available. Multi-image support is<br />
+independent from SVG in principle and will work with all image file<br />
+formats. This is implemented for the Drawinglayer graphic object (used<br />
+in Draw/Impress/Calc) and the Writer graphic object (used in Writer).</p>
+<p>SVG is no longer interpreted each time it needs to be<br />
+rendered (unavoidable by an external renderer), but only once transformed to a<br />
+sequence of primitives (UNO API graphic atoms). That sequence is then used for all outputs,<br />
+transformed to the graphic object's form and viewport. The<br />
+sequence itself is completely view-independent. Internally, it is reused<br />
+and thus it makes no difference if you have your SVG graphic added once<br />
+or multiple times to your document. This is also true for saving, so always only one copy of your added SVG will be written (the same is true for the replacement<br />
+Png image). Both, the sequence of primitives and the replacement<br />
+image, are created using new UNO API services. One is capable of<br />
+converting an io::XInputStream with SVG content to a sequence of primitives, the other is<br />
+able to convert every sequence of primitives to a rendering::XBitmap<br />
+with given DPI and discrete sizes (pixels, with automatic resolution<br />
+reduction to a given maximum square pixel count to be on the safe side). This will be useful<br />
+for other purposes, too, since it creates a fully alpha-capable<br />
+representation of anything in primitive format to use as e.g. sprite.</p>
+<p>For all graphic processing the created vector graphic in form<br />
+of a sequence of primitives is used. This means that you will get best<br />
+quality in all zoom situations and all resolutions. This is also true<br />
+for all exports, e.g. printing or PDF export which also uses the vector<br />
+format. With an external renderer, it is unavoidable to use bitmaps with<br />
+discrete solution in those cases, looking bad when zooming and needing more space in most cases as vector data. There is one caveat since not all<br />
+program paths already use primitives; some will use the internal MetaFile<br />
+format in-between (One more reason for more reworks to primitive usages<br />
+in the future).</p>
+<p>I implemented most SVG features from SVG 1.1, but not yet<br />
+using animations or interactions (but possible in the future due to an<br />
+own interpreter, impossible with an external SVG renderer). It supports<br />
+all geometric SVG forms. It supports SVG gradients (using a new primitive<br />
+for this which will be reused when we add SVG gradients to<br />
+SdrObjects one day), these have a resolution-dependent low-level format<br />
+to not waste runtime on low resolutions. It supports masks, clipPath, markers, linked content, embedded graphics or SVG (intern, extern,<br />
+base64), SVG use nodes, text, text on curve and patterns. It does not yet<br />
+support filters, color profiles, embedded scripts, interactions and<br />
+linking. These can be added when needed, most of them will need to<br />
+implement new primitive types (e.g. filtering) which would be useful for the future<br />
+anyways.<br />
+Especially interesting is the possibility to later add SVG animation import to GraphicObjects for Impress.</p>
+<p>Some side effects: I had to fix cropping (unified with new primitive) which<br />
+works now also for mirrored graphics (never worked) and quite some other<br />
+stuff. We are prepared for SVG gradients as possible future feature (we<br />
+can already render them now). You can work with an added SVG as with a normal GraphicObject; crop it, break it (to SdrObjects, currently limited to the<br />
+transfer over the old MetaFile format, though). You can convert an<br />
+inserted Tux to 3D, you can bend the SVG in vector quality in Draw. It<br />
+is possible to directly export the original SVG again by selecting the<br />
+object and using 'Save as Picture...' from the context menu. You can add text, line style, fill<br />
+style, pretty much the same as most other graphic objects. You can add<br />
+shadow which casts shadow for the SVG graphic itself as expected (also not possible with an<br />
+external renderer).</p>
+<p>This is a bigger change, but most stuff is isolated in the<br />
+two mentioned services. There will be errors (I'm too long a programmer<br />
+to deny that :-)), but I tried to be as careful as possible. I already got some help from other community members and fixed some reported bugs (kudos to all testers and bug writers), but to find<br />
+the rest, your help is appreciated. Please feel free to play around with any<br />
+SVG you can find in current AOO 3.4 builds and report problems early in the <a href="https://issues.apache.org/ooo/">Apache bugtracker</a>!
+ </p>
+<p><a href="http://eric.bachard.org/news/index.php?post/2011/12/03/In-progress-%3A-native-support-of-the-SVG-graphic-format-in-Apache-OpenOffice.org">Here</a> is another blog entry about an early version of this feature.<br />And <a href="https://cwiki.apache.org/confluence/display/OOOUSERS/AOO+3.4+Unofficial+Developer+Snapshots">here</a> are some developer snapshots of AOO 3.4 when you want to check it out. Be aware that these are AOO 3.4 Unofficial Developer Snapshots; these are intended to be used for early testing by other community volunteers.<br />
+  They have no release quality and should not be installed in a<br />
+production environment.  Developer snapshots can be unstable and are<br />
+expected to have bugs.  </p>
+<p>Regards,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Armin</p>

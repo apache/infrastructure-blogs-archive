@@ -1,0 +1,48 @@
+---
+layout: post
+status: PUBLISHED
+published: true
+title: 'HDFS HSM and HBase: Conclusions (Part 7 of 7)'
+id: f7fe11db-b684-4516-b69a-ac74dbec2fe4
+date: '2016-04-23 00:17:56 -0400'
+categories: hbase
+tags:
+- performance
+- part7of7
+- evaluation
+permalink: hbase/entry/hdfs_hsm_and_hbase_cluster4
+---
+<p>This is part 7 of a 7 part report by HBase Contributor, Jingcheng Du and HDFS contributor, Wei Zhou (Jingcheng and Wei are both Software Engineers at Intel) &nbsp;</p>
+<ol>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_part"><font size="1">Introduction</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster"><font size="1">Cluster Setup</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_tuning"><font size="1">Tuning</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster1"><font size="1">Experiment</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster2"><font size="1">Experiment (continued)</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster3"><font size="1">Issues</font></a></li>
+<li><a href="https://blogs.apache.org/hbase/entry/hdfs_hsm_and_hbase_cluster4"><font size="1">Conclusions</font></a></li>
+</ol>
+<h1 id="docs-internal-guid-e0c923be-4055-f0b1-398c-54b8773a9c47" style="line-height: 1.38; margin-top: 24pt; margin-bottom: 6pt;" dir="ltr"><span style="font-size: 21.3333px; font-family: Calibri; color: #2e74b5; font-weight: 400; vertical-align: baseline; background-color: transparent;">Conclusions</span></h1>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">There are many things to consider when choosing the hardware of a cluster. According to the test results, in the SSD-related cases the network utility between DataNodes is larger than 10Gbps. If you are using a 10Gbps switch, the network will be the bottleneck and impact the performance. We suggest either extending the network bandwidth by network bonding, or upgrading to a more powerful switch with a higher bandwidth. In cases 1T_HDD and 1T_RAM_HDD, the network utility is lower than 10 Gbps in most time, using a 10 Gbps switch to connect DataNodes is fine.</span></p></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In all 1T dataset tests, 1T_RAM_SSD shows the best performance. Appropriate mix of different types of storage can improve the HBase write performance. First, write the latency-sensitive and blocking data to faster storage, and write the data that are rarely compacted and accessed to slower storage. Second, avoid mixing types of storage with a large performance gap, such as with 1T_RAM_HDD.</span></p></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">The hardware design issue limits the total disk bandwidth which makes there is hardly superiority of eight SSDs than four SSDs. Either to enhance hardware by using HBA cards to eliminate the limitation of the design issue for eight SSDs or to mix the storage appropriately. According to the test results, in order to achieve a better balance between performance and cost, using four SSDs and four HDDs can achieve a good performance (102% throughput and 101% latency of eight SSDs) with a much lower price. The RAMDISK/SSD tiered storage is the winner of both throughput and latency among all the tests, so if cost is not an issue and maximum performance is needed, RAMDISK(extremely high speed block device, e.g. NVMe PCI-E SSD)/SSD should be chosen.</span></p></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">You should not use a large number of flusher/compactor when most of data are written to HDD. The read and write shares the single channel per HDD, too many flushers and compactors at the same time can slow down the HDD performance.</span></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"> </span></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">During the tests, we found some things that can be improved in both HBase and HDFS.</span></p></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In HBase, the memstore is consumed quickly when the WALs are stored in fast storage; this can lead to regular long GC pauses. It is better to have an offheap memstore for HBase.</span></p></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In HDFS, each DataNode shares the same lock when creating/finalizing blocks. Any such slow operations in one DataXceiver can block any other operations of creating/finalizing blocks in other DataXceiver on the same DataNode no matter what storage they are using. We need to eliminate the blocking access across storage, and a finer grained lock mechanism to isolate the operations on different blocks is needed (HDFS-9668). And it will be good to implement a latency-aware VolumeChoosingPolicy in HDFS to remove the slow volumes from the candidates.</span></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">RoundRobinVolumeChoosingPolicy can lead to load imbalance in HDFS with tiered storage (HDFS-9608).</span></p></p>
+<p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;">In HDFS, renaming a file to a different storage does not move the blocks indeed. We need to asynchronously move the HDFS blocks in such a case.</span></p>
+<p style="margin-right: 0in; margin-bottom: 2pt; margin-left: 0in; background: white none repeat scroll 0% 0%;" class="MsoNormal"> <span style="font-size: 15pt; font-family: CalibreWeb-Regular; color: #666666;">Acknowledgements</span></p>
+<p> <span style="font-family: "Segoe UI", sans-serif;">The<br />
+ authors would like to thank Weihua Jiang&nbsp;&nbsp;&ndash; who is the previous manager<br />
+ of the big data team in Intel &ndash; for leading this performance<br />
+evaluation, and thank Anoop<br />
+ Sam John(Intel), Apekshit Sharma(Cloudera), Jonathan Hsieh(Cloudera),<br />
+Michael Stack(Cloudera), Ramkrishna S. Vasudevan(Intel), Sean<br />
+Busbey(Cloudera) and Uma Gangumalla(Intel) for the nice review and<br />
+guidance.</span> </p>
+<p style="line-height: 1.284; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><span style="font-size: 14.6667px; font-family: Calibri; vertical-align: baseline; background-color: transparent;"></span></p>
